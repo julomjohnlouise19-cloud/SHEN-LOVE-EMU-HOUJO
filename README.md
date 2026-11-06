@@ -4,9 +4,9 @@ A local-first science learning game for Philippine Grade 7–10 students. Vite +
 
 ## Open the website on GitHub Pages
 
-The website address after a successful deployment is **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website.
+Play at **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website. The corrected deployment and live desktop/mobile display were verified; see [the successful workflow run](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42183402991).
 
-One-time repository setup:
+One-time repository setup (already enabled for this repository):
 
 1. Open [Settings → Pages](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/settings/pages).
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.

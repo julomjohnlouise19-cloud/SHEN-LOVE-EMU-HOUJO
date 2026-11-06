@@ -68,9 +68,9 @@ All application phase gates are green. See docs/VALIDATION.md for the checks, co
 - [x] Add the tested GitHub Actions build/deployment workflow and publishing documentation.
 - [x] Upload the completed project to the user's main branch with a normal fast-forward push.
 - [x] Identify the exact publication prerequisite: enable Pages with GitHub Actions in repository settings, then run the workflow again. The original instance's network policy blocked GitHub's API; this was resolved by the user's environment publication.
-- [ ] Verify the live website after Pages is enabled and deployment succeeds.
+- [x] Verify the live website after Pages is enabled and deployment succeeds.
 
-The first GitHub Actions run passed its check/build job, including both browser suites, then stopped in configure-pages because no Pages site existed. See [run 42179117736](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42179117736). The GitHub Actions Pages source is now enabled; live-site verification awaits the corrected workflow run.
+The first GitHub Actions run passed its check/build job, including both browser suites, then stopped in configure-pages because no Pages site existed. See [run 42179117736](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42179117736). The GitHub Actions Pages source is now enabled. The corrected [run 42183402991](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42183402991) passed both jobs without annotations, and the live website was verified in Chromium.
 
 ## GitHub errors and display repair
 
@@ -78,6 +78,8 @@ The first GitHub Actions run passed its check/build job, including both browser 
 - [x] Add a styled, accessible HTML fallback linking to the online lab when app scripts cannot run.
 - [x] Replace deprecated Pages action runtimes with verified official releases and use a stable Ubuntu runner.
 - [x] Validate the restored environment, normal application, repository path and source HTML fallback.
-- [ ] Push the fixes without overwriting remote work and inspect the new GitHub run.
+- [x] Push the fixes without overwriting remote work and inspect the new GitHub run.
 - [x] Confirm that the GitHub Actions Pages source is enabled. Site creation through the connected integration returned 403, so the owner-facing setting was required; a later API read confirmed build_type=workflow.
-- [ ] Verify the corrected workflow and live public website.
+- [x] Verify the corrected workflow and live public website.
+
+The live site returned HTTP 200 and its module URL matched the locally verified Pages build. Desktop/mobile screenshots and the tested WCAG AA checks passed. A full eight-card Cells session updated mastery and opened the Review Box. An offline reload and a previously unvisited Chemistry deck both worked. Zero console errors and zero failed resource responses were observed. The restored development server was also started and verified through the dashboard and a loaded Cells question.
