@@ -1,0 +1,3890 @@
+[
+  {
+    "id": "life.cells.e.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.e.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Vacuole” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.e.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplast” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.e.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.e.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.e.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Ribosome” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.e.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.e.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.e.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Mitochondrion” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.e.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.e.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Vacuole” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.e.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplast” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.e.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Vacuoles” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.e.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Cell walls” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.e.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplasts” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.e.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Mitochondrion” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.e.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.e.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Ribosome” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.e.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Cytoplasm” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.e.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.e.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cell membrane” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.e.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.e.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthesis” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.e.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Active transport” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.e.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.e.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Respiration” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.e.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Protein synthesis” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.e.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Osmosis” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.e.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Meiosis” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.e.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.e.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.e.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Tissue” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.e.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.e.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Evaporation” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.cells.e.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.cells.e.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Condensation” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.cells.m.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplast” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.m.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.m.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Vacuole” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.m.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Ribosome” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.m.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.m.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.m.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Mitochondrion” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.m.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.m.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.m.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.m.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Vacuole” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.m.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplast” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.m.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplasts” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.m.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Vacuoles” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.m.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cell walls” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.m.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Ribosome” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.m.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Mitochondrion” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.m.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.m.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Cell membrane” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.m.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Cytoplasm” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.m.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.m.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.m.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthesis” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.m.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Active transport” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.m.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Protein synthesis” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.m.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.m.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Respiration” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.m.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.m.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Osmosis” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.m.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Meiosis” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.m.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.m.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.m.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Tissue” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.m.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Evaporation” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.cells.m.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.cells.m.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Condensation” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.cells.h.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Vacuole” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.h.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplast” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.h.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell."
+  },
+  {
+    "id": "life.cells.h.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.h.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Ribosome” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.h.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The cell membrane controls the movement of substances into and out of the cell."
+  },
+  {
+    "id": "life.cells.h.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Mitochondrion” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.h.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.h.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis."
+  },
+  {
+    "id": "life.cells.h.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplast” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.h.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.h.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Vacuole” seems like the answer.",
+    "correct": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks."
+  },
+  {
+    "id": "life.cells.h.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Cell walls” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.h.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Chloroplasts” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.h.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Vacuoles” seems like the answer.",
+    "correct": "Ribosomes join amino acids to make proteins. Many enzymes are proteins."
+  },
+  {
+    "id": "life.cells.h.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.h.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Ribosome” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.h.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Mitochondrion” seems like the answer.",
+    "correct": "The central vacuole stores water and helps keep a plant cell firm through pressure."
+  },
+  {
+    "id": "life.cells.h.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Cell membrane” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.h.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Cytoplasm” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.h.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Nucleus” seems like the answer.",
+    "correct": "The cell wall supports a plant cell and limits how far it expands when water enters."
+  },
+  {
+    "id": "life.cells.h.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Active transport” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.h.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.h.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthesis” seems like the answer.",
+    "correct": "In diffusion, particles spread from a crowded area to one with fewer particles."
+  },
+  {
+    "id": "life.cells.h.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Respiration” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.h.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Protein synthesis” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.h.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "In osmosis, water crosses a membrane toward the side with less free water."
+  },
+  {
+    "id": "life.cells.h.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Meiosis” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.h.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.h.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Osmosis” seems like the answer.",
+    "correct": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair."
+  },
+  {
+    "id": "life.cells.h.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Cell wall” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.h.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.h.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Tissue” seems like the answer.",
+    "correct": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus."
+  },
+  {
+    "id": "life.cells.h.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Condensation” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.cells.h.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Evaporation” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.cells.h.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues."
+  },
+  {
+    "id": "life.body.e.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Digestive system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.e.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Nervous system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.e.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Skeletal system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.e.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Diaphragm” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.e.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Bronchi” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.e.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Windpipe” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.e.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Stomach” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.e.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Esophagus” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.e.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Large intestine” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.e.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Lung” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.e.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Heart” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.e.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Stomach” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.e.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Red blood cells” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.e.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Platelets” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.e.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Fat cells” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.e.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Filter urine” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.e.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Make antibodies” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.e.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Digest starch” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.e.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Extra bones” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.e.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Larger lungs” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.e.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Antibiotic stores” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.e.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Antibodies” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.e.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Vaccines” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.e.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Pain signals” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.e.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthesis” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.e.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.e.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Sedimentation” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.e.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Respiratory system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.e.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Digestive system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.e.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Excretory system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.e.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Esophagus” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.e.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Retina” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.e.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Femur” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.e.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Blue” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.body.e.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Green” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.body.e.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Clear” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.body.m.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Skeletal system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.m.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Digestive system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.m.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Nervous system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.m.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Windpipe” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.m.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Diaphragm” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.m.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Bronchi” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.m.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Large intestine” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.m.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Stomach” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.m.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Esophagus” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.m.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Lung” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.m.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Heart” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.m.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Stomach” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.m.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Fat cells” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.m.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Red blood cells” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.m.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Platelets” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.m.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Digest starch” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.m.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Filter urine” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.m.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Make antibodies” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.m.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Antibiotic stores” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.m.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Extra bones” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.m.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Larger lungs” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.m.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Antibodies” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.m.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Vaccines” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.m.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Pain signals” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.m.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Sedimentation” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.m.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthesis” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.m.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.m.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Excretory system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.m.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Respiratory system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.m.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Digestive system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.m.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Femur” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.m.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Esophagus” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.m.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Retina” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.m.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Blue” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.body.m.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Green” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.body.m.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Clear” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.body.h.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Nervous system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.h.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Skeletal system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.h.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Digestive system” seems like the answer.",
+    "correct": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes."
+  },
+  {
+    "id": "life.body.h.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Bronchi” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.h.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Windpipe” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.h.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Diaphragm” seems like the answer.",
+    "correct": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood."
+  },
+  {
+    "id": "life.body.h.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Large intestine” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.h.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Stomach” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.h.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Esophagus” seems like the answer.",
+    "correct": "The small intestine has a large surface area that helps absorb digested nutrients."
+  },
+  {
+    "id": "life.body.h.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Stomach” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.h.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Lung” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.h.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Heart” seems like the answer.",
+    "correct": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine."
+  },
+  {
+    "id": "life.body.h.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Platelets” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.h.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Fat cells” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.h.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Red blood cells” seems like the answer.",
+    "correct": "White blood cells defend against pathogens. Different kinds use different ways to protect the body."
+  },
+  {
+    "id": "life.body.h.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Make antibodies” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.h.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Digest starch” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.h.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Filter urine” seems like the answer.",
+    "correct": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity."
+  },
+  {
+    "id": "life.body.h.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Antibiotic stores” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.h.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Extra bones” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.h.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Larger lungs” seems like the answer.",
+    "correct": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later."
+  },
+  {
+    "id": "life.body.h.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Pain signals” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.h.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Antibodies” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.h.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Vaccines” seems like the answer.",
+    "correct": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold."
+  },
+  {
+    "id": "life.body.h.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.h.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Sedimentation” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.h.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthesis” seems like the answer.",
+    "correct": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this."
+  },
+  {
+    "id": "life.body.h.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Digestive system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.h.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Excretory system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.h.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Respiratory system” seems like the answer.",
+    "correct": "The nervous system carries signals that help the body sense changes and respond quickly."
+  },
+  {
+    "id": "life.body.h.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Femur” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.h.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Esophagus” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.h.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Retina” seems like the answer.",
+    "correct": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops."
+  },
+  {
+    "id": "life.body.h.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Clear” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.body.h.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Blue” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.body.h.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Green” seems like the answer.",
+    "correct": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color."
+  },
+  {
+    "id": "life.genetics.e.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Starch” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.e.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Water” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.e.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.e.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Enzyme” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.e.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Tissue” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.e.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Organelle” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.e.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Chromosome” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.e.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Gamete” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.e.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Genotype” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.e.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Homozygous” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.e.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Recessive only” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.e.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Identical alleles” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.e.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.e.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Osmosis” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.e.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Budding” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.e.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Condensation” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.e.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Digestion” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.e.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Diffusion” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.e.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “One organ” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.e.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “One body cell” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.e.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Single individual” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.e.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Need-based change” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.e.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Deliberate mutation” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.e.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Instant adaptation” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.e.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “1/2” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.e.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “3/4” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.e.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “1” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.e.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “No genetic link” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.e.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Identical habitats” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.e.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Equal body sizes” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.e.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Vacuoles” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.e.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Antibodies” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.e.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Ribosomes” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.e.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Extinction” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.genetics.e.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Uniformity” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.genetics.e.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.genetics.m.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.m.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Starch” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.m.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Water” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.m.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Organelle” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.m.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Enzyme” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.m.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Tissue” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.m.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Genotype” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.m.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Chromosome” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.m.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Gamete” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.m.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Homozygous” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.m.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Recessive only” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.m.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Identical alleles” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.m.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Budding” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.m.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.m.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Osmosis” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.m.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Diffusion” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.m.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Condensation” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.m.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Digestion” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.m.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Single individual” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.m.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “One organ” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.m.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “One body cell” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.m.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Need-based change” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.m.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Deliberate mutation” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.m.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Instant adaptation” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.m.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “1” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.m.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “1/2” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.m.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “3/4” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.m.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Equal body sizes” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.m.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “No genetic link” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.m.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Identical habitats” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.m.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Ribosomes” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.m.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Vacuoles” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.m.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Antibodies” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.m.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Extinction” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.genetics.m.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Uniformity” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.genetics.m.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.genetics.h.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Water” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.h.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.h.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Starch” seems like the answer.",
+    "correct": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits."
+  },
+  {
+    "id": "life.genetics.h.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Tissue” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.h.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Organelle” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.h.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Enzyme” seems like the answer.",
+    "correct": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location."
+  },
+  {
+    "id": "life.genetics.h.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Genotype” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.h.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Chromosome” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.h.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Gamete” seems like the answer.",
+    "correct": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it."
+  },
+  {
+    "id": "life.genetics.h.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Identical alleles” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.h.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Homozygous” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.h.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Recessive only” seems like the answer.",
+    "correct": "A heterozygous genotype has two different alleles at the same gene location."
+  },
+  {
+    "id": "life.genetics.h.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Osmosis” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.h.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Budding” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.h.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Mitosis” seems like the answer.",
+    "correct": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number."
+  },
+  {
+    "id": "life.genetics.h.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Digestion” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.h.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Diffusion” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.h.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Condensation” seems like the answer.",
+    "correct": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting."
+  },
+  {
+    "id": "life.genetics.h.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Single individual” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.h.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “One organ” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.h.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “One body cell” seems like the answer.",
+    "correct": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives."
+  },
+  {
+    "id": "life.genetics.h.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Instant adaptation” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.h.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Need-based change” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.h.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Deliberate mutation” seems like the answer.",
+    "correct": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time."
+  },
+  {
+    "id": "life.genetics.h.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “3/4” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.h.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “1” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.h.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “1/2” seems like the answer.",
+    "correct": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count."
+  },
+  {
+    "id": "life.genetics.h.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Identical habitats” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.h.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Equal body sizes” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.h.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “No genetic link” seems like the answer.",
+    "correct": "A shared bone plan can point to a common ancestor. The parts may now do different jobs."
+  },
+  {
+    "id": "life.genetics.h.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Ribosomes” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.h.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Vacuoles” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.h.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Antibodies” seems like the answer.",
+    "correct": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division."
+  },
+  {
+    "id": "life.genetics.h.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.genetics.h.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Extinction” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.genetics.h.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Uniformity” seems like the answer.",
+    "correct": "Variation means differences among organisms. Inherited variation gives natural selection material to act on."
+  },
+  {
+    "id": "life.ecosystems.e.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Primary consumer” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.e.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Decomposer” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.e.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Top predator” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.e.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Salinity” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.e.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Population size” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.e.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Water pressure” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.e.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthetic plant” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.e.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Soil mineral” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.e.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Producer” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.e.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Top predators” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.e.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Green producers” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.e.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Pollinators” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.e.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Body size increase” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.e.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Water flow” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.e.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Predator movement” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.e.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Living tissue” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.e.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Biotic factor” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.e.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Consumer population” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.e.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Mutation rate” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.e.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Trophic level” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.e.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Unlimited growth” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.e.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Parasitism” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.e.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Predation” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.e.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Competition” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.e.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.e.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Gravity” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.e.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Body heat” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.e.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Nutrients vanish permanently” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.e.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Energy is created by predators” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.e.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “All food becomes new tissue” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.e.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Biosphere” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.e.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Organelle” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.e.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Community” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.e.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Domesticated” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.ecosystems.e.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Invasive everywhere” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.ecosystems.e.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Abiotic” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.ecosystems.m.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Top predator” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.m.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Primary consumer” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.m.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Decomposer” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.m.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Water pressure” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.m.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Salinity” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.m.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Population size” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.m.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Producer” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.m.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthetic plant” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.m.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Soil mineral” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.m.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Top predators” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.m.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Green producers” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.m.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Pollinators” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.m.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Predator movement” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.m.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Body size increase” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.m.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Water flow” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.m.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Consumer population” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.m.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Living tissue” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.m.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Biotic factor” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.m.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Unlimited growth” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.m.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Mutation rate” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.m.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Trophic level” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.m.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Parasitism” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.m.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Predation” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.m.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Competition” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.m.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Body heat” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.m.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.m.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Gravity” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.m.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “All food becomes new tissue” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.m.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Nutrients vanish permanently” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.m.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Energy is created by predators” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.m.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Community” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.m.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Biosphere” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.m.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Organelle” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.m.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Domesticated” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.ecosystems.m.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Invasive everywhere” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.ecosystems.m.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Abiotic” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.ecosystems.h.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Decomposer” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.h.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Top predator” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.h.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Primary consumer” seems like the answer.",
+    "correct": "Producers make food from nonliving sources. Green plants use sunlight to build sugars."
+  },
+  {
+    "id": "life.ecosystems.h.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Population size” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.h.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Water pressure” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.h.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Salinity” seems like the answer.",
+    "correct": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life."
+  },
+  {
+    "id": "life.ecosystems.h.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Producer” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.h.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Photosynthetic plant” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.h.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Soil mineral” seems like the answer.",
+    "correct": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web."
+  },
+  {
+    "id": "life.ecosystems.h.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Pollinators” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.h.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Top predators” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.h.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Green producers” seems like the answer.",
+    "correct": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment."
+  },
+  {
+    "id": "life.ecosystems.h.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Water flow” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.h.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Predator movement” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.h.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Body size increase” seems like the answer.",
+    "correct": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer."
+  },
+  {
+    "id": "life.ecosystems.h.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Biotic factor” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.h.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Consumer population” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.h.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Living tissue” seems like the answer.",
+    "correct": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things."
+  },
+  {
+    "id": "life.ecosystems.h.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Unlimited growth” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.h.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Mutation rate” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.h.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Trophic level” seems like the answer.",
+    "correct": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit."
+  },
+  {
+    "id": "life.ecosystems.h.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Competition” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.h.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Parasitism” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.h.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Predation” seems like the answer.",
+    "correct": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen."
+  },
+  {
+    "id": "life.ecosystems.h.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Gravity” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.h.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Body heat” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.h.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it."
+  },
+  {
+    "id": "life.ecosystems.h.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Energy is created by predators” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.h.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “All food becomes new tissue” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.h.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Nutrients vanish permanently” seems like the answer.",
+    "correct": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level."
+  },
+  {
+    "id": "life.ecosystems.h.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Community” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.h.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Biosphere” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.h.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Organelle” seems like the answer.",
+    "correct": "A population is a group of the same species living in the same area at the same time."
+  },
+  {
+    "id": "life.ecosystems.h.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Abiotic” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.ecosystems.h.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Domesticated” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.ecosystems.h.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Invasive everywhere” seems like the answer.",
+    "correct": "An endemic species is native to a limited region. Protecting its habitat is important for its survival."
+  },
+  {
+    "id": "life.classification.e.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Reptiles” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.e.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Amphibians” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.e.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Insects” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.e.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Arachnids” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.e.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Mammals” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.e.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Amphibians” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.e.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Mammals” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.e.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Birds” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.e.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Reptiles” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.e.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Species” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.e.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Genus” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.e.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Family” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.e.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Kingdom” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.e.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Order” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.e.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Phylum” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.e.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Food pyramid” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.e.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Weather map” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.e.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Punnett square” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.e.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Plant tissue” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.e.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Animal organ” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.e.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Eukaryotic” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.e.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Plants” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.e.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Animals” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.e.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Archaea” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.e.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Six legs” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.e.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Feathers” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.e.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Moist skin” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.e.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Five pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.e.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Four pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.e.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Two pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.e.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Family” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.e.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Genus” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.e.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Kingdom” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.e.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Habitat color” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.classification.e.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Adult weight alone” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.classification.e.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Local name alone” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.classification.m.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Insects” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.m.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Reptiles” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.m.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Amphibians” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.m.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Amphibians” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.m.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Arachnids” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.m.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Mammals” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.m.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Reptiles” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.m.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Mammals” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.m.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Birds” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.m.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Species” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.m.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Genus” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.m.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Family” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.m.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Phylum” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.m.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Kingdom” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.m.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Order” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.m.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Punnett square” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.m.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Food pyramid” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.m.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Weather map” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.m.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Eukaryotic” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.m.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Plant tissue” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.m.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Animal organ” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.m.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Plants” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.m.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Animals” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.m.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Archaea” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.m.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Moist skin” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.m.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Six legs” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.m.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Feathers” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.m.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Two pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.m.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Five pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.m.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Four pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.m.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Kingdom” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.m.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Family” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.m.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Genus” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.m.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Habitat color” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.classification.m.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Adult weight alone” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.classification.m.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Local name alone” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.classification.h.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Amphibians” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.h.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Insects” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.h.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Reptiles” seems like the answer.",
+    "correct": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal."
+  },
+  {
+    "id": "life.classification.h.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Mammals” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.h.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Amphibians” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.h.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Arachnids” seems like the answer.",
+    "correct": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings."
+  },
+  {
+    "id": "life.classification.h.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Reptiles” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.h.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Mammals” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.h.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Birds” seems like the answer.",
+    "correct": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary."
+  },
+  {
+    "id": "life.classification.h.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Family” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.h.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Species” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.h.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Genus” seems like the answer.",
+    "correct": "Domain is the broadest rank in the three-domain system, above kingdom."
+  },
+  {
+    "id": "life.classification.h.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Order” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.h.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Phylum” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.h.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Kingdom” seems like the answer.",
+    "correct": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter."
+  },
+  {
+    "id": "life.classification.h.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Weather map” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.h.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Punnett square” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.h.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Food pyramid” seems like the answer.",
+    "correct": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user."
+  },
+  {
+    "id": "life.classification.h.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Eukaryotic” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.h.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Plant tissue” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.h.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Animal organ” seems like the answer.",
+    "correct": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes."
+  },
+  {
+    "id": "life.classification.h.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Archaea” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.h.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Plants” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.h.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Animals” seems like the answer.",
+    "correct": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis."
+  },
+  {
+    "id": "life.classification.h.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Feathers” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.h.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Moist skin” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.h.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Six legs” seems like the answer.",
+    "correct": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates."
+  },
+  {
+    "id": "life.classification.h.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Four pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.h.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Two pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.h.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Five pairs” seems like the answer.",
+    "correct": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs."
+  },
+  {
+    "id": "life.classification.h.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Kingdom” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.h.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Family” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.h.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Genus” seems like the answer.",
+    "correct": "Species is the most specific of the main classification ranks commonly used in school science."
+  },
+  {
+    "id": "life.classification.h.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Local name alone” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.classification.h.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Habitat color” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.classification.h.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Adult weight alone” seems like the answer.",
+    "correct": "DNA can show links between species. Similar looks alone may arise because species live in similar places."
+  },
+  {
+    "id": "life.photosynthesis.e.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Oxygen” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.e.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen gas” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.e.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Helium” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.e.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Wind force” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.e.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Soil heat” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.e.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Sound” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.e.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Methane” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.e.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Carbon monoxide” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.e.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.e.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Hemoglobin” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.e.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Starch” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.e.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.e.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Urea” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.e.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Sodium chloride” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.e.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Lactic acid” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.e.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Only transpiration” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.e.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Only photosynthesis” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.e.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Only osmosis” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.e.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Helium” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.e.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.e.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Hydrogen” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.e.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.e.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.e.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Chlorophyll” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.e.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Roots” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.e.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Ribosomes” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.e.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Veins only” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.e.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Genetic code” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.e.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Final product” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.e.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Waste material” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.e.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.e.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.e.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Digestion” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.e.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Atoms are destroyed” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  },
+  {
+    "id": "life.photosynthesis.e.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Matter becomes only light” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  },
+  {
+    "id": "life.photosynthesis.e.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “New carbon atoms appear” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  },
+  {
+    "id": "life.photosynthesis.m.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Helium” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.m.001.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Oxygen” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.m.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen gas” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.m.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Sound” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.m.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Wind force” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.m.002.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Soil heat” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.m.003.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.m.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Methane” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.m.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Carbon monoxide” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.m.004.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Hemoglobin” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.m.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Starch” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.m.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.m.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Lactic acid” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.m.005.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Urea” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.m.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Sodium chloride” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.m.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Only osmosis” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.m.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Only transpiration” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.m.006.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Only photosynthesis” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.m.007.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Hydrogen” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.m.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Helium” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.m.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.m.008.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.m.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.m.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Chlorophyll” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.m.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Veins only” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.m.009.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Roots” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.m.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Ribosomes” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.m.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Waste material” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.m.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Genetic code” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.m.010.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Final product” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.m.011.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Digestion” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.m.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.m.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.m.012.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Atoms are destroyed” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  },
+  {
+    "id": "life.photosynthesis.m.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Matter becomes only light” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  },
+  {
+    "id": "life.photosynthesis.m.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “New carbon atoms appear” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  },
+  {
+    "id": "life.photosynthesis.h.001.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen gas” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.h.001.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Helium” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.h.001.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Oxygen” seems like the answer.",
+    "correct": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil."
+  },
+  {
+    "id": "life.photosynthesis.h.002.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Soil heat” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.h.002.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Sound” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.h.002.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Wind force” seems like the answer.",
+    "correct": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar."
+  },
+  {
+    "id": "life.photosynthesis.h.003.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.h.003.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Methane” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.h.003.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Carbon monoxide” seems like the answer.",
+    "correct": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process."
+  },
+  {
+    "id": "life.photosynthesis.h.004.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.h.004.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Hemoglobin” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.h.004.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Starch” seems like the answer.",
+    "correct": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells."
+  },
+  {
+    "id": "life.photosynthesis.h.005.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Sodium chloride” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.h.005.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Lactic acid” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.h.005.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Urea” seems like the answer.",
+    "correct": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars."
+  },
+  {
+    "id": "life.photosynthesis.h.006.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Only photosynthesis” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.h.006.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Only osmosis” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.h.006.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Only transpiration” seems like the answer.",
+    "correct": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too."
+  },
+  {
+    "id": "life.photosynthesis.h.007.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Hydrogen” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.h.007.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Helium” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.h.007.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Nitrogen” seems like the answer.",
+    "correct": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water."
+  },
+  {
+    "id": "life.photosynthesis.h.008.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Chlorophyll” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.h.008.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “DNA” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.h.008.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Cellulose” seems like the answer.",
+    "correct": "ATP transfers usable energy to many cell processes. Cells continually make and use it."
+  },
+  {
+    "id": "life.photosynthesis.h.009.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Ribosomes” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.h.009.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Veins only” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.h.009.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Roots” seems like the answer.",
+    "correct": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss."
+  },
+  {
+    "id": "life.photosynthesis.h.010.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “Final product” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.h.010.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Waste material” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.h.010.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Genetic code” seems like the answer.",
+    "correct": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes."
+  },
+  {
+    "id": "life.photosynthesis.h.011.mixup.1",
+    "branch": "life",
+    "wrong": "For this question, “Digestion” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.h.011.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Fertilization” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.h.011.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Neutralization” seems like the answer.",
+    "correct": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves."
+  },
+  {
+    "id": "life.photosynthesis.h.012.mixup.0",
+    "branch": "life",
+    "wrong": "For this question, “New carbon atoms appear” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  },
+  {
+    "id": "life.photosynthesis.h.012.mixup.2",
+    "branch": "life",
+    "wrong": "For this question, “Atoms are destroyed” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  },
+  {
+    "id": "life.photosynthesis.h.012.mixup.3",
+    "branch": "life",
+    "wrong": "For this question, “Matter becomes only light” seems like the answer.",
+    "correct": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment."
+  }
+]

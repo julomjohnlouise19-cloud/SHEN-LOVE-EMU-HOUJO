@@ -1,0 +1,1284 @@
+[
+  {
+    "id": "life.classification.e.001",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which animal group includes the Philippine tarsier?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mammals"
+      },
+      {
+        "id": "choice-1",
+        "text": "Reptiles",
+        "misconception": "life.classification.e.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Amphibians",
+        "misconception": "life.classification.e.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Insects",
+        "misconception": "life.classification.e.001.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal.",
+    "scienceFact": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.002",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What class includes the Philippine eagle?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Arachnids",
+        "misconception": "life.classification.e.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Birds"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mammals",
+        "misconception": "life.classification.e.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Amphibians",
+        "misconception": "life.classification.e.002.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings.",
+    "scienceFact": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.003",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which group includes a Philippine frog?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mammals",
+        "misconception": "life.classification.e.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Birds",
+        "misconception": "life.classification.e.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Amphibians"
+      },
+      {
+        "id": "choice-3",
+        "text": "Reptiles",
+        "misconception": "life.classification.e.003.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary.",
+    "scienceFact": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.004",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the broadest rank in the three-domain system?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Species",
+        "misconception": "life.classification.e.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Genus",
+        "misconception": "life.classification.e.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Family",
+        "misconception": "life.classification.e.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Domain"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Domain is the broadest rank in the three-domain system, above kingdom.",
+    "scienceFact": "Domain is the broadest rank in the three-domain system, above kingdom.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.005",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which rank is used in the first word of a two-part scientific name?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Genus"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kingdom",
+        "misconception": "life.classification.e.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Order",
+        "misconception": "life.classification.e.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Phylum",
+        "misconception": "life.classification.e.005.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter.",
+    "scienceFact": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.006",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What tool identifies organisms through paired choices?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Food pyramid",
+        "misconception": "life.classification.e.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Dichotomous key"
+      },
+      {
+        "id": "choice-2",
+        "text": "Weather map",
+        "misconception": "life.classification.e.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Punnett square",
+        "misconception": "life.classification.e.006.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user.",
+    "scienceFact": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.007",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which cell type lacks a membrane-bound nucleus?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Plant tissue",
+        "misconception": "life.classification.e.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Animal organ",
+        "misconception": "life.classification.e.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Prokaryotic"
+      },
+      {
+        "id": "choice-3",
+        "text": "Eukaryotic",
+        "misconception": "life.classification.e.007.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes.",
+    "scienceFact": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.008",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which group includes mushrooms and molds?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Plants",
+        "misconception": "life.classification.e.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Animals",
+        "misconception": "life.classification.e.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Archaea",
+        "misconception": "life.classification.e.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fungi"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis.",
+    "scienceFact": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.009",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which feature defines vertebrates?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Backbone"
+      },
+      {
+        "id": "choice-1",
+        "text": "Six legs",
+        "misconception": "life.classification.e.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Feathers",
+        "misconception": "life.classification.e.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Moist skin",
+        "misconception": "life.classification.e.009.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates.",
+    "scienceFact": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.e.010",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "How many pairs of legs does an adult insect have?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Five pairs",
+        "misconception": "life.classification.e.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Three pairs"
+      },
+      {
+        "id": "choice-2",
+        "text": "Four pairs",
+        "misconception": "life.classification.e.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Two pairs",
+        "misconception": "life.classification.e.010.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs.",
+    "scienceFact": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "tree"
+  },
+  {
+    "id": "life.classification.e.011",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What rank groups organisms of the same kind most specifically?",
+    "answer": "Species",
+    "explanation": "Species is the most specific of the main classification ranks commonly used in school science.",
+    "scienceFact": "Species is the most specific of the main classification ranks commonly used in school science.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "species",
+      "Species"
+    ]
+  },
+  {
+    "id": "life.classification.e.012",
+    "deckId": "life.classification",
+    "level": "easy",
+    "type": "input",
+    "prompt": "Which evidence can test if species share a close ancestor?",
+    "answer": "DNA sequences",
+    "explanation": "DNA can show links between species. Similar looks alone may arise because species live in similar places.",
+    "scienceFact": "DNA can show links between species. Similar looks alone may arise because species live in similar places.",
+    "topic": "life.classification",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "dna sequences",
+      "DNA sequences"
+    ]
+  },
+  {
+    "id": "life.classification.m.001",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A tarsier has hair and mothers feed their young milk. Which group fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Insects",
+        "misconception": "life.classification.m.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mammals"
+      },
+      {
+        "id": "choice-2",
+        "text": "Reptiles",
+        "misconception": "life.classification.m.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Amphibians",
+        "misconception": "life.classification.m.001.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal.",
+    "scienceFact": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.002",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine eagle has feathers and a beak. Which group does it belong to?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Amphibians",
+        "misconception": "life.classification.m.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Arachnids",
+        "misconception": "life.classification.m.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Birds"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mammals",
+        "misconception": "life.classification.m.002.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings.",
+    "scienceFact": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.003",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine frog starts life as an aquatic tadpole. Which class fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Reptiles",
+        "misconception": "life.classification.m.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mammals",
+        "misconception": "life.classification.m.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Birds",
+        "misconception": "life.classification.m.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Amphibians"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary.",
+    "scienceFact": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.004",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A biologist sorts organisms into Bacteria, Archaea and Eukarya. What rank is being used?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Domain"
+      },
+      {
+        "id": "choice-1",
+        "text": "Species",
+        "misconception": "life.classification.m.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Genus",
+        "misconception": "life.classification.m.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Family",
+        "misconception": "life.classification.m.004.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Domain is the broadest rank in the three-domain system, above kingdom.",
+    "scienceFact": "Domain is the broadest rank in the three-domain system, above kingdom.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.005",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "The name Homo sapiens begins with Homo. Which rank does Homo name?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Phylum",
+        "misconception": "life.classification.m.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Genus"
+      },
+      {
+        "id": "choice-2",
+        "text": "Kingdom",
+        "misconception": "life.classification.m.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Order",
+        "misconception": "life.classification.m.005.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter.",
+    "scienceFact": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.006",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student follows paired choices about leaves to identify a tree. What tool is used?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Punnett square",
+        "misconception": "life.classification.m.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Food pyramid",
+        "misconception": "life.classification.m.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Dichotomous key"
+      },
+      {
+        "id": "choice-3",
+        "text": "Weather map",
+        "misconception": "life.classification.m.006.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user.",
+    "scienceFact": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.007",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A bacterium has DNA but no nucleus. What cell type is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Eukaryotic",
+        "misconception": "life.classification.m.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Plant tissue",
+        "misconception": "life.classification.m.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Animal organ",
+        "misconception": "life.classification.m.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Prokaryotic"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes.",
+    "scienceFact": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.008",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "An organism absorbs food, has cell walls and does not photosynthesize. Which kingdom may it belong to?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Fungi"
+      },
+      {
+        "id": "choice-1",
+        "text": "Plants",
+        "misconception": "life.classification.m.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Animals",
+        "misconception": "life.classification.m.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Archaea",
+        "misconception": "life.classification.m.008.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis.",
+    "scienceFact": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.009",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A fish and a bird have very different bodies. Which shared feature makes both vertebrates?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Moist skin",
+        "misconception": "life.classification.m.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Backbone"
+      },
+      {
+        "id": "choice-2",
+        "text": "Six legs",
+        "misconception": "life.classification.m.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Feathers",
+        "misconception": "life.classification.m.009.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates.",
+    "scienceFact": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.010",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A small animal has a head, thorax, abdomen and six legs. How many leg pairs support its insect classification?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Two pairs",
+        "misconception": "life.classification.m.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Five pairs",
+        "misconception": "life.classification.m.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Three pairs"
+      },
+      {
+        "id": "choice-3",
+        "text": "Four pairs",
+        "misconception": "life.classification.m.010.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs.",
+    "scienceFact": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.011",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Arrange these classification ranks from broadest to most specific.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Kingdom"
+      },
+      {
+        "id": "step-1",
+        "text": "Phylum"
+      },
+      {
+        "id": "step-2",
+        "text": "Class"
+      },
+      {
+        "id": "step-3",
+        "text": "Order"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2",
+      "step-3"
+    ],
+    "explanation": "Kingdom → Phylum → Class → Order. This sequence follows the process in order.",
+    "scienceFact": "Species is the most specific of the main classification ranks commonly used in school science.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.m.012",
+    "deckId": "life.classification",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match an animal group to a useful identifying trait.",
+    "answer": {
+      "Mammals": "Hair and milk glands",
+      "Birds": "Feathers",
+      "Insects": "Three pairs of legs"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "DNA can show links between species. Similar looks alone may arise because species live in similar places.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.001",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Philippine tarsier has live young, hair and milk glands. Which class fits all these clues?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Amphibians",
+        "misconception": "life.classification.h.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Insects",
+        "misconception": "life.classification.h.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mammals"
+      },
+      {
+        "id": "choice-3",
+        "text": "Reptiles",
+        "misconception": "life.classification.h.001.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal.",
+    "scienceFact": "Mammals have hair at some life stage and females produce milk for their young. The tarsier is a mammal.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.002",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "data",
+    "prompt": "An egg-laying Philippine animal has feathers and wings. Which class is supported by these features?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mammals",
+        "misconception": "life.classification.h.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Amphibians",
+        "misconception": "life.classification.h.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Arachnids",
+        "misconception": "life.classification.h.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Birds"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings.",
+    "scienceFact": "Birds have feathers. Wings alone are not enough to identify birds because bats and some insects also have wings.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.003",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "data",
+    "prompt": "An animal in a Philippine pond has moist skin and undergoes a tadpole stage. Which group best fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Amphibians"
+      },
+      {
+        "id": "choice-1",
+        "text": "Reptiles",
+        "misconception": "life.classification.h.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mammals",
+        "misconception": "life.classification.h.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Birds",
+        "misconception": "life.classification.h.003.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary.",
+    "scienceFact": "Amphibians often have moist skin and a life cycle with an aquatic young stage, though life cycles vary.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.004",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A grouping lies above kingdom and separates organisms by major cell features. Which rank is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Family",
+        "misconception": "life.classification.h.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Domain"
+      },
+      {
+        "id": "choice-2",
+        "text": "Species",
+        "misconception": "life.classification.h.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Genus",
+        "misconception": "life.classification.h.004.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Domain is the broadest rank in the three-domain system, above kingdom.",
+    "scienceFact": "Domain is the broadest rank in the three-domain system, above kingdom.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.005",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two species share the first word in their scientific names. Which rank do they share?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Order",
+        "misconception": "life.classification.h.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Phylum",
+        "misconception": "life.classification.h.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Genus"
+      },
+      {
+        "id": "choice-3",
+        "text": "Kingdom",
+        "misconception": "life.classification.h.005.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter.",
+    "scienceFact": "A two-part scientific name uses the genus and the specific epithet. The genus starts with a capital letter.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.006",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An unknown organism is sorted by choosing between two contrasting traits at each step. Which tool fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Weather map",
+        "misconception": "life.classification.h.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Punnett square",
+        "misconception": "life.classification.h.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Food pyramid",
+        "misconception": "life.classification.h.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Dichotomous key"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user.",
+    "scienceFact": "A dichotomous key gives two choices at each step. The choices use visible traits to guide the user.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.007",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A microbe’s DNA lies in a nucleoid rather than a nucleus. Which cell type best fits this finding?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Prokaryotic"
+      },
+      {
+        "id": "choice-1",
+        "text": "Eukaryotic",
+        "misconception": "life.classification.h.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Plant tissue",
+        "misconception": "life.classification.h.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Animal organ",
+        "misconception": "life.classification.h.007.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes.",
+    "scienceFact": "Prokaryotic cells do not have a membrane-bound nucleus. Bacteria and Archaea are prokaryotes.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.008",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A mushroom releases enzymes outside its body, then absorbs nutrients. Which kingdom fits this feeding method?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Archaea",
+        "misconception": "life.classification.h.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fungi"
+      },
+      {
+        "id": "choice-2",
+        "text": "Plants",
+        "misconception": "life.classification.h.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Animals",
+        "misconception": "life.classification.h.008.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis.",
+    "scienceFact": "Fungi absorb nutrients and have cell walls containing chitin. They do not make food by photosynthesis.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.009",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A skeleton includes a column of vertebrae protecting the spinal cord. Which group does the animal belong to?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Feathers",
+        "misconception": "life.classification.h.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Moist skin",
+        "misconception": "life.classification.h.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Backbone"
+      },
+      {
+        "id": "choice-3",
+        "text": "Six legs",
+        "misconception": "life.classification.h.009.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates.",
+    "scienceFact": "Vertebrates have a backbone made of vertebrae. Fish, amphibians, reptiles, birds and mammals are vertebrates.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.010",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A student compares an ant with a spider. The ant has three body regions. How many leg pairs should it have?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Four pairs",
+        "misconception": "life.classification.h.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Two pairs",
+        "misconception": "life.classification.h.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Five pairs",
+        "misconception": "life.classification.h.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Three pairs"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs.",
+    "scienceFact": "Adult insects have three pairs of legs. Spiders are arachnids and typically have four pairs.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.011",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Place these nested groups from larger rank to smaller rank.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Family"
+      },
+      {
+        "id": "step-1",
+        "text": "Genus"
+      },
+      {
+        "id": "step-2",
+        "text": "Species"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2"
+    ],
+    "explanation": "Family → Genus → Species. This sequence follows the process in order.",
+    "scienceFact": "Species is the most specific of the main classification ranks commonly used in school science.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.classification.h.012",
+    "deckId": "life.classification",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two water animals look alike. Their DNA links one to land mammals. Which evidence tests the gene link more directly?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Local name alone",
+        "misconception": "life.classification.h.012.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "DNA sequences"
+      },
+      {
+        "id": "choice-2",
+        "text": "Habitat color",
+        "misconception": "life.classification.h.012.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Adult weight alone",
+        "misconception": "life.classification.h.012.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "DNA can show links between species. Similar looks alone may arise because species live in similar places.",
+    "scienceFact": "DNA can show links between species. Similar looks alone may arise because species live in similar places.",
+    "topic": "life.classification",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Classification and shared characteristics. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "tree"
+  }
+]

@@ -1,0 +1,1289 @@
+[
+  {
+    "id": "life.body.e.001",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which system carries oxygen and nutrients in blood?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Circulatory system"
+      },
+      {
+        "id": "choice-1",
+        "text": "Digestive system",
+        "misconception": "life.body.e.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nervous system",
+        "misconception": "life.body.e.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Skeletal system",
+        "misconception": "life.body.e.001.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes.",
+    "scienceFact": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.002",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Where does most gas exchange occur in the lungs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Diaphragm",
+        "misconception": "life.body.e.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Alveoli"
+      },
+      {
+        "id": "choice-2",
+        "text": "Bronchi",
+        "misconception": "life.body.e.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Windpipe",
+        "misconception": "life.body.e.002.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood.",
+    "scienceFact": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.003",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which organ absorbs most digested nutrients?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Stomach",
+        "misconception": "life.body.e.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Esophagus",
+        "misconception": "life.body.e.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Small intestine"
+      },
+      {
+        "id": "choice-3",
+        "text": "Large intestine",
+        "misconception": "life.body.e.003.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The small intestine has a large surface area that helps absorb digested nutrients.",
+    "scienceFact": "The small intestine has a large surface area that helps absorb digested nutrients.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.004",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What organ filters blood to remove urea and excess water?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Lung",
+        "misconception": "life.body.e.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Heart",
+        "misconception": "life.body.e.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Stomach",
+        "misconception": "life.body.e.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Kidney"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine.",
+    "scienceFact": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.005",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which blood cells help fight pathogens?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "White blood cells"
+      },
+      {
+        "id": "choice-1",
+        "text": "Red blood cells",
+        "misconception": "life.body.e.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Platelets",
+        "misconception": "life.body.e.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fat cells",
+        "misconception": "life.body.e.005.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "White blood cells defend against pathogens. Different kinds use different ways to protect the body.",
+    "scienceFact": "White blood cells defend against pathogens. Different kinds use different ways to protect the body.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.006",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a main role of red blood cells?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Filter urine",
+        "misconception": "life.body.e.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Carry oxygen"
+      },
+      {
+        "id": "choice-2",
+        "text": "Make antibodies",
+        "misconception": "life.body.e.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Digest starch",
+        "misconception": "life.body.e.006.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity.",
+    "scienceFact": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.007",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What do vaccines help the immune system develop?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Extra bones",
+        "misconception": "life.body.e.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Larger lungs",
+        "misconception": "life.body.e.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Immune memory"
+      },
+      {
+        "id": "choice-3",
+        "text": "Antibiotic stores",
+        "misconception": "life.body.e.007.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later.",
+    "scienceFact": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.008",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which drugs target bacteria rather than viruses?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Antibodies",
+        "misconception": "life.body.e.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Vaccines",
+        "misconception": "life.body.e.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pain signals",
+        "misconception": "life.body.e.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Antibiotics"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold.",
+    "scienceFact": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.009",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the body’s maintenance of a stable internal state called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Homeostasis"
+      },
+      {
+        "id": "choice-1",
+        "text": "Photosynthesis",
+        "misconception": "life.body.e.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Fertilization",
+        "misconception": "life.body.e.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sedimentation",
+        "misconception": "life.body.e.009.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this.",
+    "scienceFact": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.e.010",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which system sends fast signals through nerve cells?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Respiratory system",
+        "misconception": "life.body.e.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nervous system"
+      },
+      {
+        "id": "choice-2",
+        "text": "Digestive system",
+        "misconception": "life.body.e.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Excretory system",
+        "misconception": "life.body.e.010.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The nervous system carries signals that help the body sense changes and respond quickly.",
+    "scienceFact": "The nervous system carries signals that help the body sense changes and respond quickly.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "body"
+  },
+  {
+    "id": "life.body.e.011",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "input",
+    "prompt": "Which muscle below the lungs helps you breathe?",
+    "answer": "Diaphragm",
+    "explanation": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops.",
+    "scienceFact": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "diaphragm",
+      "Diaphragm"
+    ]
+  },
+  {
+    "id": "life.body.e.012",
+    "deckId": "life.body",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What color is human blood with less oxygen?",
+    "answer": "Dark red",
+    "explanation": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color.",
+    "scienceFact": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color.",
+    "topic": "life.body",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "dark red",
+      "Dark red"
+    ]
+  },
+  {
+    "id": "life.body.m.001",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "After a student eats rice in Manila, which system carries the digested food in blood?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Skeletal system",
+        "misconception": "life.body.m.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Circulatory system"
+      },
+      {
+        "id": "choice-2",
+        "text": "Digestive system",
+        "misconception": "life.body.m.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nervous system",
+        "misconception": "life.body.m.001.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes.",
+    "scienceFact": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.002",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student walks near Mayon and breathes faster. Where does oxygen enter the blood in the lungs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Windpipe",
+        "misconception": "life.body.m.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Diaphragm",
+        "misconception": "life.body.m.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Alveoli"
+      },
+      {
+        "id": "choice-3",
+        "text": "Bronchi",
+        "misconception": "life.body.m.002.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood.",
+    "scienceFact": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.003",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student eats rice and fish. In which organ do most digested nutrients enter the body?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Large intestine",
+        "misconception": "life.body.m.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Stomach",
+        "misconception": "life.body.m.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Esophagus",
+        "misconception": "life.body.m.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Small intestine"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The small intestine has a large surface area that helps absorb digested nutrients.",
+    "scienceFact": "The small intestine has a large surface area that helps absorb digested nutrients.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.004",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A person forms urine to remove dissolved wastes. Which organs do most of this filtering?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Kidney"
+      },
+      {
+        "id": "choice-1",
+        "text": "Lung",
+        "misconception": "life.body.m.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Heart",
+        "misconception": "life.body.m.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Stomach",
+        "misconception": "life.body.m.004.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine.",
+    "scienceFact": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.005",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A cut becomes infected. Which blood cells help defend the body?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Fat cells",
+        "misconception": "life.body.m.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "White blood cells"
+      },
+      {
+        "id": "choice-2",
+        "text": "Red blood cells",
+        "misconception": "life.body.m.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Platelets",
+        "misconception": "life.body.m.005.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "White blood cells defend against pathogens. Different kinds use different ways to protect the body.",
+    "scienceFact": "White blood cells defend against pathogens. Different kinds use different ways to protect the body.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.006",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A runner needs more oxygen in active muscles. Which task do red blood cells perform?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Digest starch",
+        "misconception": "life.body.m.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Filter urine",
+        "misconception": "life.body.m.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Carry oxygen"
+      },
+      {
+        "id": "choice-3",
+        "text": "Make antibodies",
+        "misconception": "life.body.m.006.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity.",
+    "scienceFact": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.007",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "After a vaccine, the body responds faster to a later infection. What did it build?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Antibiotic stores",
+        "misconception": "life.body.m.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Extra bones",
+        "misconception": "life.body.m.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Larger lungs",
+        "misconception": "life.body.m.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Immune memory"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later.",
+    "scienceFact": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.008",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A doctor treats a bacterial infection with a drug that attacks bacterial cells. Which type of drug is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Antibiotics"
+      },
+      {
+        "id": "choice-1",
+        "text": "Antibodies",
+        "misconception": "life.body.m.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Vaccines",
+        "misconception": "life.body.m.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pain signals",
+        "misconception": "life.body.m.008.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold.",
+    "scienceFact": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.009",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Sweating helps cool the body on a hot day. Which process does this support?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sedimentation",
+        "misconception": "life.body.m.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Homeostasis"
+      },
+      {
+        "id": "choice-2",
+        "text": "Photosynthesis",
+        "misconception": "life.body.m.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fertilization",
+        "misconception": "life.body.m.009.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this.",
+    "scienceFact": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.010",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "You pull your hand from a hot cup before thinking about it. Which system carries the rapid signal?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Excretory system",
+        "misconception": "life.body.m.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Respiratory system",
+        "misconception": "life.body.m.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nervous system"
+      },
+      {
+        "id": "choice-3",
+        "text": "Digestive system",
+        "misconception": "life.body.m.010.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The nervous system carries signals that help the body sense changes and respond quickly.",
+    "scienceFact": "The nervous system carries signals that help the body sense changes and respond quickly.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.011",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Trace air as it enters the human lungs.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Nose"
+      },
+      {
+        "id": "step-1",
+        "text": "Trachea"
+      },
+      {
+        "id": "step-2",
+        "text": "Bronchi"
+      },
+      {
+        "id": "step-3",
+        "text": "Alveoli"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2",
+      "step-3"
+    ],
+    "explanation": "Nose → Trachea → Bronchi → Alveoli. This sequence follows the process in order.",
+    "scienceFact": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.m.012",
+    "deckId": "life.body",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Link the body organ to its main task.",
+    "answer": {
+      "Heart": "Pumps blood",
+      "Lungs": "Exchange gases",
+      "Kidneys": "Filter blood"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.001",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A rice farmer’s cells need oxygen and sugar at once. Which system carries both in the blood?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nervous system",
+        "misconception": "life.body.h.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Skeletal system",
+        "misconception": "life.body.h.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Circulatory system"
+      },
+      {
+        "id": "choice-3",
+        "text": "Digestive system",
+        "misconception": "life.body.h.001.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes.",
+    "scienceFact": "The circulatory system moves blood, carrying oxygen and nutrients to cells and taking away wastes.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.002",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Filipino runner has damaged air sacs, reducing gas exchange. Which lung parts are damaged?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Bronchi",
+        "misconception": "life.body.h.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Windpipe",
+        "misconception": "life.body.h.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Diaphragm",
+        "misconception": "life.body.h.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Alveoli"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood.",
+    "scienceFact": "Alveoli are tiny air sacs with thin walls. Oxygen and carbon dioxide move between them and nearby blood.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.003",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Filipino patient has damaged villi and takes in less food from the gut. Which organ is damaged?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Small intestine"
+      },
+      {
+        "id": "choice-1",
+        "text": "Large intestine",
+        "misconception": "life.body.h.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Stomach",
+        "misconception": "life.body.h.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Esophagus",
+        "misconception": "life.body.h.003.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The small intestine has a large surface area that helps absorb digested nutrients.",
+    "scienceFact": "The small intestine has a large surface area that helps absorb digested nutrients.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.004",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Blood enters an organ with urea, then leaves with less urea. Urine forms there. Which organ fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Stomach",
+        "misconception": "life.body.h.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kidney"
+      },
+      {
+        "id": "choice-2",
+        "text": "Lung",
+        "misconception": "life.body.h.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Heart",
+        "misconception": "life.body.h.004.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine.",
+    "scienceFact": "Kidneys filter blood and help control water and salt levels. Urea leaves the body in urine.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.005",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A blood sample has cells that engulf bacteria. What type of cells are they?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Platelets",
+        "misconception": "life.body.h.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fat cells",
+        "misconception": "life.body.h.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "White blood cells"
+      },
+      {
+        "id": "choice-3",
+        "text": "Red blood cells",
+        "misconception": "life.body.h.005.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "White blood cells defend against pathogens. Different kinds use different ways to protect the body.",
+    "scienceFact": "White blood cells defend against pathogens. Different kinds use different ways to protect the body.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.006",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A person has fewer red blood cells and tires quickly. Which transport task is most reduced?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Make antibodies",
+        "misconception": "life.body.h.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Digest starch",
+        "misconception": "life.body.h.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Filter urine",
+        "misconception": "life.body.h.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Carry oxygen"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity.",
+    "scienceFact": "Red blood cells contain hemoglobin, which binds oxygen. Low oxygen delivery can limit cell activity.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.007",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two people meet the same pathogen. The vaccinated person makes a faster targeted response. What best explains this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Immune memory"
+      },
+      {
+        "id": "choice-1",
+        "text": "Antibiotic stores",
+        "misconception": "life.body.h.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Extra bones",
+        "misconception": "life.body.h.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Larger lungs",
+        "misconception": "life.body.h.007.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later.",
+    "scienceFact": "Vaccines help the body learn to fight a pathogen. This builds a faster defense for later.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.008",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A medicine blocks bacterial cell-wall formation but does not treat a viral cold. What kind of drug fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pain signals",
+        "misconception": "life.body.h.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Antibiotics"
+      },
+      {
+        "id": "choice-2",
+        "text": "Antibodies",
+        "misconception": "life.body.h.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Vaccines",
+        "misconception": "life.body.h.008.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold.",
+    "scienceFact": "Antibiotics act against bacteria. They do not directly treat viral infections such as the common cold.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.009",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Body temperature stays near its usual range despite changes outside. What idea does this show?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Fertilization",
+        "misconception": "life.body.h.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sedimentation",
+        "misconception": "life.body.h.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Homeostasis"
+      },
+      {
+        "id": "choice-3",
+        "text": "Photosynthesis",
+        "misconception": "life.body.h.009.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this.",
+    "scienceFact": "Homeostasis keeps the body’s inner state in a useful range. Body systems work together to do this.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.010",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A reflex happens faster than a conscious choice. Which system links the sensor to the responding muscle?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Digestive system",
+        "misconception": "life.body.h.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Excretory system",
+        "misconception": "life.body.h.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Respiratory system",
+        "misconception": "life.body.h.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nervous system"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The nervous system carries signals that help the body sense changes and respond quickly.",
+    "scienceFact": "The nervous system carries signals that help the body sense changes and respond quickly.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.011",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Trace a bite of food through these parts of the digestive tract.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Mouth"
+      },
+      {
+        "id": "step-1",
+        "text": "Esophagus"
+      },
+      {
+        "id": "step-2",
+        "text": "Stomach"
+      },
+      {
+        "id": "step-3",
+        "text": "Small intestine"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2",
+      "step-3"
+    ],
+    "explanation": "Mouth → Esophagus → Stomach → Small intestine. This sequence follows the process in order.",
+    "scienceFact": "When the diaphragm pulls down, chest space grows. Air flows in as the pressure inside drops.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.body.h.012",
+    "deckId": "life.body",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A drawing uses blue for veins. What color should a student expect if that blood is viewed directly?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Clear",
+        "misconception": "life.body.h.012.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Dark red"
+      },
+      {
+        "id": "choice-2",
+        "text": "Blue",
+        "misconception": "life.body.h.012.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Green",
+        "misconception": "life.body.h.012.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color.",
+    "scienceFact": "Blood with less oxygen is dark red. Blue lines in diagrams are a color code, not the actual blood color.",
+    "topic": "life.body",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Body systems, health, disease and immunity. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "body"
+  }
+]

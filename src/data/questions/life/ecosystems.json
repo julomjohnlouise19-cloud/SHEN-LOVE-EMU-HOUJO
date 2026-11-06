@@ -1,0 +1,1289 @@
+[
+  {
+    "id": "life.ecosystems.e.001",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What role does rice play at the start of a food chain?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Producer"
+      },
+      {
+        "id": "choice-1",
+        "text": "Primary consumer",
+        "misconception": "life.ecosystems.e.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Decomposer",
+        "misconception": "life.ecosystems.e.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Top predator",
+        "misconception": "life.ecosystems.e.001.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Producers make food from nonliving sources. Green plants use sunlight to build sugars.",
+    "scienceFact": "Producers make food from nonliving sources. Green plants use sunlight to build sugars.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.002",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What term names the variety of life in the Coral Triangle?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Salinity",
+        "misconception": "life.ecosystems.e.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Biodiversity"
+      },
+      {
+        "id": "choice-2",
+        "text": "Population size",
+        "misconception": "life.ecosystems.e.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Water pressure",
+        "misconception": "life.ecosystems.e.002.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life.",
+    "scienceFact": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.003",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which bird is a predator in Philippine forest food webs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Photosynthetic plant",
+        "misconception": "life.ecosystems.e.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Soil mineral",
+        "misconception": "life.ecosystems.e.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Predator"
+      },
+      {
+        "id": "choice-3",
+        "text": "Producer",
+        "misconception": "life.ecosystems.e.003.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web.",
+    "scienceFact": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.004",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which organisms break down dead matter and return nutrients?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Top predators",
+        "misconception": "life.ecosystems.e.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Green producers",
+        "misconception": "life.ecosystems.e.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pollinators",
+        "misconception": "life.ecosystems.e.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Decomposers"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment.",
+    "scienceFact": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.005",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What do arrows in a food chain show?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Energy transfer"
+      },
+      {
+        "id": "choice-1",
+        "text": "Body size increase",
+        "misconception": "life.ecosystems.e.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Water flow",
+        "misconception": "life.ecosystems.e.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Predator movement",
+        "misconception": "life.ecosystems.e.005.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer.",
+    "scienceFact": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.006",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a nonliving part of an ecosystem called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Living tissue",
+        "misconception": "life.ecosystems.e.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Abiotic factor"
+      },
+      {
+        "id": "choice-2",
+        "text": "Biotic factor",
+        "misconception": "life.ecosystems.e.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Consumer population",
+        "misconception": "life.ecosystems.e.006.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things.",
+    "scienceFact": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.007",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the maximum population a habitat can sustain over time called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mutation rate",
+        "misconception": "life.ecosystems.e.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Trophic level",
+        "misconception": "life.ecosystems.e.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Carrying capacity"
+      },
+      {
+        "id": "choice-3",
+        "text": "Unlimited growth",
+        "misconception": "life.ecosystems.e.007.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit.",
+    "scienceFact": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.008",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What interaction helps both partner species?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Parasitism",
+        "misconception": "life.ecosystems.e.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Predation",
+        "misconception": "life.ecosystems.e.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Competition",
+        "misconception": "life.ecosystems.e.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mutualism"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen.",
+    "scienceFact": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.009",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What do organisms compete for when resources are scarce?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Light"
+      },
+      {
+        "id": "choice-1",
+        "text": "DNA",
+        "misconception": "life.ecosystems.e.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gravity",
+        "misconception": "life.ecosystems.e.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Body heat",
+        "misconception": "life.ecosystems.e.009.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it.",
+    "scienceFact": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.e.010",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Why does less energy reach each higher feeding level?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nutrients vanish permanently",
+        "misconception": "life.ecosystems.e.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Energy is used and dispersed as heat"
+      },
+      {
+        "id": "choice-2",
+        "text": "Energy is created by predators",
+        "misconception": "life.ecosystems.e.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "All food becomes new tissue",
+        "misconception": "life.ecosystems.e.010.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level.",
+    "scienceFact": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "foodweb"
+  },
+  {
+    "id": "life.ecosystems.e.011",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What term names all members of one species in one area?",
+    "answer": "Population",
+    "explanation": "A population is a group of the same species living in the same area at the same time.",
+    "scienceFact": "A population is a group of the same species living in the same area at the same time.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "population",
+      "Population"
+    ]
+  },
+  {
+    "id": "life.ecosystems.e.012",
+    "deckId": "life.ecosystems",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is a species found naturally in only one region called?",
+    "answer": "Endemic",
+    "explanation": "An endemic species is native to a limited region. Protecting its habitat is important for its survival.",
+    "scienceFact": "An endemic species is native to a limited region. Protecting its habitat is important for its survival.",
+    "topic": "life.ecosystems",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "endemic",
+      "Endemic"
+    ]
+  },
+  {
+    "id": "life.ecosystems.m.001",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A rice plant makes sugar using light. What is its feeding role in the field?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Top predator",
+        "misconception": "life.ecosystems.m.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Producer"
+      },
+      {
+        "id": "choice-2",
+        "text": "Primary consumer",
+        "misconception": "life.ecosystems.m.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Decomposer",
+        "misconception": "life.ecosystems.m.001.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Producers make food from nonliving sources. Green plants use sunlight to build sugars.",
+    "scienceFact": "Producers make food from nonliving sources. Green plants use sunlight to build sugars.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.002",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine reef has many kinds of fish, corals and algae. What does this variety represent?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Water pressure",
+        "misconception": "life.ecosystems.m.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Salinity",
+        "misconception": "life.ecosystems.m.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Biodiversity"
+      },
+      {
+        "id": "choice-3",
+        "text": "Population size",
+        "misconception": "life.ecosystems.m.002.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life.",
+    "scienceFact": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.003",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine eagle feeds on other animals. Which feeding role does it have?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Producer",
+        "misconception": "life.ecosystems.m.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Photosynthetic plant",
+        "misconception": "life.ecosystems.m.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Soil mineral",
+        "misconception": "life.ecosystems.m.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Predator"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web.",
+    "scienceFact": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.004",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Dead leaves decay and nutrients return to soil. Which organisms carry out much of this work?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Decomposers"
+      },
+      {
+        "id": "choice-1",
+        "text": "Top predators",
+        "misconception": "life.ecosystems.m.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Green producers",
+        "misconception": "life.ecosystems.m.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pollinators",
+        "misconception": "life.ecosystems.m.004.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment.",
+    "scienceFact": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.005",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A food-chain arrow points from grass to a grasshopper. What does its direction represent?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Predator movement",
+        "misconception": "life.ecosystems.m.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Energy transfer"
+      },
+      {
+        "id": "choice-2",
+        "text": "Body size increase",
+        "misconception": "life.ecosystems.m.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Water flow",
+        "misconception": "life.ecosystems.m.005.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer.",
+    "scienceFact": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.006",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Sunlight affects how well pond plants grow. What kind of ecosystem factor is sunlight?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Consumer population",
+        "misconception": "life.ecosystems.m.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Living tissue",
+        "misconception": "life.ecosystems.m.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Abiotic factor"
+      },
+      {
+        "id": "choice-3",
+        "text": "Biotic factor",
+        "misconception": "life.ecosystems.m.006.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things.",
+    "scienceFact": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.007",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A small island has limited food and nesting sites. What sets a long-term limit on bird numbers?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Unlimited growth",
+        "misconception": "life.ecosystems.m.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mutation rate",
+        "misconception": "life.ecosystems.m.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Trophic level",
+        "misconception": "life.ecosystems.m.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Carrying capacity"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit.",
+    "scienceFact": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.008",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A bee gets nectar while carrying pollen between flowers. Which relationship is shown?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mutualism"
+      },
+      {
+        "id": "choice-1",
+        "text": "Parasitism",
+        "misconception": "life.ecosystems.m.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Predation",
+        "misconception": "life.ecosystems.m.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Competition",
+        "misconception": "life.ecosystems.m.008.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen.",
+    "scienceFact": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.009",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Two seedlings shade each other and grow less well. What limited resource are they competing for?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Body heat",
+        "misconception": "life.ecosystems.m.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Light"
+      },
+      {
+        "id": "choice-2",
+        "text": "DNA",
+        "misconception": "life.ecosystems.m.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gravity",
+        "misconception": "life.ecosystems.m.009.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it.",
+    "scienceFact": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.010",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A bird gets less food energy than was stored in all the plants below it. Why?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "All food becomes new tissue",
+        "misconception": "life.ecosystems.m.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nutrients vanish permanently",
+        "misconception": "life.ecosystems.m.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Energy is used and dispersed as heat"
+      },
+      {
+        "id": "choice-3",
+        "text": "Energy is created by predators",
+        "misconception": "life.ecosystems.m.010.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level.",
+    "scienceFact": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.011",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Trace energy through a simple rice-field food chain.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Rice plant"
+      },
+      {
+        "id": "step-1",
+        "text": "Grasshopper"
+      },
+      {
+        "id": "step-2",
+        "text": "Frog"
+      },
+      {
+        "id": "step-3",
+        "text": "Snake"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2",
+      "step-3"
+    ],
+    "explanation": "Rice plant → Grasshopper → Frog → Snake. This sequence follows the process in order.",
+    "scienceFact": "A population is a group of the same species living in the same area at the same time.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.m.012",
+    "deckId": "life.ecosystems",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Connect each ecosystem role with its example.",
+    "answer": {
+      "Producer": "Green plant",
+      "Consumer": "Grasshopper",
+      "Decomposer": "Soil fungus"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "An endemic species is native to a limited region. Protecting its habitat is important for its survival.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.001",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "data",
+    "prompt": "In a Philippine rice field, energy enters a food web through green plants. Which role do these plants fill?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Decomposer",
+        "misconception": "life.ecosystems.h.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Top predator",
+        "misconception": "life.ecosystems.h.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Producer"
+      },
+      {
+        "id": "choice-3",
+        "text": "Primary consumer",
+        "misconception": "life.ecosystems.h.001.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Producers make food from nonliving sources. Green plants use sunlight to build sugars.",
+    "scienceFact": "Producers make food from nonliving sources. Green plants use sunlight to build sugars.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.002",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Two reefs have equal area, but one has many more species. Which measure is greater on that Coral Triangle reef?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Population size",
+        "misconception": "life.ecosystems.h.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Water pressure",
+        "misconception": "life.ecosystems.h.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Salinity",
+        "misconception": "life.ecosystems.h.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Biodiversity"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life.",
+    "scienceFact": "Biodiversity includes the variety of genes, species and ecosystems. Coral reefs can support many forms of life.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.003",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A forest loses its Philippine eagles and some prey numbers rise. Which lost role helps explain the change?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Predator"
+      },
+      {
+        "id": "choice-1",
+        "text": "Producer",
+        "misconception": "life.ecosystems.h.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Photosynthetic plant",
+        "misconception": "life.ecosystems.h.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Soil mineral",
+        "misconception": "life.ecosystems.h.003.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web.",
+    "scienceFact": "Predators eat other animals. Removing a predator can change prey numbers and the whole food web.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.004",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A sealed ecosystem loses fungi and bacteria. Dead material builds up. Which feeding role was removed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pollinators",
+        "misconception": "life.ecosystems.h.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Decomposers"
+      },
+      {
+        "id": "choice-2",
+        "text": "Top predators",
+        "misconception": "life.ecosystems.h.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Green producers",
+        "misconception": "life.ecosystems.h.004.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment.",
+    "scienceFact": "Decomposers break down dead matter and wastes. This helps nutrients move back into the environment.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.005",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A diagram shows rice → mouse → snake. Which rule explains all the arrow directions?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Water flow",
+        "misconception": "life.ecosystems.h.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Predator movement",
+        "misconception": "life.ecosystems.h.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Energy transfer"
+      },
+      {
+        "id": "choice-3",
+        "text": "Body size increase",
+        "misconception": "life.ecosystems.h.005.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer.",
+    "scienceFact": "Food-chain arrows point from the food to the organism that consumes it, showing energy transfer.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.006",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A pond study records fish, algae, light and temperature. Which term groups the last two factors?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Biotic factor",
+        "misconception": "life.ecosystems.h.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Consumer population",
+        "misconception": "life.ecosystems.h.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Living tissue",
+        "misconception": "life.ecosystems.h.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Abiotic factor"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things.",
+    "scienceFact": "Abiotic factors are nonliving features such as light, water and temperature. They affect living things.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.007",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A population grows, then levels off as resources become scarce. Which idea explains the upper limit?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Carrying capacity"
+      },
+      {
+        "id": "choice-1",
+        "text": "Unlimited growth",
+        "misconception": "life.ecosystems.h.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mutation rate",
+        "misconception": "life.ecosystems.h.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Trophic level",
+        "misconception": "life.ecosystems.h.007.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit.",
+    "scienceFact": "A habitat has a limit to the life it can support over time. Food, water and space help set that limit.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.008",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Both species breed more successfully when together than apart. Which interaction best fits this evidence?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Competition",
+        "misconception": "life.ecosystems.h.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mutualism"
+      },
+      {
+        "id": "choice-2",
+        "text": "Parasitism",
+        "misconception": "life.ecosystems.h.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Predation",
+        "misconception": "life.ecosystems.h.008.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen.",
+    "scienceFact": "In mutualism, both species benefit from the link. Bees can get nectar as flowers gain a way to move pollen.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.009",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Plants with the same soil and water grow poorly when crowded beneath a canopy. What resource is most limited?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Gravity",
+        "misconception": "life.ecosystems.h.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Body heat",
+        "misconception": "life.ecosystems.h.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Light"
+      },
+      {
+        "id": "choice-3",
+        "text": "DNA",
+        "misconception": "life.ecosystems.h.009.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it.",
+    "scienceFact": "Plants can compete for light, water, space and nutrients. A dense canopy can reduce the light below it.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.010",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Each feeding level uses energy for life tasks and releases heat. What explains the smaller energy supply above it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Energy is created by predators",
+        "misconception": "life.ecosystems.h.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "All food becomes new tissue",
+        "misconception": "life.ecosystems.h.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nutrients vanish permanently",
+        "misconception": "life.ecosystems.h.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Energy is used and dispersed as heat"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level.",
+    "scienceFact": "Organisms use energy for life processes. Much leaves as heat, so only part moves to the next feeding level.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.011",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order these events in leaf-litter nutrient recycling.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Leaves fall"
+      },
+      {
+        "id": "step-1",
+        "text": "Decomposers break them down"
+      },
+      {
+        "id": "step-2",
+        "text": "Nutrients enter soil"
+      },
+      {
+        "id": "step-3",
+        "text": "Roots absorb nutrients"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2",
+      "step-3"
+    ],
+    "explanation": "Leaves fall → Decomposers break them down → Nutrients enter soil → Roots absorb nutrients. This sequence follows the process in order.",
+    "scienceFact": "A population is a group of the same species living in the same area at the same time.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.ecosystems.h.012",
+    "deckId": "life.ecosystems",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A species occurs naturally on one island and nowhere else. Which term fits this evidence?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Abiotic",
+        "misconception": "life.ecosystems.h.012.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Endemic"
+      },
+      {
+        "id": "choice-2",
+        "text": "Domesticated",
+        "misconception": "life.ecosystems.h.012.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Invasive everywhere",
+        "misconception": "life.ecosystems.h.012.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An endemic species is native to a limited region. Protecting its habitat is important for its survival.",
+    "scienceFact": "An endemic species is native to a limited region. Protecting its habitat is important for its survival.",
+    "topic": "life.ecosystems",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "foodweb"
+  }
+]

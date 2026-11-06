@@ -1,0 +1,34 @@
+export type Child = Node | string | number | false | null | undefined;
+export function h<K extends keyof HTMLElementTagNameMap>(tag: K, props: Record<string, unknown> | null = null, ...children: (Child | Child[])[]): HTMLElementTagNameMap[K] {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(props ?? {})) {
+    if (key.startsWith('on') && typeof value === 'function') node.addEventListener(key.slice(2).toLowerCase(), value as EventListener);
+    else if (key === 'class') node.className = String(value);
+    else if (key === 'style' && typeof value === 'object') Object.assign(node.style, value);
+    else if (key === 'checked' && node instanceof HTMLInputElement) node.checked = Boolean(value);
+    else if (key === 'value' && (node instanceof HTMLInputElement || node instanceof HTMLSelectElement || node instanceof HTMLTextAreaElement)) node.value = String(value);
+    else if (key === 'disabled' && 'disabled' in node) (node as HTMLButtonElement).disabled = Boolean(value);
+    else if (value !== false && value !== undefined && value !== null) node.setAttribute(key, value === true ? '' : String(value));
+  }
+  for (const child of children.flat(Infinity) as Child[]) if (child !== false && child !== null && child !== undefined) node.append(child instanceof Node ? child : document.createTextNode(String(child)));
+  return node;
+}
+export const text = (value: string) => document.createTextNode(value);
+export function download(name: string, content: string, type = 'application/json') {
+  const url = URL.createObjectURL(new Blob([content], { type })), link = h('a', { href: url, download: name }); link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+export function button(label: Child, onClick: () => unknown | Promise<unknown>, className = 'button', props: Record<string, unknown> = {}) { return h('button', { type: 'button', class: className, onClick, ...props }, label); }
+export function toast(message: string, action?: { text: string; run: () => void }) {
+  const el = h('div', { class: 'toast' }, h('span', null, message), action ? button(action.text, action.run, 'text-button') : null);
+  document.querySelector('#toasts')!.append(el); setTimeout(() => el.remove(), 7000);
+}
+export function modal(title: string, content: Child[], wide = false) {
+  const dialog = h('dialog', { class: `modal ${wide ? 'wide' : ''}`, 'aria-label': title });
+  const close = () => { dialog.close(); dialog.remove(); };
+  dialog.append(h('div', { class: 'modal-heading' }, h('h2', null, title), button('×', close, 'icon-button close', { 'aria-label': 'Close dialog' })), ...content.filter((c): c is Node | string => c instanceof Node || typeof c === 'string'));
+  dialog.addEventListener('click', e => { if (e.target === dialog) close(); });
+  dialog.addEventListener('close', () => dialog.remove()); document.body.append(dialog); dialog.showModal(); return { dialog, close };
+}
+export const field = (label: string, input: HTMLElement, help?: string) => h('label', { class: 'field' }, h('span', null, label), input, help ? h('small', null, help) : null);
+export const input = (name: string, placeholder = '', value = '', type = 'text') => h('input', { name, type, placeholder, value, required: true, autocomplete: type === 'password' ? 'current-password' : 'off' });
+export function progress(value: number, label: string, className = '') { return h('div', { class: `progress ${className}`, role: 'progressbar', 'aria-label': label, 'aria-valuenow': Math.min(100, Math.round(value)), 'aria-valuemin': 0, 'aria-valuemax': 100 }, h('span', { style: { width: `${Math.min(100, Math.max(0, value))}%` } })); }

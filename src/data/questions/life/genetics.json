@@ -1,0 +1,1279 @@
+[
+  {
+    "id": "life.genetics.e.001",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What molecule stores inherited instructions in rice plants?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "DNA"
+      },
+      {
+        "id": "choice-1",
+        "text": "Starch",
+        "misconception": "life.genetics.e.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Water",
+        "misconception": "life.genetics.e.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cellulose",
+        "misconception": "life.genetics.e.001.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits.",
+    "scienceFact": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.002",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a version of a gene called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Enzyme",
+        "misconception": "life.genetics.e.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Allele"
+      },
+      {
+        "id": "choice-2",
+        "text": "Tissue",
+        "misconception": "life.genetics.e.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Organelle",
+        "misconception": "life.genetics.e.002.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location.",
+    "scienceFact": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.003",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is an organism’s expressed trait called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chromosome",
+        "misconception": "life.genetics.e.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Gamete",
+        "misconception": "life.genetics.e.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Phenotype"
+      },
+      {
+        "id": "choice-3",
+        "text": "Genotype",
+        "misconception": "life.genetics.e.003.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it.",
+    "scienceFact": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.004",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which term describes having two different alleles for a gene?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Homozygous",
+        "misconception": "life.genetics.e.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Recessive only",
+        "misconception": "life.genetics.e.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Identical alleles",
+        "misconception": "life.genetics.e.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Heterozygous"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A heterozygous genotype has two different alleles at the same gene location.",
+    "scienceFact": "A heterozygous genotype has two different alleles at the same gene location.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.005",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which cell division halves the chromosome number in gametes?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Meiosis"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mitosis",
+        "misconception": "life.genetics.e.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Osmosis",
+        "misconception": "life.genetics.e.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Budding",
+        "misconception": "life.genetics.e.005.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number.",
+    "scienceFact": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.006",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a lasting change in a DNA sequence called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Condensation",
+        "misconception": "life.genetics.e.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mutation"
+      },
+      {
+        "id": "choice-2",
+        "text": "Digestion",
+        "misconception": "life.genetics.e.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Diffusion",
+        "misconception": "life.genetics.e.006.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting.",
+    "scienceFact": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.007",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which group changes over generations during evolution?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "One organ",
+        "misconception": "life.genetics.e.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "One body cell",
+        "misconception": "life.genetics.e.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Population"
+      },
+      {
+        "id": "choice-3",
+        "text": "Single individual",
+        "misconception": "life.genetics.e.007.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives.",
+    "scienceFact": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.008",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which process can spread helpful inherited traits across generations?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Need-based change",
+        "misconception": "life.genetics.e.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Deliberate mutation",
+        "misconception": "life.genetics.e.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Instant adaptation",
+        "misconception": "life.genetics.e.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Natural selection"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time.",
+    "scienceFact": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.009",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "In an Aa × Aa cross, what is the chance of aa?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "1/4"
+      },
+      {
+        "id": "choice-1",
+        "text": "1/2",
+        "misconception": "life.genetics.e.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "3/4",
+        "misconception": "life.genetics.e.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "1",
+        "misconception": "life.genetics.e.009.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count.",
+    "scienceFact": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.e.010",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What can shared limb bone plans suggest?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "No genetic link",
+        "misconception": "life.genetics.e.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Shared ancestry"
+      },
+      {
+        "id": "choice-2",
+        "text": "Identical habitats",
+        "misconception": "life.genetics.e.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Equal body sizes",
+        "misconception": "life.genetics.e.010.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A shared bone plan can point to a common ancestor. The parts may now do different jobs.",
+    "scienceFact": "A shared bone plan can point to a common ancestor. The parts may now do different jobs.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "punnett"
+  },
+  {
+    "id": "life.genetics.e.011",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What are the bundles of DNA and proteins in a nucleus called?",
+    "answer": "Chromosomes",
+    "explanation": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division.",
+    "scienceFact": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "chromosomes",
+      "Chromosomes"
+    ]
+  },
+  {
+    "id": "life.genetics.e.012",
+    "deckId": "life.genetics",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What term means differences among members of one species?",
+    "answer": "Variation",
+    "explanation": "Variation means differences among organisms. Inherited variation gives natural selection material to act on.",
+    "scienceFact": "Variation means differences among organisms. Inherited variation gives natural selection material to act on.",
+    "topic": "life.genetics",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "variation",
+      "Variation"
+    ]
+  },
+  {
+    "id": "life.genetics.m.001",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A rice seed grows with traits from its parents. Which molecule carries these instructions?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cellulose",
+        "misconception": "life.genetics.m.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "DNA"
+      },
+      {
+        "id": "choice-2",
+        "text": "Starch",
+        "misconception": "life.genetics.m.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Water",
+        "misconception": "life.genetics.m.001.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits.",
+    "scienceFact": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.002",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Two rice plants have different forms of a gene for a trait. What are these forms called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Organelle",
+        "misconception": "life.genetics.m.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Enzyme",
+        "misconception": "life.genetics.m.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Allele"
+      },
+      {
+        "id": "choice-3",
+        "text": "Tissue",
+        "misconception": "life.genetics.m.002.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location.",
+    "scienceFact": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.003",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine garden pea plant has purple flowers. What term names this observed trait?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Genotype",
+        "misconception": "life.genetics.m.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Chromosome",
+        "misconception": "life.genetics.m.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gamete",
+        "misconception": "life.genetics.m.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Phenotype"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it.",
+    "scienceFact": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.004",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A plant has the alleles Aa. Which term describes this pair?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Heterozygous"
+      },
+      {
+        "id": "choice-1",
+        "text": "Homozygous",
+        "misconception": "life.genetics.m.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Recessive only",
+        "misconception": "life.genetics.m.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Identical alleles",
+        "misconception": "life.genetics.m.004.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A heterozygous genotype has two different alleles at the same gene location.",
+    "scienceFact": "A heterozygous genotype has two different alleles at the same gene location.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.005",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A human egg has 23 chromosomes rather than 46. Which process made this possible?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Budding",
+        "misconception": "life.genetics.m.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Meiosis"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mitosis",
+        "misconception": "life.genetics.m.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Osmosis",
+        "misconception": "life.genetics.m.005.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number.",
+    "scienceFact": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.006",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A copied gene has one changed DNA base. What kind of change is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Diffusion",
+        "misconception": "life.genetics.m.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Condensation",
+        "misconception": "life.genetics.m.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mutation"
+      },
+      {
+        "id": "choice-3",
+        "text": "Digestion",
+        "misconception": "life.genetics.m.006.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting.",
+    "scienceFact": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.007",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "The share of a helpful allele rises over many generations. What level of life is evolving?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Single individual",
+        "misconception": "life.genetics.m.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "One organ",
+        "misconception": "life.genetics.m.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "One body cell",
+        "misconception": "life.genetics.m.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Population"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives.",
+    "scienceFact": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.008",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Better-camouflaged insects leave more offspring. Which process can spread their inherited color?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Natural selection"
+      },
+      {
+        "id": "choice-1",
+        "text": "Need-based change",
+        "misconception": "life.genetics.m.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Deliberate mutation",
+        "misconception": "life.genetics.m.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Instant adaptation",
+        "misconception": "life.genetics.m.008.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time.",
+    "scienceFact": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.009",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Each Aa parent can pass A or a with equal chance. What is the chance of an aa offspring?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "1",
+        "misconception": "life.genetics.m.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "1/4"
+      },
+      {
+        "id": "choice-2",
+        "text": "1/2",
+        "misconception": "life.genetics.m.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "3/4",
+        "misconception": "life.genetics.m.009.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count.",
+    "scienceFact": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.010",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A whale flipper and a human arm have a similar bone plan. What does this support?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Equal body sizes",
+        "misconception": "life.genetics.m.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "No genetic link",
+        "misconception": "life.genetics.m.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Shared ancestry"
+      },
+      {
+        "id": "choice-3",
+        "text": "Identical habitats",
+        "misconception": "life.genetics.m.010.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A shared bone plan can point to a common ancestor. The parts may now do different jobs.",
+    "scienceFact": "A shared bone plan can point to a common ancestor. The parts may now do different jobs.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.011",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order how a simple inherited trait is expressed.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "DNA instructions"
+      },
+      {
+        "id": "step-1",
+        "text": "Protein is made"
+      },
+      {
+        "id": "step-2",
+        "text": "A trait is expressed"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2"
+    ],
+    "explanation": "DNA instructions → Protein is made → A trait is expressed. This sequence follows the process in order.",
+    "scienceFact": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.m.012",
+    "deckId": "life.genetics",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Pair each genetics term with its meaning.",
+    "answer": {
+      "Genotype": "Allele combination",
+      "Phenotype": "Observed trait",
+      "Mutation": "Change in DNA"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Variation means differences among organisms. Inherited variation gives natural selection material to act on.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.001",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Two rice strains have different gene sequences. Which molecule must differ between the strains?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Water",
+        "misconception": "life.genetics.h.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cellulose",
+        "misconception": "life.genetics.h.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "DNA"
+      },
+      {
+        "id": "choice-3",
+        "text": "Starch",
+        "misconception": "life.genetics.h.001.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits.",
+    "scienceFact": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.002",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A rice cross combines A and a at one gene location. What is each version called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Tissue",
+        "misconception": "life.genetics.h.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Organelle",
+        "misconception": "life.genetics.h.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Enzyme",
+        "misconception": "life.genetics.h.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Allele"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location.",
+    "scienceFact": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.003",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Two Philippine pea plants have different genotypes but both have purple flowers. What do they share?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Phenotype"
+      },
+      {
+        "id": "choice-1",
+        "text": "Genotype",
+        "misconception": "life.genetics.h.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Chromosome",
+        "misconception": "life.genetics.h.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gamete",
+        "misconception": "life.genetics.h.003.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it.",
+    "scienceFact": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.004",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A parent produces both A and a gametes at one gene. Which term fits its Aa genotype?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Identical alleles",
+        "misconception": "life.genetics.h.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Heterozygous"
+      },
+      {
+        "id": "choice-2",
+        "text": "Homozygous",
+        "misconception": "life.genetics.h.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Recessive only",
+        "misconception": "life.genetics.h.004.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A heterozygous genotype has two different alleles at the same gene location.",
+    "scienceFact": "A heterozygous genotype has two different alleles at the same gene location.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.005",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "If gametes kept the full chromosome number, it would double at fertilization. Which division prevents this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Osmosis",
+        "misconception": "life.genetics.h.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Budding",
+        "misconception": "life.genetics.h.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Meiosis"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mitosis",
+        "misconception": "life.genetics.h.005.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number.",
+    "scienceFact": "Meiosis halves the chromosome number. Fertilization joins two gametes and restores the diploid number.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.006",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A DNA sequence differs after copying. The change can be passed through cell division. What is it called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Digestion",
+        "misconception": "life.genetics.h.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Diffusion",
+        "misconception": "life.genetics.h.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Condensation",
+        "misconception": "life.genetics.h.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mutation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting.",
+    "scienceFact": "A mutation changes a DNA sequence. Its effect can be harmful, helpful or neutral in a given setting.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.007",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "One bird does not change its genes by trying. Gene frequencies shift in a group over time. What group evolves?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Population"
+      },
+      {
+        "id": "choice-1",
+        "text": "Single individual",
+        "misconception": "life.genetics.h.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "One organ",
+        "misconception": "life.genetics.h.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "One body cell",
+        "misconception": "life.genetics.h.007.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives.",
+    "scienceFact": "Populations evolve as inherited traits change in frequency across generations. Individuals do not evolve during their lives.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.008",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A heritable trait improves breeding success in a habitat. Its frequency rises across generations. Which process fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Instant adaptation",
+        "misconception": "life.genetics.h.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Natural selection"
+      },
+      {
+        "id": "choice-2",
+        "text": "Need-based change",
+        "misconception": "life.genetics.h.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Deliberate mutation",
+        "misconception": "life.genetics.h.008.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time.",
+    "scienceFact": "Some inherited traits help organisms survive and breed in a given place. These traits can become more common over time.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.009",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A Punnett square lists AA, Aa, Aa and aa. What fraction of outcomes show both recessive alleles?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "3/4",
+        "misconception": "life.genetics.h.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "1",
+        "misconception": "life.genetics.h.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "1/4"
+      },
+      {
+        "id": "choice-3",
+        "text": "1/2",
+        "misconception": "life.genetics.h.009.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count.",
+    "scienceFact": "One of the four equally likely allele pairs is aa. This predicts a probability, not an exact family count.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.010",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Several species share the same basic limb bones despite different uses. Which explanation best fits this pattern?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Identical habitats",
+        "misconception": "life.genetics.h.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Equal body sizes",
+        "misconception": "life.genetics.h.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "No genetic link",
+        "misconception": "life.genetics.h.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Shared ancestry"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A shared bone plan can point to a common ancestor. The parts may now do different jobs.",
+    "scienceFact": "A shared bone plan can point to a common ancestor. The parts may now do different jobs.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.011",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order these events in a model of natural selection.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Inherited variation exists"
+      },
+      {
+        "id": "step-1",
+        "text": "Survival and breeding differ"
+      },
+      {
+        "id": "step-2",
+        "text": "Trait frequency changes"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2"
+    ],
+    "explanation": "Inherited variation exists → Survival and breeding differ → Trait frequency changes. This sequence follows the process in order.",
+    "scienceFact": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.genetics.h.012",
+    "deckId": "life.genetics",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A species has varied sizes and colors, which can affect breeding success. What provides this raw material for selection?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Neutralization",
+        "misconception": "life.genetics.h.012.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Variation"
+      },
+      {
+        "id": "choice-2",
+        "text": "Extinction",
+        "misconception": "life.genetics.h.012.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Uniformity",
+        "misconception": "life.genetics.h.012.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Variation means differences among organisms. Inherited variation gives natural selection material to act on.",
+    "scienceFact": "Variation means differences among organisms. Inherited variation gives natural selection material to act on.",
+    "topic": "life.genetics",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "punnett"
+  }
+]

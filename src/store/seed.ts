@@ -1,0 +1,19 @@
+import type { AppState, User } from '../core/types';
+import { defaultRules } from '../core/rules';
+export const newUser = (id: string, username: string, name: string, now: number): User => ({
+  id, username, name, grade: 7, section: '', role: 'student', salt: '', hash: '', avatar: 'cat', merits: 24, xp: 0, streak: 0, lastDay: '', daily: {}, mastery: {}, review: [], notes: [], badges: [], lastSeen: now, created: now,
+});
+export function initialState(adminHash: string, adminSalt: string, now: number): AppState {
+  const admin = { ...newUser('admin', 'admin', 'Ms. Reyes', now), role: 'admin' as const, hash: adminHash, salt: adminSalt, merits: 0 };
+  return {
+    version: 2, rev: 0, rules: { ...defaultRules }, users: [newUser('guest', 'explorer', 'Little scientist', now), admin],
+    items: [
+      { id: 'pencil', name: 'Little idea pencils', description: 'Two trusty pencils for your next bright idea.', price: 35, stock: 24, icon: 'pencils', color: 'yellow', category: 'School essentials' },
+      { id: 'notebook', name: 'Discovery notebook', description: 'A fresh little home for your science wonders.', price: 65, stock: 15, icon: 'notebook', color: 'green', category: 'School essentials' },
+      { id: 'ruler', name: 'Measure of wonder', description: 'A 30 cm ruler. Big discoveries need good measures.', price: 45, stock: 20, icon: 'ruler', color: 'blue', category: 'Lab companions' },
+      { id: 'markers', name: 'Colorful connections', description: 'A set of highlighters for ideas that stand out.', price: 90, stock: 10, icon: 'markers', color: 'peach', category: 'School essentials' },
+      { id: 'goggles', name: 'Curiosity goggles', description: 'A pair of safety goggles for supervised lab work.', price: 150, stock: 8, icon: 'goggles', color: 'lilac', category: 'Lab companions' },
+      { id: 'sticky', name: 'Tiny thought notes', description: 'Sticky notes to keep your a-ha moments close.', price: 30, stock: 30, icon: 'sticky', color: 'yellow', category: 'School essentials' },
+    ], purchases: [], runs: [], events: [], audit: [], notifications: [], overlays: {}, sessions: [],
+  };
+}

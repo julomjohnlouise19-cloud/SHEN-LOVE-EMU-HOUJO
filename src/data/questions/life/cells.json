@@ -1,0 +1,1284 @@
+[
+  {
+    "id": "life.cells.e.001",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which cell part holds most DNA in a plant cell?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nucleus"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cell wall",
+        "misconception": "life.cells.e.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Vacuole",
+        "misconception": "life.cells.e.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chloroplast",
+        "misconception": "life.cells.e.001.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell.",
+    "scienceFact": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.002",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What controls which substances enter and leave a cell?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nucleus",
+        "misconception": "life.cells.e.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cell membrane"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cell wall",
+        "misconception": "life.cells.e.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ribosome",
+        "misconception": "life.cells.e.002.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The cell membrane controls the movement of substances into and out of the cell.",
+    "scienceFact": "The cell membrane controls the movement of substances into and out of the cell.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.003",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which structure captures light for photosynthesis?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nucleus",
+        "misconception": "life.cells.e.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cell wall",
+        "misconception": "life.cells.e.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Chloroplast"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mitochondrion",
+        "misconception": "life.cells.e.003.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis.",
+    "scienceFact": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.004",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which cell part releases usable energy when oxygen is present?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cell wall",
+        "misconception": "life.cells.e.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Vacuole",
+        "misconception": "life.cells.e.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Chloroplast",
+        "misconception": "life.cells.e.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mitochondrion"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks.",
+    "scienceFact": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.005",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which tiny cell structures make proteins?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Ribosomes"
+      },
+      {
+        "id": "choice-1",
+        "text": "Vacuoles",
+        "misconception": "life.cells.e.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cell walls",
+        "misconception": "life.cells.e.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chloroplasts",
+        "misconception": "life.cells.e.005.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Ribosomes join amino acids to make proteins. Many enzymes are proteins.",
+    "scienceFact": "Ribosomes join amino acids to make proteins. Many enzymes are proteins.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.006",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What stores much of the water in a mature plant cell?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mitochondrion",
+        "misconception": "life.cells.e.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Central vacuole"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nucleus",
+        "misconception": "life.cells.e.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ribosome",
+        "misconception": "life.cells.e.006.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The central vacuole stores water and helps keep a plant cell firm through pressure.",
+    "scienceFact": "The central vacuole stores water and helps keep a plant cell firm through pressure.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.007",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which outer layer gives plant cells rigid support?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cytoplasm",
+        "misconception": "life.cells.e.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nucleus",
+        "misconception": "life.cells.e.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cell wall"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cell membrane",
+        "misconception": "life.cells.e.007.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The cell wall supports a plant cell and limits how far it expands when water enters.",
+    "scienceFact": "The cell wall supports a plant cell and limits how far it expands when water enters.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.008",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the net movement of particles from high to low concentration called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mitosis",
+        "misconception": "life.cells.e.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Photosynthesis",
+        "misconception": "life.cells.e.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Active transport",
+        "misconception": "life.cells.e.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Diffusion"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "In diffusion, particles spread from a crowded area to one with fewer particles.",
+    "scienceFact": "In diffusion, particles spread from a crowded area to one with fewer particles.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.009",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the movement of water through a selectively permeable membrane called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Osmosis"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mitosis",
+        "misconception": "life.cells.e.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Respiration",
+        "misconception": "life.cells.e.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Protein synthesis",
+        "misconception": "life.cells.e.009.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "In osmosis, water crosses a membrane toward the side with less free water.",
+    "scienceFact": "In osmosis, water crosses a membrane toward the side with less free water.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.e.010",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which process produces two nuclei with the same chromosome number as the parent nucleus?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Osmosis",
+        "misconception": "life.cells.e.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mitosis"
+      },
+      {
+        "id": "choice-2",
+        "text": "Meiosis",
+        "misconception": "life.cells.e.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fertilization",
+        "misconception": "life.cells.e.010.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair.",
+    "scienceFact": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "cell"
+  },
+  {
+    "id": "life.cells.e.011",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What jelly-like material surrounds organelles inside a cell?",
+    "answer": "Cytoplasm",
+    "explanation": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus.",
+    "scienceFact": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "cytoplasm",
+      "Cytoplasm"
+    ]
+  },
+  {
+    "id": "life.cells.e.012",
+    "deckId": "life.cells",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What term means a cell has features suited to a specific job?",
+    "answer": "Specialization",
+    "explanation": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues.",
+    "scienceFact": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues.",
+    "topic": "life.cells",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "specialization",
+      "Specialization"
+    ]
+  },
+  {
+    "id": "life.cells.m.001",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A rice cell copies its stored genes before it divides. Which part holds most of these genes?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chloroplast",
+        "misconception": "life.cells.m.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nucleus"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cell wall",
+        "misconception": "life.cells.m.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Vacuole",
+        "misconception": "life.cells.m.001.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell.",
+    "scienceFact": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.002",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A cell lets some dissolved substances in but keeps others out. Which structure makes this choice possible?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Ribosome",
+        "misconception": "life.cells.m.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nucleus",
+        "misconception": "life.cells.m.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cell membrane"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cell wall",
+        "misconception": "life.cells.m.002.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The cell membrane controls the movement of substances into and out of the cell.",
+    "scienceFact": "The cell membrane controls the movement of substances into and out of the cell.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.003",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A rice leaf uses sunlight to make sugar. Which cell structure captures that light?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mitochondrion",
+        "misconception": "life.cells.m.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nucleus",
+        "misconception": "life.cells.m.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cell wall",
+        "misconception": "life.cells.m.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chloroplast"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis.",
+    "scienceFact": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.004",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A muscle cell needs much usable energy during exercise. Which organelle helps meet this need?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mitochondrion"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cell wall",
+        "misconception": "life.cells.m.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Vacuole",
+        "misconception": "life.cells.m.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chloroplast",
+        "misconception": "life.cells.m.004.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks.",
+    "scienceFact": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.005",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A cell needs enzymes for a chemical reaction. Which structures build these proteins?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chloroplasts",
+        "misconception": "life.cells.m.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ribosomes"
+      },
+      {
+        "id": "choice-2",
+        "text": "Vacuoles",
+        "misconception": "life.cells.m.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cell walls",
+        "misconception": "life.cells.m.005.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Ribosomes join amino acids to make proteins. Many enzymes are proteins.",
+    "scienceFact": "Ribosomes join amino acids to make proteins. Many enzymes are proteins.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.006",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A leaf wilts when its cells lose water. Which large storage space has lost volume?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Ribosome",
+        "misconception": "life.cells.m.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mitochondrion",
+        "misconception": "life.cells.m.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Central vacuole"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nucleus",
+        "misconception": "life.cells.m.006.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The central vacuole stores water and helps keep a plant cell firm through pressure.",
+    "scienceFact": "The central vacuole stores water and helps keep a plant cell firm through pressure.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.007",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A plant cell keeps its basic shape when water enters. Which layer limits its expansion?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cell membrane",
+        "misconception": "life.cells.m.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cytoplasm",
+        "misconception": "life.cells.m.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nucleus",
+        "misconception": "life.cells.m.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cell wall"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The cell wall supports a plant cell and limits how far it expands when water enters.",
+    "scienceFact": "The cell wall supports a plant cell and limits how far it expands when water enters.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.008",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Perfume spreads across a room without stirring. Which process explains this spread?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Diffusion"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mitosis",
+        "misconception": "life.cells.m.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Photosynthesis",
+        "misconception": "life.cells.m.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Active transport",
+        "misconception": "life.cells.m.008.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "In diffusion, particles spread from a crowded area to one with fewer particles.",
+    "scienceFact": "In diffusion, particles spread from a crowded area to one with fewer particles.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.009",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Water enters a cell through its membrane without an energy pump. What is this water movement called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Protein synthesis",
+        "misconception": "life.cells.m.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Osmosis"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mitosis",
+        "misconception": "life.cells.m.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Respiration",
+        "misconception": "life.cells.m.009.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "In osmosis, water crosses a membrane toward the side with less free water.",
+    "scienceFact": "In osmosis, water crosses a membrane toward the side with less free water.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.010",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A skin wound heals as cells divide for growth and repair. Which nuclear process is involved?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Fertilization",
+        "misconception": "life.cells.m.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Osmosis",
+        "misconception": "life.cells.m.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mitosis"
+      },
+      {
+        "id": "choice-3",
+        "text": "Meiosis",
+        "misconception": "life.cells.m.010.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair.",
+    "scienceFact": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.011",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Put these events in order for a body cell that divides.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "DNA is copied"
+      },
+      {
+        "id": "step-1",
+        "text": "Chromosomes separate"
+      },
+      {
+        "id": "step-2",
+        "text": "The cell splits"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2"
+    ],
+    "explanation": "DNA is copied → Chromosomes separate → The cell splits. This sequence follows the process in order.",
+    "scienceFact": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.m.012",
+    "deckId": "life.cells",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each cell part to its main role.",
+    "answer": {
+      "Nucleus": "Holds most cell DNA",
+      "Ribosome": "Builds proteins",
+      "Cell membrane": "Controls entry and exit"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.001",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A rice root cell has DNA inside a round, enclosed space. Which structure fits this evidence?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Vacuole",
+        "misconception": "life.cells.h.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Chloroplast",
+        "misconception": "life.cells.h.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nucleus"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cell wall",
+        "misconception": "life.cells.h.001.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell.",
+    "scienceFact": "The nucleus holds most DNA in plant and animal cells. DNA carries instructions used by the cell.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.002",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A barrier lets water pass but blocks some solutes. Which cell part has this role?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cell wall",
+        "misconception": "life.cells.h.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ribosome",
+        "misconception": "life.cells.h.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nucleus",
+        "misconception": "life.cells.h.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cell membrane"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The cell membrane controls the movement of substances into and out of the cell.",
+    "scienceFact": "The cell membrane controls the movement of substances into and out of the cell.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.003",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Two leaf cells have different amounts of green structures. Which structure helps capture light to make food?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chloroplast"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mitochondrion",
+        "misconception": "life.cells.h.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nucleus",
+        "misconception": "life.cells.h.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cell wall",
+        "misconception": "life.cells.h.003.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis.",
+    "scienceFact": "Chloroplasts hold chlorophyll, which absorbs light used in photosynthesis.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.004",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Active muscle cells have many folded organelles that use oxygen. Which organelle fits these clues?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chloroplast",
+        "misconception": "life.cells.h.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mitochondrion"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cell wall",
+        "misconception": "life.cells.h.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Vacuole",
+        "misconception": "life.cells.h.004.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks.",
+    "scienceFact": "Mitochondria use energy from food to make ATP during aerobic respiration. ATP powers many cell tasks.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.005",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A cell still has DNA but cannot join amino acids into proteins. Which structures may be damaged?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cell walls",
+        "misconception": "life.cells.h.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Chloroplasts",
+        "misconception": "life.cells.h.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ribosomes"
+      },
+      {
+        "id": "choice-3",
+        "text": "Vacuoles",
+        "misconception": "life.cells.h.005.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Ribosomes join amino acids to make proteins. Many enzymes are proteins.",
+    "scienceFact": "Ribosomes join amino acids to make proteins. Many enzymes are proteins.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.006",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A plant cell becomes firm after taking in water. Which part expands and presses against the cell wall?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nucleus",
+        "misconception": "life.cells.h.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ribosome",
+        "misconception": "life.cells.h.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mitochondrion",
+        "misconception": "life.cells.h.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Central vacuole"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The central vacuole stores water and helps keep a plant cell firm through pressure.",
+    "scienceFact": "The central vacuole stores water and helps keep a plant cell firm through pressure.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.007",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two cells take in water. The plant cell has a stiff outer layer that resists swelling. What is that layer?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cell wall"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cell membrane",
+        "misconception": "life.cells.h.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cytoplasm",
+        "misconception": "life.cells.h.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nucleus",
+        "misconception": "life.cells.h.007.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The cell wall supports a plant cell and limits how far it expands when water enters.",
+    "scienceFact": "The cell wall supports a plant cell and limits how far it expands when water enters.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.008",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Particles begin crowded on one side of a barrier, then spread evenly. Which process explains the net movement?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Active transport",
+        "misconception": "life.cells.h.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Diffusion"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mitosis",
+        "misconception": "life.cells.h.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Photosynthesis",
+        "misconception": "life.cells.h.008.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "In diffusion, particles spread from a crowded area to one with fewer particles.",
+    "scienceFact": "In diffusion, particles spread from a crowded area to one with fewer particles.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.009",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A membrane blocks sugar but lets water pass. Water moves toward the side with more dissolved sugar. What process occurs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Respiration",
+        "misconception": "life.cells.h.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Protein synthesis",
+        "misconception": "life.cells.h.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Osmosis"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mitosis",
+        "misconception": "life.cells.h.009.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "In osmosis, water crosses a membrane toward the side with less free water.",
+    "scienceFact": "In osmosis, water crosses a membrane toward the side with less free water.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.010",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A body cell with 46 chromosomes forms two nuclei, each with 46. Which process fits this result?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Meiosis",
+        "misconception": "life.cells.h.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fertilization",
+        "misconception": "life.cells.h.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Osmosis",
+        "misconception": "life.cells.h.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mitosis"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair.",
+    "scienceFact": "Mitosis forms two nuclei with the same chromosome number as the parent nucleus. It supports growth and repair.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.011",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Build the levels of a human body from smallest to largest.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Cell"
+      },
+      {
+        "id": "step-1",
+        "text": "Tissue"
+      },
+      {
+        "id": "step-2",
+        "text": "Organ"
+      },
+      {
+        "id": "step-3",
+        "text": "Organ system"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2",
+      "step-3"
+    ],
+    "explanation": "Cell → Tissue → Organ → Organ system. This sequence follows the process in order.",
+    "scienceFact": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.cells.h.012",
+    "deckId": "life.cells",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A red blood cell carries oxygen, while a nerve cell carries signals. Why do their shapes differ?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Condensation",
+        "misconception": "life.cells.h.012.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Specialization"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation",
+        "misconception": "life.cells.h.012.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Neutralization",
+        "misconception": "life.cells.h.012.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues.",
+    "scienceFact": "Specialized cells have structures suited to particular jobs. Different cell types work together in tissues.",
+    "topic": "life.cells",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "cell"
+  }
+]

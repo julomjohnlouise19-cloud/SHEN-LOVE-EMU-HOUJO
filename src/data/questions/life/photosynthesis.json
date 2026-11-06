@@ -1,0 +1,1279 @@
+[
+  {
+    "id": "life.photosynthesis.e.001",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What gas does a rice leaf take in for photosynthesis?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Carbon dioxide"
+      },
+      {
+        "id": "choice-1",
+        "text": "Oxygen",
+        "misconception": "life.photosynthesis.e.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nitrogen gas",
+        "misconception": "life.photosynthesis.e.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Helium",
+        "misconception": "life.photosynthesis.e.001.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil.",
+    "scienceFact": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.002",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the main energy source for photosynthesis in rice?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wind force",
+        "misconception": "life.photosynthesis.e.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sunlight"
+      },
+      {
+        "id": "choice-2",
+        "text": "Soil heat",
+        "misconception": "life.photosynthesis.e.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sound",
+        "misconception": "life.photosynthesis.e.002.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar.",
+    "scienceFact": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.003",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What gas is released during photosynthesis in a Philippine pond plant?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Methane",
+        "misconception": "life.photosynthesis.e.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Carbon monoxide",
+        "misconception": "life.photosynthesis.e.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Oxygen"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nitrogen",
+        "misconception": "life.photosynthesis.e.003.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process.",
+    "scienceFact": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.004",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What green pigment absorbs light in leaves?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Hemoglobin",
+        "misconception": "life.photosynthesis.e.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Starch",
+        "misconception": "life.photosynthesis.e.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cellulose",
+        "misconception": "life.photosynthesis.e.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chlorophyll"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells.",
+    "scienceFact": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.005",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which sugar is a main product used to represent photosynthesis?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Glucose"
+      },
+      {
+        "id": "choice-1",
+        "text": "Urea",
+        "misconception": "life.photosynthesis.e.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sodium chloride",
+        "misconception": "life.photosynthesis.e.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Lactic acid",
+        "misconception": "life.photosynthesis.e.005.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars.",
+    "scienceFact": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.006",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which process releases usable energy from food in cells?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only transpiration",
+        "misconception": "life.photosynthesis.e.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cellular respiration"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only photosynthesis",
+        "misconception": "life.photosynthesis.e.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only osmosis",
+        "misconception": "life.photosynthesis.e.006.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too.",
+    "scienceFact": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.007",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which gas is used in aerobic cellular respiration?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Helium",
+        "misconception": "life.photosynthesis.e.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nitrogen",
+        "misconception": "life.photosynthesis.e.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Oxygen"
+      },
+      {
+        "id": "choice-3",
+        "text": "Hydrogen",
+        "misconception": "life.photosynthesis.e.007.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water.",
+    "scienceFact": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.008",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What energy-carrying molecule powers many cell tasks?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "DNA",
+        "misconception": "life.photosynthesis.e.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cellulose",
+        "misconception": "life.photosynthesis.e.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Chlorophyll",
+        "misconception": "life.photosynthesis.e.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "ATP"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "ATP transfers usable energy to many cell processes. Cells continually make and use it.",
+    "scienceFact": "ATP transfers usable energy to many cell processes. Cells continually make and use it.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.009",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What leaf openings allow gas exchange?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Stomata"
+      },
+      {
+        "id": "choice-1",
+        "text": "Roots",
+        "misconception": "life.photosynthesis.e.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ribosomes",
+        "misconception": "life.photosynthesis.e.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Veins only",
+        "misconception": "life.photosynthesis.e.009.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss.",
+    "scienceFact": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.e.010",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a factor that slows a process when in short supply called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Genetic code",
+        "misconception": "life.photosynthesis.e.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Limiting factor"
+      },
+      {
+        "id": "choice-2",
+        "text": "Final product",
+        "misconception": "life.photosynthesis.e.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Waste material",
+        "misconception": "life.photosynthesis.e.010.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes.",
+    "scienceFact": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "plant"
+  },
+  {
+    "id": "life.photosynthesis.e.011",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What plant process loses water vapor through leaf pores?",
+    "answer": "Transpiration",
+    "explanation": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves.",
+    "scienceFact": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "transpiration",
+      "Transpiration"
+    ]
+  },
+  {
+    "id": "life.photosynthesis.e.012",
+    "deckId": "life.photosynthesis",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What happens to matter during photosynthesis and respiration?",
+    "answer": "Atoms are rearranged",
+    "explanation": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment.",
+    "scienceFact": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "atoms are rearranged",
+      "Atoms are rearranged"
+    ]
+  },
+  {
+    "id": "life.photosynthesis.m.001",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A rice plant gains carbon while growing in sunlight. Which gas supplies this carbon?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Helium",
+        "misconception": "life.photosynthesis.m.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Carbon dioxide"
+      },
+      {
+        "id": "choice-2",
+        "text": "Oxygen",
+        "misconception": "life.photosynthesis.m.001.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nitrogen gas",
+        "misconception": "life.photosynthesis.m.001.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil.",
+    "scienceFact": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.002",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A shaded rice seedling grows more slowly despite enough water. What energy source is reduced?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sound",
+        "misconception": "life.photosynthesis.m.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wind force",
+        "misconception": "life.photosynthesis.m.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sunlight"
+      },
+      {
+        "id": "choice-3",
+        "text": "Soil heat",
+        "misconception": "life.photosynthesis.m.002.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar.",
+    "scienceFact": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.003",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Bubbles rise from a water plant in a sunny Philippine pond. Which gas can photosynthesis release?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nitrogen",
+        "misconception": "life.photosynthesis.m.003.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Methane",
+        "misconception": "life.photosynthesis.m.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Carbon monoxide",
+        "misconception": "life.photosynthesis.m.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Oxygen"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process.",
+    "scienceFact": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.004",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A leaf with less green pigment captures less light. Which pigment is missing?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chlorophyll"
+      },
+      {
+        "id": "choice-1",
+        "text": "Hemoglobin",
+        "misconception": "life.photosynthesis.m.004.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Starch",
+        "misconception": "life.photosynthesis.m.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cellulose",
+        "misconception": "life.photosynthesis.m.004.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells.",
+    "scienceFact": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.005",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A plant stores light energy in the bonds of a simple sugar. Which sugar is commonly shown in the equation?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Lactic acid",
+        "misconception": "life.photosynthesis.m.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Glucose"
+      },
+      {
+        "id": "choice-2",
+        "text": "Urea",
+        "misconception": "life.photosynthesis.m.005.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sodium chloride",
+        "misconception": "life.photosynthesis.m.005.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars.",
+    "scienceFact": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.006",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A root cell underground needs energy even though it gets no light. Which process releases energy from its food?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only osmosis",
+        "misconception": "life.photosynthesis.m.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only transpiration",
+        "misconception": "life.photosynthesis.m.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cellular respiration"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only photosynthesis",
+        "misconception": "life.photosynthesis.m.006.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too.",
+    "scienceFact": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.007",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A germinating seed uses sugar and a gas to release energy. Which gas is used?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Hydrogen",
+        "misconception": "life.photosynthesis.m.007.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Helium",
+        "misconception": "life.photosynthesis.m.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nitrogen",
+        "misconception": "life.photosynthesis.m.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Oxygen"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water.",
+    "scienceFact": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.008",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A cell transfers energy from food into a molecule used for active transport. Which molecule is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "ATP"
+      },
+      {
+        "id": "choice-1",
+        "text": "DNA",
+        "misconception": "life.photosynthesis.m.008.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cellulose",
+        "misconception": "life.photosynthesis.m.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chlorophyll",
+        "misconception": "life.photosynthesis.m.008.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "ATP transfers usable energy to many cell processes. Cells continually make and use it.",
+    "scienceFact": "ATP transfers usable energy to many cell processes. Cells continually make and use it.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.009",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Carbon dioxide enters a leaf through small pores. What are these openings called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Veins only",
+        "misconception": "life.photosynthesis.m.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Stomata"
+      },
+      {
+        "id": "choice-2",
+        "text": "Roots",
+        "misconception": "life.photosynthesis.m.009.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ribosomes",
+        "misconception": "life.photosynthesis.m.009.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss.",
+    "scienceFact": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.010",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A plant has enough water but very little light. What is light in this situation?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Waste material",
+        "misconception": "life.photosynthesis.m.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Genetic code",
+        "misconception": "life.photosynthesis.m.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Limiting factor"
+      },
+      {
+        "id": "choice-3",
+        "text": "Final product",
+        "misconception": "life.photosynthesis.m.010.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes.",
+    "scienceFact": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.011",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Trace carbon into a plant’s stored food.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Carbon dioxide enters a leaf"
+      },
+      {
+        "id": "step-1",
+        "text": "Photosynthesis builds sugar"
+      },
+      {
+        "id": "step-2",
+        "text": "Sugar can be stored as starch"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2"
+    ],
+    "explanation": "Carbon dioxide enters a leaf → Photosynthesis builds sugar → Sugar can be stored as starch. This sequence follows the process in order.",
+    "scienceFact": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.m.012",
+    "deckId": "life.photosynthesis",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each plant structure with a role in energy and water flow.",
+    "answer": {
+      "Chloroplast": "Captures light for sugar making",
+      "Mitochondrion": "Releases usable food energy",
+      "Stoma": "Allows gas exchange"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.001",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A rice seedling grows without taking in much soil mass. Which gas accounts for carbon added to its sugars?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nitrogen gas",
+        "misconception": "life.photosynthesis.h.001.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Helium",
+        "misconception": "life.photosynthesis.h.001.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Carbon dioxide"
+      },
+      {
+        "id": "choice-3",
+        "text": "Oxygen",
+        "misconception": "life.photosynthesis.h.001.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil.",
+    "scienceFact": "Photosynthesis uses carbon dioxide and water to build sugars. Most added plant mass does not come from soil.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.002",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Two rice plants get equal water and minerals. The one in light makes more sugar. Which energy source explains this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Soil heat",
+        "misconception": "life.photosynthesis.h.002.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sound",
+        "misconception": "life.photosynthesis.h.002.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Wind force",
+        "misconception": "life.photosynthesis.h.002.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sunlight"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar.",
+    "scienceFact": "Light supplies energy for photosynthesis. Water and carbon dioxide supply the matter used to build sugar.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.003",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Philippine pond plant receives more light and produces more bubbles. What gas is formed when water is split?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Oxygen"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nitrogen",
+        "misconception": "life.photosynthesis.h.003.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Methane",
+        "misconception": "life.photosynthesis.h.003.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Carbon monoxide",
+        "misconception": "life.photosynthesis.h.003.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process.",
+    "scienceFact": "The oxygen released in photosynthesis comes from water. Light energy helps drive the process.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.004",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two leaf samples differ in light absorption because one lacks its green pigment. Which substance explains this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cellulose",
+        "misconception": "life.photosynthesis.h.004.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Chlorophyll"
+      },
+      {
+        "id": "choice-2",
+        "text": "Hemoglobin",
+        "misconception": "life.photosynthesis.h.004.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Starch",
+        "misconception": "life.photosynthesis.h.004.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells.",
+    "scienceFact": "Chlorophyll absorbs light used in photosynthesis. It is found in the chloroplasts of green plant cells.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.005",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An equation combines six carbon dioxide and six water molecules with light. Which six-carbon sugar is the model product?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sodium chloride",
+        "misconception": "life.photosynthesis.h.005.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Lactic acid",
+        "misconception": "life.photosynthesis.h.005.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Glucose"
+      },
+      {
+        "id": "choice-3",
+        "text": "Urea",
+        "misconception": "life.photosynthesis.h.005.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars.",
+    "scienceFact": "The usual school equation for photosynthesis shows glucose and oxygen as products. Plants also make other sugars.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.006",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A plant uses stored sugar at night and consumes oxygen. Which process explains this pattern?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only photosynthesis",
+        "misconception": "life.photosynthesis.h.006.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only osmosis",
+        "misconception": "life.photosynthesis.h.006.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only transpiration",
+        "misconception": "life.photosynthesis.h.006.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cellular respiration"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too.",
+    "scienceFact": "Plants and animals use cellular respiration to release energy from food. Plant cells respire in darkness too.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.007",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A sealed jar with sprouting seeds loses one gas while carbon dioxide rises. Which gas is being consumed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Oxygen"
+      },
+      {
+        "id": "choice-1",
+        "text": "Hydrogen",
+        "misconception": "life.photosynthesis.h.007.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Helium",
+        "misconception": "life.photosynthesis.h.007.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nitrogen",
+        "misconception": "life.photosynthesis.h.007.mixup.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water.",
+    "scienceFact": "Aerobic respiration uses oxygen to help release energy from food, producing carbon dioxide and water.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.008",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Food breakdown continues, but a cell cannot make its usual energy carrier. Which molecule’s shortage limits cell work?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chlorophyll",
+        "misconception": "life.photosynthesis.h.008.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "ATP"
+      },
+      {
+        "id": "choice-2",
+        "text": "DNA",
+        "misconception": "life.photosynthesis.h.008.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cellulose",
+        "misconception": "life.photosynthesis.h.008.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "ATP transfers usable energy to many cell processes. Cells continually make and use it.",
+    "scienceFact": "ATP transfers usable energy to many cell processes. Cells continually make and use it.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.009",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A leaf closes its pores during water stress, reducing both water loss and carbon dioxide uptake. Which pores close?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Ribosomes",
+        "misconception": "life.photosynthesis.h.009.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Veins only",
+        "misconception": "life.photosynthesis.h.009.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Stomata"
+      },
+      {
+        "id": "choice-3",
+        "text": "Roots",
+        "misconception": "life.photosynthesis.h.009.mixup.3"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss.",
+    "scienceFact": "Stomata are leaf pores controlled by guard cells. They allow gas exchange and influence water loss.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.010",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "More carbon dioxide does not boost sugar production until light rises. What role does light play at first?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Final product",
+        "misconception": "life.photosynthesis.h.010.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Waste material",
+        "misconception": "life.photosynthesis.h.010.mixup.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Genetic code",
+        "misconception": "life.photosynthesis.h.010.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Limiting factor"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes.",
+    "scienceFact": "A limiting factor is in short supply and restricts a process. Increasing another factor may not help until this limit changes.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.011",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order a simplified path from food energy to cell work.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Glucose is broken down"
+      },
+      {
+        "id": "step-1",
+        "text": "Energy is transferred to ATP"
+      },
+      {
+        "id": "step-2",
+        "text": "ATP powers cell tasks"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2"
+    ],
+    "explanation": "Glucose is broken down → Energy is transferred to ATP → ATP powers cell tasks. This sequence follows the process in order.",
+    "scienceFact": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "life.photosynthesis.h.012",
+    "deckId": "life.photosynthesis",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An atom of carbon appears in sugar, then carbon dioxide. Which statement fits conservation of matter?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "New carbon atoms appear",
+        "misconception": "life.photosynthesis.h.012.mixup.0"
+      },
+      {
+        "id": "choice-1",
+        "text": "Atoms are rearranged"
+      },
+      {
+        "id": "choice-2",
+        "text": "Atoms are destroyed",
+        "misconception": "life.photosynthesis.h.012.mixup.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Matter becomes only light",
+        "misconception": "life.photosynthesis.h.012.mixup.3"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment.",
+    "scienceFact": "Chemical reactions rearrange atoms. Photosynthesis and respiration move carbon through living things and the environment.",
+    "topic": "life.photosynthesis",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "plant"
+  }
+]
