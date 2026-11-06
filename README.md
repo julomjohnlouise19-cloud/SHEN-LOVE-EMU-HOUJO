@@ -2,6 +2,21 @@
 
 A local-first science learning game for Philippine Grade 7–10 students. Vite + strict TypeScript, no UI framework or production JavaScript dependencies. All illustration is inline SVG. Google Fonts are self-hosted with OFL licenses.
 
+## Open the website on GitHub Pages
+
+The website address after a successful deployment is **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website.
+
+One-time repository setup:
+
+1. Open [Settings → Pages](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/settings/pages).
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Open [Deploy Cozy Science Lab](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/workflows/pages.yml). If an earlier run failed before Pages was enabled, choose **Run workflow** on `main`.
+4. Wait for both the build and publish jobs to finish successfully, then open the website address above. Future pushes to `main` automatically test and publish updates.
+
+Open the HTTPS website to play. Double-clicking a downloaded `index.html` uses `file://`, where the app's module, styles and question banks cannot load as a complete Vite application. To run on your computer, download or clone the whole project and follow **Start** below.
+
+The workflow tests both the normal URL and the repository path before publishing. `VITE_BASE_PATH=/SHEN-LOVE-EMU-HOUJO/ npm run build` builds the Pages version, including matching offline cache paths. A different repository name needs its corresponding path. Profile data remains local to each browser; GitHub hosting does not synchronize accounts or progress.
+
 ## Start
 
 Use the existing checkout at `/workspace/SHEN-LOVE-EMU-HOUJO`. Cloud tasks are already isolated; do not create a worktree unless explicitly requested.
@@ -77,6 +92,7 @@ npm run sim:economy
 npm run seed
 npm run build
 npm run e2e
+npm run e2e:pages
 ```
 
-Playwright uses `/usr/bin/chromium` here; set `CHROMIUM_PATH` elsewhere. Browser checks cover learning/review, accessibility/mobile, accounts, rewards, supply redemption, admin collection and two-tab last-stock safety. Unit/property tests independently check every calculator over 200 seeds. `PLAN.md` records phase gates. Live processes must restart in a restored cloud task; retained files alone do not start the server.
+Playwright uses `/usr/bin/chromium` here; set `CHROMIUM_PATH` elsewhere. The normal production browser suite uses port 4173; the Pages-path suite uses 4174. Both can coexist with development on 5173, but run the two suites sequentially because each rebuilds `dist`. Browser checks cover learning/review, accessibility/mobile, accounts, rewards, supply redemption, admin collection and two-tab last-stock safety. The Pages check covers fonts, a loaded Cells session and offline access to an unvisited deck under the repository path. Unit/property tests independently check every calculator over 200 seeds. `PLAN.md` records phase gates. Live processes must restart in a restored cloud task; retained files alone do not start the server.

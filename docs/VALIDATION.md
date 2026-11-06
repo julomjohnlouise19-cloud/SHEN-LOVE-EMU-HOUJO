@@ -14,6 +14,7 @@ Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using 
 - A subsequent focused production check passed for the keyboard skip link, desktop/mobile dashboard and WCAG AA axe checks.
 - The development server was then restarted on port 5173 and independently verified through HTTP, dashboard rendering and a loaded Cells session, with zero console errors.
 - Complete, tested install_script and start_skill fields were saved to the cloud environment draft. Saving does not publish them; the user must review/save and publish in environment settings.
+- GitHub Pages preparation: root-path regression checks passed (45 unit/property tests and 16 production-browser scenarios). The additional repository-path browser scenario passed for `/SHEN-LOVE-EMU-HOUJO/`, including loaded fonts, favicon, Cells questions, scoped service-worker caches, offline reload and an unvisited Chemistry deck. Browser fixtures reject console errors.
 
 ## Behaviors exercised
 

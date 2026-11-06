@@ -59,3 +59,12 @@ Client-only security and rewards are demonstrations; a backend must enforce real
 ## Final verification
 
 All phase gates are green. See docs/VALIDATION.md for the current-instance checks, content counts, browser scenarios and limitations. The tested install_script and start_skill were saved in the environment draft; review/save and publication remain user actions. The development server was restarted and its dashboard and Cells session verified.
+
+## GitHub connection and website publication
+
+- [x] Verify the existing GitHub connection and remote main without overwriting remote work.
+- [x] Support the GitHub Pages repository path for scripts, fonts, favicon and offline assets.
+- [x] Pass root-path regression checks and a production repository-path browser test.
+- [x] Add the tested GitHub Actions build/deployment workflow and publishing documentation.
+- [ ] Upload the completed project to the user's main branch with a normal fast-forward push.
+- [ ] Enable GitHub Pages and verify the live site, or identify the exact external prerequisite if GitHub API access is blocked.

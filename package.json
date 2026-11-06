@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "e2e": "playwright test",
+    "e2e:pages": "playwright test --config playwright.pages.config.ts",
     "validate:questions": "node --import tsx scripts/validate-questions.ts",
     "gen:questions": "node --import tsx scripts/generate-questions.ts",
     "sim:economy": "node --import tsx scripts/simulate-economy.ts",

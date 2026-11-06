@@ -158,7 +158,7 @@ try {
   await render();
   if (import.meta.env.PROD && "serviceWorker" in navigator)
     navigator.serviceWorker
-      .register("/sw.js")
+      .register(`${import.meta.env.BASE_URL}sw.js`, { scope: import.meta.env.BASE_URL })
       .catch(() =>
         toast(
           "Offline caching isn’t available in this browser. You can still use the lab online.",
