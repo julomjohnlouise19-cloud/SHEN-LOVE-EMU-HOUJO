@@ -9,8 +9,8 @@ Functional rules live in `src/core/`; commands return patches, events and invers
 ```
 src/{core,store,ui,data/questions,styles}
 scripts/{validate-questions,generate-questions,simulate-economy,seed}.ts
-tests/{core,questions,storage}.test.ts
-e2e/app.spec.ts
+tests/{core,questions,resilience}.test.ts
+e2e/{app,resilience,purchase-safety}.spec.ts
 public/{favicon.svg,sw.js}
 PLAN.md AGENTS.md DECISIONS.md README.md
 ```
@@ -45,13 +45,17 @@ Each phase: lint, typecheck, unit tests, phase Playwright smoke, question valida
 - [x] Phase 3 gate
 
 ### Phase 4 — resilience, accessibility, delivery
-- [ ] §1–2 P0: offline shell/data cache, responsive keyboard-friendly UI, reduced motion, accessible contrast
-- [ ] §2.1 P0: all required scripts work, economy simulator and safe seed command
-- [ ] §0 P0: functional/a11y/mobile/multi-tab browser tests, production build, docs and final clean gate
-- [ ] Save tested environment install/start instructions
-- [ ] Phase 4 gate
+- [x] §1–2 P0: offline shell/data cache, responsive keyboard-friendly UI, reduced motion, accessible contrast
+- [x] §2.1 P0: all required scripts work, economy simulator and safe seed command
+- [x] §0 P0: functional/a11y/mobile/multi-tab browser tests, production build, docs and final clean gate
+- [x] Save tested environment install/start instructions
+- [x] Phase 4 gate
 
 No P2 work is planned. Features with absent specifications use documented conservative defaults.
 
 ## Risks
 Client-only security and rewards are demonstrations; a backend must enforce real inventory, roles and school claims. Large content scope needs automated structural checks plus careful science review. localStorage is quota-limited and not multi-device. Web Locks is preferred; the lease fallback needs explicit concurrency tests. Undo must never overwrite intervening transactions. Missing sections cannot be claimed implemented verbatim.
+
+## Final verification
+
+All phase gates are green. See docs/VALIDATION.md for the current-instance checks, content counts, browser scenarios and limitations. The tested install_script and start_skill were saved in the environment draft; review/save and publication remain user actions. The development server was restarted and its dashboard and Cells session verified.

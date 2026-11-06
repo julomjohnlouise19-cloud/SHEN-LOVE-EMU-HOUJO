@@ -1,0 +1,24 @@
+# Readiness record
+
+Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using Node 24.22.1, npm 11.9.0 and system Chromium.
+
+- Clean, frozen installation: `npm ci --no-audit --no-fund` passed.
+- `npm run lint` and `npm run typecheck` passed.
+- `npm test`: 45 tests passed across the rule engine, resilience/property checks and the question validator.
+- `npm run validate:questions`: 972 reviewed cards; 81 deck/level pools, each with 12 cards; 184 Philippine contexts (18.9%); 891 linked misconception repairs; 45 evidence tables; 36 fixed calculation cards; 19 generators independently recomputed for 200 seeds each.
+- All eight formats are present: MCQ, true/false, input, order, match, diagram, calculation and data.
+- `npm run sim:economy`: all three seeded 30-day scenarios respected the daily play/review cap, including repeated play.
+- `npm run seed`: produced a schema-valid, private fresh backup without modifying browser data.
+- `npm run build` passed, including type and content gates and an offline asset manifest.
+- `npm run e2e`: 16 production-browser scenarios passed. Every scenario checks console errors, including secondary purchase, storage, account, mobile and offline paths.
+- A subsequent focused production check passed for the keyboard skip link, desktop/mobile dashboard and WCAG AA axe checks.
+- The development server was then restarted on port 5173 and independently verified through HTTP, dashboard rendering and a loaded Cells session, with zero console errors.
+- Complete, tested install_script and start_skill fields were saved to the cloud environment draft. Saving does not publish them; the user must review/save and publish in environment settings.
+
+## Behaviors exercised
+
+The Cells Medium eight-card session reaches results, updates mastery and saves mistakes in the Review Box. Browser tests cover all branch listings, the Level 4 Skills Lab gate, reproducible Challenge Links, the cart experiment and calculator practice. Purchases deduct once, reject changed prices, redeem once and can be marked collected only by an admin. Both Web Locks and lease-fallback two-tab tests protect the last item. Quota errors preserve balance/stock and offer export. Invalid imports do not replace data; corrupt JSON is quarantined. A fresh production cache reloads offline and opens an unvisited Chemistry deck. Registration hashes passwords, changing a password invalidates other account sessions, and login cooldown survives reload. User markup is rendered as text. Phone pages fit 390 px width and pass the tested WCAG A/AA rules.
+
+## Limits
+
+This is a client-side demo on one browser/origin, not a deployed school system. No real inventory is reserved or external message sent. Production authentication, shared classrooms, authoritative rewards and real claims need a backend. The source brief stopped at §4.8; missing specifications use the documented decisions. Publishing the cloud environment and restoration into a new task were not performed or claimed.

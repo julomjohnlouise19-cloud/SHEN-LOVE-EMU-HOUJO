@@ -23,6 +23,12 @@ import {
 import { authModal } from "./ui/auth";
 import { connectRenderer, go } from "./ui/actions";
 const app = document.querySelector<HTMLDivElement>("#app")!;
+document.querySelector(".skip-link")?.addEventListener("click", (event) => {
+  event.preventDefault();
+  const main = document.querySelector<HTMLElement>("#main");
+  main?.focus();
+  main?.scrollIntoView({ block: "start" });
+});
 app.append(
   h(
     "div",

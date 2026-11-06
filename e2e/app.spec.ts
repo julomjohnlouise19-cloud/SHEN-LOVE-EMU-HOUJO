@@ -76,6 +76,12 @@ test("dashboard has no serious accessibility errors and fits a phone", async ({
   page,
 }) => {
   await ready(page);
+  await page.getByRole("link", { name: "Skip to content" }).focus();
+  await page.keyboard.press("Enter");
+  expect(await page.evaluate(() => document.activeElement?.id)).toBe("main");
+  await expect(
+    page.getByRole("heading", { name: "Hey, curious mind!" }),
+  ).toBeVisible();
   const result = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
     .analyze();
