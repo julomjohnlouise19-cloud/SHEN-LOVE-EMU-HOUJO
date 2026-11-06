@@ -1,0 +1,1294 @@
+[
+  {
+    "id": "chemistry.reactions.e.001",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What stays the same during a chemical reaction in a closed system?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Total mass"
+      },
+      {
+        "id": "choice-1",
+        "text": "Gas volume",
+        "misconception": "chemistry.reactions.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Temperature",
+        "misconception": "chemistry.reactions.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Number of molecules",
+        "misconception": "chemistry.reactions.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Atoms are conserved in a chemical reaction. Total mass stays the same in a closed system.",
+    "scienceFact": "Atoms are conserved in a chemical reaction. Total mass stays the same in a closed system.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.002",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a common sign that new substances may have formed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The label is changed",
+        "misconception": "chemistry.reactions.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "A new gas forms"
+      },
+      {
+        "id": "choice-2",
+        "text": "The cup is moved",
+        "misconception": "chemistry.reactions.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "A spoon is removed",
+        "misconception": "chemistry.reactions.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "New gas, a precipitate, or an unexpected energy change can be clues to a chemical reaction. Use more than one clue when needed.",
+    "scienceFact": "New gas, a precipitate, or an unexpected energy change can be clues to a chemical reaction. Use more than one clue when needed.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.003",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which process forms rust on iron in the Philippines’ humid air?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only evaporation",
+        "misconception": "chemistry.reactions.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Magnetic sorting",
+        "misconception": "chemistry.reactions.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Oxidation"
+      },
+      {
+        "id": "choice-3",
+        "text": "Simple melting",
+        "misconception": "chemistry.reactions.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Rusting is oxidation of iron involving oxygen and water. Atoms from the air become part of the rust.",
+    "scienceFact": "Rusting is oxidation of iron involving oxygen and water. Atoms from the air become part of the rust.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.004",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What are the starting substances in a chemical reaction called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Products",
+        "misconception": "chemistry.reactions.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Catalysts only",
+        "misconception": "chemistry.reactions.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Inert labels",
+        "misconception": "chemistry.reactions.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Reactants"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Reactants are the starting substances that change during a reaction. Products are the substances formed.",
+    "scienceFact": "Reactants are the starting substances that change during a reaction. Products are the substances formed.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.005",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What are substances formed by a reaction called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Products"
+      },
+      {
+        "id": "choice-1",
+        "text": "Reactants",
+        "misconception": "chemistry.reactions.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Atomic numbers",
+        "misconception": "chemistry.reactions.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Energy levels",
+        "misconception": "chemistry.reactions.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Products are the substances formed by a chemical reaction. They are written after the arrow in an equation.",
+    "scienceFact": "Products are the substances formed by a chemical reaction. They are written after the arrow in an equation.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.006",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is changed to balance a chemical equation?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Atomic charges at random",
+        "misconception": "chemistry.reactions.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Coefficients"
+      },
+      {
+        "id": "choice-2",
+        "text": "Element symbols",
+        "misconception": "chemistry.reactions.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Formula subscripts",
+        "misconception": "chemistry.reactions.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Balancing changes coefficients in front of formulas. Changing subscripts changes the substances in the reaction.",
+    "scienceFact": "Balancing changes coefficients in front of formulas. Changing subscripts changes the substances in the reaction.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.007",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a reaction that releases heat called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Isothermal by definition",
+        "misconception": "chemistry.reactions.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "No energy transfer",
+        "misconception": "chemistry.reactions.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Exothermic"
+      },
+      {
+        "id": "choice-3",
+        "text": "Endothermic",
+        "misconception": "chemistry.reactions.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "An exothermic reaction transfers energy to the surroundings, often as heat.",
+    "scienceFact": "An exothermic reaction transfers energy to the surroundings, often as heat.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.008",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a reaction that takes in heat called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Exothermic",
+        "misconception": "chemistry.reactions.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only mechanical",
+        "misconception": "chemistry.reactions.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only magnetic",
+        "misconception": "chemistry.reactions.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Endothermic"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "An endothermic process takes in energy from the surroundings, which may then cool.",
+    "scienceFact": "An endothermic process takes in energy from the surroundings, which may then cool.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.009",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What speeds up a reaction without being used up overall?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Catalyst"
+      },
+      {
+        "id": "choice-1",
+        "text": "Product only",
+        "misconception": "chemistry.reactions.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Reactant consumed fully",
+        "misconception": "chemistry.reactions.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Extra mass source",
+        "misconception": "chemistry.reactions.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A catalyst speeds a reaction through a different pathway. It is not consumed overall by the reaction.",
+    "scienceFact": "A catalyst speeds a reaction through a different pathway. It is not consumed overall by the reaction.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.e.010",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "How many oxygen molecules are needed in 2H₂ + ?O₂ → 2H₂O?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "4",
+        "misconception": "chemistry.reactions.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "1"
+      },
+      {
+        "id": "choice-2",
+        "text": "2",
+        "misconception": "chemistry.reactions.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "3",
+        "misconception": "chemistry.reactions.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "One O₂ molecule has two oxygen atoms. These balance the two oxygen atoms in two H₂O molecules.",
+    "scienceFact": "One O₂ molecule has two oxygen atoms. These balance the two oxygen atoms in two H₂O molecules.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "reaction"
+  },
+  {
+    "id": "chemistry.reactions.e.011",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What do we call a solid formed when two solutions react?",
+    "answer": "Precipitate",
+    "explanation": "A precipitate is a solid formed from a solution, often when dissolved ions combine into an insoluble compound.",
+    "scienceFact": "A precipitate is a solid formed from a solution, often when dissolved ions combine into an insoluble compound.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["precipitate", "Precipitate"]
+  },
+  {
+    "id": "chemistry.reactions.e.012",
+    "deckId": "chemistry.reactions",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What reaction combines a substance with oxygen and releases energy?",
+    "answer": "Combustion",
+    "explanation": "Combustion is a reaction with oxygen that releases energy. Many fuels form carbon dioxide and water when fully burned.",
+    "scienceFact": "Combustion is a reaction with oxygen that releases energy. Many fuels form carbon dioxide and water when fully burned.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["combustion", "Combustion"]
+  },
+  {
+    "id": "chemistry.reactions.m.001",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A sealed Philippine lab container is weighed before and after a reaction. Which total stays the same?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Number of molecules",
+        "misconception": "chemistry.reactions.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Total mass"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gas volume",
+        "misconception": "chemistry.reactions.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Temperature",
+        "misconception": "chemistry.reactions.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Atoms are conserved in a chemical reaction. Total mass stays the same in a closed system.",
+    "scienceFact": "Atoms are conserved in a chemical reaction. Total mass stays the same in a closed system.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.002",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Cebu class mixes vinegar and baking soda. Which change shows that gas may have formed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A spoon is removed",
+        "misconception": "chemistry.reactions.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "The label is changed",
+        "misconception": "chemistry.reactions.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "A new gas forms"
+      },
+      {
+        "id": "choice-3",
+        "text": "The cup is moved",
+        "misconception": "chemistry.reactions.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "New gas, a precipitate, or an unexpected energy change can be clues to a chemical reaction. Use more than one clue when needed.",
+    "scienceFact": "New gas, a precipitate, or an unexpected energy change can be clues to a chemical reaction. Use more than one clue when needed.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.003",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "An iron gate in Manila develops reddish-brown rust. What process explains the new substance?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Simple melting",
+        "misconception": "chemistry.reactions.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only evaporation",
+        "misconception": "chemistry.reactions.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Magnetic sorting",
+        "misconception": "chemistry.reactions.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Oxidation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Rusting is oxidation of iron involving oxygen and water. Atoms from the air become part of the rust.",
+    "scienceFact": "Rusting is oxidation of iron involving oxygen and water. Atoms from the air become part of the rust.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.004",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Hydrogen and oxygen combine to form water. What are hydrogen and oxygen in this reaction?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Reactants"
+      },
+      {
+        "id": "choice-1",
+        "text": "Products",
+        "misconception": "chemistry.reactions.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Catalysts only",
+        "misconception": "chemistry.reactions.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Inert labels",
+        "misconception": "chemistry.reactions.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Reactants are the starting substances that change during a reaction. Products are the substances formed.",
+    "scienceFact": "Reactants are the starting substances that change during a reaction. Products are the substances formed.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.005",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A reaction turns magnesium and oxygen into magnesium oxide. What is magnesium oxide in this reaction?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Energy levels",
+        "misconception": "chemistry.reactions.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Products"
+      },
+      {
+        "id": "choice-2",
+        "text": "Reactants",
+        "misconception": "chemistry.reactions.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Atomic numbers",
+        "misconception": "chemistry.reactions.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Products are the substances formed by a chemical reaction. They are written after the arrow in an equation.",
+    "scienceFact": "Products are the substances formed by a chemical reaction. They are written after the arrow in an equation.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.006",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student balances H₂ + O₂ → H₂O. What should change rather than the chemical formulas?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Formula subscripts",
+        "misconception": "chemistry.reactions.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Atomic charges at random",
+        "misconception": "chemistry.reactions.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Coefficients"
+      },
+      {
+        "id": "choice-3",
+        "text": "Element symbols",
+        "misconception": "chemistry.reactions.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Balancing changes coefficients in front of formulas. Changing subscripts changes the substances in the reaction.",
+    "scienceFact": "Balancing changes coefficients in front of formulas. Changing subscripts changes the substances in the reaction.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.007",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A reaction warms the surrounding water without outside heating. What kind of energy change is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Endothermic",
+        "misconception": "chemistry.reactions.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Isothermal by definition",
+        "misconception": "chemistry.reactions.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "No energy transfer",
+        "misconception": "chemistry.reactions.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Exothermic"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "An exothermic reaction transfers energy to the surroundings, often as heat.",
+    "scienceFact": "An exothermic reaction transfers energy to the surroundings, often as heat.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.008",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A cold pack reacts and cools its surroundings. Which energy description fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Endothermic"
+      },
+      {
+        "id": "choice-1",
+        "text": "Exothermic",
+        "misconception": "chemistry.reactions.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only mechanical",
+        "misconception": "chemistry.reactions.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only magnetic",
+        "misconception": "chemistry.reactions.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "An endothermic process takes in energy from the surroundings, which may then cool.",
+    "scienceFact": "An endothermic process takes in energy from the surroundings, which may then cool.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.009",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A small amount of a substance speeds a reaction and can be recovered at the end. What is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Extra mass source",
+        "misconception": "chemistry.reactions.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Catalyst"
+      },
+      {
+        "id": "choice-2",
+        "text": "Product only",
+        "misconception": "chemistry.reactions.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Reactant consumed fully",
+        "misconception": "chemistry.reactions.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A catalyst speeds a reaction through a different pathway. It is not consumed overall by the reaction.",
+    "scienceFact": "A catalyst speeds a reaction through a different pathway. It is not consumed overall by the reaction.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.010",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Four hydrogen atoms form two water molecules. How many O₂ molecules provide the two oxygen atoms?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "3",
+        "misconception": "chemistry.reactions.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "4",
+        "misconception": "chemistry.reactions.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "1"
+      },
+      {
+        "id": "choice-3",
+        "text": "2",
+        "misconception": "chemistry.reactions.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "One O₂ molecule has two oxygen atoms. These balance the two oxygen atoms in two H₂O molecules.",
+    "scienceFact": "One O₂ molecule has two oxygen atoms. These balance the two oxygen atoms in two H₂O molecules.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.011",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order a reaction study that checks conservation of mass.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Seal the reactants"
+      },
+      {
+        "id": "step-1",
+        "text": "Measure total mass"
+      },
+      {
+        "id": "step-2",
+        "text": "Allow the reaction"
+      },
+      {
+        "id": "step-3",
+        "text": "Measure total mass again"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Seal the reactants. Measure total mass. Allow the reaction. Measure total mass again. Each stage leads to the next.",
+    "scienceFact": "A precipitate is a solid formed from a solution, often when dissolved ions combine into an insoluble compound.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.m.012",
+    "deckId": "chemistry.reactions",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Connect a reaction term to its role.",
+    "answer": {
+      "Reactant": "Starting substance",
+      "Product": "Substance formed",
+      "Catalyst": "Speeds the reaction"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Combustion is a reaction with oxygen that releases energy. Many fuels form carbon dioxide and water when fully burned.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.001",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Cebu lab’s sealed bag gains gas bubbles but no matter escapes. Which total should remain unchanged?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Temperature",
+        "misconception": "chemistry.reactions.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Number of molecules",
+        "misconception": "chemistry.reactions.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Total mass"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gas volume",
+        "misconception": "chemistry.reactions.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Atoms are conserved in a chemical reaction. Total mass stays the same in a closed system.",
+    "scienceFact": "Atoms are conserved in a chemical reaction. Total mass stays the same in a closed system.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Sealed bag model", "Mass"],
+      "rows": [
+        ["Before reaction", "100.0 g"],
+        ["After bubbles form", "100.0 g"]
+      ]
+    }
+  },
+  {
+    "id": "chemistry.reactions.h.002",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Philippine sample forms bubbles without boiling when a second liquid is added. Which observation suggests a reaction?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The cup is moved",
+        "misconception": "chemistry.reactions.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "A spoon is removed",
+        "misconception": "chemistry.reactions.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "The label is changed",
+        "misconception": "chemistry.reactions.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "A new gas forms"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "New gas, a precipitate, or an unexpected energy change can be clues to a chemical reaction. Use more than one clue when needed.",
+    "scienceFact": "New gas, a precipitate, or an unexpected energy change can be clues to a chemical reaction. Use more than one clue when needed.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Sample record", "Observed result"],
+      "rows": [
+        ["After liquid added", "Bubbles form"],
+        ["Temperature", "Below boiling"]
+      ]
+    }
+  },
+  {
+    "id": "chemistry.reactions.h.003",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A damp Philippine iron sample gains mass as it combines with oxygen. Which type of reaction is involved?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Oxidation"
+      },
+      {
+        "id": "choice-1",
+        "text": "Simple melting",
+        "misconception": "chemistry.reactions.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only evaporation",
+        "misconception": "chemistry.reactions.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Magnetic sorting",
+        "misconception": "chemistry.reactions.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Rusting is oxidation of iron involving oxygen and water. Atoms from the air become part of the rust.",
+    "scienceFact": "Rusting is oxidation of iron involving oxygen and water. Atoms from the air become part of the rust.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Damp iron model", "Observation"],
+      "rows": [
+        ["Surface", "Reddish-brown layer forms"],
+        ["Added material", "Includes oxygen from air"]
+      ]
+    }
+  },
+  {
+    "id": "chemistry.reactions.h.004",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "In A + B → C, A and B are used up while C forms. What label applies to A and B?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Inert labels",
+        "misconception": "chemistry.reactions.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Reactants"
+      },
+      {
+        "id": "choice-2",
+        "text": "Products",
+        "misconception": "chemistry.reactions.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Catalysts only",
+        "misconception": "chemistry.reactions.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Reactants are the starting substances that change during a reaction. Products are the substances formed.",
+    "scienceFact": "Reactants are the starting substances that change during a reaction. Products are the substances formed.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.005",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "In X → Y + Z, Y and Z appear as X breaks down. Which term describes Y and Z?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Atomic numbers",
+        "misconception": "chemistry.reactions.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Energy levels",
+        "misconception": "chemistry.reactions.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Products"
+      },
+      {
+        "id": "choice-3",
+        "text": "Reactants",
+        "misconception": "chemistry.reactions.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Products are the substances formed by a chemical reaction. They are written after the arrow in an equation.",
+    "scienceFact": "Products are the substances formed by a chemical reaction. They are written after the arrow in an equation.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.006",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Changing H₂O to H₂O₂ creates a different substance. What may change safely when balancing this water equation?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Element symbols",
+        "misconception": "chemistry.reactions.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Formula subscripts",
+        "misconception": "chemistry.reactions.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Atomic charges at random",
+        "misconception": "chemistry.reactions.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Coefficients"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Balancing changes coefficients in front of formulas. Changing subscripts changes the substances in the reaction.",
+    "scienceFact": "Balancing changes coefficients in front of formulas. Changing subscripts changes the substances in the reaction.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.007",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "The surroundings gain thermal energy while reactants become products. Which term describes the reaction?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Exothermic"
+      },
+      {
+        "id": "choice-1",
+        "text": "Endothermic",
+        "misconception": "chemistry.reactions.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Isothermal by definition",
+        "misconception": "chemistry.reactions.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "No energy transfer",
+        "misconception": "chemistry.reactions.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "An exothermic reaction transfers energy to the surroundings, often as heat.",
+    "scienceFact": "An exothermic reaction transfers energy to the surroundings, often as heat.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.008",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "The surroundings lose thermal energy as a reaction proceeds. Which reaction type is supported?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only magnetic",
+        "misconception": "chemistry.reactions.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Endothermic"
+      },
+      {
+        "id": "choice-2",
+        "text": "Exothermic",
+        "misconception": "chemistry.reactions.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only mechanical",
+        "misconception": "chemistry.reactions.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An endothermic process takes in energy from the surroundings, which may then cool.",
+    "scienceFact": "An endothermic process takes in energy from the surroundings, which may then cool.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.009",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two trials differ only by an added substance. The second reacts faster, but that substance remains unchanged overall. What is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Reactant consumed fully",
+        "misconception": "chemistry.reactions.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Extra mass source",
+        "misconception": "chemistry.reactions.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Catalyst"
+      },
+      {
+        "id": "choice-3",
+        "text": "Product only",
+        "misconception": "chemistry.reactions.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A catalyst speeds a reaction through a different pathway. It is not consumed overall by the reaction.",
+    "scienceFact": "A catalyst speeds a reaction through a different pathway. It is not consumed overall by the reaction.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.010",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A balanced water equation has 2H₂ and 2H₂O. Which coefficient belongs before O₂?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "2",
+        "misconception": "chemistry.reactions.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "3",
+        "misconception": "chemistry.reactions.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "4",
+        "misconception": "chemistry.reactions.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "1"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "One O₂ molecule has two oxygen atoms. These balance the two oxygen atoms in two H₂O molecules.",
+    "scienceFact": "One O₂ molecule has two oxygen atoms. These balance the two oxygen atoms in two H₂O molecules.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.011",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Put these steps in order to balance a reaction.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Write correct formulas"
+      },
+      {
+        "id": "step-1",
+        "text": "Count atoms on each side"
+      },
+      {
+        "id": "step-2",
+        "text": "Adjust coefficients"
+      },
+      {
+        "id": "step-3",
+        "text": "Check atom counts again"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Write correct formulas. Count atoms on each side. Adjust coefficients. Check atom counts again. Each stage leads to the next.",
+    "scienceFact": "A precipitate is a solid formed from a solution, often when dissolved ions combine into an insoluble compound.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.reactions.h.012",
+    "deckId": "chemistry.reactions",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A fuel reacts rapidly with oxygen, forming products and releasing energy. Which general reaction type fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Freezing",
+        "misconception": "chemistry.reactions.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Combustion"
+      },
+      {
+        "id": "choice-2",
+        "text": "Condensation",
+        "misconception": "chemistry.reactions.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Filtration",
+        "misconception": "chemistry.reactions.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Combustion is a reaction with oxygen that releases energy. Many fuels form carbon dioxide and water when fully burned.",
+    "scienceFact": "Combustion is a reaction with oxygen that releases energy. Many fuels form carbon dioxide and water when fully burned.",
+    "topic": "chemistry.reactions",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical change and conservation of mass. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "reaction"
+  }
+]

@@ -1,0 +1,1295 @@
+[
+  {
+    "id": "skills.method.e.001",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a science idea that can be tested with evidence called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Hypothesis"
+      },
+      {
+        "id": "choice-1",
+        "text": "Unchangeable truth",
+        "misconception": "skills.method.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Personal taste only",
+        "misconception": "skills.method.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Final proof with no test",
+        "misconception": "skills.method.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A hypothesis is a testable explanation or prediction. Evidence can support it or show that it needs to change.",
+    "scienceFact": "A hypothesis is a testable explanation or prediction. Evidence can support it or show that it needs to change.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.002",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What variable does a student deliberately change in a fair test?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Final conclusion",
+        "misconception": "skills.method.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Independent variable"
+      },
+      {
+        "id": "choice-2",
+        "text": "Dependent variable",
+        "misconception": "skills.method.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Unmeasured opinion",
+        "misconception": "skills.method.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The independent variable is deliberately changed or compared. It may affect the measured outcome.",
+    "scienceFact": "The independent variable is deliberately changed or compared. It may affect the measured outcome.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.003",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What variable is measured as the outcome of a test?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Controlled pot size",
+        "misconception": "skills.method.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Unrelated label",
+        "misconception": "skills.method.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Dependent variable"
+      },
+      {
+        "id": "choice-3",
+        "text": "Independent variable",
+        "misconception": "skills.method.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The dependent variable is the measured outcome. It may change in response to the independent variable.",
+    "scienceFact": "The dependent variable is the measured outcome. It may change in response to the independent variable.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.004",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What should usually happen to other important conditions in a fair test?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Change them all at once",
+        "misconception": "skills.method.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ignore them completely",
+        "misconception": "skills.method.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Choose them after seeing results",
+        "misconception": "skills.method.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Keep them controlled"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Controlling other conditions helps isolate the effect of the variable being tested.",
+    "scienceFact": "Controlling other conditions helps isolate the effect of the variable being tested.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.005",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Why should a test be repeated?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "To check consistency and reduce random effects"
+      },
+      {
+        "id": "choice-1",
+        "text": "To guarantee a desired result",
+        "misconception": "skills.method.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "To erase every difference",
+        "misconception": "skills.method.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "To avoid recording evidence",
+        "misconception": "skills.method.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Repeated trials reveal variation and improve confidence in a pattern. They do not guarantee that a claim is true.",
+    "scienceFact": "Repeated trials reveal variation and improve confidence in a pattern. They do not guarantee that a claim is true.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.006",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What should a conclusion be based on?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only the loudest voice",
+        "misconception": "skills.method.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Recorded evidence"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only personal preference",
+        "misconception": "skills.method.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only the first guess",
+        "misconception": "skills.method.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Base the conclusion on the data. This still matters when the result differs from your first prediction.",
+    "scienceFact": "Base the conclusion on the data. This still matters when the result differs from your first prediction.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.007",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a detailed description of how a test is carried out called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Opinion section",
+        "misconception": "skills.method.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Title only",
+        "misconception": "skills.method.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Procedure"
+      },
+      {
+        "id": "choice-3",
+        "text": "Result alone",
+        "misconception": "skills.method.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A clear procedure describes what was done so others can repeat and assess the test.",
+    "scienceFact": "A clear procedure describes what was done so others can repeat and assess the test.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.008",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which kind of question can be tested in a school investigation?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Which plant is the prettiest?",
+        "misconception": "skills.method.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Is green the nicest color?",
+        "misconception": "skills.method.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Are flowers better than stories?",
+        "misconception": "skills.method.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "How does light duration affect seedling height?"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A testable question links conditions that can be measured or compared. Personal preferences are not tested in the same way.",
+    "scienceFact": "A testable question links conditions that can be measured or compared. Personal preferences are not tested in the same way.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.009",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What makes a comparison group useful?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Whether the treatment made a difference"
+      },
+      {
+        "id": "choice-1",
+        "text": "Whether the result is guaranteed",
+        "misconception": "skills.method.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Whether measurements can be skipped",
+        "misconception": "skills.method.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Whether all plants are identical",
+        "misconception": "skills.method.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A comparison group shows what happens without the treatment. It helps us judge whether the treatment caused a change.",
+    "scienceFact": "A comparison group shows what happens without the treatment. It helps us judge whether the treatment caused a change.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.e.010",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What should a student do with data that do not match a prediction?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Hide the whole method",
+        "misconception": "skills.method.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Keep it and investigate"
+      },
+      {
+        "id": "choice-2",
+        "text": "Delete it to fit the guess",
+        "misconception": "skills.method.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Change its value secretly",
+        "misconception": "skills.method.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Keep valid data, even when they surprise you. Check the method and test again to learn what may have caused the result.",
+    "scienceFact": "Keep valid data, even when they surprise you. Check the method and test again to learn what may have caused the result.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "lab"
+  },
+  {
+    "id": "skills.method.e.011",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is a record made with senses or tools called?",
+    "answer": "Observation",
+    "explanation": "An observation is a record made with senses or tools. An inference is an explanation drawn from evidence.",
+    "scienceFact": "An observation is a record made with senses or tools. An inference is an explanation drawn from evidence.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["observation", "Observation"]
+  },
+  {
+    "id": "skills.method.e.012",
+    "deckId": "skills.method",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What scientific habit means changing a claim when good new evidence disagrees?",
+    "answer": "Revise the explanation",
+    "explanation": "Science is open to revision. Stronger evidence can lead to a better explanation or a changed model.",
+    "scienceFact": "Science is open to revision. Stronger evidence can lead to a better explanation or a changed model.",
+    "topic": "skills.method",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["revise the explanation", "Revise the explanation"]
+  },
+  {
+    "id": "skills.method.m.001",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine class predicts that rice seedlings grow taller with more light. What kind of testable idea is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Final proof with no test",
+        "misconception": "skills.method.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Hypothesis"
+      },
+      {
+        "id": "choice-2",
+        "text": "Unchangeable truth",
+        "misconception": "skills.method.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Personal taste only",
+        "misconception": "skills.method.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A hypothesis is a testable explanation or prediction. Evidence can support it or show that it needs to change.",
+    "scienceFact": "A hypothesis is a testable explanation or prediction. Evidence can support it or show that it needs to change.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.002",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine class changes only the light hours given to rice plants. What variable is light duration?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Unmeasured opinion",
+        "misconception": "skills.method.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Final conclusion",
+        "misconception": "skills.method.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Independent variable"
+      },
+      {
+        "id": "choice-3",
+        "text": "Dependent variable",
+        "misconception": "skills.method.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The independent variable is deliberately changed or compared. It may affect the measured outcome.",
+    "scienceFact": "The independent variable is deliberately changed or compared. It may affect the measured outcome.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.003",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Cebu class measures rice seedling height after changing light hours. What variable is plant height?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Independent variable",
+        "misconception": "skills.method.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Controlled pot size",
+        "misconception": "skills.method.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Unrelated label",
+        "misconception": "skills.method.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Dependent variable"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The dependent variable is the measured outcome. It may change in response to the independent variable.",
+    "scienceFact": "The dependent variable is the measured outcome. It may change in response to the independent variable.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.004",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A class tests water amount but keeps seed type, soil and light alike. What role do those unchanged conditions have?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Keep them controlled"
+      },
+      {
+        "id": "choice-1",
+        "text": "Change them all at once",
+        "misconception": "skills.method.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ignore them completely",
+        "misconception": "skills.method.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Choose them after seeing results",
+        "misconception": "skills.method.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Controlling other conditions helps isolate the effect of the variable being tested.",
+    "scienceFact": "Controlling other conditions helps isolate the effect of the variable being tested.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.005",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Three trials give slightly different results. Why repeat the test rather than trust one trial?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "To avoid recording evidence",
+        "misconception": "skills.method.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "To check consistency and reduce random effects"
+      },
+      {
+        "id": "choice-2",
+        "text": "To guarantee a desired result",
+        "misconception": "skills.method.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "To erase every difference",
+        "misconception": "skills.method.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Repeated trials reveal variation and improve confidence in a pattern. They do not guarantee that a claim is true.",
+    "scienceFact": "Repeated trials reveal variation and improve confidence in a pattern. They do not guarantee that a claim is true.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.006",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student dislikes the result because it contradicts the prediction. What should still guide the conclusion?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only the first guess",
+        "misconception": "skills.method.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only the loudest voice",
+        "misconception": "skills.method.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Recorded evidence"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only personal preference",
+        "misconception": "skills.method.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Base the conclusion on the data. This still matters when the result differs from your first prediction.",
+    "scienceFact": "Base the conclusion on the data. This still matters when the result differs from your first prediction.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.007",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Another class wants to repeat a test exactly. Which part tells it the steps to follow?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Result alone",
+        "misconception": "skills.method.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Opinion section",
+        "misconception": "skills.method.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Title only",
+        "misconception": "skills.method.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Procedure"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A clear procedure describes what was done so others can repeat and assess the test.",
+    "scienceFact": "A clear procedure describes what was done so others can repeat and assess the test.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.008",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A class has soil, seeds, light and a ruler. Which question can it test with measurements?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "How does light duration affect seedling height?"
+      },
+      {
+        "id": "choice-1",
+        "text": "Which plant is the prettiest?",
+        "misconception": "skills.method.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Is green the nicest color?",
+        "misconception": "skills.method.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Are flowers better than stories?",
+        "misconception": "skills.method.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A testable question links conditions that can be measured or compared. Personal preferences are not tested in the same way.",
+    "scienceFact": "A testable question links conditions that can be measured or compared. Personal preferences are not tested in the same way.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.009",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "One group receives a treatment and a similar group does not. Why is the second group useful?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Whether all plants are identical",
+        "misconception": "skills.method.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Whether the treatment made a difference"
+      },
+      {
+        "id": "choice-2",
+        "text": "Whether the result is guaranteed",
+        "misconception": "skills.method.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Whether measurements can be skipped",
+        "misconception": "skills.method.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A comparison group shows what happens without the treatment. It helps us judge whether the treatment caused a change.",
+    "scienceFact": "A comparison group shows what happens without the treatment. It helps us judge whether the treatment caused a change.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.010",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "One valid measurement is unexpected. What should happen to it in the report?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Change its value secretly",
+        "misconception": "skills.method.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Hide the whole method",
+        "misconception": "skills.method.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Keep it and investigate"
+      },
+      {
+        "id": "choice-3",
+        "text": "Delete it to fit the guess",
+        "misconception": "skills.method.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Keep valid data, even when they surprise you. Check the method and test again to learn what may have caused the result.",
+    "scienceFact": "Keep valid data, even when they surprise you. Check the method and test again to learn what may have caused the result.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.011",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Put the steps of a fair test in order.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Ask a testable question"
+      },
+      {
+        "id": "step-1",
+        "text": "Plan a fair test"
+      },
+      {
+        "id": "step-2",
+        "text": "Collect data"
+      },
+      {
+        "id": "step-3",
+        "text": "Draw a conclusion"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Ask a testable question. Plan a fair test. Collect data. Draw a conclusion. Each stage leads to the next.",
+    "scienceFact": "An observation is a record made with senses or tools. An inference is an explanation drawn from evidence.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.m.012",
+    "deckId": "skills.method",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each fair-test variable to its role.",
+    "answer": {
+      "Independent": "Changed or compared",
+      "Dependent": "Measured outcome",
+      "Controlled": "Kept similar across groups"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Science is open to revision. Stronger evidence can lead to a better explanation or a changed model.",
+    "topic": "skills.method",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.001",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Cebu class states a possible cause for a seedling’s growth and plans a fair test. What is this proposed explanation?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Personal taste only",
+        "misconception": "skills.method.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Final proof with no test",
+        "misconception": "skills.method.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Hypothesis"
+      },
+      {
+        "id": "choice-3",
+        "text": "Unchangeable truth",
+        "misconception": "skills.method.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A hypothesis is a testable explanation or prediction. Evidence can support it or show that it needs to change.",
+    "scienceFact": "A hypothesis is a testable explanation or prediction. Evidence can support it or show that it needs to change.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Rice study plan", "Record"],
+      "rows": [
+        ["Proposed cause", "More light may increase growth"],
+        ["Next step", "Test the proposed explanation"]
+      ]
+    }
+  },
+  {
+    "id": "skills.method.h.002",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A rice study in Luzon compares 4, 8 and 12 hours of light, keeping other conditions similar. What type of variable is changed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Dependent variable",
+        "misconception": "skills.method.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Unmeasured opinion",
+        "misconception": "skills.method.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Final conclusion",
+        "misconception": "skills.method.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Independent variable"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The independent variable is deliberately changed or compared. It may affect the measured outcome.",
+    "scienceFact": "The independent variable is deliberately changed or compared. It may affect the measured outcome.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Luzon study groups", "Light per day"],
+      "rows": [
+        ["A", "4 hours"],
+        ["B", "8 hours"],
+        ["C", "12 hours"]
+      ]
+    }
+  },
+  {
+    "id": "skills.method.h.003",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Philippine study changes fertilizer dose and records plant mass. What role does the measured plant mass have?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Dependent variable"
+      },
+      {
+        "id": "choice-1",
+        "text": "Independent variable",
+        "misconception": "skills.method.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Controlled pot size",
+        "misconception": "skills.method.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Unrelated label",
+        "misconception": "skills.method.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The dependent variable is the measured outcome. It may change in response to the independent variable.",
+    "scienceFact": "The dependent variable is the measured outcome. It may change in response to the independent variable.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Philippine rice study", "Variable role"],
+      "rows": [
+        ["Fertilizer dose", "Deliberately changed"],
+        ["Plant mass", "Recorded as the outcome"]
+      ]
+    }
+  },
+  {
+    "id": "skills.method.h.004",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Different light and soil are used for each water group. To isolate water’s effect, what should happen to the other key conditions?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Choose them after seeing results",
+        "misconception": "skills.method.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Keep them controlled"
+      },
+      {
+        "id": "choice-2",
+        "text": "Change them all at once",
+        "misconception": "skills.method.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ignore them completely",
+        "misconception": "skills.method.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Controlling other conditions helps isolate the effect of the variable being tested.",
+    "scienceFact": "Controlling other conditions helps isolate the effect of the variable being tested.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.005",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "One unusual result changes a claim. Why should the class repeat the test and collect more data?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "To erase every difference",
+        "misconception": "skills.method.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "To avoid recording evidence",
+        "misconception": "skills.method.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "To check consistency and reduce random effects"
+      },
+      {
+        "id": "choice-3",
+        "text": "To guarantee a desired result",
+        "misconception": "skills.method.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Repeated trials reveal variation and improve confidence in a pattern. They do not guarantee that a claim is true.",
+    "scienceFact": "Repeated trials reveal variation and improve confidence in a pattern. They do not guarantee that a claim is true.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.006",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two claims compete, but only one matches the recorded measurements. What should determine the scientific conclusion?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only personal preference",
+        "misconception": "skills.method.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only the first guess",
+        "misconception": "skills.method.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only the loudest voice",
+        "misconception": "skills.method.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Recorded evidence"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Base the conclusion on the data. This still matters when the result differs from your first prediction.",
+    "scienceFact": "Base the conclusion on the data. This still matters when the result differs from your first prediction.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.007",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A report gives materials, steps and measurement methods so others can reproduce the work. What section is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Procedure"
+      },
+      {
+        "id": "choice-1",
+        "text": "Result alone",
+        "misconception": "skills.method.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Opinion section",
+        "misconception": "skills.method.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Title only",
+        "misconception": "skills.method.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A clear procedure describes what was done so others can repeat and assess the test.",
+    "scienceFact": "A clear procedure describes what was done so others can repeat and assess the test.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.008",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A teacher asks for a question with a changeable input and a measurable outcome. Which one fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Are flowers better than stories?",
+        "misconception": "skills.method.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "How does light duration affect seedling height?"
+      },
+      {
+        "id": "choice-2",
+        "text": "Which plant is the prettiest?",
+        "misconception": "skills.method.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Is green the nicest color?",
+        "misconception": "skills.method.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A testable question links conditions that can be measured or compared. Personal preferences are not tested in the same way.",
+    "scienceFact": "A testable question links conditions that can be measured or compared. Personal preferences are not tested in the same way.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.009",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A new fertilizer group grows 3 cm, but a similar untreated group also grows 3 cm. What does that comparison help assess?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Whether measurements can be skipped",
+        "misconception": "skills.method.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Whether all plants are identical",
+        "misconception": "skills.method.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Whether the treatment made a difference"
+      },
+      {
+        "id": "choice-3",
+        "text": "Whether the result is guaranteed",
+        "misconception": "skills.method.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A comparison group shows what happens without the treatment. It helps us judge whether the treatment caused a change.",
+    "scienceFact": "A comparison group shows what happens without the treatment. It helps us judge whether the treatment caused a change.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.010",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An unusual result remains after you check for errors. What should a student do to report it fairly?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Delete it to fit the guess",
+        "misconception": "skills.method.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Change its value secretly",
+        "misconception": "skills.method.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Hide the whole method",
+        "misconception": "skills.method.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Keep it and investigate"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Keep valid data, even when they surprise you. Check the method and test again to learn what may have caused the result.",
+    "scienceFact": "Keep valid data, even when they surprise you. Check the method and test again to learn what may have caused the result.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.011",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order a careful response to an unexpected trial result.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Record the result"
+      },
+      {
+        "id": "step-1",
+        "text": "Check the method"
+      },
+      {
+        "id": "step-2",
+        "text": "Repeat the test"
+      },
+      {
+        "id": "step-3",
+        "text": "Compare the evidence"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Record the result. Check the method. Repeat the test. Compare the evidence. Each stage leads to the next.",
+    "scienceFact": "An observation is a record made with senses or tools. An inference is an explanation drawn from evidence.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.method.h.012",
+    "deckId": "skills.method",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "Several careful tests disagree with the old idea. Which response follows the evidence?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Choose only matching results",
+        "misconception": "skills.method.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Revise the explanation"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ignore the new data",
+        "misconception": "skills.method.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Keep the claim at any cost",
+        "misconception": "skills.method.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Science is open to revision. Stronger evidence can lead to a better explanation or a changed model.",
+    "scienceFact": "Science is open to revision. Stronger evidence can lead to a better explanation or a changed model.",
+    "topic": "skills.method",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Testable questions, fair tests, evidence and variables. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "lab"
+  }
+]

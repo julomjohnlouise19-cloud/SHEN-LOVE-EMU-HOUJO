@@ -29,20 +29,20 @@ Each phase: lint, typecheck, unit tests, phase Playwright smoke, question valida
 - [x] Phase 1 gate
 
 ### Phase 2 — complete product shell and loops
-- [ ] §1 P0: cozy responsive dashboard, Science Island, subject/deck sheets, grade recommendations
-- [ ] §1–2 P0: merits/XP/caps/combos, quests, streak, daily fact/challenge/spin, badges, leaderboard
-- [ ] §1–2 P0: atomic stock purchase, unique redeem code, student redemption, admin claim, notifications, audit and safe undo
-- [ ] §1–2 P0: admin mission control, user/section analytics, misconception heatmap, editable rules/content, online presence
-- [ ] §1 P0: notebook, misconception suggestions, challenge links, boss practice, interactive tiny lab
-- [ ] Phase 2 gate
+- [x] §1 P0: cozy responsive dashboard, Science Island, subject/deck sheets, grade recommendations
+- [x] §1–2 P0: merits/XP/caps/combos, quests, streak, daily fact/challenge/spin, badges, leaderboard
+- [x] §1–2 P0: atomic stock purchase, unique redeem code, student redemption, admin claim, notifications, audit and safe undo
+- [x] §1–2 P0: admin mission control, user/section analytics, misconception heatmap, editable rules/content, online presence
+- [x] §1 P0: notebook, misconception suggestions, challenge links, boss practice, interactive tiny lab
+- [x] Phase 2 gate
 
 ### Phase 3 — content and science engines
-- [ ] §3–4.8 P0: all 27 decks, 12 questions × 3 levels each, 15% Philippine contexts, source notes and grade bands
-- [ ] §4.3 P0: 60+ misconceptions with tagged distractors and repair feedback
-- [ ] §4.4 P0: all specified seeded calculators, independently checked across 200 seeds each
-- [ ] §4.6 P0: shared accessible DiagramKit, mixed answer types, hard data/calculation coverage
-- [ ] §4.7–4.8 P0: schema/readability/duplicates/bias/coverage validator, one-deck-at-a-time validation and skeptical review
-- [ ] Phase 3 gate
+- [x] §3–4.8 P0: all 27 decks, 12 questions × 3 levels each, 15% Philippine contexts, source notes and grade bands
+- [x] §4.3 P0: 60+ misconceptions with tagged distractors and repair feedback
+- [x] §4.4 P0: all specified seeded calculators, independently checked across 200 seeds each
+- [x] §4.6 P0: shared accessible DiagramKit, mixed answer types, hard data/calculation coverage
+- [x] §4.7–4.8 P0: schema/readability/duplicates/bias/coverage validator, one-deck-at-a-time validation and skeptical review
+- [x] Phase 3 gate
 
 ### Phase 4 — resilience, accessibility, delivery
 - [ ] §1–2 P0: offline shell/data cache, responsive keyboard-friendly UI, reduced motion, accessible contrast

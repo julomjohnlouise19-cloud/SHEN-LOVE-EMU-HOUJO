@@ -13,17 +13,17 @@
       {
         "id": "choice-1",
         "text": "Oxygen",
-        "misconception": "life.photosynthesis.e.001.mixup.1"
+        "misconception": "life.photosynthesis.mixup.1.1"
       },
       {
         "id": "choice-2",
         "text": "Nitrogen gas",
-        "misconception": "life.photosynthesis.e.001.mixup.2"
+        "misconception": "life.photosynthesis.mixup.1.2"
       },
       {
         "id": "choice-3",
         "text": "Helium",
-        "misconception": "life.photosynthesis.e.001.mixup.3"
+        "misconception": "life.photosynthesis.mixup.1.3"
       }
     ],
     "answer": "choice-0",
@@ -46,7 +46,7 @@
       {
         "id": "choice-0",
         "text": "Wind force",
-        "misconception": "life.photosynthesis.e.002.mixup.0"
+        "misconception": "life.photosynthesis.mixup.2.3"
       },
       {
         "id": "choice-1",
@@ -55,12 +55,12 @@
       {
         "id": "choice-2",
         "text": "Soil heat",
-        "misconception": "life.photosynthesis.e.002.mixup.2"
+        "misconception": "life.photosynthesis.mixup.2.1"
       },
       {
         "id": "choice-3",
         "text": "Sound",
-        "misconception": "life.photosynthesis.e.002.mixup.3"
+        "misconception": "life.photosynthesis.mixup.2.2"
       }
     ],
     "answer": "choice-1",
@@ -83,12 +83,12 @@
       {
         "id": "choice-0",
         "text": "Methane",
-        "misconception": "life.photosynthesis.e.003.mixup.0"
+        "misconception": "life.photosynthesis.mixup.3.2"
       },
       {
         "id": "choice-1",
         "text": "Carbon monoxide",
-        "misconception": "life.photosynthesis.e.003.mixup.1"
+        "misconception": "life.photosynthesis.mixup.3.3"
       },
       {
         "id": "choice-2",
@@ -97,7 +97,7 @@
       {
         "id": "choice-3",
         "text": "Nitrogen",
-        "misconception": "life.photosynthesis.e.003.mixup.3"
+        "misconception": "life.photosynthesis.mixup.3.1"
       }
     ],
     "answer": "choice-2",
@@ -120,17 +120,17 @@
       {
         "id": "choice-0",
         "text": "Hemoglobin",
-        "misconception": "life.photosynthesis.e.004.mixup.0"
+        "misconception": "life.photosynthesis.mixup.4.1"
       },
       {
         "id": "choice-1",
         "text": "Starch",
-        "misconception": "life.photosynthesis.e.004.mixup.1"
+        "misconception": "life.photosynthesis.mixup.4.2"
       },
       {
         "id": "choice-2",
         "text": "Cellulose",
-        "misconception": "life.photosynthesis.e.004.mixup.2"
+        "misconception": "life.photosynthesis.mixup.4.3"
       },
       {
         "id": "choice-3",
@@ -161,17 +161,17 @@
       {
         "id": "choice-1",
         "text": "Urea",
-        "misconception": "life.photosynthesis.e.005.mixup.1"
+        "misconception": "life.photosynthesis.mixup.5.1"
       },
       {
         "id": "choice-2",
         "text": "Sodium chloride",
-        "misconception": "life.photosynthesis.e.005.mixup.2"
+        "misconception": "life.photosynthesis.mixup.5.2"
       },
       {
         "id": "choice-3",
         "text": "Lactic acid",
-        "misconception": "life.photosynthesis.e.005.mixup.3"
+        "misconception": "life.photosynthesis.mixup.5.3"
       }
     ],
     "answer": "choice-0",
@@ -194,7 +194,7 @@
       {
         "id": "choice-0",
         "text": "Only transpiration",
-        "misconception": "life.photosynthesis.e.006.mixup.0"
+        "misconception": "life.photosynthesis.mixup.6.3"
       },
       {
         "id": "choice-1",
@@ -203,12 +203,12 @@
       {
         "id": "choice-2",
         "text": "Only photosynthesis",
-        "misconception": "life.photosynthesis.e.006.mixup.2"
+        "misconception": "life.photosynthesis.mixup.6.1"
       },
       {
         "id": "choice-3",
         "text": "Only osmosis",
-        "misconception": "life.photosynthesis.e.006.mixup.3"
+        "misconception": "life.photosynthesis.mixup.6.2"
       }
     ],
     "answer": "choice-1",
@@ -231,12 +231,12 @@
       {
         "id": "choice-0",
         "text": "Helium",
-        "misconception": "life.photosynthesis.e.007.mixup.0"
+        "misconception": "life.photosynthesis.mixup.7.2"
       },
       {
         "id": "choice-1",
         "text": "Nitrogen",
-        "misconception": "life.photosynthesis.e.007.mixup.1"
+        "misconception": "life.photosynthesis.mixup.7.3"
       },
       {
         "id": "choice-2",
@@ -245,7 +245,7 @@
       {
         "id": "choice-3",
         "text": "Hydrogen",
-        "misconception": "life.photosynthesis.e.007.mixup.3"
+        "misconception": "life.photosynthesis.mixup.7.1"
       }
     ],
     "answer": "choice-2",
@@ -268,17 +268,17 @@
       {
         "id": "choice-0",
         "text": "DNA",
-        "misconception": "life.photosynthesis.e.008.mixup.0"
+        "misconception": "life.photosynthesis.mixup.8.1"
       },
       {
         "id": "choice-1",
         "text": "Cellulose",
-        "misconception": "life.photosynthesis.e.008.mixup.1"
+        "misconception": "life.photosynthesis.mixup.8.2"
       },
       {
         "id": "choice-2",
         "text": "Chlorophyll",
-        "misconception": "life.photosynthesis.e.008.mixup.2"
+        "misconception": "life.photosynthesis.mixup.8.3"
       },
       {
         "id": "choice-3",
@@ -309,17 +309,17 @@
       {
         "id": "choice-1",
         "text": "Roots",
-        "misconception": "life.photosynthesis.e.009.mixup.1"
+        "misconception": "life.photosynthesis.mixup.9.1"
       },
       {
         "id": "choice-2",
         "text": "Ribosomes",
-        "misconception": "life.photosynthesis.e.009.mixup.2"
+        "misconception": "life.photosynthesis.mixup.9.2"
       },
       {
         "id": "choice-3",
         "text": "Veins only",
-        "misconception": "life.photosynthesis.e.009.mixup.3"
+        "misconception": "life.photosynthesis.mixup.9.3"
       }
     ],
     "answer": "choice-0",
@@ -342,7 +342,7 @@
       {
         "id": "choice-0",
         "text": "Genetic code",
-        "misconception": "life.photosynthesis.e.010.mixup.0"
+        "misconception": "life.photosynthesis.mixup.10.3"
       },
       {
         "id": "choice-1",
@@ -351,12 +351,12 @@
       {
         "id": "choice-2",
         "text": "Final product",
-        "misconception": "life.photosynthesis.e.010.mixup.2"
+        "misconception": "life.photosynthesis.mixup.10.1"
       },
       {
         "id": "choice-3",
         "text": "Waste material",
-        "misconception": "life.photosynthesis.e.010.mixup.3"
+        "misconception": "life.photosynthesis.mixup.10.2"
       }
     ],
     "answer": "choice-1",
@@ -385,10 +385,7 @@
     "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
     "reviewed": true,
-    "accept": [
-      "transpiration",
-      "Transpiration"
-    ]
+    "accept": ["transpiration", "Transpiration"]
   },
   {
     "id": "life.photosynthesis.e.012",
@@ -405,10 +402,7 @@
     "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
     "reviewed": true,
-    "accept": [
-      "atoms are rearranged",
-      "Atoms are rearranged"
-    ]
+    "accept": ["atoms are rearranged", "Atoms are rearranged"]
   },
   {
     "id": "life.photosynthesis.m.001",
@@ -420,7 +414,7 @@
       {
         "id": "choice-0",
         "text": "Helium",
-        "misconception": "life.photosynthesis.m.001.mixup.0"
+        "misconception": "life.photosynthesis.mixup.1.3"
       },
       {
         "id": "choice-1",
@@ -429,12 +423,12 @@
       {
         "id": "choice-2",
         "text": "Oxygen",
-        "misconception": "life.photosynthesis.m.001.mixup.2"
+        "misconception": "life.photosynthesis.mixup.1.1"
       },
       {
         "id": "choice-3",
         "text": "Nitrogen gas",
-        "misconception": "life.photosynthesis.m.001.mixup.3"
+        "misconception": "life.photosynthesis.mixup.1.2"
       }
     ],
     "answer": "choice-1",
@@ -457,12 +451,12 @@
       {
         "id": "choice-0",
         "text": "Sound",
-        "misconception": "life.photosynthesis.m.002.mixup.0"
+        "misconception": "life.photosynthesis.mixup.2.2"
       },
       {
         "id": "choice-1",
         "text": "Wind force",
-        "misconception": "life.photosynthesis.m.002.mixup.1"
+        "misconception": "life.photosynthesis.mixup.2.3"
       },
       {
         "id": "choice-2",
@@ -471,7 +465,7 @@
       {
         "id": "choice-3",
         "text": "Soil heat",
-        "misconception": "life.photosynthesis.m.002.mixup.3"
+        "misconception": "life.photosynthesis.mixup.2.1"
       }
     ],
     "answer": "choice-2",
@@ -494,17 +488,17 @@
       {
         "id": "choice-0",
         "text": "Nitrogen",
-        "misconception": "life.photosynthesis.m.003.mixup.0"
+        "misconception": "life.photosynthesis.mixup.3.1"
       },
       {
         "id": "choice-1",
         "text": "Methane",
-        "misconception": "life.photosynthesis.m.003.mixup.1"
+        "misconception": "life.photosynthesis.mixup.3.2"
       },
       {
         "id": "choice-2",
         "text": "Carbon monoxide",
-        "misconception": "life.photosynthesis.m.003.mixup.2"
+        "misconception": "life.photosynthesis.mixup.3.3"
       },
       {
         "id": "choice-3",
@@ -535,17 +529,17 @@
       {
         "id": "choice-1",
         "text": "Hemoglobin",
-        "misconception": "life.photosynthesis.m.004.mixup.1"
+        "misconception": "life.photosynthesis.mixup.4.1"
       },
       {
         "id": "choice-2",
         "text": "Starch",
-        "misconception": "life.photosynthesis.m.004.mixup.2"
+        "misconception": "life.photosynthesis.mixup.4.2"
       },
       {
         "id": "choice-3",
         "text": "Cellulose",
-        "misconception": "life.photosynthesis.m.004.mixup.3"
+        "misconception": "life.photosynthesis.mixup.4.3"
       }
     ],
     "answer": "choice-0",
@@ -568,7 +562,7 @@
       {
         "id": "choice-0",
         "text": "Lactic acid",
-        "misconception": "life.photosynthesis.m.005.mixup.0"
+        "misconception": "life.photosynthesis.mixup.5.3"
       },
       {
         "id": "choice-1",
@@ -577,12 +571,12 @@
       {
         "id": "choice-2",
         "text": "Urea",
-        "misconception": "life.photosynthesis.m.005.mixup.2"
+        "misconception": "life.photosynthesis.mixup.5.1"
       },
       {
         "id": "choice-3",
         "text": "Sodium chloride",
-        "misconception": "life.photosynthesis.m.005.mixup.3"
+        "misconception": "life.photosynthesis.mixup.5.2"
       }
     ],
     "answer": "choice-1",
@@ -605,12 +599,12 @@
       {
         "id": "choice-0",
         "text": "Only osmosis",
-        "misconception": "life.photosynthesis.m.006.mixup.0"
+        "misconception": "life.photosynthesis.mixup.6.2"
       },
       {
         "id": "choice-1",
         "text": "Only transpiration",
-        "misconception": "life.photosynthesis.m.006.mixup.1"
+        "misconception": "life.photosynthesis.mixup.6.3"
       },
       {
         "id": "choice-2",
@@ -619,7 +613,7 @@
       {
         "id": "choice-3",
         "text": "Only photosynthesis",
-        "misconception": "life.photosynthesis.m.006.mixup.3"
+        "misconception": "life.photosynthesis.mixup.6.1"
       }
     ],
     "answer": "choice-2",
@@ -642,17 +636,17 @@
       {
         "id": "choice-0",
         "text": "Hydrogen",
-        "misconception": "life.photosynthesis.m.007.mixup.0"
+        "misconception": "life.photosynthesis.mixup.7.1"
       },
       {
         "id": "choice-1",
         "text": "Helium",
-        "misconception": "life.photosynthesis.m.007.mixup.1"
+        "misconception": "life.photosynthesis.mixup.7.2"
       },
       {
         "id": "choice-2",
         "text": "Nitrogen",
-        "misconception": "life.photosynthesis.m.007.mixup.2"
+        "misconception": "life.photosynthesis.mixup.7.3"
       },
       {
         "id": "choice-3",
@@ -683,17 +677,17 @@
       {
         "id": "choice-1",
         "text": "DNA",
-        "misconception": "life.photosynthesis.m.008.mixup.1"
+        "misconception": "life.photosynthesis.mixup.8.1"
       },
       {
         "id": "choice-2",
         "text": "Cellulose",
-        "misconception": "life.photosynthesis.m.008.mixup.2"
+        "misconception": "life.photosynthesis.mixup.8.2"
       },
       {
         "id": "choice-3",
         "text": "Chlorophyll",
-        "misconception": "life.photosynthesis.m.008.mixup.3"
+        "misconception": "life.photosynthesis.mixup.8.3"
       }
     ],
     "answer": "choice-0",
@@ -716,7 +710,7 @@
       {
         "id": "choice-0",
         "text": "Veins only",
-        "misconception": "life.photosynthesis.m.009.mixup.0"
+        "misconception": "life.photosynthesis.mixup.9.3"
       },
       {
         "id": "choice-1",
@@ -725,12 +719,12 @@
       {
         "id": "choice-2",
         "text": "Roots",
-        "misconception": "life.photosynthesis.m.009.mixup.2"
+        "misconception": "life.photosynthesis.mixup.9.1"
       },
       {
         "id": "choice-3",
         "text": "Ribosomes",
-        "misconception": "life.photosynthesis.m.009.mixup.3"
+        "misconception": "life.photosynthesis.mixup.9.2"
       }
     ],
     "answer": "choice-1",
@@ -753,12 +747,12 @@
       {
         "id": "choice-0",
         "text": "Waste material",
-        "misconception": "life.photosynthesis.m.010.mixup.0"
+        "misconception": "life.photosynthesis.mixup.10.2"
       },
       {
         "id": "choice-1",
         "text": "Genetic code",
-        "misconception": "life.photosynthesis.m.010.mixup.1"
+        "misconception": "life.photosynthesis.mixup.10.3"
       },
       {
         "id": "choice-2",
@@ -767,7 +761,7 @@
       {
         "id": "choice-3",
         "text": "Final product",
-        "misconception": "life.photosynthesis.m.010.mixup.3"
+        "misconception": "life.photosynthesis.mixup.10.1"
       }
     ],
     "answer": "choice-2",
@@ -800,12 +794,8 @@
         "text": "Sugar can be stored as starch"
       }
     ],
-    "answer": [
-      "step-0",
-      "step-1",
-      "step-2"
-    ],
-    "explanation": "Carbon dioxide enters a leaf → Photosynthesis builds sugar → Sugar can be stored as starch. This sequence follows the process in order.",
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Carbon dioxide enters a leaf. Photosynthesis builds sugar. Sugar can be stored as starch. Each stage leads to the next.",
     "scienceFact": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves.",
     "topic": "life.photosynthesis",
     "gradeBand": 9,
@@ -844,12 +834,12 @@
       {
         "id": "choice-0",
         "text": "Nitrogen gas",
-        "misconception": "life.photosynthesis.h.001.mixup.0"
+        "misconception": "life.photosynthesis.mixup.1.2"
       },
       {
         "id": "choice-1",
         "text": "Helium",
-        "misconception": "life.photosynthesis.h.001.mixup.1"
+        "misconception": "life.photosynthesis.mixup.1.3"
       },
       {
         "id": "choice-2",
@@ -858,7 +848,7 @@
       {
         "id": "choice-3",
         "text": "Oxygen",
-        "misconception": "life.photosynthesis.h.001.mixup.3"
+        "misconception": "life.photosynthesis.mixup.1.1"
       }
     ],
     "answer": "choice-2",
@@ -869,7 +859,15 @@
     "bloom": "analyze",
     "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "data": {
+      "headers": ["Rice growth model", "Observation"],
+      "rows": [
+        ["Plant dry mass", "Increases"],
+        ["Soil dry mass", "Changes little"],
+        ["Gas carbon source", "Carbon dioxide"]
+      ]
+    }
   },
   {
     "id": "life.photosynthesis.h.002",
@@ -881,17 +879,17 @@
       {
         "id": "choice-0",
         "text": "Soil heat",
-        "misconception": "life.photosynthesis.h.002.mixup.0"
+        "misconception": "life.photosynthesis.mixup.2.1"
       },
       {
         "id": "choice-1",
         "text": "Sound",
-        "misconception": "life.photosynthesis.h.002.mixup.1"
+        "misconception": "life.photosynthesis.mixup.2.2"
       },
       {
         "id": "choice-2",
         "text": "Wind force",
-        "misconception": "life.photosynthesis.h.002.mixup.2"
+        "misconception": "life.photosynthesis.mixup.2.3"
       },
       {
         "id": "choice-3",
@@ -906,7 +904,14 @@
     "bloom": "analyze",
     "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "data": {
+      "headers": ["Rice plant model", "Sugar formed"],
+      "rows": [
+        ["Light present", "More"],
+        ["Darkness", "Less"]
+      ]
+    }
   },
   {
     "id": "life.photosynthesis.h.003",
@@ -922,17 +927,17 @@
       {
         "id": "choice-1",
         "text": "Nitrogen",
-        "misconception": "life.photosynthesis.h.003.mixup.1"
+        "misconception": "life.photosynthesis.mixup.3.1"
       },
       {
         "id": "choice-2",
         "text": "Methane",
-        "misconception": "life.photosynthesis.h.003.mixup.2"
+        "misconception": "life.photosynthesis.mixup.3.2"
       },
       {
         "id": "choice-3",
         "text": "Carbon monoxide",
-        "misconception": "life.photosynthesis.h.003.mixup.3"
+        "misconception": "life.photosynthesis.mixup.3.3"
       }
     ],
     "answer": "choice-0",
@@ -943,7 +948,14 @@
     "bloom": "analyze",
     "curriculumArea": "Photosynthesis, respiration and matter cycles. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "data": {
+      "headers": ["Pond plant model", "Observation"],
+      "rows": [
+        ["Bright light", "More gas bubbles"],
+        ["Dim light", "Fewer gas bubbles"]
+      ]
+    }
   },
   {
     "id": "life.photosynthesis.h.004",
@@ -955,7 +967,7 @@
       {
         "id": "choice-0",
         "text": "Cellulose",
-        "misconception": "life.photosynthesis.h.004.mixup.0"
+        "misconception": "life.photosynthesis.mixup.4.3"
       },
       {
         "id": "choice-1",
@@ -964,12 +976,12 @@
       {
         "id": "choice-2",
         "text": "Hemoglobin",
-        "misconception": "life.photosynthesis.h.004.mixup.2"
+        "misconception": "life.photosynthesis.mixup.4.1"
       },
       {
         "id": "choice-3",
         "text": "Starch",
-        "misconception": "life.photosynthesis.h.004.mixup.3"
+        "misconception": "life.photosynthesis.mixup.4.2"
       }
     ],
     "answer": "choice-1",
@@ -992,12 +1004,12 @@
       {
         "id": "choice-0",
         "text": "Sodium chloride",
-        "misconception": "life.photosynthesis.h.005.mixup.0"
+        "misconception": "life.photosynthesis.mixup.5.2"
       },
       {
         "id": "choice-1",
         "text": "Lactic acid",
-        "misconception": "life.photosynthesis.h.005.mixup.1"
+        "misconception": "life.photosynthesis.mixup.5.3"
       },
       {
         "id": "choice-2",
@@ -1006,7 +1018,7 @@
       {
         "id": "choice-3",
         "text": "Urea",
-        "misconception": "life.photosynthesis.h.005.mixup.3"
+        "misconception": "life.photosynthesis.mixup.5.1"
       }
     ],
     "answer": "choice-2",
@@ -1029,17 +1041,17 @@
       {
         "id": "choice-0",
         "text": "Only photosynthesis",
-        "misconception": "life.photosynthesis.h.006.mixup.0"
+        "misconception": "life.photosynthesis.mixup.6.1"
       },
       {
         "id": "choice-1",
         "text": "Only osmosis",
-        "misconception": "life.photosynthesis.h.006.mixup.1"
+        "misconception": "life.photosynthesis.mixup.6.2"
       },
       {
         "id": "choice-2",
         "text": "Only transpiration",
-        "misconception": "life.photosynthesis.h.006.mixup.2"
+        "misconception": "life.photosynthesis.mixup.6.3"
       },
       {
         "id": "choice-3",
@@ -1070,17 +1082,17 @@
       {
         "id": "choice-1",
         "text": "Hydrogen",
-        "misconception": "life.photosynthesis.h.007.mixup.1"
+        "misconception": "life.photosynthesis.mixup.7.1"
       },
       {
         "id": "choice-2",
         "text": "Helium",
-        "misconception": "life.photosynthesis.h.007.mixup.2"
+        "misconception": "life.photosynthesis.mixup.7.2"
       },
       {
         "id": "choice-3",
         "text": "Nitrogen",
-        "misconception": "life.photosynthesis.h.007.mixup.3"
+        "misconception": "life.photosynthesis.mixup.7.3"
       }
     ],
     "answer": "choice-0",
@@ -1103,7 +1115,7 @@
       {
         "id": "choice-0",
         "text": "Chlorophyll",
-        "misconception": "life.photosynthesis.h.008.mixup.0"
+        "misconception": "life.photosynthesis.mixup.8.3"
       },
       {
         "id": "choice-1",
@@ -1112,12 +1124,12 @@
       {
         "id": "choice-2",
         "text": "DNA",
-        "misconception": "life.photosynthesis.h.008.mixup.2"
+        "misconception": "life.photosynthesis.mixup.8.1"
       },
       {
         "id": "choice-3",
         "text": "Cellulose",
-        "misconception": "life.photosynthesis.h.008.mixup.3"
+        "misconception": "life.photosynthesis.mixup.8.2"
       }
     ],
     "answer": "choice-1",
@@ -1140,12 +1152,12 @@
       {
         "id": "choice-0",
         "text": "Ribosomes",
-        "misconception": "life.photosynthesis.h.009.mixup.0"
+        "misconception": "life.photosynthesis.mixup.9.2"
       },
       {
         "id": "choice-1",
         "text": "Veins only",
-        "misconception": "life.photosynthesis.h.009.mixup.1"
+        "misconception": "life.photosynthesis.mixup.9.3"
       },
       {
         "id": "choice-2",
@@ -1154,7 +1166,7 @@
       {
         "id": "choice-3",
         "text": "Roots",
-        "misconception": "life.photosynthesis.h.009.mixup.3"
+        "misconception": "life.photosynthesis.mixup.9.1"
       }
     ],
     "answer": "choice-2",
@@ -1177,17 +1189,17 @@
       {
         "id": "choice-0",
         "text": "Final product",
-        "misconception": "life.photosynthesis.h.010.mixup.0"
+        "misconception": "life.photosynthesis.mixup.10.1"
       },
       {
         "id": "choice-1",
         "text": "Waste material",
-        "misconception": "life.photosynthesis.h.010.mixup.1"
+        "misconception": "life.photosynthesis.mixup.10.2"
       },
       {
         "id": "choice-2",
         "text": "Genetic code",
-        "misconception": "life.photosynthesis.h.010.mixup.2"
+        "misconception": "life.photosynthesis.mixup.10.3"
       },
       {
         "id": "choice-3",
@@ -1224,12 +1236,8 @@
         "text": "ATP powers cell tasks"
       }
     ],
-    "answer": [
-      "step-0",
-      "step-1",
-      "step-2"
-    ],
-    "explanation": "Glucose is broken down → Energy is transferred to ATP → ATP powers cell tasks. This sequence follows the process in order.",
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Glucose is broken down. Energy is transferred to ATP. ATP powers cell tasks. Each stage leads to the next.",
     "scienceFact": "Transpiration is water loss as vapor from plants, mainly through stomata in leaves.",
     "topic": "life.photosynthesis",
     "gradeBand": 9,
@@ -1242,13 +1250,13 @@
     "id": "life.photosynthesis.h.012",
     "deckId": "life.photosynthesis",
     "level": "hard",
-    "type": "mcq",
+    "type": "diagram",
     "prompt": "An atom of carbon appears in sugar, then carbon dioxide. Which statement fits conservation of matter?",
     "options": [
       {
         "id": "choice-0",
         "text": "New carbon atoms appear",
-        "misconception": "life.photosynthesis.h.012.mixup.0"
+        "misconception": "life.photosynthesis.mixup.12.3"
       },
       {
         "id": "choice-1",
@@ -1257,12 +1265,12 @@
       {
         "id": "choice-2",
         "text": "Atoms are destroyed",
-        "misconception": "life.photosynthesis.h.012.mixup.2"
+        "misconception": "life.photosynthesis.mixup.12.1"
       },
       {
         "id": "choice-3",
         "text": "Matter becomes only light",
-        "misconception": "life.photosynthesis.h.012.mixup.3"
+        "misconception": "life.photosynthesis.mixup.12.2"
       }
     ],
     "answer": "choice-1",

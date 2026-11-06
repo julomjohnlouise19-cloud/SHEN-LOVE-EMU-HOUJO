@@ -13,17 +13,17 @@
       {
         "id": "choice-1",
         "text": "Starch",
-        "misconception": "life.genetics.e.001.mixup.1"
+        "misconception": "life.genetics.mixup.1.1"
       },
       {
         "id": "choice-2",
         "text": "Water",
-        "misconception": "life.genetics.e.001.mixup.2"
+        "misconception": "life.genetics.mixup.1.2"
       },
       {
         "id": "choice-3",
         "text": "Cellulose",
-        "misconception": "life.genetics.e.001.mixup.3"
+        "misconception": "life.genetics.mixup.1.3"
       }
     ],
     "answer": "choice-0",
@@ -46,7 +46,7 @@
       {
         "id": "choice-0",
         "text": "Enzyme",
-        "misconception": "life.genetics.e.002.mixup.0"
+        "misconception": "life.genetics.mixup.2.3"
       },
       {
         "id": "choice-1",
@@ -55,12 +55,12 @@
       {
         "id": "choice-2",
         "text": "Tissue",
-        "misconception": "life.genetics.e.002.mixup.2"
+        "misconception": "life.genetics.mixup.2.1"
       },
       {
         "id": "choice-3",
         "text": "Organelle",
-        "misconception": "life.genetics.e.002.mixup.3"
+        "misconception": "life.genetics.mixup.2.2"
       }
     ],
     "answer": "choice-1",
@@ -70,7 +70,7 @@
     "gradeBand": 9,
     "bloom": "remember",
     "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
-    "ph": true,
+    "ph": false,
     "reviewed": true
   },
   {
@@ -83,12 +83,12 @@
       {
         "id": "choice-0",
         "text": "Chromosome",
-        "misconception": "life.genetics.e.003.mixup.0"
+        "misconception": "life.genetics.mixup.3.2"
       },
       {
         "id": "choice-1",
         "text": "Gamete",
-        "misconception": "life.genetics.e.003.mixup.1"
+        "misconception": "life.genetics.mixup.3.3"
       },
       {
         "id": "choice-2",
@@ -97,7 +97,7 @@
       {
         "id": "choice-3",
         "text": "Genotype",
-        "misconception": "life.genetics.e.003.mixup.3"
+        "misconception": "life.genetics.mixup.3.1"
       }
     ],
     "answer": "choice-2",
@@ -107,7 +107,7 @@
     "gradeBand": 9,
     "bloom": "remember",
     "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
-    "ph": true,
+    "ph": false,
     "reviewed": true
   },
   {
@@ -120,17 +120,17 @@
       {
         "id": "choice-0",
         "text": "Homozygous",
-        "misconception": "life.genetics.e.004.mixup.0"
+        "misconception": "life.genetics.mixup.4.1"
       },
       {
         "id": "choice-1",
         "text": "Recessive only",
-        "misconception": "life.genetics.e.004.mixup.1"
+        "misconception": "life.genetics.mixup.4.2"
       },
       {
         "id": "choice-2",
         "text": "Identical alleles",
-        "misconception": "life.genetics.e.004.mixup.2"
+        "misconception": "life.genetics.mixup.4.3"
       },
       {
         "id": "choice-3",
@@ -161,17 +161,17 @@
       {
         "id": "choice-1",
         "text": "Mitosis",
-        "misconception": "life.genetics.e.005.mixup.1"
+        "misconception": "life.genetics.mixup.5.1"
       },
       {
         "id": "choice-2",
         "text": "Osmosis",
-        "misconception": "life.genetics.e.005.mixup.2"
+        "misconception": "life.genetics.mixup.5.2"
       },
       {
         "id": "choice-3",
         "text": "Budding",
-        "misconception": "life.genetics.e.005.mixup.3"
+        "misconception": "life.genetics.mixup.5.3"
       }
     ],
     "answer": "choice-0",
@@ -194,7 +194,7 @@
       {
         "id": "choice-0",
         "text": "Condensation",
-        "misconception": "life.genetics.e.006.mixup.0"
+        "misconception": "life.genetics.mixup.6.3"
       },
       {
         "id": "choice-1",
@@ -203,12 +203,12 @@
       {
         "id": "choice-2",
         "text": "Digestion",
-        "misconception": "life.genetics.e.006.mixup.2"
+        "misconception": "life.genetics.mixup.6.1"
       },
       {
         "id": "choice-3",
         "text": "Diffusion",
-        "misconception": "life.genetics.e.006.mixup.3"
+        "misconception": "life.genetics.mixup.6.2"
       }
     ],
     "answer": "choice-1",
@@ -231,12 +231,12 @@
       {
         "id": "choice-0",
         "text": "One organ",
-        "misconception": "life.genetics.e.007.mixup.0"
+        "misconception": "life.genetics.mixup.7.2"
       },
       {
         "id": "choice-1",
         "text": "One body cell",
-        "misconception": "life.genetics.e.007.mixup.1"
+        "misconception": "life.genetics.mixup.7.3"
       },
       {
         "id": "choice-2",
@@ -245,7 +245,7 @@
       {
         "id": "choice-3",
         "text": "Single individual",
-        "misconception": "life.genetics.e.007.mixup.3"
+        "misconception": "life.genetics.mixup.7.1"
       }
     ],
     "answer": "choice-2",
@@ -268,17 +268,17 @@
       {
         "id": "choice-0",
         "text": "Need-based change",
-        "misconception": "life.genetics.e.008.mixup.0"
+        "misconception": "life.genetics.mixup.8.1"
       },
       {
         "id": "choice-1",
         "text": "Deliberate mutation",
-        "misconception": "life.genetics.e.008.mixup.1"
+        "misconception": "life.genetics.mixup.8.2"
       },
       {
         "id": "choice-2",
         "text": "Instant adaptation",
-        "misconception": "life.genetics.e.008.mixup.2"
+        "misconception": "life.genetics.mixup.8.3"
       },
       {
         "id": "choice-3",
@@ -309,17 +309,17 @@
       {
         "id": "choice-1",
         "text": "1/2",
-        "misconception": "life.genetics.e.009.mixup.1"
+        "misconception": "life.genetics.mixup.9.1"
       },
       {
         "id": "choice-2",
         "text": "3/4",
-        "misconception": "life.genetics.e.009.mixup.2"
+        "misconception": "life.genetics.mixup.9.2"
       },
       {
         "id": "choice-3",
         "text": "1",
-        "misconception": "life.genetics.e.009.mixup.3"
+        "misconception": "life.genetics.mixup.9.3"
       }
     ],
     "answer": "choice-0",
@@ -342,7 +342,7 @@
       {
         "id": "choice-0",
         "text": "No genetic link",
-        "misconception": "life.genetics.e.010.mixup.0"
+        "misconception": "life.genetics.mixup.10.3"
       },
       {
         "id": "choice-1",
@@ -351,12 +351,12 @@
       {
         "id": "choice-2",
         "text": "Identical habitats",
-        "misconception": "life.genetics.e.010.mixup.2"
+        "misconception": "life.genetics.mixup.10.1"
       },
       {
         "id": "choice-3",
         "text": "Equal body sizes",
-        "misconception": "life.genetics.e.010.mixup.3"
+        "misconception": "life.genetics.mixup.10.2"
       }
     ],
     "answer": "choice-1",
@@ -385,10 +385,7 @@
     "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
     "reviewed": true,
-    "accept": [
-      "chromosomes",
-      "Chromosomes"
-    ]
+    "accept": ["chromosomes", "Chromosomes"]
   },
   {
     "id": "life.genetics.e.012",
@@ -405,10 +402,7 @@
     "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
     "reviewed": true,
-    "accept": [
-      "variation",
-      "Variation"
-    ]
+    "accept": ["variation", "Variation"]
   },
   {
     "id": "life.genetics.m.001",
@@ -420,7 +414,7 @@
       {
         "id": "choice-0",
         "text": "Cellulose",
-        "misconception": "life.genetics.m.001.mixup.0"
+        "misconception": "life.genetics.mixup.1.3"
       },
       {
         "id": "choice-1",
@@ -429,12 +423,12 @@
       {
         "id": "choice-2",
         "text": "Starch",
-        "misconception": "life.genetics.m.001.mixup.2"
+        "misconception": "life.genetics.mixup.1.1"
       },
       {
         "id": "choice-3",
         "text": "Water",
-        "misconception": "life.genetics.m.001.mixup.3"
+        "misconception": "life.genetics.mixup.1.2"
       }
     ],
     "answer": "choice-1",
@@ -457,12 +451,12 @@
       {
         "id": "choice-0",
         "text": "Organelle",
-        "misconception": "life.genetics.m.002.mixup.0"
+        "misconception": "life.genetics.mixup.2.2"
       },
       {
         "id": "choice-1",
         "text": "Enzyme",
-        "misconception": "life.genetics.m.002.mixup.1"
+        "misconception": "life.genetics.mixup.2.3"
       },
       {
         "id": "choice-2",
@@ -471,7 +465,7 @@
       {
         "id": "choice-3",
         "text": "Tissue",
-        "misconception": "life.genetics.m.002.mixup.3"
+        "misconception": "life.genetics.mixup.2.1"
       }
     ],
     "answer": "choice-2",
@@ -494,17 +488,17 @@
       {
         "id": "choice-0",
         "text": "Genotype",
-        "misconception": "life.genetics.m.003.mixup.0"
+        "misconception": "life.genetics.mixup.3.1"
       },
       {
         "id": "choice-1",
         "text": "Chromosome",
-        "misconception": "life.genetics.m.003.mixup.1"
+        "misconception": "life.genetics.mixup.3.2"
       },
       {
         "id": "choice-2",
         "text": "Gamete",
-        "misconception": "life.genetics.m.003.mixup.2"
+        "misconception": "life.genetics.mixup.3.3"
       },
       {
         "id": "choice-3",
@@ -535,17 +529,17 @@
       {
         "id": "choice-1",
         "text": "Homozygous",
-        "misconception": "life.genetics.m.004.mixup.1"
+        "misconception": "life.genetics.mixup.4.1"
       },
       {
         "id": "choice-2",
         "text": "Recessive only",
-        "misconception": "life.genetics.m.004.mixup.2"
+        "misconception": "life.genetics.mixup.4.2"
       },
       {
         "id": "choice-3",
         "text": "Identical alleles",
-        "misconception": "life.genetics.m.004.mixup.3"
+        "misconception": "life.genetics.mixup.4.3"
       }
     ],
     "answer": "choice-0",
@@ -568,7 +562,7 @@
       {
         "id": "choice-0",
         "text": "Budding",
-        "misconception": "life.genetics.m.005.mixup.0"
+        "misconception": "life.genetics.mixup.5.3"
       },
       {
         "id": "choice-1",
@@ -577,12 +571,12 @@
       {
         "id": "choice-2",
         "text": "Mitosis",
-        "misconception": "life.genetics.m.005.mixup.2"
+        "misconception": "life.genetics.mixup.5.1"
       },
       {
         "id": "choice-3",
         "text": "Osmosis",
-        "misconception": "life.genetics.m.005.mixup.3"
+        "misconception": "life.genetics.mixup.5.2"
       }
     ],
     "answer": "choice-1",
@@ -605,12 +599,12 @@
       {
         "id": "choice-0",
         "text": "Diffusion",
-        "misconception": "life.genetics.m.006.mixup.0"
+        "misconception": "life.genetics.mixup.6.2"
       },
       {
         "id": "choice-1",
         "text": "Condensation",
-        "misconception": "life.genetics.m.006.mixup.1"
+        "misconception": "life.genetics.mixup.6.3"
       },
       {
         "id": "choice-2",
@@ -619,7 +613,7 @@
       {
         "id": "choice-3",
         "text": "Digestion",
-        "misconception": "life.genetics.m.006.mixup.3"
+        "misconception": "life.genetics.mixup.6.1"
       }
     ],
     "answer": "choice-2",
@@ -642,17 +636,17 @@
       {
         "id": "choice-0",
         "text": "Single individual",
-        "misconception": "life.genetics.m.007.mixup.0"
+        "misconception": "life.genetics.mixup.7.1"
       },
       {
         "id": "choice-1",
         "text": "One organ",
-        "misconception": "life.genetics.m.007.mixup.1"
+        "misconception": "life.genetics.mixup.7.2"
       },
       {
         "id": "choice-2",
         "text": "One body cell",
-        "misconception": "life.genetics.m.007.mixup.2"
+        "misconception": "life.genetics.mixup.7.3"
       },
       {
         "id": "choice-3",
@@ -683,17 +677,17 @@
       {
         "id": "choice-1",
         "text": "Need-based change",
-        "misconception": "life.genetics.m.008.mixup.1"
+        "misconception": "life.genetics.mixup.8.1"
       },
       {
         "id": "choice-2",
         "text": "Deliberate mutation",
-        "misconception": "life.genetics.m.008.mixup.2"
+        "misconception": "life.genetics.mixup.8.2"
       },
       {
         "id": "choice-3",
         "text": "Instant adaptation",
-        "misconception": "life.genetics.m.008.mixup.3"
+        "misconception": "life.genetics.mixup.8.3"
       }
     ],
     "answer": "choice-0",
@@ -716,7 +710,7 @@
       {
         "id": "choice-0",
         "text": "1",
-        "misconception": "life.genetics.m.009.mixup.0"
+        "misconception": "life.genetics.mixup.9.3"
       },
       {
         "id": "choice-1",
@@ -725,12 +719,12 @@
       {
         "id": "choice-2",
         "text": "1/2",
-        "misconception": "life.genetics.m.009.mixup.2"
+        "misconception": "life.genetics.mixup.9.1"
       },
       {
         "id": "choice-3",
         "text": "3/4",
-        "misconception": "life.genetics.m.009.mixup.3"
+        "misconception": "life.genetics.mixup.9.2"
       }
     ],
     "answer": "choice-1",
@@ -753,12 +747,12 @@
       {
         "id": "choice-0",
         "text": "Equal body sizes",
-        "misconception": "life.genetics.m.010.mixup.0"
+        "misconception": "life.genetics.mixup.10.2"
       },
       {
         "id": "choice-1",
         "text": "No genetic link",
-        "misconception": "life.genetics.m.010.mixup.1"
+        "misconception": "life.genetics.mixup.10.3"
       },
       {
         "id": "choice-2",
@@ -767,7 +761,7 @@
       {
         "id": "choice-3",
         "text": "Identical habitats",
-        "misconception": "life.genetics.m.010.mixup.3"
+        "misconception": "life.genetics.mixup.10.1"
       }
     ],
     "answer": "choice-2",
@@ -800,12 +794,8 @@
         "text": "A trait is expressed"
       }
     ],
-    "answer": [
-      "step-0",
-      "step-1",
-      "step-2"
-    ],
-    "explanation": "DNA instructions → Protein is made → A trait is expressed. This sequence follows the process in order.",
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "DNA instructions. Protein is made. A trait is expressed. Each stage leads to the next.",
     "scienceFact": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division.",
     "topic": "life.genetics",
     "gradeBand": 10,
@@ -838,112 +828,55 @@
     "id": "life.genetics.h.001",
     "deckId": "life.genetics",
     "level": "hard",
-    "type": "data",
-    "prompt": "Two rice strains have different gene sequences. Which molecule must differ between the strains?",
-    "options": [
-      {
-        "id": "choice-0",
-        "text": "Water",
-        "misconception": "life.genetics.h.001.mixup.0"
-      },
-      {
-        "id": "choice-1",
-        "text": "Cellulose",
-        "misconception": "life.genetics.h.001.mixup.1"
-      },
-      {
-        "id": "choice-2",
-        "text": "DNA"
-      },
-      {
-        "id": "choice-3",
-        "text": "Starch",
-        "misconception": "life.genetics.h.001.mixup.3"
-      }
-    ],
-    "answer": "choice-2",
-    "explanation": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits.",
-    "scienceFact": "DNA stores genetic information. Its sequence helps guide the making of proteins and inherited traits.",
+    "type": "calc",
+    "prompt": "A Philippine pea study crosses Aa × Aa. What percent of offspring are expected to have genotype aa?",
+    "answer": "25",
+    "explanation": "The four equally likely combinations are AA, Aa, Aa and aa. One out of four is aa, giving 25%.",
+    "scienceFact": "The four equally likely combinations are AA, Aa, Aa and aa. One out of four is aa, giving 25%.",
     "topic": "life.genetics",
     "gradeBand": 10,
     "bloom": "analyze",
     "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "unit": "%",
+    "tolerance": 0.001
   },
   {
     "id": "life.genetics.h.002",
     "deckId": "life.genetics",
     "level": "hard",
-    "type": "data",
-    "prompt": "A rice cross combines A and a at one gene location. What is each version called?",
-    "options": [
-      {
-        "id": "choice-0",
-        "text": "Tissue",
-        "misconception": "life.genetics.h.002.mixup.0"
-      },
-      {
-        "id": "choice-1",
-        "text": "Organelle",
-        "misconception": "life.genetics.h.002.mixup.1"
-      },
-      {
-        "id": "choice-2",
-        "text": "Enzyme",
-        "misconception": "life.genetics.h.002.mixup.2"
-      },
-      {
-        "id": "choice-3",
-        "text": "Allele"
-      }
-    ],
-    "answer": "choice-3",
-    "explanation": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location.",
-    "scienceFact": "An allele is a version of a gene. A diploid organism usually has two alleles at a gene location.",
+    "type": "calc",
+    "prompt": "A Cebu class predicts an aa probability of 1/4 in a pea cross. Out of 80 offspring, what is the expected aa count?",
+    "answer": "20",
+    "explanation": "Expected count = total × probability = 80 × ¼ = 20. Actual counts may vary by chance.",
+    "scienceFact": "Expected count = total × probability = 80 × ¼ = 20. Actual counts may vary by chance.",
     "topic": "life.genetics",
     "gradeBand": 10,
     "bloom": "analyze",
     "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "unit": "",
+    "tolerance": 0.001
   },
   {
     "id": "life.genetics.h.003",
     "deckId": "life.genetics",
     "level": "hard",
-    "type": "data",
-    "prompt": "Two Philippine pea plants have different genotypes but both have purple flowers. What do they share?",
-    "options": [
-      {
-        "id": "choice-0",
-        "text": "Phenotype"
-      },
-      {
-        "id": "choice-1",
-        "text": "Genotype",
-        "misconception": "life.genetics.h.003.mixup.1"
-      },
-      {
-        "id": "choice-2",
-        "text": "Chromosome",
-        "misconception": "life.genetics.h.003.mixup.2"
-      },
-      {
-        "id": "choice-3",
-        "text": "Gamete",
-        "misconception": "life.genetics.h.003.mixup.3"
-      }
-    ],
-    "answer": "choice-0",
-    "explanation": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it.",
-    "scienceFact": "Phenotype means the traits we can observe or measure. Genes and the environment can both affect it.",
+    "type": "calc",
+    "prompt": "A Manila class models Aa × aa with equal allele chances. What percent of offspring are expected to be Aa?",
+    "answer": "50",
+    "explanation": "The first parent passes A or a equally; the second passes a. Half the expected pairs are Aa.",
+    "scienceFact": "The first parent passes A or a equally; the second passes a. Half the expected pairs are Aa.",
     "topic": "life.genetics",
     "gradeBand": 10,
     "bloom": "analyze",
     "curriculumArea": "Heredity, variation and natural selection. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "unit": "%",
+    "tolerance": 0.001
   },
   {
     "id": "life.genetics.h.004",
@@ -955,7 +888,7 @@
       {
         "id": "choice-0",
         "text": "Identical alleles",
-        "misconception": "life.genetics.h.004.mixup.0"
+        "misconception": "life.genetics.mixup.4.3"
       },
       {
         "id": "choice-1",
@@ -964,12 +897,12 @@
       {
         "id": "choice-2",
         "text": "Homozygous",
-        "misconception": "life.genetics.h.004.mixup.2"
+        "misconception": "life.genetics.mixup.4.1"
       },
       {
         "id": "choice-3",
         "text": "Recessive only",
-        "misconception": "life.genetics.h.004.mixup.3"
+        "misconception": "life.genetics.mixup.4.2"
       }
     ],
     "answer": "choice-1",
@@ -992,12 +925,12 @@
       {
         "id": "choice-0",
         "text": "Osmosis",
-        "misconception": "life.genetics.h.005.mixup.0"
+        "misconception": "life.genetics.mixup.5.2"
       },
       {
         "id": "choice-1",
         "text": "Budding",
-        "misconception": "life.genetics.h.005.mixup.1"
+        "misconception": "life.genetics.mixup.5.3"
       },
       {
         "id": "choice-2",
@@ -1006,7 +939,7 @@
       {
         "id": "choice-3",
         "text": "Mitosis",
-        "misconception": "life.genetics.h.005.mixup.3"
+        "misconception": "life.genetics.mixup.5.1"
       }
     ],
     "answer": "choice-2",
@@ -1029,17 +962,17 @@
       {
         "id": "choice-0",
         "text": "Digestion",
-        "misconception": "life.genetics.h.006.mixup.0"
+        "misconception": "life.genetics.mixup.6.1"
       },
       {
         "id": "choice-1",
         "text": "Diffusion",
-        "misconception": "life.genetics.h.006.mixup.1"
+        "misconception": "life.genetics.mixup.6.2"
       },
       {
         "id": "choice-2",
         "text": "Condensation",
-        "misconception": "life.genetics.h.006.mixup.2"
+        "misconception": "life.genetics.mixup.6.3"
       },
       {
         "id": "choice-3",
@@ -1070,17 +1003,17 @@
       {
         "id": "choice-1",
         "text": "Single individual",
-        "misconception": "life.genetics.h.007.mixup.1"
+        "misconception": "life.genetics.mixup.7.1"
       },
       {
         "id": "choice-2",
         "text": "One organ",
-        "misconception": "life.genetics.h.007.mixup.2"
+        "misconception": "life.genetics.mixup.7.2"
       },
       {
         "id": "choice-3",
         "text": "One body cell",
-        "misconception": "life.genetics.h.007.mixup.3"
+        "misconception": "life.genetics.mixup.7.3"
       }
     ],
     "answer": "choice-0",
@@ -1103,7 +1036,7 @@
       {
         "id": "choice-0",
         "text": "Instant adaptation",
-        "misconception": "life.genetics.h.008.mixup.0"
+        "misconception": "life.genetics.mixup.8.3"
       },
       {
         "id": "choice-1",
@@ -1112,12 +1045,12 @@
       {
         "id": "choice-2",
         "text": "Need-based change",
-        "misconception": "life.genetics.h.008.mixup.2"
+        "misconception": "life.genetics.mixup.8.1"
       },
       {
         "id": "choice-3",
         "text": "Deliberate mutation",
-        "misconception": "life.genetics.h.008.mixup.3"
+        "misconception": "life.genetics.mixup.8.2"
       }
     ],
     "answer": "choice-1",
@@ -1140,12 +1073,12 @@
       {
         "id": "choice-0",
         "text": "3/4",
-        "misconception": "life.genetics.h.009.mixup.0"
+        "misconception": "life.genetics.mixup.9.2"
       },
       {
         "id": "choice-1",
         "text": "1",
-        "misconception": "life.genetics.h.009.mixup.1"
+        "misconception": "life.genetics.mixup.9.3"
       },
       {
         "id": "choice-2",
@@ -1154,7 +1087,7 @@
       {
         "id": "choice-3",
         "text": "1/2",
-        "misconception": "life.genetics.h.009.mixup.3"
+        "misconception": "life.genetics.mixup.9.1"
       }
     ],
     "answer": "choice-2",
@@ -1177,17 +1110,17 @@
       {
         "id": "choice-0",
         "text": "Identical habitats",
-        "misconception": "life.genetics.h.010.mixup.0"
+        "misconception": "life.genetics.mixup.10.1"
       },
       {
         "id": "choice-1",
         "text": "Equal body sizes",
-        "misconception": "life.genetics.h.010.mixup.1"
+        "misconception": "life.genetics.mixup.10.2"
       },
       {
         "id": "choice-2",
         "text": "No genetic link",
-        "misconception": "life.genetics.h.010.mixup.2"
+        "misconception": "life.genetics.mixup.10.3"
       },
       {
         "id": "choice-3",
@@ -1224,12 +1157,8 @@
         "text": "Trait frequency changes"
       }
     ],
-    "answer": [
-      "step-0",
-      "step-1",
-      "step-2"
-    ],
-    "explanation": "Inherited variation exists → Survival and breeding differ → Trait frequency changes. This sequence follows the process in order.",
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Inherited variation exists. Survival and breeding differ. Trait frequency changes. Each stage leads to the next.",
     "scienceFact": "Chromosomes are DNA and protein structures. They carry many genes and are copied before cell division.",
     "topic": "life.genetics",
     "gradeBand": 10,
@@ -1242,13 +1171,13 @@
     "id": "life.genetics.h.012",
     "deckId": "life.genetics",
     "level": "hard",
-    "type": "mcq",
+    "type": "diagram",
     "prompt": "A species has varied sizes and colors, which can affect breeding success. What provides this raw material for selection?",
     "options": [
       {
         "id": "choice-0",
         "text": "Neutralization",
-        "misconception": "life.genetics.h.012.mixup.0"
+        "misconception": "life.genetics.mixup.12.3"
       },
       {
         "id": "choice-1",
@@ -1257,12 +1186,12 @@
       {
         "id": "choice-2",
         "text": "Extinction",
-        "misconception": "life.genetics.h.012.mixup.2"
+        "misconception": "life.genetics.mixup.12.1"
       },
       {
         "id": "choice-3",
         "text": "Uniformity",
-        "misconception": "life.genetics.h.012.mixup.3"
+        "misconception": "life.genetics.mixup.12.2"
       }
     ],
     "answer": "choice-1",

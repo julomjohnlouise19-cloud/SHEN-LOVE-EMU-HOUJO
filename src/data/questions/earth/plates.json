@@ -1,0 +1,1290 @@
+[
+  {
+    "id": "earth.plates.e.001",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What broad zone of earthquakes and volcanoes includes much of the Philippines?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pacific Ring of Fire"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mid-Atlantic Ridge only",
+        "misconception": "earth.plates.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sahara Desert belt",
+        "misconception": "earth.plates.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Arctic ice circle",
+        "misconception": "earth.plates.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Many plate edges surround the Pacific Ocean. This Ring of Fire has many volcanoes and earthquakes.",
+    "scienceFact": "Many plate edges surround the Pacific Ocean. This Ring of Fire has many volcanoes and earthquakes.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.002",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What boundary is formed when plates move toward one another?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a weather front",
+        "misconception": "earth.plates.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Convergent"
+      },
+      {
+        "id": "choice-2",
+        "text": "Divergent",
+        "misconception": "earth.plates.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "No plate boundary",
+        "misconception": "earth.plates.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "At a convergent boundary, plates move toward one another. An oceanic plate may subduct beneath another plate.",
+    "scienceFact": "At a convergent boundary, plates move toward one another. An oceanic plate may subduct beneath another plate.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.003",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What boundary has plates sliding past one another?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only collision without sliding",
+        "misconception": "earth.plates.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only vertical convection",
+        "misconception": "earth.plates.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Transform"
+      },
+      {
+        "id": "choice-3",
+        "text": "Divergent",
+        "misconception": "earth.plates.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "At transform boundaries, plates slide past one another. Many strike-slip faults show similar sideways motion.",
+    "scienceFact": "At transform boundaries, plates slide past one another. Many strike-slip faults show similar sideways motion.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.004",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is Earth’s rigid outer layer of plates called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Liquid outer core",
+        "misconception": "earth.plates.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Atmosphere",
+        "misconception": "earth.plates.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Inner core",
+        "misconception": "earth.plates.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Lithosphere"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The lithosphere includes the crust and the rigid uppermost mantle. It is divided into tectonic plates.",
+    "scienceFact": "The lithosphere includes the crust and the rigid uppermost mantle. It is divided into tectonic plates.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.005",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is Earth’s mostly solid layer between crust and core?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mantle"
+      },
+      {
+        "id": "choice-1",
+        "text": "Outer core",
+        "misconception": "earth.plates.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Atmosphere",
+        "misconception": "earth.plates.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ocean",
+        "misconception": "earth.plates.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The mantle is mostly solid rock. Over long times, hot mantle material can deform and flow.",
+    "scienceFact": "The mantle is mostly solid rock. Over long times, hot mantle material can deform and flow.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.006",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which Earth layer is liquid and rich in iron?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Inner core",
+        "misconception": "earth.plates.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Outer core"
+      },
+      {
+        "id": "choice-2",
+        "text": "Crust",
+        "misconception": "earth.plates.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Rigid lithosphere",
+        "misconception": "earth.plates.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The outer core is liquid metal, mainly iron and nickel. The inner core is solid under very high pressure.",
+    "scienceFact": "The outer core is liquid metal, mainly iron and nickel. The inner core is solid under very high pressure.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.007",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What boundary forms where plates move apart?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a collision zone",
+        "misconception": "earth.plates.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Stationary interior only",
+        "misconception": "earth.plates.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Divergent"
+      },
+      {
+        "id": "choice-3",
+        "text": "Transform",
+        "misconception": "earth.plates.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "At a divergent boundary, plates move apart. Magma can rise and form new crust at spreading ridges.",
+    "scienceFact": "At a divergent boundary, plates move apart. Magma can rise and form new crust at spreading ridges.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.008",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is one tectonic plate sinking beneath another called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Evaporation",
+        "misconception": "earth.plates.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Deposition by wind",
+        "misconception": "earth.plates.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Solar fusion",
+        "misconception": "earth.plates.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Subduction"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Subduction carries one plate beneath another into the mantle. It can produce trenches, earthquakes and volcanic arcs.",
+    "scienceFact": "Subduction carries one plate beneath another into the mantle. It can produce trenches, earthquakes and volcanic arcs.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.009",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What evidence helped show continents were once joined?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Former continental connection"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fossils swimming across every ocean",
+        "misconception": "earth.plates.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Unrelated random maps only",
+        "misconception": "earth.plates.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "No past movement",
+        "misconception": "earth.plates.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Matching fossils and rock layers suggest a past link between lands now apart. Their shapes can also give clues.",
+    "scienceFact": "Matching fossils and rock layers suggest a past link between lands now apart. Their shapes can also give clues.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.e.010",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Why are earthquakes common near plate boundaries?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The Moon touches Earth",
+        "misconception": "earth.plates.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sudden fault slip releases energy"
+      },
+      {
+        "id": "choice-2",
+        "text": "All mantle rock becomes liquid",
+        "misconception": "earth.plates.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Wind pushes the ground",
+        "misconception": "earth.plates.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Faults can lock while stress builds. Sudden slip releases stored energy as seismic waves.",
+    "scienceFact": "Faults can lock while stress builds. Sudden slip releases stored energy as seismic waves.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "plates"
+  },
+  {
+    "id": "earth.plates.e.011",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is Earth’s thin outermost rocky layer called?",
+    "answer": "Crust",
+    "explanation": "The crust is Earth’s thin outer rocky layer. Oceanic and continental crust differ in thickness and composition.",
+    "scienceFact": "The crust is Earth’s thin outer rocky layer. Oceanic and continental crust differ in thickness and composition.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["crust", "Crust"]
+  },
+  {
+    "id": "earth.plates.e.012",
+    "deckId": "earth.plates",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is slow, heat-driven flow in the mantle called?",
+    "answer": "Convection",
+    "explanation": "Mantle convection involves slow material motion driven by density differences. Slab pull and ridge forces also contribute to plate motion.",
+    "scienceFact": "Mantle convection involves slow material motion driven by density differences. Slab pull and ridge forces also contribute to plate motion.",
+    "topic": "earth.plates",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["convection", "Convection"]
+  },
+  {
+    "id": "earth.plates.m.001",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Many Philippine earthquakes and volcanoes lie near plate edges. Which broad Pacific zone includes them?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Arctic ice circle",
+        "misconception": "earth.plates.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pacific Ring of Fire"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mid-Atlantic Ridge only",
+        "misconception": "earth.plates.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sahara Desert belt",
+        "misconception": "earth.plates.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Many plate edges surround the Pacific Ocean. This Ring of Fire has many volcanoes and earthquakes.",
+    "scienceFact": "Many plate edges surround the Pacific Ocean. This Ring of Fire has many volcanoes and earthquakes.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.002",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Near the Philippine Trench, one plate dives below another. What general boundary type is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "No plate boundary",
+        "misconception": "earth.plates.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a weather front",
+        "misconception": "earth.plates.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Convergent"
+      },
+      {
+        "id": "choice-3",
+        "text": "Divergent",
+        "misconception": "earth.plates.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "At a convergent boundary, plates move toward one another. An oceanic plate may subduct beneath another plate.",
+    "scienceFact": "At a convergent boundary, plates move toward one another. An oceanic plate may subduct beneath another plate.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.003",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Blocks along the Philippine Fault move mainly sideways. Which plate-motion style does this model?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Divergent",
+        "misconception": "earth.plates.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only collision without sliding",
+        "misconception": "earth.plates.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only vertical convection",
+        "misconception": "earth.plates.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Transform"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "At transform boundaries, plates slide past one another. Many strike-slip faults show similar sideways motion.",
+    "scienceFact": "At transform boundaries, plates slide past one another. Many strike-slip faults show similar sideways motion.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.004",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A model joins the crust with the uppermost solid mantle into moving slabs. What layer do these slabs form?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Lithosphere"
+      },
+      {
+        "id": "choice-1",
+        "text": "Liquid outer core",
+        "misconception": "earth.plates.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Atmosphere",
+        "misconception": "earth.plates.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Inner core",
+        "misconception": "earth.plates.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The lithosphere includes the crust and the rigid uppermost mantle. It is divided into tectonic plates.",
+    "scienceFact": "The lithosphere includes the crust and the rigid uppermost mantle. It is divided into tectonic plates.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.005",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A model shows hot rock that can flow very slowly below the crust. Which major layer is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Ocean",
+        "misconception": "earth.plates.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mantle"
+      },
+      {
+        "id": "choice-2",
+        "text": "Outer core",
+        "misconception": "earth.plates.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Atmosphere",
+        "misconception": "earth.plates.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The mantle is mostly solid rock. Over long times, hot mantle material can deform and flow.",
+    "scienceFact": "The mantle is mostly solid rock. Over long times, hot mantle material can deform and flow.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.006",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A seismic model has a liquid metal layer outside a solid center. Which layer is liquid?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Rigid lithosphere",
+        "misconception": "earth.plates.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Inner core",
+        "misconception": "earth.plates.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Outer core"
+      },
+      {
+        "id": "choice-3",
+        "text": "Crust",
+        "misconception": "earth.plates.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The outer core is liquid metal, mainly iron and nickel. The inner core is solid under very high pressure.",
+    "scienceFact": "The outer core is liquid metal, mainly iron and nickel. The inner core is solid under very high pressure.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.007",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A ridge forms new crust as plates separate. Which boundary is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Transform",
+        "misconception": "earth.plates.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a collision zone",
+        "misconception": "earth.plates.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Stationary interior only",
+        "misconception": "earth.plates.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Divergent"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "At a divergent boundary, plates move apart. Magma can rise and form new crust at spreading ridges.",
+    "scienceFact": "At a divergent boundary, plates move apart. Magma can rise and form new crust at spreading ridges.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.008",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A dense ocean plate descends under another plate at a trench. What process is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Subduction"
+      },
+      {
+        "id": "choice-1",
+        "text": "Evaporation",
+        "misconception": "earth.plates.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Deposition by wind",
+        "misconception": "earth.plates.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Solar fusion",
+        "misconception": "earth.plates.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Subduction carries one plate beneath another into the mantle. It can produce trenches, earthquakes and volcanic arcs.",
+    "scienceFact": "Subduction carries one plate beneath another into the mantle. It can produce trenches, earthquakes and volcanic arcs.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.009",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Continents now far apart have matching fossils and rock belts. What does this support?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "No past movement",
+        "misconception": "earth.plates.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Former continental connection"
+      },
+      {
+        "id": "choice-2",
+        "text": "Fossils swimming across every ocean",
+        "misconception": "earth.plates.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Unrelated random maps only",
+        "misconception": "earth.plates.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Matching fossils and rock layers suggest a past link between lands now apart. Their shapes can also give clues.",
+    "scienceFact": "Matching fossils and rock layers suggest a past link between lands now apart. Their shapes can also give clues.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.010",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Rock near a plate edge is stressed, then suddenly slips. What explains the earthquake?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wind pushes the ground",
+        "misconception": "earth.plates.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "The Moon touches Earth",
+        "misconception": "earth.plates.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sudden fault slip releases energy"
+      },
+      {
+        "id": "choice-3",
+        "text": "All mantle rock becomes liquid",
+        "misconception": "earth.plates.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Faults can lock while stress builds. Sudden slip releases stored energy as seismic waves.",
+    "scienceFact": "Faults can lock while stress builds. Sudden slip releases stored energy as seismic waves.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.011",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order Earth’s main layers from surface to center.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Crust"
+      },
+      {
+        "id": "step-1",
+        "text": "Mantle"
+      },
+      {
+        "id": "step-2",
+        "text": "Outer core"
+      },
+      {
+        "id": "step-3",
+        "text": "Inner core"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Crust. Mantle. Outer core. Inner core. Each stage leads to the next.",
+    "scienceFact": "The crust is Earth’s thin outer rocky layer. Oceanic and continental crust differ in thickness and composition.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.m.012",
+    "deckId": "earth.plates",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Pair each plate boundary with its relative motion.",
+    "answer": {
+      "Divergent": "Plates move apart",
+      "Convergent": "Plates move together",
+      "Transform": "Plates slide past"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Mantle convection involves slow material motion driven by density differences. Slab pull and ridge forces also contribute to plate motion.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.001",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A map shows many Philippine and Pacific volcanoes near plate boundaries. Which named zone fits this pattern?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sahara Desert belt",
+        "misconception": "earth.plates.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Arctic ice circle",
+        "misconception": "earth.plates.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pacific Ring of Fire"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mid-Atlantic Ridge only",
+        "misconception": "earth.plates.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Many plate edges surround the Pacific Ocean. This Ring of Fire has many volcanoes and earthquakes.",
+    "scienceFact": "Many plate edges surround the Pacific Ocean. This Ring of Fire has many volcanoes and earthquakes.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Map observation", "Location"],
+      "rows": [
+        ["Many volcanoes", "Pacific plate edges"],
+        ["Many earthquakes", "Pacific plate edges"]
+      ]
+    }
+  },
+  {
+    "id": "earth.plates.h.002",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Philippine offshore profile shows a trench and a plate bending downward below another. Which boundary type fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Divergent",
+        "misconception": "earth.plates.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "No plate boundary",
+        "misconception": "earth.plates.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only a weather front",
+        "misconception": "earth.plates.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Convergent"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "At a convergent boundary, plates move toward one another. An oceanic plate may subduct beneath another plate.",
+    "scienceFact": "At a convergent boundary, plates move toward one another. An oceanic plate may subduct beneath another plate.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Offshore profile", "Record"],
+      "rows": [
+        ["Surface feature", "Deep trench"],
+        ["Plate motion", "Toward another plate and down"]
+      ]
+    }
+  },
+  {
+    "id": "earth.plates.h.003",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Philippine fault map shows sideways offsets without a broad spreading ridge. Which boundary-motion type is closest?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Transform"
+      },
+      {
+        "id": "choice-1",
+        "text": "Divergent",
+        "misconception": "earth.plates.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only collision without sliding",
+        "misconception": "earth.plates.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only vertical convection",
+        "misconception": "earth.plates.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "At transform boundaries, plates slide past one another. Many strike-slip faults show similar sideways motion.",
+    "scienceFact": "At transform boundaries, plates slide past one another. Many strike-slip faults show similar sideways motion.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Fault model", "Record"],
+      "rows": [
+        ["Motion", "Mainly sideways"],
+        ["Rock layer markers", "Offset across a fault"]
+      ]
+    }
+  },
+  {
+    "id": "earth.plates.h.004",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Earth’s plates include both crust and rigid uppermost mantle. Which layer contains the full plates?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Inner core",
+        "misconception": "earth.plates.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Lithosphere"
+      },
+      {
+        "id": "choice-2",
+        "text": "Liquid outer core",
+        "misconception": "earth.plates.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Atmosphere",
+        "misconception": "earth.plates.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The lithosphere includes the crust and the rigid uppermost mantle. It is divided into tectonic plates.",
+    "scienceFact": "The lithosphere includes the crust and the rigid uppermost mantle. It is divided into tectonic plates.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.005",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Seismic evidence supports mostly solid rock, not a global liquid ocean, below the crust. Which layer is being described?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Atmosphere",
+        "misconception": "earth.plates.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ocean",
+        "misconception": "earth.plates.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mantle"
+      },
+      {
+        "id": "choice-3",
+        "text": "Outer core",
+        "misconception": "earth.plates.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The mantle is mostly solid rock. Over long times, hot mantle material can deform and flow.",
+    "scienceFact": "The mantle is mostly solid rock. Over long times, hot mantle material can deform and flow.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.006",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "S-waves do not pass through a deep layer, while other evidence supports moving metal there. Which major layer fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Crust",
+        "misconception": "earth.plates.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Rigid lithosphere",
+        "misconception": "earth.plates.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Inner core",
+        "misconception": "earth.plates.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Outer core"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The outer core is liquid metal, mainly iron and nickel. The inner core is solid under very high pressure.",
+    "scienceFact": "The outer core is liquid metal, mainly iron and nickel. The inner core is solid under very high pressure.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.007",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A map shows a long ocean ridge with young crust at its center and older crust farther away. Which boundary type fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Divergent"
+      },
+      {
+        "id": "choice-1",
+        "text": "Transform",
+        "misconception": "earth.plates.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only a collision zone",
+        "misconception": "earth.plates.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Stationary interior only",
+        "misconception": "earth.plates.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "At a divergent boundary, plates move apart. Magma can rise and form new crust at spreading ridges.",
+    "scienceFact": "At a divergent boundary, plates move apart. Magma can rise and form new crust at spreading ridges.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.008",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A cross-section shows a plate slanting into the mantle beneath a volcanic arc. Which process explains the geometry?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Solar fusion",
+        "misconception": "earth.plates.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Subduction"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation",
+        "misconception": "earth.plates.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Deposition by wind",
+        "misconception": "earth.plates.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Subduction carries one plate beneath another into the mantle. It can produce trenches, earthquakes and volcanic arcs.",
+    "scienceFact": "Subduction carries one plate beneath another into the mantle. It can produce trenches, earthquakes and volcanic arcs.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.009",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A fossil species appears in matching-age rocks on separated continents that fit together. Which explanation best links both observations?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Unrelated random maps only",
+        "misconception": "earth.plates.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "No past movement",
+        "misconception": "earth.plates.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Former continental connection"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fossils swimming across every ocean",
+        "misconception": "earth.plates.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Matching fossils and rock layers suggest a past link between lands now apart. Their shapes can also give clues.",
+    "scienceFact": "Matching fossils and rock layers suggest a past link between lands now apart. Their shapes can also give clues.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.010",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two locked blocks store elastic energy while plates keep moving. Which change releases a seismic disturbance?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "All mantle rock becomes liquid",
+        "misconception": "earth.plates.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wind pushes the ground",
+        "misconception": "earth.plates.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "The Moon touches Earth",
+        "misconception": "earth.plates.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sudden fault slip releases energy"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Faults can lock while stress builds. Sudden slip releases stored energy as seismic waves.",
+    "scienceFact": "Faults can lock while stress builds. Sudden slip releases stored energy as seismic waves.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.011",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order a simple oceanic subduction sequence.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Plates converge"
+      },
+      {
+        "id": "step-1",
+        "text": "An oceanic plate bends down"
+      },
+      {
+        "id": "step-2",
+        "text": "The plate descends into the mantle"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Plates converge. An oceanic plate bends down. The plate descends into the mantle. Each stage leads to the next.",
+    "scienceFact": "The crust is Earth’s thin outer rocky layer. Oceanic and continental crust differ in thickness and composition.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.plates.h.012",
+    "deckId": "earth.plates",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A mantle model shows heat transfer by slow bulk movement over long times. Which process fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only photosynthesis",
+        "misconception": "earth.plates.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Convection"
+      },
+      {
+        "id": "choice-2",
+        "text": "Reflection",
+        "misconception": "earth.plates.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only conduction with no movement",
+        "misconception": "earth.plates.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Mantle convection involves slow material motion driven by density differences. Slab pull and ridge forces also contribute to plate motion.",
+    "scienceFact": "Mantle convection involves slow material motion driven by density differences. Slab pull and ridge forces also contribute to plate motion.",
+    "topic": "earth.plates",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Earth’s layers and tectonic plate boundaries. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "plates"
+  }
+]

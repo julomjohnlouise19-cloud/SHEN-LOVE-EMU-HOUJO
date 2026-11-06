@@ -1,0 +1,1212 @@
+[
+  {
+    "id": "physics.motion.e.001",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is total distance divided by travel time called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Average speed"
+      },
+      {
+        "id": "choice-1",
+        "text": "Acceleration",
+        "misconception": "physics.motion.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Net force",
+        "misconception": "physics.motion.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Displacement only",
+        "misconception": "physics.motion.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Average speed is total distance divided by total time. It does not include a direction.",
+    "scienceFact": "Average speed is total distance divided by total time. It does not include a direction.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.002",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which quantity describes speed with a direction?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Elapsed time",
+        "misconception": "physics.motion.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Velocity"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Speed alone",
+        "misconception": "physics.motion.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Velocity includes speed and direction. Two objects can have equal speeds but different velocities.",
+    "scienceFact": "Velocity includes speed and direction. Two objects can have equal speeds but different velocities.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.003",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a change in velocity per unit time called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Distance only",
+        "misconception": "physics.motion.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Density",
+        "misconception": "physics.motion.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Acceleration"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Acceleration is the change in velocity divided by the time taken. Its SI unit is meters per second squared.",
+    "scienceFact": "Acceleration is the change in velocity divided by the time taken. Its SI unit is meters per second squared.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.004",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What quantity is the shortest directed change in position?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Distance traveled",
+        "misconception": "physics.motion.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Elapsed time",
+        "misconception": "physics.motion.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Average speed",
+        "misconception": "physics.motion.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Displacement"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Displacement links start and end positions with a direction. Returning to the start gives zero displacement.",
+    "scienceFact": "Displacement links start and end positions with a direction. Returning to the start gives zero displacement.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.005",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What does the slope of a distance-time graph show?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Speed"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Temperature",
+        "misconception": "physics.motion.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Energy unit",
+        "misconception": "physics.motion.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The slope of a distance-time graph gives speed. A steeper rising line means more distance per time.",
+    "scienceFact": "The slope of a distance-time graph gives speed. A steeper rising line means more distance per time.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.006",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What does a horizontal distance-time line mean?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The object has infinite speed",
+        "misconception": "physics.motion.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "The object is at rest"
+      },
+      {
+        "id": "choice-2",
+        "text": "The object speeds up",
+        "misconception": "physics.motion.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "The object moves faster each second",
+        "misconception": "physics.motion.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A flat distance-time line means distance is not changing during the interval, so the object is at rest.",
+    "scienceFact": "A flat distance-time line means distance is not changing during the interval, so the object is at rest.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.007",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "In ideal projectile motion, which force acts during flight?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "No force at the top",
+        "misconception": "physics.motion.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "A forward fuel force",
+        "misconception": "physics.motion.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gravity"
+      },
+      {
+        "id": "choice-3",
+        "text": "A lasting hand push",
+        "misconception": "physics.motion.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Ignoring air resistance, gravity is the only force on a projectile after release. It acts downward throughout the flight.",
+    "scienceFact": "Ignoring air resistance, gravity is the only force on a projectile after release. It acts downward throughout the flight.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.008",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What happens to horizontal velocity in ideal projectile motion?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It becomes zero at the top",
+        "misconception": "physics.motion.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "It grows because of gravity",
+        "misconception": "physics.motion.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "It reverses at the top",
+        "misconception": "physics.motion.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "It stays constant"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "With no horizontal net force, the horizontal component of velocity remains constant. Gravity changes the vertical component.",
+    "scienceFact": "With no horizontal net force, the horizontal component of velocity remains constant. Gravity changes the vertical component.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.009",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Can an object accelerate while keeping the same speed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Yes, its velocity changes direction"
+      },
+      {
+        "id": "choice-1",
+        "text": "No, speed must rise",
+        "misconception": "physics.motion.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "No, motion must stop",
+        "misconception": "physics.motion.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Yes, mass must increase",
+        "misconception": "physics.motion.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Acceleration is a change in velocity. Turning changes velocity even when speed stays the same.",
+    "scienceFact": "Acceleration is a change in velocity. Turning changes velocity even when speed stays the same.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.e.010",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What does the area under a velocity-time graph give?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Force",
+        "misconception": "physics.motion.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Displacement"
+      },
+      {
+        "id": "choice-2",
+        "text": "Acceleration",
+        "misconception": "physics.motion.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The signed area under a velocity-time graph gives displacement over the time interval.",
+    "scienceFact": "The signed area under a velocity-time graph gives displacement over the time interval.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "distance"
+  },
+  {
+    "id": "physics.motion.e.011",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What SI unit measures speed?",
+    "answer": "m/s",
+    "explanation": "Speed uses distance per time. The SI unit is meters per second, written m/s.",
+    "scienceFact": "Speed uses distance per time. The SI unit is meters per second, written m/s.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["m/s", "m/s"]
+  },
+  {
+    "id": "physics.motion.e.012",
+    "deckId": "physics.motion",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is needed to say whether an object is moving?",
+    "answer": "Reference frame",
+    "explanation": "Motion is described relative to a reference frame. Different frames can give different descriptions of the same motion.",
+    "scienceFact": "Motion is described relative to a reference frame. Different frames can give different descriptions of the same motion.",
+    "topic": "physics.motion",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["reference frame", "Reference frame"]
+  },
+  {
+    "id": "physics.motion.m.001",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A jeepney travels 120 m in 20 s. Which quantity is found by dividing these values?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Displacement only",
+        "misconception": "physics.motion.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Average speed"
+      },
+      {
+        "id": "choice-2",
+        "text": "Acceleration",
+        "misconception": "physics.motion.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Net force",
+        "misconception": "physics.motion.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Average speed is total distance divided by total time. It does not include a direction.",
+    "scienceFact": "Average speed is total distance divided by total time. It does not include a direction.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.002",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A jeepney travels at 10 m/s east. Which quantity does this statement give?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Speed alone",
+        "misconception": "physics.motion.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Elapsed time",
+        "misconception": "physics.motion.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Velocity"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Velocity includes speed and direction. Two objects can have equal speeds but different velocities.",
+    "scienceFact": "Velocity includes speed and direction. Two objects can have equal speeds but different velocities.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.003",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A jeepney changes from 2 m/s to 8 m/s in 3 s. What type of quantity describes this change per second?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Distance only",
+        "misconception": "physics.motion.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Density",
+        "misconception": "physics.motion.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Acceleration"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Acceleration is the change in velocity divided by the time taken. Its SI unit is meters per second squared.",
+    "scienceFact": "Acceleration is the change in velocity divided by the time taken. Its SI unit is meters per second squared.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.004",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A runner returns to the exact starting line after one lap. Which position-change quantity is zero?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Displacement"
+      },
+      {
+        "id": "choice-1",
+        "text": "Distance traveled",
+        "misconception": "physics.motion.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Elapsed time",
+        "misconception": "physics.motion.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Average speed",
+        "misconception": "physics.motion.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Displacement links start and end positions with a direction. Returning to the start gives zero displacement.",
+    "scienceFact": "Displacement links start and end positions with a direction. Returning to the start gives zero displacement.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.005",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A straight distance-time line becomes steeper. Which quantity has increased?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Energy unit",
+        "misconception": "physics.motion.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Speed"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Temperature",
+        "misconception": "physics.motion.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The slope of a distance-time graph gives speed. A steeper rising line means more distance per time.",
+    "scienceFact": "The slope of a distance-time graph gives speed. A steeper rising line means more distance per time.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.006",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A cart’s recorded distance stays the same as time passes. What is happening?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The object moves faster each second",
+        "misconception": "physics.motion.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "The object has infinite speed",
+        "misconception": "physics.motion.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "The object is at rest"
+      },
+      {
+        "id": "choice-3",
+        "text": "The object speeds up",
+        "misconception": "physics.motion.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A flat distance-time line means distance is not changing during the interval, so the object is at rest.",
+    "scienceFact": "A flat distance-time line means distance is not changing during the interval, so the object is at rest.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.007",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A ball leaves a thrower’s hand. Ignore air resistance. Which force acts after release?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A lasting hand push",
+        "misconception": "physics.motion.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "No force at the top",
+        "misconception": "physics.motion.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "A forward fuel force",
+        "misconception": "physics.motion.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gravity"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Ignoring air resistance, gravity is the only force on a projectile after release. It acts downward throughout the flight.",
+    "scienceFact": "Ignoring air resistance, gravity is the only force on a projectile after release. It acts downward throughout the flight.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.008",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A thrown ball moves through air that offers no resistance in a model. What happens to its horizontal velocity?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It stays constant"
+      },
+      {
+        "id": "choice-1",
+        "text": "It becomes zero at the top",
+        "misconception": "physics.motion.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "It grows because of gravity",
+        "misconception": "physics.motion.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "It reverses at the top",
+        "misconception": "physics.motion.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "With no horizontal net force, the horizontal component of velocity remains constant. Gravity changes the vertical component.",
+    "scienceFact": "With no horizontal net force, the horizontal component of velocity remains constant. Gravity changes the vertical component.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.009",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A car goes around a curve at steady speed. Which statement is correct?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Yes, mass must increase",
+        "misconception": "physics.motion.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Yes, its velocity changes direction"
+      },
+      {
+        "id": "choice-2",
+        "text": "No, speed must rise",
+        "misconception": "physics.motion.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "No, motion must stop",
+        "misconception": "physics.motion.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Acceleration is a change in velocity. Turning changes velocity even when speed stays the same.",
+    "scienceFact": "Acceleration is a change in velocity. Turning changes velocity even when speed stays the same.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.010",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A cart moves at 4 m/s for 3 s in one direction. What is represented by the graph’s area?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Force",
+        "misconception": "physics.motion.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Displacement"
+      },
+      {
+        "id": "choice-3",
+        "text": "Acceleration",
+        "misconception": "physics.motion.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The signed area under a velocity-time graph gives displacement over the time interval.",
+    "scienceFact": "The signed area under a velocity-time graph gives displacement over the time interval.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.011",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order these speeds from slowest to fastest.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "1 m/s"
+      },
+      {
+        "id": "step-1",
+        "text": "3 m/s"
+      },
+      {
+        "id": "step-2",
+        "text": "6 m/s"
+      },
+      {
+        "id": "step-3",
+        "text": "9 m/s"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "1 m/s. 3 m/s. 6 m/s. 9 m/s. Each stage leads to the next.",
+    "scienceFact": "Speed uses distance per time. The SI unit is meters per second, written m/s.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.m.012",
+    "deckId": "physics.motion",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Link each motion quantity to its meaning.",
+    "answer": {
+      "Speed": "Distance per time",
+      "Velocity": "Speed with direction",
+      "Acceleration": "Velocity change per time"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Motion is described relative to a reference frame. Different frames can give different descriptions of the same motion.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.001",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A jeepney travels 180 m in 15 s, then stops for 5 s. What is its average speed for the whole 20 s?",
+    "answer": "9",
+    "explanation": "Average speed = total distance ÷ total time = 180 ÷ 20 = 9 m/s. Include the stop time.",
+    "scienceFact": "Average speed = total distance ÷ total time = 180 ÷ 20 = 9 m/s. Include the stop time.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m/s",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.motion.h.002",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A cyclist in Cebu goes 60 m east, then 20 m west in 10 s. What is the eastward average velocity?",
+    "answer": "4",
+    "explanation": "Net eastward displacement is 60 − 20 = 40 m. Average velocity is 40 ÷ 10 = 4 m/s east.",
+    "scienceFact": "Net eastward displacement is 60 − 20 = 40 m. Average velocity is 40 ÷ 10 = 4 m/s east.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m/s",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.motion.h.003",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Manila cart changes velocity from 2 m/s east to 10 m/s east in 4 s. What is its eastward acceleration?",
+    "answer": "2",
+    "explanation": "Acceleration = change in velocity ÷ time = (10 − 2) ÷ 4 = 2 m/s² east.",
+    "scienceFact": "Acceleration = change in velocity ÷ time = (10 − 2) ÷ 4 = 2 m/s² east.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m/s²",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.motion.h.004",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A walker goes 5 m east, then 5 m west. The path is 10 m, but which directed change is zero?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Average speed",
+        "misconception": "physics.motion.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Displacement"
+      },
+      {
+        "id": "choice-2",
+        "text": "Distance traveled",
+        "misconception": "physics.motion.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Elapsed time",
+        "misconception": "physics.motion.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Displacement links start and end positions with a direction. Returning to the start gives zero displacement.",
+    "scienceFact": "Displacement links start and end positions with a direction. Returning to the start gives zero displacement.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.005",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two straight lines show different distances gained in equal times. Which quantity is greater for the steeper line?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Temperature",
+        "misconception": "physics.motion.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Energy unit",
+        "misconception": "physics.motion.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Speed"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The slope of a distance-time graph gives speed. A steeper rising line means more distance per time.",
+    "scienceFact": "The slope of a distance-time graph gives speed. A steeper rising line means more distance per time.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.006",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A graph lists 4 m at 2 s, 3 s and 4 s. Which motion description fits this interval?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The object speeds up",
+        "misconception": "physics.motion.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "The object moves faster each second",
+        "misconception": "physics.motion.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "The object has infinite speed",
+        "misconception": "physics.motion.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "The object is at rest"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A flat distance-time line means distance is not changing during the interval, so the object is at rest.",
+    "scienceFact": "A flat distance-time line means distance is not changing during the interval, so the object is at rest.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.007",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A projectile travels upward and sideways with no air resistance. Which force still acts throughout its flight?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Gravity"
+      },
+      {
+        "id": "choice-1",
+        "text": "A lasting hand push",
+        "misconception": "physics.motion.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "No force at the top",
+        "misconception": "physics.motion.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "A forward fuel force",
+        "misconception": "physics.motion.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Ignoring air resistance, gravity is the only force on a projectile after release. It acts downward throughout the flight.",
+    "scienceFact": "Ignoring air resistance, gravity is the only force on a projectile after release. It acts downward throughout the flight.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.008",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A projectile has no horizontal force acting on it. Which horizontal motion prediction follows?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It reverses at the top",
+        "misconception": "physics.motion.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "It stays constant"
+      },
+      {
+        "id": "choice-2",
+        "text": "It becomes zero at the top",
+        "misconception": "physics.motion.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "It grows because of gravity",
+        "misconception": "physics.motion.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "With no horizontal net force, the horizontal component of velocity remains constant. Gravity changes the vertical component.",
+    "scienceFact": "With no horizontal net force, the horizontal component of velocity remains constant. Gravity changes the vertical component.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.009",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A point moves in a circle at constant speed. Its direction changes each moment. Is it accelerating?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "No, motion must stop",
+        "misconception": "physics.motion.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Yes, mass must increase",
+        "misconception": "physics.motion.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Yes, its velocity changes direction"
+      },
+      {
+        "id": "choice-3",
+        "text": "No, speed must rise",
+        "misconception": "physics.motion.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Acceleration is a change in velocity. Turning changes velocity even when speed stays the same.",
+    "scienceFact": "Acceleration is a change in velocity. Turning changes velocity even when speed stays the same.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.010",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A rectangular area under a velocity-time plot is 12 m. Which motion quantity does that signed area represent?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Acceleration",
+        "misconception": "physics.motion.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mass",
+        "misconception": "physics.motion.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Force",
+        "misconception": "physics.motion.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Displacement"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The signed area under a velocity-time graph gives displacement over the time interval.",
+    "scienceFact": "The signed area under a velocity-time graph gives displacement over the time interval.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.011",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order the height of a ball during its flight, from launch to landing.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Ball rises"
+      },
+      {
+        "id": "step-1",
+        "text": "Ball reaches its highest point"
+      },
+      {
+        "id": "step-2",
+        "text": "Ball falls"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Ball rises. Ball reaches its highest point. Ball falls. Each stage leads to the next.",
+    "scienceFact": "Speed uses distance per time. The SI unit is meters per second, written m/s.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.motion.h.012",
+    "deckId": "physics.motion",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "Two observers give different descriptions of the same passenger’s motion. Which choice explains the difference?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only eye color",
+        "misconception": "physics.motion.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Reference frame"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only body mass",
+        "misconception": "physics.motion.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only air temperature",
+        "misconception": "physics.motion.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Motion is described relative to a reference frame. Different frames can give different descriptions of the same motion.",
+    "scienceFact": "Motion is described relative to a reference frame. Different frames can give different descriptions of the same motion.",
+    "topic": "physics.motion",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Speed, velocity, acceleration and projectiles. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "distance"
+  }
+]

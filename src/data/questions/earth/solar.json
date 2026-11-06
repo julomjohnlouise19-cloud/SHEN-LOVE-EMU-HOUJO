@@ -1,0 +1,1294 @@
+[
+  {
+    "id": "earth.solar.e.001",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What object is the star of our Solar System?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Star"
+      },
+      {
+        "id": "choice-1",
+        "text": "Planet",
+        "misconception": "earth.solar.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Dwarf planet",
+        "misconception": "earth.solar.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Natural satellite",
+        "misconception": "earth.solar.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The Sun is a star. Its core releases energy through nuclear fusion of hydrogen into helium.",
+    "scienceFact": "The Sun is a star. Its core releases energy through nuclear fusion of hydrogen into helium.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.002",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What causes the Moon’s phases seen in the Philippines?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Clouds permanently shaping it",
+        "misconception": "earth.solar.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Our changing view of its sunlit half"
+      },
+      {
+        "id": "choice-2",
+        "text": "Earth’s shadow each night",
+        "misconception": "earth.solar.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "The Moon making its own light",
+        "misconception": "earth.solar.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Moon phases come from our changing view of the Moon’s sunlit half as it orbits Earth. Earth’s shadow causes lunar eclipses, not normal phases.",
+    "scienceFact": "Moon phases come from our changing view of the Moon’s sunlit half as it orbits Earth. Earth’s shadow causes lunar eclipses, not normal phases.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.003",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "How many natural satellites does Earth have?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Eight",
+        "misconception": "earth.solar.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "None",
+        "misconception": "earth.solar.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "One"
+      },
+      {
+        "id": "choice-3",
+        "text": "Two",
+        "misconception": "earth.solar.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Earth has one natural satellite, the Moon. Human-made satellites are not natural moons.",
+    "scienceFact": "Earth has one natural satellite, the Moon. Human-made satellites are not natural moons.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.004",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What causes the yearly seasons on Earth?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Changing Sun distance alone",
+        "misconception": "earth.solar.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Moon phases",
+        "misconception": "earth.solar.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Daily cloud shape",
+        "misconception": "earth.solar.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Axial tilt"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Earth’s tilted axis changes day length and the angle of sunlight during the year. Distance from the Sun is not the main cause of seasons.",
+    "scienceFact": "Earth’s tilted axis changes day length and the angle of sunlight during the year. Distance from the Sun is not the main cause of seasons.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.005",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is Pluto classified as?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Dwarf planet"
+      },
+      {
+        "id": "choice-1",
+        "text": "Main-sequence star",
+        "misconception": "earth.solar.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Earth’s moon",
+        "misconception": "earth.solar.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gas giant",
+        "misconception": "earth.solar.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Pluto is a dwarf planet. It is not one of the eight planets in the current Solar System classification.",
+    "scienceFact": "Pluto is a dwarf planet. It is not one of the eight planets in the current Solar System classification.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.006",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What motion causes day and night?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Changing star size",
+        "misconception": "earth.solar.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Earth’s rotation"
+      },
+      {
+        "id": "choice-2",
+        "text": "Earth’s revolution alone",
+        "misconception": "earth.solar.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Moon’s rotation only",
+        "misconception": "earth.solar.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Earth rotates on its axis, causing day and night. One full turn takes about a day relative to the Sun.",
+    "scienceFact": "Earth rotates on its axis, causing day and night. One full turn takes about a day relative to the Sun.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.007",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is Earth’s movement around the Sun called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Condensation",
+        "misconception": "earth.solar.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Refraction",
+        "misconception": "earth.solar.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Revolution"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only rotation",
+        "misconception": "earth.solar.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Revolution is motion around another body. Earth takes about one year to orbit the Sun.",
+    "scienceFact": "Revolution is motion around another body. Earth takes about one year to orbit the Sun.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.008",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What alignment produces a solar eclipse?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sun – Earth – Moon",
+        "misconception": "earth.solar.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Earth – Sun – Moon",
+        "misconception": "earth.solar.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Moon – Sun – Earth",
+        "misconception": "earth.solar.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sun – Moon – Earth"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A solar eclipse needs the Moon between Earth and the Sun. The Moon’s shadow must fall on Earth.",
+    "scienceFact": "A solar eclipse needs the Moon between Earth and the Sun. The Moon’s shadow must fall on Earth.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.009",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What alignment produces a lunar eclipse?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sun – Earth – Moon"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sun – Moon – Earth",
+        "misconception": "earth.solar.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Earth – Moon – Sun",
+        "misconception": "earth.solar.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Moon – Sun – Earth",
+        "misconception": "earth.solar.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A lunar eclipse occurs when Earth lies between the Sun and Moon and the Moon passes through Earth’s shadow.",
+    "scienceFact": "A lunar eclipse occurs when Earth lies between the Sun and Moon and the Moon passes through Earth’s shadow.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.e.010",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What force keeps planets in orbit around the Sun?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only electric wire tension",
+        "misconception": "earth.solar.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Gravity"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sound pressure alone",
+        "misconception": "earth.solar.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only air resistance",
+        "misconception": "earth.solar.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Gravity attracts masses. The Sun’s gravity supplies the inward acceleration of planetary orbits.",
+    "scienceFact": "Gravity attracts masses. The Sun’s gravity supplies the inward acceleration of planetary orbits.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "solar"
+  },
+  {
+    "id": "earth.solar.e.011",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "input",
+    "prompt": "Which planet is largest in the Solar System?",
+    "answer": "Jupiter",
+    "explanation": "Jupiter is the largest planet in the Solar System by diameter and mass. It is a gas giant.",
+    "scienceFact": "Jupiter is the largest planet in the Solar System by diameter and mass. It is a gas giant.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["jupiter", "Jupiter"]
+  },
+  {
+    "id": "earth.solar.e.012",
+    "deckId": "earth.solar",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What do we call a natural body that orbits a planet?",
+    "answer": "Natural satellite",
+    "explanation": "A natural satellite, or moon, orbits a planet or another nonstellar body. Our Moon orbits Earth.",
+    "scienceFact": "A natural satellite, or moon, orbits a planet or another nonstellar body. Our Moon orbits Earth.",
+    "topic": "earth.solar",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["natural satellite", "Natural satellite"]
+  },
+  {
+    "id": "earth.solar.m.001",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine student sees the Sun at daytime. What kind of object is the Sun?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Natural satellite",
+        "misconception": "earth.solar.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Star"
+      },
+      {
+        "id": "choice-2",
+        "text": "Planet",
+        "misconception": "earth.solar.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Dwarf planet",
+        "misconception": "earth.solar.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The Sun is a star. Its core releases energy through nuclear fusion of hydrogen into helium.",
+    "scienceFact": "The Sun is a star. Its core releases energy through nuclear fusion of hydrogen into helium.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.002",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Manila observer sees changing Moon shapes over several weeks. What explains these phases?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The Moon making its own light",
+        "misconception": "earth.solar.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Clouds permanently shaping it",
+        "misconception": "earth.solar.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Our changing view of its sunlit half"
+      },
+      {
+        "id": "choice-3",
+        "text": "Earth’s shadow each night",
+        "misconception": "earth.solar.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Moon phases come from our changing view of the Moon’s sunlit half as it orbits Earth. Earth’s shadow causes lunar eclipses, not normal phases.",
+    "scienceFact": "Moon phases come from our changing view of the Moon’s sunlit half as it orbits Earth. Earth’s shadow causes lunar eclipses, not normal phases.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.003",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine student counts Earth’s natural moons rather than human-made satellites. How many should be listed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Two",
+        "misconception": "earth.solar.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Eight",
+        "misconception": "earth.solar.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "None",
+        "misconception": "earth.solar.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "One"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Earth has one natural satellite, the Moon. Human-made satellites are not natural moons.",
+    "scienceFact": "Earth has one natural satellite, the Moon. Human-made satellites are not natural moons.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.004",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "One hemisphere gets longer days and more direct sunlight. Which Earth feature causes this pattern through the year?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Axial tilt"
+      },
+      {
+        "id": "choice-1",
+        "text": "Changing Sun distance alone",
+        "misconception": "earth.solar.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Moon phases",
+        "misconception": "earth.solar.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Daily cloud shape",
+        "misconception": "earth.solar.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Earth’s tilted axis changes day length and the angle of sunlight during the year. Distance from the Sun is not the main cause of seasons.",
+    "scienceFact": "Earth’s tilted axis changes day length and the angle of sunlight during the year. Distance from the Sun is not the main cause of seasons.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.005",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student lists Pluto with Ceres and Eris. Which class do these objects share?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Gas giant",
+        "misconception": "earth.solar.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Dwarf planet"
+      },
+      {
+        "id": "choice-2",
+        "text": "Main-sequence star",
+        "misconception": "earth.solar.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Earth’s moon",
+        "misconception": "earth.solar.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Pluto is a dwarf planet. It is not one of the eight planets in the current Solar System classification.",
+    "scienceFact": "Pluto is a dwarf planet. It is not one of the eight planets in the current Solar System classification.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.006",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A place turns toward sunlight and later turns away. Which Earth motion causes this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Moon’s rotation only",
+        "misconception": "earth.solar.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Changing star size",
+        "misconception": "earth.solar.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Earth’s rotation"
+      },
+      {
+        "id": "choice-3",
+        "text": "Earth’s revolution alone",
+        "misconception": "earth.solar.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Earth rotates on its axis, causing day and night. One full turn takes about a day relative to the Sun.",
+    "scienceFact": "Earth rotates on its axis, causing day and night. One full turn takes about a day relative to the Sun.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.007",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A model Earth completes a yearly path around a lamp representing the Sun. What is that motion?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only rotation",
+        "misconception": "earth.solar.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Condensation",
+        "misconception": "earth.solar.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Refraction",
+        "misconception": "earth.solar.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Revolution"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Revolution is motion around another body. Earth takes about one year to orbit the Sun.",
+    "scienceFact": "Revolution is motion around another body. Earth takes about one year to orbit the Sun.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.008",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "The Moon blocks sunlight from reaching part of Earth. Which alignment occurs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sun – Moon – Earth"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sun – Earth – Moon",
+        "misconception": "earth.solar.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Earth – Sun – Moon",
+        "misconception": "earth.solar.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Moon – Sun – Earth",
+        "misconception": "earth.solar.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A solar eclipse needs the Moon between Earth and the Sun. The Moon’s shadow must fall on Earth.",
+    "scienceFact": "A solar eclipse needs the Moon between Earth and the Sun. The Moon’s shadow must fall on Earth.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.009",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Earth’s shadow falls across the Moon. Which arrangement can produce this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Moon – Sun – Earth",
+        "misconception": "earth.solar.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sun – Earth – Moon"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sun – Moon – Earth",
+        "misconception": "earth.solar.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Earth – Moon – Sun",
+        "misconception": "earth.solar.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A lunar eclipse occurs when Earth lies between the Sun and Moon and the Moon passes through Earth’s shadow.",
+    "scienceFact": "A lunar eclipse occurs when Earth lies between the Sun and Moon and the Moon passes through Earth’s shadow.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.010",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A planet’s path bends toward the Sun while it keeps moving forward. Which force helps keep the orbit?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only air resistance",
+        "misconception": "earth.solar.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only electric wire tension",
+        "misconception": "earth.solar.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gravity"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sound pressure alone",
+        "misconception": "earth.solar.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Gravity attracts masses. The Sun’s gravity supplies the inward acceleration of planetary orbits.",
+    "scienceFact": "Gravity attracts masses. The Sun’s gravity supplies the inward acceleration of planetary orbits.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.011",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order the four inner planets from nearest to farthest from the Sun.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Mercury"
+      },
+      {
+        "id": "step-1",
+        "text": "Venus"
+      },
+      {
+        "id": "step-2",
+        "text": "Earth"
+      },
+      {
+        "id": "step-3",
+        "text": "Mars"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Mercury. Venus. Earth. Mars. Each stage leads to the next.",
+    "scienceFact": "Jupiter is the largest planet in the Solar System by diameter and mass. It is a gas giant.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.m.012",
+    "deckId": "earth.solar",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Link each Solar System motion or feature with its effect.",
+    "answer": {
+      "Rotation": "Day and night",
+      "Axial tilt": "Main cause of seasons",
+      "Moon revolution": "Changing lunar phases"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "A natural satellite, or moon, orbits a planet or another nonstellar body. Our Moon orbits Earth.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.001",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Cebu class compares the Sun with Jupiter. Which object type produces the Sun’s energy through fusion?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Dwarf planet",
+        "misconception": "earth.solar.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Natural satellite",
+        "misconception": "earth.solar.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Star"
+      },
+      {
+        "id": "choice-3",
+        "text": "Planet",
+        "misconception": "earth.solar.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The Sun is a star. Its core releases energy through nuclear fusion of hydrogen into helium.",
+    "scienceFact": "The Sun is a star. Its core releases energy through nuclear fusion of hydrogen into helium.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Solar object", "Energy process"],
+      "rows": [
+        ["Sun", "Hydrogen fusion in the core"],
+        ["Jupiter", "Not a hydrogen-fusing star"]
+      ]
+    }
+  },
+  {
+    "id": "earth.solar.h.002",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Cebu class tracks the Moon when no eclipse occurs. Which cause explains the changing visible lit fraction?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Earth’s shadow each night",
+        "misconception": "earth.solar.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "The Moon making its own light",
+        "misconception": "earth.solar.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Clouds permanently shaping it",
+        "misconception": "earth.solar.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Our changing view of its sunlit half"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Moon phases come from our changing view of the Moon’s sunlit half as it orbits Earth. Earth’s shadow causes lunar eclipses, not normal phases.",
+    "scienceFact": "Moon phases come from our changing view of the Moon’s sunlit half as it orbits Earth. Earth’s shadow causes lunar eclipses, not normal phases.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Moon record", "Observation"],
+      "rows": [
+        ["Shape seen", "Changes over weeks"],
+        ["Ordinary phase nights", "No lunar eclipse"]
+      ]
+    }
+  },
+  {
+    "id": "earth.solar.h.003",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Manila sky chart includes the Moon and many artificial satellites. How many of those are Earth’s natural satellite?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "One"
+      },
+      {
+        "id": "choice-1",
+        "text": "Two",
+        "misconception": "earth.solar.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Eight",
+        "misconception": "earth.solar.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "None",
+        "misconception": "earth.solar.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Earth has one natural satellite, the Moon. Human-made satellites are not natural moons.",
+    "scienceFact": "Earth has one natural satellite, the Moon. Human-made satellites are not natural moons.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Object group", "Origin"],
+      "rows": [
+        ["The Moon", "Natural"],
+        ["Human-launched satellites", "Artificial"]
+      ]
+    }
+  },
+  {
+    "id": "earth.solar.h.004",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Earth is closest to the Sun near January, yet northern lands can be cold. Which cause explains the seasons?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Daily cloud shape",
+        "misconception": "earth.solar.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Axial tilt"
+      },
+      {
+        "id": "choice-2",
+        "text": "Changing Sun distance alone",
+        "misconception": "earth.solar.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Moon phases",
+        "misconception": "earth.solar.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Earth’s tilted axis changes day length and the angle of sunlight during the year. Distance from the Sun is not the main cause of seasons.",
+    "scienceFact": "Earth’s tilted axis changes day length and the angle of sunlight during the year. Distance from the Sun is not the main cause of seasons.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.005",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Pluto orbits the Sun but has not cleared its orbital neighborhood under the standard planet definition. What is its classification?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Earth’s moon",
+        "misconception": "earth.solar.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Gas giant",
+        "misconception": "earth.solar.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Dwarf planet"
+      },
+      {
+        "id": "choice-3",
+        "text": "Main-sequence star",
+        "misconception": "earth.solar.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Pluto is a dwarf planet. It is not one of the eight planets in the current Solar System classification.",
+    "scienceFact": "Pluto is a dwarf planet. It is not one of the eight planets in the current Solar System classification.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.006",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A model Earth spins while a lamp stays on one side. Which motion makes each place alternate between light and dark?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Earth’s revolution alone",
+        "misconception": "earth.solar.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Moon’s rotation only",
+        "misconception": "earth.solar.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Changing star size",
+        "misconception": "earth.solar.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Earth’s rotation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Earth rotates on its axis, causing day and night. One full turn takes about a day relative to the Sun.",
+    "scienceFact": "Earth rotates on its axis, causing day and night. One full turn takes about a day relative to the Sun.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.007",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A planet spins each day but completes a much longer path around its star. Which term names the path-following motion?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Revolution"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only rotation",
+        "misconception": "earth.solar.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Condensation",
+        "misconception": "earth.solar.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Refraction",
+        "misconception": "earth.solar.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Revolution is motion around another body. Earth takes about one year to orbit the Sun.",
+    "scienceFact": "Revolution is motion around another body. Earth takes about one year to orbit the Sun.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.008",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A shadow from the Moon falls on Earth during new Moon. Which ordering of the three bodies fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Moon – Sun – Earth",
+        "misconception": "earth.solar.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sun – Moon – Earth"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sun – Earth – Moon",
+        "misconception": "earth.solar.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Earth – Sun – Moon",
+        "misconception": "earth.solar.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A solar eclipse needs the Moon between Earth and the Sun. The Moon’s shadow must fall on Earth.",
+    "scienceFact": "A solar eclipse needs the Moon between Earth and the Sun. The Moon’s shadow must fall on Earth.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.009",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A full Moon darkens as it passes through Earth’s shadow. Which ordering fits this eclipse?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Earth – Moon – Sun",
+        "misconception": "earth.solar.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Moon – Sun – Earth",
+        "misconception": "earth.solar.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sun – Earth – Moon"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sun – Moon – Earth",
+        "misconception": "earth.solar.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A lunar eclipse occurs when Earth lies between the Sun and Moon and the Moon passes through Earth’s shadow.",
+    "scienceFact": "A lunar eclipse occurs when Earth lies between the Sun and Moon and the Moon passes through Earth’s shadow.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.010",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Without a Sunward force, a planet would move along a straight path. Which force supplies the inward pull?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sound pressure alone",
+        "misconception": "earth.solar.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only air resistance",
+        "misconception": "earth.solar.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only electric wire tension",
+        "misconception": "earth.solar.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gravity"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Gravity attracts masses. The Sun’s gravity supplies the inward acceleration of planetary orbits.",
+    "scienceFact": "Gravity attracts masses. The Sun’s gravity supplies the inward acceleration of planetary orbits.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.011",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order the named Moon phases through one cycle starting at new Moon.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "New Moon"
+      },
+      {
+        "id": "step-1",
+        "text": "First quarter"
+      },
+      {
+        "id": "step-2",
+        "text": "Full Moon"
+      },
+      {
+        "id": "step-3",
+        "text": "Last quarter"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "New Moon. First quarter. Full Moon. Last quarter. Each stage leads to the next.",
+    "scienceFact": "Jupiter is the largest planet in the Solar System by diameter and mass. It is a gas giant.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.solar.h.012",
+    "deckId": "earth.solar",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A newly observed rocky object is gravitationally bound to a planet and formed naturally. What is it called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Galaxy",
+        "misconception": "earth.solar.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Natural satellite"
+      },
+      {
+        "id": "choice-2",
+        "text": "Artificial satellite",
+        "misconception": "earth.solar.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Main-sequence star",
+        "misconception": "earth.solar.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A natural satellite, or moon, orbits a planet or another nonstellar body. Our Moon orbits Earth.",
+    "scienceFact": "A natural satellite, or moon, orbits a planet or another nonstellar body. Our Moon orbits Earth.",
+    "topic": "earth.solar",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Planetary motion, moon phases, eclipses and seasons. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "solar"
+  }
+]

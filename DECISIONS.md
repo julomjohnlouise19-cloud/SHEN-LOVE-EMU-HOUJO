@@ -8,3 +8,8 @@
 - D-006 — Four implementation phases stand in for absent §15. Validate the current bank in early phases and enforce all 972 questions at the content gate.
 - D-007 — Self-host the Latin subsets of Google Fonts Fredoka and DM Sans (OFL licenses included) using free Fontsource packages. This removes network font failures and preserves the intended typography offline.
 - D-008 — Run TypeScript scripts with `node --import tsx` because the tsx CLI’s IPC socket is unavailable inside the command sandbox; compilation and behavior are unchanged.
+- D-009 — Undo is limited to the latest transaction, with a revision check, so restoring an inverse cannot overwrite someone else’s newer progress, stock or purchases.
+- D-010 — The 972-card static pool is authored from 324 reviewed concept records with distinct recall, application and evidence prompts. Fixed calculation cards and explicit evidence tables strengthen Hard; the 19 seeded calculators remain separate from this minimum. A science-term allowlist lives in glossary.json.
+- D-011 — Precache the production shell, local fonts and static branch chunks after initial load. Cached same-origin resources ignore Vary when matched because preview servers can vary headers between module and precache requests. No cross-origin requests or remote API data are cached.
+- D-012 — True/false questions have two choices; the four-choice minimum applies to multiple-choice and diagram/data choice questions. Their answer slots still participate in deck-bias checks.
+- D-013 — UI actions for real school supplies remain local demonstration records until a teacher verifies collection; no backend or outbound notification service was supplied or added.

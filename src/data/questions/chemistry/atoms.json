@@ -1,0 +1,1212 @@
+[
+  {
+    "id": "chemistry.atoms.e.001",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which particle has a positive electric charge?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Proton"
+      },
+      {
+        "id": "choice-1",
+        "text": "Neutron",
+        "misconception": "chemistry.atoms.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Electron",
+        "misconception": "chemistry.atoms.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Photon",
+        "misconception": "chemistry.atoms.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Protons have positive charge and are found in the atomic nucleus. Proton number identifies an element.",
+    "scienceFact": "Protons have positive charge and are found in the atomic nucleus. Proton number identifies an element.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.002",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which atomic particle has a negative charge?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Whole nucleus",
+        "misconception": "chemistry.atoms.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Electron"
+      },
+      {
+        "id": "choice-2",
+        "text": "Proton",
+        "misconception": "chemistry.atoms.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Neutron",
+        "misconception": "chemistry.atoms.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Electrons carry negative charge. When an object gains them, its net charge becomes more negative.",
+    "scienceFact": "Electrons carry negative charge. When an object gains them, its net charge becomes more negative.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.003",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What does an element’s atomic number count?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "All nuclear particles",
+        "misconception": "chemistry.atoms.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Electron shells",
+        "misconception": "chemistry.atoms.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Protons"
+      },
+      {
+        "id": "choice-3",
+        "text": "Neutrons only",
+        "misconception": "chemistry.atoms.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Atomic number is the number of protons. All atoms of one element have the same proton number.",
+    "scienceFact": "Atomic number is the number of protons. All atoms of one element have the same proton number.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.004",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the total number of protons and neutrons called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Atomic number",
+        "misconception": "chemistry.atoms.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Electron charge",
+        "misconception": "chemistry.atoms.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Group number",
+        "misconception": "chemistry.atoms.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mass number"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Mass number counts protons plus neutrons in a nucleus. It is a count, not the measured atomic mass in kilograms.",
+    "scienceFact": "Mass number counts protons plus neutrons in a nucleus. It is a count, not the measured atomic mass in kilograms.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.005",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What are atoms of one element with different neutron counts called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Isotopes"
+      },
+      {
+        "id": "choice-1",
+        "text": "Different elements",
+        "misconception": "chemistry.atoms.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Identical ions only",
+        "misconception": "chemistry.atoms.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chemical mixtures",
+        "misconception": "chemistry.atoms.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Isotopes have the same proton number but different neutron numbers. They are forms of the same element.",
+    "scienceFact": "Isotopes have the same proton number but different neutron numbers. They are forms of the same element.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.006",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "How many elements are currently known?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "120",
+        "misconception": "chemistry.atoms.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "118"
+      },
+      {
+        "id": "choice-2",
+        "text": "92",
+        "misconception": "chemistry.atoms.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "100",
+        "misconception": "chemistry.atoms.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "There are 118 known elements. The periodic table arranges them by increasing atomic number.",
+    "scienceFact": "There are 118 known elements. The periodic table arranges them by increasing atomic number.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.007",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a vertical column in the periodic table called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Isotope",
+        "misconception": "chemistry.atoms.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Molecule",
+        "misconception": "chemistry.atoms.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Group"
+      },
+      {
+        "id": "choice-3",
+        "text": "Period",
+        "misconception": "chemistry.atoms.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Groups are columns that run up and down the table. Many elements in a group react in similar ways.",
+    "scienceFact": "Groups are columns that run up and down the table. Many elements in a group react in similar ways.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.008",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a horizontal row in the periodic table called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Group",
+        "misconception": "chemistry.atoms.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Compound",
+        "misconception": "chemistry.atoms.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Isotope",
+        "misconception": "chemistry.atoms.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Period"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Periods are rows that run across the table. In a simple model, each new row adds a main energy level.",
+    "scienceFact": "Periods are rows that run across the table. In a simple model, each new row adds a main energy level.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.009",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which tiny charged particles occupy electron shells?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Electrons"
+      },
+      {
+        "id": "choice-1",
+        "text": "Protons",
+        "misconception": "chemistry.atoms.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Neutrons",
+        "misconception": "chemistry.atoms.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Whole atoms",
+        "misconception": "chemistry.atoms.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Electrons occupy energy levels around the nucleus. They are not tiny planets moving on fixed planetary tracks.",
+    "scienceFact": "Electrons occupy energy levels around the nucleus. They are not tiny planets moving on fixed planetary tracks.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.e.010",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is an atom that has gained or lost electrons called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Neutron",
+        "misconception": "chemistry.atoms.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ion"
+      },
+      {
+        "id": "choice-2",
+        "text": "New element",
+        "misconception": "chemistry.atoms.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Unchanged neutral atom",
+        "misconception": "chemistry.atoms.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An ion has unequal numbers of protons and electrons. Electron loss gives positive charge; gain gives negative charge.",
+    "scienceFact": "An ion has unequal numbers of protons and electrons. Electron loss gives positive charge; gain gives negative charge.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "atom"
+  },
+  {
+    "id": "chemistry.atoms.e.011",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is the dense central part of an atom called?",
+    "answer": "Nucleus",
+    "explanation": "The atomic nucleus is small and dense. It contains protons and, for most atoms, neutrons.",
+    "scienceFact": "The atomic nucleus is small and dense. It contains protons and, for most atoms, neutrons.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["nucleus", "Nucleus"]
+  },
+  {
+    "id": "chemistry.atoms.e.012",
+    "deckId": "chemistry.atoms",
+    "level": "easy",
+    "type": "input",
+    "prompt": "Which outer-shell particles help form chemical bonds?",
+    "answer": "Valence electrons",
+    "explanation": "Valence electrons lie in the outer occupied shell. They play a key role when atoms form bonds.",
+    "scienceFact": "Valence electrons lie in the outer occupied shell. They play a key role when atoms form bonds.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["valence electrons", "Valence electrons"]
+  },
+  {
+    "id": "chemistry.atoms.m.001",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine class builds an atom model. Which particle belongs in the nucleus with a positive charge?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Photon",
+        "misconception": "chemistry.atoms.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Proton"
+      },
+      {
+        "id": "choice-2",
+        "text": "Neutron",
+        "misconception": "chemistry.atoms.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Electron",
+        "misconception": "chemistry.atoms.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Protons have positive charge and are found in the atomic nucleus. Proton number identifies an element.",
+    "scienceFact": "Protons have positive charge and are found in the atomic nucleus. Proton number identifies an element.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.002",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A static charge appears on a plastic comb used in Manila. Which particles can move between materials?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Neutron",
+        "misconception": "chemistry.atoms.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Whole nucleus",
+        "misconception": "chemistry.atoms.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Electron"
+      },
+      {
+        "id": "choice-3",
+        "text": "Proton",
+        "misconception": "chemistry.atoms.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Electrons carry negative charge. When an object gains them, its net charge becomes more negative.",
+    "scienceFact": "Electrons carry negative charge. When an object gains them, its net charge becomes more negative.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.003",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine class sees carbon’s atomic number is 6. Which particles does this count?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Neutrons only",
+        "misconception": "chemistry.atoms.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "All nuclear particles",
+        "misconception": "chemistry.atoms.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Electron shells",
+        "misconception": "chemistry.atoms.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Protons"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Atomic number is the number of protons. All atoms of one element have the same proton number.",
+    "scienceFact": "Atomic number is the number of protons. All atoms of one element have the same proton number.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.004",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "An atom has 7 protons and 7 neutrons. Which quantity is 14?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mass number"
+      },
+      {
+        "id": "choice-1",
+        "text": "Atomic number",
+        "misconception": "chemistry.atoms.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Electron charge",
+        "misconception": "chemistry.atoms.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Group number",
+        "misconception": "chemistry.atoms.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Mass number counts protons plus neutrons in a nucleus. It is a count, not the measured atomic mass in kilograms.",
+    "scienceFact": "Mass number counts protons plus neutrons in a nucleus. It is a count, not the measured atomic mass in kilograms.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.005",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Two carbon atoms each have 6 protons but have 6 and 8 neutrons. What are they?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chemical mixtures",
+        "misconception": "chemistry.atoms.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Isotopes"
+      },
+      {
+        "id": "choice-2",
+        "text": "Different elements",
+        "misconception": "chemistry.atoms.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Identical ions only",
+        "misconception": "chemistry.atoms.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Isotopes have the same proton number but different neutron numbers. They are forms of the same element.",
+    "scienceFact": "Isotopes have the same proton number but different neutron numbers. They are forms of the same element.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.006",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A periodic table includes all confirmed elements through oganesson. How many elements does it show?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "100",
+        "misconception": "chemistry.atoms.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "120",
+        "misconception": "chemistry.atoms.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "118"
+      },
+      {
+        "id": "choice-3",
+        "text": "92",
+        "misconception": "chemistry.atoms.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "There are 118 known elements. The periodic table arranges them by increasing atomic number.",
+    "scienceFact": "There are 118 known elements. The periodic table arranges them by increasing atomic number.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.007",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student follows a column from lithium down to sodium. What is this column called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Period",
+        "misconception": "chemistry.atoms.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Isotope",
+        "misconception": "chemistry.atoms.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Molecule",
+        "misconception": "chemistry.atoms.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Group"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Groups are columns that run up and down the table. Many elements in a group react in similar ways.",
+    "scienceFact": "Groups are columns that run up and down the table. Many elements in a group react in similar ways.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.008",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student reads from sodium across to argon. What is this horizontal row called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Period"
+      },
+      {
+        "id": "choice-1",
+        "text": "Group",
+        "misconception": "chemistry.atoms.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Compound",
+        "misconception": "chemistry.atoms.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Isotope",
+        "misconception": "chemistry.atoms.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Periods are rows that run across the table. In a simple model, each new row adds a main energy level.",
+    "scienceFact": "Periods are rows that run across the table. In a simple model, each new row adds a main energy level.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.009",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "An atom diagram has regions outside the nucleus. Which particles occupy these energy levels?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Whole atoms",
+        "misconception": "chemistry.atoms.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Electrons"
+      },
+      {
+        "id": "choice-2",
+        "text": "Protons",
+        "misconception": "chemistry.atoms.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Neutrons",
+        "misconception": "chemistry.atoms.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Electrons occupy energy levels around the nucleus. They are not tiny planets moving on fixed planetary tracks.",
+    "scienceFact": "Electrons occupy energy levels around the nucleus. They are not tiny planets moving on fixed planetary tracks.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.010",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A sodium atom loses one electron but keeps its 11 protons. What does it become?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Unchanged neutral atom",
+        "misconception": "chemistry.atoms.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Neutron",
+        "misconception": "chemistry.atoms.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ion"
+      },
+      {
+        "id": "choice-3",
+        "text": "New element",
+        "misconception": "chemistry.atoms.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "An ion has unequal numbers of protons and electrons. Electron loss gives positive charge; gain gives negative charge.",
+    "scienceFact": "An ion has unequal numbers of protons and electrons. Electron loss gives positive charge; gain gives negative charge.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.011",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Arrange these atom parts from the center outward in a simple shell model.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Nucleus"
+      },
+      {
+        "id": "step-1",
+        "text": "First electron shell"
+      },
+      {
+        "id": "step-2",
+        "text": "Second electron shell"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Nucleus. First electron shell. Second electron shell. Each stage leads to the next.",
+    "scienceFact": "The atomic nucleus is small and dense. It contains protons and, for most atoms, neutrons.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.m.012",
+    "deckId": "chemistry.atoms",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Pair each subatomic particle with its electric charge.",
+    "answer": {
+      "Proton": "Positive",
+      "Neutron": "Zero",
+      "Electron": "Negative"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Valence electrons lie in the outer occupied shell. They play a key role when atoms form bonds.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.001",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Philippine atom model has 11 protons and 12 neutrons. What is its mass number?",
+    "answer": "23",
+    "explanation": "Mass number counts protons plus neutrons: 11 + 12 = 23.",
+    "scienceFact": "Mass number counts protons plus neutrons: 11 + 12 = 23.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.atoms.h.002",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Cebu class models an atom with mass number 31 and 15 protons. How many neutrons does it have?",
+    "answer": "16",
+    "explanation": "Neutrons = mass number − protons = 31 − 15 = 16.",
+    "scienceFact": "Neutrons = mass number − protons = 31 − 15 = 16.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.atoms.h.003",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Manila class models a neutral oxygen atom with 8 protons. How many electrons must it have?",
+    "answer": "8",
+    "explanation": "A neutral atom has equal proton and electron counts, so it has 8 electrons.",
+    "scienceFact": "A neutral atom has equal proton and electron counts, so it has 8 electrons.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.atoms.h.004",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A nucleus has 11 protons and 12 neutrons. Which term names their combined count of 23?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Group number",
+        "misconception": "chemistry.atoms.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mass number"
+      },
+      {
+        "id": "choice-2",
+        "text": "Atomic number",
+        "misconception": "chemistry.atoms.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Electron charge",
+        "misconception": "chemistry.atoms.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Mass number counts protons plus neutrons in a nucleus. It is a count, not the measured atomic mass in kilograms.",
+    "scienceFact": "Mass number counts protons plus neutrons in a nucleus. It is a count, not the measured atomic mass in kilograms.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.005",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two atoms share an atomic number but have different mass numbers. Which relationship best fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Identical ions only",
+        "misconception": "chemistry.atoms.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Chemical mixtures",
+        "misconception": "chemistry.atoms.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Isotopes"
+      },
+      {
+        "id": "choice-3",
+        "text": "Different elements",
+        "misconception": "chemistry.atoms.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Isotopes have the same proton number but different neutron numbers. They are forms of the same element.",
+    "scienceFact": "Isotopes have the same proton number but different neutron numbers. They are forms of the same element.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.006",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A student claims the modern table has 120 confirmed elements. What count should a current science text use?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "92",
+        "misconception": "chemistry.atoms.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "100",
+        "misconception": "chemistry.atoms.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "120",
+        "misconception": "chemistry.atoms.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "118"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "There are 118 known elements. The periodic table arranges them by increasing atomic number.",
+    "scienceFact": "There are 118 known elements. The periodic table arranges them by increasing atomic number.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.007",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Several main-group elements have similar outer-electron patterns and lie in one vertical column. What is the column?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Group"
+      },
+      {
+        "id": "choice-1",
+        "text": "Period",
+        "misconception": "chemistry.atoms.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Isotope",
+        "misconception": "chemistry.atoms.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Molecule",
+        "misconception": "chemistry.atoms.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Groups are columns that run up and down the table. Many elements in a group react in similar ways.",
+    "scienceFact": "Groups are columns that run up and down the table. Many elements in a group react in similar ways.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.008",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Atoms across a row fill the same main energy level in a simple model. What is the row’s name?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Isotope",
+        "misconception": "chemistry.atoms.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Period"
+      },
+      {
+        "id": "choice-2",
+        "text": "Group",
+        "misconception": "chemistry.atoms.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Compound",
+        "misconception": "chemistry.atoms.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Periods are rows that run across the table. In a simple model, each new row adds a main energy level.",
+    "scienceFact": "Periods are rows that run across the table. In a simple model, each new row adds a main energy level.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.009",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A model shows fixed planetary paths, but a teacher replaces them with energy levels. Which particles occupy those levels?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Neutrons",
+        "misconception": "chemistry.atoms.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Whole atoms",
+        "misconception": "chemistry.atoms.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Electrons"
+      },
+      {
+        "id": "choice-3",
+        "text": "Protons",
+        "misconception": "chemistry.atoms.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Electrons occupy energy levels around the nucleus. They are not tiny planets moving on fixed planetary tracks.",
+    "scienceFact": "Electrons occupy energy levels around the nucleus. They are not tiny planets moving on fixed planetary tracks.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.010",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An atom has 17 protons and 18 electrons. Which type of particle has formed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "New element",
+        "misconception": "chemistry.atoms.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Unchanged neutral atom",
+        "misconception": "chemistry.atoms.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Neutron",
+        "misconception": "chemistry.atoms.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ion"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "An ion has unequal numbers of protons and electrons. Electron loss gives positive charge; gain gives negative charge.",
+    "scienceFact": "An ion has unequal numbers of protons and electrons. Electron loss gives positive charge; gain gives negative charge.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.011",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Place these elements in order of increasing atomic number.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Hydrogen"
+      },
+      {
+        "id": "step-1",
+        "text": "Helium"
+      },
+      {
+        "id": "step-2",
+        "text": "Lithium"
+      },
+      {
+        "id": "step-3",
+        "text": "Beryllium"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Hydrogen. Helium. Lithium. Beryllium. Each stage leads to the next.",
+    "scienceFact": "The atomic nucleus is small and dense. It contains protons and, for most atoms, neutrons.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.atoms.h.012",
+    "deckId": "chemistry.atoms",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "Two elements share similar bonding behavior because their outer shells have similar electron patterns. Which electrons matter most?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Free nuclei",
+        "misconception": "chemistry.atoms.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Valence electrons"
+      },
+      {
+        "id": "choice-2",
+        "text": "Core neutrons",
+        "misconception": "chemistry.atoms.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Inner protons",
+        "misconception": "chemistry.atoms.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Valence electrons lie in the outer occupied shell. They play a key role when atoms form bonds.",
+    "scienceFact": "Valence electrons lie in the outer occupied shell. They play a key role when atoms form bonds.",
+    "topic": "chemistry.atoms",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Atomic structure, elements and periodic patterns. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "atom"
+  }
+]

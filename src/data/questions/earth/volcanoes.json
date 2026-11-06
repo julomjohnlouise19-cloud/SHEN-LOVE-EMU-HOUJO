@@ -1,0 +1,1293 @@
+[
+  {
+    "id": "earth.volcanoes.e.001",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is molten rock called while it is below Mayon’s surface?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Magma"
+      },
+      {
+        "id": "choice-1",
+        "text": "Lava only",
+        "misconception": "earth.volcanoes.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sediment",
+        "misconception": "earth.volcanoes.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Rainwater",
+        "misconception": "earth.volcanoes.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Molten rock below Earth’s surface is magma. Once it reaches the surface, it is called lava.",
+    "scienceFact": "Molten rock below Earth’s surface is magma. Once it reaches the surface, it is called lava.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.002",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the point on Earth’s surface directly above an earthquake focus called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Crater",
+        "misconception": "earth.volcanoes.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Epicenter"
+      },
+      {
+        "id": "choice-2",
+        "text": "Focus",
+        "misconception": "earth.volcanoes.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mantle plume",
+        "misconception": "earth.volcanoes.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The focus is where rupture begins below ground. The epicenter is the surface point directly above the focus.",
+    "scienceFact": "The focus is where rupture begins below ground. The epicenter is the surface point directly above the focus.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.003",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which hazard is a fast, hot flow of volcanic gas and fragments?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only cool rain",
+        "misconception": "earth.volcanoes.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "A slow glacier",
+        "misconception": "earth.volcanoes.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pyroclastic flow"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gentle ocean tide",
+        "misconception": "earth.volcanoes.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Pyroclastic flows are dangerous, fast-moving mixtures of hot gas and volcanic material. Follow official evacuation advice.",
+    "scienceFact": "Pyroclastic flows are dangerous, fast-moving mixtures of hot gas and volcanic material. Follow official evacuation advice.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.004",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is molten rock called after reaching the surface?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Magma below ground",
+        "misconception": "earth.volcanoes.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Groundwater",
+        "misconception": "earth.volcanoes.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Loose sand only",
+        "misconception": "earth.volcanoes.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Lava"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Lava is molten rock at Earth’s surface. It cools to form igneous rock.",
+    "scienceFact": "Lava is molten rock at Earth’s surface. It cools to form igneous rock.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.005",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which seismic waves usually arrive first at a station?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "P-waves"
+      },
+      {
+        "id": "choice-1",
+        "text": "S-waves",
+        "misconception": "earth.volcanoes.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only surface waves",
+        "misconception": "earth.volcanoes.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only sound in air",
+        "misconception": "earth.volcanoes.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "P-waves are faster than S-waves in the same material and generally arrive first at a seismic station.",
+    "scienceFact": "P-waves are faster than S-waves in the same material and generally arrive first at a seismic station.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.006",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a break in rock along which movement has occurred called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "An electron shell",
+        "misconception": "earth.volcanoes.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fault"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only a cloud front",
+        "misconception": "earth.volcanoes.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "An unbroken crystal",
+        "misconception": "earth.volcanoes.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A fault is a fracture or zone of fractures with movement of rock on either side.",
+    "scienceFact": "A fault is a fracture or zone of fractures with movement of rock on either side.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.007",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What can generate a tsunami by moving the seafloor?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A normal daily tide",
+        "misconception": "earth.volcanoes.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "A quiet clear sky",
+        "misconception": "earth.volcanoes.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Rapid seafloor displacement"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only steady sea breeze",
+        "misconception": "earth.volcanoes.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A sudden shift of the seafloor can move a huge volume of water. This can start a tsunami.",
+    "scienceFact": "A sudden shift of the seafloor can move a huge volume of water. This can start a tsunami.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.008",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which safe action is recommended during strong shaking indoors?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Run into falling glass",
+        "misconception": "earth.volcanoes.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Stand beside windows",
+        "misconception": "earth.volcanoes.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Use an elevator",
+        "misconception": "earth.volcanoes.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Drop, cover, and hold on"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Drop, cover, and hold on helps protect against falling objects. Follow local earthquake drill guidance and teacher instructions.",
+    "scienceFact": "Drop, cover, and hold on helps protect against falling objects. Follow local earthquake drill guidance and teacher instructions.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.009",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a mudflow of volcanic material and water called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Lahar"
+      },
+      {
+        "id": "choice-1",
+        "text": "Aurora",
+        "misconception": "earth.volcanoes.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Solar flare",
+        "misconception": "earth.volcanoes.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only dry wind",
+        "misconception": "earth.volcanoes.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A lahar is a flowing mixture of water and volcanic debris. It can travel along river valleys even after an eruption.",
+    "scienceFact": "A lahar is a flowing mixture of water and volcanic debris. It can travel along river valleys even after an eruption.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.e.010",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What quantity measures earthquake size from seismic energy release?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Air pressure",
+        "misconception": "earth.volcanoes.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Magnitude"
+      },
+      {
+        "id": "choice-2",
+        "text": "Local intensity only",
+        "misconception": "earth.volcanoes.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Wind speed",
+        "misconception": "earth.volcanoes.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Magnitude describes earthquake size at its source. Intensity describes shaking and effects at a particular place.",
+    "scienceFact": "Magnitude describes earthquake size at its source. Intensity describes shaking and effects at a particular place.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "volcano"
+  },
+  {
+    "id": "earth.volcanoes.e.011",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What volcanic opening releases lava, ash and gases?",
+    "answer": "Vent",
+    "explanation": "A volcanic vent is an opening through which magma, gases and fragments can reach the surface.",
+    "scienceFact": "A volcanic vent is an opening through which magma, gases and fragments can reach the surface.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["vent", "Vent"]
+  },
+  {
+    "id": "earth.volcanoes.e.012",
+    "deckId": "earth.volcanoes",
+    "level": "easy",
+    "type": "input",
+    "prompt": "Whose safety advice should guide people during a volcanic crisis?",
+    "answer": "Official hazard and local authorities",
+    "explanation": "Use current advice from official local teams. PHIVOLCS monitors volcanoes and earthquakes in the Philippines.",
+    "scienceFact": "Use current advice from official local teams. PHIVOLCS monitors volcanoes and earthquakes in the Philippines.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "official hazard and local authorities",
+      "Official hazard and local authorities"
+    ]
+  },
+  {
+    "id": "earth.volcanoes.m.001",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine volcano has molten rock in a chamber below ground. What is that rock called before eruption?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Rainwater",
+        "misconception": "earth.volcanoes.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Magma"
+      },
+      {
+        "id": "choice-2",
+        "text": "Lava only",
+        "misconception": "earth.volcanoes.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sediment",
+        "misconception": "earth.volcanoes.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Molten rock below Earth’s surface is magma. Once it reaches the surface, it is called lava.",
+    "scienceFact": "Molten rock below Earth’s surface is magma. Once it reaches the surface, it is called lava.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.002",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine quake begins below ground. What is the surface point directly above that starting point?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mantle plume",
+        "misconception": "earth.volcanoes.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Crater",
+        "misconception": "earth.volcanoes.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Epicenter"
+      },
+      {
+        "id": "choice-3",
+        "text": "Focus",
+        "misconception": "earth.volcanoes.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The focus is where rupture begins below ground. The epicenter is the surface point directly above the focus.",
+    "scienceFact": "The focus is where rupture begins below ground. The epicenter is the surface point directly above the focus.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.003",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "People near a Philippine volcano are warned about fast hot ash-and-gas currents. Which hazard is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Gentle ocean tide",
+        "misconception": "earth.volcanoes.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only cool rain",
+        "misconception": "earth.volcanoes.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "A slow glacier",
+        "misconception": "earth.volcanoes.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pyroclastic flow"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Pyroclastic flows are dangerous, fast-moving mixtures of hot gas and volcanic material. Follow official evacuation advice.",
+    "scienceFact": "Pyroclastic flows are dangerous, fast-moving mixtures of hot gas and volcanic material. Follow official evacuation advice.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.004",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Molten material flows from a crater onto the ground. What is it called there?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Lava"
+      },
+      {
+        "id": "choice-1",
+        "text": "Magma below ground",
+        "misconception": "earth.volcanoes.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Groundwater",
+        "misconception": "earth.volcanoes.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Loose sand only",
+        "misconception": "earth.volcanoes.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Lava is molten rock at Earth’s surface. It cools to form igneous rock.",
+    "scienceFact": "Lava is molten rock at Earth’s surface. It cools to form igneous rock.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.005",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A seismograph records an early fast wave before other major wave types. Which wave is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only sound in air",
+        "misconception": "earth.volcanoes.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "P-waves"
+      },
+      {
+        "id": "choice-2",
+        "text": "S-waves",
+        "misconception": "earth.volcanoes.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only surface waves",
+        "misconception": "earth.volcanoes.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "P-waves are faster than S-waves in the same material and generally arrive first at a seismic station.",
+    "scienceFact": "P-waves are faster than S-waves in the same material and generally arrive first at a seismic station.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.006",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A field team finds a fracture with displaced layers on either side. What structure is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "An unbroken crystal",
+        "misconception": "earth.volcanoes.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "An electron shell",
+        "misconception": "earth.volcanoes.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Fault"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a cloud front",
+        "misconception": "earth.volcanoes.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A fault is a fracture or zone of fractures with movement of rock on either side.",
+    "scienceFact": "A fault is a fracture or zone of fractures with movement of rock on either side.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.007",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A large undersea quake lifts the seafloor and moves the water above it. What change can start a tsunami?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only steady sea breeze",
+        "misconception": "earth.volcanoes.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "A normal daily tide",
+        "misconception": "earth.volcanoes.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "A quiet clear sky",
+        "misconception": "earth.volcanoes.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Rapid seafloor displacement"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A sudden shift of the seafloor can move a huge volume of water. This can start a tsunami.",
+    "scienceFact": "A sudden shift of the seafloor can move a huge volume of water. This can start a tsunami.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.008",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A class feels strong shaking and has a sturdy desk nearby. Which immediate action is recommended?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Drop, cover, and hold on"
+      },
+      {
+        "id": "choice-1",
+        "text": "Run into falling glass",
+        "misconception": "earth.volcanoes.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Stand beside windows",
+        "misconception": "earth.volcanoes.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Use an elevator",
+        "misconception": "earth.volcanoes.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Drop, cover, and hold on helps protect against falling objects. Follow local earthquake drill guidance and teacher instructions.",
+    "scienceFact": "Drop, cover, and hold on helps protect against falling objects. Follow local earthquake drill guidance and teacher instructions.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.009",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Heavy rain mixes with loose ash on a volcano’s slopes. What flow may form?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only dry wind",
+        "misconception": "earth.volcanoes.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Lahar"
+      },
+      {
+        "id": "choice-2",
+        "text": "Aurora",
+        "misconception": "earth.volcanoes.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Solar flare",
+        "misconception": "earth.volcanoes.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A lahar is a flowing mixture of water and volcanic debris. It can travel along river valleys even after an eruption.",
+    "scienceFact": "A lahar is a flowing mixture of water and volcanic debris. It can travel along river valleys even after an eruption.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.010",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Two stations report different shaking, but a quake has one assessed source size. Which quantity describes that size?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wind speed",
+        "misconception": "earth.volcanoes.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Air pressure",
+        "misconception": "earth.volcanoes.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Magnitude"
+      },
+      {
+        "id": "choice-3",
+        "text": "Local intensity only",
+        "misconception": "earth.volcanoes.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Magnitude describes earthquake size at its source. Intensity describes shaking and effects at a particular place.",
+    "scienceFact": "Magnitude describes earthquake size at its source. Intensity describes shaking and effects at a particular place.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.011",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Trace molten rock from below a volcano to a cooled flow.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Magma below ground"
+      },
+      {
+        "id": "step-1",
+        "text": "Lava reaches the surface"
+      },
+      {
+        "id": "step-2",
+        "text": "Lava cools into rock"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Magma below ground. Lava reaches the surface. Lava cools into rock. Each stage leads to the next.",
+    "scienceFact": "A volcanic vent is an opening through which magma, gases and fragments can reach the surface.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.m.012",
+    "deckId": "earth.volcanoes",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each earthquake term to its meaning.",
+    "answer": {
+      "Focus": "Starting point of rupture",
+      "Epicenter": "Surface point above the focus",
+      "Intensity": "Shaking effects at a place"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Use current advice from official local teams. PHIVOLCS monitors volcanoes and earthquakes in the Philippines.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.001",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Mayon cross-section labels hot molten material below the ground and a flow above it. Which name fits the underground material?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sediment",
+        "misconception": "earth.volcanoes.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Rainwater",
+        "misconception": "earth.volcanoes.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Magma"
+      },
+      {
+        "id": "choice-3",
+        "text": "Lava only",
+        "misconception": "earth.volcanoes.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Molten rock below Earth’s surface is magma. Once it reaches the surface, it is called lava.",
+    "scienceFact": "Molten rock below Earth’s surface is magma. Once it reaches the surface, it is called lava.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Mayon model region", "Material position"],
+      "rows": [
+        ["Underground chamber", "Molten rock below ground"],
+        ["Surface flow", "Molten rock above ground"]
+      ]
+    }
+  },
+  {
+    "id": "earth.volcanoes.h.002",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Marikina earthquake model places the origin 10 km underground. Which term labels the surface point directly above it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Focus",
+        "misconception": "earth.volcanoes.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mantle plume",
+        "misconception": "earth.volcanoes.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Crater",
+        "misconception": "earth.volcanoes.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Epicenter"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The focus is where rupture begins below ground. The epicenter is the surface point directly above the focus.",
+    "scienceFact": "The focus is where rupture begins below ground. The epicenter is the surface point directly above the focus.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Quake model point", "Position"],
+      "rows": [
+        ["Rupture starts", "10 km below ground"],
+        ["Point to name", "Surface directly above the start"]
+      ]
+    }
+  },
+  {
+    "id": "earth.volcanoes.h.003",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Pinatubo case study describes a dense hot mixture rushing down slopes. Which hazard fits this evidence?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pyroclastic flow"
+      },
+      {
+        "id": "choice-1",
+        "text": "Gentle ocean tide",
+        "misconception": "earth.volcanoes.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only cool rain",
+        "misconception": "earth.volcanoes.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "A slow glacier",
+        "misconception": "earth.volcanoes.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Pyroclastic flows are dangerous, fast-moving mixtures of hot gas and volcanic material. Follow official evacuation advice.",
+    "scienceFact": "Pyroclastic flows are dangerous, fast-moving mixtures of hot gas and volcanic material. Follow official evacuation advice.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Pinatubo case model", "Hazard record"],
+      "rows": [
+        ["Contents", "Hot gas and fragments"],
+        ["Motion", "Fast, dense flow down slopes"]
+      ]
+    }
+  },
+  {
+    "id": "earth.volcanoes.h.004",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A rock sample solidified from molten material that flowed above ground. What was that material called during the flow?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Loose sand only",
+        "misconception": "earth.volcanoes.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Lava"
+      },
+      {
+        "id": "choice-2",
+        "text": "Magma below ground",
+        "misconception": "earth.volcanoes.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Groundwater",
+        "misconception": "earth.volcanoes.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Lava is molten rock at Earth’s surface. It cools to form igneous rock.",
+    "scienceFact": "Lava is molten rock at Earth’s surface. It cools to form igneous rock.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.005",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A station receives a compressional wave followed later by a shear wave. Which wave arrived first?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only surface waves",
+        "misconception": "earth.volcanoes.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only sound in air",
+        "misconception": "earth.volcanoes.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "P-waves"
+      },
+      {
+        "id": "choice-3",
+        "text": "S-waves",
+        "misconception": "earth.volcanoes.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "P-waves are faster than S-waves in the same material and generally arrive first at a seismic station.",
+    "scienceFact": "P-waves are faster than S-waves in the same material and generally arrive first at a seismic station.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.006",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A map shows the same rock layer offset sideways across a fracture. Which structure best explains the offset?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a cloud front",
+        "misconception": "earth.volcanoes.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "An unbroken crystal",
+        "misconception": "earth.volcanoes.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "An electron shell",
+        "misconception": "earth.volcanoes.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fault"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A fault is a fracture or zone of fractures with movement of rock on either side.",
+    "scienceFact": "A fault is a fracture or zone of fractures with movement of rock on either side.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.007",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An offshore rupture lifts a broad part of the seafloor and the water above it. Which change starts the tsunami?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Rapid seafloor displacement"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only steady sea breeze",
+        "misconception": "earth.volcanoes.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "A normal daily tide",
+        "misconception": "earth.volcanoes.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "A quiet clear sky",
+        "misconception": "earth.volcanoes.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A sudden shift of the seafloor can move a huge volume of water. This can start a tsunami.",
+    "scienceFact": "A sudden shift of the seafloor can move a huge volume of water. This can start a tsunami.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.008",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A drill models falling objects inside a room. Which action best protects students during the shaking?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Use an elevator",
+        "misconception": "earth.volcanoes.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Drop, cover, and hold on"
+      },
+      {
+        "id": "choice-2",
+        "text": "Run into falling glass",
+        "misconception": "earth.volcanoes.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Stand beside windows",
+        "misconception": "earth.volcanoes.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Drop, cover, and hold on helps protect against falling objects. Follow local earthquake drill guidance and teacher instructions.",
+    "scienceFact": "Drop, cover, and hold on helps protect against falling objects. Follow local earthquake drill guidance and teacher instructions.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.009",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A river channel carries a thick mixture of volcanic debris and water after rainfall. Which hazard fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Solar flare",
+        "misconception": "earth.volcanoes.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only dry wind",
+        "misconception": "earth.volcanoes.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Lahar"
+      },
+      {
+        "id": "choice-3",
+        "text": "Aurora",
+        "misconception": "earth.volcanoes.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A lahar is a flowing mixture of water and volcanic debris. It can travel along river valleys even after an eruption.",
+    "scienceFact": "A lahar is a flowing mixture of water and volcanic debris. It can travel along river valleys even after an eruption.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.010",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A far station feels weak shaking while a near station feels strong shaking. Which source-size quantity is distinct from those intensities?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Local intensity only",
+        "misconception": "earth.volcanoes.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wind speed",
+        "misconception": "earth.volcanoes.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Air pressure",
+        "misconception": "earth.volcanoes.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Magnitude"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Magnitude describes earthquake size at its source. Intensity describes shaking and effects at a particular place.",
+    "scienceFact": "Magnitude describes earthquake size at its source. Intensity describes shaking and effects at a particular place.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.011",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order these stages in a simple earthquake model.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Stress builds on locked rock"
+      },
+      {
+        "id": "step-1",
+        "text": "A fault slips"
+      },
+      {
+        "id": "step-2",
+        "text": "Seismic waves spread"
+      },
+      {
+        "id": "step-3",
+        "text": "Stations record the waves"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Stress builds on locked rock. A fault slips. Seismic waves spread. Stations record the waves. Each stage leads to the next.",
+    "scienceFact": "A volcanic vent is an opening through which magma, gases and fragments can reach the surface.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.volcanoes.h.012",
+    "deckId": "earth.volcanoes",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A rumor conflicts with the latest verified hazard alert. Which source should guide a class’s safety plan?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "An old unsourced picture",
+        "misconception": "earth.volcanoes.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Official hazard and local authorities"
+      },
+      {
+        "id": "choice-2",
+        "text": "Unverified viral posts",
+        "misconception": "earth.volcanoes.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a friend’s guess",
+        "misconception": "earth.volcanoes.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Use current advice from official local teams. PHIVOLCS monitors volcanoes and earthquakes in the Philippines.",
+    "scienceFact": "Use current advice from official local teams. PHIVOLCS monitors volcanoes and earthquakes in the Philippines.",
+    "topic": "earth.volcanoes",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Volcanism, faults, earthquake waves and preparedness. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "volcano"
+  }
+]

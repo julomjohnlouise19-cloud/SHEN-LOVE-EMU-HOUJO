@@ -1,0 +1,1294 @@
+[
+  {
+    "id": "physics.light.e.001",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What kind of wave is visible light?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Electromagnetic"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only mechanical",
+        "misconception": "physics.light.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only longitudinal sound",
+        "misconception": "physics.light.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a water ripple",
+        "misconception": "physics.light.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Visible light is part of the electromagnetic spectrum. Electromagnetic waves can travel through a vacuum.",
+    "scienceFact": "Visible light is part of the electromagnetic spectrum. Electromagnetic waves can travel through a vacuum.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.002",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Why can sunlight cross space to reach the Philippines?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only air can carry light",
+        "misconception": "physics.light.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Light needs no material medium"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sound carries it across space",
+        "misconception": "physics.light.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Space is a continuous solid",
+        "misconception": "physics.light.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Light does not need a material medium. Sound, by contrast, is a mechanical wave that requires matter.",
+    "scienceFact": "Light does not need a material medium. Sound, by contrast, is a mechanical wave that requires matter.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.003",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What happens when light reflects from a plane mirror?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The incoming angle must be zero",
+        "misconception": "physics.light.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "The two angles sum to 180°",
+        "misconception": "physics.light.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "The two angles are equal"
+      },
+      {
+        "id": "choice-3",
+        "text": "The reflected angle is twice as large",
+        "misconception": "physics.light.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The angle of incidence equals the angle of reflection. Both angles are measured from the normal to the surface.",
+    "scienceFact": "The angle of incidence equals the angle of reflection. Both angles are measured from the normal to the surface.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.004",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a change in light’s direction when it enters a different medium called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only reflection",
+        "misconception": "physics.light.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Combustion",
+        "misconception": "physics.light.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sound absorption",
+        "misconception": "physics.light.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Refraction"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Refraction occurs when a wave changes speed between media. At an angle, this usually changes its direction too.",
+    "scienceFact": "Refraction occurs when a wave changes speed between media. At an angle, this usually changes its direction too.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.005",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What type of lens can focus parallel light rays to a point?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Convex lens"
+      },
+      {
+        "id": "choice-1",
+        "text": "Concave lens",
+        "misconception": "physics.light.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Plane glass only",
+        "misconception": "physics.light.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Opaque mirror",
+        "misconception": "physics.light.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A convex lens can bring parallel rays to a focus. Keep focused sunlight away from eyes and skin.",
+    "scienceFact": "A convex lens can bring parallel rays to a focus. Keep focused sunlight away from eyes and skin.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.006",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which electromagnetic waves have the greatest frequency?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Infrared",
+        "misconception": "physics.light.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Gamma rays"
+      },
+      {
+        "id": "choice-2",
+        "text": "Radio waves",
+        "misconception": "physics.light.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Microwaves",
+        "misconception": "physics.light.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Gamma rays have the highest frequencies in the usual electromagnetic spectrum ordering.",
+    "scienceFact": "Gamma rays have the highest frequencies in the usual electromagnetic spectrum ordering.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.007",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which electromagnetic region lies just beyond red light?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Gamma rays",
+        "misconception": "physics.light.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "X-rays",
+        "misconception": "physics.light.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Infrared"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ultraviolet",
+        "misconception": "physics.light.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Infrared lies beyond the red end of visible light. Many warm objects emit strongly in infrared.",
+    "scienceFact": "Infrared lies beyond the red end of visible light. Many warm objects emit strongly in infrared.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.008",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What splits white light into its component colors in a prism?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Conduction",
+        "misconception": "physics.light.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fission",
+        "misconception": "physics.light.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation",
+        "misconception": "physics.light.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Dispersion"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "In glass, different colors of light travel at different speeds. This makes them bend by different amounts and spread out.",
+    "scienceFact": "In glass, different colors of light travel at different speeds. This makes them bend by different amounts and spread out.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.009",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which radiation can increase the risk of skin damage from sunlight?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Ultraviolet"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only radio waves",
+        "misconception": "physics.light.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only visible red",
+        "misconception": "physics.light.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only sound",
+        "misconception": "physics.light.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Ultraviolet radiation from sunlight can damage skin and eyes. Use suitable protection when outdoors.",
+    "scienceFact": "Ultraviolet radiation from sunlight can damage skin and eyes. Use suitable protection when outdoors.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.e.010",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What image does a plane mirror form?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A magnified real image",
+        "misconception": "physics.light.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Virtual image"
+      },
+      {
+        "id": "choice-2",
+        "text": "Real image on a screen",
+        "misconception": "physics.light.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Upside-down image",
+        "misconception": "physics.light.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A plane mirror forms an upright virtual image. Reflected rays appear to come from behind the mirror.",
+    "scienceFact": "A plane mirror forms an upright virtual image. Reflected rays appear to come from behind the mirror.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "lens"
+  },
+  {
+    "id": "physics.light.e.011",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What line is perpendicular to a surface at the point where a ray strikes?",
+    "answer": "Normal",
+    "explanation": "The normal is an imaginary line perpendicular to a surface at the point where a ray meets it.",
+    "scienceFact": "The normal is an imaginary line perpendicular to a surface at the point where a ray meets it.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["normal", "Normal"]
+  },
+  {
+    "id": "physics.light.e.012",
+    "deckId": "physics.light",
+    "level": "easy",
+    "type": "input",
+    "prompt": "In which setting does light travel fastest?",
+    "answer": "Vacuum",
+    "explanation": "Light’s speed is greatest in a vacuum. It travels more slowly through ordinary transparent materials such as water and glass.",
+    "scienceFact": "Light’s speed is greatest in a vacuum. It travels more slowly through ordinary transparent materials such as water and glass.",
+    "topic": "physics.light",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["vacuum", "Vacuum"]
+  },
+  {
+    "id": "physics.light.m.001",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Sunlight reaches a Philippine classroom through space and air. Which wave class does visible light belong to?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a water ripple",
+        "misconception": "physics.light.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Electromagnetic"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only mechanical",
+        "misconception": "physics.light.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only longitudinal sound",
+        "misconception": "physics.light.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Visible light is part of the electromagnetic spectrum. Electromagnetic waves can travel through a vacuum.",
+    "scienceFact": "Visible light is part of the electromagnetic spectrum. Electromagnetic waves can travel through a vacuum.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.002",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine student sees sunlight despite the near-vacuum between Earth and the Sun. Why can it arrive?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Space is a continuous solid",
+        "misconception": "physics.light.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only air can carry light",
+        "misconception": "physics.light.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Light needs no material medium"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sound carries it across space",
+        "misconception": "physics.light.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Light does not need a material medium. Sound, by contrast, is a mechanical wave that requires matter.",
+    "scienceFact": "Light does not need a material medium. Sound, by contrast, is a mechanical wave that requires matter.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.003",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student in Manila shines a beam at 30° to the mirror’s normal. What relation holds for the reflected angle?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The reflected angle is twice as large",
+        "misconception": "physics.light.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "The incoming angle must be zero",
+        "misconception": "physics.light.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "The two angles sum to 180°",
+        "misconception": "physics.light.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "The two angles are equal"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The angle of incidence equals the angle of reflection. Both angles are measured from the normal to the surface.",
+    "scienceFact": "The angle of incidence equals the angle of reflection. Both angles are measured from the normal to the surface.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.004",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A straw looks bent where it enters water. Which process explains this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Refraction"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only reflection",
+        "misconception": "physics.light.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Combustion",
+        "misconception": "physics.light.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sound absorption",
+        "misconception": "physics.light.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Refraction occurs when a wave changes speed between media. At an angle, this usually changes its direction too.",
+    "scienceFact": "Refraction occurs when a wave changes speed between media. At an angle, this usually changes its direction too.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.005",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A magnifying glass converges sunlight. What type of lens does it use?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Opaque mirror",
+        "misconception": "physics.light.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Convex lens"
+      },
+      {
+        "id": "choice-2",
+        "text": "Concave lens",
+        "misconception": "physics.light.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Plane glass only",
+        "misconception": "physics.light.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A convex lens can bring parallel rays to a focus. Keep focused sunlight away from eyes and skin.",
+    "scienceFact": "A convex lens can bring parallel rays to a focus. Keep focused sunlight away from eyes and skin.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.006",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student orders radio, visible, X-rays and gamma rays by frequency. Which goes last?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Microwaves",
+        "misconception": "physics.light.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Infrared",
+        "misconception": "physics.light.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gamma rays"
+      },
+      {
+        "id": "choice-3",
+        "text": "Radio waves",
+        "misconception": "physics.light.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Gamma rays have the highest frequencies in the usual electromagnetic spectrum ordering.",
+    "scienceFact": "Gamma rays have the highest frequencies in the usual electromagnetic spectrum ordering.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.007",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A warm object gives off invisible radiation at longer wavelengths than red light. Which region fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Ultraviolet",
+        "misconception": "physics.light.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Gamma rays",
+        "misconception": "physics.light.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "X-rays",
+        "misconception": "physics.light.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Infrared"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Infrared lies beyond the red end of visible light. Many warm objects emit strongly in infrared.",
+    "scienceFact": "Infrared lies beyond the red end of visible light. Many warm objects emit strongly in infrared.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.008",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A prism produces a band of colors from sunlight. What is this separation called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Dispersion"
+      },
+      {
+        "id": "choice-1",
+        "text": "Conduction",
+        "misconception": "physics.light.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Fission",
+        "misconception": "physics.light.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Evaporation",
+        "misconception": "physics.light.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "In glass, different colors of light travel at different speeds. This makes them bend by different amounts and spread out.",
+    "scienceFact": "In glass, different colors of light travel at different speeds. This makes them bend by different amounts and spread out.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.009",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student protects skin outdoors with shade and sunscreen. Which solar radiation is a main concern?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only sound",
+        "misconception": "physics.light.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ultraviolet"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only radio waves",
+        "misconception": "physics.light.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only visible red",
+        "misconception": "physics.light.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Ultraviolet radiation from sunlight can damage skin and eyes. Use suitable protection when outdoors.",
+    "scienceFact": "Ultraviolet radiation from sunlight can damage skin and eyes. Use suitable protection when outdoors.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.010",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "An image in a flat mirror seems behind the glass and cannot be caught on a screen. What type is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Upside-down image",
+        "misconception": "physics.light.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "A magnified real image",
+        "misconception": "physics.light.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Virtual image"
+      },
+      {
+        "id": "choice-3",
+        "text": "Real image on a screen",
+        "misconception": "physics.light.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A plane mirror forms an upright virtual image. Reflected rays appear to come from behind the mirror.",
+    "scienceFact": "A plane mirror forms an upright virtual image. Reflected rays appear to come from behind the mirror.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.011",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order these electromagnetic regions from lower to higher frequency.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Radio waves"
+      },
+      {
+        "id": "step-1",
+        "text": "Infrared"
+      },
+      {
+        "id": "step-2",
+        "text": "Visible light"
+      },
+      {
+        "id": "step-3",
+        "text": "Ultraviolet"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Radio waves. Infrared. Visible light. Ultraviolet. Each stage leads to the next.",
+    "scienceFact": "The normal is an imaginary line perpendicular to a surface at the point where a ray meets it.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.m.012",
+    "deckId": "physics.light",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each optical process with what it does.",
+    "answer": {
+      "Reflection": "A wave bounces from a surface",
+      "Refraction": "A wave changes speed between media",
+      "Dispersion": "White light separates into colors"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Light’s speed is greatest in a vacuum. It travels more slowly through ordinary transparent materials such as water and glass.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.001",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Manila class studies a wave that needs no matter to cross space. Which class includes visible light?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only longitudinal sound",
+        "misconception": "physics.light.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a water ripple",
+        "misconception": "physics.light.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Electromagnetic"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only mechanical",
+        "misconception": "physics.light.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Visible light is part of the electromagnetic spectrum. Electromagnetic waves can travel through a vacuum.",
+    "scienceFact": "Visible light is part of the electromagnetic spectrum. Electromagnetic waves can travel through a vacuum.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Wave tested", "Travels through vacuum?"],
+      "rows": [
+        ["Visible light", "Yes"],
+        ["Sound in air", "No"]
+      ]
+    }
+  },
+  {
+    "id": "physics.light.h.002",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Cebu class compares sound with sunlight. Which property lets sunlight reach Earth across near-empty space?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sound carries it across space",
+        "misconception": "physics.light.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Space is a continuous solid",
+        "misconception": "physics.light.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only air can carry light",
+        "misconception": "physics.light.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Light needs no material medium"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Light does not need a material medium. Sound, by contrast, is a mechanical wave that requires matter.",
+    "scienceFact": "Light does not need a material medium. Sound, by contrast, is a mechanical wave that requires matter.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Path to Earth", "Conditions"],
+      "rows": [
+        ["Most of the route", "Near-vacuum"],
+        ["Energy detected", "Sunlight"]
+      ]
+    }
+  },
+  {
+    "id": "physics.light.h.003",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Cebu class measures incoming and reflected angles from the normal. Which relation should the data support?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The two angles are equal"
+      },
+      {
+        "id": "choice-1",
+        "text": "The reflected angle is twice as large",
+        "misconception": "physics.light.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "The incoming angle must be zero",
+        "misconception": "physics.light.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "The two angles sum to 180°",
+        "misconception": "physics.light.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The angle of incidence equals the angle of reflection. Both angles are measured from the normal to the surface.",
+    "scienceFact": "The angle of incidence equals the angle of reflection. Both angles are measured from the normal to the surface.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Trial model", "Angle to the normal"],
+      "rows": [
+        ["Incoming ray", "30°"],
+        ["Reflected ray", "30°"]
+      ]
+    }
+  },
+  {
+    "id": "physics.light.h.004",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Light enters glass at an angle and changes speed and direction. Which optical process occurs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sound absorption",
+        "misconception": "physics.light.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Refraction"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only reflection",
+        "misconception": "physics.light.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Combustion",
+        "misconception": "physics.light.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Refraction occurs when a wave changes speed between media. At an angle, this usually changes its direction too.",
+    "scienceFact": "Refraction occurs when a wave changes speed between media. At an angle, this usually changes its direction too.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.005",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A transparent lens is thicker in the middle and brings parallel rays together. Which lens is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Plane glass only",
+        "misconception": "physics.light.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Opaque mirror",
+        "misconception": "physics.light.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Convex lens"
+      },
+      {
+        "id": "choice-3",
+        "text": "Concave lens",
+        "misconception": "physics.light.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A convex lens can bring parallel rays to a focus. Keep focused sunlight away from eyes and skin.",
+    "scienceFact": "A convex lens can bring parallel rays to a focus. Keep focused sunlight away from eyes and skin.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.006",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A spectrum chart increases in frequency from radio to visible to X-rays. Which region lies beyond X-rays?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Radio waves",
+        "misconception": "physics.light.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Microwaves",
+        "misconception": "physics.light.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Infrared",
+        "misconception": "physics.light.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gamma rays"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Gamma rays have the highest frequencies in the usual electromagnetic spectrum ordering.",
+    "scienceFact": "Gamma rays have the highest frequencies in the usual electromagnetic spectrum ordering.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.007",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A sensor detects wavelengths longer than visible red but shorter than microwaves. Which region is it measuring?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Infrared"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ultraviolet",
+        "misconception": "physics.light.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gamma rays",
+        "misconception": "physics.light.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "X-rays",
+        "misconception": "physics.light.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Infrared lies beyond the red end of visible light. Many warm objects emit strongly in infrared.",
+    "scienceFact": "Infrared lies beyond the red end of visible light. Many warm objects emit strongly in infrared.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.008",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A prism bends each color by a different amount. What effect splits white light into a band of colors?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Evaporation",
+        "misconception": "physics.light.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Dispersion"
+      },
+      {
+        "id": "choice-2",
+        "text": "Conduction",
+        "misconception": "physics.light.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fission",
+        "misconception": "physics.light.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "In glass, different colors of light travel at different speeds. This makes them bend by different amounts and spread out.",
+    "scienceFact": "In glass, different colors of light travel at different speeds. This makes them bend by different amounts and spread out.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.009",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A wave has more photon energy than visible violet and can damage skin. Which solar region fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only visible red",
+        "misconception": "physics.light.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only sound",
+        "misconception": "physics.light.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ultraviolet"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only radio waves",
+        "misconception": "physics.light.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Ultraviolet radiation from sunlight can damage skin and eyes. Use suitable protection when outdoors.",
+    "scienceFact": "Ultraviolet radiation from sunlight can damage skin and eyes. Use suitable protection when outdoors.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.010",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A flat mirror image is upright and the same size as the object. Which image category fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Real image on a screen",
+        "misconception": "physics.light.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Upside-down image",
+        "misconception": "physics.light.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "A magnified real image",
+        "misconception": "physics.light.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Virtual image"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A plane mirror forms an upright virtual image. Reflected rays appear to come from behind the mirror.",
+    "scienceFact": "A plane mirror forms an upright virtual image. Reflected rays appear to come from behind the mirror.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.011",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Arrange visible colors from longer to shorter wavelength.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Red"
+      },
+      {
+        "id": "step-1",
+        "text": "Yellow"
+      },
+      {
+        "id": "step-2",
+        "text": "Green"
+      },
+      {
+        "id": "step-3",
+        "text": "Violet"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Red. Yellow. Green. Violet. Each stage leads to the next.",
+    "scienceFact": "The normal is an imaginary line perpendicular to a surface at the point where a ray meets it.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.light.h.012",
+    "deckId": "physics.light",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "Measurements compare the same light in water, glass and vacuum. Which setting gives the greatest speed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Diamond",
+        "misconception": "physics.light.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Vacuum"
+      },
+      {
+        "id": "choice-2",
+        "text": "Glass",
+        "misconception": "physics.light.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Water",
+        "misconception": "physics.light.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Light’s speed is greatest in a vacuum. It travels more slowly through ordinary transparent materials such as water and glass.",
+    "scienceFact": "Light’s speed is greatest in a vacuum. It travels more slowly through ordinary transparent materials such as water and glass.",
+    "topic": "physics.light",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Reflection, refraction and electromagnetic radiation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "lens"
+  }
+]

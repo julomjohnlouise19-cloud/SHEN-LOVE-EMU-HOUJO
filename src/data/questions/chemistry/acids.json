@@ -1,0 +1,1212 @@
+[
+  {
+    "id": "chemistry.acids.e.001",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Is fresh calamansi juice usually acidic, neutral or basic?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Acidic"
+      },
+      {
+        "id": "choice-1",
+        "text": "Neutral",
+        "misconception": "chemistry.acids.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Basic",
+        "misconception": "chemistry.acids.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Insoluble",
+        "misconception": "chemistry.acids.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Calamansi juice contains acids. A pH below 7 is acidic for ordinary dilute water-based solutions.",
+    "scienceFact": "Calamansi juice contains acids. A pH below 7 is acidic for ordinary dilute water-based solutions.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.002",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which household sample in the Philippines contains acetic acid?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sugar syrup",
+        "misconception": "chemistry.acids.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Vinegar"
+      },
+      {
+        "id": "choice-2",
+        "text": "Distilled water",
+        "misconception": "chemistry.acids.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cooking oil",
+        "misconception": "chemistry.acids.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Vinegar is a solution of acetic acid in water. Do not taste unknown lab samples to identify acids.",
+    "scienceFact": "Vinegar is a solution of acetic acid in water. Do not taste unknown lab samples to identify acids.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.003",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What pH is neutral water near 25 °C?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "4",
+        "misconception": "chemistry.acids.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "14",
+        "misconception": "chemistry.acids.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "7"
+      },
+      {
+        "id": "choice-3",
+        "text": "1",
+        "misconception": "chemistry.acids.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "At about 25 °C, neutral water has pH 7. Neutrality means equal hydrogen-ion and hydroxide-ion concentrations.",
+    "scienceFact": "At about 25 °C, neutral water has pH 7. Neutrality means equal hydrogen-ion and hydroxide-ion concentrations.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.004",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which ion is more concentrated in an acidic water solution?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sodium atom",
+        "misconception": "chemistry.acids.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Neutron",
+        "misconception": "chemistry.acids.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Chloride only",
+        "misconception": "chemistry.acids.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Hydrogen ion"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Acidic water solutions have more hydrogen ions than hydroxide ions. pH describes hydrogen-ion activity.",
+    "scienceFact": "Acidic water solutions have more hydrogen ions than hydroxide ions. pH describes hydrogen-ion activity.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.005",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What pH range usually indicates a base near room temperature?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Above 7"
+      },
+      {
+        "id": "choice-1",
+        "text": "Below 7",
+        "misconception": "chemistry.acids.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Exactly 7",
+        "misconception": "chemistry.acids.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only negative values",
+        "misconception": "chemistry.acids.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A pH above 7 is basic for ordinary dilute aqueous solutions near room temperature.",
+    "scienceFact": "A pH above 7 is basic for ordinary dilute aqueous solutions near room temperature.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.006",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What happens to blue litmus in an acidic solution?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Blue to purple only",
+        "misconception": "chemistry.acids.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Blue to red"
+      },
+      {
+        "id": "choice-2",
+        "text": "Blue to green",
+        "misconception": "chemistry.acids.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Blue to yellow",
+        "misconception": "chemistry.acids.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Acids turn blue litmus red. Litmus is an indicator, not a precise measure of pH.",
+    "scienceFact": "Acids turn blue litmus red. Litmus is an indicator, not a precise measure of pH.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.007",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a reaction between an acid and a base called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Freezing",
+        "misconception": "chemistry.acids.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sublimation",
+        "misconception": "chemistry.acids.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Neutralization"
+      },
+      {
+        "id": "choice-3",
+        "text": "Filtration",
+        "misconception": "chemistry.acids.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A common neutralization reaction between an acid and a hydroxide base forms a salt and water.",
+    "scienceFact": "A common neutralization reaction between an acid and a hydroxide base forms a salt and water.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.008",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "How does each one-unit drop in pH change H⁺ concentration in a dilute solution?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "2 times",
+        "misconception": "chemistry.acids.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "100 times",
+        "misconception": "chemistry.acids.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "No change",
+        "misconception": "chemistry.acids.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "10 times"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The pH scale is logarithmic. A one-unit decrease corresponds to about ten times the hydrogen-ion concentration in dilute solutions.",
+    "scienceFact": "The pH scale is logarithmic. A one-unit decrease corresponds to about ten times the hydrogen-ion concentration in dilute solutions.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.009",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the safe way to dilute a concentrated acid in a supervised lab?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Add acid slowly to water"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pour water into concentrated acid",
+        "misconception": "chemistry.acids.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mix with bare hands",
+        "misconception": "chemistry.acids.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Smell the open bottle closely",
+        "misconception": "chemistry.acids.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Only do this with a trained teacher. Add acid slowly to water. The mixing can release heat and cause splashes.",
+    "scienceFact": "Only do this with a trained teacher. Add acid slowly to water. The mixing can release heat and cause splashes.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.e.010",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What should you use to read the pH of an unknown solution?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A dry magnet",
+        "misconception": "chemistry.acids.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "pH paper or a pH meter"
+      },
+      {
+        "id": "choice-2",
+        "text": "Taste testing",
+        "misconception": "chemistry.acids.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "A ruler alone",
+        "misconception": "chemistry.acids.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Use an indicator or a calibrated pH meter to test acidity. Taste and direct sniffing are unsafe lab methods.",
+    "scienceFact": "Use an indicator or a calibrated pH meter to test acidity. Taste and direct sniffing are unsafe lab methods.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "ph"
+  },
+  {
+    "id": "chemistry.acids.e.011",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What gas often forms when an acid reacts with a carbonate?",
+    "answer": "Carbon dioxide",
+    "explanation": "Acids react with carbonates or bicarbonates to release carbon dioxide gas, along with a salt and water.",
+    "scienceFact": "Acids react with carbonates or bicarbonates to release carbon dioxide gas, along with a salt and water.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["carbon dioxide", "Carbon dioxide"]
+  },
+  {
+    "id": "chemistry.acids.e.012",
+    "deckId": "chemistry.acids",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is a substance that changes color with pH called?",
+    "answer": "Indicator",
+    "explanation": "An acid-base indicator changes color over a pH range. Its color gives clues about a solution’s acidity.",
+    "scienceFact": "An acid-base indicator changes color over a pH range. Its color gives clues about a solution’s acidity.",
+    "topic": "chemistry.acids",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["indicator", "Indicator"]
+  },
+  {
+    "id": "chemistry.acids.m.001",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A calamansi sample has pH 2. Which term describes it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Insoluble",
+        "misconception": "chemistry.acids.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Acidic"
+      },
+      {
+        "id": "choice-2",
+        "text": "Neutral",
+        "misconception": "chemistry.acids.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Basic",
+        "misconception": "chemistry.acids.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Calamansi juice contains acids. A pH below 7 is acidic for ordinary dilute water-based solutions.",
+    "scienceFact": "Calamansi juice contains acids. A pH below 7 is acidic for ordinary dilute water-based solutions.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.002",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine recipe uses a sour liquid made by fermentation. Which sample commonly contains acetic acid?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cooking oil",
+        "misconception": "chemistry.acids.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sugar syrup",
+        "misconception": "chemistry.acids.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Vinegar"
+      },
+      {
+        "id": "choice-3",
+        "text": "Distilled water",
+        "misconception": "chemistry.acids.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Vinegar is a solution of acetic acid in water. Do not taste unknown lab samples to identify acids.",
+    "scienceFact": "Vinegar is a solution of acetic acid in water. Do not taste unknown lab samples to identify acids.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.003",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Manila class measures pure water near 25 °C. Which pH should be close to neutral?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "1",
+        "misconception": "chemistry.acids.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "4",
+        "misconception": "chemistry.acids.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "14",
+        "misconception": "chemistry.acids.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "7"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "At about 25 °C, neutral water has pH 7. Neutrality means equal hydrogen-ion and hydroxide-ion concentrations.",
+    "scienceFact": "At about 25 °C, neutral water has pH 7. Neutrality means equal hydrogen-ion and hydroxide-ion concentrations.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.004",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A solution’s pH falls as acid is added. Which ion has increased?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Hydrogen ion"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sodium atom",
+        "misconception": "chemistry.acids.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Neutron",
+        "misconception": "chemistry.acids.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chloride only",
+        "misconception": "chemistry.acids.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Acidic water solutions have more hydrogen ions than hydroxide ions. pH describes hydrogen-ion activity.",
+    "scienceFact": "Acidic water solutions have more hydrogen ions than hydroxide ions. pH describes hydrogen-ion activity.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.005",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A soap solution has pH 10 at about 25 °C. Which range does it fall in?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only negative values",
+        "misconception": "chemistry.acids.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Above 7"
+      },
+      {
+        "id": "choice-2",
+        "text": "Below 7",
+        "misconception": "chemistry.acids.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Exactly 7",
+        "misconception": "chemistry.acids.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A pH above 7 is basic for ordinary dilute aqueous solutions near room temperature.",
+    "scienceFact": "A pH above 7 is basic for ordinary dilute aqueous solutions near room temperature.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.006",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student dips blue litmus in diluted vinegar. What color change is expected?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Blue to yellow",
+        "misconception": "chemistry.acids.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Blue to purple only",
+        "misconception": "chemistry.acids.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Blue to red"
+      },
+      {
+        "id": "choice-3",
+        "text": "Blue to green",
+        "misconception": "chemistry.acids.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Acids turn blue litmus red. Litmus is an indicator, not a precise measure of pH.",
+    "scienceFact": "Acids turn blue litmus red. Litmus is an indicator, not a precise measure of pH.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.007",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "An acid reacts with a base to form salt and water. What is the process?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Filtration",
+        "misconception": "chemistry.acids.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Freezing",
+        "misconception": "chemistry.acids.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sublimation",
+        "misconception": "chemistry.acids.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Neutralization"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A common neutralization reaction between an acid and a hydroxide base forms a salt and water.",
+    "scienceFact": "A common neutralization reaction between an acid and a hydroxide base forms a salt and water.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.008",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A dilute solution changes from pH 5 to pH 4. How many times greater is its H⁺ concentration?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "10 times"
+      },
+      {
+        "id": "choice-1",
+        "text": "2 times",
+        "misconception": "chemistry.acids.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "100 times",
+        "misconception": "chemistry.acids.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "No change",
+        "misconception": "chemistry.acids.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The pH scale is logarithmic. A one-unit decrease corresponds to about ten times the hydrogen-ion concentration in dilute solutions.",
+    "scienceFact": "The pH scale is logarithmic. A one-unit decrease corresponds to about ten times the hydrogen-ion concentration in dilute solutions.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.009",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A teacher prepares dilute acid. Which addition order reduces splash risk?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Smell the open bottle closely",
+        "misconception": "chemistry.acids.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Add acid slowly to water"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pour water into concentrated acid",
+        "misconception": "chemistry.acids.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mix with bare hands",
+        "misconception": "chemistry.acids.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Only do this with a trained teacher. Add acid slowly to water. The mixing can release heat and cause splashes.",
+    "scienceFact": "Only do this with a trained teacher. Add acid slowly to water. The mixing can release heat and cause splashes.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.010",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student wants a pH estimate without tasting a liquid. Which tool is suitable?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A ruler alone",
+        "misconception": "chemistry.acids.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "A dry magnet",
+        "misconception": "chemistry.acids.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "pH paper or a pH meter"
+      },
+      {
+        "id": "choice-3",
+        "text": "Taste testing",
+        "misconception": "chemistry.acids.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Use an indicator or a calibrated pH meter to test acidity. Taste and direct sniffing are unsafe lab methods.",
+    "scienceFact": "Use an indicator or a calibrated pH meter to test acidity. Taste and direct sniffing are unsafe lab methods.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.011",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Arrange these dilute solutions from most acidic to most basic at 25 °C.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "pH 2"
+      },
+      {
+        "id": "step-1",
+        "text": "pH 7"
+      },
+      {
+        "id": "step-2",
+        "text": "pH 12"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "pH 2. pH 7. pH 12. Each stage leads to the next.",
+    "scienceFact": "Acids react with carbonates or bicarbonates to release carbon dioxide gas, along with a salt and water.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.m.012",
+    "deckId": "chemistry.acids",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each pH value with its category at about 25 °C.",
+    "answer": {
+      "pH 3": "Acidic",
+      "pH 7": "Neutral",
+      "pH 11": "Basic"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "An acid-base indicator changes color over a pH range. Its color gives clues about a solution’s acidity.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.001",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A dilute solution in a Philippine lab has [H⁺] = 10⁻³ mol/L. Using pH = −log₁₀[H⁺], what is its pH?",
+    "answer": "3",
+    "explanation": "The negative base-ten logarithm of 10⁻³ is 3, so the pH is 3.",
+    "scienceFact": "The negative base-ten logarithm of 10⁻³ is 3, so the pH is 3.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.acids.h.002",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Cebu lab compares pH 2 and pH 4 dilute solutions. How many times greater is [H⁺] at pH 2?",
+    "answer": "100",
+    "explanation": "Two pH units mean a factor of 10². The pH 2 sample has 100 times the hydrogen-ion concentration.",
+    "scienceFact": "Two pH units mean a factor of 10². The pH 2 sample has 100 times the hydrogen-ion concentration.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "times",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.acids.h.003",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Manila lab dilutes a pH 3 strong acid tenfold. Assume full dissociation and negligible water contribution. What is its approximate new pH?",
+    "answer": "4",
+    "explanation": "Tenfold dilution lowers the hydrogen-ion concentration by a factor of ten. The pH rises by one unit, from 3 to 4.",
+    "scienceFact": "Tenfold dilution lowers the hydrogen-ion concentration by a factor of ten. The pH rises by one unit, from 3 to 4.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.acids.h.004",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A solution has more H⁺ than OH⁻ at 25 °C. Which excess ion accounts for its acidity?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chloride only",
+        "misconception": "chemistry.acids.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Hydrogen ion"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sodium atom",
+        "misconception": "chemistry.acids.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Neutron",
+        "misconception": "chemistry.acids.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Acidic water solutions have more hydrogen ions than hydroxide ions. pH describes hydrogen-ion activity.",
+    "scienceFact": "Acidic water solutions have more hydrogen ions than hydroxide ions. pH describes hydrogen-ion activity.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.005",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An indicator shows a solution has pH 11 rather than 7. Which pH range supports calling it basic?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Exactly 7",
+        "misconception": "chemistry.acids.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only negative values",
+        "misconception": "chemistry.acids.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Above 7"
+      },
+      {
+        "id": "choice-3",
+        "text": "Below 7",
+        "misconception": "chemistry.acids.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A pH above 7 is basic for ordinary dilute aqueous solutions near room temperature.",
+    "scienceFact": "A pH above 7 is basic for ordinary dilute aqueous solutions near room temperature.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.006",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An unknown dilute sample turns blue litmus red. Which litmus change supports the presence of an acid?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Blue to green",
+        "misconception": "chemistry.acids.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Blue to yellow",
+        "misconception": "chemistry.acids.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Blue to purple only",
+        "misconception": "chemistry.acids.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Blue to red"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Acids turn blue litmus red. Litmus is an indicator, not a precise measure of pH.",
+    "scienceFact": "Acids turn blue litmus red. Litmus is an indicator, not a precise measure of pH.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.007",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "HCl reacts with NaOH to give NaCl and water. Which reaction name fits this acid-base model?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Neutralization"
+      },
+      {
+        "id": "choice-1",
+        "text": "Filtration",
+        "misconception": "chemistry.acids.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Freezing",
+        "misconception": "chemistry.acids.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sublimation",
+        "misconception": "chemistry.acids.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A common neutralization reaction between an acid and a hydroxide base forms a salt and water.",
+    "scienceFact": "A common neutralization reaction between an acid and a hydroxide base forms a salt and water.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.008",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Sample A is pH 3 and sample B is pH 4. How much greater is the hydrogen-ion concentration in A?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "No change",
+        "misconception": "chemistry.acids.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "10 times"
+      },
+      {
+        "id": "choice-2",
+        "text": "2 times",
+        "misconception": "chemistry.acids.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "100 times",
+        "misconception": "chemistry.acids.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The pH scale is logarithmic. A one-unit decrease corresponds to about ten times the hydrogen-ion concentration in dilute solutions.",
+    "scienceFact": "The pH scale is logarithmic. A one-unit decrease corresponds to about ten times the hydrogen-ion concentration in dilute solutions.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.009",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Dilution can release heat. Which method spreads that heat into a larger water volume under teacher supervision?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mix with bare hands",
+        "misconception": "chemistry.acids.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Smell the open bottle closely",
+        "misconception": "chemistry.acids.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Add acid slowly to water"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pour water into concentrated acid",
+        "misconception": "chemistry.acids.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Only do this with a trained teacher. Add acid slowly to water. The mixing can release heat and cause splashes.",
+    "scienceFact": "Only do this with a trained teacher. Add acid slowly to water. The mixing can release heat and cause splashes.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.010",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two clear liquids look alike. Which safe tool can compare their acidity directly?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Taste testing",
+        "misconception": "chemistry.acids.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "A ruler alone",
+        "misconception": "chemistry.acids.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "A dry magnet",
+        "misconception": "chemistry.acids.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "pH paper or a pH meter"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Use an indicator or a calibrated pH meter to test acidity. Taste and direct sniffing are unsafe lab methods.",
+    "scienceFact": "Use an indicator or a calibrated pH meter to test acidity. Taste and direct sniffing are unsafe lab methods.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.011",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order a safe, teacher-led pH test.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Wear safety goggles"
+      },
+      {
+        "id": "step-1",
+        "text": "Place a small sample in a container"
+      },
+      {
+        "id": "step-2",
+        "text": "Test with indicator paper"
+      },
+      {
+        "id": "step-3",
+        "text": "Dispose as instructed"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Wear safety goggles. Place a small sample in a container. Test with indicator paper. Dispose as instructed. Each stage leads to the next.",
+    "scienceFact": "Acids react with carbonates or bicarbonates to release carbon dioxide gas, along with a salt and water.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.acids.h.012",
+    "deckId": "chemistry.acids",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A student uses a dye to compare several pH values. The dye changes color with acidity. What is the dye called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Precipitate only",
+        "misconception": "chemistry.acids.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Indicator"
+      },
+      {
+        "id": "choice-2",
+        "text": "Solvent only",
+        "misconception": "chemistry.acids.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Magnet",
+        "misconception": "chemistry.acids.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An acid-base indicator changes color over a pH range. Its color gives clues about a solution’s acidity.",
+    "scienceFact": "An acid-base indicator changes color over a pH range. Its color gives clues about a solution’s acidity.",
+    "topic": "chemistry.acids",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Acids, bases, indicators and the pH scale. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "ph"
+  }
+]

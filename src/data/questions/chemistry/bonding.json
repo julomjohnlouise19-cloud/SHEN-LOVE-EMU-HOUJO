@@ -1,0 +1,1284 @@
+[
+  {
+    "id": "chemistry.bonding.e.001",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which bond involves sharing electron pairs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Covalent bond"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ionic bond",
+        "misconception": "chemistry.bonding.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Magnetic pole",
+        "misconception": "chemistry.bonding.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nuclear force only",
+        "misconception": "chemistry.bonding.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A covalent bond involves shared electron pairs between atoms. Water’s O–H bonds are covalent.",
+    "scienceFact": "A covalent bond involves shared electron pairs between atoms. Water’s O–H bonds are covalent.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.002",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What holds oppositely charged ions together in salt?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Gravitational orbit",
+        "misconception": "chemistry.bonding.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ionic bond"
+      },
+      {
+        "id": "choice-2",
+        "text": "Covalent bond only",
+        "misconception": "chemistry.bonding.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Hydrogen nucleus",
+        "misconception": "chemistry.bonding.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Ionic bonding is the electric attraction between opposite ions. Solid sodium chloride forms an ionic lattice.",
+    "scienceFact": "Ionic bonding is the electric attraction between opposite ions. Solid sodium chloride forms an ionic lattice.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.003",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What formula represents a water molecule?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "H₂O₂",
+        "misconception": "chemistry.bonding.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "CO₂",
+        "misconception": "chemistry.bonding.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "H₂O"
+      },
+      {
+        "id": "choice-3",
+        "text": "HO₂",
+        "misconception": "chemistry.bonding.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A water molecule contains two hydrogen atoms and one oxygen atom. Subscripts show the number of each atom.",
+    "scienceFact": "A water molecule contains two hydrogen atoms and one oxygen atom. Subscripts show the number of each atom.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.004",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a pure substance of two bonded elements called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Element",
+        "misconception": "chemistry.bonding.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Physical mixture",
+        "misconception": "chemistry.bonding.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Single atom",
+        "misconception": "chemistry.bonding.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Compound"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A compound has atoms of at least two different elements joined in a set ratio.",
+    "scienceFact": "A compound has atoms of at least two different elements joined in a set ratio.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.005",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which food molecule group includes sugars and starch?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Carbohydrates"
+      },
+      {
+        "id": "choice-1",
+        "text": "Proteins",
+        "misconception": "chemistry.bonding.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nucleic acids",
+        "misconception": "chemistry.bonding.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Carbohydrates include sugars and starch. They can supply energy and serve structural roles.",
+    "scienceFact": "Carbohydrates include sugars and starch. They can supply energy and serve structural roles.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.006",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which biomolecules are built from amino acids?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Simple salts",
+        "misconception": "chemistry.bonding.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Proteins"
+      },
+      {
+        "id": "choice-2",
+        "text": "Lipids",
+        "misconception": "chemistry.bonding.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Starches",
+        "misconception": "chemistry.bonding.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Proteins are made from amino acids. They have many roles, including enzymes, transport and structural support.",
+    "scienceFact": "Proteins are made from amino acids. They have many roles, including enzymes, transport and structural support.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.007",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which biomolecule group includes fats and oils?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Simple sugars",
+        "misconception": "chemistry.bonding.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Lipids"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nucleic acids",
+        "misconception": "chemistry.bonding.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Lipids include fats and oils. They store energy and form important parts of cell membranes.",
+    "scienceFact": "Lipids include fats and oils. They store energy and form important parts of cell membranes.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.008",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which biomolecules include DNA and RNA?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Lipids",
+        "misconception": "chemistry.bonding.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Carbohydrates",
+        "misconception": "chemistry.bonding.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nucleic acids"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Nucleic acids are built from nucleotides. DNA and RNA are involved in storing and using genetic information.",
+    "scienceFact": "Nucleic acids are built from nucleotides. DNA and RNA are involved in storing and using genetic information.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.009",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What bonding model explains mobile electrons in metals?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Metallic bonding"
+      },
+      {
+        "id": "choice-1",
+        "text": "Separate water molecules",
+        "misconception": "chemistry.bonding.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only neutral gas atoms",
+        "misconception": "chemistry.bonding.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fixed nonmoving electrons",
+        "misconception": "chemistry.bonding.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Metals have positive ions held by a shared pool of electrons. These electrons can move and carry charge.",
+    "scienceFact": "Metals have positive ions held by a shared pool of electrons. These electrons can move and carry charge.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.e.010",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Why can dissolved salt carry electric current?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only solid crystals carry current",
+        "misconception": "chemistry.bonding.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ions can move in the solution"
+      },
+      {
+        "id": "choice-2",
+        "text": "Neutral salt molecules grow wings",
+        "misconception": "chemistry.bonding.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Water creates extra protons",
+        "misconception": "chemistry.bonding.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Dissolved salt supplies mobile ions that carry charge. In a solid salt lattice, the ions cannot move freely.",
+    "scienceFact": "Dissolved salt supplies mobile ions that carry charge. In a solid salt lattice, the ions cannot move freely.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "molecule"
+  },
+  {
+    "id": "chemistry.bonding.e.011",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What word describes an uneven distribution of charge in a molecule?",
+    "answer": "Polarity",
+    "explanation": "A polar molecule has an uneven distribution of charge. Water is polar even though each molecule is neutral overall.",
+    "scienceFact": "A polar molecule has an uneven distribution of charge. Water is polar even though each molecule is neutral overall.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["polarity", "Polarity"]
+  },
+  {
+    "id": "chemistry.bonding.e.012",
+    "deckId": "chemistry.bonding",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is the simplest whole-number ratio of atoms in a compound called?",
+    "answer": "Empirical formula",
+    "explanation": "An empirical formula gives the simplest whole-number ratio of elements in a compound. It need not show a full molecule.",
+    "scienceFact": "An empirical formula gives the simplest whole-number ratio of elements in a compound. It need not show a full molecule.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["empirical formula", "Empirical formula"]
+  },
+  {
+    "id": "chemistry.bonding.m.001",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine class models water molecules by sharing electrons. What kind of bond joins H and O within each molecule?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nuclear force only",
+        "misconception": "chemistry.bonding.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Covalent bond"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ionic bond",
+        "misconception": "chemistry.bonding.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Magnetic pole",
+        "misconception": "chemistry.bonding.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A covalent bond involves shared electron pairs between atoms. Water’s O–H bonds are covalent.",
+    "scienceFact": "A covalent bond involves shared electron pairs between atoms. Water’s O–H bonds are covalent.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.002",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Sea salt in the Philippines contains Na⁺ and Cl⁻. What bond holds these ions in a solid lattice?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Hydrogen nucleus",
+        "misconception": "chemistry.bonding.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Gravitational orbit",
+        "misconception": "chemistry.bonding.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ionic bond"
+      },
+      {
+        "id": "choice-3",
+        "text": "Covalent bond only",
+        "misconception": "chemistry.bonding.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Ionic bonding is the electric attraction between opposite ions. Solid sodium chloride forms an ionic lattice.",
+    "scienceFact": "Ionic bonding is the electric attraction between opposite ions. Solid sodium chloride forms an ionic lattice.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.003",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine student models a molecule with two H atoms and one O atom. What is its formula?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "HO₂",
+        "misconception": "chemistry.bonding.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "H₂O₂",
+        "misconception": "chemistry.bonding.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "CO₂",
+        "misconception": "chemistry.bonding.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "H₂O"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A water molecule contains two hydrogen atoms and one oxygen atom. Subscripts show the number of each atom.",
+    "scienceFact": "A water molecule contains two hydrogen atoms and one oxygen atom. Subscripts show the number of each atom.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.004",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Hydrogen and oxygen join in a fixed ratio to make water. How is water classified?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Compound"
+      },
+      {
+        "id": "choice-1",
+        "text": "Element",
+        "misconception": "chemistry.bonding.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Physical mixture",
+        "misconception": "chemistry.bonding.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Single atom",
+        "misconception": "chemistry.bonding.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A compound has atoms of at least two different elements joined in a set ratio.",
+    "scienceFact": "A compound has atoms of at least two different elements joined in a set ratio.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.005",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A runner eats rice as a source of energy-rich starch. Which biomolecule group includes starch?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Carbohydrates"
+      },
+      {
+        "id": "choice-2",
+        "text": "Proteins",
+        "misconception": "chemistry.bonding.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nucleic acids",
+        "misconception": "chemistry.bonding.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Carbohydrates include sugars and starch. They can supply energy and serve structural roles.",
+    "scienceFact": "Carbohydrates include sugars and starch. They can supply energy and serve structural roles.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.006",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A body makes an enzyme by joining amino acids. Which biomolecule group is formed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Starches",
+        "misconception": "chemistry.bonding.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Simple salts",
+        "misconception": "chemistry.bonding.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Proteins"
+      },
+      {
+        "id": "choice-3",
+        "text": "Lipids",
+        "misconception": "chemistry.bonding.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Proteins are made from amino acids. They have many roles, including enzymes, transport and structural support.",
+    "scienceFact": "Proteins are made from amino acids. They have many roles, including enzymes, transport and structural support.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.007",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A seed stores much energy in oil. Which group does this stored material belong to?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nucleic acids",
+        "misconception": "chemistry.bonding.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Simple sugars",
+        "misconception": "chemistry.bonding.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Lipids"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Lipids include fats and oils. They store energy and form important parts of cell membranes.",
+    "scienceFact": "Lipids include fats and oils. They store energy and form important parts of cell membranes.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.008",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A cell copies DNA before division. Which large-molecule group includes DNA?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nucleic acids"
+      },
+      {
+        "id": "choice-1",
+        "text": "Lipids",
+        "misconception": "chemistry.bonding.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Carbohydrates",
+        "misconception": "chemistry.bonding.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Nucleic acids are built from nucleotides. DNA and RNA are involved in storing and using genetic information.",
+    "scienceFact": "Nucleic acids are built from nucleotides. DNA and RNA are involved in storing and using genetic information.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.009",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Copper conducts electric current through mobile electrons. Which bonding model explains this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Fixed nonmoving electrons",
+        "misconception": "chemistry.bonding.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Metallic bonding"
+      },
+      {
+        "id": "choice-2",
+        "text": "Separate water molecules",
+        "misconception": "chemistry.bonding.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only neutral gas atoms",
+        "misconception": "chemistry.bonding.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Metals have positive ions held by a shared pool of electrons. These electrons can move and carry charge.",
+    "scienceFact": "Metals have positive ions held by a shared pool of electrons. These electrons can move and carry charge.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.010",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Salt water lights a small test lamp, while pure sugar water does not under the same setup. Why?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Water creates extra protons",
+        "misconception": "chemistry.bonding.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only solid crystals carry current",
+        "misconception": "chemistry.bonding.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Ions can move in the solution"
+      },
+      {
+        "id": "choice-3",
+        "text": "Neutral salt molecules grow wings",
+        "misconception": "chemistry.bonding.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Dissolved salt supplies mobile ions that carry charge. In a solid salt lattice, the ions cannot move freely.",
+    "scienceFact": "Dissolved salt supplies mobile ions that carry charge. In a solid salt lattice, the ions cannot move freely.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.011",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order a simple ionic-bond model for sodium and chlorine.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Sodium loses an electron"
+      },
+      {
+        "id": "step-1",
+        "text": "Opposite ions form"
+      },
+      {
+        "id": "step-2",
+        "text": "The ions attract"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Sodium loses an electron. Opposite ions form. The ions attract. Each stage leads to the next.",
+    "scienceFact": "A polar molecule has an uneven distribution of charge. Water is polar even though each molecule is neutral overall.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.m.012",
+    "deckId": "chemistry.bonding",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each biomolecule group with a familiar example.",
+    "answer": {
+      "Carbohydrate": "Starch",
+      "Protein": "An enzyme",
+      "Lipid": "Cooking oil"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "An empirical formula gives the simplest whole-number ratio of elements in a compound. It need not show a full molecule.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.001",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Cebu lab model shows two nonmetals sharing electron pairs. Which bond type matches this evidence?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Magnetic pole",
+        "misconception": "chemistry.bonding.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nuclear force only",
+        "misconception": "chemistry.bonding.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Covalent bond"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ionic bond",
+        "misconception": "chemistry.bonding.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A covalent bond involves shared electron pairs between atoms. Water’s O–H bonds are covalent.",
+    "scienceFact": "A covalent bond involves shared electron pairs between atoms. Water’s O–H bonds are covalent.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Particle model", "Electron behavior"],
+      "rows": [["Two nonmetal atoms", "Electron pairs shared"]]
+    }
+  },
+  {
+    "id": "chemistry.bonding.h.002",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Philippine sea salt has a lattice of opposite ions rather than separate molecules. Which bond type explains its structure?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Covalent bond only",
+        "misconception": "chemistry.bonding.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Hydrogen nucleus",
+        "misconception": "chemistry.bonding.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gravitational orbit",
+        "misconception": "chemistry.bonding.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ionic bond"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Ionic bonding is the electric attraction between opposite ions. Solid sodium chloride forms an ionic lattice.",
+    "scienceFact": "Ionic bonding is the electric attraction between opposite ions. Solid sodium chloride forms an ionic lattice.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Salt crystal model", "Structure"],
+      "rows": [
+        ["Positive particles", "Na⁺ ions"],
+        ["Negative particles", "Cl⁻ ions"],
+        ["Arrangement", "Repeating lattice"]
+      ]
+    }
+  },
+  {
+    "id": "chemistry.bonding.h.003",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A water sample in Manila has molecules with a 2:1 hydrogen-to-oxygen atom ratio. Which formula fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "H₂O"
+      },
+      {
+        "id": "choice-1",
+        "text": "HO₂",
+        "misconception": "chemistry.bonding.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "H₂O₂",
+        "misconception": "chemistry.bonding.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "CO₂",
+        "misconception": "chemistry.bonding.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A water molecule contains two hydrogen atoms and one oxygen atom. Subscripts show the number of each atom.",
+    "scienceFact": "A water molecule contains two hydrogen atoms and one oxygen atom. Subscripts show the number of each atom.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Water molecule model", "Atom count"],
+      "rows": [
+        ["Hydrogen", "2"],
+        ["Oxygen", "1"]
+      ]
+    }
+  },
+  {
+    "id": "chemistry.bonding.h.004",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A pure substance has two elements in a fixed atom ratio and differs from both starting elements. What is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Single atom",
+        "misconception": "chemistry.bonding.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Compound"
+      },
+      {
+        "id": "choice-2",
+        "text": "Element",
+        "misconception": "chemistry.bonding.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Physical mixture",
+        "misconception": "chemistry.bonding.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A compound has atoms of at least two different elements joined in a set ratio.",
+    "scienceFact": "A compound has atoms of at least two different elements joined in a set ratio.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.005",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A food test detects starch, a chain made from sugar units. Which group does it belong to?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nucleic acids",
+        "misconception": "chemistry.bonding.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Carbohydrates"
+      },
+      {
+        "id": "choice-3",
+        "text": "Proteins",
+        "misconception": "chemistry.bonding.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Carbohydrates include sugars and starch. They can supply energy and serve structural roles.",
+    "scienceFact": "Carbohydrates include sugars and starch. They can supply energy and serve structural roles.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.006",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A large food molecule breaks into amino acids during digestion. What kind of molecule was it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Lipids",
+        "misconception": "chemistry.bonding.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Starches",
+        "misconception": "chemistry.bonding.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Simple salts",
+        "misconception": "chemistry.bonding.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Proteins"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Proteins are made from amino acids. They have many roles, including enzymes, transport and structural support.",
+    "scienceFact": "Proteins are made from amino acids. They have many roles, including enzymes, transport and structural support.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.007",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A food sample does not mix well with water and stores dense chemical energy. Which group is most likely?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Lipids"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nucleic acids",
+        "misconception": "chemistry.bonding.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Simple sugars",
+        "misconception": "chemistry.bonding.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Lipids include fats and oils. They store energy and form important parts of cell membranes.",
+    "scienceFact": "Lipids include fats and oils. They store energy and form important parts of cell membranes.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.008",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A sample contains chains of nucleotides with genetic information. Which biomolecule group fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mineral salts",
+        "misconception": "chemistry.bonding.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nucleic acids"
+      },
+      {
+        "id": "choice-2",
+        "text": "Lipids",
+        "misconception": "chemistry.bonding.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Carbohydrates",
+        "misconception": "chemistry.bonding.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Nucleic acids are built from nucleotides. DNA and RNA are involved in storing and using genetic information.",
+    "scienceFact": "Nucleic acids are built from nucleotides. DNA and RNA are involved in storing and using genetic information.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.009",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A solid can be bent while mobile electrons still carry charge through it. Which bonding model fits a metal?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only neutral gas atoms",
+        "misconception": "chemistry.bonding.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fixed nonmoving electrons",
+        "misconception": "chemistry.bonding.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Metallic bonding"
+      },
+      {
+        "id": "choice-3",
+        "text": "Separate water molecules",
+        "misconception": "chemistry.bonding.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Metals have positive ions held by a shared pool of electrons. These electrons can move and carry charge.",
+    "scienceFact": "Metals have positive ions held by a shared pool of electrons. These electrons can move and carry charge.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.010",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Solid salt does not conduct well, but its aqueous solution does. What new ability explains this change?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Neutral salt molecules grow wings",
+        "misconception": "chemistry.bonding.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Water creates extra protons",
+        "misconception": "chemistry.bonding.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only solid crystals carry current",
+        "misconception": "chemistry.bonding.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Ions can move in the solution"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Dissolved salt supplies mobile ions that carry charge. In a solid salt lattice, the ions cannot move freely.",
+    "scienceFact": "Dissolved salt supplies mobile ions that carry charge. In a solid salt lattice, the ions cannot move freely.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.011",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Build the structure of a starch molecule from small units upward.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Glucose units"
+      },
+      {
+        "id": "step-1",
+        "text": "Glycosidic links form"
+      },
+      {
+        "id": "step-2",
+        "text": "A starch chain"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Glucose units. Glycosidic links form. A starch chain. Each stage leads to the next.",
+    "scienceFact": "A polar molecule has an uneven distribution of charge. Water is polar even though each molecule is neutral overall.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.bonding.h.012",
+    "deckId": "chemistry.bonding",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A molecular formula is C₆H₁₂O₆. The simplest ratio is CH₂O. What type of formula is CH₂O?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Isotope symbol",
+        "misconception": "chemistry.bonding.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Empirical formula"
+      },
+      {
+        "id": "choice-2",
+        "text": "Word equation",
+        "misconception": "chemistry.bonding.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mass number",
+        "misconception": "chemistry.bonding.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An empirical formula gives the simplest whole-number ratio of elements in a compound. It need not show a full molecule.",
+    "scienceFact": "An empirical formula gives the simplest whole-number ratio of elements in a compound. It need not show a full molecule.",
+    "topic": "chemistry.bonding",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Chemical bonds, compounds and biomolecules. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "molecule"
+  }
+]

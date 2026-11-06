@@ -1,0 +1,1215 @@
+[
+  {
+    "id": "skills.data.e.001",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which axis usually shows the independent variable on a graph?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Horizontal x-axis"
+      },
+      {
+        "id": "choice-1",
+        "text": "Vertical y-axis by rule",
+        "misconception": "skills.data.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only the title",
+        "misconception": "skills.data.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Outside the graph",
+        "misconception": "skills.data.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The independent variable usually goes on the horizontal x-axis. The dependent outcome usually goes on the vertical y-axis.",
+    "scienceFact": "The independent variable usually goes on the horizontal x-axis. The dependent outcome usually goes on the vertical y-axis.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.002",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which graph is useful for showing temperature change over time?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a map with no data",
+        "misconception": "skills.data.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Line graph"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only a pie chart",
+        "misconception": "skills.data.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a food web",
+        "misconception": "skills.data.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A line graph can show changes in a continuous quantity over time. Label both axes with quantities and units.",
+    "scienceFact": "A line graph can show changes in a continuous quantity over time. Label both axes with quantities and units.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.003",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which graph compares the counts of three kinds of leaves?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a velocity vector",
+        "misconception": "skills.data.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only an orbit map",
+        "misconception": "skills.data.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Bar graph"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a lens diagram",
+        "misconception": "skills.data.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Bar graphs compare quantities across separate categories. Each bar’s height or length represents the value.",
+    "scienceFact": "Bar graphs compare quantities across separate categories. Each bar’s height or length represents the value.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.004",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the arithmetic mean of 2, 4 and 6?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "2",
+        "misconception": "skills.data.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "6",
+        "misconception": "skills.data.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "12",
+        "misconception": "skills.data.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "4"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The arithmetic mean is the sum divided by the number of values. Here, 12 divided by 3 equals 4.",
+    "scienceFact": "The arithmetic mean is the sum divided by the number of values. Here, 12 divided by 3 equals 4.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.005",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the range of the values 3, 5 and 9?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "6"
+      },
+      {
+        "id": "choice-1",
+        "text": "3",
+        "misconception": "skills.data.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "9",
+        "misconception": "skills.data.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "17",
+        "misconception": "skills.data.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Range is the largest value minus the smallest. Here, 9 minus 3 equals 6.",
+    "scienceFact": "Range is the largest value minus the smallest. Here, 9 minus 3 equals 6.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.006",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What belongs beside the measured quantity on a graph axis?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only extra colors",
+        "misconception": "skills.data.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Measurement units"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only a mascot",
+        "misconception": "skills.data.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a nickname",
+        "misconception": "skills.data.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Axis labels should name the quantity and unit. This makes the scale and meaning clear.",
+    "scienceFact": "Axis labels should name the quantity and unit. This makes the scale and meaning clear.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.007",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What should a student do after finding broken glass in a lab?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Kick pieces under a table",
+        "misconception": "skills.data.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Hide the breakage",
+        "misconception": "skills.data.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Alert the teacher and keep clear"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pick up shards with bare hands",
+        "misconception": "skills.data.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Keep away from broken glass and alert the teacher. Use the school’s approved cleanup method under supervision.",
+    "scienceFact": "Keep away from broken glass and alert the teacher. Use the school’s approved cleanup method under supervision.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.008",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the correct response to an unknown lab chemical’s smell?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sniff it deeply",
+        "misconception": "skills.data.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Taste one small drop",
+        "misconception": "skills.data.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Mix it with every nearby bottle",
+        "misconception": "skills.data.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Do not smell it; ask the teacher"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Do not taste or directly smell unknown chemicals. Follow teacher instructions and the approved procedure.",
+    "scienceFact": "Do not taste or directly smell unknown chemicals. Follow teacher instructions and the approved procedure.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.009",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What protects eyes from lab splashes?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Safety goggles"
+      },
+      {
+        "id": "choice-1",
+        "text": "Open sandals",
+        "misconception": "skills.data.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "A wristwatch",
+        "misconception": "skills.data.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "A notebook",
+        "misconception": "skills.data.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Wear suitable safety goggles when there is a splash or debris risk. Ordinary glasses may not provide the required protection.",
+    "scienceFact": "Wear suitable safety goggles when there is a splash or debris risk. Ordinary glasses may not provide the required protection.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.e.010",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What should be done to identify the contents of a lab container?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Leave it without a label",
+        "misconception": "skills.data.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Label it clearly"
+      },
+      {
+        "id": "choice-2",
+        "text": "Rely only on color",
+        "misconception": "skills.data.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Taste it",
+        "misconception": "skills.data.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Label each container with its name and key safety facts. Many lab liquids look the same.",
+    "scienceFact": "Label each container with its name and key safety facts. Many lab liquids look the same.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "graph"
+  },
+  {
+    "id": "skills.data.e.011",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is a single unusually distant data value called?",
+    "answer": "Outlier",
+    "explanation": "An outlier lies far from most values. Check it carefully rather than deleting it just because it differs.",
+    "scienceFact": "An outlier lies far from most values. Check it carefully rather than deleting it just because it differs.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["outlier", "Outlier"]
+  },
+  {
+    "id": "skills.data.e.012",
+    "deckId": "skills.data",
+    "level": "easy",
+    "type": "input",
+    "prompt": "How should a student report the result shown in a graph?",
+    "answer": "Show the scale and report the data honestly",
+    "explanation": "Show labels, units and scales. Keep the data honest and explain any doubt. Do not hide results that challenge a prediction.",
+    "scienceFact": "Show labels, units and scales. Keep the data honest and explain any doubt. Do not hide results that challenge a prediction.",
+    "topic": "skills.data",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "show the scale and report the data honestly",
+      "Show the scale and report the data honestly"
+    ]
+  },
+  {
+    "id": "skills.data.m.001",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine class plots light hours against rice growth. Where should light hours usually go?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Outside the graph",
+        "misconception": "skills.data.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Horizontal x-axis"
+      },
+      {
+        "id": "choice-2",
+        "text": "Vertical y-axis by rule",
+        "misconception": "skills.data.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only the title",
+        "misconception": "skills.data.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The independent variable usually goes on the horizontal x-axis. The dependent outcome usually goes on the vertical y-axis.",
+    "scienceFact": "The independent variable usually goes on the horizontal x-axis. The dependent outcome usually goes on the vertical y-axis.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.002",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "PAGASA temperature readings are recorded through one day. Which graph can show the time trend clearly?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a food web",
+        "misconception": "skills.data.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a map with no data",
+        "misconception": "skills.data.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Line graph"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a pie chart",
+        "misconception": "skills.data.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A line graph can show changes in a continuous quantity over time. Label both axes with quantities and units.",
+    "scienceFact": "A line graph can show changes in a continuous quantity over time. Label both axes with quantities and units.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.003",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Cebu class counts rice seedlings in three soil types. Which graph can compare the categories?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a lens diagram",
+        "misconception": "skills.data.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a velocity vector",
+        "misconception": "skills.data.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only an orbit map",
+        "misconception": "skills.data.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Bar graph"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Bar graphs compare quantities across separate categories. Each bar’s height or length represents the value.",
+    "scienceFact": "Bar graphs compare quantities across separate categories. Each bar’s height or length represents the value.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.004",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Three plant-growth measurements are 2, 4 and 6 cm. What is their mean in centimeters?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "4"
+      },
+      {
+        "id": "choice-1",
+        "text": "2",
+        "misconception": "skills.data.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "6",
+        "misconception": "skills.data.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "12",
+        "misconception": "skills.data.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The arithmetic mean is the sum divided by the number of values. Here, 12 divided by 3 equals 4.",
+    "scienceFact": "The arithmetic mean is the sum divided by the number of values. Here, 12 divided by 3 equals 4.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.005",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A set of lengths is 3, 5 and 9 cm. What is the range in centimeters?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "17",
+        "misconception": "skills.data.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "6"
+      },
+      {
+        "id": "choice-2",
+        "text": "3",
+        "misconception": "skills.data.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "9",
+        "misconception": "skills.data.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Range is the largest value minus the smallest. Here, 9 minus 3 equals 6.",
+    "scienceFact": "Range is the largest value minus the smallest. Here, 9 minus 3 equals 6.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.006",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A graph is labeled only “time” with numbers but no units. What important label should be added?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a nickname",
+        "misconception": "skills.data.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only extra colors",
+        "misconception": "skills.data.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Measurement units"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a mascot",
+        "misconception": "skills.data.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Axis labels should name the quantity and unit. This makes the scale and meaning clear.",
+    "scienceFact": "Axis labels should name the quantity and unit. This makes the scale and meaning clear.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.007",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A beaker breaks near a student’s feet. What is the first safe response?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pick up shards with bare hands",
+        "misconception": "skills.data.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kick pieces under a table",
+        "misconception": "skills.data.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Hide the breakage",
+        "misconception": "skills.data.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Alert the teacher and keep clear"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Keep away from broken glass and alert the teacher. Use the school’s approved cleanup method under supervision.",
+    "scienceFact": "Keep away from broken glass and alert the teacher. Use the school’s approved cleanup method under supervision.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.008",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student wants to identify an unknown liquid by sniffing the bottle closely. What should the student do instead?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Do not smell it; ask the teacher"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sniff it deeply",
+        "misconception": "skills.data.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Taste one small drop",
+        "misconception": "skills.data.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mix it with every nearby bottle",
+        "misconception": "skills.data.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Do not taste or directly smell unknown chemicals. Follow teacher instructions and the approved procedure.",
+    "scienceFact": "Do not taste or directly smell unknown chemicals. Follow teacher instructions and the approved procedure.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.009",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A class handles liquids that might splash. Which protective item should each student wear?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A notebook",
+        "misconception": "skills.data.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Safety goggles"
+      },
+      {
+        "id": "choice-2",
+        "text": "Open sandals",
+        "misconception": "skills.data.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "A wristwatch",
+        "misconception": "skills.data.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Wear suitable safety goggles when there is a splash or debris risk. Ordinary glasses may not provide the required protection.",
+    "scienceFact": "Wear suitable safety goggles when there is a splash or debris risk. Ordinary glasses may not provide the required protection.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.010",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Two clear liquids are placed in similar cups. What keeps their identities clear?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Taste it",
+        "misconception": "skills.data.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Leave it without a label",
+        "misconception": "skills.data.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Label it clearly"
+      },
+      {
+        "id": "choice-3",
+        "text": "Rely only on color",
+        "misconception": "skills.data.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Label each container with its name and key safety facts. Many lab liquids look the same.",
+    "scienceFact": "Label each container with its name and key safety facts. Many lab liquids look the same.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.011",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order a clear graph-making process.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Choose a suitable graph"
+      },
+      {
+        "id": "step-1",
+        "text": "Label axes and units"
+      },
+      {
+        "id": "step-2",
+        "text": "Plot the data"
+      },
+      {
+        "id": "step-3",
+        "text": "Describe the pattern"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Choose a suitable graph. Label axes and units. Plot the data. Describe the pattern. Each stage leads to the next.",
+    "scienceFact": "An outlier lies far from most values. Check it carefully rather than deleting it just because it differs.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.m.012",
+    "deckId": "skills.data",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Pair each data term with its meaning.",
+    "answer": {
+      "Mean": "Sum divided by count",
+      "Range": "Largest minus smallest",
+      "Outlier": "A value far from most others"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Show labels, units and scales. Keep the data honest and explain any doubt. Do not hide results that challenge a prediction.",
+    "topic": "skills.data",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.001",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Philippine rice trial records heights of 4, 6 and 8 cm. What is the mean height?",
+    "answer": "6",
+    "explanation": "The mean is (4 + 6 + 8) ÷ 3 = 18 ÷ 3 = 6 cm.",
+    "scienceFact": "The mean is (4 + 6 + 8) ÷ 3 = 18 ÷ 3 = 6 cm.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "cm",
+    "tolerance": 0.001
+  },
+  {
+    "id": "skills.data.h.002",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Cebu plant study records 3, 7, 8 and 10 cm of growth. What is the range?",
+    "answer": "7",
+    "explanation": "Range = highest value − lowest value = 10 − 3 = 7 cm.",
+    "scienceFact": "Range = highest value − lowest value = 10 − 3 = 7 cm.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "cm",
+    "tolerance": 0.001
+  },
+  {
+    "id": "skills.data.h.003",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Manila class counts 12 sprouted seeds out of 20. What percent sprouted?",
+    "answer": "60",
+    "explanation": "Percent sprouted = 12 ÷ 20 × 100 = 60%.",
+    "scienceFact": "Percent sprouted = 12 ÷ 20 × 100 = 60%.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "%",
+    "tolerance": 0.001
+  },
+  {
+    "id": "skills.data.h.004",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A table has trial values 2 cm, 4 cm and 6 cm. What single average follows from adding and dividing by three?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "12",
+        "misconception": "skills.data.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "4"
+      },
+      {
+        "id": "choice-2",
+        "text": "2",
+        "misconception": "skills.data.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "6",
+        "misconception": "skills.data.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The arithmetic mean is the sum divided by the number of values. Here, 12 divided by 3 equals 4.",
+    "scienceFact": "The arithmetic mean is the sum divided by the number of values. Here, 12 divided by 3 equals 4.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.005",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A trial table has minimum 3 cm and maximum 9 cm. What difference measures the spread between these extremes?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "9",
+        "misconception": "skills.data.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "17",
+        "misconception": "skills.data.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "6"
+      },
+      {
+        "id": "choice-3",
+        "text": "3",
+        "misconception": "skills.data.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Range is the largest value minus the smallest. Here, 9 minus 3 equals 6.",
+    "scienceFact": "Range is the largest value minus the smallest. Here, 9 minus 3 equals 6.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.006",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A reader cannot tell whether an axis uses seconds or minutes. Which missing detail makes the graph unclear?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a mascot",
+        "misconception": "skills.data.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a nickname",
+        "misconception": "skills.data.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only extra colors",
+        "misconception": "skills.data.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Measurement units"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Axis labels should name the quantity and unit. This makes the scale and meaning clear.",
+    "scienceFact": "Axis labels should name the quantity and unit. This makes the scale and meaning clear.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.007",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Sharp pieces lie on the bench and floor. Which action reduces risk without handling them directly?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Alert the teacher and keep clear"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pick up shards with bare hands",
+        "misconception": "skills.data.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Kick pieces under a table",
+        "misconception": "skills.data.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Hide the breakage",
+        "misconception": "skills.data.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Keep away from broken glass and alert the teacher. Use the school’s approved cleanup method under supervision.",
+    "scienceFact": "Keep away from broken glass and alert the teacher. Use the school’s approved cleanup method under supervision.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.008",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A procedure does not permit smelling a sample. Which choice respects the safety rule?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mix it with every nearby bottle",
+        "misconception": "skills.data.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Do not smell it; ask the teacher"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sniff it deeply",
+        "misconception": "skills.data.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Taste one small drop",
+        "misconception": "skills.data.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Do not taste or directly smell unknown chemicals. Follow teacher instructions and the approved procedure.",
+    "scienceFact": "Do not taste or directly smell unknown chemicals. Follow teacher instructions and the approved procedure.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.009",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A lab task may splash a liquid into a student’s face. Which item helps protect the eyes?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A wristwatch",
+        "misconception": "skills.data.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "A notebook",
+        "misconception": "skills.data.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Safety goggles"
+      },
+      {
+        "id": "choice-3",
+        "text": "Open sandals",
+        "misconception": "skills.data.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Wear suitable safety goggles when there is a splash or debris risk. Ordinary glasses may not provide the required protection.",
+    "scienceFact": "Wear suitable safety goggles when there is a splash or debris risk. Ordinary glasses may not provide the required protection.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.010",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A bottle looks like water but contains another clear solution. Which practice prevents this mix-up?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Rely only on color",
+        "misconception": "skills.data.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Taste it",
+        "misconception": "skills.data.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Leave it without a label",
+        "misconception": "skills.data.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Label it clearly"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Label each container with its name and key safety facts. Many lab liquids look the same.",
+    "scienceFact": "Label each container with its name and key safety facts. Many lab liquids look the same.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.011",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Put these steps in order for a spill near lab wires.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Keep away from the wet area"
+      },
+      {
+        "id": "step-1",
+        "text": "Alert the teacher"
+      },
+      {
+        "id": "step-2",
+        "text": "Follow the approved safety response"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "Keep away from the wet area. Alert the teacher. Follow the approved safety response. Each stage leads to the next.",
+    "scienceFact": "An outlier lies far from most values. Check it carefully rather than deleting it just because it differs.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.data.h.012",
+    "deckId": "skills.data",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A student can make a trend look huge by hiding the scale. Which reporting choice best preserves the evidence?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Invent extra trials",
+        "misconception": "skills.data.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Show the scale and report the data honestly"
+      },
+      {
+        "id": "choice-2",
+        "text": "Hide inconvenient points",
+        "misconception": "skills.data.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Change the axis labels secretly",
+        "misconception": "skills.data.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Show labels, units and scales. Keep the data honest and explain any doubt. Do not hide results that challenge a prediction.",
+    "scienceFact": "Show labels, units and scales. Keep the data honest and explain any doubt. Do not hide results that challenge a prediction.",
+    "topic": "skills.data",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Data representation, interpretation and laboratory safety. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "graph"
+  }
+]

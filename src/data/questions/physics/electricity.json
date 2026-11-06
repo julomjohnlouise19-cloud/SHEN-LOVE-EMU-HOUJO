@@ -1,0 +1,1216 @@
+[
+  {
+    "id": "physics.electricity.e.001",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the rate of flow of electric charge called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Current"
+      },
+      {
+        "id": "choice-1",
+        "text": "Voltage",
+        "misconception": "physics.electricity.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Resistance",
+        "misconception": "physics.electricity.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Mass",
+        "misconception": "physics.electricity.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Electric current is the rate of charge flow. It is measured in amperes, or coulombs per second.",
+    "scienceFact": "Electric current is the rate of charge flow. It is measured in amperes, or coulombs per second.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.002",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What circuit quantity is measured in volts?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Frequency",
+        "misconception": "physics.electricity.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Potential difference"
+      },
+      {
+        "id": "choice-2",
+        "text": "Current",
+        "misconception": "physics.electricity.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Resistance",
+        "misconception": "physics.electricity.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Potential difference is energy transferred per unit charge. Its unit is the volt.",
+    "scienceFact": "Potential difference is energy transferred per unit charge. Its unit is the volt.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.003",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What property is voltage divided by current for an ohmic resistor?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Charge",
+        "misconception": "physics.electricity.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Frequency",
+        "misconception": "physics.electricity.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Resistance"
+      },
+      {
+        "id": "choice-3",
+        "text": "Power",
+        "misconception": "physics.electricity.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "For an ohmic resistor at fixed temperature, V = IR. Resistance is measured in ohms.",
+    "scienceFact": "For an ohmic resistor at fixed temperature, V = IR. Resistance is measured in ohms.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.004",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "How do resistances combine in a simple series circuit?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Multiply then stop",
+        "misconception": "physics.electricity.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Use only the smaller resistance",
+        "misconception": "physics.electricity.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Subtract the resistances",
+        "misconception": "physics.electricity.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Add the resistances"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Series resistances add because the same current passes through each resistor and the voltage drops add.",
+    "scienceFact": "Series resistances add because the same current passes through each resistor and the voltage drops add.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.005",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What happens to total resistance when another resistor is added in parallel?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It decreases"
+      },
+      {
+        "id": "choice-1",
+        "text": "It increases",
+        "misconception": "physics.electricity.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "It must stay unchanged",
+        "misconception": "physics.electricity.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "It becomes negative",
+        "misconception": "physics.electricity.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "An added parallel branch gives charge another path. For positive resistances, the equivalent resistance decreases.",
+    "scienceFact": "An added parallel branch gives charge another path. For positive resistances, the equivalent resistance decreases.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.006",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which quantity is equal across branches of an ideal parallel circuit?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Bulb power by definition",
+        "misconception": "physics.electricity.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Voltage"
+      },
+      {
+        "id": "choice-2",
+        "text": "Resistance by definition",
+        "misconception": "physics.electricity.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Current in every branch",
+        "misconception": "physics.electricity.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Parallel branches connected to the same two nodes have the same potential difference across them.",
+    "scienceFact": "Parallel branches connected to the same two nodes have the same potential difference across them.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.007",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What happens when a single-loop circuit is opened?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The battery loses all mass",
+        "misconception": "physics.electricity.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Resistance becomes negative",
+        "misconception": "physics.electricity.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Current stops in the loop"
+      },
+      {
+        "id": "choice-3",
+        "text": "Current doubles everywhere",
+        "misconception": "physics.electricity.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A steady current needs a closed path. Opening the only loop stops that current.",
+    "scienceFact": "A steady current needs a closed path. Opening the only loop stops that current.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.008",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What can an electric current produce around a wire?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a gravity field change",
+        "misconception": "physics.electricity.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "No field of any kind",
+        "misconception": "physics.electricity.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only visible light",
+        "misconception": "physics.electricity.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Magnetic field"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Electric current produces a magnetic field. A coil can strengthen and organize that field.",
+    "scienceFact": "Electric current produces a magnetic field. A coil can strengthen and organize that field.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.009",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which change can strengthen a simple electromagnet?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "More coil turns"
+      },
+      {
+        "id": "choice-1",
+        "text": "Removing all current",
+        "misconception": "physics.electricity.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Using fewer turns only",
+        "misconception": "physics.electricity.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cutting the circuit open",
+        "misconception": "physics.electricity.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "More turns can strengthen a coil’s magnetic field for the same current. Core material and coil shape also matter.",
+    "scienceFact": "More turns can strengthen a coil’s magnetic field for the same current. Core material and coil shape also matter.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.e.010",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which material is a good electric conductor in ordinary wires?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Plastic",
+        "misconception": "physics.electricity.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Copper"
+      },
+      {
+        "id": "choice-2",
+        "text": "Dry rubber",
+        "misconception": "physics.electricity.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Glass",
+        "misconception": "physics.electricity.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Copper has mobile electrons that can carry current. Dry rubber and plastic usually resist this flow.",
+    "scienceFact": "Copper has mobile electrons that can carry current. Dry rubber and plastic usually resist this flow.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "circuit"
+  },
+  {
+    "id": "physics.electricity.e.011",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What safety device melts to open a circuit when current is too high?",
+    "answer": "Fuse",
+    "explanation": "A fuse melts when excessive current heats it. This opens the circuit and helps reduce fire risk.",
+    "scienceFact": "A fuse melts when excessive current heats it. This opens the circuit and helps reduce fire risk.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["fuse", "Fuse"]
+  },
+  {
+    "id": "physics.electricity.e.012",
+    "deckId": "physics.electricity",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What energy store does a battery use to supply an electric circuit?",
+    "answer": "Chemical energy",
+    "explanation": "A battery transfers energy from chemical stores to the circuit. It does not create energy from nothing.",
+    "scienceFact": "A battery transfers energy from chemical stores to the circuit. It does not create energy from nothing.",
+    "topic": "physics.electricity",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["chemical energy", "Chemical energy"]
+  },
+  {
+    "id": "physics.electricity.m.001",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine classroom circuit moves charge through a wire. Which quantity measures charge flow per second?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Mass",
+        "misconception": "physics.electricity.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Current"
+      },
+      {
+        "id": "choice-2",
+        "text": "Voltage",
+        "misconception": "physics.electricity.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Resistance",
+        "misconception": "physics.electricity.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Electric current is the rate of charge flow. It is measured in amperes, or coulombs per second.",
+    "scienceFact": "Electric current is the rate of charge flow. It is measured in amperes, or coulombs per second.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.002",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Manila class reads 6 V across a battery. Which electrical quantity is being measured?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Resistance",
+        "misconception": "physics.electricity.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Frequency",
+        "misconception": "physics.electricity.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Potential difference"
+      },
+      {
+        "id": "choice-3",
+        "text": "Current",
+        "misconception": "physics.electricity.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Potential difference is energy transferred per unit charge. Its unit is the volt.",
+    "scienceFact": "Potential difference is energy transferred per unit charge. Its unit is the volt.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.003",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine lab measures 6 V and 2 A across a resistor. Which quantity is 3 Ω?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Power",
+        "misconception": "physics.electricity.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Charge",
+        "misconception": "physics.electricity.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Frequency",
+        "misconception": "physics.electricity.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Resistance"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "For an ohmic resistor at fixed temperature, V = IR. Resistance is measured in ohms.",
+    "scienceFact": "For an ohmic resistor at fixed temperature, V = IR. Resistance is measured in ohms.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.004",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A 2 Ω resistor and a 3 Ω resistor are connected in one loop. How are their resistances combined?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Add the resistances"
+      },
+      {
+        "id": "choice-1",
+        "text": "Multiply then stop",
+        "misconception": "physics.electricity.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Use only the smaller resistance",
+        "misconception": "physics.electricity.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Subtract the resistances",
+        "misconception": "physics.electricity.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Series resistances add because the same current passes through each resistor and the voltage drops add.",
+    "scienceFact": "Series resistances add because the same current passes through each resistor and the voltage drops add.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.005",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A new conducting branch is added beside an existing resistor. What happens to the equivalent resistance?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It becomes negative",
+        "misconception": "physics.electricity.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "It decreases"
+      },
+      {
+        "id": "choice-2",
+        "text": "It increases",
+        "misconception": "physics.electricity.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "It must stay unchanged",
+        "misconception": "physics.electricity.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An added parallel branch gives charge another path. For positive resistances, the equivalent resistance decreases.",
+    "scienceFact": "An added parallel branch gives charge another path. For positive resistances, the equivalent resistance decreases.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.006",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Two bulbs connect to the same two points on a battery. Which quantity is the same across both bulbs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Current in every branch",
+        "misconception": "physics.electricity.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Bulb power by definition",
+        "misconception": "physics.electricity.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Voltage"
+      },
+      {
+        "id": "choice-3",
+        "text": "Resistance by definition",
+        "misconception": "physics.electricity.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Parallel branches connected to the same two nodes have the same potential difference across them.",
+    "scienceFact": "Parallel branches connected to the same two nodes have the same potential difference across them.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.007",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A switch breaks the only conducting path to a bulb. What happens to the current?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Current doubles everywhere",
+        "misconception": "physics.electricity.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "The battery loses all mass",
+        "misconception": "physics.electricity.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Resistance becomes negative",
+        "misconception": "physics.electricity.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Current stops in the loop"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A steady current needs a closed path. Opening the only loop stops that current.",
+    "scienceFact": "A steady current needs a closed path. Opening the only loop stops that current.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.008",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A compass near a current-carrying wire turns. What field explains this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Magnetic field"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a gravity field change",
+        "misconception": "physics.electricity.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "No field of any kind",
+        "misconception": "physics.electricity.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only visible light",
+        "misconception": "physics.electricity.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Electric current produces a magnetic field. A coil can strengthen and organize that field.",
+    "scienceFact": "Electric current produces a magnetic field. A coil can strengthen and organize that field.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.009",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student adds more turns to a coil while keeping the current the same. What result is expected?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Cutting the circuit open",
+        "misconception": "physics.electricity.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "More coil turns"
+      },
+      {
+        "id": "choice-2",
+        "text": "Removing all current",
+        "misconception": "physics.electricity.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Using fewer turns only",
+        "misconception": "physics.electricity.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "More turns can strengthen a coil’s magnetic field for the same current. Core material and coil shape also matter.",
+    "scienceFact": "More turns can strengthen a coil’s magnetic field for the same current. Core material and coil shape also matter.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.010",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A circuit needs a metal wire that carries current well. Which material is a common choice?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Glass",
+        "misconception": "physics.electricity.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Plastic",
+        "misconception": "physics.electricity.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Copper"
+      },
+      {
+        "id": "choice-3",
+        "text": "Dry rubber",
+        "misconception": "physics.electricity.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Copper has mobile electrons that can carry current. Dry rubber and plastic usually resist this flow.",
+    "scienceFact": "Copper has mobile electrons that can carry current. Dry rubber and plastic usually resist this flow.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.011",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order a safe low-voltage circuit setup.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Disconnect the supply"
+      },
+      {
+        "id": "step-1",
+        "text": "Connect the components"
+      },
+      {
+        "id": "step-2",
+        "text": "Check for safe connections"
+      },
+      {
+        "id": "step-3",
+        "text": "Close the switch"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Disconnect the supply. Connect the components. Check for safe connections. Close the switch. Each stage leads to the next.",
+    "scienceFact": "A fuse melts when excessive current heats it. This opens the circuit and helps reduce fire risk.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.m.012",
+    "deckId": "physics.electricity",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each circuit quantity with its unit.",
+    "answer": {
+      "Current": "Ampere",
+      "Voltage": "Volt",
+      "Resistance": "Ohm"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "A battery transfers energy from chemical stores to the circuit. It does not create energy from nothing.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.001",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Philippine lab has a 12 V supply across a 4 Ω resistor. What current flows?",
+    "answer": "3",
+    "explanation": "Ohm’s law gives I = V ÷ R = 12 ÷ 4 = 3 A.",
+    "scienceFact": "Ohm’s law gives I = V ÷ R = 12 ÷ 4 = 3 A.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "A",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.electricity.h.002",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Cebu class connects 3 Ω and 5 Ω resistors in series. What is the total resistance?",
+    "answer": "8",
+    "explanation": "Series resistances add: 3 + 5 = 8 Ω.",
+    "scienceFact": "Series resistances add: 3 + 5 = 8 Ω.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "Ω",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.electricity.h.003",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Manila class connects two 6 Ω resistors in parallel. What is their equivalent resistance?",
+    "answer": "3",
+    "explanation": "For two equal resistors in parallel, equivalent resistance is half one resistance: 6 ÷ 2 = 3 Ω.",
+    "scienceFact": "For two equal resistors in parallel, equivalent resistance is half one resistance: 6 ÷ 2 = 3 Ω.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "Ω",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.electricity.h.004",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Current passes through each resistor in turn without branches. Which rule gives the total resistance?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Subtract the resistances",
+        "misconception": "physics.electricity.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Add the resistances"
+      },
+      {
+        "id": "choice-2",
+        "text": "Multiply then stop",
+        "misconception": "physics.electricity.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Use only the smaller resistance",
+        "misconception": "physics.electricity.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Series resistances add because the same current passes through each resistor and the voltage drops add.",
+    "scienceFact": "Series resistances add because the same current passes through each resistor and the voltage drops add.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.005",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two equal resistors are connected in parallel instead of just one. Which comparison is correct?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It must stay unchanged",
+        "misconception": "physics.electricity.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "It becomes negative",
+        "misconception": "physics.electricity.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "It decreases"
+      },
+      {
+        "id": "choice-3",
+        "text": "It increases",
+        "misconception": "physics.electricity.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "An added parallel branch gives charge another path. For positive resistances, the equivalent resistance decreases.",
+    "scienceFact": "An added parallel branch gives charge another path. For positive resistances, the equivalent resistance decreases.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.006",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Parallel branches meet the same pair of connection points. Which quantity is shared even if their currents differ?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Resistance by definition",
+        "misconception": "physics.electricity.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Current in every branch",
+        "misconception": "physics.electricity.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Bulb power by definition",
+        "misconception": "physics.electricity.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Voltage"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Parallel branches connected to the same two nodes have the same potential difference across them.",
+    "scienceFact": "Parallel branches connected to the same two nodes have the same potential difference across them.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.007",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A wire is removed from a series loop powered by a battery. Which change follows from the broken path?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Current stops in the loop"
+      },
+      {
+        "id": "choice-1",
+        "text": "Current doubles everywhere",
+        "misconception": "physics.electricity.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "The battery loses all mass",
+        "misconception": "physics.electricity.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Resistance becomes negative",
+        "misconception": "physics.electricity.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A steady current needs a closed path. Opening the only loop stops that current.",
+    "scienceFact": "A steady current needs a closed path. Opening the only loop stops that current.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.008",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A coil carrying current deflects a nearby compass. Which field is present around the wire?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only visible light",
+        "misconception": "physics.electricity.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Magnetic field"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only a gravity field change",
+        "misconception": "physics.electricity.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "No field of any kind",
+        "misconception": "physics.electricity.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Electric current produces a magnetic field. A coil can strengthen and organize that field.",
+    "scienceFact": "Electric current produces a magnetic field. A coil can strengthen and organize that field.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.009",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two similar iron-core coils carry the same current. One has more turns. Which change tends to strengthen its field?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Using fewer turns only",
+        "misconception": "physics.electricity.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cutting the circuit open",
+        "misconception": "physics.electricity.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "More coil turns"
+      },
+      {
+        "id": "choice-3",
+        "text": "Removing all current",
+        "misconception": "physics.electricity.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "More turns can strengthen a coil’s magnetic field for the same current. Core material and coil shape also matter.",
+    "scienceFact": "More turns can strengthen a coil’s magnetic field for the same current. Core material and coil shape also matter.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.010",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A test compares dry rubber, glass, plastic and copper. Which is expected to have much lower resistance?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Dry rubber",
+        "misconception": "physics.electricity.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Glass",
+        "misconception": "physics.electricity.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Plastic",
+        "misconception": "physics.electricity.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Copper"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Copper has mobile electrons that can carry current. Dry rubber and plastic usually resist this flow.",
+    "scienceFact": "Copper has mobile electrons that can carry current. Dry rubber and plastic usually resist this flow.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.011",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Arrange these series resistances from least to greatest total.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "1 Ω + 1 Ω"
+      },
+      {
+        "id": "step-1",
+        "text": "2 Ω + 2 Ω"
+      },
+      {
+        "id": "step-2",
+        "text": "3 Ω + 3 Ω"
+      },
+      {
+        "id": "step-3",
+        "text": "4 Ω + 4 Ω"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "1 Ω + 1 Ω. 2 Ω + 2 Ω. 3 Ω + 3 Ω. 4 Ω + 4 Ω. Each stage leads to the next.",
+    "scienceFact": "A fuse melts when excessive current heats it. This opens the circuit and helps reduce fire risk.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.electricity.h.012",
+    "deckId": "physics.electricity",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A battery’s chemicals react as charge moves in an external circuit. Which energy store decreases as it supplies the circuit?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Energy from nowhere",
+        "misconception": "physics.electricity.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Chemical energy"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only gravitational energy",
+        "misconception": "physics.electricity.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only kinetic energy",
+        "misconception": "physics.electricity.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A battery transfers energy from chemical stores to the circuit. It does not create energy from nothing.",
+    "scienceFact": "A battery transfers energy from chemical stores to the circuit. It does not create energy from nothing.",
+    "topic": "physics.electricity",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Current, voltage, resistance and electromagnetism. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "circuit"
+  }
+]

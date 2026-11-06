@@ -13,17 +13,17 @@
       {
         "id": "choice-1",
         "text": "Cell wall",
-        "misconception": "life.cells.e.001.mixup.1"
+        "misconception": "life.cells.mixup.1.1"
       },
       {
         "id": "choice-2",
         "text": "Vacuole",
-        "misconception": "life.cells.e.001.mixup.2"
+        "misconception": "life.cells.mixup.1.2"
       },
       {
         "id": "choice-3",
         "text": "Chloroplast",
-        "misconception": "life.cells.e.001.mixup.3"
+        "misconception": "life.cells.mixup.1.3"
       }
     ],
     "answer": "choice-0",
@@ -33,7 +33,7 @@
     "gradeBand": 7,
     "bloom": "remember",
     "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
-    "ph": true,
+    "ph": false,
     "reviewed": true
   },
   {
@@ -46,7 +46,7 @@
       {
         "id": "choice-0",
         "text": "Nucleus",
-        "misconception": "life.cells.e.002.mixup.0"
+        "misconception": "life.cells.mixup.2.3"
       },
       {
         "id": "choice-1",
@@ -55,12 +55,12 @@
       {
         "id": "choice-2",
         "text": "Cell wall",
-        "misconception": "life.cells.e.002.mixup.2"
+        "misconception": "life.cells.mixup.2.1"
       },
       {
         "id": "choice-3",
         "text": "Ribosome",
-        "misconception": "life.cells.e.002.mixup.3"
+        "misconception": "life.cells.mixup.2.2"
       }
     ],
     "answer": "choice-1",
@@ -83,12 +83,12 @@
       {
         "id": "choice-0",
         "text": "Nucleus",
-        "misconception": "life.cells.e.003.mixup.0"
+        "misconception": "life.cells.mixup.3.2"
       },
       {
         "id": "choice-1",
         "text": "Cell wall",
-        "misconception": "life.cells.e.003.mixup.1"
+        "misconception": "life.cells.mixup.3.3"
       },
       {
         "id": "choice-2",
@@ -97,7 +97,7 @@
       {
         "id": "choice-3",
         "text": "Mitochondrion",
-        "misconception": "life.cells.e.003.mixup.3"
+        "misconception": "life.cells.mixup.3.1"
       }
     ],
     "answer": "choice-2",
@@ -107,7 +107,7 @@
     "gradeBand": 7,
     "bloom": "remember",
     "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
-    "ph": true,
+    "ph": false,
     "reviewed": true
   },
   {
@@ -120,17 +120,17 @@
       {
         "id": "choice-0",
         "text": "Cell wall",
-        "misconception": "life.cells.e.004.mixup.0"
+        "misconception": "life.cells.mixup.4.1"
       },
       {
         "id": "choice-1",
         "text": "Vacuole",
-        "misconception": "life.cells.e.004.mixup.1"
+        "misconception": "life.cells.mixup.4.2"
       },
       {
         "id": "choice-2",
         "text": "Chloroplast",
-        "misconception": "life.cells.e.004.mixup.2"
+        "misconception": "life.cells.mixup.4.3"
       },
       {
         "id": "choice-3",
@@ -161,17 +161,17 @@
       {
         "id": "choice-1",
         "text": "Vacuoles",
-        "misconception": "life.cells.e.005.mixup.1"
+        "misconception": "life.cells.mixup.5.1"
       },
       {
         "id": "choice-2",
         "text": "Cell walls",
-        "misconception": "life.cells.e.005.mixup.2"
+        "misconception": "life.cells.mixup.5.2"
       },
       {
         "id": "choice-3",
         "text": "Chloroplasts",
-        "misconception": "life.cells.e.005.mixup.3"
+        "misconception": "life.cells.mixup.5.3"
       }
     ],
     "answer": "choice-0",
@@ -194,7 +194,7 @@
       {
         "id": "choice-0",
         "text": "Mitochondrion",
-        "misconception": "life.cells.e.006.mixup.0"
+        "misconception": "life.cells.mixup.6.3"
       },
       {
         "id": "choice-1",
@@ -203,12 +203,12 @@
       {
         "id": "choice-2",
         "text": "Nucleus",
-        "misconception": "life.cells.e.006.mixup.2"
+        "misconception": "life.cells.mixup.6.1"
       },
       {
         "id": "choice-3",
         "text": "Ribosome",
-        "misconception": "life.cells.e.006.mixup.3"
+        "misconception": "life.cells.mixup.6.2"
       }
     ],
     "answer": "choice-1",
@@ -231,12 +231,12 @@
       {
         "id": "choice-0",
         "text": "Cytoplasm",
-        "misconception": "life.cells.e.007.mixup.0"
+        "misconception": "life.cells.mixup.7.2"
       },
       {
         "id": "choice-1",
         "text": "Nucleus",
-        "misconception": "life.cells.e.007.mixup.1"
+        "misconception": "life.cells.mixup.7.3"
       },
       {
         "id": "choice-2",
@@ -245,7 +245,7 @@
       {
         "id": "choice-3",
         "text": "Cell membrane",
-        "misconception": "life.cells.e.007.mixup.3"
+        "misconception": "life.cells.mixup.7.1"
       }
     ],
     "answer": "choice-2",
@@ -268,17 +268,17 @@
       {
         "id": "choice-0",
         "text": "Mitosis",
-        "misconception": "life.cells.e.008.mixup.0"
+        "misconception": "life.cells.mixup.8.1"
       },
       {
         "id": "choice-1",
         "text": "Photosynthesis",
-        "misconception": "life.cells.e.008.mixup.1"
+        "misconception": "life.cells.mixup.8.2"
       },
       {
         "id": "choice-2",
         "text": "Active transport",
-        "misconception": "life.cells.e.008.mixup.2"
+        "misconception": "life.cells.mixup.8.3"
       },
       {
         "id": "choice-3",
@@ -299,30 +299,19 @@
     "id": "life.cells.e.009",
     "deckId": "life.cells",
     "level": "easy",
-    "type": "mcq",
-    "prompt": "What is the movement of water through a selectively permeable membrane called?",
+    "type": "truefalse",
+    "prompt": "True or false: osmosis moves water across a selectively permeable membrane.",
     "options": [
       {
-        "id": "choice-0",
-        "text": "Osmosis"
+        "id": "true",
+        "text": "True"
       },
       {
-        "id": "choice-1",
-        "text": "Mitosis",
-        "misconception": "life.cells.e.009.mixup.1"
-      },
-      {
-        "id": "choice-2",
-        "text": "Respiration",
-        "misconception": "life.cells.e.009.mixup.2"
-      },
-      {
-        "id": "choice-3",
-        "text": "Protein synthesis",
-        "misconception": "life.cells.e.009.mixup.3"
+        "id": "false",
+        "text": "False"
       }
     ],
-    "answer": "choice-0",
+    "answer": "true",
     "explanation": "In osmosis, water crosses a membrane toward the side with less free water.",
     "scienceFact": "In osmosis, water crosses a membrane toward the side with less free water.",
     "topic": "life.cells",
@@ -342,7 +331,7 @@
       {
         "id": "choice-0",
         "text": "Osmosis",
-        "misconception": "life.cells.e.010.mixup.0"
+        "misconception": "life.cells.mixup.10.3"
       },
       {
         "id": "choice-1",
@@ -351,12 +340,12 @@
       {
         "id": "choice-2",
         "text": "Meiosis",
-        "misconception": "life.cells.e.010.mixup.2"
+        "misconception": "life.cells.mixup.10.1"
       },
       {
         "id": "choice-3",
         "text": "Fertilization",
-        "misconception": "life.cells.e.010.mixup.3"
+        "misconception": "life.cells.mixup.10.2"
       }
     ],
     "answer": "choice-1",
@@ -385,10 +374,7 @@
     "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
     "reviewed": true,
-    "accept": [
-      "cytoplasm",
-      "Cytoplasm"
-    ]
+    "accept": ["cytoplasm", "Cytoplasm"]
   },
   {
     "id": "life.cells.e.012",
@@ -405,10 +391,7 @@
     "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
     "reviewed": true,
-    "accept": [
-      "specialization",
-      "Specialization"
-    ]
+    "accept": ["specialization", "Specialization"]
   },
   {
     "id": "life.cells.m.001",
@@ -420,7 +403,7 @@
       {
         "id": "choice-0",
         "text": "Chloroplast",
-        "misconception": "life.cells.m.001.mixup.0"
+        "misconception": "life.cells.mixup.1.3"
       },
       {
         "id": "choice-1",
@@ -429,12 +412,12 @@
       {
         "id": "choice-2",
         "text": "Cell wall",
-        "misconception": "life.cells.m.001.mixup.2"
+        "misconception": "life.cells.mixup.1.1"
       },
       {
         "id": "choice-3",
         "text": "Vacuole",
-        "misconception": "life.cells.m.001.mixup.3"
+        "misconception": "life.cells.mixup.1.2"
       }
     ],
     "answer": "choice-1",
@@ -457,12 +440,12 @@
       {
         "id": "choice-0",
         "text": "Ribosome",
-        "misconception": "life.cells.m.002.mixup.0"
+        "misconception": "life.cells.mixup.2.2"
       },
       {
         "id": "choice-1",
         "text": "Nucleus",
-        "misconception": "life.cells.m.002.mixup.1"
+        "misconception": "life.cells.mixup.2.3"
       },
       {
         "id": "choice-2",
@@ -471,7 +454,7 @@
       {
         "id": "choice-3",
         "text": "Cell wall",
-        "misconception": "life.cells.m.002.mixup.3"
+        "misconception": "life.cells.mixup.2.1"
       }
     ],
     "answer": "choice-2",
@@ -494,17 +477,17 @@
       {
         "id": "choice-0",
         "text": "Mitochondrion",
-        "misconception": "life.cells.m.003.mixup.0"
+        "misconception": "life.cells.mixup.3.1"
       },
       {
         "id": "choice-1",
         "text": "Nucleus",
-        "misconception": "life.cells.m.003.mixup.1"
+        "misconception": "life.cells.mixup.3.2"
       },
       {
         "id": "choice-2",
         "text": "Cell wall",
-        "misconception": "life.cells.m.003.mixup.2"
+        "misconception": "life.cells.mixup.3.3"
       },
       {
         "id": "choice-3",
@@ -535,17 +518,17 @@
       {
         "id": "choice-1",
         "text": "Cell wall",
-        "misconception": "life.cells.m.004.mixup.1"
+        "misconception": "life.cells.mixup.4.1"
       },
       {
         "id": "choice-2",
         "text": "Vacuole",
-        "misconception": "life.cells.m.004.mixup.2"
+        "misconception": "life.cells.mixup.4.2"
       },
       {
         "id": "choice-3",
         "text": "Chloroplast",
-        "misconception": "life.cells.m.004.mixup.3"
+        "misconception": "life.cells.mixup.4.3"
       }
     ],
     "answer": "choice-0",
@@ -568,7 +551,7 @@
       {
         "id": "choice-0",
         "text": "Chloroplasts",
-        "misconception": "life.cells.m.005.mixup.0"
+        "misconception": "life.cells.mixup.5.3"
       },
       {
         "id": "choice-1",
@@ -577,12 +560,12 @@
       {
         "id": "choice-2",
         "text": "Vacuoles",
-        "misconception": "life.cells.m.005.mixup.2"
+        "misconception": "life.cells.mixup.5.1"
       },
       {
         "id": "choice-3",
         "text": "Cell walls",
-        "misconception": "life.cells.m.005.mixup.3"
+        "misconception": "life.cells.mixup.5.2"
       }
     ],
     "answer": "choice-1",
@@ -605,12 +588,12 @@
       {
         "id": "choice-0",
         "text": "Ribosome",
-        "misconception": "life.cells.m.006.mixup.0"
+        "misconception": "life.cells.mixup.6.2"
       },
       {
         "id": "choice-1",
         "text": "Mitochondrion",
-        "misconception": "life.cells.m.006.mixup.1"
+        "misconception": "life.cells.mixup.6.3"
       },
       {
         "id": "choice-2",
@@ -619,7 +602,7 @@
       {
         "id": "choice-3",
         "text": "Nucleus",
-        "misconception": "life.cells.m.006.mixup.3"
+        "misconception": "life.cells.mixup.6.1"
       }
     ],
     "answer": "choice-2",
@@ -642,17 +625,17 @@
       {
         "id": "choice-0",
         "text": "Cell membrane",
-        "misconception": "life.cells.m.007.mixup.0"
+        "misconception": "life.cells.mixup.7.1"
       },
       {
         "id": "choice-1",
         "text": "Cytoplasm",
-        "misconception": "life.cells.m.007.mixup.1"
+        "misconception": "life.cells.mixup.7.2"
       },
       {
         "id": "choice-2",
         "text": "Nucleus",
-        "misconception": "life.cells.m.007.mixup.2"
+        "misconception": "life.cells.mixup.7.3"
       },
       {
         "id": "choice-3",
@@ -683,17 +666,17 @@
       {
         "id": "choice-1",
         "text": "Mitosis",
-        "misconception": "life.cells.m.008.mixup.1"
+        "misconception": "life.cells.mixup.8.1"
       },
       {
         "id": "choice-2",
         "text": "Photosynthesis",
-        "misconception": "life.cells.m.008.mixup.2"
+        "misconception": "life.cells.mixup.8.2"
       },
       {
         "id": "choice-3",
         "text": "Active transport",
-        "misconception": "life.cells.m.008.mixup.3"
+        "misconception": "life.cells.mixup.8.3"
       }
     ],
     "answer": "choice-0",
@@ -716,7 +699,7 @@
       {
         "id": "choice-0",
         "text": "Protein synthesis",
-        "misconception": "life.cells.m.009.mixup.0"
+        "misconception": "life.cells.mixup.9.3"
       },
       {
         "id": "choice-1",
@@ -725,12 +708,12 @@
       {
         "id": "choice-2",
         "text": "Mitosis",
-        "misconception": "life.cells.m.009.mixup.2"
+        "misconception": "life.cells.mixup.9.1"
       },
       {
         "id": "choice-3",
         "text": "Respiration",
-        "misconception": "life.cells.m.009.mixup.3"
+        "misconception": "life.cells.mixup.9.2"
       }
     ],
     "answer": "choice-1",
@@ -753,12 +736,12 @@
       {
         "id": "choice-0",
         "text": "Fertilization",
-        "misconception": "life.cells.m.010.mixup.0"
+        "misconception": "life.cells.mixup.10.2"
       },
       {
         "id": "choice-1",
         "text": "Osmosis",
-        "misconception": "life.cells.m.010.mixup.1"
+        "misconception": "life.cells.mixup.10.3"
       },
       {
         "id": "choice-2",
@@ -767,7 +750,7 @@
       {
         "id": "choice-3",
         "text": "Meiosis",
-        "misconception": "life.cells.m.010.mixup.3"
+        "misconception": "life.cells.mixup.10.1"
       }
     ],
     "answer": "choice-2",
@@ -800,12 +783,8 @@
         "text": "The cell splits"
       }
     ],
-    "answer": [
-      "step-0",
-      "step-1",
-      "step-2"
-    ],
-    "explanation": "DNA is copied → Chromosomes separate → The cell splits. This sequence follows the process in order.",
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "DNA is copied. Chromosomes separate. The cell splits. Each stage leads to the next.",
     "scienceFact": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus.",
     "topic": "life.cells",
     "gradeBand": 8,
@@ -844,12 +823,12 @@
       {
         "id": "choice-0",
         "text": "Vacuole",
-        "misconception": "life.cells.h.001.mixup.0"
+        "misconception": "life.cells.mixup.1.2"
       },
       {
         "id": "choice-1",
         "text": "Chloroplast",
-        "misconception": "life.cells.h.001.mixup.1"
+        "misconception": "life.cells.mixup.1.3"
       },
       {
         "id": "choice-2",
@@ -858,7 +837,7 @@
       {
         "id": "choice-3",
         "text": "Cell wall",
-        "misconception": "life.cells.h.001.mixup.3"
+        "misconception": "life.cells.mixup.1.1"
       }
     ],
     "answer": "choice-2",
@@ -869,7 +848,14 @@
     "bloom": "analyze",
     "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "data": {
+      "headers": ["Feature", "Observed record"],
+      "rows": [
+        ["DNA", "Inside a round enclosed region"],
+        ["Boundary", "Double membrane"]
+      ]
+    }
   },
   {
     "id": "life.cells.h.002",
@@ -881,17 +867,17 @@
       {
         "id": "choice-0",
         "text": "Cell wall",
-        "misconception": "life.cells.h.002.mixup.0"
+        "misconception": "life.cells.mixup.2.1"
       },
       {
         "id": "choice-1",
         "text": "Ribosome",
-        "misconception": "life.cells.h.002.mixup.1"
+        "misconception": "life.cells.mixup.2.2"
       },
       {
         "id": "choice-2",
         "text": "Nucleus",
-        "misconception": "life.cells.h.002.mixup.2"
+        "misconception": "life.cells.mixup.2.3"
       },
       {
         "id": "choice-3",
@@ -906,7 +892,14 @@
     "bloom": "analyze",
     "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
-    "reviewed": true
+    "reviewed": true,
+    "data": {
+      "headers": ["Test substance", "Barrier result"],
+      "rows": [
+        ["Water", "Can pass"],
+        ["Some large solutes", "Blocked"]
+      ]
+    }
   },
   {
     "id": "life.cells.h.003",
@@ -922,17 +915,17 @@
       {
         "id": "choice-1",
         "text": "Mitochondrion",
-        "misconception": "life.cells.h.003.mixup.1"
+        "misconception": "life.cells.mixup.3.1"
       },
       {
         "id": "choice-2",
         "text": "Nucleus",
-        "misconception": "life.cells.h.003.mixup.2"
+        "misconception": "life.cells.mixup.3.2"
       },
       {
         "id": "choice-3",
         "text": "Cell wall",
-        "misconception": "life.cells.h.003.mixup.3"
+        "misconception": "life.cells.mixup.3.3"
       }
     ],
     "answer": "choice-0",
@@ -942,8 +935,15 @@
     "gradeBand": 8,
     "bloom": "analyze",
     "curriculumArea": "Cell structures, transport and cell division. Content aligns with these curriculum areas; no official competency codes are claimed.",
-    "ph": true,
-    "reviewed": true
+    "ph": false,
+    "reviewed": true,
+    "data": {
+      "headers": ["Model leaf cell", "Green structures"],
+      "rows": [
+        ["A", "Many"],
+        ["B", "Few"]
+      ]
+    }
   },
   {
     "id": "life.cells.h.004",
@@ -955,7 +955,7 @@
       {
         "id": "choice-0",
         "text": "Chloroplast",
-        "misconception": "life.cells.h.004.mixup.0"
+        "misconception": "life.cells.mixup.4.3"
       },
       {
         "id": "choice-1",
@@ -964,12 +964,12 @@
       {
         "id": "choice-2",
         "text": "Cell wall",
-        "misconception": "life.cells.h.004.mixup.2"
+        "misconception": "life.cells.mixup.4.1"
       },
       {
         "id": "choice-3",
         "text": "Vacuole",
-        "misconception": "life.cells.h.004.mixup.3"
+        "misconception": "life.cells.mixup.4.2"
       }
     ],
     "answer": "choice-1",
@@ -992,12 +992,12 @@
       {
         "id": "choice-0",
         "text": "Cell walls",
-        "misconception": "life.cells.h.005.mixup.0"
+        "misconception": "life.cells.mixup.5.2"
       },
       {
         "id": "choice-1",
         "text": "Chloroplasts",
-        "misconception": "life.cells.h.005.mixup.1"
+        "misconception": "life.cells.mixup.5.3"
       },
       {
         "id": "choice-2",
@@ -1006,7 +1006,7 @@
       {
         "id": "choice-3",
         "text": "Vacuoles",
-        "misconception": "life.cells.h.005.mixup.3"
+        "misconception": "life.cells.mixup.5.1"
       }
     ],
     "answer": "choice-2",
@@ -1029,17 +1029,17 @@
       {
         "id": "choice-0",
         "text": "Nucleus",
-        "misconception": "life.cells.h.006.mixup.0"
+        "misconception": "life.cells.mixup.6.1"
       },
       {
         "id": "choice-1",
         "text": "Ribosome",
-        "misconception": "life.cells.h.006.mixup.1"
+        "misconception": "life.cells.mixup.6.2"
       },
       {
         "id": "choice-2",
         "text": "Mitochondrion",
-        "misconception": "life.cells.h.006.mixup.2"
+        "misconception": "life.cells.mixup.6.3"
       },
       {
         "id": "choice-3",
@@ -1070,17 +1070,17 @@
       {
         "id": "choice-1",
         "text": "Cell membrane",
-        "misconception": "life.cells.h.007.mixup.1"
+        "misconception": "life.cells.mixup.7.1"
       },
       {
         "id": "choice-2",
         "text": "Cytoplasm",
-        "misconception": "life.cells.h.007.mixup.2"
+        "misconception": "life.cells.mixup.7.2"
       },
       {
         "id": "choice-3",
         "text": "Nucleus",
-        "misconception": "life.cells.h.007.mixup.3"
+        "misconception": "life.cells.mixup.7.3"
       }
     ],
     "answer": "choice-0",
@@ -1103,7 +1103,7 @@
       {
         "id": "choice-0",
         "text": "Active transport",
-        "misconception": "life.cells.h.008.mixup.0"
+        "misconception": "life.cells.mixup.8.3"
       },
       {
         "id": "choice-1",
@@ -1112,12 +1112,12 @@
       {
         "id": "choice-2",
         "text": "Mitosis",
-        "misconception": "life.cells.h.008.mixup.2"
+        "misconception": "life.cells.mixup.8.1"
       },
       {
         "id": "choice-3",
         "text": "Photosynthesis",
-        "misconception": "life.cells.h.008.mixup.3"
+        "misconception": "life.cells.mixup.8.2"
       }
     ],
     "answer": "choice-1",
@@ -1140,12 +1140,12 @@
       {
         "id": "choice-0",
         "text": "Respiration",
-        "misconception": "life.cells.h.009.mixup.0"
+        "misconception": "life.cells.mixup.9.2"
       },
       {
         "id": "choice-1",
         "text": "Protein synthesis",
-        "misconception": "life.cells.h.009.mixup.1"
+        "misconception": "life.cells.mixup.9.3"
       },
       {
         "id": "choice-2",
@@ -1154,7 +1154,7 @@
       {
         "id": "choice-3",
         "text": "Mitosis",
-        "misconception": "life.cells.h.009.mixup.3"
+        "misconception": "life.cells.mixup.9.1"
       }
     ],
     "answer": "choice-2",
@@ -1177,17 +1177,17 @@
       {
         "id": "choice-0",
         "text": "Meiosis",
-        "misconception": "life.cells.h.010.mixup.0"
+        "misconception": "life.cells.mixup.10.1"
       },
       {
         "id": "choice-1",
         "text": "Fertilization",
-        "misconception": "life.cells.h.010.mixup.1"
+        "misconception": "life.cells.mixup.10.2"
       },
       {
         "id": "choice-2",
         "text": "Osmosis",
-        "misconception": "life.cells.h.010.mixup.2"
+        "misconception": "life.cells.mixup.10.3"
       },
       {
         "id": "choice-3",
@@ -1228,13 +1228,8 @@
         "text": "Organ system"
       }
     ],
-    "answer": [
-      "step-0",
-      "step-1",
-      "step-2",
-      "step-3"
-    ],
-    "explanation": "Cell → Tissue → Organ → Organ system. This sequence follows the process in order.",
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Cell. Tissue. Organ. Organ system. Each stage leads to the next.",
     "scienceFact": "Cytoplasm fills the space inside a cell. In cells with a nucleus, it lies outside that nucleus.",
     "topic": "life.cells",
     "gradeBand": 8,
@@ -1247,13 +1242,13 @@
     "id": "life.cells.h.012",
     "deckId": "life.cells",
     "level": "hard",
-    "type": "mcq",
+    "type": "diagram",
     "prompt": "A red blood cell carries oxygen, while a nerve cell carries signals. Why do their shapes differ?",
     "options": [
       {
         "id": "choice-0",
         "text": "Condensation",
-        "misconception": "life.cells.h.012.mixup.0"
+        "misconception": "life.cells.mixup.12.3"
       },
       {
         "id": "choice-1",
@@ -1262,12 +1257,12 @@
       {
         "id": "choice-2",
         "text": "Evaporation",
-        "misconception": "life.cells.h.012.mixup.2"
+        "misconception": "life.cells.mixup.12.1"
       },
       {
         "id": "choice-3",
         "text": "Neutralization",
-        "misconception": "life.cells.h.012.mixup.3"
+        "misconception": "life.cells.mixup.12.2"
       }
     ],
     "answer": "choice-1",

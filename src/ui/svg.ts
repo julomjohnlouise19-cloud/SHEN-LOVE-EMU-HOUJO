@@ -2,11 +2,14 @@ const paths: Record<string, string> = {
   home: '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
   island: '<path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/>',
   box: '<path d="M4 8h16v13H4zM3 3h18v5H3zM9 12h6"/>',
-  notebook: '<rect x="5" y="3" width="15" height="18" rx="2"/><path d="M9 3v18M3 7h4M3 12h4M3 17h4M12 8h5M12 12h4"/>',
+  notebook:
+    '<rect x="5" y="3" width="15" height="18" rx="2"/><path d="M9 3v18M3 7h4M3 12h4M3 17h4M12 8h5M12 12h4"/>',
   shop: '<path d="M3 9h18l-2-6H5zM4 9v12h16V9M9 21v-7h6v7M8 3v6M16 3v6"/>',
   spin: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="m12 3 0 7m0 4v7M3 12h7m4 0h7M5.6 5.6l5 5m3 3 4.8 4.8M5.6 18.4l5-5m3-3 4.8-4.8"/>',
-  trophy: '<path d="M7 3h10v7a5 5 0 0 1-10 0zM7 5H3v3a4 4 0 0 0 4 4m10-7h4v3a4 4 0 0 1-4 4M12 15v6M7 21h10"/>',
-  flame: '<path d="M13 2c2 7-5 8-3 12 2 0 4-2 4-4 4 3 5 5 4 8a7 7 0 0 1-12-1c-2-6 5-7 7-15Z"/>',
+  trophy:
+    '<path d="M7 3h10v7a5 5 0 0 1-10 0zM7 5H3v3a4 4 0 0 0 4 4m10-7h4v3a4 4 0 0 1-4 4M12 15v6M7 21h10"/>',
+  flame:
+    '<path d="M13 2c2 7-5 8-3 12 2 0 4-2 4-4 4 3 5 5 4 8a7 7 0 0 1-12-1c-2-6 5-7 7-15Z"/>',
   arrow: '<path d="M4 12h16m-6-6 6 6-6 6"/>',
   arrowup: '<path d="M5 19 19 5M5 5h14v14"/>',
   chevron: '<path d="m9 5 7 7-7 7"/>',
@@ -17,29 +20,50 @@ const paths: Record<string, string> = {
   sparkles: '<path d="m12 2 2 7 7 3-7 2-2 8-3-8-7-2 7-3zM21 2v4m-2-2h4"/>',
   bell: '<path d="M5 10a7 7 0 0 1 14 0v6l2 2H3l2-2zM9 21h6"/>',
   coin: '<circle cx="12" cy="12" r="9"/><path d="m12 6 2 4 4 1-3 3 .5 4-3.5-2-3.5 2 .5-4-3-3 4-1z"/>',
-  flask: '<path d="M8 3h8M10 3v7L4 19a1.4 1.4 0 0 0 1 2h14a1.4 1.4 0 0 0 1-2l-6-9V3M7 15h10"/><circle cx="11" cy="17" r=".5"/>',
-  sprout: '<path d="M12 21v-9M12 14C4 14 3 8 4 4c6 0 9 4 8 10ZM12 11c0-5 3-8 8-8 1 5-2 9-8 9"/>',
-  planet: '<circle cx="12" cy="12" r="7"/><ellipse cx="12" cy="12" rx="12" ry="4" transform="rotate(-25 12 12)"/>',
+  flask:
+    '<path d="M8 3h8M10 3v7L4 19a1.4 1.4 0 0 0 1 2h14a1.4 1.4 0 0 0 1-2l-6-9V3M7 15h10"/><circle cx="11" cy="17" r=".5"/>',
+  sprout:
+    '<path d="M12 21v-9M12 14C4 14 3 8 4 4c6 0 9 4 8 10ZM12 11c0-5 3-8 8-8 1 5-2 9-8 9"/>',
+  planet:
+    '<circle cx="12" cy="12" r="7"/><ellipse cx="12" cy="12" rx="12" ry="4" transform="rotate(-25 12 12)"/>',
   atom: '<ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1"/>',
   cat: '<path d="M4 12 3 3l7 4h4l7-4-1 9c4 13-20 13-16 0Z"/><path d="M8 12v1m8-1v1m-5 3 1 1 1-1M3 15l4 1m10 0 4-1"/>',
   search: '<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>',
   lock: '<rect x="5" y="10" width="14" height="12" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4M12 15v3"/>',
   heart: '<path d="M12 21 3 12a6 6 0 0 1 9-8 6 6 0 0 1 9 8Z"/>',
   menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
-  settings: '<path d="m9 3-1 3-3 1-2 4 2 2v4l4 2 3-1 3 1 4-2v-4l2-2-2-4-3-1-1-3z"/><circle cx="12" cy="12" r="3"/>',
+  settings:
+    '<path d="m9 3-1 3-3 1-2 4 2 2v4l4 2 3-1 3 1 4-2v-4l2-2-2-4-3-1-1-3z"/><circle cx="12" cy="12" r="3"/>',
   download: '<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',
   edit: '<path d="m15 3 6 6-11 11-7 1 1-7zM12 6l6 6"/>',
 };
 // Only static, source-controlled strings enter this helper. User text uses textContent via h().
 function svg(markup: string, className: string, label?: string): SVGSVGElement {
-  const template = document.createElement('template'); template.innerHTML = markup;
-  const el = template.content.firstElementChild as unknown as SVGSVGElement; el.setAttribute('class', className);
-  if (label) { el.setAttribute('role', 'img'); el.setAttribute('aria-label', label); } else { el.setAttribute('aria-hidden', 'true'); }
+  const template = document.createElement("template");
+  template.innerHTML = markup;
+  const el = template.content.firstElementChild as unknown as SVGSVGElement;
+  el.setAttribute("class", className);
+  if (label) {
+    el.setAttribute("role", "img");
+    el.setAttribute("aria-label", label);
+  } else {
+    el.setAttribute("aria-hidden", "true");
+  }
   return el;
 }
-export function icon(name: string, size = 20) { const el = svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${paths[name] ?? paths.flask}</svg>`, 'icon'); el.style.width = `${size}px`; el.style.height = `${size}px`; return el; }
-const face = '<circle cx="88" cy="105" r="4" fill="#465341"/><circle cx="113" cy="105" r="4" fill="#465341"/><path d="M96 114q5 5 10 0" fill="none" stroke="#465341" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="77" cy="112" rx="7" ry="4" fill="#efa899"/><ellipse cx="124" cy="112" rx="7" ry="4" fill="#efa899"/>';
+export function icon(name: string, size = 20) {
+  const el = svg(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${paths[name] ?? paths.flask}</svg>`,
+    "icon",
+  );
+  el.style.width = `${size}px`;
+  el.style.height = `${size}px`;
+  return el;
+}
+const face =
+  '<circle cx="88" cy="105" r="4" fill="#465341"/><circle cx="113" cy="105" r="4" fill="#465341"/><path d="M96 114q5 5 10 0" fill="none" stroke="#465341" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="77" cy="112" rx="7" ry="4" fill="#efa899"/><ellipse cx="124" cy="112" rx="7" ry="4" fill="#efa899"/>';
 const mascotArt: Record<string, string> = {
+  apple: `<path d="M100 64C58 27 30 76 52 122q22 44 48 26 27 18 49-26 22-46-18-68-16-9-31 10Z" fill="#dfab99" stroke="#8b6b53" stroke-width="3"/><path d="M100 64q-1-25 12-37" fill="none" stroke="#8b6b53" stroke-width="5" stroke-linecap="round"/><path d="M105 42q-29 1-28-24 26-1 28 24Z" fill="#afc58b" stroke="#73825e" stroke-width="2"/>${face}<path d="m55 112-15 6m107-6 15 6M80 151l-6 11m46-11 6 11" stroke="#8b6b53" stroke-width="3" stroke-linecap="round"/>`,
   sprout: `<path d="M100 90V55" fill="none" stroke="#647f47" stroke-width="6"/><path d="M100 67Q56 74 55 32q40-5 45 35Z" fill="#8db770" stroke="#617e4b" stroke-width="3"/><path d="M101 60q-1-41 42-39 4 37-42 39Z" fill="#b1cd87" stroke="#617e4b" stroke-width="3"/><path d="M60 83q40-9 80 0l-10 59q-30 21-60 0Z" fill="#fcf8e8" stroke="#647354" stroke-width="3"/><path d="M60 83q40-12 80 0v13q-40 10-80 0Z" fill="#e4d3b4" stroke="#647354" stroke-width="3"/>${face}<path d="M54 109q-19-7-16 9m108-9q19-7 16 9M81 153l-6 11m43-11 6 11" stroke="#647354" stroke-width="3" fill="none" stroke-linecap="round"/>`,
   flask: `<path d="M80 35h40M86 35v37l-36 65q-8 16 8 18h84q16-2 8-18l-36-65V35" stroke="#696b45" stroke-width="3.5" fill="#fffcdf" stroke-linecap="round"/><path d="m69 105-19 34q-4 13 11 13h78q15-1 10-13l-19-34q-30-9-61 0Z" fill="#e7be54"/><path d="M75 51h13m25 1h12" stroke="#696b45" stroke-width="2"/><circle cx="81" cy="26" r="5" fill="#f6d66e"/><circle cx="121" cy="12" r="7" fill="#ffebb0"/>${face}<path d="m53 119-17-4m111 4 17-4M77 157l-6 10m52-10 6 10" stroke="#696b45" stroke-width="3" stroke-linecap="round"/>`,
   atom: `<ellipse cx="100" cy="94" rx="78" ry="28" fill="none" stroke="#c3896f" stroke-width="3" transform="rotate(-30 100 94)"/><ellipse cx="100" cy="94" rx="78" ry="28" fill="none" stroke="#c3896f" stroke-width="3" transform="rotate(35 100 94)"/><path d="m99 40 17 32 36 6-26 28 4 37-31-17-33 17 7-38-27-25 36-7Z" fill="#ffe0b0" stroke="#9a6b53" stroke-width="3" stroke-linejoin="round"/>${face}<circle cx="31" cy="74" r="8" fill="#c57961" stroke="#9a6b53" stroke-width="2"/><circle cx="168" cy="65" r="7" fill="#f4b994" stroke="#9a6b53" stroke-width="2"/>`,
@@ -47,7 +71,13 @@ const mascotArt: Record<string, string> = {
   cat: `<path d="m58 74-2-43 36 24h20l35-24-3 45q25 66-43 72-66-3-43-74Z" fill="#f7e1ba" stroke="#79644c" stroke-width="3" stroke-linejoin="round"/><path d="m64 45 18 15-16 6m71-21-18 15 16 6" fill="#e5ae99"/><path d="m91 58 4 17m12-17-3 17M59 100l13 3m60 0 13-3M60 116l13-3m59 0 13 3" fill="none" stroke="#bd966a" stroke-width="4" stroke-linecap="round"/>${face}<path d="M83 136q-25 33-28 9m62-5q25 24 33 0" fill="none" stroke="#79644c" stroke-width="3"/><path d="M75 78h52v19H75Z" fill="#d7e6d0" stroke="#647961" stroke-width="2" rx="8"/><path d="M100 79v17" stroke="#647961" stroke-width="2"/>`,
   pudding: `<path d="m63 75 13-32h49l15 32 9 62q-47 27-97 0Z" fill="#f5d776" stroke="#907849" stroke-width="3"/><path d="M63 75q17 9 24-1 15 14 25 0 14 8 28 1l-15-32H76Z" fill="#bf8d61" stroke="#907849" stroke-width="3"/><ellipse cx="100" cy="142" rx="62" ry="11" fill="#fdf9e9" stroke="#907849" stroke-width="3"/>${face}<path d="M100 40c-17-15-1-30 8-15 14-8 22 9 6 16" fill="#fff7e7" stroke="#907849" stroke-width="2"/><circle cx="102" cy="22" r="8" fill="#d88e77"/>`,
 };
-export function mascot(name: string, className = '', label?: string) { return svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">${mascotArt[name] ?? mascotArt.cat}</svg>`, `mascot ${className}`, label); }
+export function mascot(name: string, className = "", label?: string) {
+  return svg(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">${mascotArt[name] ?? mascotArt.cat}</svg>`,
+    `mascot ${className}`,
+    label,
+  );
+}
 const heroArt = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 330" fill="none">
 <path d="M83 257c-74-113 25-225 164-210s213 78 154 208" fill="#cadba4" opacity=".5"/>
 <path d="M117 258h320" stroke="#7b8c58" stroke-width="3" stroke-linecap="round"/>
@@ -55,6 +85,7 @@ const heroArt = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 330" f
 <path d="m438 120 4 9 10 2-7 7 1 10-8-5-9 5 2-10-7-7 10-2Z" fill="#fff6cf" stroke="#6f8056" stroke-width="2"/>
 <path d="M425 47v15m-8-8h16M57 166v11m-6-6h12M336 31v12m-6-6h12" stroke="#7b8d5d" stroke-width="2" stroke-linecap="round"/>
 <g transform="translate(39 123) rotate(-9)"><rect x="0" y="0" width="107" height="110" rx="5" fill="#faf8e9" stroke="#7c8b60" stroke-width="2"/><path d="M10 0h86l-5-11H17z" fill="#e9d6ad" stroke="#7c8b60" stroke-width="2"/><path d="M19 31h68M19 43h61M19 55h35" stroke="#ccd4b6" stroke-width="3" stroke-linecap="round"/><path d="m31 84 9-6 9 6 11-20 19 20" stroke="#8da06c" stroke-width="2"/><circle cx="78" cy="56" r="5" fill="#ebcf84"/></g>
+<g transform="translate(20 181) scale(.48)">${mascotArt.apple}</g>
 <g transform="translate(96 22) scale(1.3)"><path d="M80 35h40M86 35v37l-36 65q-8 16 8 18h84q16-2 8-18l-36-65V35" stroke="#5f7252" stroke-width="2.5" fill="#fafbea" stroke-linecap="round"/><path d="m68 105-18 34q-4 13 11 13h78q15-1 10-13l-19-34q-31 9-62 0Z" fill="#a6c37e"/><path d="M62 123q38 8 76-1" stroke="#c5dba4" stroke-width="2"/><circle cx="85" cy="129" r="3" fill="#475d40"/><circle cx="114" cy="129" r="3" fill="#475d40"/><path d="M96 137q5 5 10 0" stroke="#475d40" stroke-width="2" stroke-linecap="round"/><ellipse cx="76" cy="135" rx="6" ry="3" fill="#dfab91"/><ellipse cx="124" cy="135" rx="6" ry="3" fill="#dfab91"/><circle cx="105" cy="91" r="5" fill="#dce8c4"/><circle cx="91" cy="76" r="3" fill="#b4cc91"/><path d="M98 30V9m0 9q-19 3-23-12 18-6 23 12Zm1-3q2-17 20-16-1 17-20 16Z" fill="#89aa69" stroke="#5f7252" stroke-width="2"/></g>
 <g transform="translate(287 116) scale(.98)">${mascotArt.cat}</g>
 <path d="M292 261h122v15H288z" fill="#ecd4a5" stroke="#7b7957" stroke-width="2"/><path d="M301 276h123v14H298z" fill="#c0cdaa" stroke="#7b7957" stroke-width="2"/><path d="M314 264v9m81-9v9m-76 6v8" stroke="#7b7957" stroke-width="2"/>
@@ -62,42 +93,158 @@ const heroArt = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 330" f
 <path d="M234 287q14 7 28 0m-21 10q14 7 27 0" stroke="#8c9f6e" stroke-width="2" stroke-linecap="round"/>
 <circle cx="79" cy="100" r="4" fill="#c3aa70"/><circle cx="467" cy="222" r="4" fill="#91a973"/><path d="m281 64 6-5m-1 12h9" stroke="#7d925e" stroke-width="2" stroke-linecap="round"/>
 </svg>`;
-export const heroIllustration = () => svg(heroArt, 'hero-illustration', 'A smiling beaker with a sprout and Tabby the science cat, surrounded by notes and little stars');
+export const heroIllustration = () =>
+  svg(
+    heroArt,
+    "hero-illustration",
+    "A smiling beaker with a sprout, Apple and Tabby the science cat, surrounded by notes and little stars",
+  );
 const diagramArt: Record<string, string> = {
   cell: '<ellipse cx="160" cy="100" rx="125" ry="75" fill="#e6eecf"/><ellipse cx="160" cy="100" rx="125" ry="75"/><ellipse cx="150" cy="95" rx="35" ry="28" fill="#d1bfe2"/><circle cx="155" cy="94" r="10" fill="#ab93bf"/><path d="M85 66q30-30 36 2t-28 4m101 60q25-29 35 0t-26 3" fill="#eec59a"/><path d="M181 64q28-14 43 2M70 119q20 18 33-2M171 143q-25-17-35 2"/><circle cx="200" cy="92" r="4"/><circle cx="98" cy="95" r="4"/>',
-  plant: '<rect x="37" y="22" width="246" height="156" rx="18" fill="#e0eac9"/><rect x="47" y="32" width="226" height="136" rx="13"/><ellipse cx="168" cy="100" rx="66" ry="49" fill="#f5f4db"/><circle cx="76" cy="80" r="20" fill="#d6c6df"/><ellipse cx="239" cy="67" rx="21" ry="12" fill="#a9c581"/><ellipse cx="77" cy="139" rx="21" ry="12" fill="#a9c581"/>',
-  punnett: '<rect x="92" y="56" width="136" height="120" fill="#f2e8d1"/><path d="M160 56v120M92 116h136"/><text x="117" y="39">A</text><text x="187" y="39">a</text><text x="60" y="96">A</text><text x="60" y="153">a</text><text x="108" y="98">AA</text><text x="179" y="98">Aa</text><text x="108" y="154">Aa</text><text x="179" y="154">aa</text>',
+  plant:
+    '<rect x="37" y="22" width="246" height="156" rx="18" fill="#e0eac9"/><rect x="47" y="32" width="226" height="136" rx="13"/><ellipse cx="168" cy="100" rx="66" ry="49" fill="#f5f4db"/><circle cx="76" cy="80" r="20" fill="#d6c6df"/><ellipse cx="239" cy="67" rx="21" ry="12" fill="#a9c581"/><ellipse cx="77" cy="139" rx="21" ry="12" fill="#a9c581"/>',
+  punnett:
+    '<rect x="92" y="56" width="136" height="120" fill="#f2e8d1"/><path d="M160 56v120M92 116h136"/><text x="117" y="39">A</text><text x="187" y="39">a</text><text x="60" y="96">A</text><text x="60" y="153">a</text><text x="108" y="98">AA</text><text x="179" y="98">Aa</text><text x="108" y="154">Aa</text><text x="179" y="154">aa</text>',
   wave: '<path d="M30 105h260" stroke-dasharray="5 5"/><path d="M30 105q32-100 64 0t64 0 64 0 64 0" stroke-width="4"/><path d="M62 35h128m-128-5v10m128-10v10M208 55v50m-5-50h10m-10 50h10"/><text x="90" y="25" font-size="13">wavelength</text><text x="218" y="80" font-size="12">amplitude</text>',
-  circuit: '<path d="M55 100V40h210v120H55v-40M35 100h40m-30 20h20M170 40h-35"/><rect x="130" y="27" width="65" height="26" fill="#f0db93"/><circle cx="265" cy="102" r="25" fill="#fff1b5"/><path d="m248 85 34 34m0-34-34 34"/>',
-  parallel: '<path d="M40 90V25h240v150H40v-65M25 90h30m-20 20h10M95 25v150M215 25v150"/><rect x="80" y="65" width="30" height="65" fill="#f0db93"/><rect x="200" y="65" width="30" height="65" fill="#cddfb7"/>',
-  distance: '<path d="M55 25v145h225"/><path d="m60 164 50-40 50-35 50-38 55-30" stroke-width="4" stroke="#8ca86a"/><text x="140" y="195" font-size="13">time (s)</text><text x="10" y="20" font-size="13">distance (m)</text><path d="M110 25v145m50-145v145m50-145v145M55 120h225M55 70h225" opacity=".15"/>',
-  graph: '<path d="M55 25v145h225"/><path d="M85 170V120h35v50m25 0V70h35v100m25 0V40h35v130" fill="#cbdcb3"/><text x="80" y="192" font-size="14">A</text><text x="150" y="192" font-size="14">B</text><text x="210" y="192" font-size="14">C</text>',
-  plates: '<path d="M30 100h115l15-24 15 24h115v65H30Z" fill="#dfc7a4"/><path d="m145 100-28 65m58-65 28 65"/><path d="M60 70h65m-15-10 15 10-15 10m150-10h-65m15-10-15 10 15 10"/><path d="M160 175v-50m-10 12 10-12 10 12" stroke="#c58465"/>',
-  volcano: '<path d="m25 165 80-62 37-66h36l38 66 80 62Z" fill="#c7d8b0"/><path d="m117 81 25-44h36l25 44-23-10-21 10-20-10Z" fill="#f2ecdb"/><path d="M160 160V77m0 65-40-20m40 8 40-20" stroke="#d68b6c" stroke-width="9"/><ellipse cx="160" cy="167" rx="30" ry="14" fill="#d68b6c"/>',
-  earth: '<circle cx="160" cy="100" r="80" fill="#bbd4cc"/><path d="M160 20a80 80 0 0 1 0 160Z" fill="#ddad83"/><path d="M160 38a62 62 0 0 1 0 124Z" fill="#edce92"/><path d="M160 67a33 33 0 0 1 0 66Z" fill="#f7eab9"/>',
-  water: '<path d="M20 154q30-20 60 0t60 0 60 0 60 0 40 0v32H20Z" fill="#bddcd9"/><path d="m45 140 35-50 37 50m83 0 40-65 55 65" fill="#d2dfbb"/><path d="M91 55q-10-20 13-22 10-25 30-4 30-9 30 19Z" fill="#f7f6eb"/><path d="m165 45 55 20m-9-9 9 9-12 3M60 110V67m-8 12 8-12 8 12M145 74l-10 29m35-25-9 26"/>',
-  solar: '<circle cx="160" cy="100" r="28" fill="#f2d47c"/><ellipse cx="160" cy="100" rx="62" ry="40"/><ellipse cx="160" cy="100" rx="100" ry="65"/><ellipse cx="160" cy="100" rx="140" ry="87"/><circle cx="98" cy="100" r="9" fill="#e1ad8e"/><circle cx="238" cy="140" r="13" fill="#b9d1bf"/><circle cx="144" cy="15" r="11" fill="#c8b9d6"/>',
-  moon: '<circle cx="45" cy="100" r="25" fill="#f4e8ba"/><circle cx="122" cy="100" r="25" fill="#6e796d"/><path d="M122 75a25 25 0 0 1 0 50Z" fill="#f4e8ba"/><circle cx="200" cy="100" r="25" fill="#f4e8ba"/><circle cx="277" cy="100" r="25" fill="#6e796d"/><path d="M277 75a25 25 0 0 0 0 50Z" fill="#f4e8ba"/>',
-  seasons: '<ellipse cx="160" cy="110" rx="136" ry="55"/><circle cx="160" cy="110" r="25" fill="#f2d47c"/><circle cx="40" cy="92" r="24" fill="#b9d8d0"/><circle cx="282" cy="128" r="24" fill="#b9d8d0"/><path d="m25 128 30-72m210 108 32-75"/><path d="M90 94h32m76 29h32" stroke-dasharray="5 4"/>',
+  circuit:
+    '<path d="M55 100V40h210v120H55v-40M35 100h40m-30 20h20M170 40h-35"/><rect x="130" y="27" width="65" height="26" fill="#f0db93"/><circle cx="265" cy="102" r="25" fill="#fff1b5"/><path d="m248 85 34 34m0-34-34 34"/>',
+  parallel:
+    '<path d="M40 90V25h240v150H40v-65M25 90h30m-20 20h10M95 25v150M215 25v150"/><rect x="80" y="65" width="30" height="65" fill="#f0db93"/><rect x="200" y="65" width="30" height="65" fill="#cddfb7"/>',
+  distance:
+    '<path d="M55 25v145h225"/><path d="m60 164 50-40 50-35 50-38 55-30" stroke-width="4" stroke="#8ca86a"/><text x="140" y="195" font-size="13">time (s)</text><text x="10" y="20" font-size="13">distance (m)</text><path d="M110 25v145m50-145v145m50-145v145M55 120h225M55 70h225" opacity=".15"/>',
+  graph:
+    '<path d="M55 25v145h225"/><path d="M85 170V120h35v50m25 0V70h35v100m25 0V40h35v130" fill="#cbdcb3"/><text x="80" y="192" font-size="14">A</text><text x="150" y="192" font-size="14">B</text><text x="210" y="192" font-size="14">C</text>',
+  plates:
+    '<path d="M30 100h115l15-24 15 24h115v65H30Z" fill="#dfc7a4"/><path d="m145 100-28 65m58-65 28 65"/><path d="M60 70h65m-15-10 15 10-15 10m150-10h-65m15-10-15 10 15 10"/><path d="M160 175v-50m-10 12 10-12 10 12" stroke="#c58465"/>',
+  volcano:
+    '<path d="m25 165 80-62 37-66h36l38 66 80 62Z" fill="#c7d8b0"/><path d="m117 81 25-44h36l25 44-23-10-21 10-20-10Z" fill="#f2ecdb"/><path d="M160 160V77m0 65-40-20m40 8 40-20" stroke="#d68b6c" stroke-width="9"/><ellipse cx="160" cy="167" rx="30" ry="14" fill="#d68b6c"/>',
+  earth:
+    '<circle cx="160" cy="100" r="80" fill="#bbd4cc"/><path d="M160 20a80 80 0 0 1 0 160Z" fill="#ddad83"/><path d="M160 38a62 62 0 0 1 0 124Z" fill="#edce92"/><path d="M160 67a33 33 0 0 1 0 66Z" fill="#f7eab9"/>',
+  water:
+    '<path d="M20 154q30-20 60 0t60 0 60 0 60 0 40 0v32H20Z" fill="#bddcd9"/><path d="m45 140 35-50 37 50m83 0 40-65 55 65" fill="#d2dfbb"/><path d="M91 55q-10-20 13-22 10-25 30-4 30-9 30 19Z" fill="#f7f6eb"/><path d="m165 45 55 20m-9-9 9 9-12 3M60 110V67m-8 12 8-12 8 12M145 74l-10 29m35-25-9 26"/>',
+  solar:
+    '<circle cx="160" cy="100" r="28" fill="#f2d47c"/><ellipse cx="160" cy="100" rx="62" ry="40"/><ellipse cx="160" cy="100" rx="100" ry="65"/><ellipse cx="160" cy="100" rx="140" ry="87"/><circle cx="98" cy="100" r="9" fill="#e1ad8e"/><circle cx="238" cy="140" r="13" fill="#b9d1bf"/><circle cx="144" cy="15" r="11" fill="#c8b9d6"/>',
+  moon: '<circle cx="45" cy="100" r="25" fill="#6e796d"/><circle cx="122" cy="100" r="25" fill="#6e796d"/><path d="M122 75a25 25 0 0 1 0 50Z" fill="#f4e8ba"/><circle cx="200" cy="100" r="25" fill="#f4e8ba"/><circle cx="277" cy="100" r="25" fill="#6e796d"/><path d="M277 75a25 25 0 0 0 0 50Z" fill="#f4e8ba"/>',
+  seasons:
+    '<ellipse cx="160" cy="110" rx="136" ry="55"/><circle cx="160" cy="110" r="25" fill="#f2d47c"/><circle cx="40" cy="92" r="24" fill="#b9d8d0"/><circle cx="282" cy="128" r="24" fill="#b9d8d0"/><path d="m25 128 30-72m210 108 32-75"/><path d="M90 94h32m76 29h32" stroke-dasharray="5 4"/>',
   ph: '<rect x="20" y="75" width="56" height="32" fill="#e9a598"/><rect x="76" y="75" width="56" height="32" fill="#efd18b"/><rect x="132" y="75" width="56" height="32" fill="#c8d8ac"/><rect x="188" y="75" width="56" height="32" fill="#bdd9d7"/><rect x="244" y="75" width="56" height="32" fill="#c6b4d6"/><text x="23" y="139" font-size="17">0 · acidic</text><text x="145" y="139" font-size="17">7</text><text x="225" y="139" font-size="17">basic · 14</text>',
   atom: '<circle cx="160" cy="100" r="65"/><circle cx="160" cy="100" r="35"/><circle cx="152" cy="100" r="11" fill="#dba591"/><circle cx="170" cy="100" r="11" fill="#d8c889"/><circle cx="160" cy="65" r="6" fill="#8ba57d"/><circle cx="160" cy="135" r="6" fill="#8ba57d"/><circle cx="95" cy="100" r="6" fill="#8ba57d"/>',
   lens: '<path d="M20 100h280" stroke-dasharray="5 5"/><path d="M160 20q-35 80 0 160 35-80 0-160Z" fill="#d5e6df"/><path d="M25 50h135l130 100M25 150h135L290 50" stroke="#bd8c60"/>',
-  forces: '<path d="M25 160h270M70 160l190-95v95" fill="#dfd6bd"/><path d="m135 128-16-31 33-17 16 31Z" fill="#b4c99d"/><path d="M144 98V45m-8 12 8-12 8 12M147 111l57-28m-15-1 15 1-7 12"/>',
+  forces:
+    '<path d="M25 160h270M70 160l190-95v95" fill="#dfd6bd"/><path d="m135 128-16-31 33-17 16 31Z" fill="#b4c99d"/><path d="M144 98V45m-8 12 8-12 8 12M147 111l57-28m-15-1 15 1-7 12"/>',
   body: '<circle cx="160" cy="35" r="20" fill="#f0d9bd"/><path d="M140 57h40l25 59-23 8-8 59h-28l-8-59-23-8Z" fill="#f6ebd7"/><path d="M160 75v26m-1-3q-43-35-24 14m26-14q43-35 24 14" stroke="#d59b90" stroke-width="4"/><path d="M150 123q45 0 16 15t1 18" stroke="#a8b88a" stroke-width="5"/>',
-  foodweb: '<circle cx="50" cy="147" r="22" fill="#c1d6a7"/><circle cx="160" cy="100" r="22" fill="#f3d58b"/><circle cx="270" cy="53" r="22" fill="#c9bad7"/><path d="m76 137 58-26m-15-2 15 2-6 12m62-22 56-28m-15-1 15 1-6 12"/><text x="23" y="188" font-size="13">plant</text><text x="134" y="145" font-size="13">insect</text><text x="250" y="100" font-size="13">bird</text>',
-  beakers: '<path d="M40 35v125h85V35m-95 0h105M195 35v125h85V35m-95 0h105"/><path d="M42 90h81v68H42Z" fill="#d1dfb9"/><path d="M197 70h81v88h-81Z" fill="#edce92"/><circle cx="76" cy="126" r="5"/><circle cx="97" cy="114" r="5"/><circle cx="223" cy="94" r="5"/><circle cx="249" cy="132" r="5"/>',
+  foodweb:
+    '<circle cx="50" cy="147" r="22" fill="#c1d6a7"/><circle cx="160" cy="100" r="22" fill="#f3d58b"/><circle cx="270" cy="53" r="22" fill="#c9bad7"/><path d="m76 137 58-26m-15-2 15 2-6 12m62-22 56-28m-15-1 15 1-6 12"/><text x="23" y="188" font-size="13">plant</text><text x="134" y="145" font-size="13">insect</text><text x="250" y="100" font-size="13">bird</text>',
+  beakers:
+    '<path d="M40 35v125h85V35m-95 0h105M195 35v125h85V35m-95 0h105"/><path d="M42 90h81v68H42Z" fill="#d1dfb9"/><path d="M197 70h81v88h-81Z" fill="#edce92"/><circle cx="76" cy="126" r="5"/><circle cx="97" cy="114" r="5"/><circle cx="223" cy="94" r="5"/><circle cx="249" cy="132" r="5"/>',
 };
-diagramArt.tree = diagramArt.foodweb; diagramArt.molecule = diagramArt.atom; diagramArt.reaction = diagramArt.beakers; diagramArt.gas = diagramArt.beakers; diagramArt.ramp = diagramArt.forces; diagramArt.weather = diagramArt.water; diagramArt.stars = diagramArt.solar; diagramArt.lab = diagramArt.beakers; diagramArt.measure = diagramArt.graph;
-export function diagram(name: string) { return svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" fill="none" stroke="#68765d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="sans-serif">${diagramArt[name] ?? diagramArt.cell}</svg>`, 'science-diagram', diagramDescriptions[name] ?? 'Science model for this topic. Use the question text and data to answer.'); }
+diagramArt.tree = diagramArt.foodweb;
+diagramArt.molecule = diagramArt.atom;
+diagramArt.reaction = diagramArt.beakers;
+diagramArt.gas = diagramArt.beakers;
+diagramArt.ramp = diagramArt.forces;
+diagramArt.weather = diagramArt.water;
+diagramArt.stars = diagramArt.solar;
+diagramArt.lab = diagramArt.beakers;
+diagramArt.measure = diagramArt.graph;
+diagramArt.convergent =
+  '<path d="M20 90h120l25 22 90 60H20Z" fill="#e0c4a1"/><path d="M300 75H175l-20 26 75 71h70Z" fill="#bdcda4"/><path d="m40 55 80 0m-12-9 12 9-12 9m170-24h-70m12-9-12 9 12 9M165 101l75 62"/><path d="m215 76 22-36 22 36" fill="#d3af8d"/>';
+diagramArt.transform =
+  '<path d="M25 45h125v120H25Z" fill="#cedcb7"/><path d="M165 45h125v120H165Z" fill="#e4cca5"/><path d="M155 25v155" stroke-dasharray="5 4"/><path d="M110 65v75m-10-12 10 12 10-12M205 145V70m-10 12 10-12 10 12"/><path d="M25 90h125m15 30h125" stroke="#b38567" stroke-width="5"/>';
+diagramArt.velocity =
+  '<path d="M55 25v145h225"/><path d="M60 145 260 45" stroke="#8da76e" stroke-width="4"/><text x="10" y="20" font-size="13">velocity (m/s)</text><text x="150" y="198" font-size="13">time (s)</text><path d="M60 145h200V45Z" fill="#d9e4c2" opacity=".3"/>';
+diagramArt.digestive =
+  '<circle cx="160" cy="25" r="18" fill="#efdbc2"/><path d="M140 46h40l20 95-20 39h-40l-20-39Z" fill="#f7eddc"/><path d="M160 39v45q40-8 28 23-9 16-30 6" stroke="#b89676" stroke-width="7"/><path d="M144 118q45 0 20 16t2 16-12 12" stroke="#a5b58b" stroke-width="7"/><path d="M138 119v45h45v-45" stroke="#c5a68c" stroke-width="5"/>';
+diagramArt.circulatory =
+  '<path d="M130 45q30-45 60 0l20 109-30 31h-40l-30-31Z" fill="#f5ebda"/><path d="M160 78q-25-25-28 0 2 17 28 32 25-15 28-32-3-25-28 0Z" fill="#d5a08d"/><path d="M150 109v55m20-55v55m-20-45-25 19m45-19 25 19M149 70V35m21 35V35" stroke="#b68c7e" stroke-width="4"/><path d="M139 103v58m42-58v58" stroke="#819eaa" stroke-width="4"/>';
+diagramArt.stars =
+  '<ellipse cx="160" cy="100" rx="125" ry="67" fill="#eee9f1"/><path d="M160 100q-70-55-90-10t80 50 70-55-65-30-30 45 65 10" stroke="#b9aac7" stroke-width="7"/><circle cx="160" cy="100" r="17" fill="#f3da96"/><circle cx="79" cy="80" r="3" fill="#b7a282"/><circle cx="117" cy="131" r="3" fill="#b7a282"/><circle cx="224" cy="99" r="3" fill="#b7a282"/><circle cx="201" cy="62" r="3" fill="#b7a282"/>';
+export function diagram(name: string) {
+  return svg(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" fill="none" stroke="#68765d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="sans-serif">${diagramArt[name] ?? diagramArt.cell}</svg>`,
+    "science-diagram",
+    diagramDescriptions[name] ??
+      "Science model for this topic. Use the question text and data to answer.",
+  );
+}
 const diagramDescriptions: Record<string, string> = {
-  cell: 'Animal cell model: outer cell membrane, cytoplasm, a nucleus containing DNA, and bean-shaped mitochondria.', plant: 'Plant cell model: a rigid cell wall, inner membrane, large central vacuole, nucleus and green chloroplasts.', punnett: 'Punnett square for Aa crossed with Aa. Offspring combinations: AA, Aa, Aa, aa.', wave: 'A repeating wave. Wavelength spans two crests. Amplitude is measured from the rest position to a crest.', circuit: 'Closed single-loop series circuit with a cell, a resistor and a lamp.', parallel: 'Two resistor branches share the same two connecting points in a parallel circuit.', distance: 'Distance-time graph with a straight rising line, showing constant speed.', graph: 'Bar chart with three categories A, B, C, rising in that order.', plates: 'Two tectonic plates moving apart; material rises at their divergent boundary.', volcano: 'Cross-section of a volcano showing magma beneath the surface and a central vent leading to the crater.', earth: 'Earth cutaway showing thin crust, mantle, outer core and inner core.', water: 'Water moves between surface water, clouds and land through evaporation, condensation, rainfall and runoff.', solar: 'Simplified model of planets orbiting the Sun; distances and sizes are not to scale.', moon: 'Four Moon appearances: full Moon, first quarter, full illumination example and last quarter. The lit part is sunlight, not Earth’s shadow.', seasons: 'Earth at opposite parts of its orbit with its axis tilted in the same direction. Tilt changes direct sunlight and day length.', ph: 'pH scale from zero, acidic, through seven, neutral, to fourteen, basic.', atom: 'Simplified electron-shell model. Protons and neutrons are in the nucleus; electrons occupy energy levels, not planetary orbits.', lens: 'Parallel rays refract through a convex lens toward a focus.', forces: 'A box on an inclined plane with arrows representing forces.', body: 'Simplified human body outline with lungs and digestive organs.', foodweb: 'Food chain. Arrows go from plant to insect to bird, showing the direction of energy transfer.', beakers: 'Two laboratory beakers containing different liquids and particles.',
+  cell: "Animal cell model: outer cell membrane, cytoplasm, a nucleus containing DNA, and bean-shaped mitochondria.",
+  plant:
+    "Plant cell model: a rigid cell wall, inner membrane, large central vacuole, nucleus and green chloroplasts.",
+  punnett:
+    "Punnett square for Aa crossed with Aa. Offspring combinations: AA, Aa, Aa, aa.",
+  wave: "A repeating wave. Wavelength spans two crests. Amplitude is measured from the rest position to a crest.",
+  circuit:
+    "Closed single-loop series circuit with a cell, a resistor and a lamp.",
+  parallel:
+    "Two resistor branches share the same two connecting points in a parallel circuit.",
+  distance:
+    "Distance-time graph with a straight rising line, showing constant speed.",
+  graph: "Bar chart with three categories A, B, C, rising in that order.",
+  plates:
+    "Two tectonic plates moving apart; material rises at their divergent boundary.",
+  volcano:
+    "Cross-section of a volcano showing magma beneath the surface and a central vent leading to the crater.",
+  earth: "Earth cutaway showing thin crust, mantle, outer core and inner core.",
+  water:
+    "Water moves between surface water, clouds and land through evaporation, condensation, rainfall and runoff.",
+  solar:
+    "Simplified model of planets orbiting the Sun; distances and sizes are not to scale.",
+  moon: "Four Moon phases in order: new Moon, first quarter, full Moon and last quarter. The lit part is sunlight, not Earth’s shadow.",
+  seasons:
+    "Earth at opposite parts of its orbit with its axis tilted in the same direction. Tilt changes direct sunlight and day length.",
+  ph: "pH scale from zero, acidic, through seven, neutral, to fourteen, basic.",
+  atom: "Simplified electron-shell model. Protons and neutrons are in the nucleus; electrons occupy energy levels, not planetary orbits.",
+  lens: "Parallel rays refract through a convex lens toward a focus.",
+  forces: "A box on an inclined plane with arrows representing forces.",
+  body: "Simplified human body outline with lungs and digestive organs.",
+  foodweb:
+    "Food chain. Arrows go from plant to insect to bird, showing the direction of energy transfer.",
+  beakers: "Two laboratory beakers containing different liquids and particles.",
 };
 const supplyArt: Record<string, string> = {
-  pencils: '<path d="m60 140 55-95 18 10-55 95-20 15Z" fill="#edcd74"/><path d="m102 54 13-9 18 10-1 15" fill="#dfa99c"/><path d="m110 151 20-108 20 4-20 108-13 15Z" fill="#a9bc98"/><path d="m60 140-2 25 20-15m32 1 7 19 13-15" fill="#f2dfb7"/>',
-  notebook: '<rect x="53" y="29" width="94" height="132" rx="7" fill="#a9c092"/><path d="M68 29v132M46 48h14m-14 25h14m-14 25h14m-14 25h14m-14 25h14"/><rect x="85" y="59" width="45" height="42" rx="4" fill="#f8f3df"/><path d="M96 74h23m-23 12h17"/>',
-  ruler: '<path d="m35 139 112-99 23 27-112 99Z" fill="#e5cb8b"/><path d="m54 135 10 11m4-24 6 6m8-19 10 11m4-24 6 6m8-19 10 11m4-24 6 6m8-19 10 11"/>',
-  markers: '<path d="M46 70h29v91H46Z" fill="#c2d4a5"/><path d="M48 36h25v34H48Z" fill="#a6bd88"/><path d="M86 53h29v108H86Z" fill="#e8b59f"/><path d="M88 26h25v29H88Z" fill="#cd977f"/><path d="M126 81h29v80h-29Z" fill="#d3c2e2"/><path d="M128 47h25v34h-25Z" fill="#b4a0c7"/>',
-  goggles: '<path d="M35 79q65-40 130 0l-6 54q-24 17-45-10h-28q-21 27-45-10Z" fill="#e5eee4"/><path d="M32 86 16 68m152 18 16-18M40 77l20-15h80l20 15"/><path d="m54 90 28-7m35 0 28 7" stroke="#fff" stroke-width="6"/>',
-  sticky: '<path d="M50 55h106v100H50Z" fill="#e5c7da"/><path d="M43 45h106v100H43Z" fill="#c5d9b2"/><path d="M36 35h106v100H36Z" fill="#f2df9c"/><path d="M53 60h68m-68 17h53m-53 17h61M142 109l-26 26v-26z" fill="#d9bd74"/>',
+  pencils:
+    '<path d="m60 140 55-95 18 10-55 95-20 15Z" fill="#edcd74"/><path d="m102 54 13-9 18 10-1 15" fill="#dfa99c"/><path d="m110 151 20-108 20 4-20 108-13 15Z" fill="#a9bc98"/><path d="m60 140-2 25 20-15m32 1 7 19 13-15" fill="#f2dfb7"/>',
+  notebook:
+    '<rect x="53" y="29" width="94" height="132" rx="7" fill="#a9c092"/><path d="M68 29v132M46 48h14m-14 25h14m-14 25h14m-14 25h14m-14 25h14"/><rect x="85" y="59" width="45" height="42" rx="4" fill="#f8f3df"/><path d="M96 74h23m-23 12h17"/>',
+  ruler:
+    '<path d="m35 139 112-99 23 27-112 99Z" fill="#e5cb8b"/><path d="m54 135 10 11m4-24 6 6m8-19 10 11m4-24 6 6m8-19 10 11m4-24 6 6m8-19 10 11"/>',
+  markers:
+    '<path d="M46 70h29v91H46Z" fill="#c2d4a5"/><path d="M48 36h25v34H48Z" fill="#a6bd88"/><path d="M86 53h29v108H86Z" fill="#e8b59f"/><path d="M88 26h25v29H88Z" fill="#cd977f"/><path d="M126 81h29v80h-29Z" fill="#d3c2e2"/><path d="M128 47h25v34h-25Z" fill="#b4a0c7"/>',
+  goggles:
+    '<path d="M35 79q65-40 130 0l-6 54q-24 17-45-10h-28q-21 27-45-10Z" fill="#e5eee4"/><path d="M32 86 16 68m152 18 16-18M40 77l20-15h80l20 15"/><path d="m54 90 28-7m35 0 28 7" stroke="#fff" stroke-width="6"/>',
+  sticky:
+    '<path d="M50 55h106v100H50Z" fill="#e5c7da"/><path d="M43 45h106v100H43Z" fill="#c5d9b2"/><path d="M36 35h106v100H36Z" fill="#f2df9c"/><path d="M53 60h68m-68 17h53m-53 17h61M142 109l-26 26v-26z" fill="#d9bd74"/>',
 };
-export const supply = (name: string) => svg(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 190" stroke="#726b53" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">${supplyArt[name] ?? supplyArt.notebook}</svg>`, 'supply-art');
+export const supply = (name: string) =>
+  svg(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 190" stroke="#726b53" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">${supplyArt[name] ?? supplyArt.notebook}</svg>`,
+    "supply-art",
+  );
+
+Object.assign(diagramDescriptions, {
+  convergent:
+    "Oceanic plate converges with another plate and sinks below it at a subduction zone. A volcanic arc can form on the overriding plate.",
+  transform:
+    "Two plates move sideways in opposite directions along a transform boundary. Markers across the fault are offset.",
+  velocity:
+    "Velocity-time graph rises with a straight slope, showing constant positive acceleration. Signed area under the line represents displacement.",
+  digestive:
+    "Simplified digestive outline. Food moves from the mouth down the esophagus to the stomach and intestines.",
+  circulatory:
+    "Simplified circulatory model with the heart and blood vessels. Red and blue are diagram color codes; blood with less oxygen is dark red.",
+  tree: "Simple feeding relationship used to compare living things and group their traits. Classification also uses genetic evidence.",
+  molecule:
+    "A simplified atomic model illustrates electrons in energy levels. Bonds depend on outer-shell electrons.",
+  reaction:
+    "Two beakers model substances before mixing. A new gas or solid can be evidence of a chemical reaction.",
+  gas: "Containers model matter in laboratory samples. Gas particles are widely spaced and collide with container walls.",
+  ramp: "A box on an inclined ramp. A smaller force can act over a longer distance to raise the box.",
+  weather:
+    "Water-cycle model showing evaporation, cloud formation and rain. Weather depends on air, water and energy transfer.",
+  stars:
+    "A simplified spiral galaxy model containing many stars, gas and dust. Sizes, positions and distances are not to scale.",
+  lab: "Laboratory containers for an investigation. Plan a fair test, measure carefully and follow teacher safety instructions.",
+  measure:
+    "A labeled illustrative bar chart for comparing measured categories. Use the question’s data table for actual values.",
+});

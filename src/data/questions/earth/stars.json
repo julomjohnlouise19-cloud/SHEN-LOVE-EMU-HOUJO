@@ -1,0 +1,1298 @@
+[
+  {
+    "id": "earth.stars.e.001",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What physical process powers the Sun?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nuclear fusion"
+      },
+      {
+        "id": "choice-1",
+        "text": "Burning wood",
+        "misconception": "earth.stars.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nuclear fission of coal",
+        "misconception": "earth.stars.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only chemical rusting",
+        "misconception": "earth.stars.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The Sun’s core fuses hydrogen nuclei into helium. Fusion releases energy that eventually leaves as light and other radiation.",
+    "scienceFact": "The Sun’s core fuses hydrogen nuclei into helium. Fusion releases energy that eventually leaves as light and other radiation.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.002",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What does a light-year measure?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Star mass",
+        "misconception": "earth.stars.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Distance"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only time",
+        "misconception": "earth.stars.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Star temperature",
+        "misconception": "earth.stars.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A light-year is the distance light travels in a vacuum in one year. It is a unit of distance, not time.",
+    "scienceFact": "A light-year is the distance light travels in a vacuum in one year. It is a unit of distance, not time.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.003",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which star color tends to have a hotter surface?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Color gives no clue at all",
+        "misconception": "earth.stars.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Both must have the same temperature",
+        "misconception": "earth.stars.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Blue"
+      },
+      {
+        "id": "choice-3",
+        "text": "Red",
+        "misconception": "earth.stars.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Blue stars generally have hotter surfaces than red stars. Color gives clues about surface temperature.",
+    "scienceFact": "Blue stars generally have hotter surfaces than red stars. Color gives clues about surface temperature.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.004",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the name of the galaxy containing our Solar System?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Andromeda",
+        "misconception": "earth.stars.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Triangulum only",
+        "misconception": "earth.stars.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Orion Nebula",
+        "misconception": "earth.stars.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Milky Way"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Our Solar System is part of the Milky Way galaxy, which contains many stars, gas and dust.",
+    "scienceFact": "Our Solar System is part of the Milky Way galaxy, which contains many stars, gas and dust.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.005",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a large system of stars, gas, dust and dark matter called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Galaxy"
+      },
+      {
+        "id": "choice-1",
+        "text": "Single planet",
+        "misconception": "earth.stars.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Single asteroid",
+        "misconception": "earth.stars.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a moon",
+        "misconception": "earth.stars.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A galaxy is a huge group of stars, gas, dust and dark matter held by gravity.",
+    "scienceFact": "A galaxy is a huge group of stars, gas, dust and dark matter held by gravity.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.006",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What cloud can form new stars when regions collapse under gravity?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Empty vacuum with no matter",
+        "misconception": "earth.stars.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nebula"
+      },
+      {
+        "id": "choice-2",
+        "text": "Rocky planet",
+        "misconception": "earth.stars.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a solid asteroid",
+        "misconception": "earth.stars.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Nebulae are clouds of gas and dust. Some contain regions where gravity can bring matter together to form stars.",
+    "scienceFact": "Nebulae are clouds of gas and dust. Some contain regions where gravity can bring matter together to form stars.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.007",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Why can a distant bright-looking star seem faint from Earth?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Distance adds more light",
+        "misconception": "earth.stars.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "All stars have equal apparent brightness",
+        "misconception": "earth.stars.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Light spreads over a larger area"
+      },
+      {
+        "id": "choice-3",
+        "text": "It has no light at all",
+        "misconception": "earth.stars.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Light spreads as it travels. Greater distance lowers the light received per area, apart from other effects such as dust.",
+    "scienceFact": "Light spreads as it travels. Greater distance lowers the light received per area, apart from other effects such as dust.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.008",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What can a star’s spectrum reveal?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The exact name of every planet",
+        "misconception": "earth.stars.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Its classroom grade",
+        "misconception": "earth.stars.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Its sound in empty space",
+        "misconception": "earth.stars.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Chemical elements present"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Each element has a pattern of light lines. These lines can show which elements are in a star.",
+    "scienceFact": "Each element has a pattern of light lines. These lines can show which elements are in a star.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.009",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is an apparent star pattern seen from Earth called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Constellation pattern"
+      },
+      {
+        "id": "choice-1",
+        "text": "Single physical star cluster by definition",
+        "misconception": "earth.stars.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "One new planet",
+        "misconception": "earth.stars.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "One cell type",
+        "misconception": "earth.stars.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Constellation patterns are apparent arrangements seen from Earth. Their stars need not be close to one another in space.",
+    "scienceFact": "Constellation patterns are apparent arrangements seen from Earth. Their stars need not be close to one another in space.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.e.010",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which model is supported by the redshift of distant galaxies?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "An unchanging static universe only",
+        "misconception": "earth.stars.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "An expanding universe"
+      },
+      {
+        "id": "choice-2",
+        "text": "All galaxies orbiting Earth",
+        "misconception": "earth.stars.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Light needing air in space",
+        "misconception": "earth.stars.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Distant galaxies show a broad link between distance and redshift. This fits a universe whose space expands over time.",
+    "scienceFact": "Distant galaxies show a broad link between distance and redshift. This fits a universe whose space expands over time.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "stars"
+  },
+  {
+    "id": "earth.stars.e.011",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What term describes the total energy a star emits per unit time?",
+    "answer": "Luminosity",
+    "explanation": "Luminosity is a star’s total energy output per time. Apparent brightness also depends on distance and any intervening material.",
+    "scienceFact": "Luminosity is a star’s total energy output per time. Apparent brightness also depends on distance and any intervening material.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["luminosity", "Luminosity"]
+  },
+  {
+    "id": "earth.stars.e.012",
+    "deckId": "earth.stars",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What balance helps a main-sequence star stay stable?",
+    "answer": "Inward gravity and outward pressure",
+    "explanation": "Gravity pulls inward on a star. Pressure pushes outward. A balance between these effects can keep a star roughly stable.",
+    "scienceFact": "Gravity pulls inward on a star. Pressure pushes outward. A balance between these effects can keep a star roughly stable.",
+    "topic": "earth.stars",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "inward gravity and outward pressure",
+      "Inward gravity and outward pressure"
+    ]
+  },
+  {
+    "id": "earth.stars.m.001",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Sunlight warms rice fields in the Philippines. Which process releases energy in the Sun’s core?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only chemical rusting",
+        "misconception": "earth.stars.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nuclear fusion"
+      },
+      {
+        "id": "choice-2",
+        "text": "Burning wood",
+        "misconception": "earth.stars.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nuclear fission of coal",
+        "misconception": "earth.stars.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The Sun’s core fuses hydrogen nuclei into helium. Fusion releases energy that eventually leaves as light and other radiation.",
+    "scienceFact": "The Sun’s core fuses hydrogen nuclei into helium. Fusion releases energy that eventually leaves as light and other radiation.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.002",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine sky guide lists a star as 4 light-years away. What kind of quantity is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Star temperature",
+        "misconception": "earth.stars.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Star mass",
+        "misconception": "earth.stars.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Distance"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only time",
+        "misconception": "earth.stars.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A light-year is the distance light travels in a vacuum in one year. It is a unit of distance, not time.",
+    "scienceFact": "A light-year is the distance light travels in a vacuum in one year. It is a unit of distance, not time.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.003",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Manila class compares a blue star with a red star. Which color indicates the hotter surface?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Red",
+        "misconception": "earth.stars.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Color gives no clue at all",
+        "misconception": "earth.stars.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Both must have the same temperature",
+        "misconception": "earth.stars.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Blue"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Blue stars generally have hotter surfaces than red stars. Color gives clues about surface temperature.",
+    "scienceFact": "Blue stars generally have hotter surfaces than red stars. Color gives clues about surface temperature.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.004",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student locates Earth, the Sun and many nearby stars in one galaxy. Which galaxy is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Milky Way"
+      },
+      {
+        "id": "choice-1",
+        "text": "Andromeda",
+        "misconception": "earth.stars.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Triangulum only",
+        "misconception": "earth.stars.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Orion Nebula",
+        "misconception": "earth.stars.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Our Solar System is part of the Milky Way galaxy, which contains many stars, gas and dust.",
+    "scienceFact": "Our Solar System is part of the Milky Way galaxy, which contains many stars, gas and dust.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.005",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A telescope shows a huge gravitationally bound collection of stars. What class of object is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a moon",
+        "misconception": "earth.stars.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Galaxy"
+      },
+      {
+        "id": "choice-2",
+        "text": "Single planet",
+        "misconception": "earth.stars.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Single asteroid",
+        "misconception": "earth.stars.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A galaxy is a huge group of stars, gas, dust and dark matter held by gravity.",
+    "scienceFact": "A galaxy is a huge group of stars, gas, dust and dark matter held by gravity.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.006",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A region of gas and dust contracts and warms as a star forms. What larger cloud is this part of?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a solid asteroid",
+        "misconception": "earth.stars.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Empty vacuum with no matter",
+        "misconception": "earth.stars.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nebula"
+      },
+      {
+        "id": "choice-3",
+        "text": "Rocky planet",
+        "misconception": "earth.stars.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Nebulae are clouds of gas and dust. Some contain regions where gravity can bring matter together to form stars.",
+    "scienceFact": "Nebulae are clouds of gas and dust. Some contain regions where gravity can bring matter together to form stars.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.007",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A luminous star is far away and appears faint. Which factor helps explain this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It has no light at all",
+        "misconception": "earth.stars.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Distance adds more light",
+        "misconception": "earth.stars.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "All stars have equal apparent brightness",
+        "misconception": "earth.stars.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Light spreads over a larger area"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Light spreads as it travels. Greater distance lowers the light received per area, apart from other effects such as dust.",
+    "scienceFact": "Light spreads as it travels. Greater distance lowers the light received per area, apart from other effects such as dust.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.008",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A star’s light has dark lines at characteristic wavelengths. What can these lines help identify?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chemical elements present"
+      },
+      {
+        "id": "choice-1",
+        "text": "The exact name of every planet",
+        "misconception": "earth.stars.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Its classroom grade",
+        "misconception": "earth.stars.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Its sound in empty space",
+        "misconception": "earth.stars.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Each element has a pattern of light lines. These lines can show which elements are in a star.",
+    "scienceFact": "Each element has a pattern of light lines. These lines can show which elements are in a star.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.009",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Several unrelated stars appear to form a familiar figure in the night sky. What is that apparent pattern called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "One cell type",
+        "misconception": "earth.stars.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Constellation pattern"
+      },
+      {
+        "id": "choice-2",
+        "text": "Single physical star cluster by definition",
+        "misconception": "earth.stars.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "One new planet",
+        "misconception": "earth.stars.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Constellation patterns are apparent arrangements seen from Earth. Their stars need not be close to one another in space.",
+    "scienceFact": "Constellation patterns are apparent arrangements seen from Earth. Their stars need not be close to one another in space.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.010",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Many distant galaxies show light shifted toward longer wavelengths. What broad model does this support?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Light needing air in space",
+        "misconception": "earth.stars.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "An unchanging static universe only",
+        "misconception": "earth.stars.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "An expanding universe"
+      },
+      {
+        "id": "choice-3",
+        "text": "All galaxies orbiting Earth",
+        "misconception": "earth.stars.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Distant galaxies show a broad link between distance and redshift. This fits a universe whose space expands over time.",
+    "scienceFact": "Distant galaxies show a broad link between distance and redshift. This fits a universe whose space expands over time.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.011",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order these space structures from smallest to largest scale.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Planet"
+      },
+      {
+        "id": "step-1",
+        "text": "Solar system"
+      },
+      {
+        "id": "step-2",
+        "text": "Galaxy"
+      },
+      {
+        "id": "step-3",
+        "text": "Observable universe"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Planet. Solar system. Galaxy. Observable universe. Each stage leads to the next.",
+    "scienceFact": "Luminosity is a star’s total energy output per time. Apparent brightness also depends on distance and any intervening material.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.m.012",
+    "deckId": "earth.stars",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each space term to its meaning.",
+    "answer": {
+      "Light-year": "A unit of distance",
+      "Luminosity": "Total energy output per time",
+      "Spectrum": "Light separated by wavelength"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Gravity pulls inward on a star. Pressure pushes outward. A balance between these effects can keep a star roughly stable.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.001",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Philippine class learns that hydrogen nuclei combine in the Sun. Which energy-releasing process is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nuclear fission of coal",
+        "misconception": "earth.stars.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only chemical rusting",
+        "misconception": "earth.stars.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nuclear fusion"
+      },
+      {
+        "id": "choice-3",
+        "text": "Burning wood",
+        "misconception": "earth.stars.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The Sun’s core fuses hydrogen nuclei into helium. Fusion releases energy that eventually leaves as light and other radiation.",
+    "scienceFact": "The Sun’s core fuses hydrogen nuclei into helium. Fusion releases energy that eventually leaves as light and other radiation.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Solar core model", "Particle change"],
+      "rows": [
+        ["Input nuclei", "Hydrogen"],
+        ["Output nuclei", "Helium"],
+        ["Energy", "Released"]
+      ]
+    }
+  },
+  {
+    "id": "earth.stars.h.002",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Cebu class sees a distance expressed using the path light covers in one year. Which quantity does the unit measure?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only time",
+        "misconception": "earth.stars.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Star temperature",
+        "misconception": "earth.stars.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Star mass",
+        "misconception": "earth.stars.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Distance"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A light-year is the distance light travels in a vacuum in one year. It is a unit of distance, not time.",
+    "scienceFact": "A light-year is the distance light travels in a vacuum in one year. It is a unit of distance, not time.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Sky-guide entry", "Meaning of unit"],
+      "rows": [
+        ["Distance", "4 light-years"],
+        ["One light-year", "Path light covers in one year"]
+      ]
+    }
+  },
+  {
+    "id": "earth.stars.h.003",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Two Philippine sky-chart stars are blue and red. If color reflects surface temperature, which should be hotter?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Blue"
+      },
+      {
+        "id": "choice-1",
+        "text": "Red",
+        "misconception": "earth.stars.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Color gives no clue at all",
+        "misconception": "earth.stars.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Both must have the same temperature",
+        "misconception": "earth.stars.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Blue stars generally have hotter surfaces than red stars. Color gives clues about surface temperature.",
+    "scienceFact": "Blue stars generally have hotter surfaces than red stars. Color gives clues about surface temperature.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Model star", "Surface color"],
+      "rows": [
+        ["A", "Blue"],
+        ["B", "Red"]
+      ]
+    }
+  },
+  {
+    "id": "earth.stars.h.004",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A map places the Solar System in a spiral galaxy’s disk. Which named galaxy contains it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Orion Nebula",
+        "misconception": "earth.stars.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Milky Way"
+      },
+      {
+        "id": "choice-2",
+        "text": "Andromeda",
+        "misconception": "earth.stars.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Triangulum only",
+        "misconception": "earth.stars.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Our Solar System is part of the Milky Way galaxy, which contains many stars, gas and dust.",
+    "scienceFact": "Our Solar System is part of the Milky Way galaxy, which contains many stars, gas and dust.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.005",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "An object contains billions of stars and interstellar material held by gravity. Which category best fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Single asteroid",
+        "misconception": "earth.stars.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a moon",
+        "misconception": "earth.stars.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Galaxy"
+      },
+      {
+        "id": "choice-3",
+        "text": "Single planet",
+        "misconception": "earth.stars.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A galaxy is a huge group of stars, gas, dust and dark matter held by gravity.",
+    "scienceFact": "A galaxy is a huge group of stars, gas, dust and dark matter held by gravity.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.006",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Dense parts of an interstellar cloud collapse under gravity. Which type of object can contain this star-forming material?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Rocky planet",
+        "misconception": "earth.stars.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a solid asteroid",
+        "misconception": "earth.stars.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Empty vacuum with no matter",
+        "misconception": "earth.stars.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Nebula"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Nebulae are clouds of gas and dust. Some contain regions where gravity can bring matter together to form stars.",
+    "scienceFact": "Nebulae are clouds of gas and dust. Some contain regions where gravity can bring matter together to form stars.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.007",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two stars emit the same total light, but one is much farther away. Why is the farther one usually fainter?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Light spreads over a larger area"
+      },
+      {
+        "id": "choice-1",
+        "text": "It has no light at all",
+        "misconception": "earth.stars.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Distance adds more light",
+        "misconception": "earth.stars.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "All stars have equal apparent brightness",
+        "misconception": "earth.stars.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Light spreads as it travels. Greater distance lowers the light received per area, apart from other effects such as dust.",
+    "scienceFact": "Light spreads as it travels. Greater distance lowers the light received per area, apart from other effects such as dust.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.008",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A spectrum matches known absorption lines from hydrogen. Which property of the star’s outer layers does this support?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Its sound in empty space",
+        "misconception": "earth.stars.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Chemical elements present"
+      },
+      {
+        "id": "choice-2",
+        "text": "The exact name of every planet",
+        "misconception": "earth.stars.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Its classroom grade",
+        "misconception": "earth.stars.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Each element has a pattern of light lines. These lines can show which elements are in a star.",
+    "scienceFact": "Each element has a pattern of light lines. These lines can show which elements are in a star.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.009",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Stars look grouped from Earth but lie at different distances. Which term describes their familiar sky pattern?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "One new planet",
+        "misconception": "earth.stars.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "One cell type",
+        "misconception": "earth.stars.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Constellation pattern"
+      },
+      {
+        "id": "choice-3",
+        "text": "Single physical star cluster by definition",
+        "misconception": "earth.stars.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Constellation patterns are apparent arrangements seen from Earth. Their stars need not be close to one another in space.",
+    "scienceFact": "Constellation patterns are apparent arrangements seen from Earth. Their stars need not be close to one another in space.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.010",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A large-scale trend shows greater galaxy distance linked with greater cosmological redshift. Which model fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "All galaxies orbiting Earth",
+        "misconception": "earth.stars.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Light needing air in space",
+        "misconception": "earth.stars.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "An unchanging static universe only",
+        "misconception": "earth.stars.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "An expanding universe"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Distant galaxies show a broad link between distance and redshift. This fits a universe whose space expands over time.",
+    "scienceFact": "Distant galaxies show a broad link between distance and redshift. This fits a universe whose space expands over time.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.011",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order these stages in a simplified Sun-like star’s life.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Protostar"
+      },
+      {
+        "id": "step-1",
+        "text": "Main-sequence star"
+      },
+      {
+        "id": "step-2",
+        "text": "Red giant"
+      },
+      {
+        "id": "step-3",
+        "text": "White dwarf"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Protostar. Main-sequence star. Red giant. White dwarf. Each stage leads to the next.",
+    "scienceFact": "Luminosity is a star’s total energy output per time. Apparent brightness also depends on distance and any intervening material.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.stars.h.012",
+    "deckId": "earth.stars",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A star’s size remains fairly steady while its core fuses hydrogen. Which competing effects are in balance?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a solid outer shell",
+        "misconception": "earth.stars.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Inward gravity and outward pressure"
+      },
+      {
+        "id": "choice-2",
+        "text": "Two opposite sound waves only",
+        "misconception": "earth.stars.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "No gravity and no pressure",
+        "misconception": "earth.stars.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Gravity pulls inward on a star. Pressure pushes outward. A balance between these effects can keep a star roughly stable.",
+    "scienceFact": "Gravity pulls inward on a star. Pressure pushes outward. A balance between these effects can keep a star roughly stable.",
+    "topic": "earth.stars",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Stars, light, galaxies and the scale of space. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "stars"
+  }
+]

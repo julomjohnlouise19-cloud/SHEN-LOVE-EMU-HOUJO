@@ -1,0 +1,1216 @@
+[
+  {
+    "id": "skills.measurement.e.001",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the SI base unit of length?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Meter"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kilogram",
+        "misconception": "skills.measurement.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Second",
+        "misconception": "skills.measurement.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Kelvin",
+        "misconception": "skills.measurement.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The meter is the SI base unit of length. One meter equals one hundred centimeters.",
+    "scienceFact": "The meter is the SI base unit of length. One meter equals one hundred centimeters.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.002",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the SI base unit of mass?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Ampere",
+        "misconception": "skills.measurement.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kilogram"
+      },
+      {
+        "id": "choice-2",
+        "text": "Newton",
+        "misconception": "skills.measurement.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Liter",
+        "misconception": "skills.measurement.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The kilogram is the SI base unit of mass. Weight is a force and is measured in newtons.",
+    "scienceFact": "The kilogram is the SI base unit of mass. Weight is a force and is measured in newtons.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.003",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the SI base unit of time?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Hour",
+        "misconception": "skills.measurement.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Day",
+        "misconception": "skills.measurement.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Second"
+      },
+      {
+        "id": "choice-3",
+        "text": "Minute",
+        "misconception": "skills.measurement.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The second is the SI base unit of time. Minutes and hours are useful units but are not SI base units.",
+    "scienceFact": "The second is the SI base unit of time. Minutes and hours are useful units but are not SI base units.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.004",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "How many centimeters are in one meter?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "10",
+        "misconception": "skills.measurement.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "1000",
+        "misconception": "skills.measurement.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "0.01",
+        "misconception": "skills.measurement.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "100"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "One centimeter is one hundredth of a meter. Multiply meters by 100 to convert them to centimeters.",
+    "scienceFact": "One centimeter is one hundredth of a meter. Multiply meters by 100 to convert them to centimeters.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.005",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "How many grams are in one kilogram?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "1000"
+      },
+      {
+        "id": "choice-1",
+        "text": "100",
+        "misconception": "skills.measurement.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "10",
+        "misconception": "skills.measurement.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "0.001",
+        "misconception": "skills.measurement.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "One kilogram equals one thousand grams. The prefix kilo- means one thousand.",
+    "scienceFact": "One kilogram equals one thousand grams. The prefix kilo- means one thousand.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.006",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the SI base unit of thermodynamic temperature?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Watt",
+        "misconception": "skills.measurement.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kelvin"
+      },
+      {
+        "id": "choice-2",
+        "text": "Degree Celsius only",
+        "misconception": "skills.measurement.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Joule",
+        "misconception": "skills.measurement.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Kelvin is the SI base unit of thermodynamic temperature. Gas-law ratios use absolute temperature in kelvin.",
+    "scienceFact": "Kelvin is the SI base unit of thermodynamic temperature. Gas-law ratios use absolute temperature in kelvin.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.007",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Where should the eye be when reading a liquid scale?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Far below the cylinder",
+        "misconception": "skills.measurement.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Facing away from the scale",
+        "misconception": "skills.measurement.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "At the meniscus level"
+      },
+      {
+        "id": "choice-3",
+        "text": "Far above the cylinder",
+        "misconception": "skills.measurement.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Read a liquid scale at eye level to reduce parallax. For water in common glassware, read the bottom of the curved meniscus.",
+    "scienceFact": "Read a liquid scale at eye level to reduce parallax. For water in common glassware, read the bottom of the curved meniscus.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.008",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What word describes closeness to an accepted reference value?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only precision",
+        "misconception": "skills.measurement.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only sample size",
+        "misconception": "skills.measurement.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only speed",
+        "misconception": "skills.measurement.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Accuracy"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Accuracy concerns closeness to a true or accepted value. Precision concerns the spread of repeated measurements.",
+    "scienceFact": "Accuracy concerns closeness to a true or accepted value. Precision concerns the spread of repeated measurements.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.009",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What word describes how closely repeated readings cluster?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Precision"
+      },
+      {
+        "id": "choice-1",
+        "text": "Accuracy by definition",
+        "misconception": "skills.measurement.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Large random variation",
+        "misconception": "skills.measurement.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "High uncertainty by definition",
+        "misconception": "skills.measurement.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Precise readings are close to one another. They can still miss the true value if a tool has a bias.",
+    "scienceFact": "Precise readings are close to one another. They can still miss the true value if a tool has a bias.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.e.010",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the SI derived unit for volume?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Kilogram per meter",
+        "misconception": "skills.measurement.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Cubic meter"
+      },
+      {
+        "id": "choice-2",
+        "text": "Square meter",
+        "misconception": "skills.measurement.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Meter per second",
+        "misconception": "skills.measurement.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Volume is three-dimensional space. The coherent SI unit is the cubic meter, written m³.",
+    "scienceFact": "Volume is three-dimensional space. The coherent SI unit is the cubic meter, written m³.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "measure"
+  },
+  {
+    "id": "skills.measurement.e.011",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What scale feature is the smallest change an instrument can show?",
+    "answer": "Resolution",
+    "explanation": "Resolution is the smallest change an instrument can distinguish or display. It limits the detail available in a reading.",
+    "scienceFact": "Resolution is the smallest change an instrument can distinguish or display. It limits the detail available in a reading.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["resolution", "Resolution"]
+  },
+  {
+    "id": "skills.measurement.e.012",
+    "deckId": "skills.measurement",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What process compares a tool’s readings against known standards?",
+    "answer": "Calibration",
+    "explanation": "Calibration checks readings against known standards. This can show if a tool has a bias or needs to be adjusted.",
+    "scienceFact": "Calibration checks readings against known standards. This can show if a tool has a bias or needs to be adjusted.",
+    "topic": "skills.measurement",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["calibration", "Calibration"]
+  },
+  {
+    "id": "skills.measurement.m.001",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine class records a rice plot’s length using the SI base unit. Which unit should be used?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Kelvin",
+        "misconception": "skills.measurement.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Meter"
+      },
+      {
+        "id": "choice-2",
+        "text": "Kilogram",
+        "misconception": "skills.measurement.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Second",
+        "misconception": "skills.measurement.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The meter is the SI base unit of length. One meter equals one hundred centimeters.",
+    "scienceFact": "The meter is the SI base unit of length. One meter equals one hundred centimeters.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.002",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Cebu student reports the mass of a rice sack in the SI base unit. Which unit is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Liter",
+        "misconception": "skills.measurement.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Ampere",
+        "misconception": "skills.measurement.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Kilogram"
+      },
+      {
+        "id": "choice-3",
+        "text": "Newton",
+        "misconception": "skills.measurement.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The kilogram is the SI base unit of mass. Weight is a force and is measured in newtons.",
+    "scienceFact": "The kilogram is the SI base unit of mass. Weight is a force and is measured in newtons.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.003",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Manila class times a toy car using the SI base unit. Which unit is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Minute",
+        "misconception": "skills.measurement.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Hour",
+        "misconception": "skills.measurement.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Day",
+        "misconception": "skills.measurement.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Second"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "The second is the SI base unit of time. Minutes and hours are useful units but are not SI base units.",
+    "scienceFact": "The second is the SI base unit of time. Minutes and hours are useful units but are not SI base units.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.004",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A desk is 1 m long. How many centimeters is that?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "100"
+      },
+      {
+        "id": "choice-1",
+        "text": "10",
+        "misconception": "skills.measurement.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "1000",
+        "misconception": "skills.measurement.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "0.01",
+        "misconception": "skills.measurement.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "One centimeter is one hundredth of a meter. Multiply meters by 100 to convert them to centimeters.",
+    "scienceFact": "One centimeter is one hundredth of a meter. Multiply meters by 100 to convert them to centimeters.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.005",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A bag has mass 2 kg, equal to 2000 g. How many grams make one kilogram?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "0.001",
+        "misconception": "skills.measurement.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "1000"
+      },
+      {
+        "id": "choice-2",
+        "text": "100",
+        "misconception": "skills.measurement.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "10",
+        "misconception": "skills.measurement.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "One kilogram equals one thousand grams. The prefix kilo- means one thousand.",
+    "scienceFact": "One kilogram equals one thousand grams. The prefix kilo- means one thousand.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.006",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A gas-law calculation needs an absolute temperature. Which SI base temperature unit should be used?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Joule",
+        "misconception": "skills.measurement.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Watt",
+        "misconception": "skills.measurement.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Kelvin"
+      },
+      {
+        "id": "choice-3",
+        "text": "Degree Celsius only",
+        "misconception": "skills.measurement.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Kelvin is the SI base unit of thermodynamic temperature. Gas-law ratios use absolute temperature in kelvin.",
+    "scienceFact": "Kelvin is the SI base unit of thermodynamic temperature. Gas-law ratios use absolute temperature in kelvin.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.007",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student’s eye is above the cylinder’s water level. How should it move for a more reliable reading?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Far above the cylinder",
+        "misconception": "skills.measurement.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Far below the cylinder",
+        "misconception": "skills.measurement.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Facing away from the scale",
+        "misconception": "skills.measurement.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "At the meniscus level"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Read a liquid scale at eye level to reduce parallax. For water in common glassware, read the bottom of the curved meniscus.",
+    "scienceFact": "Read a liquid scale at eye level to reduce parallax. For water in common glassware, read the bottom of the curved meniscus.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.008",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A balance reads 99.9 g for a 100.0 g reference mass. What quality is shown by its closeness?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Accuracy"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only precision",
+        "misconception": "skills.measurement.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only sample size",
+        "misconception": "skills.measurement.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only speed",
+        "misconception": "skills.measurement.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Accuracy concerns closeness to a true or accepted value. Precision concerns the spread of repeated measurements.",
+    "scienceFact": "Accuracy concerns closeness to a true or accepted value. Precision concerns the spread of repeated measurements.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.009",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Five measurements of one length are very close to each other. What quality does this show?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "High uncertainty by definition",
+        "misconception": "skills.measurement.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Precision"
+      },
+      {
+        "id": "choice-2",
+        "text": "Accuracy by definition",
+        "misconception": "skills.measurement.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Large random variation",
+        "misconception": "skills.measurement.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Precise readings are close to one another. They can still miss the true value if a tool has a bias.",
+    "scienceFact": "Precise readings are close to one another. They can still miss the true value if a tool has a bias.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.010",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A box’s volume is found using three lengths measured in meters. Which unit results?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Meter per second",
+        "misconception": "skills.measurement.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kilogram per meter",
+        "misconception": "skills.measurement.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cubic meter"
+      },
+      {
+        "id": "choice-3",
+        "text": "Square meter",
+        "misconception": "skills.measurement.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Volume is three-dimensional space. The coherent SI unit is the cubic meter, written m³.",
+    "scienceFact": "Volume is three-dimensional space. The coherent SI unit is the cubic meter, written m³.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.011",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Arrange these lengths from shortest to longest.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "1 mm"
+      },
+      {
+        "id": "step-1",
+        "text": "1 cm"
+      },
+      {
+        "id": "step-2",
+        "text": "1 m"
+      },
+      {
+        "id": "step-3",
+        "text": "1 km"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "1 mm. 1 cm. 1 m. 1 km. Each stage leads to the next.",
+    "scienceFact": "Resolution is the smallest change an instrument can distinguish or display. It limits the detail available in a reading.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.m.012",
+    "deckId": "skills.measurement",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Pair each SI base quantity with its base unit.",
+    "answer": {
+      "Length": "Meter",
+      "Mass": "Kilogram",
+      "Time": "Second"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Calibration checks readings against known standards. This can show if a tool has a bias or needs to be adjusted.",
+    "topic": "skills.measurement",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.001",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Philippine rice plot is 2.5 m wide. What is the width in centimeters?",
+    "answer": "250",
+    "explanation": "One meter is 100 cm. Multiply 2.5 by 100 to get 250 cm.",
+    "scienceFact": "One meter is 100 cm. Multiply 2.5 by 100 to get 250 cm.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "cm",
+    "tolerance": 0.001
+  },
+  {
+    "id": "skills.measurement.h.002",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Cebu lab measures a mass of 3500 g. What is that mass in kilograms?",
+    "answer": "3.5",
+    "explanation": "One kilogram is 1000 g. Divide 3500 by 1000 to get 3.5 kg.",
+    "scienceFact": "One kilogram is 1000 g. Divide 3500 by 1000 to get 3.5 kg.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "kg",
+    "tolerance": 0.001
+  },
+  {
+    "id": "skills.measurement.h.003",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Manila lab measures a rectangular block, 2 m by 3 m by 4 m. What is its volume?",
+    "answer": "24",
+    "explanation": "A rectangular block’s volume is length × width × height = 2 × 3 × 4 = 24 m³.",
+    "scienceFact": "A rectangular block’s volume is length × width × height = 2 × 3 × 4 = 24 m³.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m³",
+    "tolerance": 0.001
+  },
+  {
+    "id": "skills.measurement.h.004",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A ruler’s markings show 100 equal centimeter intervals along a 1 m strip. What is the conversion factor from m to cm?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "0.01",
+        "misconception": "skills.measurement.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "100"
+      },
+      {
+        "id": "choice-2",
+        "text": "10",
+        "misconception": "skills.measurement.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "1000",
+        "misconception": "skills.measurement.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "One centimeter is one hundredth of a meter. Multiply meters by 100 to convert them to centimeters.",
+    "scienceFact": "One centimeter is one hundredth of a meter. Multiply meters by 100 to convert them to centimeters.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.005",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A balance reads 3000 g for 3 kg. Which number of grams corresponds to each kilogram?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "10",
+        "misconception": "skills.measurement.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "0.001",
+        "misconception": "skills.measurement.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "1000"
+      },
+      {
+        "id": "choice-3",
+        "text": "100",
+        "misconception": "skills.measurement.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "One kilogram equals one thousand grams. The prefix kilo- means one thousand.",
+    "scienceFact": "One kilogram equals one thousand grams. The prefix kilo- means one thousand.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.006",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A temperature must be expressed on the absolute SI scale before taking a gas-law ratio. Which unit fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Degree Celsius only",
+        "misconception": "skills.measurement.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Joule",
+        "misconception": "skills.measurement.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Watt",
+        "misconception": "skills.measurement.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Kelvin"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Kelvin is the SI base unit of thermodynamic temperature. Gas-law ratios use absolute temperature in kelvin.",
+    "scienceFact": "Kelvin is the SI base unit of thermodynamic temperature. Gas-law ratios use absolute temperature in kelvin.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.007",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two readings differ when the observer looks from above or below a meniscus. Which eye position reduces this parallax error?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "At the meniscus level"
+      },
+      {
+        "id": "choice-1",
+        "text": "Far above the cylinder",
+        "misconception": "skills.measurement.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Far below the cylinder",
+        "misconception": "skills.measurement.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Facing away from the scale",
+        "misconception": "skills.measurement.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Read a liquid scale at eye level to reduce parallax. For water in common glassware, read the bottom of the curved meniscus.",
+    "scienceFact": "Read a liquid scale at eye level to reduce parallax. For water in common glassware, read the bottom of the curved meniscus.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.008",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A set of readings clusters far from the true value. Which measurement quality is poor despite close grouping?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only speed",
+        "misconception": "skills.measurement.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Accuracy"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only precision",
+        "misconception": "skills.measurement.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only sample size",
+        "misconception": "skills.measurement.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Accuracy concerns closeness to a true or accepted value. Precision concerns the spread of repeated measurements.",
+    "scienceFact": "Accuracy concerns closeness to a true or accepted value. Precision concerns the spread of repeated measurements.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.009",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Readings of 9.9, 10.0 and 10.1 cm have little spread, though the reference is 12 cm. Which quality is high?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Large random variation",
+        "misconception": "skills.measurement.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "High uncertainty by definition",
+        "misconception": "skills.measurement.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Precision"
+      },
+      {
+        "id": "choice-3",
+        "text": "Accuracy by definition",
+        "misconception": "skills.measurement.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Precise readings are close to one another. They can still miss the true value if a tool has a bias.",
+    "scienceFact": "Precise readings are close to one another. They can still miss the true value if a tool has a bias.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.010",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Multiplying 2 m × 3 m × 4 m gives 24 of which volume unit?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Square meter",
+        "misconception": "skills.measurement.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Meter per second",
+        "misconception": "skills.measurement.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Kilogram per meter",
+        "misconception": "skills.measurement.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Cubic meter"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Volume is three-dimensional space. The coherent SI unit is the cubic meter, written m³.",
+    "scienceFact": "Volume is three-dimensional space. The coherent SI unit is the cubic meter, written m³.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.011",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Put these steps in order to use a balance.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Place the balance level"
+      },
+      {
+        "id": "step-1",
+        "text": "Zero the balance"
+      },
+      {
+        "id": "step-2",
+        "text": "Add the sample"
+      },
+      {
+        "id": "step-3",
+        "text": "Record mass with units"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Place the balance level. Zero the balance. Add the sample. Record mass with units. Each stage leads to the next.",
+    "scienceFact": "Resolution is the smallest change an instrument can distinguish or display. It limits the detail available in a reading.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "skills.measurement.h.012",
+    "deckId": "skills.measurement",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A tool is checked at several known values and adjusted if needed. Which process improves trust in its readings?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Photosynthesis",
+        "misconception": "skills.measurement.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Calibration"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation",
+        "misconception": "skills.measurement.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Magnetization only",
+        "misconception": "skills.measurement.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Calibration checks readings against known standards. This can show if a tool has a bias or needs to be adjusted.",
+    "scienceFact": "Calibration checks readings against known standards. This can show if a tool has a bias or needs to be adjusted.",
+    "topic": "skills.measurement",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "SI units, measurement, uncertainty and conversions. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "measure"
+  }
+]

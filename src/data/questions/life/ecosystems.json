@@ -13,17 +13,17 @@
       {
         "id": "choice-1",
         "text": "Primary consumer",
-        "misconception": "life.ecosystems.e.001.mixup.1"
+        "misconception": "life.ecosystems.mixup.1.1"
       },
       {
         "id": "choice-2",
         "text": "Decomposer",
-        "misconception": "life.ecosystems.e.001.mixup.2"
+        "misconception": "life.ecosystems.mixup.1.2"
       },
       {
         "id": "choice-3",
         "text": "Top predator",
-        "misconception": "life.ecosystems.e.001.mixup.3"
+        "misconception": "life.ecosystems.mixup.1.3"
       }
     ],
     "answer": "choice-0",
@@ -46,7 +46,7 @@
       {
         "id": "choice-0",
         "text": "Salinity",
-        "misconception": "life.ecosystems.e.002.mixup.0"
+        "misconception": "life.ecosystems.mixup.2.3"
       },
       {
         "id": "choice-1",
@@ -55,12 +55,12 @@
       {
         "id": "choice-2",
         "text": "Population size",
-        "misconception": "life.ecosystems.e.002.mixup.2"
+        "misconception": "life.ecosystems.mixup.2.1"
       },
       {
         "id": "choice-3",
         "text": "Water pressure",
-        "misconception": "life.ecosystems.e.002.mixup.3"
+        "misconception": "life.ecosystems.mixup.2.2"
       }
     ],
     "answer": "choice-1",
@@ -83,12 +83,12 @@
       {
         "id": "choice-0",
         "text": "Photosynthetic plant",
-        "misconception": "life.ecosystems.e.003.mixup.0"
+        "misconception": "life.ecosystems.mixup.3.2"
       },
       {
         "id": "choice-1",
         "text": "Soil mineral",
-        "misconception": "life.ecosystems.e.003.mixup.1"
+        "misconception": "life.ecosystems.mixup.3.3"
       },
       {
         "id": "choice-2",
@@ -97,7 +97,7 @@
       {
         "id": "choice-3",
         "text": "Producer",
-        "misconception": "life.ecosystems.e.003.mixup.3"
+        "misconception": "life.ecosystems.mixup.3.1"
       }
     ],
     "answer": "choice-2",
@@ -120,17 +120,17 @@
       {
         "id": "choice-0",
         "text": "Top predators",
-        "misconception": "life.ecosystems.e.004.mixup.0"
+        "misconception": "life.ecosystems.mixup.4.1"
       },
       {
         "id": "choice-1",
         "text": "Green producers",
-        "misconception": "life.ecosystems.e.004.mixup.1"
+        "misconception": "life.ecosystems.mixup.4.2"
       },
       {
         "id": "choice-2",
         "text": "Pollinators",
-        "misconception": "life.ecosystems.e.004.mixup.2"
+        "misconception": "life.ecosystems.mixup.4.3"
       },
       {
         "id": "choice-3",
@@ -161,17 +161,17 @@
       {
         "id": "choice-1",
         "text": "Body size increase",
-        "misconception": "life.ecosystems.e.005.mixup.1"
+        "misconception": "life.ecosystems.mixup.5.1"
       },
       {
         "id": "choice-2",
         "text": "Water flow",
-        "misconception": "life.ecosystems.e.005.mixup.2"
+        "misconception": "life.ecosystems.mixup.5.2"
       },
       {
         "id": "choice-3",
         "text": "Predator movement",
-        "misconception": "life.ecosystems.e.005.mixup.3"
+        "misconception": "life.ecosystems.mixup.5.3"
       }
     ],
     "answer": "choice-0",
@@ -194,7 +194,7 @@
       {
         "id": "choice-0",
         "text": "Living tissue",
-        "misconception": "life.ecosystems.e.006.mixup.0"
+        "misconception": "life.ecosystems.mixup.6.3"
       },
       {
         "id": "choice-1",
@@ -203,12 +203,12 @@
       {
         "id": "choice-2",
         "text": "Biotic factor",
-        "misconception": "life.ecosystems.e.006.mixup.2"
+        "misconception": "life.ecosystems.mixup.6.1"
       },
       {
         "id": "choice-3",
         "text": "Consumer population",
-        "misconception": "life.ecosystems.e.006.mixup.3"
+        "misconception": "life.ecosystems.mixup.6.2"
       }
     ],
     "answer": "choice-1",
@@ -231,12 +231,12 @@
       {
         "id": "choice-0",
         "text": "Mutation rate",
-        "misconception": "life.ecosystems.e.007.mixup.0"
+        "misconception": "life.ecosystems.mixup.7.2"
       },
       {
         "id": "choice-1",
         "text": "Trophic level",
-        "misconception": "life.ecosystems.e.007.mixup.1"
+        "misconception": "life.ecosystems.mixup.7.3"
       },
       {
         "id": "choice-2",
@@ -245,7 +245,7 @@
       {
         "id": "choice-3",
         "text": "Unlimited growth",
-        "misconception": "life.ecosystems.e.007.mixup.3"
+        "misconception": "life.ecosystems.mixup.7.1"
       }
     ],
     "answer": "choice-2",
@@ -268,17 +268,17 @@
       {
         "id": "choice-0",
         "text": "Parasitism",
-        "misconception": "life.ecosystems.e.008.mixup.0"
+        "misconception": "life.ecosystems.mixup.8.1"
       },
       {
         "id": "choice-1",
         "text": "Predation",
-        "misconception": "life.ecosystems.e.008.mixup.1"
+        "misconception": "life.ecosystems.mixup.8.2"
       },
       {
         "id": "choice-2",
         "text": "Competition",
-        "misconception": "life.ecosystems.e.008.mixup.2"
+        "misconception": "life.ecosystems.mixup.8.3"
       },
       {
         "id": "choice-3",
@@ -309,17 +309,17 @@
       {
         "id": "choice-1",
         "text": "DNA",
-        "misconception": "life.ecosystems.e.009.mixup.1"
+        "misconception": "life.ecosystems.mixup.9.1"
       },
       {
         "id": "choice-2",
         "text": "Gravity",
-        "misconception": "life.ecosystems.e.009.mixup.2"
+        "misconception": "life.ecosystems.mixup.9.2"
       },
       {
         "id": "choice-3",
         "text": "Body heat",
-        "misconception": "life.ecosystems.e.009.mixup.3"
+        "misconception": "life.ecosystems.mixup.9.3"
       }
     ],
     "answer": "choice-0",
@@ -342,7 +342,7 @@
       {
         "id": "choice-0",
         "text": "Nutrients vanish permanently",
-        "misconception": "life.ecosystems.e.010.mixup.0"
+        "misconception": "life.ecosystems.mixup.10.3"
       },
       {
         "id": "choice-1",
@@ -351,12 +351,12 @@
       {
         "id": "choice-2",
         "text": "Energy is created by predators",
-        "misconception": "life.ecosystems.e.010.mixup.2"
+        "misconception": "life.ecosystems.mixup.10.1"
       },
       {
         "id": "choice-3",
         "text": "All food becomes new tissue",
-        "misconception": "life.ecosystems.e.010.mixup.3"
+        "misconception": "life.ecosystems.mixup.10.2"
       }
     ],
     "answer": "choice-1",
@@ -385,10 +385,7 @@
     "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
     "reviewed": true,
-    "accept": [
-      "population",
-      "Population"
-    ]
+    "accept": ["population", "Population"]
   },
   {
     "id": "life.ecosystems.e.012",
@@ -405,10 +402,7 @@
     "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": false,
     "reviewed": true,
-    "accept": [
-      "endemic",
-      "Endemic"
-    ]
+    "accept": ["endemic", "Endemic"]
   },
   {
     "id": "life.ecosystems.m.001",
@@ -420,7 +414,7 @@
       {
         "id": "choice-0",
         "text": "Top predator",
-        "misconception": "life.ecosystems.m.001.mixup.0"
+        "misconception": "life.ecosystems.mixup.1.3"
       },
       {
         "id": "choice-1",
@@ -429,12 +423,12 @@
       {
         "id": "choice-2",
         "text": "Primary consumer",
-        "misconception": "life.ecosystems.m.001.mixup.2"
+        "misconception": "life.ecosystems.mixup.1.1"
       },
       {
         "id": "choice-3",
         "text": "Decomposer",
-        "misconception": "life.ecosystems.m.001.mixup.3"
+        "misconception": "life.ecosystems.mixup.1.2"
       }
     ],
     "answer": "choice-1",
@@ -457,12 +451,12 @@
       {
         "id": "choice-0",
         "text": "Water pressure",
-        "misconception": "life.ecosystems.m.002.mixup.0"
+        "misconception": "life.ecosystems.mixup.2.2"
       },
       {
         "id": "choice-1",
         "text": "Salinity",
-        "misconception": "life.ecosystems.m.002.mixup.1"
+        "misconception": "life.ecosystems.mixup.2.3"
       },
       {
         "id": "choice-2",
@@ -471,7 +465,7 @@
       {
         "id": "choice-3",
         "text": "Population size",
-        "misconception": "life.ecosystems.m.002.mixup.3"
+        "misconception": "life.ecosystems.mixup.2.1"
       }
     ],
     "answer": "choice-2",
@@ -494,17 +488,17 @@
       {
         "id": "choice-0",
         "text": "Producer",
-        "misconception": "life.ecosystems.m.003.mixup.0"
+        "misconception": "life.ecosystems.mixup.3.1"
       },
       {
         "id": "choice-1",
         "text": "Photosynthetic plant",
-        "misconception": "life.ecosystems.m.003.mixup.1"
+        "misconception": "life.ecosystems.mixup.3.2"
       },
       {
         "id": "choice-2",
         "text": "Soil mineral",
-        "misconception": "life.ecosystems.m.003.mixup.2"
+        "misconception": "life.ecosystems.mixup.3.3"
       },
       {
         "id": "choice-3",
@@ -535,17 +529,17 @@
       {
         "id": "choice-1",
         "text": "Top predators",
-        "misconception": "life.ecosystems.m.004.mixup.1"
+        "misconception": "life.ecosystems.mixup.4.1"
       },
       {
         "id": "choice-2",
         "text": "Green producers",
-        "misconception": "life.ecosystems.m.004.mixup.2"
+        "misconception": "life.ecosystems.mixup.4.2"
       },
       {
         "id": "choice-3",
         "text": "Pollinators",
-        "misconception": "life.ecosystems.m.004.mixup.3"
+        "misconception": "life.ecosystems.mixup.4.3"
       }
     ],
     "answer": "choice-0",
@@ -568,7 +562,7 @@
       {
         "id": "choice-0",
         "text": "Predator movement",
-        "misconception": "life.ecosystems.m.005.mixup.0"
+        "misconception": "life.ecosystems.mixup.5.3"
       },
       {
         "id": "choice-1",
@@ -577,12 +571,12 @@
       {
         "id": "choice-2",
         "text": "Body size increase",
-        "misconception": "life.ecosystems.m.005.mixup.2"
+        "misconception": "life.ecosystems.mixup.5.1"
       },
       {
         "id": "choice-3",
         "text": "Water flow",
-        "misconception": "life.ecosystems.m.005.mixup.3"
+        "misconception": "life.ecosystems.mixup.5.2"
       }
     ],
     "answer": "choice-1",
@@ -605,12 +599,12 @@
       {
         "id": "choice-0",
         "text": "Consumer population",
-        "misconception": "life.ecosystems.m.006.mixup.0"
+        "misconception": "life.ecosystems.mixup.6.2"
       },
       {
         "id": "choice-1",
         "text": "Living tissue",
-        "misconception": "life.ecosystems.m.006.mixup.1"
+        "misconception": "life.ecosystems.mixup.6.3"
       },
       {
         "id": "choice-2",
@@ -619,7 +613,7 @@
       {
         "id": "choice-3",
         "text": "Biotic factor",
-        "misconception": "life.ecosystems.m.006.mixup.3"
+        "misconception": "life.ecosystems.mixup.6.1"
       }
     ],
     "answer": "choice-2",
@@ -642,17 +636,17 @@
       {
         "id": "choice-0",
         "text": "Unlimited growth",
-        "misconception": "life.ecosystems.m.007.mixup.0"
+        "misconception": "life.ecosystems.mixup.7.1"
       },
       {
         "id": "choice-1",
         "text": "Mutation rate",
-        "misconception": "life.ecosystems.m.007.mixup.1"
+        "misconception": "life.ecosystems.mixup.7.2"
       },
       {
         "id": "choice-2",
         "text": "Trophic level",
-        "misconception": "life.ecosystems.m.007.mixup.2"
+        "misconception": "life.ecosystems.mixup.7.3"
       },
       {
         "id": "choice-3",
@@ -683,17 +677,17 @@
       {
         "id": "choice-1",
         "text": "Parasitism",
-        "misconception": "life.ecosystems.m.008.mixup.1"
+        "misconception": "life.ecosystems.mixup.8.1"
       },
       {
         "id": "choice-2",
         "text": "Predation",
-        "misconception": "life.ecosystems.m.008.mixup.2"
+        "misconception": "life.ecosystems.mixup.8.2"
       },
       {
         "id": "choice-3",
         "text": "Competition",
-        "misconception": "life.ecosystems.m.008.mixup.3"
+        "misconception": "life.ecosystems.mixup.8.3"
       }
     ],
     "answer": "choice-0",
@@ -716,7 +710,7 @@
       {
         "id": "choice-0",
         "text": "Body heat",
-        "misconception": "life.ecosystems.m.009.mixup.0"
+        "misconception": "life.ecosystems.mixup.9.3"
       },
       {
         "id": "choice-1",
@@ -725,12 +719,12 @@
       {
         "id": "choice-2",
         "text": "DNA",
-        "misconception": "life.ecosystems.m.009.mixup.2"
+        "misconception": "life.ecosystems.mixup.9.1"
       },
       {
         "id": "choice-3",
         "text": "Gravity",
-        "misconception": "life.ecosystems.m.009.mixup.3"
+        "misconception": "life.ecosystems.mixup.9.2"
       }
     ],
     "answer": "choice-1",
@@ -753,12 +747,12 @@
       {
         "id": "choice-0",
         "text": "All food becomes new tissue",
-        "misconception": "life.ecosystems.m.010.mixup.0"
+        "misconception": "life.ecosystems.mixup.10.2"
       },
       {
         "id": "choice-1",
         "text": "Nutrients vanish permanently",
-        "misconception": "life.ecosystems.m.010.mixup.1"
+        "misconception": "life.ecosystems.mixup.10.3"
       },
       {
         "id": "choice-2",
@@ -767,7 +761,7 @@
       {
         "id": "choice-3",
         "text": "Energy is created by predators",
-        "misconception": "life.ecosystems.m.010.mixup.3"
+        "misconception": "life.ecosystems.mixup.10.1"
       }
     ],
     "answer": "choice-2",
@@ -804,13 +798,8 @@
         "text": "Snake"
       }
     ],
-    "answer": [
-      "step-0",
-      "step-1",
-      "step-2",
-      "step-3"
-    ],
-    "explanation": "Rice plant → Grasshopper → Frog → Snake. This sequence follows the process in order.",
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Rice plant. Grasshopper. Frog. Snake. Each stage leads to the next.",
     "scienceFact": "A population is a group of the same species living in the same area at the same time.",
     "topic": "life.ecosystems",
     "gradeBand": 9,
@@ -849,12 +838,12 @@
       {
         "id": "choice-0",
         "text": "Decomposer",
-        "misconception": "life.ecosystems.h.001.mixup.0"
+        "misconception": "life.ecosystems.mixup.1.2"
       },
       {
         "id": "choice-1",
         "text": "Top predator",
-        "misconception": "life.ecosystems.h.001.mixup.1"
+        "misconception": "life.ecosystems.mixup.1.3"
       },
       {
         "id": "choice-2",
@@ -863,7 +852,7 @@
       {
         "id": "choice-3",
         "text": "Primary consumer",
-        "misconception": "life.ecosystems.h.001.mixup.3"
+        "misconception": "life.ecosystems.mixup.1.1"
       }
     ],
     "answer": "choice-2",
@@ -874,7 +863,14 @@
     "bloom": "analyze",
     "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "data": {
+      "headers": ["Rice-field model", "Food source"],
+      "rows": [
+        ["Green rice plant", "Sugar made using light"],
+        ["Grasshopper", "Plant tissue"]
+      ]
+    }
   },
   {
     "id": "life.ecosystems.h.002",
@@ -886,17 +882,17 @@
       {
         "id": "choice-0",
         "text": "Population size",
-        "misconception": "life.ecosystems.h.002.mixup.0"
+        "misconception": "life.ecosystems.mixup.2.1"
       },
       {
         "id": "choice-1",
         "text": "Water pressure",
-        "misconception": "life.ecosystems.h.002.mixup.1"
+        "misconception": "life.ecosystems.mixup.2.2"
       },
       {
         "id": "choice-2",
         "text": "Salinity",
-        "misconception": "life.ecosystems.h.002.mixup.2"
+        "misconception": "life.ecosystems.mixup.2.3"
       },
       {
         "id": "choice-3",
@@ -911,7 +907,14 @@
     "bloom": "analyze",
     "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "data": {
+      "headers": ["Model reef", "Area / species recorded"],
+      "rows": [
+        ["A", "1 hectare / 18 species"],
+        ["B", "1 hectare / 45 species"]
+      ]
+    }
   },
   {
     "id": "life.ecosystems.h.003",
@@ -927,17 +930,17 @@
       {
         "id": "choice-1",
         "text": "Producer",
-        "misconception": "life.ecosystems.h.003.mixup.1"
+        "misconception": "life.ecosystems.mixup.3.1"
       },
       {
         "id": "choice-2",
         "text": "Photosynthetic plant",
-        "misconception": "life.ecosystems.h.003.mixup.2"
+        "misconception": "life.ecosystems.mixup.3.2"
       },
       {
         "id": "choice-3",
         "text": "Soil mineral",
-        "misconception": "life.ecosystems.h.003.mixup.3"
+        "misconception": "life.ecosystems.mixup.3.3"
       }
     ],
     "answer": "choice-0",
@@ -948,7 +951,14 @@
     "bloom": "analyze",
     "curriculumArea": "Energy flow, biodiversity and Philippine ecosystems. Content aligns with these curriculum areas; no official competency codes are claimed.",
     "ph": true,
-    "reviewed": true
+    "reviewed": true,
+    "data": {
+      "headers": ["Forest model", "Observation"],
+      "rows": [
+        ["Before eagle loss", "Predation occurs"],
+        ["After eagle loss", "Some prey populations rise"]
+      ]
+    }
   },
   {
     "id": "life.ecosystems.h.004",
@@ -960,7 +970,7 @@
       {
         "id": "choice-0",
         "text": "Pollinators",
-        "misconception": "life.ecosystems.h.004.mixup.0"
+        "misconception": "life.ecosystems.mixup.4.3"
       },
       {
         "id": "choice-1",
@@ -969,12 +979,12 @@
       {
         "id": "choice-2",
         "text": "Top predators",
-        "misconception": "life.ecosystems.h.004.mixup.2"
+        "misconception": "life.ecosystems.mixup.4.1"
       },
       {
         "id": "choice-3",
         "text": "Green producers",
-        "misconception": "life.ecosystems.h.004.mixup.3"
+        "misconception": "life.ecosystems.mixup.4.2"
       }
     ],
     "answer": "choice-1",
@@ -997,12 +1007,12 @@
       {
         "id": "choice-0",
         "text": "Water flow",
-        "misconception": "life.ecosystems.h.005.mixup.0"
+        "misconception": "life.ecosystems.mixup.5.2"
       },
       {
         "id": "choice-1",
         "text": "Predator movement",
-        "misconception": "life.ecosystems.h.005.mixup.1"
+        "misconception": "life.ecosystems.mixup.5.3"
       },
       {
         "id": "choice-2",
@@ -1011,7 +1021,7 @@
       {
         "id": "choice-3",
         "text": "Body size increase",
-        "misconception": "life.ecosystems.h.005.mixup.3"
+        "misconception": "life.ecosystems.mixup.5.1"
       }
     ],
     "answer": "choice-2",
@@ -1034,17 +1044,17 @@
       {
         "id": "choice-0",
         "text": "Biotic factor",
-        "misconception": "life.ecosystems.h.006.mixup.0"
+        "misconception": "life.ecosystems.mixup.6.1"
       },
       {
         "id": "choice-1",
         "text": "Consumer population",
-        "misconception": "life.ecosystems.h.006.mixup.1"
+        "misconception": "life.ecosystems.mixup.6.2"
       },
       {
         "id": "choice-2",
         "text": "Living tissue",
-        "misconception": "life.ecosystems.h.006.mixup.2"
+        "misconception": "life.ecosystems.mixup.6.3"
       },
       {
         "id": "choice-3",
@@ -1075,17 +1085,17 @@
       {
         "id": "choice-1",
         "text": "Unlimited growth",
-        "misconception": "life.ecosystems.h.007.mixup.1"
+        "misconception": "life.ecosystems.mixup.7.1"
       },
       {
         "id": "choice-2",
         "text": "Mutation rate",
-        "misconception": "life.ecosystems.h.007.mixup.2"
+        "misconception": "life.ecosystems.mixup.7.2"
       },
       {
         "id": "choice-3",
         "text": "Trophic level",
-        "misconception": "life.ecosystems.h.007.mixup.3"
+        "misconception": "life.ecosystems.mixup.7.3"
       }
     ],
     "answer": "choice-0",
@@ -1108,7 +1118,7 @@
       {
         "id": "choice-0",
         "text": "Competition",
-        "misconception": "life.ecosystems.h.008.mixup.0"
+        "misconception": "life.ecosystems.mixup.8.3"
       },
       {
         "id": "choice-1",
@@ -1117,12 +1127,12 @@
       {
         "id": "choice-2",
         "text": "Parasitism",
-        "misconception": "life.ecosystems.h.008.mixup.2"
+        "misconception": "life.ecosystems.mixup.8.1"
       },
       {
         "id": "choice-3",
         "text": "Predation",
-        "misconception": "life.ecosystems.h.008.mixup.3"
+        "misconception": "life.ecosystems.mixup.8.2"
       }
     ],
     "answer": "choice-1",
@@ -1145,12 +1155,12 @@
       {
         "id": "choice-0",
         "text": "Gravity",
-        "misconception": "life.ecosystems.h.009.mixup.0"
+        "misconception": "life.ecosystems.mixup.9.2"
       },
       {
         "id": "choice-1",
         "text": "Body heat",
-        "misconception": "life.ecosystems.h.009.mixup.1"
+        "misconception": "life.ecosystems.mixup.9.3"
       },
       {
         "id": "choice-2",
@@ -1159,7 +1169,7 @@
       {
         "id": "choice-3",
         "text": "DNA",
-        "misconception": "life.ecosystems.h.009.mixup.3"
+        "misconception": "life.ecosystems.mixup.9.1"
       }
     ],
     "answer": "choice-2",
@@ -1182,17 +1192,17 @@
       {
         "id": "choice-0",
         "text": "Energy is created by predators",
-        "misconception": "life.ecosystems.h.010.mixup.0"
+        "misconception": "life.ecosystems.mixup.10.1"
       },
       {
         "id": "choice-1",
         "text": "All food becomes new tissue",
-        "misconception": "life.ecosystems.h.010.mixup.1"
+        "misconception": "life.ecosystems.mixup.10.2"
       },
       {
         "id": "choice-2",
         "text": "Nutrients vanish permanently",
-        "misconception": "life.ecosystems.h.010.mixup.2"
+        "misconception": "life.ecosystems.mixup.10.3"
       },
       {
         "id": "choice-3",
@@ -1233,13 +1243,8 @@
         "text": "Roots absorb nutrients"
       }
     ],
-    "answer": [
-      "step-0",
-      "step-1",
-      "step-2",
-      "step-3"
-    ],
-    "explanation": "Leaves fall → Decomposers break them down → Nutrients enter soil → Roots absorb nutrients. This sequence follows the process in order.",
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Leaves fall. Decomposers break them down. Nutrients enter soil. Roots absorb nutrients. Each stage leads to the next.",
     "scienceFact": "A population is a group of the same species living in the same area at the same time.",
     "topic": "life.ecosystems",
     "gradeBand": 9,
@@ -1252,13 +1257,13 @@
     "id": "life.ecosystems.h.012",
     "deckId": "life.ecosystems",
     "level": "hard",
-    "type": "mcq",
+    "type": "diagram",
     "prompt": "A species occurs naturally on one island and nowhere else. Which term fits this evidence?",
     "options": [
       {
         "id": "choice-0",
         "text": "Abiotic",
-        "misconception": "life.ecosystems.h.012.mixup.0"
+        "misconception": "life.ecosystems.mixup.12.3"
       },
       {
         "id": "choice-1",
@@ -1267,12 +1272,12 @@
       {
         "id": "choice-2",
         "text": "Domesticated",
-        "misconception": "life.ecosystems.h.012.mixup.2"
+        "misconception": "life.ecosystems.mixup.12.1"
       },
       {
         "id": "choice-3",
         "text": "Invasive everywhere",
-        "misconception": "life.ecosystems.h.012.mixup.3"
+        "misconception": "life.ecosystems.mixup.12.2"
       }
     ],
     "answer": "choice-1",

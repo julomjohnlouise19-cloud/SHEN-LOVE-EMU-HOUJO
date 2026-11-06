@@ -1,0 +1,1216 @@
+[
+  {
+    "id": "physics.waves.e.001",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What does sound need in order to travel?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A material medium"
+      },
+      {
+        "id": "choice-1",
+        "text": "Empty space alone",
+        "misconception": "physics.waves.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Light alone",
+        "misconception": "physics.waves.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "No matter or energy",
+        "misconception": "physics.waves.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Sound is a mechanical wave and needs matter to travel. It cannot travel through a vacuum.",
+    "scienceFact": "Sound is a mechanical wave and needs matter to travel. It cannot travel through a vacuum.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.002",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which wave property mainly sets the pitch of a kulintang note?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only source size",
+        "misconception": "physics.waves.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Frequency"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only amplitude",
+        "misconception": "physics.waves.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only loudness",
+        "misconception": "physics.waves.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Pitch is closely related to frequency. Greater frequency usually gives a higher perceived pitch.",
+    "scienceFact": "Pitch is closely related to frequency. Greater frequency usually gives a higher perceived pitch.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.003",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which wave property is distance from rest to a crest?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wavelength",
+        "misconception": "physics.waves.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Period only",
+        "misconception": "physics.waves.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Amplitude"
+      },
+      {
+        "id": "choice-3",
+        "text": "Frequency only",
+        "misconception": "physics.waves.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Amplitude is the maximum displacement from the rest position. It is not the distance from crest to trough.",
+    "scienceFact": "Amplitude is the maximum displacement from the rest position. It is not the distance from crest to trough.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.004",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the distance between adjacent wave crests called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Amplitude",
+        "misconception": "physics.waves.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Frequency",
+        "misconception": "physics.waves.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Loudness",
+        "misconception": "physics.waves.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Wavelength"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Wavelength is the distance between matching points on successive cycles, such as neighboring crests.",
+    "scienceFact": "Wavelength is the distance between matching points on successive cycles, such as neighboring crests.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.005",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the number of complete wave cycles per second called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Frequency"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wavelength",
+        "misconception": "physics.waves.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Amplitude",
+        "misconception": "physics.waves.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Wave speed only",
+        "misconception": "physics.waves.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Frequency counts complete cycles per second. Its SI unit is hertz, written Hz.",
+    "scienceFact": "Frequency counts complete cycles per second. Its SI unit is hertz, written Hz.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.006",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which formula links wave speed, frequency and wavelength?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "v = f + λ",
+        "misconception": "physics.waves.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "v = f × λ"
+      },
+      {
+        "id": "choice-2",
+        "text": "v = f / λ",
+        "misconception": "physics.waves.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "v = λ / f",
+        "misconception": "physics.waves.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Wave speed equals frequency times wavelength. The units combine as per second times meters to give meters per second.",
+    "scienceFact": "Wave speed equals frequency times wavelength. The units combine as per second times meters to give meters per second.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.007",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What type of wave has vibrations parallel to the direction of travel?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Stationary matter flow",
+        "misconception": "physics.waves.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Electromagnetic only",
+        "misconception": "physics.waves.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Longitudinal"
+      },
+      {
+        "id": "choice-3",
+        "text": "Transverse only",
+        "misconception": "physics.waves.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "In a longitudinal wave, particles vibrate parallel to the direction the wave travels. Sound in air is longitudinal.",
+    "scienceFact": "In a longitudinal wave, particles vibrate parallel to the direction the wave travels. Sound in air is longitudinal.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.008",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What type of wave has vibrations perpendicular to travel?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Longitudinal only",
+        "misconception": "physics.waves.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only sound in air",
+        "misconception": "physics.waves.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only a steady flow",
+        "misconception": "physics.waves.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Transverse"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "In a transverse wave, displacement is perpendicular to the direction of wave travel.",
+    "scienceFact": "In a transverse wave, displacement is perpendicular to the direction of wave travel.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.009",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What causes an echo?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Reflection of sound"
+      },
+      {
+        "id": "choice-1",
+        "text": "Creation of new speech",
+        "misconception": "physics.waves.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only refraction of light",
+        "misconception": "physics.waves.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sound traveling through vacuum",
+        "misconception": "physics.waves.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "An echo is reflected sound. Echo travel time includes the outward path and the return path.",
+    "scienceFact": "An echo is reflected sound. Echo travel time includes the outward path and the return path.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.e.010",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What happens to wavelength if frequency rises at constant wave speed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wavelength becomes negative",
+        "misconception": "physics.waves.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wavelength halves"
+      },
+      {
+        "id": "choice-2",
+        "text": "Wavelength doubles",
+        "misconception": "physics.waves.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Wavelength stays fixed",
+        "misconception": "physics.waves.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "At fixed wave speed, frequency and wavelength vary inversely. Doubling frequency halves wavelength.",
+    "scienceFact": "At fixed wave speed, frequency and wavelength vary inversely. Doubling frequency halves wavelength.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "wave"
+  },
+  {
+    "id": "physics.waves.e.011",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What SI unit is one wave cycle per second?",
+    "answer": "Hertz",
+    "explanation": "One hertz is one cycle per second. Frequency is measured in hertz.",
+    "scienceFact": "One hertz is one cycle per second. Frequency is measured in hertz.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["hertz", "Hertz"]
+  },
+  {
+    "id": "physics.waves.e.012",
+    "deckId": "physics.waves",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What do traveling waves transfer over long distances?",
+    "answer": "Energy",
+    "explanation": "Waves can transfer energy while particles of a medium mainly oscillate near their rest positions.",
+    "scienceFact": "Waves can transfer energy while particles of a medium mainly oscillate near their rest positions.",
+    "topic": "physics.waves",
+    "gradeBand": 8,
+    "bloom": "remember",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["energy", "Energy"]
+  },
+  {
+    "id": "physics.waves.m.001",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine student hears a kulintang through the air. What carries the sound?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "No matter or energy",
+        "misconception": "physics.waves.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "A material medium"
+      },
+      {
+        "id": "choice-2",
+        "text": "Empty space alone",
+        "misconception": "physics.waves.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Light alone",
+        "misconception": "physics.waves.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Sound is a mechanical wave and needs matter to travel. It cannot travel through a vacuum.",
+    "scienceFact": "Sound is a mechanical wave and needs matter to travel. It cannot travel through a vacuum.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.002",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A kulintang note sounds higher than another note. Which wave property is greater for the higher note?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only loudness",
+        "misconception": "physics.waves.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only source size",
+        "misconception": "physics.waves.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Frequency"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only amplitude",
+        "misconception": "physics.waves.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Pitch is closely related to frequency. Greater frequency usually gives a higher perceived pitch.",
+    "scienceFact": "Pitch is closely related to frequency. Greater frequency usually gives a higher perceived pitch.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.003",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine coastal wave rises farther above its rest level. Which wave property is larger?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Frequency only",
+        "misconception": "physics.waves.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wavelength",
+        "misconception": "physics.waves.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Period only",
+        "misconception": "physics.waves.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Amplitude"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Amplitude is the maximum displacement from the rest position. It is not the distance from crest to trough.",
+    "scienceFact": "Amplitude is the maximum displacement from the rest position. It is not the distance from crest to trough.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.004",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student measures between two neighboring crests. Which wave property is measured?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wavelength"
+      },
+      {
+        "id": "choice-1",
+        "text": "Amplitude",
+        "misconception": "physics.waves.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Frequency",
+        "misconception": "physics.waves.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Loudness",
+        "misconception": "physics.waves.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Wavelength is the distance between matching points on successive cycles, such as neighboring crests.",
+    "scienceFact": "Wavelength is the distance between matching points on successive cycles, such as neighboring crests.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.005",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A source completes 50 vibrations each second. Which property is 50 Hz?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wave speed only",
+        "misconception": "physics.waves.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Frequency"
+      },
+      {
+        "id": "choice-2",
+        "text": "Wavelength",
+        "misconception": "physics.waves.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Amplitude",
+        "misconception": "physics.waves.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Frequency counts complete cycles per second. Its SI unit is hertz, written Hz.",
+    "scienceFact": "Frequency counts complete cycles per second. Its SI unit is hertz, written Hz.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.006",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A wave has known frequency f and wavelength λ. Which equation gives its speed v?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "v = λ / f",
+        "misconception": "physics.waves.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "v = f + λ",
+        "misconception": "physics.waves.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "v = f × λ"
+      },
+      {
+        "id": "choice-3",
+        "text": "v = f / λ",
+        "misconception": "physics.waves.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Wave speed equals frequency times wavelength. The units combine as per second times meters to give meters per second.",
+    "scienceFact": "Wave speed equals frequency times wavelength. The units combine as per second times meters to give meters per second.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.007",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A sound wave makes air particles move back and forth along the wave’s path. What kind of wave is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Transverse only",
+        "misconception": "physics.waves.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Stationary matter flow",
+        "misconception": "physics.waves.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Electromagnetic only",
+        "misconception": "physics.waves.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Longitudinal"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "In a longitudinal wave, particles vibrate parallel to the direction the wave travels. Sound in air is longitudinal.",
+    "scienceFact": "In a longitudinal wave, particles vibrate parallel to the direction the wave travels. Sound in air is longitudinal.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.008",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A rope wave moves right while the rope shakes up and down. What type of wave is shown?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Transverse"
+      },
+      {
+        "id": "choice-1",
+        "text": "Longitudinal only",
+        "misconception": "physics.waves.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only sound in air",
+        "misconception": "physics.waves.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a steady flow",
+        "misconception": "physics.waves.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "In a transverse wave, displacement is perpendicular to the direction of wave travel.",
+    "scienceFact": "In a transverse wave, displacement is perpendicular to the direction of wave travel.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.009",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student shouts toward a distant cliff and hears a later copy. What happened to the sound?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sound traveling through vacuum",
+        "misconception": "physics.waves.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Reflection of sound"
+      },
+      {
+        "id": "choice-2",
+        "text": "Creation of new speech",
+        "misconception": "physics.waves.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only refraction of light",
+        "misconception": "physics.waves.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An echo is reflected sound. Echo travel time includes the outward path and the return path.",
+    "scienceFact": "An echo is reflected sound. Echo travel time includes the outward path and the return path.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.010",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A rope’s wave speed stays fixed while the driver vibrates faster. What happens to wavelength?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wavelength stays fixed",
+        "misconception": "physics.waves.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wavelength becomes negative",
+        "misconception": "physics.waves.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Wavelength halves"
+      },
+      {
+        "id": "choice-3",
+        "text": "Wavelength doubles",
+        "misconception": "physics.waves.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "At fixed wave speed, frequency and wavelength vary inversely. Doubling frequency halves wavelength.",
+    "scienceFact": "At fixed wave speed, frequency and wavelength vary inversely. Doubling frequency halves wavelength.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.011",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Arrange these sound frequencies from lower to higher pitch.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "100 Hz"
+      },
+      {
+        "id": "step-1",
+        "text": "200 Hz"
+      },
+      {
+        "id": "step-2",
+        "text": "400 Hz"
+      },
+      {
+        "id": "step-3",
+        "text": "800 Hz"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "100 Hz. 200 Hz. 400 Hz. 800 Hz. Each stage leads to the next.",
+    "scienceFact": "One hertz is one cycle per second. Frequency is measured in hertz.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.m.012",
+    "deckId": "physics.waves",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each wave property to its meaning.",
+    "answer": {
+      "Amplitude": "Maximum displacement from rest",
+      "Wavelength": "Spacing between matching points",
+      "Frequency": "Cycles per second"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Waves can transfer energy while particles of a medium mainly oscillate near their rest positions.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.001",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Philippine coastal wave model has wavelength 3 m and frequency 2 Hz. What is its speed?",
+    "answer": "6",
+    "explanation": "Wave speed = frequency × wavelength = 2 × 3 = 6 m/s.",
+    "scienceFact": "Wave speed = frequency × wavelength = 2 × 3 = 6 m/s.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m/s",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.waves.h.002",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A kulintang sound wave has speed 340 m/s and frequency 680 Hz. What is its wavelength?",
+    "answer": "0.5",
+    "explanation": "Wavelength = wave speed ÷ frequency = 340 ÷ 680 = 0.5 m.",
+    "scienceFact": "Wavelength = wave speed ÷ frequency = 340 ÷ 680 = 0.5 m.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.waves.h.003",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Cebu student hears an echo after 2 s. Sound speed is 340 m/s. How far away is the reflecting wall?",
+    "answer": "340",
+    "explanation": "Sound travels to the wall and back. Distance to the wall = speed × time ÷ 2 = 340 × 2 ÷ 2 = 340 m.",
+    "scienceFact": "Sound travels to the wall and back. Distance to the wall = speed × time ÷ 2 = 340 × 2 ÷ 2 = 340 m.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m",
+    "tolerance": 0.001
+  },
+  {
+    "id": "physics.waves.h.004",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Three successive crests lie at 0 m, 2 m and 4 m. What property is the 2 m spacing?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Loudness",
+        "misconception": "physics.waves.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wavelength"
+      },
+      {
+        "id": "choice-2",
+        "text": "Amplitude",
+        "misconception": "physics.waves.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Frequency",
+        "misconception": "physics.waves.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Wavelength is the distance between matching points on successive cycles, such as neighboring crests.",
+    "scienceFact": "Wavelength is the distance between matching points on successive cycles, such as neighboring crests.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.005",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A sensor counts 120 complete cycles in 2 seconds. Which quantity is found by dividing cycles by time?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Amplitude",
+        "misconception": "physics.waves.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wave speed only",
+        "misconception": "physics.waves.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Frequency"
+      },
+      {
+        "id": "choice-3",
+        "text": "Wavelength",
+        "misconception": "physics.waves.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Frequency counts complete cycles per second. Its SI unit is hertz, written Hz.",
+    "scienceFact": "Frequency counts complete cycles per second. Its SI unit is hertz, written Hz.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.006",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A ripple has frequency 4 Hz and wavelength 2 m. Which relation yields its speed of 8 m/s?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "v = f / λ",
+        "misconception": "physics.waves.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "v = λ / f",
+        "misconception": "physics.waves.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "v = f + λ",
+        "misconception": "physics.waves.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "v = f × λ"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Wave speed equals frequency times wavelength. The units combine as per second times meters to give meters per second.",
+    "scienceFact": "Wave speed equals frequency times wavelength. The units combine as per second times meters to give meters per second.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.007",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A spring has compressions that travel along its length while coils vibrate along the same line. Which wave type fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Longitudinal"
+      },
+      {
+        "id": "choice-1",
+        "text": "Transverse only",
+        "misconception": "physics.waves.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Stationary matter flow",
+        "misconception": "physics.waves.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Electromagnetic only",
+        "misconception": "physics.waves.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "In a longitudinal wave, particles vibrate parallel to the direction the wave travels. Sound in air is longitudinal.",
+    "scienceFact": "In a longitudinal wave, particles vibrate parallel to the direction the wave travels. Sound in air is longitudinal.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.008",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Markers on a rope move vertically while crests move horizontally. Which wave type fits these motions?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a steady flow",
+        "misconception": "physics.waves.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Transverse"
+      },
+      {
+        "id": "choice-2",
+        "text": "Longitudinal only",
+        "misconception": "physics.waves.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only sound in air",
+        "misconception": "physics.waves.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "In a transverse wave, displacement is perpendicular to the direction of wave travel.",
+    "scienceFact": "In a transverse wave, displacement is perpendicular to the direction of wave travel.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.009",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A pulse travels to a hard wall and returns to a microphone. Which wave process explains the return?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only refraction of light",
+        "misconception": "physics.waves.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sound traveling through vacuum",
+        "misconception": "physics.waves.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Reflection of sound"
+      },
+      {
+        "id": "choice-3",
+        "text": "Creation of new speech",
+        "misconception": "physics.waves.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "An echo is reflected sound. Echo travel time includes the outward path and the return path.",
+    "scienceFact": "An echo is reflected sound. Echo travel time includes the outward path and the return path.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.010",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "For waves in the same medium at fixed speed, frequency doubles. Which wavelength change keeps v = fλ valid?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Wavelength doubles",
+        "misconception": "physics.waves.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Wavelength stays fixed",
+        "misconception": "physics.waves.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Wavelength becomes negative",
+        "misconception": "physics.waves.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Wavelength halves"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "At fixed wave speed, frequency and wavelength vary inversely. Doubling frequency halves wavelength.",
+    "scienceFact": "At fixed wave speed, frequency and wavelength vary inversely. Doubling frequency halves wavelength.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.011",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Trace the path of a single echo.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Sound leaves the source"
+      },
+      {
+        "id": "step-1",
+        "text": "Sound reaches a wall"
+      },
+      {
+        "id": "step-2",
+        "text": "Sound reflects"
+      },
+      {
+        "id": "step-3",
+        "text": "Reflected sound reaches the listener"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Sound leaves the source. Sound reaches a wall. Sound reflects. Reflected sound reaches the listener. Each stage leads to the next.",
+    "scienceFact": "One hertz is one cycle per second. Frequency is measured in hertz.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "physics.waves.h.012",
+    "deckId": "physics.waves",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "Water particles mainly oscillate as a ripple passes. What moves outward from the disturbance?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "New atoms",
+        "misconception": "physics.waves.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Energy"
+      },
+      {
+        "id": "choice-2",
+        "text": "All the water permanently",
+        "misconception": "physics.waves.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only solid mass",
+        "misconception": "physics.waves.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Waves can transfer energy while particles of a medium mainly oscillate near their rest positions.",
+    "scienceFact": "Waves can transfer energy while particles of a medium mainly oscillate near their rest positions.",
+    "topic": "physics.waves",
+    "gradeBand": 9,
+    "bloom": "analyze",
+    "curriculumArea": "Wave speed, frequency, sound and vibration. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "wave"
+  }
+]

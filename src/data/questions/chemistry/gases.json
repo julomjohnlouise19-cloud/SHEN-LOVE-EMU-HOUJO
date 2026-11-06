@@ -1,0 +1,1216 @@
+[
+  {
+    "id": "chemistry.gases.e.001",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What causes the pressure of a gas in a container?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Collisions with the walls"
+      },
+      {
+        "id": "choice-1",
+        "text": "Particles resting at the bottom",
+        "misconception": "chemistry.gases.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gravity switching off",
+        "misconception": "chemistry.gases.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "No particle motion",
+        "misconception": "chemistry.gases.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Gas particles move and collide with container walls. The force of these impacts per area produces pressure.",
+    "scienceFact": "Gas particles move and collide with container walls. The force of these impacts per area produces pressure.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.002",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "At fixed temperature, how does gas volume respond when pressure doubles?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Volume becomes zero",
+        "misconception": "chemistry.gases.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Volume halves"
+      },
+      {
+        "id": "choice-2",
+        "text": "Volume doubles",
+        "misconception": "chemistry.gases.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Volume stays fixed",
+        "misconception": "chemistry.gases.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Boyle’s law links pressure and volume inversely when temperature and amount of gas are fixed.",
+    "scienceFact": "Boyle’s law links pressure and volume inversely when temperature and amount of gas are fixed.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.003",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which temperature scale is required in gas-law ratios?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Fahrenheit only",
+        "misconception": "chemistry.gases.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Any scale gives the same ratio",
+        "misconception": "chemistry.gases.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Kelvin"
+      },
+      {
+        "id": "choice-3",
+        "text": "Celsius only",
+        "misconception": "chemistry.gases.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Gas-law temperature ratios use kelvin, an absolute temperature scale. Celsius ratios do not give the same physical result.",
+    "scienceFact": "Gas-law temperature ratios use kelvin, an absolute temperature scale. Celsius ratios do not give the same physical result.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.004",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "At fixed pressure, what happens to gas volume when kelvin temperature doubles?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Volume halves",
+        "misconception": "chemistry.gases.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Volume stays the same",
+        "misconception": "chemistry.gases.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Volume drops to zero",
+        "misconception": "chemistry.gases.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Volume doubles"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Charles’s law makes gas volume proportional to kelvin temperature when pressure and gas amount are fixed.",
+    "scienceFact": "Charles’s law makes gas volume proportional to kelvin temperature when pressure and gas amount are fixed.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.005",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What model treats gas particles as widely spaced and moving randomly?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Kinetic particle model"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fixed crystal lattice",
+        "misconception": "chemistry.gases.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Stationary packed particles",
+        "misconception": "chemistry.gases.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only a continuous solid",
+        "misconception": "chemistry.gases.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "The particle model describes gas using moving particles. Their spacing and impacts help explain pressure and volume.",
+    "scienceFact": "The particle model describes gas using moving particles. Their spacing and impacts help explain pressure and volume.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.006",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "As gas warms, what happens to its particles’ average kinetic energy?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It must become zero",
+        "misconception": "chemistry.gases.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "It increases"
+      },
+      {
+        "id": "choice-2",
+        "text": "It decreases",
+        "misconception": "chemistry.gases.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "It stays unchanged",
+        "misconception": "chemistry.gases.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "For an ideal gas, average kinetic energy rises in step with kelvin temperature.",
+    "scienceFact": "For an ideal gas, average kinetic energy rises in step with kelvin temperature.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.007",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What happens to pressure when a fixed-volume gas warms?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pressure vanishes",
+        "misconception": "chemistry.gases.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pressure is unrelated to temperature",
+        "misconception": "chemistry.gases.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pressure increases"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pressure decreases",
+        "misconception": "chemistry.gases.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "At fixed volume, warmer gas particles cause greater pressure. Do not heat sealed aerosol cans.",
+    "scienceFact": "At fixed volume, warmer gas particles cause greater pressure. Do not heat sealed aerosol cans.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.008",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What happens when a gas gains more space at fixed temperature?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pressure increases",
+        "misconception": "chemistry.gases.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pressure doubles",
+        "misconception": "chemistry.gases.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pressure becomes negative",
+        "misconception": "chemistry.gases.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pressure decreases"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "With more volume at fixed temperature and gas amount, particles hit the walls less often per area, so pressure falls.",
+    "scienceFact": "With more volume at fixed temperature and gas amount, particles hit the walls less often per area, so pressure falls.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.009",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the SI unit of pressure?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pascal"
+      },
+      {
+        "id": "choice-1",
+        "text": "Joule",
+        "misconception": "chemistry.gases.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Watt",
+        "misconception": "chemistry.gases.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Kelvin",
+        "misconception": "chemistry.gases.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "One pascal equals one newton per square meter. It is the SI unit of pressure.",
+    "scienceFact": "One pascal equals one newton per square meter. It is the SI unit of pressure.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.e.010",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What must remain fixed when applying Boyle’s law to a gas sample?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only the timer reading",
+        "misconception": "chemistry.gases.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Temperature and amount of gas"
+      },
+      {
+        "id": "choice-2",
+        "text": "Both pressure and volume",
+        "misconception": "chemistry.gases.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only the container color",
+        "misconception": "chemistry.gases.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Boyle’s law assumes constant temperature and gas amount. Changing either can change the pressure-volume relationship.",
+    "scienceFact": "Boyle’s law assumes constant temperature and gas amount. Changing either can change the pressure-volume relationship.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "gas"
+  },
+  {
+    "id": "chemistry.gases.e.011",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What process spreads gas particles from crowded regions to less crowded regions?",
+    "answer": "Diffusion",
+    "explanation": "Diffusion is the net spreading of particles from higher to lower concentration. Random particle motion drives it.",
+    "scienceFact": "Diffusion is the net spreading of particles from higher to lower concentration. Random particle motion drives it.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["diffusion", "Diffusion"]
+  },
+  {
+    "id": "chemistry.gases.e.012",
+    "deckId": "chemistry.gases",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What ideal-gas quantity increases when more particles enter a fixed-volume container at fixed temperature?",
+    "answer": "Pressure",
+    "explanation": "At constant volume and temperature, adding gas particles increases pressure because more particles strike the walls.",
+    "scienceFact": "At constant volume and temperature, adding gas particles increases pressure because more particles strike the walls.",
+    "topic": "chemistry.gases",
+    "gradeBand": 9,
+    "bloom": "remember",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["pressure", "Pressure"]
+  },
+  {
+    "id": "chemistry.gases.m.001",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Air fills a bicycle tire in Manila. What particle action produces pressure on the tire walls?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "No particle motion",
+        "misconception": "chemistry.gases.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Collisions with the walls"
+      },
+      {
+        "id": "choice-2",
+        "text": "Particles resting at the bottom",
+        "misconception": "chemistry.gases.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gravity switching off",
+        "misconception": "chemistry.gases.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Gas particles move and collide with container walls. The force of these impacts per area produces pressure.",
+    "scienceFact": "Gas particles move and collide with container walls. The force of these impacts per area produces pressure.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.002",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine class compresses a sealed gas at fixed temperature. Pressure doubles. What happens to volume?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Volume stays fixed",
+        "misconception": "chemistry.gases.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Volume becomes zero",
+        "misconception": "chemistry.gases.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Volume halves"
+      },
+      {
+        "id": "choice-3",
+        "text": "Volume doubles",
+        "misconception": "chemistry.gases.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Boyle’s law links pressure and volume inversely when temperature and amount of gas are fixed.",
+    "scienceFact": "Boyle’s law links pressure and volume inversely when temperature and amount of gas are fixed.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.003",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Manila class uses Charles’s law to compare gas volumes. Which temperature scale should they use?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Celsius only",
+        "misconception": "chemistry.gases.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Fahrenheit only",
+        "misconception": "chemistry.gases.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Any scale gives the same ratio",
+        "misconception": "chemistry.gases.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Kelvin"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Gas-law temperature ratios use kelvin, an absolute temperature scale. Celsius ratios do not give the same physical result.",
+    "scienceFact": "Gas-law temperature ratios use kelvin, an absolute temperature scale. Celsius ratios do not give the same physical result.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.004",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A movable piston holds a gas at fixed pressure. Its temperature rises from 300 K to 600 K. What happens to volume?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Volume doubles"
+      },
+      {
+        "id": "choice-1",
+        "text": "Volume halves",
+        "misconception": "chemistry.gases.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Volume stays the same",
+        "misconception": "chemistry.gases.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Volume drops to zero",
+        "misconception": "chemistry.gases.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Charles’s law makes gas volume proportional to kelvin temperature when pressure and gas amount are fixed.",
+    "scienceFact": "Charles’s law makes gas volume proportional to kelvin temperature when pressure and gas amount are fixed.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.005",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student draws a gas as tiny moving particles with large spaces between them. What model is being used?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only a continuous solid",
+        "misconception": "chemistry.gases.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kinetic particle model"
+      },
+      {
+        "id": "choice-2",
+        "text": "Fixed crystal lattice",
+        "misconception": "chemistry.gases.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Stationary packed particles",
+        "misconception": "chemistry.gases.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The particle model describes gas using moving particles. Their spacing and impacts help explain pressure and volume.",
+    "scienceFact": "The particle model describes gas using moving particles. Their spacing and impacts help explain pressure and volume.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.006",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A sealed gas warms up. What happens to the average kinetic energy of its particles?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It stays unchanged",
+        "misconception": "chemistry.gases.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "It must become zero",
+        "misconception": "chemistry.gases.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "It increases"
+      },
+      {
+        "id": "choice-3",
+        "text": "It decreases",
+        "misconception": "chemistry.gases.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "For an ideal gas, average kinetic energy rises in step with kelvin temperature.",
+    "scienceFact": "For an ideal gas, average kinetic energy rises in step with kelvin temperature.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.007",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "An aerosol can gets hot without changing volume. Why is heating it unsafe?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pressure decreases",
+        "misconception": "chemistry.gases.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pressure vanishes",
+        "misconception": "chemistry.gases.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pressure is unrelated to temperature",
+        "misconception": "chemistry.gases.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pressure increases"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "At fixed volume, warmer gas particles cause greater pressure. Do not heat sealed aerosol cans.",
+    "scienceFact": "At fixed volume, warmer gas particles cause greater pressure. Do not heat sealed aerosol cans.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.008",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A piston moves outward while the gas stays at the same temperature. What happens to pressure?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pressure decreases"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pressure increases",
+        "misconception": "chemistry.gases.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pressure doubles",
+        "misconception": "chemistry.gases.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pressure becomes negative",
+        "misconception": "chemistry.gases.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "With more volume at fixed temperature and gas amount, particles hit the walls less often per area, so pressure falls.",
+    "scienceFact": "With more volume at fixed temperature and gas amount, particles hit the walls less often per area, so pressure falls.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.009",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A force of one newton acts on one square meter. What pressure unit does this define?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Kelvin",
+        "misconception": "chemistry.gases.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pascal"
+      },
+      {
+        "id": "choice-2",
+        "text": "Joule",
+        "misconception": "chemistry.gases.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Watt",
+        "misconception": "chemistry.gases.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "One pascal equals one newton per square meter. It is the SI unit of pressure.",
+    "scienceFact": "One pascal equals one newton per square meter. It is the SI unit of pressure.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.010",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student changes pressure and measures volume for Boyle’s law. Which conditions need control?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only the container color",
+        "misconception": "chemistry.gases.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only the timer reading",
+        "misconception": "chemistry.gases.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Temperature and amount of gas"
+      },
+      {
+        "id": "choice-3",
+        "text": "Both pressure and volume",
+        "misconception": "chemistry.gases.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Boyle’s law assumes constant temperature and gas amount. Changing either can change the pressure-volume relationship.",
+    "scienceFact": "Boyle’s law assumes constant temperature and gas amount. Changing either can change the pressure-volume relationship.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.011",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order a careful Boyle’s law trial.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Seal a fixed gas amount"
+      },
+      {
+        "id": "step-1",
+        "text": "Keep temperature steady"
+      },
+      {
+        "id": "step-2",
+        "text": "Change pressure"
+      },
+      {
+        "id": "step-3",
+        "text": "Measure the new volume"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Seal a fixed gas amount. Keep temperature steady. Change pressure. Measure the new volume. Each stage leads to the next.",
+    "scienceFact": "Diffusion is the net spreading of particles from higher to lower concentration. Random particle motion drives it.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.m.012",
+    "deckId": "chemistry.gases",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Pair each gas-law variable with its SI unit.",
+    "answer": {
+      "Pressure": "Pascal",
+      "Volume": "Cubic meter",
+      "Temperature": "Kelvin"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "At constant volume and temperature, adding gas particles increases pressure because more particles strike the walls.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "apply",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.001",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Cebu lab seals a gas at 100 kPa and 0.04 m³. At fixed temperature, pressure rises to 200 kPa. What volume results?",
+    "answer": "0.02",
+    "explanation": "Boyle’s law gives V₂ = P₁V₁ ÷ P₂ = 100 × 0.04 ÷ 200 = 0.02 m³.",
+    "scienceFact": "Boyle’s law gives V₂ = P₁V₁ ÷ P₂ = 100 × 0.04 ÷ 200 = 0.02 m³.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m³",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.gases.h.002",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Philippine gas sample has volume 0.03 m³ at 300 K. At fixed pressure, it warms to 400 K. What is its volume?",
+    "answer": "0.04",
+    "explanation": "Charles’s law gives V₂ = V₁T₂ ÷ T₁ = 0.03 × 400 ÷ 300 = 0.04 m³.",
+    "scienceFact": "Charles’s law gives V₂ = V₁T₂ ÷ T₁ = 0.03 × 400 ÷ 300 = 0.04 m³.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "m³",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.gases.h.003",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Manila lab holds a gas at fixed volume. Pressure is 100 kPa at 300 K. What is its pressure at 600 K?",
+    "answer": "200",
+    "explanation": "At fixed volume, P/T is constant for a fixed ideal gas amount. Doubling kelvin temperature doubles pressure.",
+    "scienceFact": "At fixed volume, P/T is constant for a fixed ideal gas amount. Doubling kelvin temperature doubles pressure.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "kPa",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.gases.h.004",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A 2 m³ gas sample warms from 200 K to 400 K at fixed pressure. Which change fits Charles’s law?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Volume drops to zero",
+        "misconception": "chemistry.gases.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Volume doubles"
+      },
+      {
+        "id": "choice-2",
+        "text": "Volume halves",
+        "misconception": "chemistry.gases.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Volume stays the same",
+        "misconception": "chemistry.gases.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Charles’s law makes gas volume proportional to kelvin temperature when pressure and gas amount are fixed.",
+    "scienceFact": "Charles’s law makes gas volume proportional to kelvin temperature when pressure and gas amount are fixed.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.005",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A model uses random particle motion and impacts to explain gas pressure. What is this model called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Stationary packed particles",
+        "misconception": "chemistry.gases.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only a continuous solid",
+        "misconception": "chemistry.gases.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Kinetic particle model"
+      },
+      {
+        "id": "choice-3",
+        "text": "Fixed crystal lattice",
+        "misconception": "chemistry.gases.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The particle model describes gas using moving particles. Their spacing and impacts help explain pressure and volume.",
+    "scienceFact": "The particle model describes gas using moving particles. Their spacing and impacts help explain pressure and volume.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.006",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two samples of one ideal gas have different kelvin temperatures. The hotter sample has which change in average particle energy?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "It decreases",
+        "misconception": "chemistry.gases.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "It stays unchanged",
+        "misconception": "chemistry.gases.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "It must become zero",
+        "misconception": "chemistry.gases.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "It increases"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "For an ideal gas, average kinetic energy rises in step with kelvin temperature.",
+    "scienceFact": "For an ideal gas, average kinetic energy rises in step with kelvin temperature.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.007",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "At constant volume and gas amount, the kelvin temperature doubles. What change in pressure does the ideal gas model predict?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pressure increases"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pressure decreases",
+        "misconception": "chemistry.gases.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pressure vanishes",
+        "misconception": "chemistry.gases.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pressure is unrelated to temperature",
+        "misconception": "chemistry.gases.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "At fixed volume, warmer gas particles cause greater pressure. Do not heat sealed aerosol cans.",
+    "scienceFact": "At fixed volume, warmer gas particles cause greater pressure. Do not heat sealed aerosol cans.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.008",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A sealed gas expands from 2 m³ to 4 m³ at fixed temperature. Which pressure trend fits the particle model?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Pressure becomes negative",
+        "misconception": "chemistry.gases.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pressure decreases"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pressure increases",
+        "misconception": "chemistry.gases.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pressure doubles",
+        "misconception": "chemistry.gases.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "With more volume at fixed temperature and gas amount, particles hit the walls less often per area, so pressure falls.",
+    "scienceFact": "With more volume at fixed temperature and gas amount, particles hit the walls less often per area, so pressure falls.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.009",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A data sheet gives pressure as newtons per square meter. Which named SI unit is equivalent?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Watt",
+        "misconception": "chemistry.gases.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Kelvin",
+        "misconception": "chemistry.gases.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pascal"
+      },
+      {
+        "id": "choice-3",
+        "text": "Joule",
+        "misconception": "chemistry.gases.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "One pascal equals one newton per square meter. It is the SI unit of pressure.",
+    "scienceFact": "One pascal equals one newton per square meter. It is the SI unit of pressure.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.010",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Gas escapes while temperature changes during compression. Which pair must instead stay fixed for a valid Boyle comparison?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Both pressure and volume",
+        "misconception": "chemistry.gases.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only the container color",
+        "misconception": "chemistry.gases.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only the timer reading",
+        "misconception": "chemistry.gases.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Temperature and amount of gas"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Boyle’s law assumes constant temperature and gas amount. Changing either can change the pressure-volume relationship.",
+    "scienceFact": "Boyle’s law assumes constant temperature and gas amount. Changing either can change the pressure-volume relationship.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.011",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Put these temperatures in order from coldest to hottest.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "100 K"
+      },
+      {
+        "id": "step-1",
+        "text": "200 K"
+      },
+      {
+        "id": "step-2",
+        "text": "300 K"
+      },
+      {
+        "id": "step-3",
+        "text": "400 K"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "100 K. 200 K. 300 K. 400 K. Each stage leads to the next.",
+    "scienceFact": "Diffusion is the net spreading of particles from higher to lower concentration. Random particle motion drives it.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.gases.h.012",
+    "deckId": "chemistry.gases",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "Two equal containers hold the same gas at the same temperature. One has twice as many particles. Which quantity is greater there?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Particle size",
+        "misconception": "chemistry.gases.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pressure"
+      },
+      {
+        "id": "choice-2",
+        "text": "Container volume",
+        "misconception": "chemistry.gases.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Temperature by definition",
+        "misconception": "chemistry.gases.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "At constant volume and temperature, adding gas particles increases pressure because more particles strike the walls.",
+    "scienceFact": "At constant volume and temperature, adding gas particles increases pressure because more particles strike the walls.",
+    "topic": "chemistry.gases",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Pressure, volume, temperature and ideal gas models. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "gas"
+  }
+]

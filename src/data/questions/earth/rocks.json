@@ -1,0 +1,1294 @@
+[
+  {
+    "id": "earth.rocks.e.001",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What rock group forms when lava from a Philippine volcano cools?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Igneous"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sedimentary",
+        "misconception": "earth.rocks.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Metamorphic only",
+        "misconception": "earth.rocks.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Unchanged soil",
+        "misconception": "earth.rocks.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Igneous rocks form when magma or lava cools and solidifies. Cooling conditions affect their texture.",
+    "scienceFact": "Igneous rocks form when magma or lava cools and solidifies. Cooling conditions affect their texture.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.002",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What process breaks rock into smaller pieces at the rice terraces?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Nuclear fusion",
+        "misconception": "earth.rocks.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Weathering"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only erosion",
+        "misconception": "earth.rocks.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Condensation",
+        "misconception": "earth.rocks.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Weathering breaks down rock in place. Erosion transports the loosened material elsewhere.",
+    "scienceFact": "Weathering breaks down rock in place. Erosion transports the loosened material elsewhere.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.003",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What process carries loosened soil away from a Philippine hillside?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only crystallization",
+        "misconception": "earth.rocks.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only condensation",
+        "misconception": "earth.rocks.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Erosion"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only weathering in place",
+        "misconception": "earth.rocks.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Erosion moves rock or soil by agents such as water, wind, ice or gravity. Plant cover can help reduce it.",
+    "scienceFact": "Erosion moves rock or soil by agents such as water, wind, ice or gravity. Plant cover can help reduce it.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.004",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which rock group forms when sediments become compacted and cemented?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Igneous",
+        "misconception": "earth.rocks.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Metamorphic only",
+        "misconception": "earth.rocks.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Molten magma",
+        "misconception": "earth.rocks.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sedimentary"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Sedimentary rocks can form from sediments that are compacted and cemented. Other types form from chemical or biological deposits.",
+    "scienceFact": "Sedimentary rocks can form from sediments that are compacted and cemented. Other types form from chemical or biological deposits.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.005",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which rock group forms when heat and pressure change existing rock without full melting?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Metamorphic"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only igneous",
+        "misconception": "earth.rocks.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Loose sediment",
+        "misconception": "earth.rocks.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Unchanged sand",
+        "misconception": "earth.rocks.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Metamorphic rocks form when existing rocks change under heat, pressure or fluids without fully melting.",
+    "scienceFact": "Metamorphic rocks form when existing rocks change under heat, pressure or fluids without fully melting.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.006",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What process changes liquid surface water to vapor?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only infiltration",
+        "misconception": "earth.rocks.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Evaporation"
+      },
+      {
+        "id": "choice-2",
+        "text": "Precipitation",
+        "misconception": "earth.rocks.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Freezing",
+        "misconception": "earth.rocks.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Evaporation moves water from a liquid surface into the air as vapor. Energy helps water molecules escape.",
+    "scienceFact": "Evaporation moves water from a liquid surface into the air as vapor. Energy helps water molecules escape.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.007",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What process forms liquid droplets from water vapor?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Melting",
+        "misconception": "earth.rocks.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sublimation",
+        "misconception": "earth.rocks.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Condensation"
+      },
+      {
+        "id": "choice-3",
+        "text": "Evaporation",
+        "misconception": "earth.rocks.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Condensation changes water vapor into liquid droplets. It is important in cloud and dew formation.",
+    "scienceFact": "Condensation changes water vapor into liquid droplets. It is important in cloud and dew formation.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.008",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is water falling from clouds called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Transpiration",
+        "misconception": "earth.rocks.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Infiltration",
+        "misconception": "earth.rocks.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only evaporation",
+        "misconception": "earth.rocks.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Precipitation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Precipitation is water falling from clouds, including rain, snow and hail.",
+    "scienceFact": "Precipitation is water falling from clouds, including rain, snow and hail.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.009",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is water entering the ground from the surface called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Infiltration"
+      },
+      {
+        "id": "choice-1",
+        "text": "Evaporation",
+        "misconception": "earth.rocks.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Condensation",
+        "misconception": "earth.rocks.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only cloud formation",
+        "misconception": "earth.rocks.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Infiltration is water moving from the surface into the ground. Soil type and plant cover can affect its rate.",
+    "scienceFact": "Infiltration is water moving from the surface into the ground. Soil type and plant cover can affect its rate.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.e.010",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What provides most energy that drives evaporation in the water cycle?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only sound from waves",
+        "misconception": "earth.rocks.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "The Sun"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only the Moon’s reflected light",
+        "misconception": "earth.rocks.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only Earth’s iron core",
+        "misconception": "earth.rocks.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Solar energy drives much of the evaporation in the water cycle. Gravity helps return and move water toward lower levels.",
+    "scienceFact": "Solar energy drives much of the evaporation in the water cycle. Gravity helps return and move water toward lower levels.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "water"
+  },
+  {
+    "id": "earth.rocks.e.011",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What is water flowing over land toward streams called?",
+    "answer": "Runoff",
+    "explanation": "Runoff is water flowing over land. It can carry sediment and join streams, rivers and other bodies of water.",
+    "scienceFact": "Runoff is water flowing over land. It can carry sediment and join streams, rivers and other bodies of water.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["runoff", "Runoff"]
+  },
+  {
+    "id": "earth.rocks.e.012",
+    "deckId": "earth.rocks",
+    "level": "easy",
+    "type": "input",
+    "prompt": "Quartz is a natural solid with an ordered crystal structure. What geological class does it belong to?",
+    "answer": "Mineral",
+    "explanation": "A mineral is a natural inorganic solid with a characteristic composition and ordered atomic structure. Rocks are often mixtures of minerals.",
+    "scienceFact": "A mineral is a natural inorganic solid with a characteristic composition and ordered atomic structure. Rocks are often mixtures of minerals.",
+    "topic": "earth.rocks",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["mineral", "Mineral"]
+  },
+  {
+    "id": "earth.rocks.m.001",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Lava near Mayon cools into a hard rock. What rock group does it belong to?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Unchanged soil",
+        "misconception": "earth.rocks.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Igneous"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sedimentary",
+        "misconception": "earth.rocks.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Metamorphic only",
+        "misconception": "earth.rocks.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Igneous rocks form when magma or lava cools and solidifies. Cooling conditions affect their texture.",
+    "scienceFact": "Igneous rocks form when magma or lava cools and solidifies. Cooling conditions affect their texture.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.002",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Roots grow in cracks beside Philippine rice terraces and break rock apart. What process is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Condensation",
+        "misconception": "earth.rocks.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Nuclear fusion",
+        "misconception": "earth.rocks.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Weathering"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only erosion",
+        "misconception": "earth.rocks.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Weathering breaks down rock in place. Erosion transports the loosened material elsewhere.",
+    "scienceFact": "Weathering breaks down rock in place. Erosion transports the loosened material elsewhere.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.003",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Heavy rain washes soil downhill near a Philippine rice field. What transport process is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only weathering in place",
+        "misconception": "earth.rocks.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only crystallization",
+        "misconception": "earth.rocks.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only condensation",
+        "misconception": "earth.rocks.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Erosion"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Erosion moves rock or soil by agents such as water, wind, ice or gravity. Plant cover can help reduce it.",
+    "scienceFact": "Erosion moves rock or soil by agents such as water, wind, ice or gravity. Plant cover can help reduce it.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.004",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Layers of sand are pressed together and minerals bind them. What rock group forms?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sedimentary"
+      },
+      {
+        "id": "choice-1",
+        "text": "Igneous",
+        "misconception": "earth.rocks.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Metamorphic only",
+        "misconception": "earth.rocks.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Molten magma",
+        "misconception": "earth.rocks.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Sedimentary rocks can form from sediments that are compacted and cemented. Other types form from chemical or biological deposits.",
+    "scienceFact": "Sedimentary rocks can form from sediments that are compacted and cemented. Other types form from chemical or biological deposits.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.005",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A rock deep underground changes texture under heat and pressure but does not melt. What group forms?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Unchanged sand",
+        "misconception": "earth.rocks.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Metamorphic"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only igneous",
+        "misconception": "earth.rocks.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Loose sediment",
+        "misconception": "earth.rocks.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Metamorphic rocks form when existing rocks change under heat, pressure or fluids without fully melting.",
+    "scienceFact": "Metamorphic rocks form when existing rocks change under heat, pressure or fluids without fully melting.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.006",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Water leaves a lake and enters the air without the lake boiling. What process is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Freezing",
+        "misconception": "earth.rocks.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only infiltration",
+        "misconception": "earth.rocks.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation"
+      },
+      {
+        "id": "choice-3",
+        "text": "Precipitation",
+        "misconception": "earth.rocks.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Evaporation moves water from a liquid surface into the air as vapor. Energy helps water molecules escape.",
+    "scienceFact": "Evaporation moves water from a liquid surface into the air as vapor. Energy helps water molecules escape.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.007",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Moist air cools and tiny droplets form on a cool leaf. Which water-cycle process occurs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Evaporation",
+        "misconception": "earth.rocks.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Melting",
+        "misconception": "earth.rocks.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sublimation",
+        "misconception": "earth.rocks.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Condensation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Condensation changes water vapor into liquid droplets. It is important in cloud and dew formation.",
+    "scienceFact": "Condensation changes water vapor into liquid droplets. It is important in cloud and dew formation.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.008",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Rain falls from a cloud onto the ground. What water-cycle term describes it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Precipitation"
+      },
+      {
+        "id": "choice-1",
+        "text": "Transpiration",
+        "misconception": "earth.rocks.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Infiltration",
+        "misconception": "earth.rocks.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only evaporation",
+        "misconception": "earth.rocks.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Precipitation is water falling from clouds, including rain, snow and hail.",
+    "scienceFact": "Precipitation is water falling from clouds, including rain, snow and hail.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.009",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Rain soaks into soil instead of flowing away over it. What process occurs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only cloud formation",
+        "misconception": "earth.rocks.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Infiltration"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation",
+        "misconception": "earth.rocks.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Condensation",
+        "misconception": "earth.rocks.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Infiltration is water moving from the surface into the ground. Soil type and plant cover can affect its rate.",
+    "scienceFact": "Infiltration is water moving from the surface into the ground. Soil type and plant cover can affect its rate.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.010",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A pond warms and loses water during a sunny day. Which energy source drives much of this change?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only Earth’s iron core",
+        "misconception": "earth.rocks.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only sound from waves",
+        "misconception": "earth.rocks.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "The Sun"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only the Moon’s reflected light",
+        "misconception": "earth.rocks.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Solar energy drives much of the evaporation in the water cycle. Gravity helps return and move water toward lower levels.",
+    "scienceFact": "Solar energy drives much of the evaporation in the water cycle. Gravity helps return and move water toward lower levels.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.011",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Trace one possible route of water from sea to rain and back.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Ocean water evaporates"
+      },
+      {
+        "id": "step-1",
+        "text": "Cloud droplets form"
+      },
+      {
+        "id": "step-2",
+        "text": "Rain falls"
+      },
+      {
+        "id": "step-3",
+        "text": "Runoff returns to the sea"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Ocean water evaporates. Cloud droplets form. Rain falls. Runoff returns to the sea. Each stage leads to the next.",
+    "scienceFact": "Runoff is water flowing over land. It can carry sediment and join streams, rivers and other bodies of water.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.m.012",
+    "deckId": "earth.rocks",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Pair each rock group with its formation process.",
+    "answer": {
+      "Igneous": "Melt cools and solidifies",
+      "Sedimentary": "Sediment is compacted and cemented",
+      "Metamorphic": "Existing rock changes without fully melting"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "A mineral is a natural inorganic solid with a characteristic composition and ordered atomic structure. Rocks are often mixtures of minerals.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.001",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A Philippine rock has interlocking crystals formed from cooled melt. Which rock group best fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Metamorphic only",
+        "misconception": "earth.rocks.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Unchanged soil",
+        "misconception": "earth.rocks.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Igneous"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sedimentary",
+        "misconception": "earth.rocks.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Igneous rocks form when magma or lava cools and solidifies. Cooling conditions affect their texture.",
+    "scienceFact": "Igneous rocks form when magma or lava cools and solidifies. Cooling conditions affect their texture.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Philippine rock sample", "Record"],
+      "rows": [
+        ["Starting material", "Molten lava"],
+        ["Formation", "Cools and becomes solid"]
+      ]
+    }
+  },
+  {
+    "id": "earth.rocks.h.002",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Rock beside an Ifugao terrace breaks in place without the pieces being carried away. Which process has occurred?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only erosion",
+        "misconception": "earth.rocks.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Condensation",
+        "misconception": "earth.rocks.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Nuclear fusion",
+        "misconception": "earth.rocks.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Weathering"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Weathering breaks down rock in place. Erosion transports the loosened material elsewhere.",
+    "scienceFact": "Weathering breaks down rock in place. Erosion transports the loosened material elsewhere.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Ifugao hillside model", "Observation"],
+      "rows": [
+        ["Rock", "Breaks into pieces"],
+        ["Pieces", "Remain in place"]
+      ]
+    }
+  },
+  {
+    "id": "earth.rocks.h.003",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A storm carries loose particles from a Luzon slope into a river. Which process moves those particles?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Erosion"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only weathering in place",
+        "misconception": "earth.rocks.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only crystallization",
+        "misconception": "earth.rocks.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only condensation",
+        "misconception": "earth.rocks.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Erosion moves rock or soil by agents such as water, wind, ice or gravity. Plant cover can help reduce it.",
+    "scienceFact": "Erosion moves rock or soil by agents such as water, wind, ice or gravity. Plant cover can help reduce it.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Luzon storm model", "Observation"],
+      "rows": [
+        ["Loose particles", "Move downhill"],
+        ["Destination", "River channel"]
+      ]
+    }
+  },
+  {
+    "id": "earth.rocks.h.004",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A rock has visible sediment layers and grains joined by mineral cement. Which group is most likely?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Molten magma",
+        "misconception": "earth.rocks.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sedimentary"
+      },
+      {
+        "id": "choice-2",
+        "text": "Igneous",
+        "misconception": "earth.rocks.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Metamorphic only",
+        "misconception": "earth.rocks.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Sedimentary rocks can form from sediments that are compacted and cemented. Other types form from chemical or biological deposits.",
+    "scienceFact": "Sedimentary rocks can form from sediments that are compacted and cemented. Other types form from chemical or biological deposits.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.005",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Limestone changes to marble under heat and pressure. It does not melt. What type of rock forms?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Loose sediment",
+        "misconception": "earth.rocks.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Unchanged sand",
+        "misconception": "earth.rocks.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Metamorphic"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only igneous",
+        "misconception": "earth.rocks.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Metamorphic rocks form when existing rocks change under heat, pressure or fluids without fully melting.",
+    "scienceFact": "Metamorphic rocks form when existing rocks change under heat, pressure or fluids without fully melting.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.006",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A reservoir loses water on a warm dry day as particles escape the surface. Which cycle process acts?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Precipitation",
+        "misconception": "earth.rocks.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Freezing",
+        "misconception": "earth.rocks.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only infiltration",
+        "misconception": "earth.rocks.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Evaporation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Evaporation moves water from a liquid surface into the air as vapor. Energy helps water molecules escape.",
+    "scienceFact": "Evaporation moves water from a liquid surface into the air as vapor. Energy helps water molecules escape.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.007",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Invisible vapor becomes visible liquid droplets when air cools enough. Which phase change is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Condensation"
+      },
+      {
+        "id": "choice-1",
+        "text": "Evaporation",
+        "misconception": "earth.rocks.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Melting",
+        "misconception": "earth.rocks.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sublimation",
+        "misconception": "earth.rocks.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Condensation changes water vapor into liquid droplets. It is important in cloud and dew formation.",
+    "scienceFact": "Condensation changes water vapor into liquid droplets. It is important in cloud and dew formation.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.008",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A water budget counts rain, snow and hail reaching the surface. Which term includes all three?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only evaporation",
+        "misconception": "earth.rocks.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Precipitation"
+      },
+      {
+        "id": "choice-2",
+        "text": "Transpiration",
+        "misconception": "earth.rocks.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Infiltration",
+        "misconception": "earth.rocks.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Precipitation is water falling from clouds, including rain, snow and hail.",
+    "scienceFact": "Precipitation is water falling from clouds, including rain, snow and hail.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.009",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Two plots receive equal rain. One lets more water enter the soil. Which process is greater there?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Condensation",
+        "misconception": "earth.rocks.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only cloud formation",
+        "misconception": "earth.rocks.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Infiltration"
+      },
+      {
+        "id": "choice-3",
+        "text": "Evaporation",
+        "misconception": "earth.rocks.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Infiltration is water moving from the surface into the ground. Soil type and plant cover can affect its rate.",
+    "scienceFact": "Infiltration is water moving from the surface into the ground. Soil type and plant cover can affect its rate.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.010",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A model traces the energy that turns ocean water into vapor. Which major source supplies most of it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Only the Moon’s reflected light",
+        "misconception": "earth.rocks.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Only Earth’s iron core",
+        "misconception": "earth.rocks.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Only sound from waves",
+        "misconception": "earth.rocks.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "The Sun"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Solar energy drives much of the evaporation in the water cycle. Gravity helps return and move water toward lower levels.",
+    "scienceFact": "Solar energy drives much of the evaporation in the water cycle. Gravity helps return and move water toward lower levels.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.011",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order one way to form sedimentary rock from a hillside.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Rock weathers"
+      },
+      {
+        "id": "step-1",
+        "text": "Sediment is transported"
+      },
+      {
+        "id": "step-2",
+        "text": "Sediment is deposited"
+      },
+      {
+        "id": "step-3",
+        "text": "Sediment is compacted and cemented"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Rock weathers. Sediment is transported. Sediment is deposited. Sediment is compacted and cemented. Each stage leads to the next.",
+    "scienceFact": "Runoff is water flowing over land. It can carry sediment and join streams, rivers and other bodies of water.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.rocks.h.012",
+    "deckId": "earth.rocks",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A solid sample is natural, inorganic and has a defined composition with an ordered atomic structure. Which geological category fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Liquid water at room temperature",
+        "misconception": "earth.rocks.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Mineral"
+      },
+      {
+        "id": "choice-2",
+        "text": "Any manufactured plastic",
+        "misconception": "earth.rocks.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Only loose soil",
+        "misconception": "earth.rocks.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A mineral is a natural inorganic solid with a characteristic composition and ordered atomic structure. Rocks are often mixtures of minerals.",
+    "scienceFact": "A mineral is a natural inorganic solid with a characteristic composition and ordered atomic structure. Rocks are often mixtures of minerals.",
+    "topic": "earth.rocks",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Rock formation, weathering and the water cycle. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "water"
+  }
+]

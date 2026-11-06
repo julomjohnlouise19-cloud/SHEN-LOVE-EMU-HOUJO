@@ -1,0 +1,1293 @@
+[
+  {
+    "id": "earth.weather.e.001",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which agency gives weather forecasts in the Philippines?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "PAGASA"
+      },
+      {
+        "id": "choice-1",
+        "text": "PHIVOLCS only",
+        "misconception": "earth.weather.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "A private group chat",
+        "misconception": "earth.weather.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "An unrelated star chart",
+        "misconception": "earth.weather.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "PAGASA gives weather forecasts in the Philippines. During a storm, use official updates and local safety advice.",
+    "scienceFact": "PAGASA gives weather forecasts in the Philippines. During a storm, use official updates and local safety advice.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.002",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What seasonal wind pattern brings changes in Philippine rainfall?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Solar eruption only",
+        "misconception": "earth.weather.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Monsoon"
+      },
+      {
+        "id": "choice-2",
+        "text": "Daily eclipse",
+        "misconception": "earth.weather.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Oceanic fault",
+        "misconception": "earth.weather.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Monsoons are seasonal changes in prevailing winds. Amihan and Habagat affect Philippine weather.",
+    "scienceFact": "Monsoons are seasonal changes in prevailing winds. Amihan and Habagat affect Philippine weather.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.003",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What water condition helps supply energy to a tropical cyclone?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A solid sea surface",
+        "misconception": "earth.weather.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "No water vapor",
+        "misconception": "earth.weather.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Warm surface water"
+      },
+      {
+        "id": "choice-3",
+        "text": "Dry frozen ocean only",
+        "misconception": "earth.weather.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Warm ocean water supplies water vapor. Condensation releases latent heat that can help power a tropical cyclone.",
+    "scienceFact": "Warm ocean water supplies water vapor. Condensation releases latent heat that can help power a tropical cyclone.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.004",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the state of the atmosphere over short times called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Climate average",
+        "misconception": "earth.weather.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Plate motion",
+        "misconception": "earth.weather.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evolution",
+        "misconception": "earth.weather.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Weather"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Weather means conditions of the air over short times, such as today’s rain or heat.",
+    "scienceFact": "Weather means conditions of the air over short times, such as today’s rain or heat.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.005",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a region’s long-term pattern of weather called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Climate"
+      },
+      {
+        "id": "choice-1",
+        "text": "One storm only",
+        "misconception": "earth.weather.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "One day’s weather",
+        "misconception": "earth.weather.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "A single tide",
+        "misconception": "earth.weather.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Climate is the weather pattern over many years. It includes usual conditions, changes and extremes.",
+    "scienceFact": "Climate is the weather pattern over many years. It includes usual conditions, changes and extremes.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.006",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What gas is a major human-added driver of current global warming?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Argon",
+        "misconception": "earth.weather.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Carbon dioxide"
+      },
+      {
+        "id": "choice-2",
+        "text": "Helium",
+        "misconception": "earth.weather.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Neon",
+        "misconception": "earth.weather.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Human activities add carbon dioxide and other greenhouse gases. These increase the energy retained in Earth’s climate system.",
+    "scienceFact": "Human activities add carbon dioxide and other greenhouse gases. These increase the energy retained in Earth’s climate system.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.007",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the usual direction of heat-driven air movement in a rising warm-air model?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The warm air becomes solid",
+        "misconception": "earth.weather.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "The warm air loses all mass",
+        "misconception": "earth.weather.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "The warm air rises"
+      },
+      {
+        "id": "choice-3",
+        "text": "The warm air must freeze",
+        "misconception": "earth.weather.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Warm air can be less dense than nearby cooler air and rise. This supports convection in the atmosphere.",
+    "scienceFact": "Warm air can be less dense than nearby cooler air and rise. This supports convection in the atmosphere.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.008",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What tool measures air pressure?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Thermometer",
+        "misconception": "earth.weather.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Rain gauge",
+        "misconception": "earth.weather.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Anemometer",
+        "misconception": "earth.weather.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Barometer"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A barometer measures air pressure. Pressure patterns help us track weather systems.",
+    "scienceFact": "A barometer measures air pressure. Pressure patterns help us track weather systems.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.009",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What tool measures wind speed?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Anemometer"
+      },
+      {
+        "id": "choice-1",
+        "text": "Barometer",
+        "misconception": "earth.weather.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Thermometer",
+        "misconception": "earth.weather.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Seismograph",
+        "misconception": "earth.weather.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "An anemometer measures wind speed. Wind direction is measured with a wind vane or similar sensor.",
+    "scienceFact": "An anemometer measures wind speed. Wind direction is measured with a wind vane or similar sensor.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.e.010",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is water vapor turning into cloud droplets called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Boiling",
+        "misconception": "earth.weather.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Condensation"
+      },
+      {
+        "id": "choice-2",
+        "text": "Melting",
+        "misconception": "earth.weather.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sublimation only",
+        "misconception": "earth.weather.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Cloud droplets can form by condensation as moist air cools. Water vapor itself is an invisible gas.",
+    "scienceFact": "Cloud droplets can form by condensation as moist air cools. Water vapor itself is an invisible gas.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "weather"
+  },
+  {
+    "id": "earth.weather.e.011",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What word describes the amount of water vapor in air?",
+    "answer": "Humidity",
+    "explanation": "Humidity describes water vapor in air. Relative humidity compares it with the amount needed for saturation at that temperature.",
+    "scienceFact": "Humidity describes water vapor in air. Relative humidity compares it with the amount needed for saturation at that temperature.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": ["humidity", "Humidity"]
+  },
+  {
+    "id": "earth.weather.e.012",
+    "deckId": "earth.weather",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What choice helps keep you safe from floodwater?",
+    "answer": "Stay away and use official safe routes",
+    "explanation": "Flowing floodwater can be strong even when it looks shallow. Stay away from it and from any wires in the water.",
+    "scienceFact": "Flowing floodwater can be strong even when it looks shallow. Stay away from it and from any wires in the water.",
+    "topic": "earth.weather",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "stay away and use official safe routes",
+      "Stay away and use official safe routes"
+    ]
+  },
+  {
+    "id": "earth.weather.m.001",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A family needs a verified typhoon weather update in the Philippines. Which agency should it consult?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "An unrelated star chart",
+        "misconception": "earth.weather.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "PAGASA"
+      },
+      {
+        "id": "choice-2",
+        "text": "PHIVOLCS only",
+        "misconception": "earth.weather.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "A private group chat",
+        "misconception": "earth.weather.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "PAGASA gives weather forecasts in the Philippines. During a storm, use official updates and local safety advice.",
+    "scienceFact": "PAGASA gives weather forecasts in the Philippines. During a storm, use official updates and local safety advice.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.002",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Philippine winds shift with the seasons, affecting rainfall. What broad pattern is this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Oceanic fault",
+        "misconception": "earth.weather.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Solar eruption only",
+        "misconception": "earth.weather.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Monsoon"
+      },
+      {
+        "id": "choice-3",
+        "text": "Daily eclipse",
+        "misconception": "earth.weather.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Monsoons are seasonal changes in prevailing winds. Amihan and Habagat affect Philippine weather.",
+    "scienceFact": "Monsoons are seasonal changes in prevailing winds. Amihan and Habagat affect Philippine weather.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.003",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A Philippine typhoon grows over a warm sea. Which ocean condition helps supply its energy?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Dry frozen ocean only",
+        "misconception": "earth.weather.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "A solid sea surface",
+        "misconception": "earth.weather.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "No water vapor",
+        "misconception": "earth.weather.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Warm surface water"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Warm ocean water supplies water vapor. Condensation releases latent heat that can help power a tropical cyclone.",
+    "scienceFact": "Warm ocean water supplies water vapor. Condensation releases latent heat that can help power a tropical cyclone.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.004",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A report describes rain this afternoon rather than a long-term average. What is being described?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Weather"
+      },
+      {
+        "id": "choice-1",
+        "text": "Climate average",
+        "misconception": "earth.weather.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Plate motion",
+        "misconception": "earth.weather.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Evolution",
+        "misconception": "earth.weather.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Weather means conditions of the air over short times, such as today’s rain or heat.",
+    "scienceFact": "Weather means conditions of the air over short times, such as today’s rain or heat.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.005",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A researcher compares decades of temperature and rainfall averages. Which topic is being studied?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A single tide",
+        "misconception": "earth.weather.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Climate"
+      },
+      {
+        "id": "choice-2",
+        "text": "One storm only",
+        "misconception": "earth.weather.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "One day’s weather",
+        "misconception": "earth.weather.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Climate is the weather pattern over many years. It includes usual conditions, changes and extremes.",
+    "scienceFact": "Climate is the weather pattern over many years. It includes usual conditions, changes and extremes.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.006",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Burning coal and oil raises the amount of a heat-trapping gas. Which gas is a major driver?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Neon",
+        "misconception": "earth.weather.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Argon",
+        "misconception": "earth.weather.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Carbon dioxide"
+      },
+      {
+        "id": "choice-3",
+        "text": "Helium",
+        "misconception": "earth.weather.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Human activities add carbon dioxide and other greenhouse gases. These increase the energy retained in Earth’s climate system.",
+    "scienceFact": "Human activities add carbon dioxide and other greenhouse gases. These increase the energy retained in Earth’s climate system.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.007",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Sun-warmed ground heats nearby air. The air becomes less dense. What tends to happen?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The warm air must freeze",
+        "misconception": "earth.weather.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "The warm air becomes solid",
+        "misconception": "earth.weather.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "The warm air loses all mass",
+        "misconception": "earth.weather.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "The warm air rises"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Warm air can be less dense than nearby cooler air and rise. This supports convection in the atmosphere.",
+    "scienceFact": "Warm air can be less dense than nearby cooler air and rise. This supports convection in the atmosphere.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.008",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student tracks pressure falling as a storm approaches. Which instrument is suitable?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Barometer"
+      },
+      {
+        "id": "choice-1",
+        "text": "Thermometer",
+        "misconception": "earth.weather.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Rain gauge",
+        "misconception": "earth.weather.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Anemometer",
+        "misconception": "earth.weather.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A barometer measures air pressure. Pressure patterns help us track weather systems.",
+    "scienceFact": "A barometer measures air pressure. Pressure patterns help us track weather systems.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.009",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A weather station records how fast air moves. Which instrument is used?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Seismograph",
+        "misconception": "earth.weather.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Anemometer"
+      },
+      {
+        "id": "choice-2",
+        "text": "Barometer",
+        "misconception": "earth.weather.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Thermometer",
+        "misconception": "earth.weather.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "An anemometer measures wind speed. Wind direction is measured with a wind vane or similar sensor.",
+    "scienceFact": "An anemometer measures wind speed. Wind direction is measured with a wind vane or similar sensor.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.010",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Moist air cools until droplets form in a cloud. Which phase change occurs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sublimation only",
+        "misconception": "earth.weather.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Boiling",
+        "misconception": "earth.weather.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Condensation"
+      },
+      {
+        "id": "choice-3",
+        "text": "Melting",
+        "misconception": "earth.weather.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Cloud droplets can form by condensation as moist air cools. Water vapor itself is an invisible gas.",
+    "scienceFact": "Cloud droplets can form by condensation as moist air cools. Water vapor itself is an invisible gas.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.011",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Trace a simplified cloud-forming process.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Warm moist air rises"
+      },
+      {
+        "id": "step-1",
+        "text": "The air cools"
+      },
+      {
+        "id": "step-2",
+        "text": "Water vapor condenses"
+      },
+      {
+        "id": "step-3",
+        "text": "Cloud droplets form"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2", "step-3"],
+    "explanation": "Warm moist air rises. The air cools. Water vapor condenses. Cloud droplets form. Each stage leads to the next.",
+    "scienceFact": "Humidity describes water vapor in air. Relative humidity compares it with the amount needed for saturation at that temperature.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.m.012",
+    "deckId": "earth.weather",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Match each weather instrument with what it measures.",
+    "answer": {
+      "Thermometer": "Temperature",
+      "Barometer": "Air pressure",
+      "Anemometer": "Wind speed"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Flowing floodwater can be strong even when it looks shallow. Stay away from it and from any wires in the water.",
+    "topic": "earth.weather",
+    "gradeBand": 9,
+    "bloom": "apply",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.001",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A class in Cebu compares a rumor with an official forecast. Which Philippine weather agency provides the forecast?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "A private group chat",
+        "misconception": "earth.weather.mixup.1.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "An unrelated star chart",
+        "misconception": "earth.weather.mixup.1.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "PAGASA"
+      },
+      {
+        "id": "choice-3",
+        "text": "PHIVOLCS only",
+        "misconception": "earth.weather.mixup.1.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "PAGASA gives weather forecasts in the Philippines. During a storm, use official updates and local safety advice.",
+    "scienceFact": "PAGASA gives weather forecasts in the Philippines. During a storm, use official updates and local safety advice.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Forecast comparison", "Source"],
+      "rows": [
+        ["Verified weather bulletin", "PAGASA"],
+        ["Unverified message", "Anonymous chat"]
+      ]
+    }
+  },
+  {
+    "id": "earth.weather.h.002",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "data",
+    "prompt": "Rain patterns change as the Philippines shifts between northeast and southwest winds. Which circulation pattern explains this?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Daily eclipse",
+        "misconception": "earth.weather.mixup.2.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Oceanic fault",
+        "misconception": "earth.weather.mixup.2.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Solar eruption only",
+        "misconception": "earth.weather.mixup.2.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Monsoon"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Monsoons are seasonal changes in prevailing winds. Amihan and Habagat affect Philippine weather.",
+    "scienceFact": "Monsoons are seasonal changes in prevailing winds. Amihan and Habagat affect Philippine weather.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Philippine wind pattern", "Seasonal direction"],
+      "rows": [
+        ["Amihan", "Northeast"],
+        ["Habagat", "Southwest"]
+      ]
+    }
+  },
+  {
+    "id": "earth.weather.h.003",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "data",
+    "prompt": "A cyclone crosses warm Philippine waters and receives moist rising air. Which energy source from the sea supports it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Warm surface water"
+      },
+      {
+        "id": "choice-1",
+        "text": "Dry frozen ocean only",
+        "misconception": "earth.weather.mixup.3.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "A solid sea surface",
+        "misconception": "earth.weather.mixup.3.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "No water vapor",
+        "misconception": "earth.weather.mixup.3.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Warm ocean water supplies water vapor. Condensation releases latent heat that can help power a tropical cyclone.",
+    "scienceFact": "Warm ocean water supplies water vapor. Condensation releases latent heat that can help power a tropical cyclone.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "data": {
+      "headers": ["Cyclone model", "Record"],
+      "rows": [
+        ["Sea surface", "Warm"],
+        ["Air supply", "Moist, rising air"]
+      ]
+    }
+  },
+  {
+    "id": "earth.weather.h.004",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "One week is unusually cool, but a decades-long pattern is still warm. Which term describes the short episode?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Evolution",
+        "misconception": "earth.weather.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Weather"
+      },
+      {
+        "id": "choice-2",
+        "text": "Climate average",
+        "misconception": "earth.weather.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Plate motion",
+        "misconception": "earth.weather.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Weather means conditions of the air over short times, such as today’s rain or heat.",
+    "scienceFact": "Weather means conditions of the air over short times, such as today’s rain or heat.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.005",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A hot afternoon alone does not define a decades-long pattern. What term names that long-term pattern?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "One day’s weather",
+        "misconception": "earth.weather.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "A single tide",
+        "misconception": "earth.weather.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Climate"
+      },
+      {
+        "id": "choice-3",
+        "text": "One storm only",
+        "misconception": "earth.weather.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Climate is the weather pattern over many years. It includes usual conditions, changes and extremes.",
+    "scienceFact": "Climate is the weather pattern over many years. It includes usual conditions, changes and extremes.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.006",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A long-term record links fossil-fuel use with rising levels of a greenhouse gas. Which gas is most directly involved?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Helium",
+        "misconception": "earth.weather.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Neon",
+        "misconception": "earth.weather.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Argon",
+        "misconception": "earth.weather.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Carbon dioxide"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Human activities add carbon dioxide and other greenhouse gases. These increase the energy retained in Earth’s climate system.",
+    "scienceFact": "Human activities add carbon dioxide and other greenhouse gases. These increase the energy retained in Earth’s climate system.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.007",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A warm parcel of air is less dense than the surrounding air at the same pressure. Which movement is favored?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "The warm air rises"
+      },
+      {
+        "id": "choice-1",
+        "text": "The warm air must freeze",
+        "misconception": "earth.weather.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "The warm air becomes solid",
+        "misconception": "earth.weather.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "The warm air loses all mass",
+        "misconception": "earth.weather.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Warm air can be less dense than nearby cooler air and rise. This supports convection in the atmosphere.",
+    "scienceFact": "Warm air can be less dense than nearby cooler air and rise. This supports convection in the atmosphere.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.008",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A weather station needs air force per unit area rather than wind speed or temperature. Which instrument measures it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Anemometer",
+        "misconception": "earth.weather.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Barometer"
+      },
+      {
+        "id": "choice-2",
+        "text": "Thermometer",
+        "misconception": "earth.weather.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Rain gauge",
+        "misconception": "earth.weather.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A barometer measures air pressure. Pressure patterns help us track weather systems.",
+    "scienceFact": "A barometer measures air pressure. Pressure patterns help us track weather systems.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.009",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Rotating cups on an instrument turn faster in stronger winds. Which weather tool is being modeled?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Thermometer",
+        "misconception": "earth.weather.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Seismograph",
+        "misconception": "earth.weather.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Anemometer"
+      },
+      {
+        "id": "choice-3",
+        "text": "Barometer",
+        "misconception": "earth.weather.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "An anemometer measures wind speed. Wind direction is measured with a wind vane or similar sensor.",
+    "scienceFact": "An anemometer measures wind speed. Wind direction is measured with a wind vane or similar sensor.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.010",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Rising air cools and its water vapor forms tiny liquid drops. Which change releases latent heat?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Melting",
+        "misconception": "earth.weather.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sublimation only",
+        "misconception": "earth.weather.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Boiling",
+        "misconception": "earth.weather.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Condensation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Cloud droplets can form by condensation as moist air cools. Water vapor itself is an invisible gas.",
+    "scienceFact": "Cloud droplets can form by condensation as moist air cools. Water vapor itself is an invisible gas.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.011",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order these scales from one short event to a long-term climate pattern.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "An afternoon shower"
+      },
+      {
+        "id": "step-1",
+        "text": "A rainy week"
+      },
+      {
+        "id": "step-2",
+        "text": "Decades of rainfall records"
+      }
+    ],
+    "answer": ["step-0", "step-1", "step-2"],
+    "explanation": "An afternoon shower. A rainy week. Decades of rainfall records. Each stage leads to the next.",
+    "scienceFact": "Humidity describes water vapor in air. Relative humidity compares it with the amount needed for saturation at that temperature.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "earth.weather.h.012",
+    "deckId": "earth.weather",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "Floodwater is moving, and its depth is not clear. Which choice best avoids the risk?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Play beside drainage channels",
+        "misconception": "earth.weather.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Stay away and use official safe routes"
+      },
+      {
+        "id": "choice-2",
+        "text": "Walk through because it looks shallow",
+        "misconception": "earth.weather.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Touch submerged wires",
+        "misconception": "earth.weather.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Flowing floodwater can be strong even when it looks shallow. Stay away from it and from any wires in the water.",
+    "scienceFact": "Flowing floodwater can be strong even when it looks shallow. Stay away from it and from any wires in the water.",
+    "topic": "earth.weather",
+    "gradeBand": 10,
+    "bloom": "analyze",
+    "curriculumArea": "Atmosphere, monsoons, tropical cyclones and climate change. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "weather"
+  }
+]

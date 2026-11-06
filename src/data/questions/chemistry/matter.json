@@ -1,0 +1,1222 @@
+[
+  {
+    "id": "chemistry.matter.e.001",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What state of matter keeps both its shape and volume?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Solid"
+      },
+      {
+        "id": "choice-1",
+        "text": "Liquid",
+        "misconception": "chemistry.matter.mixup.1.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Gas",
+        "misconception": "chemistry.matter.mixup.1.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Plasma",
+        "misconception": "chemistry.matter.mixup.1.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A solid has a fixed shape and volume under usual conditions. Its particles stay close and vibrate in place.",
+    "scienceFact": "A solid has a fixed shape and volume under usual conditions. Its particles stay close and vibrate in place.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.002",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the substance that dissolves another substance called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Residue",
+        "misconception": "chemistry.matter.mixup.2.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Solvent"
+      },
+      {
+        "id": "choice-2",
+        "text": "Solute",
+        "misconception": "chemistry.matter.mixup.2.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Suspension",
+        "misconception": "chemistry.matter.mixup.2.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "The solvent dissolves a solute to form a solution. In salt water, water is the solvent.",
+    "scienceFact": "The solvent dissolves a solute to form a solution. In salt water, water is the solvent.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.003",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What method separates sand from water with a paper barrier?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Melting",
+        "misconception": "chemistry.matter.mixup.3.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Freezing",
+        "misconception": "chemistry.matter.mixup.3.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Filtration"
+      },
+      {
+        "id": "choice-3",
+        "text": "Dissolving",
+        "misconception": "chemistry.matter.mixup.3.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A filter traps solid pieces that do not dissolve. Liquid can pass through its small holes.",
+    "scienceFact": "A filter traps solid pieces that do not dissolve. Liquid can pass through its small holes.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.004",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is a mixture that looks uniform throughout called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Coarse suspension",
+        "misconception": "chemistry.matter.mixup.4.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Pure element",
+        "misconception": "chemistry.matter.mixup.4.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Single compound",
+        "misconception": "chemistry.matter.mixup.4.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Solution"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A solution is a uniform mixture. Its solute particles are dispersed through the solvent.",
+    "scienceFact": "A solution is a uniform mixture. Its solute particles are dispersed through the solvent.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.005",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which change forms a new substance?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Chemical change"
+      },
+      {
+        "id": "choice-1",
+        "text": "Change of state only",
+        "misconception": "chemistry.matter.mixup.5.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Simple cutting",
+        "misconception": "chemistry.matter.mixup.5.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Physical mixing only",
+        "misconception": "chemistry.matter.mixup.5.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A chemical change forms one or more new substances. Rust forms when iron reacts with oxygen and water.",
+    "scienceFact": "A chemical change forms one or more new substances. Rust forms when iron reacts with oxygen and water.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.006",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the change from liquid to gas at a surface called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Deposition",
+        "misconception": "chemistry.matter.mixup.6.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Evaporation"
+      },
+      {
+        "id": "choice-2",
+        "text": "Condensation",
+        "misconception": "chemistry.matter.mixup.6.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Freezing",
+        "misconception": "chemistry.matter.mixup.6.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Evaporation occurs when particles escape from a liquid’s surface into the gas phase.",
+    "scienceFact": "Evaporation occurs when particles escape from a liquid’s surface into the gas phase.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.007",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is the change from gas to liquid called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Sublimation",
+        "misconception": "chemistry.matter.mixup.7.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Evaporation",
+        "misconception": "chemistry.matter.mixup.7.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Condensation"
+      },
+      {
+        "id": "choice-3",
+        "text": "Melting",
+        "misconception": "chemistry.matter.mixup.7.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Water vapor can condense into liquid on a cool surface. The drops do not pass through the bottle wall.",
+    "scienceFact": "Water vapor can condense into liquid on a cool surface. The drops do not pass through the bottle wall.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.008",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which mixture can often be separated with a magnet?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Salt and water",
+        "misconception": "chemistry.matter.mixup.8.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sugar and water",
+        "misconception": "chemistry.matter.mixup.8.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Oxygen and nitrogen",
+        "misconception": "chemistry.matter.mixup.8.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Iron and sand"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Iron is attracted to magnets. A magnet can separate iron pieces from materials such as dry sand.",
+    "scienceFact": "Iron is attracted to magnets. A magnet can separate iron pieces from materials such as dry sand.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.009",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "What is mass per unit volume called?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Density"
+      },
+      {
+        "id": "choice-1",
+        "text": "Temperature",
+        "misconception": "chemistry.matter.mixup.9.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Length",
+        "misconception": "chemistry.matter.mixup.9.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Electric current",
+        "misconception": "chemistry.matter.mixup.9.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Density is mass divided by volume. In SI units it can be expressed in kilograms per cubic meter.",
+    "scienceFact": "Density is mass divided by volume. In SI units it can be expressed in kilograms per cubic meter.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.e.010",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "mcq",
+    "prompt": "Which method can recover dissolved salt from salt water?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Simple sieving",
+        "misconception": "chemistry.matter.mixup.10.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Evaporation of water"
+      },
+      {
+        "id": "choice-2",
+        "text": "Paper filtration alone",
+        "misconception": "chemistry.matter.mixup.10.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Magnetic sorting",
+        "misconception": "chemistry.matter.mixup.10.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Dissolved salt passes through ordinary filter paper. Removing the water by evaporation can leave solid salt behind.",
+    "scienceFact": "Dissolved salt passes through ordinary filter paper. Removing the water by evaporation can leave solid salt behind.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "beakers"
+  },
+  {
+    "id": "chemistry.matter.e.011",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What word describes a material made of only one type of atom?",
+    "answer": "Element",
+    "explanation": "An element contains one type of atom. Chemical reactions do not turn one element into another.",
+    "scienceFact": "An element contains one type of atom. Chemical reactions do not turn one element into another.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "element",
+      "Element"
+    ]
+  },
+  {
+    "id": "chemistry.matter.e.012",
+    "deckId": "chemistry.matter",
+    "level": "easy",
+    "type": "input",
+    "prompt": "What should you wear to protect your eyes in a lab?",
+    "answer": "Safety goggles",
+    "explanation": "Safety goggles help protect eyes from splashes and debris. Follow the teacher’s safety instructions in the lab.",
+    "scienceFact": "Safety goggles help protect eyes from splashes and debris. Follow the teacher’s safety instructions in the lab.",
+    "topic": "chemistry.matter",
+    "gradeBand": 7,
+    "bloom": "remember",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "accept": [
+      "safety goggles",
+      "Safety goggles"
+    ]
+  },
+  {
+    "id": "chemistry.matter.m.001",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A piece of wood from a Philippine classroom keeps its shape in a new container. What state is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Plasma",
+        "misconception": "chemistry.matter.mixup.1.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Solid"
+      },
+      {
+        "id": "choice-2",
+        "text": "Liquid",
+        "misconception": "chemistry.matter.mixup.1.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Gas",
+        "misconception": "chemistry.matter.mixup.1.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A solid has a fixed shape and volume under usual conditions. Its particles stay close and vibrate in place.",
+    "scienceFact": "A solid has a fixed shape and volume under usual conditions. Its particles stay close and vibrate in place.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.002",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Salt dissolves in water for a Philippine kitchen recipe. What is the role of the water?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Suspension",
+        "misconception": "chemistry.matter.mixup.2.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Residue",
+        "misconception": "chemistry.matter.mixup.2.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Solvent"
+      },
+      {
+        "id": "choice-3",
+        "text": "Solute",
+        "misconception": "chemistry.matter.mixup.2.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "The solvent dissolves a solute to form a solution. In salt water, water is the solvent.",
+    "scienceFact": "The solvent dissolves a solute to form a solution. In salt water, water is the solvent.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.003",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A class tests muddy water from a rice field. Which method traps sand while water passes through paper?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Dissolving",
+        "misconception": "chemistry.matter.mixup.3.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Melting",
+        "misconception": "chemistry.matter.mixup.3.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Freezing",
+        "misconception": "chemistry.matter.mixup.3.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Filtration"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "A filter traps solid pieces that do not dissolve. Liquid can pass through its small holes.",
+    "scienceFact": "A filter traps solid pieces that do not dissolve. Liquid can pass through its small holes.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.004",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Salt water looks the same in every part after stirring. What kind of mixture is it?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Solution"
+      },
+      {
+        "id": "choice-1",
+        "text": "Coarse suspension",
+        "misconception": "chemistry.matter.mixup.4.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Pure element",
+        "misconception": "chemistry.matter.mixup.4.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Single compound",
+        "misconception": "chemistry.matter.mixup.4.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "A solution is a uniform mixture. Its solute particles are dispersed through the solvent.",
+    "scienceFact": "A solution is a uniform mixture. Its solute particles are dispersed through the solvent.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.005",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "An iron nail rusts in damp air. What type of change has taken place?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Physical mixing only",
+        "misconception": "chemistry.matter.mixup.5.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Chemical change"
+      },
+      {
+        "id": "choice-2",
+        "text": "Change of state only",
+        "misconception": "chemistry.matter.mixup.5.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Simple cutting",
+        "misconception": "chemistry.matter.mixup.5.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A chemical change forms one or more new substances. Rust forms when iron reacts with oxygen and water.",
+    "scienceFact": "A chemical change forms one or more new substances. Rust forms when iron reacts with oxygen and water.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.006",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A puddle shrinks on a warm day without boiling. What process removes the water?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Freezing",
+        "misconception": "chemistry.matter.mixup.6.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Deposition",
+        "misconception": "chemistry.matter.mixup.6.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation"
+      },
+      {
+        "id": "choice-3",
+        "text": "Condensation",
+        "misconception": "chemistry.matter.mixup.6.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Evaporation occurs when particles escape from a liquid’s surface into the gas phase.",
+    "scienceFact": "Evaporation occurs when particles escape from a liquid’s surface into the gas phase.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.007",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Water drops form outside a cold bottle. What change forms the drops?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Melting",
+        "misconception": "chemistry.matter.mixup.7.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Sublimation",
+        "misconception": "chemistry.matter.mixup.7.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation",
+        "misconception": "chemistry.matter.mixup.7.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Condensation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Water vapor can condense into liquid on a cool surface. The drops do not pass through the bottle wall.",
+    "scienceFact": "Water vapor can condense into liquid on a cool surface. The drops do not pass through the bottle wall.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.008",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A student mixes iron filings and dry sand. Which material can be pulled out with a magnet?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Iron and sand"
+      },
+      {
+        "id": "choice-1",
+        "text": "Salt and water",
+        "misconception": "chemistry.matter.mixup.8.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sugar and water",
+        "misconception": "chemistry.matter.mixup.8.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Oxygen and nitrogen",
+        "misconception": "chemistry.matter.mixup.8.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Iron is attracted to magnets. A magnet can separate iron pieces from materials such as dry sand.",
+    "scienceFact": "Iron is attracted to magnets. A magnet can separate iron pieces from materials such as dry sand.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.009",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "Two equal-sized blocks have different masses. Which property compares their mass per volume?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Electric current",
+        "misconception": "chemistry.matter.mixup.9.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Density"
+      },
+      {
+        "id": "choice-2",
+        "text": "Temperature",
+        "misconception": "chemistry.matter.mixup.9.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Length",
+        "misconception": "chemistry.matter.mixup.9.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Density is mass divided by volume. In SI units it can be expressed in kilograms per cubic meter.",
+    "scienceFact": "Density is mass divided by volume. In SI units it can be expressed in kilograms per cubic meter.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.010",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "mcq",
+    "prompt": "A dish of salt water dries and leaves crystals. Which method separates the salt?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Magnetic sorting",
+        "misconception": "chemistry.matter.mixup.10.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Simple sieving",
+        "misconception": "chemistry.matter.mixup.10.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Evaporation of water"
+      },
+      {
+        "id": "choice-3",
+        "text": "Paper filtration alone",
+        "misconception": "chemistry.matter.mixup.10.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Dissolved salt passes through ordinary filter paper. Removing the water by evaporation can leave solid salt behind.",
+    "scienceFact": "Dissolved salt passes through ordinary filter paper. Removing the water by evaporation can leave solid salt behind.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.011",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "order",
+    "prompt": "Order how to recover sand from a sand-water mixture.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Place filter paper"
+      },
+      {
+        "id": "step-1",
+        "text": "Pour the mixture"
+      },
+      {
+        "id": "step-2",
+        "text": "Collect sand on the paper"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2"
+    ],
+    "explanation": "Place filter paper. Pour the mixture. Collect sand on the paper. Each stage leads to the next.",
+    "scienceFact": "An element contains one type of atom. Chemical reactions do not turn one element into another.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.m.012",
+    "deckId": "chemistry.matter",
+    "level": "medium",
+    "type": "match",
+    "prompt": "Link each mixture word with its meaning.",
+    "answer": {
+      "Solute": "Substance being dissolved",
+      "Solvent": "Substance doing the dissolving",
+      "Solution": "Uniform mixture formed"
+    },
+    "explanation": "Each pair links a science idea to its correct role. Check the matched pairs to see how the ideas fit.",
+    "scienceFact": "Safety goggles help protect eyes from splashes and debris. Follow the teacher’s safety instructions in the lab.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "apply",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.001",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Philippine lab sample has mass 240 kg and volume 0.12 m³. What is its density?",
+    "answer": "2000",
+    "explanation": "Density = mass ÷ volume = 240 ÷ 0.12 = 2000 kg/m³.",
+    "scienceFact": "Density = mass ÷ volume = 240 ÷ 0.12 = 2000 kg/m³.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "kg/m³",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.matter.h.002",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Cebu class dissolves 5 g of salt in 95 g of water. What percent of the solution’s mass is salt?",
+    "answer": "5",
+    "explanation": "The solution has mass 100 g. Salt makes up 5 ÷ 100 × 100 = 5%.",
+    "scienceFact": "The solution has mass 100 g. Salt makes up 5 ÷ 100 × 100 = 5%.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "%",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.matter.h.003",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "calc",
+    "prompt": "A Manila class separates a 50 g sand-salt mixture. It recovers 18 g of sand with no losses. What mass is salt?",
+    "answer": "32",
+    "explanation": "Conservation of mass gives 50 − 18 = 32 g of salt.",
+    "scienceFact": "Conservation of mass gives 50 − 18 = 32 g of salt.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": true,
+    "reviewed": true,
+    "unit": "g",
+    "tolerance": 0.001
+  },
+  {
+    "id": "chemistry.matter.h.004",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Samples from the top and bottom have the same dissolved salt level. Which type of mixture fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Single compound",
+        "misconception": "chemistry.matter.mixup.4.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Solution"
+      },
+      {
+        "id": "choice-2",
+        "text": "Coarse suspension",
+        "misconception": "chemistry.matter.mixup.4.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Pure element",
+        "misconception": "chemistry.matter.mixup.4.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "A solution is a uniform mixture. Its solute particles are dispersed through the solvent.",
+    "scienceFact": "A solution is a uniform mixture. Its solute particles are dispersed through the solvent.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.005",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A sample changes color and forms a new compound with oxygen. Which type of change best fits?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Simple cutting",
+        "misconception": "chemistry.matter.mixup.5.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Physical mixing only",
+        "misconception": "chemistry.matter.mixup.5.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Chemical change"
+      },
+      {
+        "id": "choice-3",
+        "text": "Change of state only",
+        "misconception": "chemistry.matter.mixup.5.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "A chemical change forms one or more new substances. Rust forms when iron reacts with oxygen and water.",
+    "scienceFact": "A chemical change forms one or more new substances. Rust forms when iron reacts with oxygen and water.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.006",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A bowl of water loses mass below its boiling point. Which surface process explains the loss?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Condensation",
+        "misconception": "chemistry.matter.mixup.6.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Freezing",
+        "misconception": "chemistry.matter.mixup.6.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Deposition",
+        "misconception": "chemistry.matter.mixup.6.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Evaporation"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Evaporation occurs when particles escape from a liquid’s surface into the gas phase.",
+    "scienceFact": "Evaporation occurs when particles escape from a liquid’s surface into the gas phase.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.007",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A dry glass gets wet outside when humid air meets its cold surface. Which change in the air’s water occurs?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Condensation"
+      },
+      {
+        "id": "choice-1",
+        "text": "Melting",
+        "misconception": "chemistry.matter.mixup.7.1"
+      },
+      {
+        "id": "choice-2",
+        "text": "Sublimation",
+        "misconception": "chemistry.matter.mixup.7.2"
+      },
+      {
+        "id": "choice-3",
+        "text": "Evaporation",
+        "misconception": "chemistry.matter.mixup.7.3"
+      }
+    ],
+    "answer": "choice-0",
+    "explanation": "Water vapor can condense into liquid on a cool surface. The drops do not pass through the bottle wall.",
+    "scienceFact": "Water vapor can condense into liquid on a cool surface. The drops do not pass through the bottle wall.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.008",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "One component of a dry mixture is strongly attracted to a magnet. Which pair allows magnetic separation?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Oxygen and nitrogen",
+        "misconception": "chemistry.matter.mixup.8.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Iron and sand"
+      },
+      {
+        "id": "choice-2",
+        "text": "Salt and water",
+        "misconception": "chemistry.matter.mixup.8.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Sugar and water",
+        "misconception": "chemistry.matter.mixup.8.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Iron is attracted to magnets. A magnet can separate iron pieces from materials such as dry sand.",
+    "scienceFact": "Iron is attracted to magnets. A magnet can separate iron pieces from materials such as dry sand.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.009",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "A 20 kg object occupies 4 m³. Its mass divided by its volume gives which property?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Length",
+        "misconception": "chemistry.matter.mixup.9.2"
+      },
+      {
+        "id": "choice-1",
+        "text": "Electric current",
+        "misconception": "chemistry.matter.mixup.9.3"
+      },
+      {
+        "id": "choice-2",
+        "text": "Density"
+      },
+      {
+        "id": "choice-3",
+        "text": "Temperature",
+        "misconception": "chemistry.matter.mixup.9.1"
+      }
+    ],
+    "answer": "choice-2",
+    "explanation": "Density is mass divided by volume. In SI units it can be expressed in kilograms per cubic meter.",
+    "scienceFact": "Density is mass divided by volume. In SI units it can be expressed in kilograms per cubic meter.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.010",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "mcq",
+    "prompt": "Filtration cannot remove dissolved salt, but heating leaves salt behind. Which method works for salt recovery?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Paper filtration alone",
+        "misconception": "chemistry.matter.mixup.10.1"
+      },
+      {
+        "id": "choice-1",
+        "text": "Magnetic sorting",
+        "misconception": "chemistry.matter.mixup.10.2"
+      },
+      {
+        "id": "choice-2",
+        "text": "Simple sieving",
+        "misconception": "chemistry.matter.mixup.10.3"
+      },
+      {
+        "id": "choice-3",
+        "text": "Evaporation of water"
+      }
+    ],
+    "answer": "choice-3",
+    "explanation": "Dissolved salt passes through ordinary filter paper. Removing the water by evaporation can leave solid salt behind.",
+    "scienceFact": "Dissolved salt passes through ordinary filter paper. Removing the water by evaporation can leave solid salt behind.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.011",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "order",
+    "prompt": "Order the state changes as ice is heated to steam at normal pressure.",
+    "options": [
+      {
+        "id": "step-0",
+        "text": "Solid ice"
+      },
+      {
+        "id": "step-1",
+        "text": "Liquid water"
+      },
+      {
+        "id": "step-2",
+        "text": "Water vapor"
+      }
+    ],
+    "answer": [
+      "step-0",
+      "step-1",
+      "step-2"
+    ],
+    "explanation": "Solid ice. Liquid water. Water vapor. Each stage leads to the next.",
+    "scienceFact": "An element contains one type of atom. Chemical reactions do not turn one element into another.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true
+  },
+  {
+    "id": "chemistry.matter.h.012",
+    "deckId": "chemistry.matter",
+    "level": "hard",
+    "type": "diagram",
+    "prompt": "A risk review finds that liquid may splash toward the face. Which item protects the eyes directly?",
+    "options": [
+      {
+        "id": "choice-0",
+        "text": "Loose sleeves",
+        "misconception": "chemistry.matter.mixup.12.3"
+      },
+      {
+        "id": "choice-1",
+        "text": "Safety goggles"
+      },
+      {
+        "id": "choice-2",
+        "text": "Cloth gloves",
+        "misconception": "chemistry.matter.mixup.12.1"
+      },
+      {
+        "id": "choice-3",
+        "text": "Open sandals",
+        "misconception": "chemistry.matter.mixup.12.2"
+      }
+    ],
+    "answer": "choice-1",
+    "explanation": "Safety goggles help protect eyes from splashes and debris. Follow the teacher’s safety instructions in the lab.",
+    "scienceFact": "Safety goggles help protect eyes from splashes and debris. Follow the teacher’s safety instructions in the lab.",
+    "topic": "chemistry.matter",
+    "gradeBand": 8,
+    "bloom": "analyze",
+    "curriculumArea": "Properties, states, solutions and safe separation. Content aligns with these curriculum areas; no official competency codes are claimed.",
+    "ph": false,
+    "reviewed": true,
+    "diagram": "beakers"
+  }
+]
