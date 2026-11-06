@@ -15,7 +15,15 @@ Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using 
 - The development server was then restarted on port 5173 and independently verified through HTTP, dashboard rendering and a loaded Cells session, with zero console errors.
 - Complete, tested install_script and start_skill fields were saved to the cloud environment draft. Saving does not publish them; the user must review/save and publish in environment settings.
 - GitHub Pages preparation: root-path regression checks passed (45 unit/property tests and 16 production-browser scenarios). The additional repository-path browser scenario passed for `/SHEN-LOVE-EMU-HOUJO/`, including loaded fonts, favicon, Cells questions, scoped service-worker caches, offline reload and an unvisited Chemistry deck. Browser fixtures reject console errors.
-- Uploaded the complete app and deployment workflow to GitHub main with a normal fast-forward push. [GitHub Actions run 42179117736](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42179117736), commit `b3a80ea`, passed the check/build job in 1m 36s. Publication stopped in configure-pages with “Not Found”: repository Pages must be enabled with the GitHub Actions source, then the workflow rerun. The live URL has not been verified. Cloud API access is blocked by the enforced network policy; additions for api.github.com and julomjohnlouise19-cloud.github.io were saved in the environment draft but are not applied.
+- Initial upload: [GitHub Actions run 42179117736](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42179117736), commit `b3a80ea`, passed the check/build job in 1m 36s. Publication stopped in configure-pages with “Not Found” because Pages was not enabled. The original instance also blocked GitHub API access. The user subsequently published the environment with the required domains, resolving that network restriction.
+
+## GitHub/display repair verification
+
+- The restored environment retained the checkout, installed dependencies, Node 24.22.1/npm 11.9.0 and Chromium. No environment configuration was changed or republished during this repair.
+- Lint, typecheck, all 45 unit/property tests and the economy simulation passed. Production builds validated all 972 science cards.
+- All 16 existing production-browser scenarios passed. The additional raw-source HTML fallback scenario passed with script execution disabled, including the styled panel, embedded favicon, online-lab link and phone-width layout, with zero console errors. The exact source is served without Vite transforms because managed Chromium prohibits direct file:// navigation.
+- The repository-path browser scenario passed, including decoded favicon, loaded fonts, desktop/mobile layout, a Cells session, scoped caches, offline reload and an unvisited Chemistry deck. Screenshots were inspected for the dashboard and fallback.
+- Pages actions were updated to verified Node 24 releases on ubuntu-24.04. The connected integration's Pages-create request returned 403 “Resource not accessible by integration”; after the owner-facing setting was changed, a read confirmed build_type=workflow and the expected public URL. The new deployment and live site still require verification.
 
 ## Behaviors exercised
 
@@ -23,4 +31,4 @@ The Cells Medium eight-card session reaches results, updates mastery and saves m
 
 ## Limits
 
-This is a client-side demo on one browser/origin, not a deployed school system. No real inventory is reserved or external message sent. Production authentication, shared classrooms, authoritative rewards and real claims need a backend. The source brief stopped at §4.8; missing specifications use the documented decisions. Publishing the cloud environment and restoration into a new task were not performed or claimed.
+This is a client-side demo on one browser/origin, not a deployed school system. No real inventory is reserved or external message sent. Production authentication, shared classrooms, authoritative rewards and real claims need a backend. The source brief stopped at §4.8; missing specifications use the documented decisions. The user published the cloud environment; the restored development capabilities above were checked in the replacement instance.

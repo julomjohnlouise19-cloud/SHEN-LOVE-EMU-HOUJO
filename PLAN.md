@@ -58,7 +58,7 @@ Client-only security and rewards are demonstrations; a backend must enforce real
 
 ## Final verification
 
-All phase gates are green. See docs/VALIDATION.md for the current-instance checks, content counts, browser scenarios and limitations. The tested install_script and start_skill were saved in the environment draft; review/save and publication remain user actions. The development server was restarted and its dashboard and Cells session verified.
+All application phase gates are green. See docs/VALIDATION.md for the checks, content counts, browser scenarios and limitations. The user published the environment, and the restored instance retained the checkout, Node/npm, Chromium and installed dependencies. No environment configuration was changed during the GitHub/display repair.
 
 ## GitHub connection and website publication
 
@@ -67,7 +67,17 @@ All phase gates are green. See docs/VALIDATION.md for the current-instance check
 - [x] Pass root-path regression checks and a production repository-path browser test.
 - [x] Add the tested GitHub Actions build/deployment workflow and publishing documentation.
 - [x] Upload the completed project to the user's main branch with a normal fast-forward push.
-- [x] Identify the exact publication prerequisite: enable Pages with GitHub Actions in repository settings, then run the workflow again. The current cloud policy blocks GitHub's API, so this setting could not be changed here.
+- [x] Identify the exact publication prerequisite: enable Pages with GitHub Actions in repository settings, then run the workflow again. The original instance's network policy blocked GitHub's API; this was resolved by the user's environment publication.
 - [ ] Verify the live website after Pages is enabled and deployment succeeds.
 
-The first GitHub Actions run passed its check/build job, including both browser suites, then stopped in configure-pages because no Pages site exists. See [run 42179117736](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42179117736). The full app and workflow are on main; the remaining setting and live-site verification are not claimed complete.
+The first GitHub Actions run passed its check/build job, including both browser suites, then stopped in configure-pages because no Pages site existed. See [run 42179117736](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42179117736). The GitHub Actions Pages source is now enabled; live-site verification awaits the corrected workflow run.
+
+## GitHub errors and display repair
+
+- [x] Inspect the failed job, website response and restored environment; preserve the published environment configuration.
+- [x] Add a styled, accessible HTML fallback linking to the online lab when app scripts cannot run.
+- [x] Replace deprecated Pages action runtimes with verified official releases and use a stable Ubuntu runner.
+- [x] Validate the restored environment, normal application, repository path and source HTML fallback.
+- [ ] Push the fixes without overwriting remote work and inspect the new GitHub run.
+- [x] Confirm that the GitHub Actions Pages source is enabled. Site creation through the connected integration returned 403, so the owner-facing setting was required; a later API read confirmed build_type=workflow.
+- [ ] Verify the corrected workflow and live public website.

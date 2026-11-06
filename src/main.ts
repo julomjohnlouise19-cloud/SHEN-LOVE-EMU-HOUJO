@@ -29,7 +29,7 @@ document.querySelector(".skip-link")?.addEventListener("click", (event) => {
   main?.focus();
   main?.scrollIntoView({ block: "start" });
 });
-app.append(
+app.replaceChildren(
   h(
     "div",
     { class: "loading-screen" },

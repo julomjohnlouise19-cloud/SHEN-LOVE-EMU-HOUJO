@@ -4,14 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f7f6ed" />
-    <meta name="description" content="A little curiosity, a little science, a lot of discovery. A cozy science learning lab for Grades 7–10." />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
-    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <meta
+      name="description"
+      content="A little curiosity, a little science, a lot of discovery. A cozy science learning lab for Grades 7–10."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2220%22%20fill%3D%22%23dfeabf%22%2F%3E%3Cpath%20d%3D%22M25%2012h14m-11%200v18L15%2048q-3%206%205%206h24q8%200%205-6L36%2030V12%22%20fill%3D%22%23fbfaf3%22%20stroke%3D%22%23455444%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M22%2040h20l6%2010H16z%22%20fill%3D%22%23b9d48f%22%2F%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%2244%22%20r%3D%222%22%20fill%3D%22%23455444%22%2F%3E%3Ccircle%20cx%3D%2236%22%20cy%3D%2244%22%20r%3D%222%22%20fill%3D%22%23455444%22%2F%3E%3C%2Fsvg%3E"
+    />
     <title>Cozy Science Lab · A little wonder, every day</title>
+    <style>
+      .startup-screen {
+        box-sizing: border-box;
+        min-height: 95vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: #f7f6ed;
+        color: #29352d;
+        font:
+          18px/1.6 system-ui,
+          sans-serif;
+      }
+      .startup-card {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 38rem;
+        padding: clamp(24px, 6vw, 48px);
+        border: 2px solid #29352d;
+        border-radius: 24px;
+        background: #fffdfa;
+        box-shadow: 6px 6px 0 #d7ddc7;
+      }
+      .startup-card h1 {
+        font-size: clamp(26px, 6vw, 36px);
+        line-height: 1.2;
+      }
+      .startup-card a {
+        color: #554184;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      .startup-card a:focus-visible {
+        outline: 3px solid #554184;
+        outline-offset: 4px;
+      }
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div id="app"></div>
+    <div id="app">
+      <main
+        id="main"
+        class="startup-screen"
+        tabindex="-1"
+        aria-labelledby="startup-title"
+      >
+        <div class="startup-card">
+          <p>Cozy Science Lab</p>
+          <h1 id="startup-title">Getting your little lab ready…</h1>
+          <p>A little wonder is on its way.</p>
+          <p>
+            If this screen stays here,
+            <a
+              href="https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/"
+              >open the online science lab</a
+            >.
+          </p>
+          <p>A downloaded HTML file cannot run the full game on its own.</p>
+          <p>The lab needs JavaScript enabled in your browser.</p>
+        </div>
+      </main>
+    </div>
     <div id="toasts" role="status" aria-live="polite"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
