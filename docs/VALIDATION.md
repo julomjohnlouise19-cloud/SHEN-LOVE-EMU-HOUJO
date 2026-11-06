@@ -15,6 +15,7 @@ Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using 
 - The development server was then restarted on port 5173 and independently verified through HTTP, dashboard rendering and a loaded Cells session, with zero console errors.
 - Complete, tested install_script and start_skill fields were saved to the cloud environment draft. Saving does not publish them; the user must review/save and publish in environment settings.
 - GitHub Pages preparation: root-path regression checks passed (45 unit/property tests and 16 production-browser scenarios). The additional repository-path browser scenario passed for `/SHEN-LOVE-EMU-HOUJO/`, including loaded fonts, favicon, Cells questions, scoped service-worker caches, offline reload and an unvisited Chemistry deck. Browser fixtures reject console errors.
+- Uploaded the complete app and deployment workflow to GitHub main with a normal fast-forward push. [GitHub Actions run 42179117736](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42179117736), commit `b3a80ea`, passed the check/build job in 1m 36s. Publication stopped in configure-pages with “Not Found”: repository Pages must be enabled with the GitHub Actions source, then the workflow rerun. The live URL has not been verified. Cloud API access is blocked by the enforced network policy; additions for api.github.com and julomjohnlouise19-cloud.github.io were saved in the environment draft but are not applied.
 
 ## Behaviors exercised
 

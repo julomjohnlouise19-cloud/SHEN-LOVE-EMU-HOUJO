@@ -66,5 +66,8 @@ All phase gates are green. See docs/VALIDATION.md for the current-instance check
 - [x] Support the GitHub Pages repository path for scripts, fonts, favicon and offline assets.
 - [x] Pass root-path regression checks and a production repository-path browser test.
 - [x] Add the tested GitHub Actions build/deployment workflow and publishing documentation.
-- [ ] Upload the completed project to the user's main branch with a normal fast-forward push.
-- [ ] Enable GitHub Pages and verify the live site, or identify the exact external prerequisite if GitHub API access is blocked.
+- [x] Upload the completed project to the user's main branch with a normal fast-forward push.
+- [x] Identify the exact publication prerequisite: enable Pages with GitHub Actions in repository settings, then run the workflow again. The current cloud policy blocks GitHub's API, so this setting could not be changed here.
+- [ ] Verify the live website after Pages is enabled and deployment succeeds.
+
+The first GitHub Actions run passed its check/build job, including both browser suites, then stopped in configure-pages because no Pages site exists. See [run 42179117736](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42179117736). The full app and workflow are on main; the remaining setting and live-site verification are not claimed complete.
