@@ -1,8 +1,8 @@
 import type { Page } from "@playwright/test";
-import { test, expect } from "./fixtures";
+import { test, expect, exploreAsGuest } from "./fixtures";
 import AxeBuilder from "@axe-core/playwright";
 async function ready(page: Page) {
-  await page.goto("/");
+  await exploreAsGuest(page);
   await expect(
     page.getByRole("heading", { name: "Hey, curious mind!" }),
   ).toBeVisible();
@@ -123,12 +123,14 @@ test("phase 4: a new account hashes its password, blocks admin access, and can c
     page.getByRole("status").filter({ hasText: "Demo password changed." }),
   ).toBeVisible();
   await page.getByRole("button", { name: "Open scientist profile" }).click();
-  await page.getByRole("button", { name: "Sign out", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Log out", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Log out now" }).click();
   await expect(
-    page.getByRole("heading", { name: "Hey, curious mind!" }),
+    page.getByRole("heading", { name: "A little curiosity starts here." }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Open scientist profile" }).click();
-  await page.getByRole("button", { name: "Create an account" }).click();
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await page.getByLabel("Username", { exact: true }).fill("mika_science");
   await page.getByLabel("Password", { exact: true }).fill("mika-demo-123");
@@ -252,7 +254,7 @@ test("phase 4: lease fallback also protects the last item across tabs", async ({
   });
   await page.reload();
   const other = await context.newPage();
-  await other.goto("/#/shop");
+  await exploreAsGuest(other, "/#/shop");
   await page.goto("/#/shop");
   for (const p of [page, other])
     await p

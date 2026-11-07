@@ -5,9 +5,10 @@ import {
   getState,
   currentUser,
   exportBackup,
+  clearInvalidSession,
 } from "./store";
 import { h, toast, button, download, modal } from "./ui/dom";
-import { shell, empty } from "./ui/shell";
+import { shell, empty, resetNavigation } from "./ui/shell";
 import { dashboard } from "./ui/dashboard";
 import { branchPage, islandPage, startDeck } from "./ui/learn";
 import { playPage } from "./ui/play";
@@ -20,8 +21,13 @@ import {
   leaderboardPage,
   labPage,
 } from "./ui/extras";
-import { authModal } from "./ui/auth";
-import { connectRenderer, go } from "./ui/actions";
+import { welcomeHub } from "./ui/welcome";
+import {
+  connectRenderer,
+  go,
+  entryDestination,
+  welcomeRoute,
+} from "./ui/actions";
 const app = document.querySelector<HTMLDivElement>("#app")!;
 document.querySelector(".skip-link")?.addEventListener("click", (event) => {
   event.preventDefault();
@@ -39,20 +45,48 @@ app.replaceChildren(
   ),
 );
 let renderId = 0,
-  scheduled = false;
+  scheduled = false,
+  initialized = false;
+let renderedUserId: string | undefined;
 async function render() {
   const id = ++renderId;
   const path = location.hash.slice(1).split("?")[0] || "/";
+  const user = currentUser();
+  const identityChanged = renderedUserId !== user?.id;
+  if (identityChanged) {
+    resetNavigation();
+    if (renderedUserId) {
+      document.querySelector("#toasts")?.replaceChildren();
+      document
+        .querySelectorAll<HTMLDialogElement>("dialog[open]")
+        .forEach((dialog) => {
+          dialog.close();
+          dialog.remove();
+        });
+    }
+    renderedUserId = user?.id;
+  }
+  if (!user) {
+    clearInvalidSession();
+    if (path !== "/welcome")
+      history.replaceState(
+        null,
+        "",
+        `#${welcomeRoute(location.hash.slice(1) || "/")}`,
+      );
+    app.replaceChildren(welcomeHub());
+    document.title = "Welcome · Cozy Science Lab";
+    if (identityChanged)
+      app.querySelector<HTMLElement>("#main")?.focus({ preventScroll: true });
+    return;
+  }
+  if (path === "/welcome") {
+    go(entryDestination(user.role === "admin" ? "/admin" : "/"));
+    return;
+  }
   let page: HTMLElement;
   try {
-    if (!currentUser()) {
-      page = empty(
-        "cat",
-        "Your little lab is waiting.",
-        "Sign in, join the lab, or keep exploring as a guest.",
-        button("Sign in or join", () => authModal(), "button primary"),
-      );
-    } else if (path === "/") page = dashboard();
+    if (path === "/") page = dashboard();
     else if (path === "/island") page = islandPage();
     else if (path.startsWith("/branch/")) page = branchPage(path.split("/")[2]);
     else if (path.startsWith("/play/"))
@@ -115,11 +149,17 @@ async function render() {
     );
   }
   if (id !== renderId) return;
+  if (currentUser()?.id !== user.id) {
+    schedule();
+    return;
+  }
   app.replaceChildren(shell(page, path));
+  if (identityChanged)
+    app.querySelector<HTMLElement>("#main")?.focus({ preventScroll: true });
   document.title = `${path === "/" ? "My little lab" : path.startsWith("/play") ? "A little discovery" : path === "/admin" ? "SSC mission control" : path.split("/").pop()?.replaceAll("-", " ")} · Cozy Science Lab`;
 }
 function schedule() {
-  if (scheduled) return;
+  if (!initialized || scheduled) return;
   scheduled = true;
   setTimeout(() => {
     scheduled = false;
@@ -131,6 +171,9 @@ window.addEventListener("hashchange", () => {
   window.scrollTo({ top: 0 });
   schedule();
 });
+window.addEventListener("pageshow", schedule);
+window.addEventListener("focus", schedule);
+document.addEventListener("visibilitychange", schedule);
 window.addEventListener("csl:quota", () =>
   toast(
     "Your little lab is out of storage. Export a backup before clearing old browser data.",
@@ -154,11 +197,17 @@ window.addEventListener("online", () =>
 );
 try {
   await initStore();
+  initialized = true;
   subscribe(schedule);
   await render();
+  setInterval(() => {
+    if (renderedUserId !== currentUser()?.id) schedule();
+  }, 1000);
   if (import.meta.env.PROD && "serviceWorker" in navigator)
     navigator.serviceWorker
-      .register(`${import.meta.env.BASE_URL}sw.js`, { scope: import.meta.env.BASE_URL })
+      .register(`${import.meta.env.BASE_URL}sw.js`, {
+        scope: import.meta.env.BASE_URL,
+      })
       .catch(() =>
         toast(
           "Offline caching isn’t available in this browser. You can still use the lab online.",

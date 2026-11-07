@@ -4,13 +4,12 @@ import {
   register,
   dispatch,
   logout,
-  guestSession,
   exportBackup,
   changePassword,
 } from "../store";
 import { button, field, h, input, modal, toast, download } from "./dom";
 import { mascot, icon } from "./svg";
-import { act, go, refresh } from "./actions";
+import { act, go, refresh, entryDestination, welcomeRoute } from "./actions";
 export function authModal(registerFirst = false) {
   let joining = registerFirst;
   const { dialog, close } = modal("A little space for your curiosity", []);
@@ -54,7 +53,11 @@ export function authModal(registerFirst = false) {
               });
             else await login(username.value, password.value);
             close();
-            go(currentUser()?.role === "admin" ? "/admin" : "/");
+            go(
+              entryDestination(
+                currentUser()?.role === "admin" ? "/admin" : "/",
+              ),
+            );
             toast(
               joining
                 ? `Welcome to your little science lab! ${currentUser()?.merits} starter merits are yours.`
@@ -234,16 +237,59 @@ export function profileModal() {
             "text-button",
           )
         : button(
-            "Sign out",
-            act(async () => {
-              await logout();
-              await guestSession();
+            "Log out",
+            () => {
               close();
-              go("/");
-              toast("Signed out. You’re exploring as a guest.");
-            }),
+              logoutModal();
+            },
             "text-button",
           ),
+    ),
+  ]);
+}
+
+export function logoutModal() {
+  const user = currentUser();
+  if (!user) {
+    go(welcomeRoute());
+    return;
+  }
+  const error = h("p", { class: "form-error", role: "alert" });
+  const { close } = modal("Log out of your lab?", [
+    h("div", { class: "logout-mascot" }, mascot(user.avatar)),
+    h(
+      "p",
+      null,
+      user.id === "guest"
+        ? "Your guest discoveries stay in this browser. You can choose guest exploration again from the welcome hub."
+        : `${user.name}, your discoveries stay saved in this browser. Sign in again whenever you’re ready.`,
+    ),
+    error,
+    h(
+      "div",
+      { class: "logout-actions" },
+      button("Keep exploring", () => close(), "button outline"),
+      button(
+        "Log out now",
+        async () => {
+          let warning = "";
+          try {
+            await logout();
+          } catch (e) {
+            if (currentUser()) {
+              error.textContent =
+                e instanceof Error ? e.message : "Please try again.";
+              return;
+            }
+            warning =
+              "You’re logged out of this tab. Browser storage couldn’t be updated.";
+          }
+          close();
+          go(welcomeRoute("/", warning ? "storage" : "logged-out"));
+          refresh();
+        },
+        "button primary",
+      ),
     ),
   ]);
 }

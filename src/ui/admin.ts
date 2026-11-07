@@ -884,8 +884,7 @@ function auditPage() {
               await importBackup(text);
               close();
               toast("Backup restored. Sign in again to continue.");
-              go("/");
-              authModal();
+              go("/welcome");
             }),
             "button primary full",
           ),

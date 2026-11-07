@@ -4,8 +4,11 @@ import { levelOf } from "../core/rules";
 import { h, button, modal, progress } from "./dom";
 import { icon, mascot } from "./svg";
 import { act, go } from "./actions";
-import { authModal, profileModal } from "./auth";
+import { authModal, profileModal, logoutModal } from "./auth";
 let sidebarOpen = false;
+export function resetNavigation() {
+  sidebarOpen = false;
+}
 const nav = [
   ["/", "home", "My lab"],
   ["/island", "island", "Science Island"],
@@ -210,6 +213,9 @@ export function shell(page: HTMLElement, route: string) {
         "icon-button avatar-button",
         { "aria-label": "Open scientist profile" },
       ),
+      button("Log out", logoutModal, "logout-button", {
+        "aria-label": "Log out",
+      }),
     ),
   );
   const main = h("main", { id: "main", class: "main", tabIndex: -1 }, page);

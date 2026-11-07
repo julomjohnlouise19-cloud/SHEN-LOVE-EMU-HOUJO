@@ -83,3 +83,12 @@ The first GitHub Actions run passed its check/build job, including both browser 
 - [x] Verify the corrected workflow and live public website.
 
 The live site returned HTTP 200 and its module URL matched the locally verified Pages build. Desktop/mobile screenshots and the tested WCAG AA checks passed. A full eight-card Cells session updated mastery and opened the Review Box. An offline reload and a previously unvisited Chemistry deck both worked. Zero console errors and zero failed resource responses were observed. The restored development server was also started and verified through the dashboard and a loaded Cells question.
+
+## Welcome hub and logout
+
+- [x] Replace automatic guest login with an explicit welcome hub for first visits and ended sessions.
+- [x] Add a visible, accessible Log out control and confirmation interface; preserve saved progress.
+- [x] Guard private routes, browser Back, expired/revoked sessions and open profile dialogs after logout.
+- [x] Preserve incoming deck/challenge destinations through sign-in, registration and explicit guest entry.
+- [x] Test desktop/mobile, account creation, guest entry, logout/cancel/reload, session expiry/revocation, offline behavior and the existing learning/reward flows.
+- [ ] Push tested fixes, verify GitHub deployment and check the live welcome/logout flow.

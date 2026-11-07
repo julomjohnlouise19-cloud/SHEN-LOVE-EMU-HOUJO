@@ -1,10 +1,10 @@
 import type { Page } from "@playwright/test";
-import { test, expect } from "./fixtures";
+import { test, expect, exploreAsGuest } from "./fixtures";
 import AxeBuilder from "@axe-core/playwright";
 import cells from "../src/data/questions/life/cells.json" with { type: "json" };
 import type { Question } from "../src/core/types";
 async function ready(page: Page) {
-  await page.goto("/");
+  await exploreAsGuest(page);
   await expect(
     page.getByRole("heading", { name: "Hey, curious mind!" }),
   ).toBeVisible();
@@ -153,7 +153,17 @@ test("phase 2: daily spin, notebook, demo accounts, supply redemption and admin 
   await page.getByLabel("Reason", { exact: true }).fill("Demo reward test");
   await page.getByRole("button", { name: "Save adjustment" }).click();
   await page.getByRole("button", { name: "Open scientist profile" }).click();
-  await page.getByRole("button", { name: "Sign out", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Log out", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Log out now" }).click();
+  await expect(
+    page.getByRole("heading", { name: "A little curiosity starts here." }),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Explore as guest", exact: true })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Hey, curious mind!" }),
   ).toBeVisible();
@@ -195,7 +205,7 @@ test("phase 2: two tabs cannot buy the last supply twice", async ({
     localStorage.setItem("csl:state", JSON.stringify(s));
   });
   const other = await context.newPage();
-  await other.goto("/#/shop");
+  await exploreAsGuest(other, "/#/shop");
   await page.reload();
   await page.goto("/#/shop");
   await page

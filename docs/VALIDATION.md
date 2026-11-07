@@ -30,6 +30,17 @@ Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using 
 
 ## Behaviors exercised
 
+## Welcome hub and logout — 7 November 2026 (Asia/Manila)
+
+- Lint, typecheck and all 45 unit/property tests passed. Production builds validated all 972 cards.
+- All 23 root-path browser scenarios passed, including the six new welcome/logout scenarios. The separate Pages-path scenario passed with offline logout and reload added. No application browser-console errors were observed.
+- First visits create no active guest session. The separate hub offers sign in, account creation and explicit guest entry. Desktop/mobile layout, keyboard skip navigation, the hub and logout dialog passed the tested WCAG A/AA axe rules. Screenshots were inspected; an illustration positioning defect found during implementation was fixed before delivery.
+- Account creation, logout cancellation, confirmation, saved notebook recovery on sign-in, reload and browser Back were exercised. Guest entry preserved a hard-difficulty seeded challenge link. Eight-hour expiry and cross-tab revocation closed open profile dialogs and removed protected views. A simulated storage-full error still cleared the tab credential and showed an honest hub notice.
+- The Pages build loaded local fonts, favicon and questions at the repository prefix; cached unvisited decks still worked offline, and offline logout/reload stayed at the hub without an automatic guest session. Existing account, password, quota, multi-tab stock, learning, admin and reward scenarios stayed green.
+- Deployment and the live welcome/logout interface will be checked after the tested code is uploaded. No environment configuration was changed for this feature.
+
+## Behaviors exercised
+
 The Cells Medium eight-card session reaches results, updates mastery and saves mistakes in the Review Box. Browser tests cover all branch listings, the Level 4 Skills Lab gate, reproducible Challenge Links, the cart experiment and calculator practice. Purchases deduct once, reject changed prices, redeem once and can be marked collected only by an admin. Both Web Locks and lease-fallback two-tab tests protect the last item. Quota errors preserve balance/stock and offer export. Invalid imports do not replace data; corrupt JSON is quarantined. A fresh production cache reloads offline and opens an unvisited Chemistry deck. Registration hashes passwords, changing a password invalidates other account sessions, and login cooldown survives reload. User markup is rendered as text. Phone pages fit 390 px width and pass the tested WCAG A/AA rules.
 
 ## Limits

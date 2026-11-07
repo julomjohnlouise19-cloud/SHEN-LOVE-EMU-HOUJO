@@ -21,21 +21,34 @@ export const subscribe = (fn: () => void) => {
   listeners.add(fn);
   return () => listeners.delete(fn);
 };
-export function session(): Session | undefined {
+function sessionToken(): string | undefined {
   try {
     const raw: unknown = JSON.parse(
       sessionStorage.getItem("csl:session") ?? "null",
     );
-    if (!raw || typeof raw !== "object" || !("token" in raw)) return undefined;
-    return state.sessions.find(
-      (s) => s.token === raw.token && s.expires > Date.now(),
-    );
+    if (
+      !raw ||
+      typeof raw !== "object" ||
+      !("token" in raw) ||
+      typeof raw.token !== "string"
+    )
+      return undefined;
+    return raw.token;
   } catch {
     return undefined;
   }
 }
+export function session(): Session | undefined {
+  const token = sessionToken();
+  return state.sessions.find(
+    (s) => s.token === token && s.expires > Date.now(),
+  );
+}
 export const currentUser = () =>
   state.users.find((u) => u.id === session()?.userId);
+export function clearInvalidSession() {
+  if (!currentUser()) sessionStorage.removeItem("csl:session");
+}
 const requireActor = () => {
   const actor = currentUser();
   if (!actor) throw new Error("Your session expired. Please sign in again.");
@@ -73,7 +86,7 @@ export async function initStore() {
       listeners.forEach((fn) => fn());
     }
   });
-  if (!currentUser()) await guestSession();
+  clearInvalidSession();
   setInterval(() => {
     const actor = currentUser();
     if (!actor || document.visibilityState !== "visible") return;
@@ -92,6 +105,7 @@ export async function initStore() {
   }, 60000);
 }
 async function createSession(userId: string) {
+  const previousToken = sessionToken();
   const record: Session = {
     token: crypto.randomUUID(),
     userId,
@@ -102,7 +116,12 @@ async function createSession(userId: string) {
     tx.set(KEY, {
       ...s,
       rev: s.rev + 1,
-      sessions: [...s.sessions.filter((t) => t.expires > Date.now()), record],
+      sessions: [
+        ...s.sessions.filter(
+          (t) => t.expires > Date.now() && t.token !== previousToken,
+        ),
+        record,
+      ],
       users: s.users.map((u) =>
         u.id === userId ? { ...u, lastSeen: Date.now() } : u,
       ),
@@ -118,18 +137,21 @@ export async function guestSession() {
   await createSession("guest");
 }
 export async function logout() {
-  const token = session()?.token;
-  if (token)
-    await adapter.transaction([KEY], (tx) => {
-      const s = tx.get<AppState>(KEY)!;
-      tx.set(KEY, {
-        ...s,
-        rev: s.rev + 1,
-        sessions: s.sessions.filter((t) => t.token !== token),
+  const token = sessionToken();
+  try {
+    if (token)
+      await adapter.transaction([KEY], (tx) => {
+        const s = tx.get<AppState>(KEY)!;
+        tx.set(KEY, {
+          ...s,
+          rev: s.rev + 1,
+          sessions: s.sessions.filter((t) => t.token !== token),
+        });
       });
-    });
-  sessionStorage.removeItem("csl:session");
-  listeners.forEach((fn) => fn());
+  } finally {
+    sessionStorage.removeItem("csl:session");
+    listeners.forEach((fn) => fn());
+  }
 }
 export async function login(username: string, password: string) {
   const name = username.trim().toLowerCase();

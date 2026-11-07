@@ -1,11 +1,11 @@
-import { test, expect } from "./fixtures";
+import { test, expect, exploreAsGuest } from "./fixtures";
 test("GitHub Pages loads styles, fonts, decks and offline assets under the repository path", async ({
   page,
   context,
 }) => {
   const site = String(test.info().project.use.baseURL);
   const prefix = new URL(site).pathname;
-  await page.goto(site);
+  await exploreAsGuest(page, site);
   await expect(
     page.getByRole("heading", { name: "Hey, curious mind!" }),
   ).toBeVisible();
@@ -87,5 +87,17 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
     .click();
   await page.getByRole("button", { name: "Let’s make a discovery" }).click();
   await expect(page.locator(".question-card")).toBeVisible();
+  await page.getByRole("button", { name: "Log out", exact: true }).click();
+  await page.getByRole("button", { name: "Log out now" }).click();
+  await expect(
+    page.getByRole("heading", { name: "A little curiosity starts here." }),
+  ).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "A little curiosity starts here." }),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(() => sessionStorage.getItem("csl:session")),
+  ).toBeNull();
   await context.setOffline(false);
 });

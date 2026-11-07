@@ -1,8 +1,8 @@
-import { test, expect } from "./fixtures";
+import { test, expect, exploreAsGuest } from "./fixtures";
 test("a changed price is explained inside the open dialog without charging merits", async ({
   page,
 }) => {
-  await page.goto("/");
+  await exploreAsGuest(page);
   await expect(
     page.getByRole("heading", { name: "Hey, curious mind!" }),
   ).toBeVisible();
@@ -39,7 +39,7 @@ test("a changed price is explained inside the open dialog without charging merit
 test("a double click creates one purchase and one deduction", async ({
   page,
 }) => {
-  await page.goto("/");
+  await exploreAsGuest(page);
   await expect(
     page.getByRole("heading", { name: "Hey, curious mind!" }),
   ).toBeVisible();
