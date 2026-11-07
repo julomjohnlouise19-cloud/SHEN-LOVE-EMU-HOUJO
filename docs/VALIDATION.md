@@ -28,8 +28,6 @@ Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using 
 - The public HTTPS site returned HTTP 200 in Chromium. Its module URL matched the verified local Pages build. Local fonts loaded, desktop/mobile layout and screenshots passed inspection, and the tested WCAG A/AA axe rules reported no violations. A complete eight-card Cells session reached results, persisted mastery and opened the Review Box. An offline reload and an unvisited Chemistry deck worked. The live check recorded zero console errors and zero failed resource responses.
 - The restored development server is running on port 5173. HTTP readiness, dashboard rendering and a loaded Cells question were independently checked with zero console errors. Source HTML remains a multi-file application's entry point; the fallback provides the online destination when opened without its runtime.
 
-## Behaviors exercised
-
 ## Welcome hub and logout — 7 November 2026 (Asia/Manila)
 
 - Lint, typecheck and all 45 unit/property tests passed. Production builds validated all 972 cards.
@@ -37,7 +35,9 @@ Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using 
 - First visits create no active guest session. The separate hub offers sign in, account creation and explicit guest entry. Desktop/mobile layout, keyboard skip navigation, the hub and logout dialog passed the tested WCAG A/AA axe rules. Screenshots were inspected; an illustration positioning defect found during implementation was fixed before delivery.
 - Account creation, logout cancellation, confirmation, saved notebook recovery on sign-in, reload and browser Back were exercised. Guest entry preserved a hard-difficulty seeded challenge link. Eight-hour expiry and cross-tab revocation closed open profile dialogs and removed protected views. A simulated storage-full error still cleared the tab credential and showed an honest hub notice.
 - The Pages build loaded local fonts, favicon and questions at the repository prefix; cached unvisited decks still worked offline, and offline logout/reload stayed at the hub without an automatic guest session. Existing account, password, quota, multi-tab stock, learning, admin and reward scenarios stayed green.
-- Deployment and the live welcome/logout interface will be checked after the tested code is uploaded. No environment configuration was changed for this feature.
+- [GitHub Actions run 42353452310](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42353452310), application commit `27716ee331c2796ac72673b8dcf07a361cdec6f5`, passed check/build and deployment; both annotation lists were empty.
+- The live public site returned HTTP 200 and its module matched the verified Pages build. The welcome hub passed desktop/mobile layout and the tested WCAG A/AA rules. Live account creation, logout cancel/confirm, header/profile logout, signed-out reload/Back protection, sign-in recovery of a saved note, explicit guest entry, a loaded Cells question and offline logout/reload passed. Zero browser errors and zero failed resource responses were observed. Screenshots of the deployed mobile hub and logout dialog were inspected.
+- The development server was independently verified through welcome, explicit guest entry, dashboard and a loaded Cells question with zero console errors. No environment configuration was changed for this feature.
 
 ## Behaviors exercised
 

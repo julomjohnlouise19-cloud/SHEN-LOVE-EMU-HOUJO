@@ -4,7 +4,7 @@ A local-first science learning game for Philippine Grade 7–10 students. Vite +
 
 ## Open the website on GitHub Pages
 
-Play at **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website. The corrected deployment and live desktop/mobile display were verified; see [the successful workflow run](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42183402991).
+Play at **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website. The welcome hub, logout flow and desktop/mobile display were verified on the live site; see [the successful workflow run](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42353452310).
 
 One-time repository setup (already enabled for this repository):
 

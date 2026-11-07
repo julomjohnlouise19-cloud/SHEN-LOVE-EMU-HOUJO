@@ -91,4 +91,6 @@ The live site returned HTTP 200 and its module URL matched the locally verified 
 - [x] Guard private routes, browser Back, expired/revoked sessions and open profile dialogs after logout.
 - [x] Preserve incoming deck/challenge destinations through sign-in, registration and explicit guest entry.
 - [x] Test desktop/mobile, account creation, guest entry, logout/cancel/reload, session expiry/revocation, offline behavior and the existing learning/reward flows.
-- [ ] Push tested fixes, verify GitHub deployment and check the live welcome/logout flow.
+- [x] Push tested fixes, verify GitHub deployment and check the live welcome/logout flow.
+
+All 45 unit/property tests, 23 root browser scenarios and the repository-path browser scenario passed. [GitHub Actions run 42353452310](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42353452310) passed both jobs without annotations. The public build matched the tested module and returned HTTP 200. Live desktop/mobile hub checks, account creation, both logout controls, cancel/confirm, reload/Back protection, saved notebook recovery, guest learning and offline logout/reload passed with zero console errors and zero failed resources. The running development server was also verified through the hub, guest dashboard and a Cells question.
