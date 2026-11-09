@@ -41,6 +41,16 @@ Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using 
 
 ## Behaviors exercised
 
+## School identity and experience — 9 November 2026 (Asia/Manila)
+
+- The full website name is The Cozy Science Lab. A transparent school-seal asset prepared from the supplied reference is packaged locally as lossless WebP. A shared component places it to the left of welcome, application and dialog headers; the favicon and startup fallback use the same asset. The previous flask favicon was retired.
+- Lint, typecheck, all 45 unit/property tests and all 27 root-path browser scenarios passed. The additional GitHub Pages repository-path scenario passed, including a cached school logo, offline question loading, logout and reload. Builds validated all 972 science cards.
+- New checks exercised responsive branding at 1280, 390 and 320 px, a decoded logo and favicon, mobile menu state/Escape/home behavior, cross-branch topic search, empty/clear results and the Skills Lab gate. Resuming after logout retained the same run, answered-card count, merits and XP. Offline/online changes preserved an active search and updated the notice without replacing the page.
+- Visual review caught crowding in the 320 px dashboard. The narrow hero now places artwork below its text, and branch/daily cards use a single column. A browser geometry assertion checks that the artwork no longer overlaps the copy. Existing account, reward, storage, session-expiry, teacher/admin and learning tests stayed green; browser fixtures require zero console errors.
+- The deployable Pages build is ready for upload. Live deployment verification remains pending. No environment settings, saved-data keys, account records or reward rules were changed for this feature.
+
+## Behaviors exercised
+
 The Cells Medium eight-card session reaches results, updates mastery and saves mistakes in the Review Box. Browser tests cover all branch listings, the Level 4 Skills Lab gate, reproducible Challenge Links, the cart experiment and calculator practice. Purchases deduct once, reject changed prices, redeem once and can be marked collected only by an admin. Both Web Locks and lease-fallback two-tab tests protect the last item. Quota errors preserve balance/stock and offer export. Invalid imports do not replace data; corrupt JSON is quarantined. A fresh production cache reloads offline and opens an unvisited Chemistry deck. Registration hashes passwords, changing a password invalidates other account sessions, and login cooldown survives reload. User markup is rendered as text. Phone pages fit 390 px width and pass the tested WCAG A/AA rules.
 
 ## Limits

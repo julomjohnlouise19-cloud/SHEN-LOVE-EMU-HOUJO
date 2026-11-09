@@ -1,3 +1,4 @@
+import { APP_NAME, schoolLogo } from "./branding";
 export type Child = Node | string | number | false | null | undefined;
 export function h<K extends keyof HTMLElementTagNameMap>(
   tag: K,
@@ -124,7 +125,17 @@ export function modal(title: string, content: Child[], wide = false) {
     h(
       "div",
       { class: "modal-heading" },
-      h("h2", null, title),
+      h(
+        "div",
+        { class: "modal-identity" },
+        schoolLogo(),
+        h(
+          "div",
+          null,
+          h("p", { class: "modal-brand-name" }, APP_NAME),
+          h("h2", null, title),
+        ),
+      ),
       button("×", close, "icon-button close", { "aria-label": "Close dialog" }),
     ),
     ...content.filter(

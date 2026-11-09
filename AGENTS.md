@@ -1,4 +1,4 @@
-# Cozy Science Lab project instructions
+# The Cozy Science Lab project instructions
 
 ## Workflow (§0)
 - Ship a complete playable product, using the existing checkout. Do not create worktrees unless asked.
@@ -6,6 +6,7 @@
 - Finish P0 and P1 before P2. No stubs, TODOs, dead controls or lorem ipsum.
 - Each phase gate: lint, typecheck, unit tests, Playwright, validate:questions, zero browser console errors; fix then commit.
 - Keep the first playable slice (Life Science → Cells → Medium → results/mastery/review) working.
+- Use the shared school branding component and full website name, The Cozy Science Lab. Preserve saved-data keys and sessions when updating visible branding.
 - Resolve ambiguity with a numbered decision; choose cozy, calm, accessible behavior.
 - Supplied source brief ends at §4.8. Sections 5–16 and Appendix A were not provided.
 

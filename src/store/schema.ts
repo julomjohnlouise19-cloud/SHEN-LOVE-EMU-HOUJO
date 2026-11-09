@@ -208,7 +208,7 @@ export function parseBackup(text: string): AppState {
   const parsed: unknown = migrateState(JSON.parse(text));
   if (!validState(parsed))
     throw new Error(
-      "This file is not a valid Cozy Science Lab backup. Your data is unchanged.",
+      "This is not a valid backup for The Cozy Science Lab. Your data is unchanged.",
     );
   // Inverse patches are not trusted input. They cannot be used to inject invalid state later.
   return {

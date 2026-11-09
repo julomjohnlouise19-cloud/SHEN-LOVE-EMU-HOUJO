@@ -1,4 +1,4 @@
-import { branches, decks, branchById } from "../data/catalog";
+import { branches, decks, branchById, deckById } from "../data/catalog";
 import { currentUser, getState, clock } from "../store";
 import { dayKey } from "../core/time";
 import { hashSeed } from "../core/random";
@@ -8,6 +8,7 @@ import { icon, mascot, heroIllustration, diagram } from "./svg";
 import { go } from "./actions";
 import { pageHeading } from "./shell";
 import { openDeck } from "./learn";
+import { APP_NAME } from "./branding";
 export function dashboard() {
   const u = currentUser()!,
     s = getState(),
@@ -17,6 +18,10 @@ export function dashboard() {
     (n, m) => n + m.completed,
     0,
   );
+  const unfinished = [...s.runs]
+    .reverse()
+    .find((run) => run.userId === u.id && !run.completed);
+  const unfinishedDeck = unfinished ? deckById(unfinished.deckId) : undefined;
   const recommended =
     decks.find(
       (d) =>
@@ -49,9 +54,38 @@ export function dashboard() {
         h("span", { class: "streak-dot" }, "Keep growing"),
       ),
     ),
+    unfinished && unfinishedDeck
+      ? h(
+          "section",
+          {
+            class: "resume-card paper",
+            "aria-label": "Continue your science session",
+          },
+          h(
+            "div",
+            { class: "resume-copy" },
+            h("p", { class: "eyebrow" }, "YOUR SAVED DISCOVERY"),
+            h("h2", null, "Pick up where you left off"),
+            h(
+              "p",
+              null,
+              `${unfinishedDeck.name} · ${unfinished.level} · ${unfinished.answers.length} of ${unfinished.ids.length} cards answered`,
+            ),
+            progress(
+              (unfinished.answers.length / unfinished.ids.length) * 100,
+              `${unfinishedDeck.name} session progress`,
+            ),
+          ),
+          button(
+            h("span", null, "Continue learning", icon("arrow", 17)),
+            () => go(`/play/${unfinished.id}`),
+            "button primary",
+          ),
+        )
+      : null,
     h(
       "section",
-      { class: "hero-card", "aria-label": "Welcome to Cozy Science Lab" },
+      { class: "hero-card", "aria-label": `Welcome to ${APP_NAME}` },
       h("span", { class: "hero-tape" }),
       h(
         "div",
@@ -123,33 +157,31 @@ export function dashboard() {
           h(
             "div",
             { class: "branch-grid" },
-            ...branches
-              .slice(0, 4)
-              .map((b, i) =>
+            ...branches.slice(0, 4).map((b, i) =>
+              h(
+                "a",
+                {
+                  class: `branch-card ${b.color}`,
+                  href: `#/branch/${b.id}`,
+                  "aria-label": `Explore ${b.name}, 6 decks`,
+                },
                 h(
-                  "a",
-                  {
-                    class: `branch-card ${b.color}`,
-                    href: `#/branch/${b.id}`,
-                    "aria-label": `Explore ${b.name}, 6 decks`,
-                  },
-                  h(
-                    "div",
-                    { class: "branch-card-top" },
-                    h("span", { class: "deck-count" }, "06 DECKS"),
-                    h("span", { class: "branch-number" }, `0${i + 1}`),
-                  ),
-                  mascot(b.icon),
-                  h("h3", null, b.name),
-                  h("p", null, b.description),
-                  h(
-                    "span",
-                    { class: "branch-card-bottom" },
-                    "Let’s discover",
-                    icon("arrowup", 15),
-                  ),
+                  "div",
+                  { class: "branch-card-top" },
+                  h("span", { class: "deck-count" }, "06 DECKS"),
+                  h("span", { class: "branch-number" }, `0${i + 1}`),
+                ),
+                mascot(b.icon),
+                h("h3", null, b.name),
+                h("p", null, b.description),
+                h(
+                  "span",
+                  { class: "branch-card-bottom" },
+                  "Let’s discover",
+                  icon("arrowup", 15),
                 ),
               ),
+            ),
           ),
         ),
         h(

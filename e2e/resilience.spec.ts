@@ -178,7 +178,10 @@ test("phase 4: unsafe user text is displayed as text", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: payload, exact: true }),
   ).toBeVisible();
-  await expect(page.locator("img")).toHaveCount(0);
+  await expect(
+    page.getByRole("heading", { name: payload, exact: true }).locator("img"),
+  ).toHaveCount(0);
+  await expect(page.locator('img[src="x"]')).toHaveCount(0);
   expect(await page.evaluate(() => "pwned" in window)).toBe(false);
 });
 test("phase 4: corrupt JSON is quarantined and safe defaults load", async ({
@@ -296,7 +299,7 @@ test("phase 4: invalid backup cannot replace state", async ({ page }) => {
   });
   await page.getByRole("button", { name: "Validate & restore backup" }).click();
   await expect(page.locator("#toasts")).toContainText(
-    "not a valid Cozy Science Lab backup",
+    "not a valid backup for The Cozy Science Lab",
   );
   expect(
     await page.evaluate(

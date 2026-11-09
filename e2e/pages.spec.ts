@@ -75,9 +75,18 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   });
   expect(cachedPaths.length).toBeGreaterThan(30);
   expect(cachedPaths.every((path) => path.startsWith(prefix))).toBe(true);
+  expect(cachedPaths).toContain(`${prefix}school-seal.webp`);
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator(".question-card")).toBeVisible();
+  await expect(page.locator(".topbar .school-logo")).toBeVisible();
+  expect(
+    await page
+      .locator(".topbar .school-logo")
+      .evaluate(
+        (image: HTMLImageElement) => image.complete && image.naturalWidth > 0,
+      ),
+  ).toBe(true);
   await page.goto(`${site}#/branch/chemistry`);
   await page
     .getByRole("button", {

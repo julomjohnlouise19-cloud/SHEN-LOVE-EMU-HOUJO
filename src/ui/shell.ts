@@ -5,6 +5,8 @@ import { h, button, modal, progress } from "./dom";
 import { icon, mascot } from "./svg";
 import { act, go } from "./actions";
 import { authModal, profileModal, logoutModal } from "./auth";
+import { brandLink } from "./branding";
+import { connectionNotice } from "./connectivity";
 let sidebarOpen = false;
 export function resetNavigation() {
   sidebarOpen = false;
@@ -38,11 +40,7 @@ export function shell(page: HTMLElement, route: string) {
             href: `#${path}`,
             class: `nav-link ${route === path || (path === "/island" && route.startsWith("/branch")) ? "active" : ""}`,
             "aria-current": route === path ? "page" : undefined,
-            onClick: () => {
-              sidebarOpen = false;
-              aside.classList.remove("open");
-              backdrop.hidden = true;
-            },
+            onClick: closeNavigation,
           },
           icon(ico),
           h("span", null, label),
@@ -66,20 +64,16 @@ export function shell(page: HTMLElement, route: string) {
         "Mission control",
       ),
     );
+  const sidebarBrand = brandLink();
+  sidebarBrand.addEventListener("click", closeNavigation);
   const aside = h(
     "aside",
-    { class: `sidebar ${sidebarOpen ? "open" : ""}` },
-    h(
-      "a",
-      { class: "brand", href: "#/", "aria-label": "Cozy Science Lab home" },
-      h("span", { class: "brand-icon" }, icon("flask", 31)),
-      h(
-        "span",
-        null,
-        "cozy science",
-        h("strong", null, "lab", h("span", { class: "brand-star" }, "✳")),
-      ),
-    ),
+    {
+      id: "lab-sidebar",
+      class: `sidebar ${sidebarOpen ? "open" : ""}`,
+      "aria-label": "Lab navigation",
+    },
+    sidebarBrand,
     h("span", { class: "lab-label" }, "A HAPPY PLACE TO GET CURIOUS"),
     navigation,
     h(
@@ -138,37 +132,50 @@ export function shell(page: HTMLElement, route: string) {
   const backdrop = button(
     "",
     () => {
-      sidebarOpen = false;
-      aside.classList.remove("open");
-      backdrop.hidden = true;
+      closeNavigation();
+      menuButton.focus();
     },
     "nav-backdrop",
     { "aria-label": "Close navigation", hidden: !sidebarOpen },
   );
+  const menuButton = button(
+    icon("menu"),
+    () => {
+      sidebarOpen = !sidebarOpen;
+      aside.classList.toggle("open", sidebarOpen);
+      backdrop.hidden = !sidebarOpen;
+      menuButton.setAttribute("aria-expanded", String(sidebarOpen));
+      if (sidebarOpen)
+        aside
+          .querySelector<HTMLElement>("nav a")
+          ?.focus({ preventScroll: true });
+    },
+    "icon-button mobile-menu",
+    {
+      "aria-label": "Toggle navigation",
+      "aria-expanded": sidebarOpen,
+      "aria-controls": "lab-sidebar",
+    },
+  );
+  function closeNavigation() {
+    sidebarOpen = false;
+    aside.classList.remove("open");
+    backdrop.hidden = true;
+    menuButton.setAttribute("aria-expanded", "false");
+  }
+  aside.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeNavigation();
+      menuButton.focus();
+    }
+  });
+  const headerBrand = brandLink("#/", true);
+  headerBrand.addEventListener("click", closeNavigation);
   const header = h(
     "header",
     { class: "topbar" },
-    h(
-      "div",
-      { class: "topbar-left" },
-      button(
-        icon("menu"),
-        () => {
-          sidebarOpen = !sidebarOpen;
-          aside.classList.toggle("open", sidebarOpen);
-          backdrop.hidden = !sidebarOpen;
-        },
-        "icon-button mobile-menu",
-        { "aria-label": "Toggle navigation", "aria-expanded": sidebarOpen },
-      ),
-      h(
-        "span",
-        { class: "breadcrumb" },
-        icon("sprout", 17),
-        "Your daily dose of wonder",
-        h("span", { class: "breadcrumb-dot" }, "✦"),
-      ),
-    ),
+    h("div", { class: "topbar-left" }, menuButton, headerBrand),
     h(
       "div",
       { class: "topbar-actions" },
@@ -228,6 +235,7 @@ export function shell(page: HTMLElement, route: string) {
       "div",
       { class: "workspace" },
       header,
+      connectionNotice(),
       main,
       h(
         "footer",

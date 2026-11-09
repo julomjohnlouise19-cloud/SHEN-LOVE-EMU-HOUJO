@@ -1,4 +1,4 @@
-name: Deploy Cozy Science Lab
+name: Deploy The Cozy Science Lab
 
 on:
   push:

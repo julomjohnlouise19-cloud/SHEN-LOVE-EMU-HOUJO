@@ -1,4 +1,4 @@
-# Cozy Science Lab — build plan
+# The Cozy Science Lab — build plan
 
 ## Scope and architecture
 Build a complete local-first, mobile-friendly science learning game with Vite and strict TypeScript, no UI framework. The supplied brief ends at §4.8; references to §§5–16 and Appendix A are absent. Decisions below replace only absent specifications, not supplied requirements. No design reference images were supplied.
@@ -11,7 +11,7 @@ src/{core,store,ui,data/questions,styles}
 scripts/{validate-questions,generate-questions,simulate-economy,seed}.ts
 tests/{core,questions,resilience}.test.ts
 e2e/{app,resilience,purchase-safety}.spec.ts
-public/{favicon.svg,sw.js}
+public/{school-seal.webp,sw.js}
 PLAN.md AGENTS.md DECISIONS.md README.md
 ```
 
@@ -94,3 +94,12 @@ The live site returned HTTP 200 and its module URL matched the locally verified 
 - [x] Push tested fixes, verify GitHub deployment and check the live welcome/logout flow.
 
 All 45 unit/property tests, 23 root browser scenarios and the repository-path browser scenario passed. [GitHub Actions run 42353452310](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42353452310) passed both jobs without annotations. The public build matched the tested module and returned HTTP 200. Live desktop/mobile hub checks, account creation, both logout controls, cancel/confirm, reload/Back protection, saved notebook recovery, guest learning and offline logout/reload passed with zero console errors and zero failed resources. The running development server was also verified through the hub, guest dashboard and a Cells question.
+
+## The Cozy Science Lab — school identity and experience
+
+- [x] Apply the full name consistently to navigation, page titles, loading/error states and documentation.
+- [x] Add the supplied school seal to the left of welcome, desktop/mobile application headers and dialog interfaces, with a matching favicon and offline caching.
+- [x] Improve discovery with a cross-branch topic search and clear result/empty states.
+- [x] Make unfinished learning easy to resume from the dashboard without resetting answers or rewards.
+- [x] Improve mobile tap targets, navigation and offline feedback while preserving welcome/logout privacy.
+- [ ] Pass required code/content/browser/accessibility gates, deploy and verify the live experience.

@@ -38,6 +38,17 @@ test("raw source HTML provides a styled online-lab link without app scripts", as
     "background-color",
     "rgb(247, 246, 237)",
   );
+  await expect(
+    page.getByText("The Cozy Science Lab", { exact: true }),
+  ).toBeVisible();
+  expect(
+    await page
+      .locator(".startup-brand .school-logo")
+      .evaluate(async (image: HTMLImageElement) => {
+        await image.decode();
+        return image.naturalWidth > 0;
+      }),
+  ).toBe(true);
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,

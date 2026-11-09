@@ -1,6 +1,6 @@
-# Cozy Science Lab
+# The Cozy Science Lab
 
-A local-first science learning game for Philippine Grade 7–10 students. Vite + strict TypeScript, no UI framework or production JavaScript dependencies. All illustration is inline SVG. Google Fonts are self-hosted with OFL licenses.
+A local-first science learning game for Philippine Grade 7–10 students. Vite + strict TypeScript, no UI framework or production JavaScript dependencies. Learning illustrations are inline SVG; the supplied Gun-ob High School seal is shared across the website as a transparent image. Google Fonts are self-hosted with OFL licenses.
 
 ## Open the website on GitHub Pages
 
@@ -10,7 +10,7 @@ One-time repository setup (already enabled for this repository):
 
 1. Open [Settings → Pages](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/settings/pages).
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Open [Deploy Cozy Science Lab](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/workflows/pages.yml). If an earlier run failed before Pages was enabled, choose **Run workflow** on `main`.
+3. Open [Deploy The Cozy Science Lab](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/workflows/pages.yml). If an earlier run failed before Pages was enabled, choose **Run workflow** on `main`.
 4. Wait for both the build and publish jobs to finish successfully, then open the website address above. Future pushes to `main` automatically test and publish updates.
 
 Open the HTTPS website to play. Double-clicking a downloaded `index.html` uses `file://`, where the app's module, styles and question banks cannot load as a complete Vite application. The HTML includes a styled startup panel with a direct online-lab link, so missing scripts or disabled JavaScript do not leave an empty page. To run on your computer, download or clone the whole project and follow **Start** below.
@@ -37,6 +37,9 @@ Production: `npm run build`, then `npm run preview`. Vite prints the local port.
 - First visits and ended sessions open the separate welcome hub. Choose **Sign in**, **Create account** or **Explore as guest**; no guest account is signed in automatically. New profiles get 24 starter merits by default.
 - **Log out** is visible in the lab header and registered-user profile. The confirmation offers **Keep exploring** or **Log out now**. Logout returns to the welcome hub and preserves saved profiles, notes and progress. Refresh and browser Back do not reopen an ended session; guest exploration must be chosen again.
 - Existing valid sessions continue normally. Expired or revoked sessions return to the welcome hub and close private dialogs. Incoming deck/challenge links keep their destination through entry. Sessions remain per tab; logging out one tab does not end a different tab's session.
+- Find topics across all 27 decks using **Search all science decks** on Science Island. Search by subject, deck name or science idea; Skills Lab level requirements still apply. **Clear search** or Escape resets the results.
+- **Continue learning** on the dashboard resumes your unfinished session with the same answers and rewards. An offline banner explains when you are using saved content; going offline does not erase an active topic search.
+- The school seal appears on the left of welcome/application headers and dialog titles, including on phones. The favicon uses the same seal, and the image is included in the offline cache.
 - Pick a Science Island branch, deck and difficulty. A session draws eight cards from a 12-card pool. Grades recommend, never lock. Skills Lab opens at Level 4.
 - Use hints, learn from explanations, collect merits/XP, and grow mastery. Wrong answers enter a six-box spaced Review Box.
 - Daily spin, two quests, a seeded Daily Challenge, facts, streaks, badges and a local XP leaderboard encourage steady learning.

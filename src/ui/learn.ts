@@ -8,6 +8,120 @@ import { h, button, modal, progress, toast, input, field } from "./dom";
 import { icon, mascot, diagram } from "./svg";
 import { act, go } from "./actions";
 import { pageHeading } from "./shell";
+const topicQueries = new Map<string, string>();
+
+function topicFinder() {
+  const user = currentUser()!,
+    rules = getState().rules;
+  const search = input(
+    "topic-search",
+    "Try cells, atoms, forces or climate…",
+    topicQueries.get(user.id) ?? "",
+    "search",
+  );
+  search.required = false;
+  search.id = "topic-query";
+  search.setAttribute("aria-controls", "topic-results");
+  const status = h("p", { class: "topic-status", role: "status" });
+  const results = h("div", { id: "topic-results", class: "topic-results" });
+  const clearSearch = () => {
+    search.value = "";
+    topicQueries.set(user.id, "");
+    render();
+    search.focus();
+  };
+  const clear = button(
+    "Clear search",
+    clearSearch,
+    "button outline topic-clear",
+  );
+  function render() {
+    const query = search.value.trim().toLowerCase();
+    topicQueries.set(user.id, search.value);
+    clear.hidden = !query;
+    results.hidden = !query;
+    if (!query) {
+      results.replaceChildren();
+      status.textContent =
+        "27 science decks across five branches. Start with a topic or a question.";
+      return;
+    }
+    const words = query.split(/\s+/);
+    const matches = decks.filter((deck) => {
+      const text =
+        `${deck.name} ${deck.description} ${deck.sourceNote} ${branchById(deck.branch)?.name}`.toLowerCase();
+      return words.every((word) => text.includes(word));
+    });
+    status.textContent = matches.length
+      ? `${matches.length} ${matches.length === 1 ? "deck matches" : "decks match"} your search.`
+      : "No matching decks yet. Try a shorter topic, or clear your search.";
+    results.replaceChildren(
+      ...matches.map((deck) => {
+        const locked =
+          deck.branch === "skills" && levelOf(user, rules) < rules.skillsLevel;
+        return button(
+          h(
+            "span",
+            { class: "topic-result-copy" },
+            h("small", null, branchById(deck.branch)?.name),
+            h("strong", null, deck.name),
+            h(
+              "span",
+              null,
+              locked
+                ? `Opens at Level ${rules.skillsLevel}`
+                : `Grades ${deck.grades.join(" & ")} · ${deck.description}`,
+            ),
+          ),
+          () => openDeck(deck.id),
+          "topic-result",
+          {
+            disabled: locked,
+            "aria-label": locked
+              ? `${deck.name}, opens at Level ${rules.skillsLevel}`
+              : `Open ${deck.name}`,
+          },
+        );
+      }),
+    );
+  }
+  search.addEventListener("input", render);
+  search.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      clearSearch();
+    }
+  });
+  render();
+  return h(
+    "section",
+    { class: "topic-finder paper", "aria-labelledby": "topic-finder-title" },
+    h("h2", { id: "topic-finder-title" }, "Find your next discovery"),
+    h(
+      "p",
+      { class: "muted" },
+      "Know what you’re curious about? Find it across the whole science island.",
+    ),
+    h(
+      "label",
+      { class: "topic-search-label", for: "topic-query" },
+      "Search all science decks",
+    ),
+    h(
+      "div",
+      { class: "topic-search-controls" },
+      h(
+        "div",
+        { class: "search-field topic-search-field" },
+        icon("search", 18),
+        search,
+      ),
+      clear,
+    ),
+    status,
+    results,
+  );
+}
 export function islandPage() {
   const u = currentUser()!,
     r = getState().rules;
@@ -19,6 +133,7 @@ export function islandPage() {
       "A whole island of a-ha moments.",
       "Five little worlds. One big adventure in science.",
     ),
+    topicFinder(),
     h(
       "section",
       { class: "island-map paper", "aria-label": "Science Island branch map" },

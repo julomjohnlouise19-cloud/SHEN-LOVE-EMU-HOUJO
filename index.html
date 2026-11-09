@@ -12,12 +12,10 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
     />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2220%22%20fill%3D%22%23dfeabf%22%2F%3E%3Cpath%20d%3D%22M25%2012h14m-11%200v18L15%2048q-3%206%205%206h24q8%200%205-6L36%2030V12%22%20fill%3D%22%23fbfaf3%22%20stroke%3D%22%23455444%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M22%2040h20l6%2010H16z%22%20fill%3D%22%23b9d48f%22%2F%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%2244%22%20r%3D%222%22%20fill%3D%22%23455444%22%2F%3E%3Ccircle%20cx%3D%2236%22%20cy%3D%2244%22%20r%3D%222%22%20fill%3D%22%23455444%22%2F%3E%3C%2Fsvg%3E"
-    />
-    <title>Cozy Science Lab · A little wonder, every day</title>
+    <link rel="icon" type="image/webp" href="/school-seal.webp" />
+    <title>The Cozy Science Lab · A little wonder, every day</title>
+    <meta property="og:site_name" content="The Cozy Science Lab" />
+    <meta property="og:title" content="The Cozy Science Lab" />
     <style>
       .startup-screen {
         box-sizing: border-box;
@@ -54,6 +52,23 @@
         outline: 3px solid #554184;
         outline-offset: 4px;
       }
+      .startup-brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+      .startup-brand img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+      .startup-brand p {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 650;
+      }
     </style>
   </head>
   <body>
@@ -66,7 +81,16 @@
         aria-labelledby="startup-title"
       >
         <div class="startup-card">
-          <p>Cozy Science Lab</p>
+          <div class="startup-brand">
+            <img
+              class="school-logo"
+              src="/school-seal.webp"
+              width="60"
+              height="60"
+              alt="Gun-ob High School seal, Lapu-Lapu City"
+            />
+            <p>The Cozy Science Lab</p>
+          </div>
           <h1 id="startup-title">Getting your little lab ready…</h1>
           <p>A little wonder is on its way.</p>
           <p>

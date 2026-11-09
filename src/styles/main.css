@@ -5557,3 +5557,390 @@ hr {
   padding: 12px 14px;
   font-size: 11px;
 }
+
+/* Shared school identity and learning navigation. */
+.brand.school-brand {
+  padding-left: 0;
+  gap: 12px;
+  min-width: 0;
+}
+.school-logo {
+  display: block;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.brand.school-brand .brand-copy {
+  display: block;
+  min-width: 0;
+  white-space: normal;
+}
+.brand.school-brand .brand-prefix {
+  display: block;
+  font:
+    500 10px/1.2 "DM Sans",
+    sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.brand.school-brand .brand-title {
+  display: block;
+  font:
+    500 20px/1.1 "Fredoka",
+    sans-serif;
+  letter-spacing: 0;
+  white-space: normal;
+}
+.welcome-header .school-brand .school-logo {
+  width: 66px;
+  height: 66px;
+}
+.welcome-header .brand.school-brand .brand-title {
+  font-size: 25px;
+}
+.brand.school-brand.compact-brand {
+  gap: 9px;
+}
+.compact-brand .school-logo {
+  width: 40px;
+  height: 40px;
+}
+.brand.school-brand.compact-brand .brand-title {
+  font-size: 16px;
+}
+.brand.school-brand.compact-brand .brand-prefix {
+  font-size: 8px;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.topbar-left {
+  min-width: 0;
+}
+.topbar-actions {
+  flex-shrink: 0;
+}
+.modal-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.modal-identity > div {
+  min-width: 0;
+}
+.modal-identity .school-logo {
+  width: 42px;
+  height: 42px;
+}
+.modal-brand-name {
+  margin: 0 0 5px;
+  color: #56634a;
+  font-size: 10px;
+  line-height: 1.4;
+}
+.modal-identity h2 {
+  font-size: 25px;
+  line-height: 1.25;
+  margin: 0;
+}
+.modal-heading .close {
+  min-width: 36px;
+  min-height: 36px;
+  flex-shrink: 0;
+}
+.logout-actions .button {
+  min-height: 44px;
+  font-size: 13px;
+}
+.loading-screen > .school-brand {
+  margin-bottom: 32px;
+}
+.connection-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #fff4da;
+  color: #51472d;
+  border-bottom: 1px solid #e6d9b8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.connection-notice[hidden] {
+  display: none;
+}
+.connection-dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8a681d;
+  flex-shrink: 0;
+}
+.welcome-main > .connection-notice {
+  border: 1px solid #e6d9b8;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.resume-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  margin-bottom: 26px;
+  background: #f2f5e8;
+  border-color: #cdd9b8;
+}
+.resume-copy {
+  flex: 1;
+  min-width: 0;
+}
+.resume-card .eyebrow {
+  margin-bottom: 8px;
+}
+.resume-card h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.resume-card p:not(.eyebrow) {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.resume-card .progress {
+  max-width: 360px;
+}
+.resume-card .button {
+  min-height: 46px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.topic-finder {
+  padding: 26px;
+  margin-bottom: 28px;
+}
+.topic-finder h2 {
+  font-size: 27px;
+  margin-bottom: 9px;
+}
+.topic-finder > p.muted {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.topic-search-label {
+  display: block;
+  margin: 22px 0 8px;
+  color: #45553a;
+  font-size: 13px;
+  font-weight: 600;
+}
+.topic-search-controls {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+.topic-search-field {
+  flex: 1;
+  min-width: 0;
+}
+.topic-search-field input {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  font-size: 14px;
+  padding: 12px 3px;
+}
+.topic-clear {
+  min-height: 46px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.topic-clear[hidden] {
+  display: none;
+}
+.topic-status {
+  color: #526044;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+.topic-results {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+.topic-results[hidden] {
+  display: none;
+}
+.topic-result {
+  display: block;
+  padding: 18px;
+  text-align: left;
+  border: 1px solid #dce3cf;
+  border-radius: 12px;
+  background: #f7f9f1;
+  color: #3c4939;
+}
+.topic-result:hover:not(:disabled) {
+  border-color: #8caa6d;
+  background: #eef3e4;
+}
+.topic-result:disabled {
+  opacity: 0.75;
+  cursor: default;
+}
+.topic-result-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.topic-result-copy small {
+  font-size: 11px;
+  color: #556548;
+}
+.topic-result-copy strong {
+  font:
+    500 21px/1.25 "Fredoka",
+    sans-serif;
+}
+.topic-result-copy > span {
+  font-size: 12px;
+  line-height: 1.7;
+}
+@media (max-width: 1000px) {
+  .topic-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .brand.school-brand.compact-brand .brand-title {
+    font-size: 14px;
+  }
+}
+@media (max-width: 760px) {
+  .brand.school-brand.compact-brand .brand-title {
+    font-size: 13px;
+  }
+  .compact-brand .school-logo {
+    width: 36px;
+    height: 36px;
+  }
+  .compact-brand .brand-copy {
+    max-width: 100px;
+  }
+  .topbar .mobile-menu {
+    min-width: 40px;
+    min-height: 40px;
+    margin-left: -6px;
+    margin-right: 4px;
+  }
+  .topic-finder {
+    padding: 22px 18px;
+  }
+  .topic-results {
+    grid-template-columns: 1fr;
+  }
+  .connection-notice {
+    padding: 12px 18px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 640px) {
+  .resume-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 21px;
+  }
+  .resume-card .button {
+    width: 100%;
+  }
+  .resume-card h2 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 540px) {
+  .topbar {
+    padding: 0 14px;
+    gap: 8px;
+  }
+  .compact-brand .brand-copy {
+    max-width: 82px;
+  }
+  .brand.school-brand.compact-brand .brand-title {
+    font-size: 12px;
+  }
+  .brand.school-brand.compact-brand .brand-prefix {
+    font-size: 8px;
+  }
+  .brand.school-brand.compact-brand {
+    gap: 7px;
+  }
+  .topbar-actions {
+    gap: 7px;
+  }
+  .topbar .logout-button {
+    padding: 9px;
+    min-height: 40px;
+    font-size: 12px;
+  }
+  .modal-identity .school-logo {
+    width: 36px;
+    height: 36px;
+  }
+  .modal-identity {
+    gap: 10px;
+  }
+  .modal-identity h2 {
+    font-size: 23px;
+  }
+  .topic-search-controls {
+    flex-wrap: wrap;
+  }
+  .topic-search-field {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 380px) {
+  .topbar .compact-brand .brand-copy {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-card {
+    display: block;
+    height: auto;
+    min-height: 0;
+    padding: 24px 20px;
+  }
+  .hero-card .hero-copy {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+  .hero-card .hero-copy h2 {
+    font-size: 30px;
+    line-height: 1.18;
+  }
+  .hero-card > .hero-illustration {
+    position: static;
+    inset: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    transform: none;
+    margin: 16px 0 0;
+  }
+  .hero-card > .hero-scribble {
+    position: static;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  .branch-grid,
+  .daily-column {
+    grid-template-columns: 1fr;
+  }
+}

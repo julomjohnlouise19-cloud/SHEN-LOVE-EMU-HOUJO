@@ -3,6 +3,8 @@ import { button, h } from "./dom";
 import { authModal } from "./auth";
 import { entryDestination, go } from "./actions";
 import { heroIllustration, icon, mascot } from "./svg";
+import { brandLink } from "./branding";
+import { connectionNotice } from "./connectivity";
 
 export function welcomeHub() {
   const notice = new URLSearchParams(location.hash.split("?")[1]).get("notice");
@@ -12,26 +14,13 @@ export function welcomeHub() {
     h(
       "header",
       { class: "welcome-header" },
-      h(
-        "a",
-        {
-          class: "brand",
-          href: "#/welcome",
-          "aria-label": "Cozy Science Lab welcome hub",
-        },
-        h("span", { class: "brand-icon" }, icon("flask", 31)),
-        h(
-          "span",
-          null,
-          "cozy science",
-          h("strong", null, "lab", h("span", { class: "brand-star" }, "✳")),
-        ),
-      ),
+      brandLink("#/welcome"),
       h("span", { class: "welcome-tagline" }, "A HAPPY PLACE TO GET CURIOUS"),
     ),
     h(
       "main",
       { id: "main", class: "welcome-main", tabIndex: -1 },
+      connectionNotice(),
       notice === "logged-out" || notice === "storage"
         ? h(
             "p",

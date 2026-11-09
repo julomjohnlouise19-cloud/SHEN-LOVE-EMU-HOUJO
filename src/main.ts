@@ -22,6 +22,8 @@ import {
   labPage,
 } from "./ui/extras";
 import { welcomeHub } from "./ui/welcome";
+import { APP_NAME, brandLink } from "./ui/branding";
+import { updateConnectionNotices } from "./ui/connectivity";
 import {
   connectRenderer,
   go,
@@ -39,6 +41,7 @@ app.replaceChildren(
   h(
     "div",
     { class: "loading-screen" },
+    brandLink("#/welcome"),
     h("span", { class: "loading-flower" }, "✳"),
     h("h1", null, "Getting your little lab ready…"),
     h("p", null, "A little wonder is on its way."),
@@ -75,7 +78,7 @@ async function render() {
         `#${welcomeRoute(location.hash.slice(1) || "/")}`,
       );
     app.replaceChildren(welcomeHub());
-    document.title = "Welcome · Cozy Science Lab";
+    document.title = `Welcome · ${APP_NAME}`;
     if (identityChanged)
       app.querySelector<HTMLElement>("#main")?.focus({ preventScroll: true });
     return;
@@ -156,7 +159,7 @@ async function render() {
   app.replaceChildren(shell(page, path));
   if (identityChanged)
     app.querySelector<HTMLElement>("#main")?.focus({ preventScroll: true });
-  document.title = `${path === "/" ? "My little lab" : path.startsWith("/play") ? "A little discovery" : path === "/admin" ? "SSC mission control" : path.split("/").pop()?.replaceAll("-", " ")} · Cozy Science Lab`;
+  document.title = `${path === "/" ? "My little lab" : path.startsWith("/play") ? "A little discovery" : path === "/admin" ? "SSC mission control" : path.split("/").pop()?.replaceAll("-", " ")} · ${APP_NAME}`;
 }
 function schedule() {
   if (!initialized || scheduled) return;
@@ -189,12 +192,14 @@ window.addEventListener("csl:recovery", (e) =>
     run: () => download("cozy-science-backup.json", exportBackup()),
   }),
 );
-window.addEventListener("offline", () =>
-  toast("You’re offline. Your saved lab and visited decks are still here."),
-);
-window.addEventListener("online", () =>
-  toast("Back online. A whole island of science is ready."),
-);
+window.addEventListener("offline", () => {
+  updateConnectionNotices();
+  toast("You’re offline. Keep exploring your saved science decks.");
+});
+window.addEventListener("online", () => {
+  updateConnectionNotices();
+  toast("Back online. A whole island of science is ready.");
+});
 try {
   await initStore();
   initialized = true;
@@ -227,6 +232,7 @@ try {
     h(
       "div",
       { class: "loading-screen" },
+      brandLink("#/welcome"),
       h("h1", null, "Your lab needs a little space."),
       h(
         "p",
