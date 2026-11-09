@@ -39,15 +39,15 @@ Validated in the managed cloud checkout on 6 November 2026 (Asia/Manila), using 
 - The live public site returned HTTP 200 and its module matched the verified Pages build. The welcome hub passed desktop/mobile layout and the tested WCAG A/AA rules. Live account creation, logout cancel/confirm, header/profile logout, signed-out reload/Back protection, sign-in recovery of a saved note, explicit guest entry, a loaded Cells question and offline logout/reload passed. Zero browser errors and zero failed resource responses were observed. Screenshots of the deployed mobile hub and logout dialog were inspected.
 - The development server was independently verified through welcome, explicit guest entry, dashboard and a loaded Cells question with zero console errors. No environment configuration was changed for this feature.
 
-## Behaviors exercised
-
 ## School identity and experience — 9 November 2026 (Asia/Manila)
 
 - The full website name is The Cozy Science Lab. A transparent school-seal asset prepared from the supplied reference is packaged locally as lossless WebP. A shared component places it to the left of welcome, application and dialog headers; the favicon and startup fallback use the same asset. The previous flask favicon was retired.
 - Lint, typecheck, all 45 unit/property tests and all 27 root-path browser scenarios passed. The additional GitHub Pages repository-path scenario passed, including a cached school logo, offline question loading, logout and reload. Builds validated all 972 science cards.
 - New checks exercised responsive branding at 1280, 390 and 320 px, a decoded logo and favicon, mobile menu state/Escape/home behavior, cross-branch topic search, empty/clear results and the Skills Lab gate. Resuming after logout retained the same run, answered-card count, merits and XP. Offline/online changes preserved an active search and updated the notice without replacing the page.
 - Visual review caught crowding in the 320 px dashboard. The narrow hero now places artwork below its text, and branch/daily cards use a single column. A browser geometry assertion checks that the artwork no longer overlaps the copy. Existing account, reward, storage, session-expiry, teacher/admin and learning tests stayed green; browser fixtures require zero console errors.
-- The deployable Pages build is ready for upload. Live deployment verification remains pending. No environment settings, saved-data keys, account records or reward rules were changed for this feature.
+- [GitHub Actions run 42543853391](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42543853391), application commit `9d43ecf1abd38b39bad0ca87161f27a3c3dc76d0`, passed both jobs. Build and publish annotation lists were empty.
+- Live Chromium checks returned HTTP 200 and matched the verified Pages module. The full name and decoded school logo/favicon passed on welcome, desktop/mobile pages and dialogs. Desktop, 390 px and 320 px layouts, keyboard/menu home behavior, cross-branch search, Skills Lab gating, saved question/answers/merits/XP on resume after logout, offline logo/banner and signed-out reload all passed. Tested WCAG A/AA checks reported no violations; the live run recorded zero browser errors and zero failed resources. Deployed welcome and narrow-phone screenshots were inspected.
+- The running development server was independently verified through the branded welcome hub, guest dashboard and a loaded Cells question with zero console errors. No environment settings, saved-data keys, account records or reward rules were changed for this feature.
 
 ## Behaviors exercised
 

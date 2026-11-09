@@ -102,4 +102,6 @@ All 45 unit/property tests, 23 root browser scenarios and the repository-path br
 - [x] Improve discovery with a cross-branch topic search and clear result/empty states.
 - [x] Make unfinished learning easy to resume from the dashboard without resetting answers or rewards.
 - [x] Improve mobile tap targets, navigation and offline feedback while preserving welcome/logout privacy.
-- [ ] Pass required code/content/browser/accessibility gates, deploy and verify the live experience.
+- [x] Pass required code/content/browser/accessibility gates, deploy and verify the live experience.
+
+All 45 unit/property tests, 27 root browser scenarios and the Pages-path scenario passed. [Run 42543853391](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42543853391) passed build and deployment with no annotations. The public site returned HTTP 200 and matched the tested module. The new name, school logo/favicon, 320/390 px and desktop layouts, menu Escape/home behavior, topic search/level gate, unchanged answers/rewards on resume, offline logo/banner and logout privacy passed live checks with zero browser errors and failed resources. The restored development server was verified through the branded hub, guest dashboard and a loaded Cells question.
