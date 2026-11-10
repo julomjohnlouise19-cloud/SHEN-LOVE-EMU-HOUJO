@@ -19,6 +19,8 @@ Creating the Pages site is an account-owner setup step. The connected integratio
 
 The workflow tests both the normal URL and the repository path before publishing. `VITE_BASE_PATH=/SHEN-LOVE-EMU-HOUJO/ npm run build` builds the Pages version, including matching offline cache paths. A different repository name needs its corresponding path. GitHub hosting alone does not synchronize accounts or progress. Optional Supabase cloud mode is described below.
 
+The published website now uses Supabase for email accounts, profiles and completed quiz records. [Backend deployment run 42733010959](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42733010959) passed the actual project readiness check and all application/database/browser gates. Local game progress and supplies remain demos.
+
 ## Connect a Supabase backend
 
 Follow [the complete Supabase setup guide](docs/SUPABASE_SETUP.md). Run the generated [setup.sql](supabase/setup.sql) in your project, configure Auth URLs, appoint the teacher with [bootstrap-teacher.sql](supabase/bootstrap-teacher.sql), then supply the public project URL and publishable key as GitHub repository variables. Local development uses the settings in [.env.example](.env.example). No private key is needed in the app.
