@@ -145,6 +145,10 @@ Application commit ec3c49448286af6d71147604e6f53e6bc839f61f was pushed to main. 
 - [x] Add clean, filterable quiz/arcade records with summaries, date ranges, sorting, feedback and exports.
 - [x] Expand Teacher Studio with arcade analytics, audited bulk archive/restore, record health and server-checked teaching-role controls.
 - [x] Supply and test an idempotent platform-3 upgrade preserving existing records, credits, stock and teacher edits.
-- [ ] Pass code/content/database/browser/mobile/accessibility checks, push to GitHub and verify the configured deployment.
+- [x] Pass code/content/database/browser/mobile/accessibility checks, push to GitHub and verify the configured deployment.
+- [ ] Owner activation: run studio-upgrade.sql on the live platform-2 project and refresh to enable advanced record/role controls.
 
 - [x] Prioritize fast email login, nonblocking welcome, clearer error/loading states, password recovery and a verified reset form.
+
+
+Application commit dbdfcebed3e2229dae50088a3b349b8300a716ce and capability-report commit a098f02cac1fc9adef342029b9d0a249f75b2251 are on main. Runs 42773209629 and 42773721321 passed both jobs. The final readiness notice explicitly verified schema 1, platform 2 and 972 questions. Login/design remain compatible; archive/record-health/delegation activate after owner-run studio-upgrade.sql. The Supabase Preview check succeeded. The public module index-W8JEQqVe.js matched the verified configured build; live login/recovery UI, phone bounds, profile theme/bio persistence, sticky return controls, Back navigation, guest arcade scoring, logout/reload and welcome accessibility passed. No real email was requested or personal account credentials used. The workspace's direct project host is still blocked by the unapplied environment draft.
