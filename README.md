@@ -19,7 +19,7 @@ Creating the Pages site is an account-owner setup step. The connected integratio
 
 The workflow tests both the normal URL and the repository path before publishing. `VITE_BASE_PATH=/SHEN-LOVE-EMU-HOUJO/ npm run build` builds the Pages version, including matching offline cache paths. A different repository name needs its corresponding path. GitHub hosting alone does not synchronize accounts or progress. Optional Supabase cloud mode is described below.
 
-The website uses Supabase for email accounts, profiles and completed quiz records. The classroom upgrade adds server-scored Science Arcade, private profile photos, class wallets, stock reservations and Teacher Studio. **Existing projects must run [upgrade.sql](supabase/upgrade.sql)** before the new website can deploy. Follow the [simple activation and email-limit guide](docs/CLASSROOM_UPGRADE.md). Committing SQL does not install it in the live database.
+The published classroom upgrade adds server-scored Science Arcade, private profile photos, class wallets, stock reservations and Teacher Studio. [Run 42757833757](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42757833757) verified the actual platform-2 backend and passed every check and deployment. The live website was checked against the tested production module. For another existing installation, run [upgrade.sql](supabase/upgrade.sql) if its backend status lacks platform 2. Follow the [activation and email-limit guide](docs/CLASSROOM_UPGRADE.md) for owner configuration; committing SQL alone does not install it.
 
 ## Connect a Supabase backend
 
