@@ -1,3 +1,4 @@
+import { cloudEnabled } from "../store/cloud";
 import {
   currentUser,
   login,
@@ -16,7 +17,12 @@ export function authModal(registerFirst = false) {
   const body = h("div");
   dialog.append(body);
   function render() {
-    const username = input("username", "Your scientist name"),
+    const username = input(
+        "username",
+        cloudEnabled ? "you@example.com" : "Your scientist name",
+        "",
+        cloudEnabled ? "email" : "text",
+      ),
       password = input("password", "At least 8 characters", "", "password");
     username.autocomplete = "username";
     password.autocomplete = joining ? "new-password" : "current-password";
@@ -43,15 +49,34 @@ export function authModal(registerFirst = false) {
           submit.disabled = true;
           error.textContent = "";
           try {
-            if (joining)
-              await register({
+            if (joining) {
+              const signedIn = await register({
                 username: username.value,
                 password: password.value,
                 name: name.value,
                 grade: Number(grade.value),
                 section: section.value,
               });
-            else await login(username.value, password.value);
+              if (!signedIn) {
+                body.replaceChildren(
+                  h("h3", null, "Check your email"),
+                  h(
+                    "p",
+                    null,
+                    "If this address can register, Supabase will send a confirmation link. Open it to confirm your account, then return here and sign in. Check your spam folder too.",
+                  ),
+                  button(
+                    "Back to sign in",
+                    () => {
+                      joining = false;
+                      render();
+                    },
+                    "button primary",
+                  ),
+                );
+                return;
+              }
+            } else await login(username.value, password.value);
             close();
             go(
               entryDestination(
@@ -73,7 +98,7 @@ export function authModal(registerFirst = false) {
         },
       },
       joining ? field("Your name", name) : null,
-      field("Username", username),
+      field(cloudEnabled ? "Email" : "Username", username),
       field("Password", password),
       joining
         ? h(
@@ -119,9 +144,11 @@ export function authModal(registerFirst = false) {
       h(
         "p",
         { class: "fine-print" },
-        "Local demo account. Data stays in this browser; this is not production security.",
+        cloudEnabled
+          ? "Email sign-in and quiz records use Supabase. Your teacher can view your quiz answers, name, grade and section. Merits, supplies, notebook and unfinished practice stay on this device."
+          : "Local demo account. Data stays in this browser; this is not production security.",
       ),
-      !joining
+      !joining && !cloudEnabled
         ? h(
             "div",
             { class: "dev-hint" },
@@ -184,7 +211,9 @@ export function profileModal() {
       { class: "muted" },
       user.id === "guest"
         ? "You’re exploring as a guest. Join the lab to keep a separate scientist profile."
-        : `@${user.username} · Saved in this browser`,
+        : cloudEnabled
+          ? `${user.username} · Cloud profile; avatar and game progress stay on this device`
+          : `@${user.username} · Saved in this browser`,
     ),
     avatars,
     field("Name", name),
@@ -211,7 +240,7 @@ export function profileModal() {
     ),
     user.id !== "guest"
       ? button(
-          "Change my demo password",
+          cloudEnabled ? "Change my password" : "Change my demo password",
           () => {
             close();
             passwordModal();
@@ -262,7 +291,9 @@ export function logoutModal() {
       null,
       user.id === "guest"
         ? "Your guest discoveries stay in this browser. You can choose guest exploration again from the welcome hub."
-        : `${user.name}, your discoveries stay saved in this browser. Sign in again whenever you’re ready.`,
+        : cloudEnabled
+          ? `${user.name}, uploaded quiz records stay in your cloud account. Pending uploads and game progress stay on this device. Logging out ends your cloud session in this browser, including other tabs.`
+          : `${user.name}, your discoveries stay saved in this browser. Sign in again whenever you’re ready.`,
     ),
     error,
     h(
@@ -297,7 +328,7 @@ export function logoutModal() {
 function passwordModal() {
   const current = input(
     "current-password",
-    "Your current demo password",
+    cloudEnabled ? "Your current password" : "Your current demo password",
     "",
     "password",
   );
@@ -313,7 +344,9 @@ function passwordModal() {
     h(
       "p",
       { class: "muted" },
-      "This changes your local demo password and ends other sessions for this account. Client-side security is still a demo.",
+      cloudEnabled
+        ? "Update your Supabase account password. Use a unique password that you do not share with anyone."
+        : "This changes your local demo password and ends other sessions for this account. Client-side security is still a demo.",
     ),
     h(
       "form",
@@ -323,7 +356,11 @@ function passwordModal() {
           try {
             await changePassword(current.value, next.value);
             close();
-            toast("Demo password changed. Your other sessions are signed out.");
+            toast(
+              cloudEnabled
+                ? "Your password was changed."
+                : "Demo password changed. Your other sessions are signed out.",
+            );
           } catch (e) {
             error.textContent =
               e instanceof Error ? e.message : "Please try again.";

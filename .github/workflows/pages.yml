@@ -33,6 +33,9 @@ jobs:
           npm test
           npm run validate:questions
           npm run sim:economy
+          npm run backend:sql -- --check
+      - name: Test database permissions and grading
+        run: npm run backend:test
       - name: Install test browser
         run: npx playwright install --with-deps chromium
       - name: Select the installed Chromium
@@ -40,10 +43,21 @@ jobs:
           node --input-type=module -e 'import { chromium } from "@playwright/test"; import { appendFileSync } from "node:fs"; appendFileSync(process.env.GITHUB_ENV, "CHROMIUM_PATH=" + chromium.executablePath() + "\n");'
       - name: Test the application
         run: npm run e2e
+      - name: Test cloud authentication and records
+        run: npm run e2e:cloud
       - name: Build and test the GitHub Pages URL
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
         run: npm run e2e:pages
+      - name: Build the selected backend configuration
+        env:
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_BACKEND_MODE: ${{ vars.VITE_BACKEND_MODE || 'local' }}
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          npm run backend:check
+          npm run build
       - name: Upload the verified website
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:

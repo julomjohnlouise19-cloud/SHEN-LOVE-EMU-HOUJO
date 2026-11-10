@@ -16,7 +16,11 @@
     "validate:questions": "node --import tsx scripts/validate-questions.ts",
     "gen:questions": "node --import tsx scripts/generate-questions.ts",
     "sim:economy": "node --import tsx scripts/simulate-economy.ts",
-    "seed": "node --import tsx scripts/seed.ts"
+    "seed": "node --import tsx scripts/seed.ts",
+    "backend:sql": "node --import tsx scripts/build-backend-sql.ts",
+    "backend:test": "node --import tsx scripts/test-backend-db.ts",
+    "e2e:cloud": "playwright test --config playwright.cloud.config.ts",
+    "backend:check": "node --import tsx scripts/check-backend.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",
@@ -33,5 +37,8 @@
     "typescript-eslint": "^8.46.0",
     "vite": "^7.2.0",
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0"
   }
 }

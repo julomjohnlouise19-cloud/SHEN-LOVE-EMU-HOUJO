@@ -1,3 +1,5 @@
+import { cloudEnabled } from "../store/cloud";
+import { cloudNotice } from "./cloud-status";
 import { currentUser, dispatch, getState } from "../store";
 import { dayKey } from "../core/time";
 import { levelOf } from "../core/rules";
@@ -52,6 +54,20 @@ export function shell(page: HTMLElement, route: string) {
       ),
     ),
   );
+  if (cloudEnabled && user && user.id !== "guest")
+    navigation.append(
+      h(
+        "a",
+        {
+          href: "#/records",
+          class: `nav-link ${route === "/records" ? "active" : ""}`,
+          "aria-current": route === "/records" ? "page" : undefined,
+          onClick: closeNavigation,
+        },
+        icon("notebook"),
+        "Cloud quiz records",
+      ),
+    );
   if (user?.role === "admin")
     navigation.append(
       h(
@@ -236,6 +252,7 @@ export function shell(page: HTMLElement, route: string) {
       { class: "workspace" },
       header,
       connectionNotice(),
+      cloudNotice(),
       main,
       h(
         "footer",
@@ -322,7 +339,9 @@ export function helpModal() {
     h(
       "div",
       { class: "notice" },
-      "This is a local demo. Accounts and balances stay in this browser. Supply claims need school verification at the Grade 10 SSC room; no real purchase is placed online.",
+      cloudEnabled
+        ? "Cloud accounts save profiles and completed quiz answers for teacher reports. Merits, notebook, balances and supply claims remain local demos and need school verification."
+        : "This is a local demo. Accounts and balances stay in this browser. Supply claims need school verification at the Grade 10 SSC room; no real purchase is placed online.",
     ),
     button(
       "Let’s get curious",

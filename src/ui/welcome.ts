@@ -1,3 +1,5 @@
+import { cloudEnabled } from "../store/cloud";
+import { cloudNotice } from "./cloud-status";
 import { guestSession } from "../store";
 import { button, h } from "./dom";
 import { authModal } from "./auth";
@@ -21,6 +23,7 @@ export function welcomeHub() {
       "main",
       { id: "main", class: "welcome-main", tabIndex: -1 },
       connectionNotice(),
+      cloudNotice(),
       notice === "logged-out" || notice === "storage"
         ? h(
             "p",
@@ -28,7 +31,9 @@ export function welcomeHub() {
             icon("check", 18),
             notice === "storage"
               ? "You’re logged out of this tab. Browser storage couldn’t be updated."
-              : "You’re logged out. Your discoveries are saved in this browser.",
+              : cloudEnabled
+                ? "You’re logged out. Uploaded quiz records stay in your cloud account; pending uploads stay on this device."
+                : "You’re logged out. Your discoveries are saved in this browser.",
           )
         : null,
       h(
@@ -62,7 +67,9 @@ export function welcomeHub() {
             "p",
             { class: "welcome-storage" },
             icon("lock", 14),
-            "Profiles and progress stay in this browser.",
+            cloudEnabled
+              ? "Email accounts and completed quiz records sync to the cloud. Guest practice stays on this device."
+              : "Profiles and progress stay in this browser.",
           ),
         ),
         h("div", { class: "welcome-art" }, heroIllustration()),

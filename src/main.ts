@@ -1,3 +1,5 @@
+import { cloudEnabled } from "./store/cloud";
+import { updateCloudNotices } from "./ui/cloud-status";
 import "./styles/main.css";
 import {
   initStore,
@@ -101,8 +103,12 @@ async function render() {
     else if (path === "/quests") page = questsPage();
     else if (path === "/leaderboard") page = leaderboardPage();
     else if (path === "/experiment") page = labPage();
+    else if (path === "/records" && cloudEnabled)
+      page = await (await import("./ui/records")).recordsPage();
     else if (path === "/admin" || path === "/undo")
-      page = await (await import("./ui/admin")).adminPage();
+      page = cloudEnabled
+        ? await (await import("./ui/records")).recordsPage(true)
+        : await (await import("./ui/admin")).adminPage();
     else if (path.startsWith("/challenge/")) {
       const params = new URLSearchParams(location.hash.split("?")[1]),
         deck = path.split("/")[2],
@@ -192,6 +198,7 @@ window.addEventListener("csl:recovery", (e) =>
     run: () => download("cozy-science-backup.json", exportBackup()),
   }),
 );
+window.addEventListener("csl:cloud-status", updateCloudNotices);
 window.addEventListener("offline", () => {
   updateConnectionNotices();
   toast("You’re offline. Keep exploring your saved science decks.");

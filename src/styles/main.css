@@ -5944,3 +5944,49 @@ hr {
     grid-template-columns: 1fr;
   }
 }
+
+.cloud-notice {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 10px clamp(16px, 3vw, 36px);
+  background: #eef1e6;
+  color: #344137;
+  border-bottom: 1px solid #d7ddc7;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.welcome-main > .cloud-notice {
+  border: 1px solid #d7ddc7;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.records-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+.record-meta {
+  display: block;
+  margin-top: 5px;
+}
+.record-answer {
+  padding: 18px 0;
+  border-bottom: 1px solid #d7ddc7;
+  overflow-wrap: anywhere;
+}
+.record-answer h3 {
+  margin: 0 0 12px;
+}
+.records-page .table-wrap {
+  max-width: 100%;
+  overflow: auto;
+}
+.records-page .table-wrap table {
+  min-width: 720px;
+}
+.records-page .notice {
+  margin-top: 20px;
+}

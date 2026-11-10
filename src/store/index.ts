@@ -6,6 +6,21 @@ import { initialState, newUser } from "./seed";
 import { hashPassword, makeSalt, constantTimeEqual } from "./auth";
 import { isQuestion, validState, parseBackup } from "./schema";
 import { migrateState } from "../core/migrations";
+import {
+  cloudEnabled,
+  cloudUserId,
+  initCloud,
+  cloudLogin,
+  cloudRegister,
+  cloudLogout,
+  cloudChangePassword,
+  cloudUpdateProfile,
+  OUTBOX_KEY,
+  stageCloudRun,
+  requestCloudSync,
+  recoverCloudRuns,
+  type CloudProfile,
+} from "./cloud";
 const KEY = "csl:state";
 const adapter = new LocalStorageAdapter();
 let state: AppState;
@@ -44,8 +59,12 @@ export function session(): Session | undefined {
     (s) => s.token === token && s.expires > Date.now(),
   );
 }
-export const currentUser = () =>
-  state.users.find((u) => u.id === session()?.userId);
+export const currentUser = () => {
+  const user = state.users.find((u) => u.id === session()?.userId);
+  if (cloudEnabled && user && user.id !== "guest" && user.id !== cloudUserId())
+    return undefined;
+  return user;
+};
 export function clearInvalidSession() {
   if (!currentUser()) sessionStorage.removeItem("csl:session");
 }
@@ -86,6 +105,14 @@ export async function initStore() {
       listeners.forEach((fn) => fn());
     }
   });
+  if (cloudEnabled) {
+    const profile = await initCloud(() => {
+      const userId = session()?.userId;
+      if (userId !== "guest") sessionStorage.removeItem("csl:session");
+      listeners.forEach((fn) => fn());
+    });
+    if (profile) await enterCloud(profile);
+  }
   clearInvalidSession();
   setInterval(() => {
     const actor = currentUser();
@@ -133,12 +160,43 @@ async function createSession(userId: string) {
   );
   listeners.forEach((fn) => fn());
 }
+async function enterCloud(profile: CloudProfile) {
+  await adapter.transaction([KEY], (tx) => {
+    const s = tx.get<AppState>(KEY)!;
+    const previous = s.users.find((u) => u.id === profile.user_id);
+    const user = {
+      ...(previous ??
+        newUser(
+          profile.user_id,
+          profile.email,
+          profile.display_name,
+          Date.now(),
+        )),
+      username: profile.email,
+      name: profile.display_name,
+      grade: profile.grade,
+      section: profile.section,
+      role: profile.is_teacher ? ("admin" as const) : ("student" as const),
+      salt: "",
+      hash: "",
+    };
+    tx.set(KEY, {
+      ...s,
+      rev: s.rev + 1,
+      users: [...s.users.filter((u) => u.id !== user.id), user],
+    });
+  });
+  await createSession(profile.user_id);
+  await recoverCloudRuns(state.runs);
+}
 export async function guestSession() {
+  if (cloudEnabled) await cloudLogout();
   await createSession("guest");
 }
 export async function logout() {
   const token = sessionToken();
   try {
+    if (cloudEnabled && cloudUserId()) await cloudLogout();
     if (token)
       await adapter.transaction([KEY], (tx) => {
         const s = tx.get<AppState>(KEY)!;
@@ -154,6 +212,10 @@ export async function logout() {
   }
 }
 export async function login(username: string, password: string) {
+  if (cloudEnabled) {
+    await enterCloud(await cloudLogin(username, password));
+    return;
+  }
   const name = username.trim().toLowerCase();
   const limiterKey = `csl:login:${name.slice(0, 40)}`;
   const limiter = await adapter.get<{ tries: number; until: number }>(
@@ -193,6 +255,11 @@ export async function register(input: {
   grade: number;
   section: string;
 }) {
+  if (cloudEnabled) {
+    const profile = await cloudRegister(input);
+    if (profile) await enterCloud(profile);
+    return !!profile;
+  }
   const username = input.username.trim().toLowerCase();
   if (
     !/^[a-z][a-z0-9_]{2,19}$/.test(username) ||
@@ -250,6 +317,7 @@ export async function register(input: {
     });
   });
   await createSession(id);
+  return true;
 }
 export async function dispatch(command: Command) {
   const actor = requireActor();
@@ -257,22 +325,46 @@ export async function dispatch(command: Command) {
     throw new Error("This question could not be validated.");
   if (command.type === "AdminQuestion" && !isQuestion(command.overlay.question))
     throw new Error("The question JSON does not match the schema.");
-  return adapter.transaction([KEY], (tx) => {
-    const s = tx.get<AppState>(KEY)!;
-    if (
-      !s.sessions.some(
-        (t) =>
-          t.token === session()?.token &&
-          t.userId === actor.id &&
-          t.expires > Date.now(),
+  const cloudActor = cloudEnabled && actor.id !== "guest";
+  if (cloudActor && command.type === "UpdateProfile")
+    await cloudUpdateProfile(
+      actor.id,
+      command.name,
+      command.grade,
+      command.section,
+    );
+  if (cloudActor && command.type.startsWith("Admin"))
+    throw new Error(
+      "Cloud teacher access is managed by the database owner. Local admin tools are available only in demo mode.",
+    );
+  const queue = cloudActor && command.type === "SubmitAnswer";
+  const events = await adapter.transaction(
+    queue ? [KEY, OUTBOX_KEY] : [KEY],
+    (tx) => {
+      const s = tx.get<AppState>(KEY)!;
+      if (
+        currentUser()?.id !== actor.id ||
+        !s.sessions.some(
+          (t) =>
+            t.token === session()?.token &&
+            t.userId === actor.id &&
+            t.expires > Date.now(),
+        )
       )
-    )
-      throw new Error("Your session expired. Please sign in.");
-    const ctx = context(s),
-      result = execute(s, actor.id, command, ctx);
-    tx.set(KEY, applyResult(s, actor.id, command, result, ctx));
-    return result.events;
-  });
+        throw new Error("Your session expired. Please sign in.");
+      const ctx = context(s),
+        result = execute(s, actor.id, command, ctx);
+      const next = applyResult(s, actor.id, command, result, ctx);
+      tx.set(KEY, next);
+      if (queue && command.type === "SubmitAnswer") {
+        const run = next.runs.find((r) => r.id === command.runId);
+        if (run?.completed) stageCloudRun(tx, run);
+      }
+      return result.events;
+    },
+  );
+  if (queue) requestCloudSync();
+  return events;
 }
 export function exportBackup() {
   return JSON.stringify(
@@ -295,6 +387,10 @@ export async function changePassword(
     throw new Error("Join the lab to set a password for your own account.");
   if (newPassword.length < 8 || newPassword.length > 128)
     throw new Error("Use a new password with 8–128 characters.");
+  if (cloudEnabled) {
+    await cloudChangePassword(currentPassword, newPassword);
+    return;
+  }
   if (
     !constantTimeEqual(
       await hashPassword(currentPassword, actor.salt),
@@ -334,6 +430,10 @@ export async function changePassword(
   });
 }
 export async function importBackup(contents: string) {
+  if (cloudEnabled)
+    throw new Error(
+      "Restore local backups in demo mode. Cloud records and teacher roles cannot be imported from a browser backup.",
+    );
   const actor = requireActor(),
     parsed = parseBackup(contents);
   await adapter.transaction([KEY], (tx) => {

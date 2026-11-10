@@ -1,0 +1,336 @@
+import { createClient } from "@supabase/supabase-js";
+import { readCloudConfig } from "../core/cloud-config";
+import {
+  acknowledge,
+  enqueue,
+  jobForRun,
+  readOutbox,
+  type CloudOutbox,
+} from "../core/cloud-records";
+import type { Run } from "../core/types";
+import { LocalStorageAdapter, type Tx } from "./adapter";
+
+const config = readCloudConfig({
+  VITE_BACKEND_MODE: import.meta.env.VITE_BACKEND_MODE,
+  VITE_SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL,
+  VITE_SUPABASE_PUBLISHABLE_KEY: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+});
+export const cloudEnabled = config.enabled;
+export const OUTBOX_KEY = "csl:cloud-outbox";
+const AUTH_KEY = "csl:cloud-auth";
+const client = cloudEnabled
+  ? createClient(config.url, config.publishableKey, {
+      auth: {
+        storageKey: AUTH_KEY,
+        persistSession: true,
+        autoRefreshToken: true,
+        flowType: "pkce",
+        detectSessionInUrl: true,
+      },
+      global: {
+        fetch: (url, init) =>
+          fetch(url, {
+            ...init,
+            signal: init?.signal
+              ? AbortSignal.any([init.signal, AbortSignal.timeout(15000)])
+              : AbortSignal.timeout(15000),
+          }),
+      },
+    })
+  : undefined;
+const adapter = cloudEnabled ? new LocalStorageAdapter() : undefined;
+let identity: string | undefined;
+let backendReady = false;
+let syncing = false;
+let pending = 0;
+let statusMessage = "";
+let syncTimer: ReturnType<typeof setTimeout> | undefined;
+export const cloudUserId = () => identity;
+export const cloudStatus = () => ({ pending, syncing, message: statusMessage });
+function status(message = statusMessage) {
+  statusMessage = message;
+  window.dispatchEvent(new Event("csl:cloud-status"));
+}
+export interface CloudProfile {
+  user_id: string;
+  display_name: string;
+  grade: number;
+  section: string;
+  is_teacher: boolean;
+  email: string;
+}
+export interface CloudRecord {
+  id: string;
+  user_id: string;
+  display_name: string;
+  grade: number;
+  section: string;
+  deck_id: string;
+  level: string;
+  mode: string;
+  correct: number;
+  total: number;
+  received_at: string;
+  responses: {
+    question_id: string;
+    prompt: string;
+    value: unknown;
+    correct: boolean;
+    misconception?: string;
+  }[];
+}
+async function ready() {
+  if (!client)
+    throw new Error("Cloud accounts are not enabled on this website yet.");
+  if (backendReady) return;
+  const { data, error } = await client.rpc("csl_backend_status");
+  if (error || data?.version !== 1 || data?.questions !== 972)
+    throw new Error(
+      "Cloud setup is not ready. Ask the site owner to run supabase/setup.sql and check the public project settings. Guest practice is available.",
+    );
+  backendReady = true;
+}
+async function profile(): Promise<CloudProfile> {
+  const { data: auth, error: authError } = await client!.auth.getUser();
+  if (authError || !auth.user)
+    throw new Error("Please sign in again to connect your cloud records.");
+  const { data, error } = await client!.rpc("csl_my_profile");
+  if (error) throw new Error(error.message);
+  if (
+    !data ||
+    data.user_id !== auth.user.id ||
+    typeof data.display_name !== "string" ||
+    ![7, 8, 9, 10].includes(data.grade) ||
+    typeof data.section !== "string" ||
+    typeof data.is_teacher !== "boolean"
+  )
+    throw new Error("Your cloud profile could not be verified.");
+  const latest = await client!.auth.getSession();
+  if (
+    latest.data.session?.user.id !== auth.user.id ||
+    sessionStorage.getItem("csl:cloud-logged-out")
+  )
+    throw new Error("Your account changed. Please sign in again.");
+  identity = auth.user.id;
+  return { ...data, email: auth.user.email ?? "" } as CloudProfile;
+}
+export async function initCloud(
+  signedOut: () => void,
+): Promise<CloudProfile | undefined> {
+  if (!client) return;
+  client.auth.onAuthStateChange((event, session) => {
+    const previous = identity;
+    const next = session?.user.id;
+    // Keep this callback synchronous: Supabase holds its Auth lock while calling it.
+    if (event === "SIGNED_OUT" || (previous && previous !== next)) {
+      identity = undefined;
+      pending = 0;
+      status("");
+      signedOut();
+    }
+  });
+  adapter!.subscribe(OUTBOX_KEY, () => {
+    void refreshPending();
+  });
+  window.addEventListener("online", () => {
+    void flushCloud();
+  });
+  try {
+    await ready();
+    const { data, error } = await client.auth.getSession();
+    if (error) throw error;
+    if (!data.session || sessionStorage.getItem("csl:cloud-logged-out")) return;
+    return await profile();
+  } catch (e) {
+    identity = undefined;
+    status(
+      e instanceof Error
+        ? e.message
+        : "Cloud sign-in is unavailable. Try again online.",
+    );
+    return;
+  }
+}
+export async function cloudLogin(email: string, password: string) {
+  await ready();
+  const { error } = await client!.auth.signInWithPassword({
+    email: email.trim(),
+    password,
+  });
+  if (error) throw new Error(error.message);
+  sessionStorage.removeItem("csl:cloud-logged-out");
+  const result = await profile();
+  status("");
+  return result;
+}
+export async function cloudRegister(input: {
+  username: string;
+  password: string;
+  name: string;
+  grade: number;
+  section: string;
+}) {
+  if (
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.username.trim()) ||
+    input.password.length < 8 ||
+    input.password.length > 128 ||
+    input.name.trim().length < 2 ||
+    input.name.trim().length > 40 ||
+    ![7, 8, 9, 10].includes(input.grade) ||
+    input.section.length > 40
+  )
+    throw new Error(
+      "Use your email, an 8–128 character password, a name of 2–40 characters, and a grade from 7 to 10.",
+    );
+  await ready();
+  const { data, error } = await client!.auth.signUp({
+    email: input.username.trim(),
+    password: input.password,
+    options: {
+      emailRedirectTo: `${location.origin}${import.meta.env.BASE_URL}`,
+      data: {
+        display_name: input.name.trim(),
+        grade: input.grade,
+        section: input.section.trim(),
+      },
+    },
+  });
+  if (error) throw new Error(error.message);
+  if (!data.session) return undefined;
+  sessionStorage.removeItem("csl:cloud-logged-out");
+  return profile();
+}
+export async function cloudLogout() {
+  identity = undefined;
+  pending = 0;
+  sessionStorage.setItem("csl:cloud-logged-out", "1");
+  status("");
+  try {
+    await client!.auth.signOut({ scope: "local" });
+  } finally {
+    // An unavailable Auth endpoint must not leave a cached browser credential after logout.
+    for (const key of Object.keys(localStorage))
+      if (key.startsWith(AUTH_KEY)) localStorage.removeItem(key);
+  }
+}
+export async function cloudChangePassword(
+  currentPassword: string,
+  password: string,
+) {
+  const { data } = await client!.auth.getUser();
+  if (!data.user?.email) throw new Error("Please sign in again.");
+  const { error: verificationError } = await client!.auth.signInWithPassword({
+    email: data.user.email,
+    password: currentPassword,
+  });
+  if (verificationError)
+    throw new Error("Your current password does not match.");
+  const { error } = await client!.auth.updateUser({ password });
+  if (error) throw new Error(error.message);
+}
+export async function cloudUpdateProfile(
+  userId: string,
+  name: string,
+  grade: number,
+  section: string,
+) {
+  const { error } = await client!.rpc("csl_update_profile", {
+    p_user_id: userId,
+    p_name: name.trim(),
+    p_grade: grade,
+    p_section: section.trim(),
+  });
+  if (error) throw new Error(error.message);
+}
+function outbox(tx: Tx): CloudOutbox {
+  return readOutbox(tx.get<unknown>(OUTBOX_KEY));
+}
+export function stageCloudRun(tx: Tx, run: Run) {
+  tx.set(OUTBOX_KEY, enqueue(outbox(tx), jobForRun(run)));
+}
+async function refreshPending() {
+  try {
+    const box = readOutbox(await adapter!.get<unknown>(OUTBOX_KEY));
+    pending = box.pending.filter((p) => p.userId === identity).length;
+    status();
+  } catch (e) {
+    status(
+      e instanceof Error ? e.message : "The cloud upload queue needs recovery.",
+    );
+  }
+}
+export async function recoverCloudRuns(runs: Run[]) {
+  if (!identity || !adapter) return;
+  try {
+    await adapter.transaction([OUTBOX_KEY], (tx) => {
+      for (const run of runs)
+        if (run.userId === identity && run.completed) stageCloudRun(tx, run);
+    });
+    requestCloudSync();
+  } catch (e) {
+    status(
+      e instanceof Error ? e.message : "The cloud upload queue needs recovery.",
+    );
+  }
+}
+export function requestCloudSync() {
+  if (!cloudEnabled) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(() => {
+    void flushCloud();
+  }, 0);
+}
+export async function flushCloud() {
+  if (!client || !adapter || !identity || syncing) return;
+  const owner = identity;
+  syncing = true;
+  status("");
+  try {
+    await refreshPending();
+    if (pending && !navigator.onLine)
+      throw new Error(
+        "Quiz records are waiting on this device. Reconnect to upload them.",
+      );
+    while (owner === identity) {
+      const box = readOutbox(await adapter.get<unknown>(OUTBOX_KEY));
+      const job = box.pending.find((p) => p.userId === owner);
+      if (!job) break;
+      const { error } = await client.rpc("csl_record_quiz", {
+        p_user_id: job.userId,
+        p_client_run_id: job.runId,
+        p_deck_id: job.deckId,
+        p_level: job.level,
+        p_mode: job.mode,
+        p_started_at: job.startedAt,
+        p_answers: job.answers,
+      });
+      if (error) throw new Error(`Quiz upload is waiting: ${error.message}`);
+      await adapter.transaction([OUTBOX_KEY], (tx) =>
+        tx.set(OUTBOX_KEY, acknowledge(outbox(tx), job)),
+      );
+    }
+    if (owner === identity) status("");
+  } catch (e) {
+    if (owner === identity)
+      status(
+        e instanceof Error
+          ? e.message
+          : "Quiz upload is waiting. Try again online.",
+      );
+  } finally {
+    syncing = false;
+    await refreshPending();
+    if (owner !== identity && identity) requestCloudSync();
+  }
+}
+export async function cloudRecords(
+  offset: number,
+): Promise<{ rows: CloudRecord[]; teacher: boolean }> {
+  const me = await profile();
+  const { data, error } = await client!.rpc("csl_list_records", {
+    p_limit: 100,
+    p_offset: offset,
+  });
+  if (error) throw new Error(error.message);
+  return { rows: (data ?? []) as CloudRecord[], teacher: me.is_teacher };
+}

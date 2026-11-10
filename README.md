@@ -1,6 +1,6 @@
 # The Cozy Science Lab
 
-A local-first science learning game for Philippine Grade 7–10 students. Vite + strict TypeScript, no UI framework or production JavaScript dependencies. Learning illustrations are inline SVG; the supplied Gun-ob High School seal is shared across the website as a transparent image. Google Fonts are self-hosted with OFL licenses.
+A local-first science learning game for Philippine Grade 7–10 students. Vite + strict TypeScript, no UI framework. The optional Supabase backend uses the official browser SDK. Learning illustrations are inline SVG; the supplied Gun-ob High School seal is shared across the website as a transparent image. Google Fonts are self-hosted with OFL licenses.
 
 ## Open the website on GitHub Pages
 
@@ -17,7 +17,13 @@ Open the HTTPS website to play. Double-clicking a downloaded `index.html` uses `
 
 Creating the Pages site is an account-owner setup step. The connected integration can push code but returned **403 “Resource not accessible by integration”** when asked to create the Pages site. In that case, use the settings link above; publishing the cloud development environment alone does not enable website hosting.
 
-The workflow tests both the normal URL and the repository path before publishing. `VITE_BASE_PATH=/SHEN-LOVE-EMU-HOUJO/ npm run build` builds the Pages version, including matching offline cache paths. A different repository name needs its corresponding path. Profile data remains local to each browser; GitHub hosting does not synchronize accounts or progress.
+The workflow tests both the normal URL and the repository path before publishing. `VITE_BASE_PATH=/SHEN-LOVE-EMU-HOUJO/ npm run build` builds the Pages version, including matching offline cache paths. A different repository name needs its corresponding path. GitHub hosting alone does not synchronize accounts or progress. Optional Supabase cloud mode is described below.
+
+## Connect a Supabase backend
+
+Follow [the complete Supabase setup guide](docs/SUPABASE_SETUP.md). Run the generated [setup.sql](supabase/setup.sql) in your project, configure Auth URLs, appoint the teacher with [bootstrap-teacher.sql](supabase/bootstrap-teacher.sql), then supply the three public build variables from [.env.example](.env.example). No private key is needed in the app.
+
+Cloud mode adds real email authentication, Auth-linked profiles, completed quiz records, server grading, retryable uploads and teacher reports/CSV. It preserves local demo data. Merits, supplies, notebook and unfinished practice remain on the device. Default mode stays local until setup is complete. The deployment workflow blocks a cloud build if its real database is not ready. No live Supabase migration is applied by committing code.
 
 ## Start
 
@@ -36,7 +42,7 @@ Production: `npm run build`, then `npm run preview`. Vite prints the local port.
 
 - First visits and ended sessions open the separate welcome hub. Choose **Sign in**, **Create account** or **Explore as guest**; no guest account is signed in automatically. New profiles get 24 starter merits by default.
 - **Log out** is visible in the lab header and registered-user profile. The confirmation offers **Keep exploring** or **Log out now**. Logout returns to the welcome hub and preserves saved profiles, notes and progress. Refresh and browser Back do not reopen an ended session; guest exploration must be chosen again.
-- Existing valid sessions continue normally. Expired or revoked sessions return to the welcome hub and close private dialogs. Incoming deck/challenge links keep their destination through entry. Sessions remain per tab; logging out one tab does not end a different tab's session.
+- Existing valid sessions continue normally. Expired or revoked sessions return to the welcome hub and close private dialogs. Incoming deck/challenge links keep their destination through entry. Local demo sessions remain per tab; cloud logout ends the shared Supabase browser session across tabs.
 - Find topics across all 27 decks using **Search all science decks** on Science Island. Search by subject, deck name or science idea; Skills Lab level requirements still apply. **Clear search** or Escape resets the results.
 - **Continue learning** on the dashboard resumes your unfinished session with the same answers and rewards. An offline banner explains when you are using saved content; going offline does not erase an active topic search.
 - The school seal appears on the left of welcome/application headers and dialog titles, including on phones. The favicon uses the same seal, and the image is included in the offline cache.
@@ -48,11 +54,11 @@ Production: `npm run build`, then `npm run preview`. Vite prints the local port.
 
 **Local demo: no real order is sent, no physical stock is reserved, and no notification leaves this browser.** Real school rewards need school approval and verification.
 
-## Demo security and admin
+## Local demo security and admin
 
-Default admin: **`admin` / `admin123`**. Open your profile to sign in; Mission Control appears for admins. The hint is dismissible. Change the default before sharing a demo, and never reuse a real password.
+Default local demo admin: **`admin` / `admin123`**. These credentials are disabled in cloud mode; cloud teachers use Supabase email accounts and owner-assigned roles. Open your profile to sign in; Mission Control appears for admins. The hint is dismissible. Change the default before sharing a demo, and never reuse a real password.
 
-**This is client-side demo security. Production needs a real backend, server-side password hashing and server-enforced roles.** Passwords use PBKDF2-SHA-256, 150,000 iterations, random per-user salt. People who control browser storage can alter local roles, inventory and balances. Production also needs authoritative time, transactions, secure sessions and server audit records. CSP and safe DOM rendering do not make client storage trustworthy. Do not use real student personal data or valuable rewards in this demo.
+**Local demo mode uses client-side security.** Cloud mode uses Supabase Auth and database roles for accounts and quiz records; local game balances and rewards still need an authoritative backend before becoming official school credits. Passwords use PBKDF2-SHA-256, 150,000 iterations, random per-user salt. People who control browser storage can alter local roles, inventory and balances. Production also needs authoritative time, transactions, secure sessions and server audit records. CSP and safe DOM rendering do not make client storage trustworthy. Do not use real student personal data or valuable rewards in this demo.
 
 Sessions last eight hours and are per tab. Five failed login attempts trigger a persisted 30-second cooldown. Routes and commands check roles. Admin tools cover balances/presence, section accuracy, misconceptions, stock/prices, claims, all economy rules, question overlays, JSON/CSV imports, notifications, audit and latest-change undo. Undo rejects changes after any newer transaction to protect newer work.
 
@@ -100,6 +106,9 @@ npm run seed
 npm run build
 npm run e2e
 npm run e2e:pages
+npm run backend:sql -- --check
+npm run backend:test
+npm run e2e:cloud
 ```
 
-Playwright uses `/usr/bin/chromium` here; set `CHROMIUM_PATH` elsewhere. The normal production browser suite uses port 4173; the Pages-path suite uses 4174. Both can coexist with development on 5173, but run the two suites sequentially because each rebuilds `dist`. Browser checks cover learning/review, accessibility/mobile, accounts, rewards, supply redemption, admin collection and two-tab last-stock safety. Welcome/logout checks cover first entry, account creation, cancel/confirm, saved notes, Back/reload, deep links, expiry, cross-tab revocation and failed storage writes. A JavaScript-disabled check serves the exact source HTML without Vite transforms and verifies its styled online link; managed Chromium blocks direct `file://` navigation. The Pages check covers desktop/mobile layout, fonts, a loaded Cells session, offline access to an unvisited deck, and offline logout/reload under the repository path. Unit/property tests independently check every calculator over 200 seeds. `PLAN.md` records phase gates. Live processes must restart in a restored cloud task; retained files alone do not start the server. For a fresh-browser readiness check, verify the welcome heading first, choose Explore as guest, then verify the dashboard and a loaded Cells question.
+Playwright uses `/usr/bin/chromium` here; set `CHROMIUM_PATH` elsewhere. The normal production browser suite uses port 4173; the Pages-path suite uses 4174; the cloud suite uses 4175 with mocked APIs. Both can coexist with development on 5173, but run these suites sequentially because each rebuilds `dist`. Browser checks cover learning/review, accessibility/mobile, accounts, rewards, supply redemption, admin collection and two-tab last-stock safety. Welcome/logout checks cover first entry, account creation, cancel/confirm, saved notes, Back/reload, deep links, expiry, cross-tab revocation and failed storage writes. A JavaScript-disabled check serves the exact source HTML without Vite transforms and verifies its styled online link; managed Chromium blocks direct `file://` navigation. The Pages check covers desktop/mobile layout, fonts, a loaded Cells session, offline access to an unvisited deck, and offline logout/reload under the repository path. Unit/property tests independently check every calculator over 200 seeds. `PLAN.md` records phase gates. Live processes must restart in a restored cloud task; retained files alone do not start the server. For a fresh-browser readiness check, verify the welcome heading first, choose Explore as guest, then verify the dashboard and a loaded Cells question.

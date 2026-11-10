@@ -105,3 +105,17 @@ All 45 unit/property tests, 23 root browser scenarios and the repository-path br
 - [x] Pass required code/content/browser/accessibility gates, deploy and verify the live experience.
 
 All 45 unit/property tests, 27 root browser scenarios and the Pages-path scenario passed. [Run 42543853391](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42543853391) passed build and deployment with no annotations. The public site returned HTTP 200 and matched the tested module. The new name, school logo/favicon, 320/390 px and desktop layouts, menu Escape/home behavior, topic search/level gate, unchanged answers/rewards on resume, offline logo/banner and logout privacy passed live checks with zero browser errors and failed resources. The restored development server was verified through the branded hub, guest dashboard and a loaded Cells question.
+
+## Supabase backend connection
+
+- [x] Add guarded public client configuration and the official browser SDK; never bundle a private key.
+- [x] Provide a complete SQL setup with Auth-linked profiles, teacher-only access, immutable quiz records, server grading and idempotent submissions.
+- [x] Add optional cloud email authentication, durable quiz upload/retry, student records and teacher reports/CSV.
+- [x] Preserve the local demo and existing data; clearly distinguish cloud quiz records from local-only practice/rewards.
+- [x] Test SQL/RLS in PostgreSQL, cloud flows with controlled API fixtures, existing app/browser gates and production configuration.
+- [x] Document the exact owner actions needed to apply the real database setup and confirm project access.
+- [ ] Publish a cloud-enabled website after the owner completes Supabase setup and requests publication. No site or environment was published in this phase.
+
+All 51 unit/property tests, 27 existing browser scenarios, seven cloud scenarios and the Pages-path scenario passed. The final guest-entry change was rechecked against email-confirmation and missing-database scenarios. Real PostgreSQL tests covered all 972 canonical graders and alternatives, Auth profile creation, metadata role spoofing, row level security, account mismatches, immutable quiz records, retries, pagination and setup reruns. Code/content/economy checks and both local/cloud builds passed. Healthy browser flows had no unexpected console or application errors; negative API fixtures intentionally exercised HTTP failures. The development preview was restored and verified through the welcome hub, guest dashboard and a Cells question.
+
+The actual Supabase project is not yet verified or migrated: its domain addition remains in the unapplied environment draft, and publishable keys cannot create tables or assign teacher access. No private credential was used. The complete owner workflow is in docs/SUPABASE_SETUP.md; generated supabase/setup.sql and the owner-only teacher bootstrap are ready for SQL Editor review. Cloud mode stays off by default, and deployment checks require the real backend to report version 1 and 972 questions before a configured upload. Existing live hosting remains unchanged.
