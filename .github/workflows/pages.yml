@@ -26,6 +26,14 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
+      - name: Check the live Supabase connection
+        env:
+          VITE_BACKEND_MODE: ${{ vars.VITE_BACKEND_MODE }}
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          node --input-type=module -e 'if (process.env.VITE_BACKEND_MODE !== "supabase") throw new Error("Set the repository variable VITE_BACKEND_MODE to supabase before publishing the connected website.");'
+          npm run backend:check
       - name: Check code and science content
         run: |
           npm run lint
@@ -52,12 +60,10 @@ jobs:
       - name: Build the selected backend configuration
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
-          VITE_BACKEND_MODE: ${{ vars.VITE_BACKEND_MODE || 'local' }}
+          VITE_BACKEND_MODE: ${{ vars.VITE_BACKEND_MODE }}
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
-        run: |
-          npm run backend:check
-          npm run build
+        run: npm run build
       - name: Upload the verified website
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
