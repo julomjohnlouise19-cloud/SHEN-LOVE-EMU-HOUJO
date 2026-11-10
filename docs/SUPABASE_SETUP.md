@@ -64,7 +64,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_YOUR_PUBLIC_KEY
 
 Restart Vite after editing. `.env.local` is ignored by Git. The project URL and publishable key are public identifiers; database permissions protect the data. Never put a private key in any `VITE_` variable.
 
-For GitHub Pages, open the repository → **Settings → Secrets and variables → Actions → Variables** and add these same three **repository variables**. Then publish the reviewed code through the existing workflow. The workflow requires VITE_BACKEND_MODE=supabase and checks the live database before running its application checks and building the connected site. Missing or incorrect settings stop deployment and preserve the currently published site. Local development still defaults to the demo.
+For GitHub Pages, open the repository → **Settings → Secrets and variables → Actions → Variables** and add **VITE_SUPABASE_URL** and **VITE_SUPABASE_PUBLISHABLE_KEY** as repository variables. The production workflow sets **VITE_BACKEND_MODE=supabase** directly; a repository variable for the mode is not needed. Then publish the reviewed code through the existing workflow. The workflow checks the live database before running its application checks and building the connected site. Missing or incorrect settings stop deployment and preserve the currently published site. Local development still defaults to the demo.
 
 The managed Codex environment also needs the project's `YOUR_PROJECT.supabase.co` domain allowed for live verification. A saved environment draft does not apply that network change by itself; review and save the draft in environment settings. Changing or publishing the development environment does not deploy the website or create database tables.
 

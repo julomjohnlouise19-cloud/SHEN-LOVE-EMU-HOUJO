@@ -21,9 +21,9 @@ The workflow tests both the normal URL and the repository path before publishing
 
 ## Connect a Supabase backend
 
-Follow [the complete Supabase setup guide](docs/SUPABASE_SETUP.md). Run the generated [setup.sql](supabase/setup.sql) in your project, configure Auth URLs, appoint the teacher with [bootstrap-teacher.sql](supabase/bootstrap-teacher.sql), then supply the three public build variables from [.env.example](.env.example). No private key is needed in the app.
+Follow [the complete Supabase setup guide](docs/SUPABASE_SETUP.md). Run the generated [setup.sql](supabase/setup.sql) in your project, configure Auth URLs, appoint the teacher with [bootstrap-teacher.sql](supabase/bootstrap-teacher.sql), then supply the public project URL and publishable key as GitHub repository variables. Local development uses the settings in [.env.example](.env.example). No private key is needed in the app.
 
-Cloud mode adds real email authentication, Auth-linked profiles, completed quiz records, server grading, retryable uploads and teacher reports/CSV. It preserves local demo data. Merits, supplies, notebook and unfinished practice remain on the device. Local development defaults to the demo. GitHub Pages deployment requires VITE_BACKEND_MODE=supabase and blocks publication if its public settings or real database are not ready. No live Supabase migration is applied by committing code.
+Cloud mode adds real email authentication, Auth-linked profiles, completed quiz records, server grading, retryable uploads and teacher reports/CSV. It preserves local demo data. Merits, supplies, notebook and unfinished practice remain on the device. Local development defaults to the demo. The GitHub Pages workflow selects Supabase mode directly and blocks publication if the public project settings or real database are not ready. No live Supabase migration is applied by committing code.
 
 ## Start
 

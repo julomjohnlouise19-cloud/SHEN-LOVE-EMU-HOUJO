@@ -28,7 +28,7 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Check the live Supabase connection
         env:
-          VITE_BACKEND_MODE: ${{ vars.VITE_BACKEND_MODE }}
+          VITE_BACKEND_MODE: supabase
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: npm run backend:check -- --require-cloud
@@ -58,7 +58,7 @@ jobs:
       - name: Build the selected backend configuration
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
-          VITE_BACKEND_MODE: ${{ vars.VITE_BACKEND_MODE }}
+          VITE_BACKEND_MODE: supabase
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: npm run build

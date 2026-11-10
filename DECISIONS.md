@@ -27,3 +27,5 @@
 - D-024 — Cloud accounts use Supabase Auth UUIDs and verified database profiles, separately from old local accounts and guest practice. Save a finished run and its upload job atomically; the server checks the expected owner and deduplicates retries. Cloud logout clears the shared browser Auth session across tabs while retaining pending uploads for the same owner. Teacher report responses stay in page memory.
 
 - D-025 — The owner authorized publication of the connected website. Require Supabase mode and check the real database at the start of the Pages workflow; missing repository settings must fail deployment instead of publishing a successful local demo. Local development and controlled browser tests keep their explicit demo/cloud modes.
+
+- D-026 — GitHub reported an invalid backend-mode repository value during the authorized publication. The production workflow now selects Supabase directly, so only the public project URL and publishable key need owner configuration. This removes a redundant mode switch; local development and demo/cloud tests retain their explicit modes.
