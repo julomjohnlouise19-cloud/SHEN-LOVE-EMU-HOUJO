@@ -31,9 +31,7 @@ jobs:
           VITE_BACKEND_MODE: ${{ vars.VITE_BACKEND_MODE }}
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
-        run: |
-          node --input-type=module -e 'if (process.env.VITE_BACKEND_MODE !== "supabase") throw new Error("Set the repository variable VITE_BACKEND_MODE to supabase before publishing the connected website.");'
-          npm run backend:check
+        run: npm run backend:check -- --require-cloud
       - name: Check code and science content
         run: |
           npm run lint
