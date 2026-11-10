@@ -10,9 +10,13 @@ export function h<K extends keyof HTMLElementTagNameMap>(
     if (key.startsWith("on") && typeof value === "function")
       node.addEventListener(key.slice(2).toLowerCase(), value as EventListener);
     else if (key === "class") node.className = String(value);
-    else if (key === "style" && typeof value === "object")
-      Object.assign(node.style, value);
-    else if (key === "checked" && node instanceof HTMLInputElement)
+    else if (key === "style" && value && typeof value === "object") {
+      for (const [name, styleValue] of Object.entries(value)) {
+        if (name.startsWith("--"))
+          node.style.setProperty(name, String(styleValue));
+        else Object.assign(node.style, { [name]: styleValue });
+      }
+    } else if (key === "checked" && node instanceof HTMLInputElement)
       node.checked = Boolean(value);
     else if (
       key === "value" &&
@@ -68,7 +72,11 @@ export function button(
           .finally(() => {
             busy = false;
             el.removeAttribute("aria-busy");
-            if (el.isConnected) el.disabled = wasDisabled;
+            if (el.isConnected)
+              el.disabled =
+                el.dataset.desiredDisabled === undefined
+                  ? wasDisabled
+                  : el.dataset.desiredDisabled === "true";
           });
       }
     } catch (e) {
@@ -76,6 +84,13 @@ export function button(
     }
   });
   return el;
+}
+export function setButtonDisabled(
+  button: HTMLButtonElement,
+  disabled: boolean,
+) {
+  button.dataset.desiredDisabled = String(disabled);
+  button.disabled = disabled || button.hasAttribute("aria-busy");
 }
 let toastHost: HTMLElement | null = null;
 function releaseToasts(dialog: HTMLDialogElement) {

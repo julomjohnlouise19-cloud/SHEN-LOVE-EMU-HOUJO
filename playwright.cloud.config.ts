@@ -3,7 +3,7 @@ const base = "/SHEN-LOVE-EMU-HOUJO/";
 const site = `http://127.0.0.1:4175${base}`;
 export default defineConfig({
   testDir: "./e2e",
-  testMatch: "**/cloud.spec.ts",
+  testMatch: ["**/cloud.spec.ts", "**/*.cloud.spec.ts"],
   workers: 1,
   timeout: 90_000,
   use: {

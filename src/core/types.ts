@@ -2,6 +2,7 @@ export type BranchId = "life" | "chemistry" | "physics" | "earth" | "skills";
 export type Difficulty = "easy" | "medium" | "hard";
 export type Answer = string | string[] | Record<string, string>;
 export interface Question {
+  revision?: number;
   id: string;
   deckId: string;
   level: Difficulty;
@@ -150,6 +151,7 @@ export interface Purchase {
   created: number;
 }
 export interface RunAnswer {
+  questionVersion?: number;
   questionId: string;
   value: Answer;
   correct: boolean;

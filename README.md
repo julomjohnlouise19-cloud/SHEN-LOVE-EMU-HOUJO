@@ -19,13 +19,13 @@ Creating the Pages site is an account-owner setup step. The connected integratio
 
 The workflow tests both the normal URL and the repository path before publishing. `VITE_BASE_PATH=/SHEN-LOVE-EMU-HOUJO/ npm run build` builds the Pages version, including matching offline cache paths. A different repository name needs its corresponding path. GitHub hosting alone does not synchronize accounts or progress. Optional Supabase cloud mode is described below.
 
-The published website now uses Supabase for email accounts, profiles and completed quiz records. [Backend deployment run 42733010959](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42733010959) passed the actual project readiness check and all application/database/browser gates. Local game progress and supplies remain demos.
+The website uses Supabase for email accounts, profiles and completed quiz records. The classroom upgrade adds server-scored Science Arcade, private profile photos, class wallets, stock reservations and Teacher Studio. **Existing projects must run [upgrade.sql](supabase/upgrade.sql)** before the new website can deploy. Follow the [simple activation and email-limit guide](docs/CLASSROOM_UPGRADE.md). Committing SQL does not install it in the live database.
 
 ## Connect a Supabase backend
 
 Follow [the complete Supabase setup guide](docs/SUPABASE_SETUP.md). Run the generated [setup.sql](supabase/setup.sql) in your project, configure Auth URLs, appoint the teacher with [bootstrap-teacher.sql](supabase/bootstrap-teacher.sql), then supply the public project URL and publishable key as GitHub repository variables. Local development uses the settings in [.env.example](.env.example). No private key is needed in the app.
 
-Cloud mode adds real email authentication, Auth-linked profiles, completed quiz records, server grading, retryable uploads and teacher reports/CSV. It preserves local demo data. Merits, supplies, notebook and unfinished practice remain on the device. Local development defaults to the demo. The GitHub Pages workflow selects Supabase mode directly and blocks publication if the public project settings or real database are not ready. No live Supabase migration is applied by committing code.
+Cloud mode adds real email authentication, profiles/photos, quiz records, server grading, retryable uploads, server-timed arcade rounds/rankings, class credits and transactional stock reservations. Teachers have a separate workspace for analytics, editable profiles/access/credits, supplies, verified claims/refunds, questions, learning/game settings and audited changes. Original quiz scores are preserved; teacher notes add feedback. It preserves local demo data. Notebook, XP, review/quest/spin progress and unfinished practice remain on the device. Local development defaults to the demo. The Pages workflow blocks publication unless the real backend reports version 1, platform 2 and 972 questions.
 
 ## Start
 
@@ -51,8 +51,10 @@ Production: `npm run build`, then `npm run preview`. Vite prints the local port.
 - Pick a Science Island branch, deck and difficulty. A session draws eight cards from a 12-card pool. Grades recommend, never lock. Skills Lab opens at Level 4.
 - Use hints, learn from explanations, collect merits/XP, and grow mastery. Wrong answers enter a six-box spaced Review Box.
 - Daily spin, two quests, a seeded Daily Challenge, facts, streaks, badges and a local XP leaderboard encourage steady learning.
+- **Science Arcade:** choose Biology, Chemistry, Physics or Earth & space. Shoot four moving answer targets by mouse, touch or keyboard through nine questions and three levels. Timers shorten and targets speed up. Each shot reloads for one second; correct streaks build ×2/×3 combos. Correct shots earn round coins, wrong shots/timeouts lose a bounded amount. Buy five extra seconds or a dart once per card. Sound, confetti, calm targets and reduced motion support different preferences. Best completed scores appear in the class leaderboard when signed in, or stay on the device for guests.
+- **Profile photo:** upload a JPG/PNG/WebP under 5 MB. The browser crops/normalizes it to a small WebP, removing metadata. Account photos use a private storage bucket with ownership/teacher access; Remove photo restores the illustration. Signed image URLs are never exported in backups.
 - Keep notes or suggested misconception repairs, try the force-and-mass experiment, and share seeded Challenge Links.
-- Exchange merits for supplies, redeem the code, then ask a teacher to verify collection at the Grade 10 SSC room.
+- Signed-in students reserve supplies using class credits from the shared shelf. A teacher verifies the claim code before collection; cancellation refunds credits and stock once. Round coins only buy arcade boosts and are separate from class credits. Guest/local demo users keep the earlier merit shop.
 
 **Local demo: no real order is sent, no physical stock is reserved, and no notification leaves this browser.** Real school rewards need school approval and verification.
 
@@ -60,7 +62,7 @@ Production: `npm run build`, then `npm run preview`. Vite prints the local port.
 
 Default local demo admin: **`admin` / `admin123`**. These credentials are disabled in cloud mode; cloud teachers use Supabase email accounts and owner-assigned roles. Open your profile to sign in; Mission Control appears for admins. The hint is dismissible. Change the default before sharing a demo, and never reuse a real password.
 
-**Local demo mode uses client-side security.** Cloud mode uses Supabase Auth and database roles for accounts and quiz records; local game balances and rewards still need an authoritative backend before becoming official school credits. Passwords use PBKDF2-SHA-256, 150,000 iterations, random per-user salt. People who control browser storage can alter local roles, inventory and balances. Production also needs authoritative time, transactions, secure sessions and server audit records. CSP and safe DOM rendering do not make client storage trustworthy. Do not use real student personal data or valuable rewards in this demo.
+**Local demo mode uses client-side security.** Local passwords use PBKDF2-SHA-256, 150,000 iterations and random per-user salt. People who control browser storage can alter local roles, inventory and balances; do not use real student personal data or valuable rewards in the demo. Cloud accounts use Supabase Auth, database-enforced roles, server grading/timing, transactional wallets/stock, idempotent requests and teacher audit records. Existing local merits are never imported as trusted class credits. School staff still authorize rewards and verify physical collection.
 
 Sessions last eight hours and are per tab. Five failed login attempts trigger a persisted 30-second cooldown. Routes and commands check roles. Admin tools cover balances/presence, section accuracy, misconceptions, stock/prices, claims, all economy rules, question overlays, JSON/CSV imports, notifications, audit and latest-change undo. Undo rejects changes after any newer transaction to protect newer work.
 
@@ -90,7 +92,7 @@ One editable rules object controls rewards. Defaults: 3/5/7 merits per correct e
 ## Storage, offline and recovery
 
 - `store/` owns localStorage. One versioned state envelope gives atomic writes even on quota failure. Web Locks serialize tabs, with a settling lease fallback. BroadcastChannel/storage events synchronize them.
-- Question banks load per branch and are never copied into localStorage. Accounts are shared only on one browser/origin, not across devices. Presence means active here within two minutes.
+- Question banks load per branch and are never copied into localStorage. Local demo accounts stay on one browser/origin. Cloud account records, photos, class credits, reservations and signed-in arcade rounds are shared across devices. Presence means active here within two minutes.
 - **Production builds** precache the shell, local fonts and all static science banks in the background. Wait for the first load to finish before going offline; after that, even unvisited decks work without a connection. Development deliberately does not register the worker.
 - Export a private backup from your profile. Admin → Audit & backup validates restores before replacement, then signs everyone out. Exports omit sessions and undo payloads.
 - Invalid JSON is quarantined at `csl:corrupt:<timestamp>`. Safe defaults load. Quota failures offer export and do not deduct balance or stock.

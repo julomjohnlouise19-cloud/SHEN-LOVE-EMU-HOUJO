@@ -54,6 +54,23 @@ export function dashboard() {
         h("span", { class: "streak-dot" }, "Keep growing"),
       ),
     ),
+    h(
+      "section",
+      { class: "dashboard-arcade-callout" },
+      h("span", { class: "dashboard-arcade-icon" }, icon("trophy", 28)),
+      h(
+        "div",
+        null,
+        h("p", { class: "eyebrow" }, "NEW AT THE DISCOVERY FAIR"),
+        h("h2", null, "A little aim. A lot of science."),
+        h(
+          "p",
+          null,
+          "Moving targets, bright questions and your next winning combo.",
+        ),
+      ),
+      button("Play Science Arcade", () => go("/arcade"), "button primary"),
+    ),
     unfinished && unfinishedDeck
       ? h(
           "section",

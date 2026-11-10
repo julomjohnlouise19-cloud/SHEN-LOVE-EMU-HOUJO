@@ -152,6 +152,7 @@ export function execute(
           ? q.options?.find((o) => o.id === command.value)?.misconception
           : undefined;
       run.answers.push({
+        questionVersion: q.revision ?? 0,
         questionId: q.id,
         value: command.value,
         correct,

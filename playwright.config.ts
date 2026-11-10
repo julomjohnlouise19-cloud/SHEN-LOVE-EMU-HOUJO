@@ -1,7 +1,7 @@
 import { defineConfig } from "@playwright/test";
 export default defineConfig({
   testDir: "./e2e",
-  testIgnore: ["**/pages.spec.ts", "**/cloud.spec.ts"],
+  testIgnore: ["**/pages.spec.ts", "**/cloud.spec.ts", "**/*.cloud.spec.ts"],
   fullyParallel: false,
   workers: 1,
   timeout: 60_000,

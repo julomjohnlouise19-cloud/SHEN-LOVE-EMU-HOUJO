@@ -11,7 +11,7 @@ function contents() {
         "span",
         null,
         message ||
-          "Guest practice stays on this device. Sign in to save completed quiz records to the cloud.",
+          "Guest practice stays on this device. Sign in to save completed discoveries.",
       ),
     ];
   return [
@@ -21,11 +21,11 @@ function contents() {
       message
         ? message
         : syncing
-          ? "Uploading quiz records…"
+          ? "Saving your discoveries…"
           : pending
             ? `${pending} quiz record${pending === 1 ? "" : "s"} waiting on this device.`
-            : "Completed quiz records are uploaded.",
-      message ? "" : " Merits, notebook and supplies remain local demos.",
+            : "Your completed discoveries are saved.",
+      message ? "" : " Your notebook pages stay on this device.",
     ),
     pending || message
       ? button("Retry upload", flushCloud, "text-button", { disabled: syncing })

@@ -1,3 +1,5 @@
+import { avatar as scientistAvatar } from "./avatar";
+import { classCredits, hasPlatform } from "../store/platform";
 import { cloudEnabled } from "../store/cloud";
 import { cloudNotice } from "./cloud-status";
 import { currentUser, dispatch, getState } from "../store";
@@ -16,11 +18,23 @@ export function resetNavigation() {
 const nav = [
   ["/", "home", "My lab"],
   ["/island", "island", "Science Island"],
+  ["/arcade", "trophy", "Science Arcade"],
   ["/review", "box", "Review Box"],
   ["/notebook", "notebook", "My notebook"],
   ["/shop", "shop", "Supply shop"],
   ["/spin", "spin", "Daily spin"],
   ["/leaderboard", "trophy", "Leaderboard"],
+];
+const teacherNav = [
+  ["/teacher", "home", "Studio overview"],
+  ["/teacher/students", "sprout", "Scientists"],
+  ["/teacher/reports", "notebook", "Class reports"],
+  ["/teacher/shop", "shop", "Stock & pricing"],
+  ["/teacher/claims", "box", "Claims desk"],
+  ["/teacher/content", "island", "Science cards"],
+  ["/teacher/settings", "settings", "Lab settings"],
+  ["/teacher/activity", "clock", "Activity history"],
+  ["/", "arrow", "Return to my lab"],
 ];
 export function shell(page: HTMLElement, route: string) {
   const user = currentUser(),
@@ -28,20 +42,28 @@ export function shell(page: HTMLElement, route: string) {
   const today = dayKey({ now: () => Date.now() }, s.rules.timezone),
     due = user?.review.filter((c) => c.due <= today).length ?? 0;
   const level = user ? levelOf(user, s.rules) : 1;
+  const teacherMode =
+    cloudEnabled &&
+    user?.role === "admin" &&
+    (route === "/admin" || route.startsWith("/teacher"));
+  const activeRoute = route === "/admin" ? "/teacher" : route;
+  const connected = cloudEnabled && user?.id !== "guest" && hasPlatform();
   const navigation = h(
     "nav",
     { "aria-label": "Main navigation" },
-    ...nav.map(([path, ico, label], i) =>
+    ...(teacherMode ? teacherNav : nav).map(([path, ico, label]) =>
       h(
         "div",
         null,
-        i === 4 ? h("p", { class: "nav-caption" }, "A LITTLE EXTRA") : null,
+        !teacherMode && path === "/shop"
+          ? h("p", { class: "nav-caption" }, "A LITTLE EXTRA")
+          : null,
         h(
           "a",
           {
             href: `#${path}`,
-            class: `nav-link ${route === path || (path === "/island" && route.startsWith("/branch")) ? "active" : ""}`,
-            "aria-current": route === path ? "page" : undefined,
+            class: `nav-link ${activeRoute === path || (path === "/island" && route.startsWith("/branch")) ? "active" : ""}`,
+            "aria-current": activeRoute === path ? "page" : undefined,
             onClick: closeNavigation,
           },
           icon(ico),
@@ -54,7 +76,7 @@ export function shell(page: HTMLElement, route: string) {
       ),
     ),
   );
-  if (cloudEnabled && user && user.id !== "guest")
+  if (cloudEnabled && user && user.id !== "guest" && !teacherMode)
     navigation.append(
       h(
         "a",
@@ -65,19 +87,19 @@ export function shell(page: HTMLElement, route: string) {
           onClick: closeNavigation,
         },
         icon("notebook"),
-        "Cloud quiz records",
+        "Saved records",
       ),
     );
-  if (user?.role === "admin")
+  if (user?.role === "admin" && !teacherMode)
     navigation.append(
       h(
         "a",
         {
-          href: "#/admin",
+          href: cloudEnabled ? "#/teacher" : "#/admin",
           class: `nav-link ${route === "/admin" ? "active" : ""}`,
         },
         icon("settings"),
-        "Mission control",
+        cloudEnabled ? "Teacher studio" : "Mission control",
       ),
     );
   const sidebarBrand = brandLink();
@@ -86,11 +108,15 @@ export function shell(page: HTMLElement, route: string) {
     "aside",
     {
       id: "lab-sidebar",
-      class: `sidebar ${sidebarOpen ? "open" : ""}`,
+      class: `sidebar ${teacherMode ? "teacher-sidebar" : ""} ${sidebarOpen ? "open" : ""}`,
       "aria-label": "Lab navigation",
     },
     sidebarBrand,
-    h("span", { class: "lab-label" }, "A HAPPY PLACE TO GET CURIOUS"),
+    h(
+      "span",
+      { class: "lab-label" },
+      teacherMode ? "YOUR CLASSROOM WORKSPACE" : "A HAPPY PLACE TO GET CURIOUS",
+    ),
     navigation,
     h(
       "div",
@@ -113,7 +139,15 @@ export function shell(page: HTMLElement, route: string) {
         h(
           "span",
           { class: "profile-inner" },
-          h("span", { class: "mini-avatar" }, mascot(user?.avatar ?? "cat")),
+          h(
+            "span",
+            { class: "mini-avatar" },
+            scientistAvatar(
+              user?.id ?? "guest",
+              user?.name ?? "Scientist",
+              user?.avatar ?? "cat",
+            ),
+          ),
           h(
             "span",
             { class: "profile-text" },
@@ -199,10 +233,10 @@ export function shell(page: HTMLElement, route: string) {
         h(
           "span",
           { class: "help-label" },
-          "How it works",
+          teacherMode ? "Studio guide" : "How it works",
           h("span", { class: "question-mark" }, "?"),
         ),
-        helpModal,
+        teacherMode ? teacherHelpModal : helpModal,
         "text-button help-button",
       ),
       button(
@@ -223,15 +257,29 @@ export function shell(page: HTMLElement, route: string) {
           "span",
           { class: "balance-inner" },
           icon("coin", 19),
-          h("strong", null, (user?.merits ?? 0).toLocaleString()),
-          h("span", null, "merits"),
+          h(
+            "strong",
+            connected ? { "data-class-credit": true } : null,
+            (connected ? classCredits() : (user?.merits ?? 0)).toLocaleString(),
+          ),
+          h("span", null, connected ? "class credits" : "merits"),
         ),
         () => go("/shop"),
         "balance-pill",
-        { "aria-label": `${user?.merits ?? 0} merits, visit supply shop` },
+        {
+          "aria-label": `${connected ? classCredits() : (user?.merits ?? 0)} ${connected ? "class credits" : "merits"}, visit supply shop`,
+        },
       ),
       button(
-        h("span", { class: "header-avatar" }, mascot(user?.avatar ?? "cat")),
+        h(
+          "span",
+          { class: "header-avatar" },
+          scientistAvatar(
+            user?.id ?? "guest",
+            user?.name ?? "Scientist",
+            user?.avatar ?? "cat",
+          ),
+        ),
         profileModal,
         "icon-button avatar-button",
         { "aria-label": "Open scientist profile" },
@@ -415,4 +463,20 @@ export function levelCard() {
       ),
     ),
   );
+}
+
+function teacherHelpModal() {
+  modal("A calm place to care for your class", [
+    h(
+      "ol",
+      { class: "arcade-help" },
+      ...[
+        "Review class reports by grade, section or science deck. Open a quiz to see submitted answers and add a teacher note.",
+        "Edit scientist profiles, pause access or adjust class credits with a clear reason. Existing discoveries stay saved.",
+        "Manage supply prices and available stock. Verify the student's code before recording collection; cancellations return stock and credits together.",
+        "Review science cards before saving changes. Earlier versions stay available for quizzes that were already started.",
+        "Tune arcade timers, movement and rewards for new rounds. Activity history records your edits so the class can review a change.",
+      ].map((text) => h("li", null, text)),
+    ),
+  ]);
 }

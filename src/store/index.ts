@@ -21,6 +21,8 @@ import {
   recoverCloudRuns,
   type CloudProfile,
 } from "./cloud";
+import { clearLab, getLabSnapshot, hasPlatform, refreshLab } from "./platform";
+import { clearPrivatePhotos, hydratePhoto } from "./photos";
 const KEY = "csl:state";
 const adapter = new LocalStorageAdapter();
 let state: AppState;
@@ -29,9 +31,18 @@ export const clock = { now: () => Date.now() };
 const context = (s: AppState) => ({
   clock,
   rng: seededRng(crypto.getRandomValues(new Uint32Array(1))[0]),
-  rules: s.rules,
+  rules:
+    cloudEnabled && currentUser()?.id !== "guest"
+      ? (getLabSnapshot()?.rules ?? s.rules)
+      : s.rules,
 });
-export const getState = () => state;
+export const getState = () => {
+  const lab =
+    cloudEnabled && currentUser()?.id !== "guest"
+      ? getLabSnapshot()
+      : undefined;
+  return lab ? { ...state, rules: lab.rules } : state;
+};
 export const subscribe = (fn: () => void) => {
   listeners.add(fn);
   return () => listeners.delete(fn);
@@ -107,6 +118,8 @@ export async function initStore() {
   });
   if (cloudEnabled) {
     const profile = await initCloud(() => {
+      clearLab();
+      clearPrivatePhotos();
       const userId = session()?.userId;
       if (userId !== "guest") sessionStorage.removeItem("csl:session");
       listeners.forEach((fn) => fn());
@@ -114,6 +127,7 @@ export async function initStore() {
     if (profile) await enterCloud(profile);
   }
   clearInvalidSession();
+  if (!cloudEnabled && currentUser()) await hydratePhoto(currentUser()!.id);
   setInterval(() => {
     const actor = currentUser();
     if (!actor || document.visibilityState !== "visible") return;
@@ -186,11 +200,16 @@ async function enterCloud(profile: CloudProfile) {
       users: [...s.users.filter((u) => u.id !== user.id), user],
     });
   });
+  await Promise.all([
+    hasPlatform() ? refreshLab(true).catch(() => undefined) : Promise.resolve(),
+    hydratePhoto(profile.user_id, profile).catch(() => undefined),
+  ]);
   await createSession(profile.user_id);
   await recoverCloudRuns(state.runs);
 }
 export async function guestSession() {
   if (cloudEnabled) await cloudLogout();
+  await hydratePhoto("guest");
   await createSession("guest");
 }
 export async function logout() {
@@ -207,6 +226,8 @@ export async function logout() {
         });
       });
   } finally {
+    clearLab();
+    clearPrivatePhotos();
     sessionStorage.removeItem("csl:session");
     listeners.forEach((fn) => fn());
   }
@@ -246,6 +267,7 @@ export async function login(username: string, password: string) {
     );
   }
   await adapter.set(limiterKey, { tries: 0, until: 0 });
+  await hydratePhoto(user.id);
   await createSession(user.id);
 }
 export async function register(input: {
@@ -333,7 +355,11 @@ export async function dispatch(command: Command) {
       command.grade,
       command.section,
     );
-  if (cloudActor && command.type.startsWith("Admin"))
+  if (
+    cloudActor &&
+    (command.type.startsWith("Admin") ||
+      ["BuyItem", "RedeemCode", "ClaimPurchase", "Undo"].includes(command.type))
+  )
     throw new Error(
       "Cloud teacher access is managed by the database owner. Local admin tools are available only in demo mode.",
     );
@@ -463,10 +489,29 @@ export async function loadBranch(branch: string): Promise<Question[]> {
     );
     loaded.set(branch, data.flat());
   }
-  const all = [...(loaded.get(branch) ?? [])],
-    overlays = Object.values(state.overlays).filter((o) =>
+  const all = [...(loaded.get(branch) ?? [])];
+  if (
+    cloudEnabled &&
+    currentUser()?.id !== "guest" &&
+    cloudUserId() &&
+    hasPlatform()
+  ) {
+    const lab = await refreshLab();
+    const overrides = lab.overrides.filter((o) =>
       o.question.deckId.startsWith(`${branch}.`),
     );
+    return [
+      ...all
+        .filter((q) => !overrides.some((o) => o.question.id === q.id))
+        .map((q) => ({ ...q, revision: 0 })),
+      ...overrides
+        .filter((o) => o.active)
+        .map((o) => ({ ...o.question, revision: o.version })),
+    ];
+  }
+  const overlays = Object.values(state.overlays).filter((o) =>
+    o.question.deckId.startsWith(`${branch}.`),
+  );
   return [
     ...all.filter((q) => !overlays.some((o) => o.question.id === q.id)),
     ...overlays.filter((o) => o.op !== "delete").map((o) => o.question),

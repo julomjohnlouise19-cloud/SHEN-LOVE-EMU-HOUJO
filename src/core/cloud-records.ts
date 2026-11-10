@@ -7,7 +7,7 @@ export interface CloudJob {
   level: Run["level"];
   mode: Run["mode"];
   startedAt: string;
-  answers: { question_id: string; value: Answer }[];
+  answers: { question_id: string; value: Answer; question_version?: number }[];
 }
 export interface CloudOutbox {
   version: 1;
@@ -64,9 +64,12 @@ export function jobForRun(run: Run): CloudJob {
     level: run.level,
     mode: run.mode,
     startedAt: new Date(run.created).toISOString(),
-    answers: run.answers.map(({ questionId, value }) => ({
+    answers: run.answers.map(({ questionId, value, questionVersion }) => ({
       question_id: questionId,
       value,
+      ...(questionVersion === undefined
+        ? {}
+        : { question_version: questionVersion }),
     })),
   };
 }

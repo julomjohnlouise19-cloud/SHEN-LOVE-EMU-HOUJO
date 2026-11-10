@@ -1,6 +1,9 @@
+import { arcadePage, disposeArcade } from "./ui/arcade";
+import { classCredits } from "./store/platform";
 import { cloudEnabled } from "./store/cloud";
 import { updateCloudNotices } from "./ui/cloud-status";
 import "./styles/main.css";
+import "./styles/refresh.css";
 import {
   initStore,
   subscribe,
@@ -58,6 +61,7 @@ async function render() {
   const path = location.hash.slice(1).split("?")[0] || "/";
   const user = currentUser();
   const identityChanged = renderedUserId !== user?.id;
+  if (path !== "/arcade" || identityChanged) disposeArcade();
   if (identityChanged) {
     resetNavigation();
     if (renderedUserId) {
@@ -89,6 +93,12 @@ async function render() {
     go(entryDestination(user.role === "admin" ? "/admin" : "/"));
     return;
   }
+  if (
+    path === "/arcade" &&
+    !identityChanged &&
+    app.querySelector(".arcade-page")
+  )
+    return;
   let page: HTMLElement;
   try {
     if (path === "/") page = dashboard();
@@ -96,18 +106,33 @@ async function render() {
     else if (path.startsWith("/branch/")) page = branchPage(path.split("/")[2]);
     else if (path.startsWith("/play/"))
       page = await playPage(path.split("/")[2]);
+    else if (path === "/arcade") page = arcadePage();
     else if (path === "/review") page = await reviewPage();
     else if (path === "/notebook") page = await notebookPage();
-    else if (path === "/shop") page = shopPage();
+    else if (path === "/shop")
+      page =
+        cloudEnabled && user.id !== "guest"
+          ? await (await import("./ui/class-shop")).classShopPage()
+          : shopPage();
     else if (path === "/spin") page = spinPage();
     else if (path === "/quests") page = questsPage();
-    else if (path === "/leaderboard") page = leaderboardPage();
+    else if (path === "/leaderboard")
+      page =
+        cloudEnabled && user.id !== "guest"
+          ? (await import("./ui/arcade-rankings")).arcadeLeaderboardPage()
+          : leaderboardPage();
     else if (path === "/experiment") page = labPage();
     else if (path === "/records" && cloudEnabled)
       page = await (await import("./ui/records")).recordsPage();
+    else if (path === "/teacher" || path.startsWith("/teacher/"))
+      page = cloudEnabled
+        ? (await import("./ui/teacher")).teacherPage(
+            path.split("/")[2] || "overview",
+          )
+        : await (await import("./ui/admin")).adminPage();
     else if (path === "/admin" || path === "/undo")
       page = cloudEnabled
-        ? await (await import("./ui/records")).recordsPage(true)
+        ? (await import("./ui/teacher")).teacherPage()
         : await (await import("./ui/admin")).adminPage();
     else if (path.startsWith("/challenge/")) {
       const params = new URLSearchParams(location.hash.split("?")[1]),
@@ -199,6 +224,13 @@ window.addEventListener("csl:recovery", (e) =>
   }),
 );
 window.addEventListener("csl:cloud-status", updateCloudNotices);
+window.addEventListener("csl:platform", () => {
+  document
+    .querySelectorAll<HTMLElement>("[data-class-credit]")
+    .forEach((node) => {
+      node.textContent = classCredits().toLocaleString();
+    });
+});
 window.addEventListener("offline", () => {
   updateConnectionNotices();
   toast("You’re offline. Keep exploring your saved science decks.");

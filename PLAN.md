@@ -124,3 +124,14 @@ At preparation time, the actual Supabase project had not been verified: its doma
 Publication was authorized on 10 November 2026. The initial production checks identified an invalid backend-mode repository value, so the workflow now selects Supabase directly and requires only the public project URL and publishable key. Readiness errors produce actionable GitHub check annotations. [Run 42733010959](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42733010959), source commit 7f7b13e2a33cbca7b00f7e5f98ce5b5de04537ca, passed both jobs with zero annotations. Its real Supabase readiness check verified schema version 1 and all 972 questions; code/content/economy, PostgreSQL permissions/grading, 51 unit tests and all 35 browser scenarios passed before upload.
 
 The public website returned HTTP 200 with the configured Supabase origin in its CSP and entry module index-C6SAQG2Y.js. A live browser verified the cloud Email field, absence of demo admin credentials, 320 px layout, guest Cells lesson and logout, with zero application errors and zero failed site assets. The workspace still blocks direct Supabase requests until its saved domain rule is applied; the real backend was verified by the deployment check, and production sign-in/teacher access with personal credentials was not exercised. No password, private key or real signup email was used in testing. A GitHub log-host domain was also added to the environment draft; applying it remains an environment-owner review action and is separate from the completed website publication.
+
+## Science arcade, teacher studio and experience refresh
+
+- [x] Implement a complete nine-question target game: four science categories, three levels, timer, aiming/shooting, one-second reload, score/combo, round coins, power-ups, sounds, effects and saved rankings.
+- [x] Add private profile photo upload/removal with safe image normalization and ownership rules.
+- [x] Build a separate teacher studio for analytics, student profiles/credits, inventory/prices, collection/cancellation, learning content/settings and audited edits.
+- [x] Add an idempotent database upgrade with server-owned game sessions, credits, stock reservations, photo storage and teacher permissions; preserve existing accounts/quiz records.
+- [x] Refresh shared UI and authentication, respect reduced motion, and remove provider/implementation terminology from website flows.
+- [x] Handle email delivery limits with persistent cooldowns, useful recovery and a concrete owner SMTP guide.
+- [x] Validate core rules, PostgreSQL/RLS/concurrency, new and existing browser flows, mobile/accessibility and the Pages path.
+- [ ] Upload tested changes to GitHub, verify the real platform-2 readiness gate and publish when the owner's database upgrade is installed.

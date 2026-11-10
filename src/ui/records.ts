@@ -12,7 +12,7 @@ export async function recordsPage(teacherOnly = false) {
     return empty(
       "notebook",
       "Your discoveries, together",
-      "Sign in with a cloud account to save completed quiz records. Guest practice stays on this device.",
+      "Sign in to save completed discoveries. Guest practice stays on this device.",
     );
   const params = new URLSearchParams(location.hash.split("?")[1]);
   const offset = Math.max(
@@ -24,22 +24,22 @@ export async function recordsPage(teacherOnly = false) {
     return empty(
       "cat",
       "Teacher access needed",
-      "The database owner assigns teacher access. Your own records are available in Cloud quiz records.",
+      "The database owner assigns teacher access. Your own records are available in Saved records.",
       button("My quiz records", () => go("/records"), "button primary"),
     );
-  const title = teacher ? "Your class discoveries" : "Your cloud quiz records";
+  const title = teacher ? "Your class discoveries" : "Your saved discoveries";
   const page = h(
     "div",
     { class: "records-page" },
     pageHeading(
       teacher ? "TEACHER REPORTS" : "SAVED DISCOVERIES",
       title,
-      "Completed quizzes saved in Supabase, graded against the published science bank.",
+      "Completed quizzes, scored against your teacher’s published science cards.",
     ),
     h(
       "p",
       { class: "notice" },
-      "These records include names, grades, sections and submitted answers. They record practice, rather than supervised exam results. Merits, supplies, notebook and unfinished runs remain local demos.",
+      "These records include names, grades, sections and submitted answers. They record practice, rather than supervised exam results. Your notebook and unfinished practice stay on this device.",
     ),
   );
   function details(row: CloudRecord) {

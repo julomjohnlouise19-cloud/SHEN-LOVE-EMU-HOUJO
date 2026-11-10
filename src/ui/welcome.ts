@@ -32,7 +32,7 @@ export function welcomeHub() {
             notice === "storage"
               ? "You’re logged out of this tab. Browser storage couldn’t be updated."
               : cloudEnabled
-                ? "You’re logged out. Uploaded quiz records stay in your cloud account; pending uploads stay on this device."
+                ? "You’re logged out. Saved discoveries stay in your account; pending uploads stay on this device."
                 : "You’re logged out. Your discoveries are saved in this browser.",
           )
         : null,
@@ -68,7 +68,7 @@ export function welcomeHub() {
             { class: "welcome-storage" },
             icon("lock", 14),
             cloudEnabled
-              ? "Email accounts and completed quiz records sync to the cloud. Guest practice stays on this device."
+              ? "Your account keeps your completed discoveries. Guest practice stays on this device."
               : "Profiles and progress stay in this browser.",
           ),
         ),

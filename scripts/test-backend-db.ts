@@ -1,9 +1,10 @@
 // Tests always create and destroy an isolated Docker database; never use a project credential.
-import { spawnSync } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import type { Question } from "../src/core/types";
 import { isCorrect } from "../src/core/rules";
+import { verifyPlatform } from "./test-platform-db";
 
 const image = "postgres:17-alpine";
 const name = `cozy-db-test-${randomUUID()}`;
@@ -22,7 +23,10 @@ function docker(args: string[], input?: string) {
     ["--host=unix:///var/run/docker.sock", ...args],
     { env, input, encoding: "utf8", maxBuffer: 4 * 1024 * 1024 },
   );
-  if (result.error) throw result.error;
+  if (result.error)
+    throw new Error(
+      `${result.error.message}\n${result.stderr || result.stdout || ""}`,
+    );
   if (result.status !== 0) throw new Error(result.stderr || result.stdout);
   return result.stdout;
 }
@@ -38,9 +42,49 @@ function sql(input: string) {
       "-v",
       "ON_ERROR_STOP=1",
       "-q",
+      "-A",
+      "-t",
     ],
     input,
   );
+}
+function concurrentSql(input: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const child = spawn(
+      "docker",
+      [
+        "--host=unix:///var/run/docker.sock",
+        "exec",
+        "-i",
+        name,
+        "psql",
+        "-U",
+        "postgres",
+        "-v",
+        "ON_ERROR_STOP=1",
+        "-q",
+        "-A",
+        "-t",
+      ],
+      { env },
+    );
+    let output = "",
+      error = "";
+    child.stdout.on("data", (chunk) => {
+      output += String(chunk);
+    });
+    child.stderr.on("data", (chunk) => {
+      error += String(chunk);
+    });
+    child.on("error", reject);
+    child.stdin.on("error", (failure) => {
+      error += failure.message;
+    });
+    child.on("close", (code) =>
+      code === 0 ? resolve(output) : reject(new Error(error || output)),
+    );
+    child.stdin.end(input);
+  });
 }
 const json = (value: unknown) =>
   `'${JSON.stringify(value).replaceAll("'", "''")}'::jsonb`;
@@ -95,6 +139,11 @@ try {
     create schema auth; grant usage on schema auth to anon,authenticated;
     create table auth.users(id uuid primary key,email text,raw_user_meta_data jsonb default '{}');
     create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid; $$;
+    create schema storage; grant usage on schema storage to anon,authenticated;
+    create table storage.buckets(id text primary key,name text,public boolean,file_size_limit bigint,allowed_mime_types text[]);
+    create table storage.objects(id uuid primary key default gen_random_uuid(),bucket_id text references storage.buckets(id),name text not null,metadata jsonb,owner_id text);
+    alter table storage.objects enable row level security;
+    grant select,insert,update,delete on storage.objects to authenticated;
     create function public.test_assert(ok boolean,label text) returns void language plpgsql as $$ begin if ok is distinct from true then raise exception 'Assertion: %',label; end if; end $$;
     create function public.test_denied(statement text) returns void language plpgsql as $$ begin begin execute statement; exception when insufficient_privilege then return; end; raise exception 'Expected access denial: %',statement; end $$;`);
   const setup = readFileSync("supabase/setup.sql", "utf8");
@@ -159,6 +208,7 @@ try {
   sql(
     "select public.test_assert((select count(*)=2 from public.csl_quiz_attempts),'rerunning setup preserves records');",
   );
+  await verifyPlatform(sql, concurrentSql);
   console.log(
     `PostgreSQL passed: ${questions.length} grading cases + alternatives, Auth profiles, RLS, teacher access, immutable records, retries and setup rerun.`,
   );

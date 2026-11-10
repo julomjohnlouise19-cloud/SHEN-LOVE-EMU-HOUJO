@@ -1,8 +1,8 @@
 # Connect Supabase to The Cozy Science Lab
 
-The code supports an optional Supabase backend. Cloud mode saves email accounts, profiles and completed quiz records. Students can read their own records; an owner-appointed teacher can read class records and export the displayed page as CSV. The server grades submitted answers against all 972 published cards. This is practice reporting, not supervised examination or a real reward ledger.
+Cloud mode saves email accounts, profiles/private photos, completed quizzes, server-scored arcade rounds, class credits and stock reservations. Students see their own quiz records; owner-appointed teachers manage class analytics, profiles/access/credits, supplies/claims, question edits, learning/game settings and activity history in Teacher Studio. The server grades quizzes against the published question revision and computes arcade scores/timing. This supports classroom practice and teacher-verified rewards, not supervised examinations.
 
-The default remains the existing local demo until the owner finishes the steps below. No live database, account, project settings or deployment is changed by adding these files.
+Local development defaults to the local demo. GitHub Pages selects cloud mode and checks the real backend before publication. **If you already installed the earlier setup, follow [the classroom upgrade and email-limit guide](CLASSROOM_UPGRADE.md)** and run `upgrade.sql`. New projects use the complete `setup.sql` below. Adding SQL to GitHub does not run it in the database.
 
 ## 1. Replace the exposed private key
 
@@ -30,7 +30,7 @@ To check installation in the SQL Editor:
 select public.csl_backend_status();
 ```
 
-Expected result: `{"version":1,"questions":972}`.
+Expected result: `{"version":1,"questions":972,"platform":2}`. Existing projects missing `platform` must run the complete [upgrade.sql](../supabase/upgrade.sql). The migration preserves existing records, teacher edits, stock and wallets when repeated.
 
 ## 3. Configure email sign-in
 
@@ -50,7 +50,7 @@ Create your own Auth account in **Authentication → Users → Add user**, using
 
 Open [supabase/bootstrap-teacher.sql](../supabase/bootstrap-teacher.sql), replace `teacher@example.com` with your actual teacher email and run it in the SQL Editor. The Auth user must exist first. This assigns teacher access by Auth user ID; changing browser storage, signup metadata or a profile cannot grant database access.
 
-Sign out of the website and sign in again after assigning access. **Mission control** opens the class report. **Cloud quiz records** opens the same report for teachers and personal history for students. CSV export contains the displayed page, up to 100 records. Use Previous/Next to browse other pages. **View answers** shows each submitted response.
+Sign out of the website and sign in again after assigning access. **Teacher studio** opens the separate teacher workspace. **Class reports** offers filtered analytics, answers and teacher feedback. **Export filtered data** exports matching records across pages, up to 20,000. Original answers and scores remain unchanged. **Saved records** opens personal quiz history for students.
 
 ## 5. Enable the website connection
 
@@ -72,7 +72,7 @@ The managed Codex environment also needs the project's `YOUR_PROJECT.supabase.co
 
 1. Open the HTTPS website and sign in with the Auth email/password.
 2. Complete an eight-card Cells quiz. The upload notice should confirm it was uploaded.
-3. Open **Cloud quiz records**. Check the score and **View answers**.
+3. Open **Saved records**. Check the score and **View answers**.
 4. Open the same account on another device. Its cloud records should be visible there.
 5. Sign in as the teacher and check the class report and CSV. A student should see only their own records.
 6. Log out. The welcome hub should replace private views in every browser tab sharing the cloud session.
@@ -83,9 +83,9 @@ These checks do not require sharing a password or a private API key with Codex.
 
 Completed signed-in quizzes are stored in a separate durable upload queue in the same atomic save as the final answer. Network failures keep them on the device and expose **Retry upload**. Reconnect or sign in again on that device to retry. The server checks the expected account, grades answers itself and deduplicates repeat uploads. Only that account's pending records upload. Do not clear site data with pending records.
 
-Merits, avatar, XP, mastery, Review Box, notebook, unfinished runs, leaderboard, supplies and physical reward claims still use local demo storage. They do not sync across devices or become official school credits. Guest activity never uploads. Existing local accounts/passwords and older guest results are preserved, but are not silently imported into cloud accounts. Keep a local backup before changing modes. Local backup imports are disabled in cloud mode and cannot grant cloud teacher roles.
+XP, mastery, Review Box, notebook, quests/spin and unfinished practice stay on the device. Private photos, completed quizzes, account arcade rounds/rankings, class wallets, stock and reservations use the backend. Arcade coins buy boosts within a round; class credits use a separate server ledger and shared daily award cap. Guest activity never uploads. Existing local accounts/passwords, demo balances and older guest results are preserved but never silently imported as trusted class data. Keep a local backup before changing modes. Local backup imports are disabled in cloud mode and cannot grant cloud teacher roles.
 
-Cloud sessions use the Supabase SDK's browser storage. Logging out clears this browser's cached Auth credential and ends its cloud session across tabs. Previously uploaded records stay in the database; pending uploads stay on the device. Local practice data is not encrypted and remains visible to someone who controls the device. Use separate browser profiles for private accounts and always log out on shared devices. Teacher report responses are not persisted in a local report cache or offline service-worker cache.
+Cloud sessions use the Supabase SDK's browser storage. Logging out clears this browser's cached Auth credential and ends its cloud session across tabs. Previously uploaded records and arcade rounds stay in the database; pending quiz uploads stay on the device. Local practice data is not encrypted and remains visible to someone who controls the device. Use separate browser profiles for private accounts and always log out on shared devices. Teacher report responses and private photo URLs are not persisted in report caches, backups or the offline service worker.
 
 Only collect data your school has authorized. Teachers with access can see all class quiz records in this project. The project owner manages retention and account deletion in Supabase; deleting an Auth user cascades to that user's profile, teacher entry and quiz records.
 

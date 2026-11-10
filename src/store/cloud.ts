@@ -1,5 +1,5 @@
-import { createClient } from "@supabase/supabase-js";
-import { readCloudConfig } from "../core/cloud-config";
+import { client, cloudEnabled, AUTH_KEY } from "./cloud-client";
+export { cloudEnabled } from "./cloud-client";
 import {
   acknowledge,
   enqueue,
@@ -9,38 +9,14 @@ import {
 } from "../core/cloud-records";
 import type { Run } from "../core/types";
 import { LocalStorageAdapter, type Tx } from "./adapter";
-
-const config = readCloudConfig({
-  VITE_BACKEND_MODE: import.meta.env.VITE_BACKEND_MODE,
-  VITE_SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL,
-  VITE_SUPABASE_PUBLISHABLE_KEY: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-});
-export const cloudEnabled = config.enabled;
+import { accountError } from "../core/account-errors";
+import { checkEmailWait, recordEmailWait } from "./email";
 export const OUTBOX_KEY = "csl:cloud-outbox";
-const AUTH_KEY = "csl:cloud-auth";
-const client = cloudEnabled
-  ? createClient(config.url, config.publishableKey, {
-      auth: {
-        storageKey: AUTH_KEY,
-        persistSession: true,
-        autoRefreshToken: true,
-        flowType: "pkce",
-        detectSessionInUrl: true,
-      },
-      global: {
-        fetch: (url, init) =>
-          fetch(url, {
-            ...init,
-            signal: init?.signal
-              ? AbortSignal.any([init.signal, AbortSignal.timeout(15000)])
-              : AbortSignal.timeout(15000),
-          }),
-      },
-    })
-  : undefined;
 const adapter = cloudEnabled ? new LocalStorageAdapter() : undefined;
 let identity: string | undefined;
 let backendReady = false;
+let platform = 0;
+export const platformVersion = () => platform;
 let syncing = false;
 let pending = 0;
 let statusMessage = "";
@@ -58,6 +34,8 @@ export interface CloudProfile {
   section: string;
   is_teacher: boolean;
   email: string;
+  photo_path?: string | null;
+  credits?: number;
 }
 export interface CloudRecord {
   id: string;
@@ -81,21 +59,22 @@ export interface CloudRecord {
 }
 async function ready() {
   if (!client)
-    throw new Error("Cloud accounts are not enabled on this website yet.");
+    throw new Error("Online accounts are not enabled on this website yet.");
   if (backendReady) return;
   const { data, error } = await client.rpc("csl_backend_status");
   if (error || data?.version !== 1 || data?.questions !== 972)
     throw new Error(
-      "Cloud setup is not ready. Ask the site owner to run supabase/setup.sql and check the public project settings. Guest practice is available.",
+      "Account services are temporarily unavailable. You can still explore as a guest. Please contact your teacher if this continues.",
     );
+  platform = Number(data.platform) || 0;
   backendReady = true;
 }
 async function profile(): Promise<CloudProfile> {
   const { data: auth, error: authError } = await client!.auth.getUser();
   if (authError || !auth.user)
-    throw new Error("Please sign in again to connect your cloud records.");
+    throw new Error("Please sign in again to connect your saved records.");
   const { data, error } = await client!.rpc("csl_my_profile");
-  if (error) throw new Error(error.message);
+  if (error) throw accountError(error);
   if (
     !data ||
     data.user_id !== auth.user.id ||
@@ -104,7 +83,9 @@ async function profile(): Promise<CloudProfile> {
     typeof data.section !== "string" ||
     typeof data.is_teacher !== "boolean"
   )
-    throw new Error("Your cloud profile could not be verified.");
+    throw new Error(
+      "Your profile could not be verified. Please sign in again.",
+    );
   const latest = await client!.auth.getSession();
   if (
     latest.data.session?.user.id !== auth.user.id ||
@@ -157,7 +138,7 @@ export async function cloudLogin(email: string, password: string) {
     email: email.trim(),
     password,
   });
-  if (error) throw new Error(error.message);
+  if (error) throw accountError(error);
   sessionStorage.removeItem("csl:cloud-logged-out");
   const result = await profile();
   status("");
@@ -183,6 +164,7 @@ export async function cloudRegister(input: {
       "Use your email, an 8–128 character password, a name of 2–40 characters, and a grade from 7 to 10.",
     );
   await ready();
+  await checkEmailWait(input.username);
   const { data, error } = await client!.auth.signUp({
     email: input.username.trim(),
     password: input.password,
@@ -195,7 +177,12 @@ export async function cloudRegister(input: {
       },
     },
   });
-  if (error) throw new Error(error.message);
+  if (error) {
+    const mapped = accountError(error);
+    await recordEmailWait(input.username, mapped.waitSeconds || 60);
+    throw mapped;
+  }
+  await recordEmailWait(input.username, 60);
   if (!data.session) return undefined;
   sessionStorage.removeItem("csl:cloud-logged-out");
   return profile();
@@ -226,7 +213,7 @@ export async function cloudChangePassword(
   if (verificationError)
     throw new Error("Your current password does not match.");
   const { error } = await client!.auth.updateUser({ password });
-  if (error) throw new Error(error.message);
+  if (error) throw accountError(error);
 }
 export async function cloudUpdateProfile(
   userId: string,
@@ -240,7 +227,7 @@ export async function cloudUpdateProfile(
     p_grade: grade,
     p_section: section.trim(),
   });
-  if (error) throw new Error(error.message);
+  if (error) throw accountError(error);
 }
 function outbox(tx: Tx): CloudOutbox {
   return readOutbox(tx.get<unknown>(OUTBOX_KEY));
@@ -308,6 +295,7 @@ export async function flushCloud() {
       await adapter.transaction([OUTBOX_KEY], (tx) =>
         tx.set(OUTBOX_KEY, acknowledge(outbox(tx), job)),
       );
+      window.dispatchEvent(new Event("csl:quiz-saved"));
     }
     if (owner === identity) status("");
   } catch (e) {
@@ -331,6 +319,6 @@ export async function cloudRecords(
     p_limit: 100,
     p_offset: offset,
   });
-  if (error) throw new Error(error.message);
+  if (error) throw accountError(error);
   return { rows: (data ?? []) as CloudRecord[], teacher: me.is_teacher };
 }

@@ -19,10 +19,15 @@ export default defineConfig(({ mode }) => {
         name: "cozy-cloud-csp",
         transformIndexHtml(html) {
           return config.enabled
-            ? html.replace(
-                "connect-src 'self';",
-                `connect-src 'self' ${config.url};`,
-              )
+            ? html
+                .replace(
+                  "connect-src 'self';",
+                  `connect-src 'self' ${config.url};`,
+                )
+                .replace(
+                  "img-src 'self' data:;",
+                  `img-src 'self' data: ${config.url};`,
+                )
             : html;
         },
       },

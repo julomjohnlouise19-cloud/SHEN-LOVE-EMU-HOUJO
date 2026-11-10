@@ -5,7 +5,7 @@ try {
   const config = readCloudConfig(process.env);
   if (!config.enabled && process.argv.includes("--require-cloud"))
     throw new Error(
-      "Set the GitHub repository variable VITE_BACKEND_MODE to supabase. Add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY under Settings → Secrets and variables → Actions → Variables.",
+      "Select the cloud build and add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY under Settings → Secrets and variables → Actions → Variables.",
     );
   if (!config.enabled) {
     console.log("Local demo build selected. No cloud connection is required.");
@@ -37,8 +37,12 @@ try {
       throw new Error(
         "Cloud deployment blocked: run the complete supabase/setup.sql in this project's SQL Editor. The installed backend must report version 1 and 972 questions.",
       );
+    if (data?.platform !== 2)
+      throw new Error(
+        "Deployment is waiting for the classroom upgrade. Run the complete supabase/upgrade.sql in SQL Editor → New snippet → Run, then rerun this workflow. It preserves existing accounts and quiz records. csl_backend_status() must report platform: 2. See docs/CLASSROOM_UPGRADE.md.",
+      );
     console.log(
-      "Cloud backend is reachable: schema version 1 and all 972 questions. No private key was used.",
+      "Cloud backend is reachable: schema version 1, classroom platform 2 and all 972 questions. No private key was used.",
     );
   }
 } catch (error) {
