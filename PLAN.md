@@ -158,7 +158,11 @@ Application commit dbdfcebed3e2229dae50088a3b349b8300a716ce and capability-repor
 - [x] Explain confirmation/reset delivery failures without exposing mail-server errors or claiming an email was sent.
 - [x] Add useful confirmation recovery, preserved signup details, visible request countdowns and atomic cross-tab email cooldowns.
 - [x] Document the observed incorrect Gmail SMTP host and the correct private dashboard configuration.
-- [ ] Pass code/content/browser/accessibility gates, push and verify the website deployment.
+- [x] Pass code/content/browser/accessibility gates, push and verify the website deployment.
 - [ ] Owner configuration: replace the SMTP Host settings-page URL with smtp.gmail.com and verify the private Google App password.
 
 Code lint/type checks, 60 unit/property tests, all 972 reviewed questions, deterministic economy checks and generated SQL consistency passed. Browser verification passed all 31 standard, 29 cloud and one repository-path scenarios, including failed signup/reset email, preserved non-password signup details, failure/accepted resend states, persistent countdowns, explicit guest practice, confirmed-account login during a cooldown and one shared request across simultaneous tabs. Mobile mail recovery passed WCAG AA checks and fit 390 px. Automated tests sent no email. No SQL or saved records were changed for this repair. A separate existing deployment notice (run 42919438297) confirmed the owner's live platform-3 upgrade.
+
+Application commit 07f68329e791ca27b78f7addca6b4595dba6d192 is on main. [Run 42923224980](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42923224980) passed build and Pages publication, including PostgreSQL permissions/grading and all browser checks. Its notice again verified schema 1, platform 3 and all 972 questions. The public HTML loaded index-DfT1cxxH.js; both that entry and shell-D15NvNA1.js matched the verified configured production build byte for byte. Private SMTP configuration and real email delivery were not exercised: the owner must correct the invalid Host shown in their screenshot and verify their Google App password in the private dashboard.
+
+The requested project-scoped Supabase MCP entry was added to the installed Codex CLI. OAuth metadata discovery could not connect under the current runtime network policy; MCP/project domains remain only in the saved, unapplied environment draft. No authenticated Supabase MCP tools are available in this chat. No environment was published and no private key or SMTP password was used.
