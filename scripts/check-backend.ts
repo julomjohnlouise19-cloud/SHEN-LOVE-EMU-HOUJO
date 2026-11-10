@@ -37,14 +37,19 @@ try {
       throw new Error(
         "Cloud deployment blocked: run the complete supabase/setup.sql in this project's SQL Editor. The installed backend must report version 1 and 972 questions.",
       );
-    if (data?.platform < 2 || !data?.platform)
+    const installedPlatform = data?.platform;
+    if (!Number.isInteger(installedPlatform) || installedPlatform < 2)
       throw new Error(
         "Deployment needs the classroom backend. Run the complete supabase/upgrade.sql in SQL Editor and check that csl_backend_status() reports platform 2 or newer. See docs/STUDIO_UPGRADE.md.",
       );
     console.log(
-      `Cloud backend is reachable: schema version 1, classroom platform ${data.platform} and all 972 questions. No private key was used.`,
+      `Cloud backend is reachable: schema version 1, classroom platform ${installedPlatform} and all 972 questions. No private key was used.`,
     );
-    if (data.platform < 3)
+    if (process.env.GITHUB_ACTIONS === "true")
+      console.log(
+        `::notice title=Verified classroom backend::Schema 1, platform ${installedPlatform}, 972 questions. ${installedPlatform >= 3 ? "Advanced Teacher Studio is enabled." : "Login/design are ready. Run supabase/studio-upgrade.sql to enable advanced archive, record-health and teaching-role tools."}`,
+      );
+    if (installedPlatform < 3)
       console.log(
         "The login and design update is compatible with this installed backend. Advanced archive, record-health and teaching-role tools activate after the owner runs supabase/studio-upgrade.sql. See docs/STUDIO_UPGRADE.md.",
       );
