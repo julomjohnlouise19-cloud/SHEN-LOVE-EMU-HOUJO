@@ -335,6 +335,20 @@ body {
   font-size: 12px;
   line-height: 1.7;
 }
+.auth-email-wait:empty {
+  display: none;
+}
+.auth-email-wait:not(:empty) {
+  padding: 12px 14px;
+  background: var(--lab-soft);
+  border-left: 3px solid var(--lab-brand-deep);
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.auth-confirmation h3:focus {
+  outline-offset: 6px;
+}
 .auth-fields [aria-busy="true"] .button.primary::before {
   content: "";
   width: 13px;

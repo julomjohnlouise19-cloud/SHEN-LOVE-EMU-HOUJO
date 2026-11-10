@@ -25,3 +25,32 @@ it("explains email quota, confirmation and sender restrictions without service b
     accountError({ message: "Supabase could not connect" }).message,
   ).not.toMatch(/supabase/i);
 });
+it("distinguishes failed email delivery from accepted requests and other server errors", () => {
+  for (const message of [
+    "Error sending confirmation email",
+    "Error sending recovery email",
+    "Error sending email",
+    "Failed to send reset email",
+  ]) {
+    const error = accountError({
+      code: "unexpected_failure",
+      status: 500,
+      message,
+    });
+    expect(error).toMatchObject({ kind: "delivery", waitSeconds: 60 });
+    expect(error.message).toContain("could not be sent");
+    expect(error.message).not.toMatch(/supabase|SMTP|password/i);
+    expect(accountError(error)).toBe(error);
+  }
+  expect(
+    accountError({
+      status: 500,
+      code: "unexpected_failure",
+      message: "Database error saving new user",
+    }).kind,
+  ).toBe("other");
+  expect(
+    accountError({ status: 429, message: "Error sending confirmation email" })
+      .kind,
+  ).toBe("rate");
+});

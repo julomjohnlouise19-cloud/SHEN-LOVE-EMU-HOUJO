@@ -20,6 +20,7 @@ import {
   exportBackup,
   changePassword,
   getState,
+  guestSession,
 } from "../store";
 import {
   button,
@@ -46,6 +47,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
   let joining = registerFirst;
   let model = { email: "", name: "", section: "", grade: "7" };
   let timer: ReturnType<typeof setInterval> | undefined;
+  let view = 0;
   const { dialog, close } = modal(
     "A little space for your curiosity",
     [],
@@ -55,6 +57,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
   const body = h("div", { class: "auth-layout" });
   dialog.append(body);
   dialog.addEventListener("close", () => {
+    view++;
     clearInterval(timer);
     if (
       recoverFirst &&
@@ -67,6 +70,8 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     render();
   };
   function resetPanel() {
+    const currentView = ++view;
+    let sending = false;
     clearInterval(timer);
     const address = input(
       "reset-email",
@@ -95,9 +100,12 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         onSubmit: async (event: SubmitEvent) => {
           event.preventDefault();
           if (send.disabled) return;
+          sending = true;
+          address.disabled = true;
           setButtonDisabled(send, true);
           send.setAttribute("aria-busy", "true");
           error.textContent = "";
+          info.textContent = "";
           try {
             model.email = address.value.trim();
             await requestPasswordReset(model.email);
@@ -107,6 +115,8 @@ export function authModal(registerFirst = false, recoverFirst = false) {
             error.textContent =
               value instanceof Error ? value.message : "Please try again.";
           } finally {
+            sending = false;
+            address.disabled = false;
             send.removeAttribute("aria-busy");
             await update();
           }
@@ -118,10 +128,14 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       send,
     );
     async function update() {
-      if (!dialog.isConnected) return;
       const wait = await emailWait(address.value);
-      setButtonDisabled(send, wait > 0);
-      send.textContent = wait ? `Request again in ${wait}s` : "Send reset link";
+      if (!dialog.open || view !== currentView) return;
+      setButtonDisabled(send, sending || wait > 0);
+      send.textContent = sending
+        ? "Requesting your link…"
+        : wait
+          ? `Request again in ${wait}s`
+          : "Send reset link";
     }
     address.addEventListener("input", () => {
       void update();
@@ -185,22 +199,57 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       ),
     );
   }
-  async function confirmation() {
+  async function confirmation(
+    failure?: AccountError,
+    accepted = false,
+    signupFailed = false,
+  ) {
+    const currentView = ++view;
+    let sending = false;
     clearInterval(timer);
     const message = h("p", { class: "form-error", role: "alert" });
+    const status = h("p", { class: "auth-reset-status", role: "status" });
+    const heading = h("h3", { tabindex: -1 });
+    const description = h("p");
+    function explain(error?: AccountError, requested = false) {
+      heading.textContent = error
+        ? "Email delivery needs attention"
+        : requested
+          ? "Check your email"
+          : "Confirm your email";
+      description.textContent = error
+        ? signupFailed
+          ? "The email step failed, so your account may not have been created. After your teacher fixes the sender, go back to signup details and try again. If you already registered, request one new link below."
+          : "We couldn’t request your confirmation email. Ask your teacher to check the email sender, then request one new link below."
+        : requested
+          ? "If this address can register, a confirmation link will arrive in your inbox. Open it, then sign in here. Check your spam folder too."
+          : "If you have already registered, request one confirmation link below. Open the link before signing in. A confirmed account can sign in straight away.";
+      message.textContent = error?.message ?? "";
+      status.textContent = "";
+    }
+    explain(failure, accepted);
     const resend = button(
       "Send one new link",
       async () => {
+        sending = true;
         message.textContent = "";
+        status.textContent = "";
         try {
           await resendConfirmation(model.email);
-          message.textContent =
+          if (!dialog.open || view !== currentView) return;
+          explain(undefined, true);
+          status.textContent =
             "A new confirmation was requested. Check your inbox and spam folder.";
         } catch (error) {
+          if (!dialog.open || view !== currentView) return;
+          if (error instanceof AccountError && error.kind === "delivery")
+            explain(error);
           message.textContent =
             error instanceof Error ? error.message : "Please try later.";
+        } finally {
+          sending = false;
+          await updateWait();
         }
-        await updateWait();
       },
       "button outline full",
     );
@@ -208,31 +257,45 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       "div",
       { class: "auth-fields auth-confirmation" },
       h("span", { class: "auth-check", "aria-hidden": true }, "✉"),
-      h("p", { class: "eyebrow" }, "ONE LAST LITTLE STEP"),
-      h("h3", null, "Check your email"),
-      h(
-        "p",
-        null,
-        "If this address can register, a confirmation link will arrive in your inbox. Open it, then sign in here. Check your spam folder too.",
-      ),
+      h("p", { class: "eyebrow" }, "YOUR NEXT STEP"),
+      heading,
+      description,
       h("p", { class: "auth-email" }, model.email),
       message,
+      status,
       button("Back to sign in", () => changeMode(false), "button primary full"),
       resend,
+      button(
+        "Back to signup details",
+        () => changeMode(true),
+        "text-button full",
+      ),
+      button(
+        "Explore as guest",
+        async () => {
+          await guestSession();
+          close();
+          go(entryDestination());
+        },
+        "text-button full",
+      ),
       h(
         "p",
         { class: "fine-print" },
-        "Request one link at a time. Existing accounts can sign in without requesting another account email.",
+        "Guest practice stays on this device. Email confirmation is still required for a new account. Request one link at a time.",
       ),
     );
     body.replaceChildren(art(), panel);
+    heading.focus();
     async function updateWait() {
-      if (!dialog.isConnected) return;
       const wait = await emailWait(model.email);
-      setButtonDisabled(resend, wait > 0);
-      resend.textContent = wait
-        ? `Request again in ${wait >= 60 ? `${Math.ceil(wait / 60)}m` : `${wait}s`}`
-        : "Send one new link";
+      if (!dialog.open || view !== currentView) return;
+      setButtonDisabled(resend, sending || wait > 0);
+      resend.textContent = sending
+        ? "Requesting your link…"
+        : wait
+          ? `Request again in ${wait >= 60 ? `${Math.ceil(wait / 60)}m` : `${wait}s`}`
+          : "Send one new link";
     }
     await updateWait();
     timer = setInterval(() => {
@@ -240,6 +303,8 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     }, 1000);
   }
   function render() {
+    const currentView = ++view;
+    let sending = false;
     clearInterval(timer);
     const username = input(
       "username",
@@ -327,6 +392,13 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     });
     const error = h("p", { class: "form-error", role: "alert" });
     const recovery = h("div", { class: "auth-recovery" });
+    const emailStatus = h("p", { class: "auth-email-wait", role: "status" });
+    const confirmationOptions = button(
+      "Check confirmation options",
+      () => confirmation(),
+      "text-button full",
+    );
+    confirmationOptions.hidden = true;
     const submit = button(
       joining ? "Make my little lab" : "Welcome back",
       () => undefined,
@@ -339,6 +411,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         onSubmit: async (event: SubmitEvent) => {
           event.preventDefault();
           if (submit.disabled) return;
+          sending = true;
           submit.disabled = true;
           submit.setAttribute("aria-busy", "true");
           submit.textContent = joining
@@ -362,11 +435,13 @@ export function authModal(registerFirst = false, recoverFirst = false) {
                 grade: Number(grade.value),
                 section: section.value,
               });
+              if (!dialog.open || view !== currentView) return;
               if (!signedIn) {
-                await confirmation();
+                await confirmation(undefined, true);
                 return;
               }
             } else await login(username.value, password.value);
+            if (!dialog.open || view !== currentView) return;
             close();
             go(
               entryDestination(
@@ -380,6 +455,16 @@ export function authModal(registerFirst = false, recoverFirst = false) {
             );
             refresh();
           } catch (value) {
+            if (!dialog.open || view !== currentView) return;
+            if (
+              cloudEnabled &&
+              joining &&
+              value instanceof AccountError &&
+              value.kind === "delivery"
+            ) {
+              await confirmation(value, false, true);
+              return;
+            }
             const mapped =
               value instanceof Error ? value : new Error("Please try again.");
             error.textContent = mapped.message;
@@ -388,29 +473,28 @@ export function authModal(registerFirst = false, recoverFirst = false) {
               value instanceof AccountError &&
               ["rate", "configuration", "confirm"].includes(value.kind)
             ) {
-              recovery.append(
-                button(
-                  "I already have an account",
-                  () => changeMode(false),
-                  "text-button full",
-                ),
-              );
+              if (!joining)
+                recovery.append(
+                  button(
+                    "I already have an account",
+                    () => changeMode(false),
+                    "text-button full",
+                  ),
+                );
               if (value.kind === "confirm")
                 recovery.append(
                   button(
                     "Check confirmation options",
-                    confirmation,
+                    () => confirmation(),
                     "text-button full",
                   ),
                 );
             }
           } finally {
-            submit.disabled = false;
+            sending = false;
             submit.removeAttribute("aria-busy");
             form.removeAttribute("aria-busy");
-            submit.textContent = joining
-              ? "Make my little lab"
-              : "Welcome back";
+            await updateSubmit();
           }
         },
       },
@@ -437,7 +521,16 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         : null,
       error,
       recovery,
+      emailStatus,
       submit,
+      joining && cloudEnabled
+        ? button(
+            "I already have an account",
+            () => changeMode(false),
+            "text-button full",
+          )
+        : null,
+      joining && cloudEnabled ? confirmationOptions : null,
     );
     const content: HTMLElement = h(
       "section",
@@ -494,6 +587,34 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         : null,
     );
     body.replaceChildren(art(), content);
+    async function updateSubmit() {
+      const wait =
+        cloudEnabled && joining ? await emailWait(username.value) : 0;
+      if (!dialog.open || view !== currentView) return;
+      setButtonDisabled(submit, sending || wait > 0);
+      submit.textContent = sending
+        ? joining
+          ? "Creating your lab…"
+          : "Signing you in…"
+        : wait
+          ? `Try again in ${wait}s`
+          : joining
+            ? "Make my little lab"
+            : "Welcome back";
+      emailStatus.textContent = wait
+        ? "One account email at a time. You can still sign in to an existing confirmed account or check confirmation options."
+        : "";
+      confirmationOptions.hidden = sending || wait === 0;
+    }
+    void updateSubmit();
+    if (cloudEnabled && joining) {
+      username.addEventListener("input", () => {
+        void updateSubmit();
+      });
+      timer = setInterval(() => {
+        void updateSubmit();
+      }, 1000);
+    }
   }
   if (recoverFirst) resetPanel();
   else render();

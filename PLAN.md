@@ -146,9 +146,19 @@ Application commit ec3c49448286af6d71147604e6f53e6bc839f61f was pushed to main. 
 - [x] Expand Teacher Studio with arcade analytics, audited bulk archive/restore, record health and server-checked teaching-role controls.
 - [x] Supply and test an idempotent platform-3 upgrade preserving existing records, credits, stock and teacher edits.
 - [x] Pass code/content/database/browser/mobile/accessibility checks, push to GitHub and verify the configured deployment.
-- [ ] Owner activation: run studio-upgrade.sql on the live platform-2 project and refresh to enable advanced record/role controls.
+- [x] Owner activation: run studio-upgrade.sql on the live project and refresh to enable advanced record/role controls. Run 42919438297 subsequently verified schema 1, platform 3 and all 972 questions.
 
 - [x] Prioritize fast email login, nonblocking welcome, clearer error/loading states, password recovery and a verified reset form.
 
 
 Application commit dbdfcebed3e2229dae50088a3b349b8300a716ce and capability-report commit a098f02cac1fc9adef342029b9d0a249f75b2251 are on main. Runs 42773209629 and 42773721321 passed both jobs. The final readiness notice explicitly verified schema 1, platform 2 and 972 questions. Login/design remain compatible; archive/record-health/delegation activate after owner-run studio-upgrade.sql. The Supabase Preview check succeeded. The public module index-W8JEQqVe.js matched the verified configured build; live login/recovery UI, phone bounds, profile theme/bio persistence, sticky return controls, Back navigation, guest arcade scoring, logout/reload and welcome accessibility passed. No real email was requested or personal account credentials used. The workspace's direct project host is still blocked by the unapplied environment draft.
+
+## Email delivery failure and recovery
+
+- [x] Explain confirmation/reset delivery failures without exposing mail-server errors or claiming an email was sent.
+- [x] Add useful confirmation recovery, preserved signup details, visible request countdowns and atomic cross-tab email cooldowns.
+- [x] Document the observed incorrect Gmail SMTP host and the correct private dashboard configuration.
+- [ ] Pass code/content/browser/accessibility gates, push and verify the website deployment.
+- [ ] Owner configuration: replace the SMTP Host settings-page URL with smtp.gmail.com and verify the private Google App password.
+
+Code lint/type checks, 60 unit/property tests, all 972 reviewed questions, deterministic economy checks and generated SQL consistency passed. Browser verification passed all 31 standard, 29 cloud and one repository-path scenarios, including failed signup/reset email, preserved non-password signup details, failure/accepted resend states, persistent countdowns, explicit guest practice, confirmed-account login during a cooldown and one shared request across simultaneous tabs. Mobile mail recovery passed WCAG AA checks and fit 390 px. Automated tests sent no email. No SQL or saved records were changed for this repair. A separate existing deployment notice (run 42919438297) confirmed the owner's live platform-3 upgrade.

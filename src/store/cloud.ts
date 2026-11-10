@@ -10,7 +10,7 @@ import {
 import type { Run } from "../core/types";
 import { LocalStorageAdapter, type Tx } from "./adapter";
 import { accountError } from "../core/account-errors";
-import { checkEmailWait, recordEmailWait } from "./email";
+import { beginEmailRequest, recordEmailWait } from "./email";
 export const OUTBOX_KEY = "csl:cloud-outbox";
 const adapter = cloudEnabled ? new LocalStorageAdapter() : undefined;
 let identity: string | undefined;
@@ -214,9 +214,9 @@ export async function cloudRegister(input: {
       "Use your email, an 8–128 character password, a name of 2–40 characters, and a grade from 7 to 10.",
     );
   await ready();
-  await checkEmailWait(input.username);
+  await beginEmailRequest(input.username);
   const { data, error } = await client!.auth.signUp({
-    email: input.username.trim(),
+    email: input.username.trim().toLowerCase(),
     password: input.password,
     options: {
       emailRedirectTo: `${location.origin}${import.meta.env.BASE_URL}`,

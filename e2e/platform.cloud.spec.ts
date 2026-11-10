@@ -200,7 +200,7 @@ test("email sending limits have persistent cooldown and an existing-account path
   backend,
 }) => {
   backend.emailLimited = true;
-  async function signup() {
+  async function signup(send = true) {
     await page
       .getByRole("button", { name: "Create account", exact: true })
       .click();
@@ -211,9 +211,10 @@ test("email sending limits have persistent cooldown and an existing-account path
     await page
       .getByLabel("Password", { exact: true })
       .fill("cloud-password-123");
-    await page
-      .getByRole("button", { name: "Make my little lab", exact: true })
-      .click();
+    if (send)
+      await page
+        .getByRole("button", { name: "Make my little lab", exact: true })
+        .click();
   }
   await page.goto("./");
   await signup();
@@ -222,10 +223,13 @@ test("email sending limits have persistent cooldown and an existing-account path
   );
   expect(backend.signupCalls).toBe(1);
   await page.reload();
-  await signup();
-  await expect(page.getByRole("dialog").locator(".form-error")).toContainText(
-    "before requesting another account email",
-  );
+  await signup(false);
+  await expect(
+    page.getByRole("button", { name: /Try again in \d+s/ }),
+  ).toBeDisabled();
+  await expect(
+    page.getByRole("dialog").locator(".auth-email-wait"),
+  ).toContainText("One account email at a time");
   expect(backend.signupCalls).toBe(1);
   await page
     .getByRole("button", { name: "I already have an account", exact: true })

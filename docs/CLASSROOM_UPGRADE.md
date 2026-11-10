@@ -47,6 +47,21 @@ If you have a personal Gmail account with two-step verification, Google may offe
 | Sender email | That same Gmail address |
 | Sender name | `The Cozy Science Lab` |
 
+**Host is only `smtp.gmail.com`.** Do not enter `https://myaccount.google.com/apppasswords` there: that is the page for creating a password, not the email server. In **Authentication → Emails → SMTP settings**, replace that URL with `smtp.gmail.com`, keep port `465`, make sure Username and Sender email are the same Gmail account, enter that account's Google App password privately, and **Save changes**. A normal Google account password will not work here.
+
+### If the website says “Error sending confirmation email”
+
+That means the email request failed, so the website must not report success. It now shows **Email delivery needs attention**, preserves your name/email/grade/section while the dialog stays open, and offers a confirmation retry after a visible cooldown, existing-account sign-in, or explicit guest practice. Passwords are not kept when moving between forms. Guest practice does not confirm an account or create a classroom record.
+
+After saving the correct SMTP settings, wait for the countdown. **If initial signup failed, the account may not have been created:** use **Back to signup details**, re-enter the password, and create the account once more. **If you already registered**, request **one** new confirmation link. An accepted request shows **Check your email**; check your inbox and spam folder. If it still fails, inspect **Authentication → Logs** (or **Logs → Auth**) for the matching request:
+
+- Authentication rejected / `535`: check two-step verification and generate a Google App password for the same Gmail account. Enter it only in the SMTP Password field.
+- Sender rejected / `550` or `553`: check the sender matches the authorized Gmail account, or verify the sender/domain with your SMTP provider.
+- Connection or TLS failure: confirm the host contains no URL prefix or path, and use the provider's documented port. Gmail here uses `smtp.gmail.com:465`.
+- Rate limit / quota: allow the provider's cooldown and check both its sending allowance and the project's Auth rate limits. SQL cannot raise an email quota.
+
+Do not disable email confirmation to hide a delivery error. For a class that needs access immediately, the owner-created, explicitly confirmed account procedure above is available. Real delivery must be checked after the owner corrects the private sender configuration; the automated tests use simulated responses and send no email.
+
 Google enforces sending limits and may restrict App passwords for some accounts. For a larger school or if App passwords are unavailable, use a verified SMTP provider and its own host/port/credentials. Verify the sender/domain with that provider first. SMTP passwords and provider secret keys must never go into frontend build variables, SQL files or the public repository.
 
 ## 3. Use the new website

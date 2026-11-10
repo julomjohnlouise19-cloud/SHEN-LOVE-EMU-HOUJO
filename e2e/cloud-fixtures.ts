@@ -53,6 +53,7 @@ export interface Backend {
   rejected: number;
   rows: CloudRecord[];
   emailLimited: boolean;
+  emailDeliveryFailed: boolean;
   signupCalls: number;
   resendCalls: number;
   photoUploads: number;
@@ -87,6 +88,7 @@ export const test = base.extend<{ backend: Backend }>({
         rejected: 0,
         rows: [],
         emailLimited: false,
+        emailDeliveryFailed: false,
         signupCalls: 0,
         resendCalls: 0,
         photoUploads: 0,
@@ -161,7 +163,12 @@ export const test = base.extend<{ backend: Backend }>({
           if (message.type() !== "error") return;
           if (
             message.location().url.startsWith(host) &&
-            /(?:400|404|429|503)/.test(message.text())
+            (/(?:400|404|429|503)/.test(message.text()) ||
+              (state.emailDeliveryFailed &&
+                /\/auth\/v1\/(?:signup|resend|recover)/.test(
+                  message.location().url,
+                ) &&
+                /500/.test(message.text())))
           )
             return;
           errors.push(message.text());
@@ -236,6 +243,14 @@ export const test = base.extend<{ backend: Backend }>({
         }
         if (url.pathname === "/auth/v1/signup") {
           state.signupCalls++;
+          if (state.emailDeliveryFailed)
+            return respond(
+              {
+                code: "unexpected_failure",
+                message: "Error sending confirmation email",
+              },
+              500,
+            );
           if (state.emailLimited)
             return respond(
               {
@@ -249,10 +264,26 @@ export const test = base.extend<{ backend: Backend }>({
         }
         if (url.pathname === "/auth/v1/resend") {
           state.resendCalls++;
+          if (state.emailDeliveryFailed)
+            return respond(
+              {
+                code: "unexpected_failure",
+                message: "Error sending confirmation email",
+              },
+              500,
+            );
           return respond({});
         }
         if (url.pathname === "/auth/v1/recover") {
           state.recoverCalls++;
+          if (state.emailDeliveryFailed)
+            return respond(
+              {
+                code: "unexpected_failure",
+                message: "Error sending recovery email",
+              },
+              500,
+            );
           if (state.emailLimited)
             return respond(
               {
