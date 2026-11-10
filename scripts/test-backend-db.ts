@@ -5,6 +5,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import type { Question } from "../src/core/types";
 import { isCorrect } from "../src/core/rules";
 import { verifyPlatform } from "./test-platform-db";
+import { verifyStudio } from "./test-studio-db";
 
 const image = "postgres:17-alpine";
 const name = `cozy-db-test-${randomUUID()}`;
@@ -209,6 +210,7 @@ try {
     "select public.test_assert((select count(*)=2 from public.csl_quiz_attempts),'rerunning setup preserves records');",
   );
   await verifyPlatform(sql, concurrentSql);
+  verifyStudio(sql);
   console.log(
     `PostgreSQL passed: ${questions.length} grading cases + alternatives, Auth profiles, RLS, teacher access, immutable records, retries and setup rerun.`,
   );

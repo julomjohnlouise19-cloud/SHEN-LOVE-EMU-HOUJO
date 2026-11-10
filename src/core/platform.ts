@@ -51,6 +51,7 @@ export interface ArcadeRanking {
 export interface TeacherData {
   rows: Record<string, unknown>[];
   total: number;
+  timeline?: { day_key: string; quizzes: number; games: number }[];
   stats?: Record<string, number>;
   charts?: {
     deck_id: string;

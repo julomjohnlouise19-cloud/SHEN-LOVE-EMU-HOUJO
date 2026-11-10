@@ -1,8 +1,16 @@
 import { AccountError } from "../core/account-errors";
-import { emailWait, resendConfirmation } from "../store/email";
+import {
+  emailWait,
+  resendConfirmation,
+  requestPasswordReset,
+} from "../store/email";
 import { photoUrl, removePhoto, uploadPhoto } from "../store/photos";
 import { avatar as scientistAvatar } from "./avatar";
-import { cloudEnabled } from "../store/cloud";
+import {
+  cloudEnabled,
+  finishPasswordRecovery,
+  dismissPasswordRecovery,
+} from "../store/cloud";
 import {
   currentUser,
   login,
@@ -11,6 +19,7 @@ import {
   logout,
   exportBackup,
   changePassword,
+  getState,
 } from "../store";
 import {
   button,
@@ -21,10 +30,19 @@ import {
   toast,
   download,
   setButtonDisabled,
+  progress,
 } from "./dom";
 import { mascot, icon } from "./svg";
-import { act, go, refresh, entryDestination, welcomeRoute } from "./actions";
-export function authModal(registerFirst = false) {
+import { go, refresh, entryDestination, welcomeRoute } from "./actions";
+import { themes } from "../core/appearance";
+import {
+  getAppearance,
+  loadAppearance,
+  saveAppearance,
+} from "../store/preferences";
+import { classCredits } from "../store/platform";
+import { levelOf } from "../core/rules";
+export function authModal(registerFirst = false, recoverFirst = false) {
   let joining = registerFirst;
   let model = { email: "", name: "", section: "", grade: "7" };
   let timer: ReturnType<typeof setInterval> | undefined;
@@ -36,11 +54,103 @@ export function authModal(registerFirst = false) {
   dialog.classList.add("auth-dialog");
   const body = h("div", { class: "auth-layout" });
   dialog.append(body);
-  dialog.addEventListener("close", () => clearInterval(timer));
+  dialog.addEventListener("close", () => {
+    clearInterval(timer);
+    if (
+      recoverFirst &&
+      new URLSearchParams(location.search).get("flow") === "recovery"
+    )
+      history.replaceState(null, "", `${location.pathname}${location.hash}`);
+  });
   const changeMode = (value: boolean) => {
     joining = value;
     render();
   };
+  function resetPanel() {
+    clearInterval(timer);
+    const address = input(
+      "reset-email",
+      "you@example.com",
+      model.email,
+      "email",
+    );
+    address.autocomplete = "email";
+    const error = h("p", { class: "form-error", role: "alert" });
+    const info = h(
+      "p",
+      { class: "auth-reset-status", role: "status" },
+      recoverFirst
+        ? "Open a fresh reset link from the email requested on this device. If your link expired, request one new link below."
+        : "",
+    );
+    const send = button(
+      "Send reset link",
+      () => undefined,
+      "button primary full",
+      { type: "submit" },
+    );
+    const form = h(
+      "form",
+      {
+        onSubmit: async (event: SubmitEvent) => {
+          event.preventDefault();
+          if (send.disabled) return;
+          setButtonDisabled(send, true);
+          send.setAttribute("aria-busy", "true");
+          error.textContent = "";
+          try {
+            model.email = address.value.trim();
+            await requestPasswordReset(model.email);
+            info.textContent =
+              "If this email has an account, a reset link will arrive shortly. Check your inbox and spam folder, then open it on this device.";
+          } catch (value) {
+            error.textContent =
+              value instanceof Error ? value.message : "Please try again.";
+          } finally {
+            send.removeAttribute("aria-busy");
+            await update();
+          }
+        },
+      },
+      field("Account email", address),
+      error,
+      info,
+      send,
+    );
+    async function update() {
+      if (!dialog.isConnected) return;
+      const wait = await emailWait(address.value);
+      setButtonDisabled(send, wait > 0);
+      send.textContent = wait ? `Request again in ${wait}s` : "Send reset link";
+    }
+    address.addEventListener("input", () => {
+      void update();
+    });
+    body.replaceChildren(
+      art(),
+      h(
+        "section",
+        { class: "auth-fields" },
+        h("p", { class: "eyebrow" }, "LET’S GET YOU BACK IN"),
+        h("h3", null, "Reset your password"),
+        h(
+          "p",
+          { class: "muted" },
+          "Use the email you joined the lab with. We’ll send one private reset link.",
+        ),
+        form,
+        button(
+          "Back to sign in",
+          () => changeMode(false),
+          "button outline full",
+        ),
+      ),
+    );
+    void update();
+    timer = setInterval(() => {
+      void update();
+    }, 1000);
+  }
   function art() {
     return h(
       "aside",
@@ -137,7 +247,13 @@ export function authModal(registerFirst = false) {
       model.email,
       cloudEnabled ? "email" : "text",
     );
-    username.autocomplete = cloudEnabled ? "email" : "username";
+    username.autocomplete = cloudEnabled && joining ? "email" : "username";
+    username.addEventListener("blur", () => {
+      if (cloudEnabled) {
+        username.value = username.value.trim().toLowerCase();
+        model.email = username.value;
+      }
+    });
     username.addEventListener("input", () => {
       model.email = username.value;
     });
@@ -151,6 +267,24 @@ export function authModal(registerFirst = false) {
     password.maxLength = 128;
     if (joining) password.minLength = 8;
     password.setAttribute("aria-label", "Password");
+    const caps = h("small", { class: "auth-keyboard-hint", role: "status" });
+    password.addEventListener("keyup", (event) => {
+      caps.textContent = event.getModifierState("CapsLock")
+        ? "Caps Lock is on."
+        : "";
+    });
+    const lengthHint = h("small", {
+      class: "auth-length-hint",
+      role: "status",
+    });
+    if (joining)
+      password.addEventListener("input", () => {
+        lengthHint.textContent =
+          password.value.length < 8
+            ? `${8 - password.value.length} more characters to reach the minimum.`
+            : "8+ characters · ready to create your account";
+        lengthHint.classList.toggle("ready", password.value.length >= 8);
+      });
     const show = button(
       "Show",
       () => {
@@ -204,8 +338,13 @@ export function authModal(registerFirst = false) {
       {
         onSubmit: async (event: SubmitEvent) => {
           event.preventDefault();
+          if (submit.disabled) return;
           submit.disabled = true;
           submit.setAttribute("aria-busy", "true");
+          submit.textContent = joining
+            ? "Creating your lab…"
+            : "Signing you in…";
+          form.setAttribute("aria-busy", "true");
           error.textContent = "";
           recovery.replaceChildren();
           model = {
@@ -268,12 +407,26 @@ export function authModal(registerFirst = false) {
           } finally {
             submit.disabled = false;
             submit.removeAttribute("aria-busy");
+            form.removeAttribute("aria-busy");
+            submit.textContent = joining
+              ? "Make my little lab"
+              : "Welcome back";
           }
         },
       },
       joining ? field("Your name", name) : null,
       field(cloudEnabled ? "Email" : "Username", username),
       field("Password", h("span", { class: "password-field" }, password, show)),
+      caps,
+      joining
+        ? lengthHint
+        : cloudEnabled
+          ? button(
+              "Forgot your password?",
+              resetPanel,
+              "text-button auth-forgot",
+            )
+          : null,
       joining
         ? h(
             "div",
@@ -342,7 +495,8 @@ export function authModal(registerFirst = false) {
     );
     body.replaceChildren(art(), content);
   }
-  render();
+  if (recoverFirst) resetPanel();
+  else render();
 }
 export function profileModal() {
   const user = currentUser();
@@ -350,8 +504,12 @@ export function profileModal() {
     authModal();
     return;
   }
-  const name = input("name", "", user.name),
+  const rules = getState().rules,
+    level = levelOf(user, rules);
+  const name = input("name", "Your scientist name", user.name),
     section = input("section", "Your section", user.section);
+  name.maxLength = 40;
+  section.maxLength = 40;
   section.required = false;
   const grade = h(
     "select",
@@ -360,36 +518,179 @@ export function profileModal() {
       h("option", { value: g, selected: g === user.grade }, `Grade ${g}`),
     ),
   );
-  let avatar = user.avatar;
-  const avatars = h(
+  let chosenAvatar = user.avatar,
+    preference = getAppearance(user.id),
+    dirty = false;
+  const error = h("p", { class: "form-error", role: "alert" });
+  const bio = h("textarea", {
+    rows: 3,
+    maxlength: 160,
+    placeholder: "What makes you curious?",
+    value: preference.bio,
+  });
+  const bioCount = h(
+    "small",
+    { class: "profile-bio-count" },
+    `${bio.value.length}/160`,
+  );
+  bio.addEventListener("input", () => {
+    dirty = true;
+    bioCount.textContent = `${bio.value.length}/160`;
+  });
+  const hero = h(
+    "section",
+    { class: "scientist-card", "data-profile-theme": preference.theme },
+    h("div", { class: "profile-orbit orbit-a", "aria-hidden": true }),
+    h("div", { class: "profile-orbit orbit-b", "aria-hidden": true }),
+    h(
+      "div",
+      { class: "scientist-card-avatar", "aria-hidden": true },
+      scientistAvatar(user.id, user.name, user.avatar),
+    ),
+    h(
+      "div",
+      { class: "scientist-card-copy" },
+      h("p", { class: "eyebrow" }, "YOUR CURIOUS CORNER"),
+      h("h3", null, user.name),
+      h(
+        "span",
+        { class: "profile-role" },
+        icon(user.role === "admin" ? "settings" : "sprout", 14),
+        user.role === "admin"
+          ? "Class teacher"
+          : user.id === "guest"
+            ? "Guest explorer"
+            : "Student scientist",
+      ),
+      h(
+        "p",
+        null,
+        `Grade ${user.grade}${user.section ? ` · ${user.section}` : ""}`,
+      ),
+    ),
+    h(
+      "span",
+      { class: "profile-hero-art", "aria-hidden": true },
+      mascot("sprout"),
+    ),
+  );
+  const statistics = h(
     "div",
-    { class: "avatar-options" },
-    ...["cat", "sprout", "flask", "planet", "atom"].map((a) =>
-      button(
-        mascot(a),
-        () => {
-          avatar = a;
-          [...avatars.children].forEach((n) =>
-            n.classList.toggle("selected", n.getAttribute("data-avatar") === a),
-          );
-        },
-        `avatar-choice ${a === avatar ? "selected" : ""}`,
-        { "aria-label": `Choose ${a} avatar`, "data-avatar": a },
+    { class: "profile-statistics" },
+    ...[
+      [level, "Learning level"],
+      [user.streak, "Day streak"],
+      [
+        cloudEnabled && user.id !== "guest" ? classCredits() : user.merits,
+        cloudEnabled && user.id !== "guest" ? "Class credits" : "Merits",
+      ],
+      [
+        Object.values(user.mastery).filter((m) => m.completed > 0).length,
+        "Decks explored",
+      ],
+    ].map(([value, label]) =>
+      h(
+        "div",
+        null,
+        h(
+          "strong",
+          label === "Class credits" ? { "data-class-credit": true } : null,
+          String(value),
+        ),
+        h("span", null, label),
       ),
     ),
   );
-  const { close } = modal("Your scientist profile", [
+  const xp = user.xp % rules.xpPerLevel;
+  const growth = h(
+    "section",
+    { class: "profile-growth" },
     h(
-      "p",
-      { class: "muted" },
-      user.id === "guest"
-        ? "You’re exploring as a guest. Join the lab to keep a separate scientist profile."
-        : cloudEnabled
-          ? `${user.username} · Your scientist account`
-          : `@${user.username} · Saved in this browser`,
+      "div",
+      null,
+      h("strong", null, `Level ${level} · keep your curiosity growing`),
+      h("span", null, `${xp}/${rules.xpPerLevel} XP to the next level`),
+    ),
+    progress((xp / rules.xpPerLevel) * 100, "Learning level progress"),
+    h(
+      "small",
+      null,
+      "Practice XP, streaks and deck progress are shown for this device.",
+    ),
+  );
+  const avatarButtons = h(
+    "div",
+    { class: "avatar-options" },
+    ...["cat", "sprout", "flask", "planet", "atom"].map((value) =>
+      button(
+        mascot(value),
+        () => {
+          chosenAvatar = value;
+          [...avatarButtons.children].forEach((node) => {
+            const selected = node.getAttribute("data-avatar") === value;
+            node.classList.toggle("selected", selected);
+            node.setAttribute("aria-pressed", String(selected));
+          });
+        },
+        `avatar-choice ${chosenAvatar === value ? "selected" : ""}`,
+        {
+          "aria-label": `Choose ${value} avatar`,
+          "data-avatar": value,
+          "aria-pressed": chosenAvatar === value,
+        },
+      ),
+    ),
+  );
+  const palette = h(
+    "div",
+    { class: "theme-choices" },
+    ...themes.map((theme) =>
+      button(
+        h(
+          "span",
+          null,
+          h(
+            "span",
+            { class: "theme-swatches", "aria-hidden": true },
+            ...theme.colors.map((color) =>
+              h("i", { style: { background: color } }),
+            ),
+          ),
+          h("strong", null, theme.name),
+          h("small", null, theme.description),
+        ),
+        () => {
+          dirty = true;
+          preference = { ...preference, theme: theme.id };
+          hero.dataset.profileTheme = theme.id;
+          drawPalette();
+        },
+        `theme-choice ${preference.theme === theme.id ? "selected" : ""}`,
+        {
+          "aria-label": `Choose ${theme.name} colors`,
+          "data-theme-choice": theme.id,
+          "aria-pressed": preference.theme === theme.id,
+        },
+      ),
+    ),
+  );
+  function drawPalette() {
+    palette.querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
+      const active = btn.dataset.themeChoice === preference.theme;
+      btn.classList.toggle("selected", active);
+      btn.setAttribute("aria-pressed", String(active));
+    });
+  }
+  const basicSection = h(
+    "section",
+    { class: "profile-panel" },
+    h(
+      "div",
+      { class: "profile-section-title" },
+      icon("sprout", 20),
+      h("h3", null, "Make yourself at home"),
     ),
     photoEditor(user),
-    avatars,
     field("Name", name),
     h(
       "div",
@@ -397,20 +698,92 @@ export function profileModal() {
       field("Grade", grade),
       field("Section", section),
     ),
+    h(
+      "p",
+      { class: "profile-privacy" },
+      icon("lock", 14),
+      user.id === "guest"
+        ? "Your guest discoveries stay on this device."
+        : cloudEnabled
+          ? `${user.username} · Your scientist account`
+          : `@${user.username} · Saved in this browser`,
+    ),
+    error,
     button(
       "Save my profile",
-      act(async () => {
-        await dispatch({
-          type: "UpdateProfile",
-          name: name.value,
-          grade: Number(grade.value),
-          section: section.value,
-          avatar,
-        });
-        close();
-        toast("Looking good, scientist!");
-      }),
+      async () => {
+        error.textContent = "";
+        try {
+          await dispatch({
+            type: "UpdateProfile",
+            name: name.value,
+            grade: Number(grade.value),
+            section: section.value,
+            avatar: chosenAvatar,
+          });
+          close();
+          toast("Your scientist profile is saved.");
+        } catch (value) {
+          error.textContent =
+            value instanceof Error ? value.message : "Please try again.";
+        }
+      },
       "button primary full",
+    ),
+  );
+  const styleError = h("p", { class: "form-error", role: "alert" });
+  const appearanceSection = h(
+    "section",
+    { class: "profile-panel" },
+    h(
+      "div",
+      { class: "profile-section-title" },
+      icon("sparkles", 20),
+      h("h3", null, "A little more you"),
+    ),
+    h(
+      "p",
+      { class: "muted" },
+      "Choose a color story for the whole lab. Your illustrations and text stay clear in every palette.",
+    ),
+    palette,
+    field("A little about me", bio),
+    bioCount,
+    h("h4", null, "Your illustrated avatar"),
+    avatarButtons,
+    h(
+      "p",
+      { class: "fine-print" },
+      "Save your profile to update the illustrated avatar. Your photo stays visible until you remove it.",
+    ),
+    styleError,
+    button(
+      "Save my style",
+      async () => {
+        styleError.textContent = "";
+        try {
+          await saveAppearance(user.id, {
+            theme: preference.theme,
+            bio: bio.value,
+          });
+          dirty = false;
+          toast("Your colors and introduction are saved.");
+        } catch (value) {
+          styleError.textContent =
+            value instanceof Error ? value.message : "Please try again.";
+        }
+      },
+      "button primary full",
+    ),
+  );
+  const accountSection = h(
+    "section",
+    { class: "profile-panel profile-account" },
+    h(
+      "div",
+      { class: "profile-section-title" },
+      icon("lock", 20),
+      h("h3", null, "Your account, your space"),
     ),
     user.id !== "guest"
       ? button(
@@ -419,7 +792,27 @@ export function profileModal() {
             close();
             passwordModal();
           },
-          "text-button full password-link",
+          "button outline full password-link",
+        )
+      : null,
+    cloudEnabled && user.id !== "guest"
+      ? button(
+          "Open my saved records",
+          () => {
+            close();
+            go("/records");
+          },
+          "button outline full",
+        )
+      : null,
+    user.role === "admin"
+      ? button(
+          "Open teacher studio",
+          () => {
+            close();
+            go(cloudEnabled ? "/teacher" : "/admin");
+          },
+          "button outline full",
         )
       : null,
     h(
@@ -448,7 +841,51 @@ export function profileModal() {
             "text-button",
           ),
     ),
-  ]);
+  );
+  const jumps = h(
+    "nav",
+    { class: "profile-jumps", "aria-label": "Profile sections" },
+    ...[
+      [basicSection, "Profile details"],
+      [appearanceSection, "Colors & avatar"],
+      [accountSection, "Account settings"],
+    ].map(([target, label]) =>
+      button(
+        String(label),
+        () => {
+          (target as HTMLElement).scrollIntoView({
+            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "auto"
+              : "smooth",
+            block: "start",
+          });
+        },
+        "button outline",
+      ),
+    ),
+  );
+  const { dialog, close } = modal(
+    "Your scientist profile",
+    [
+      hero,
+      statistics,
+      growth,
+      jumps,
+      basicSection,
+      appearanceSection,
+      accountSection,
+    ],
+    true,
+  );
+  dialog.classList.add("profile-dialog");
+  void loadAppearance(user.id).then((value) => {
+    if (!dialog.isConnected || dirty || currentUser()?.id !== user.id) return;
+    preference = value;
+    bio.value = value.bio;
+    bioCount.textContent = `${value.bio.length}/160`;
+    hero.dataset.profileTheme = value.theme;
+    drawPalette();
+  });
 }
 
 export function logoutModal() {
@@ -614,4 +1051,68 @@ function photoEditor(user: NonNullable<ReturnType<typeof currentUser>>) {
       error,
     ),
   );
+}
+
+export function passwordRecoveryModal() {
+  if (document.querySelector(".recovery-dialog")) return;
+  const password = input(
+    "recovery-password",
+    "Choose a new password",
+    "",
+    "password",
+  );
+  password.autocomplete = "new-password";
+  password.minLength = 8;
+  password.maxLength = 128;
+  const repeat = input("repeat-password", "Enter it once more", "", "password");
+  repeat.autocomplete = "new-password";
+  repeat.minLength = 8;
+  repeat.maxLength = 128;
+  const error = h("p", { class: "form-error", role: "alert" });
+  const submit = button(
+    "Save new password",
+    () => undefined,
+    "button primary full",
+    { type: "submit" },
+  );
+  const { dialog, close } = modal("A fresh start for your account", [
+    h(
+      "p",
+      { class: "muted" },
+      "Your reset link is verified. Choose a new, unique password for your scientist account.",
+    ),
+    h(
+      "form",
+      {
+        onSubmit: async (event: SubmitEvent) => {
+          event.preventDefault();
+          if (submit.disabled) return;
+          submit.disabled = true;
+          error.textContent = "";
+          try {
+            if (password.value !== repeat.value)
+              throw new Error("The two passwords need to match.");
+            await finishPasswordRecovery(password.value);
+            close();
+            toast("Your password is updated. Welcome back to the lab.");
+          } catch (value) {
+            error.textContent =
+              value instanceof Error ? value.message : "Please try again.";
+          } finally {
+            submit.disabled = false;
+          }
+        },
+      },
+      field("New password", password),
+      field("Repeat new password", repeat),
+      error,
+      submit,
+    ),
+  ]);
+  dialog.classList.add("recovery-dialog");
+  dialog.addEventListener("close", () => {
+    dismissPasswordRecovery();
+    if (new URLSearchParams(location.search).get("flow") === "recovery")
+      history.replaceState(null, "", `${location.pathname}${location.hash}`);
+  });
 }

@@ -296,7 +296,6 @@ export function branchPage(id: string) {
   return h(
     "div",
     { class: "page-enter" },
-    h("a", { class: "back-link", href: "#/island" }, "← Back to the island"),
     pageHeading(
       `MEET ${b.mascot.toUpperCase()}`,
       b.name,

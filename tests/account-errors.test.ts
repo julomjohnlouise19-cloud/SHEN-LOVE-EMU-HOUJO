@@ -17,6 +17,10 @@ it("explains email quota, confirmation and sender restrictions without service b
   expect(accountError({ code: "invalid_credentials" }).kind).toBe(
     "credentials",
   );
+  expect(accountError({ code: "captcha_failed" }).message).toContain(
+    "sign-in protection",
+  );
+  expect(accountError({ code: "user_banned" }).message).toContain("paused");
   expect(
     accountError({ message: "Supabase could not connect" }).message,
   ).not.toMatch(/supabase/i);

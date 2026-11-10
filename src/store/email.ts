@@ -46,3 +46,18 @@ export async function resendConfirmation(email: string) {
   }
   await recordEmailWait(email, 60);
 }
+export async function requestPasswordReset(email: string) {
+  const address = email.trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address))
+    throw new Error("Enter your account email first.");
+  if (!client) throw new Error("Account services are unavailable.");
+  await checkEmailWait(address);
+  const { error } = await client.auth.resetPasswordForEmail(address, {
+    redirectTo: `${location.origin}${import.meta.env.BASE_URL}?flow=recovery`,
+  });
+  await recordEmailWait(
+    address,
+    error ? accountError(error).waitSeconds || 60 : 60,
+  );
+  if (error) throw accountError(error);
+}

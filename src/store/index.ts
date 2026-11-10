@@ -200,11 +200,9 @@ async function enterCloud(profile: CloudProfile) {
       users: [...s.users.filter((u) => u.id !== user.id), user],
     });
   });
-  await Promise.all([
-    hasPlatform() ? refreshLab(true).catch(() => undefined) : Promise.resolve(),
-    hydratePhoto(profile.user_id, profile).catch(() => undefined),
-  ]);
+  await (hasPlatform() ? refreshLab(true).catch(() => undefined) : Promise.resolve());
   await createSession(profile.user_id);
+  void hydratePhoto(profile.user_id, profile).catch(() => undefined);
   await recoverCloudRuns(state.runs);
 }
 export async function guestSession() {

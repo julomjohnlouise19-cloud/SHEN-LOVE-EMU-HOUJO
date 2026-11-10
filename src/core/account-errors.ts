@@ -17,6 +17,9 @@ export function accountError(value: unknown): AccountError {
   } | null;
   const code = error?.code ?? "",
     message = error?.message ?? "";
+  if (/captcha/.test(code) || /captcha.*(fail|missing|invalid)/i.test(message))
+    return new AccountError("Sign-in verification needs an update. Ask your teacher to check the website’s sign-in protection settings.", "configuration");
+  if (code === "user_banned") return new AccountError("This account is paused. Ask your teacher to review your access.", "configuration");
   if (
     code === "over_email_send_rate_limit" ||
     /email.*rate.*(limit|exceed)/i.test(message)

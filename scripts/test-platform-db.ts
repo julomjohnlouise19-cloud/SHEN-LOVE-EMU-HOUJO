@@ -16,7 +16,7 @@ export async function verifyPlatform(
   const command = (action: string, body: unknown, id = randomUUID()) =>
     `public.csl_teacher_command('${id}',${text(action)},${literal(body)})`;
   sql(`create function public.test_rejected(statement text) returns void language plpgsql as $$ begin begin execute statement; exception when raise_exception or insufficient_privilege or check_violation then return; end; raise exception 'Expected rejection: %',statement; end $$;
-    select public.test_assert((public.csl_backend_status()->>'platform')::int=2,'platform upgrade is installed');
+    select public.test_assert((public.csl_backend_status()->>'platform')::int>=2,'platform upgrade is installed');
     ${login(1)}
     select public.test_assert((public.csl_my_lab('${user(1)}')->>'credits')::int>24,'server quiz credits were awarded');
     select public.test_denied('select public.csl_teacher_data(''students'')');

@@ -30,7 +30,7 @@ To check installation in the SQL Editor:
 select public.csl_backend_status();
 ```
 
-Expected result: `{"version":1,"questions":972,"platform":2}`. Existing projects missing `platform` must run the complete [upgrade.sql](../supabase/upgrade.sql). The migration preserves existing records, teacher edits, stock and wallets when repeated.
+Expected result after the latest setup: `{"version":1,"questions":972,"platform":3}`. Existing projects missing `platform` must run the complete [upgrade.sql](../supabase/upgrade.sql). The migration preserves existing records, teacher edits, stock and wallets when repeated.
 
 ## 3. Configure email sign-in
 
@@ -51,6 +51,8 @@ Create your own Auth account in **Authentication → Users → Add user**, using
 Open [supabase/bootstrap-teacher.sql](../supabase/bootstrap-teacher.sql), replace `teacher@example.com` with your actual teacher email and run it in the SQL Editor. The Auth user must exist first. This assigns teacher access by Auth user ID; changing browser storage, signup metadata or a profile cannot grant database access.
 
 Sign out of the website and sign in again after assigning access. **Teacher studio** opens the separate teacher workspace. **Class reports** offers filtered analytics, answers and teacher feedback. **Export filtered data** exports matching records across pages, up to 20,000. Original answers and scores remain unchanged. **Saved records** opens personal quiz history for students.
+
+With platform 3, teachers can also manage another active account’s teaching access in **Scientists → Teaching access**. Changes require a reason and are audited. Teachers cannot change their own role; the owner bootstrap remains a recovery option. Existing platform-2 projects can run the short [Studio upgrade](STUDIO_UPGRADE.md).
 
 ## 5. Enable the website connection
 

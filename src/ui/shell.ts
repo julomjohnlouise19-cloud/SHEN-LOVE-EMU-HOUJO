@@ -1,5 +1,5 @@
 import { avatar as scientistAvatar } from "./avatar";
-import { classCredits, hasPlatform } from "../store/platform";
+import { classCredits, hasPlatform, hasStudio } from "../store/platform";
 import { cloudEnabled } from "../store/cloud";
 import { cloudNotice } from "./cloud-status";
 import { currentUser, dispatch, getState } from "../store";
@@ -11,6 +11,7 @@ import { act, go } from "./actions";
 import { authModal, profileModal, logoutModal } from "./auth";
 import { brandLink } from "./branding";
 import { connectionNotice } from "./connectivity";
+import { pageNavigation } from "./navigation";
 let sidebarOpen = false;
 export function resetNavigation() {
   sidebarOpen = false;
@@ -29,6 +30,8 @@ const teacherNav = [
   ["/teacher", "home", "Studio overview"],
   ["/teacher/students", "sprout", "Scientists"],
   ["/teacher/reports", "notebook", "Class reports"],
+  ["/teacher/games", "trophy", "Arcade reports"],
+  ["/teacher/health", "check", "Record care"],
   ["/teacher/shop", "shop", "Stock & pricing"],
   ["/teacher/claims", "box", "Claims desk"],
   ["/teacher/content", "island", "Science cards"],
@@ -51,7 +54,14 @@ export function shell(page: HTMLElement, route: string) {
   const navigation = h(
     "nav",
     { "aria-label": "Main navigation" },
-    ...(teacherMode ? teacherNav : nav).map(([path, ico, label]) =>
+    ...(teacherMode
+      ? teacherNav.filter(
+          ([path]) =>
+            hasStudio() ||
+            !["/teacher/games", "/teacher/health"].includes(path),
+        )
+      : nav
+    ).map(([path, ico, label]) =>
       h(
         "div",
         null,
@@ -289,7 +299,12 @@ export function shell(page: HTMLElement, route: string) {
       }),
     ),
   );
-  const main = h("main", { id: "main", class: "main", tabIndex: -1 }, page);
+  const main = h(
+    "main",
+    { id: "main", class: "main", tabIndex: -1 },
+    pageNavigation(route),
+    page,
+  );
   return h(
     "div",
     { class: "app-layout" },
@@ -388,7 +403,7 @@ export function helpModal() {
       "div",
       { class: "notice" },
       cloudEnabled
-        ? "Cloud accounts save profiles and completed quiz answers for teacher reports. Merits, notebook, balances and supply claims remain local demos and need school verification."
+        ? "Signed-in accounts save profiles, photos, quizzes and arcade rounds. Class credits and supply reservations are shared with your classroom. Notebook pages, practice XP, quests and spins stay on this device. Teachers verify physical collection."
         : "This is a local demo. Accounts and balances stay in this browser. Supply claims need school verification at the Grade 10 SSC room; no real purchase is placed online.",
     ),
     button(
@@ -476,6 +491,12 @@ function teacherHelpModal() {
         "Manage supply prices and available stock. Verify the student's code before recording collection; cancellations return stock and credits together.",
         "Review science cards before saving changes. Earlier versions stay available for quizzes that were already started.",
         "Tune arcade timers, movement and rewards for new rounds. Activity history records your edits so the class can review a change.",
+        ...(hasStudio()
+          ? [
+              "Use arcade reports and record care to filter history, archive reviewed results and restore evidence. Original scores and credits stay in place.",
+              "Manage another active account’s teaching access in Scientists. Changes need a reason; your own teaching role remains protected.",
+            ]
+          : []),
       ].map((text) => h("li", null, text)),
     ),
   ]);

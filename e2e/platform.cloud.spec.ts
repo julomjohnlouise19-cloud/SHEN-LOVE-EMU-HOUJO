@@ -187,9 +187,11 @@ test("profile photos are normalized, saved privately, restored and removable", a
     mimeType: "image/svg+xml",
     buffer: Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"/>'),
   });
-  await expect(page.getByRole("dialog").locator(".form-error")).toContainText(
-    "JPG, PNG or WebP",
-  );
+  await expect(
+    page
+      .getByRole("region", { name: "Profile photo", exact: true })
+      .locator(".form-error"),
+  ).toContainText("JPG, PNG or WebP");
   expect(backend.photoUploads).toBe(1);
 });
 

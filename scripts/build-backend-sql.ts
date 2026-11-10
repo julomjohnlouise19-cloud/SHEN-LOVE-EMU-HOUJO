@@ -55,17 +55,20 @@ const creditedQuiz = originalQuiz
   )
   .replace(
     "    select question into q from csl_private.questions where id=entry->>'question_id';",
-    () => "    if entry?'question_version' and (jsonb_typeof(entry->'question_version')='number' and entry->>'question_version' ~ '^[0-9]{1,10}$') is not true then raise exception 'This question version is not valid.'; end if;\n    select question into q from csl_private.question_versions where question_id=entry->>'question_id' and revision=coalesce((entry->>'question_version')::integer,0);",
+    () =>
+      "    if entry?'question_version' and (jsonb_typeof(entry->'question_version')='number' and entry->>'question_version' ~ '^[0-9]{1,10}$') is not true then raise exception 'This question version is not valid.'; end if;\n    select question into q from csl_private.question_versions where question_id=entry->>'question_id' and revision=coalesce((entry->>'question_version')::integer,0);",
   );
 if (!creditedQuiz.includes("from csl_private.question_versions"))
   throw new Error(
     "Question-version grading must be included in the generated upgrade.",
   );
 const seed = `with bank as (select value from jsonb_array_elements($csl_bank$${data}$csl_bank$::jsonb)), seeded as (insert into csl_private.questions(id,question) select value->>'id',value from bank on conflict(id) do update set question=coalesce((select question from public.csl_question_overrides where question_id=excluded.id),excluded.question) returning id) insert into csl_private.question_versions(question_id,revision,question) select value->>'id',0,value from bank, (select count(*) from seeded) s on conflict do nothing;`;
-const upgrade = `-- The Cozy Science Lab: existing-project upgrade. Keeps accounts, quiz records, teacher edits and stock.\nbegin;\n${platform}\n${await readFile("supabase/arcade.sql", "utf8")}\n${await readFile("supabase/teacher.sql", "utf8")}\n${creditedQuiz}\n${seed}\ncommit;\n`;
+const studio = await readFile("supabase/studio.sql", "utf8");
+const upgrade = `-- The Cozy Science Lab: existing-project upgrade. Keeps accounts, quiz records, teacher edits and stock.\nbegin;\n${platform}\n${await readFile("supabase/arcade.sql", "utf8")}\n${await readFile("supabase/teacher.sql", "utf8")}\n${creditedQuiz}\n${seed}\n${studio}\ncommit;\n`;
 const outputs = {
   "supabase/setup.sql": `${schema}\n${upgrade}`,
   "supabase/upgrade.sql": upgrade,
+  "supabase/studio-upgrade.sql": `-- Existing platform-2 project: copy this entire file into SQL Editor and Run.\n-- Preserves accounts, answers, scores, credits, stock and teacher edits.\nbegin;\ndo $$ begin if to_regclass('public.csl_arcade_sessions') is null then raise exception 'Install the complete setup.sql first.'; end if; end $$;\n${studio}\ncommit;\n`,
 };
 if (process.argv.includes("--check")) {
   for (const [path, sql] of Object.entries(outputs))

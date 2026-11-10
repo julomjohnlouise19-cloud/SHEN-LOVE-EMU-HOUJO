@@ -15,6 +15,7 @@ import {
 import { isCorrect, defaultRules } from "../src/core/rules";
 import { seededRng } from "../src/core/random";
 import { initialState } from "../src/store/seed";
+import type { Appearance } from "../src/core/appearance";
 
 export const host = "https://cozy-backend-test.supabase.co";
 export const users = ["student1", "student2", "teacher"].map((name, index) => ({
@@ -46,6 +47,7 @@ interface Profile {
 }
 export interface Backend {
   available: boolean;
+  platform: number;
   failUploads: boolean;
   uploads: number;
   rejected: number;
@@ -54,6 +56,16 @@ export interface Backend {
   signupCalls: number;
   resendCalls: number;
   photoUploads: number;
+  recoverCalls: number;
+  getUserCalls: number;
+  tokenCalls: number;
+  passwordChanges: number;
+  statusDelay: number;
+  preferences: Record<string, Appearance>;
+  labels: Record<
+    string,
+    { archived: boolean; version: number; reason: string }
+  >;
   profiles: Profile[];
   items: LabItem[];
   orders: LabOrder[];
@@ -69,6 +81,7 @@ export const test = base.extend<{ backend: Backend }>({
     async ({ context }, use) => {
       const state: Backend = {
         available: true,
+        platform: 3,
         failUploads: false,
         uploads: 0,
         rejected: 0,
@@ -77,6 +90,13 @@ export const test = base.extend<{ backend: Backend }>({
         signupCalls: 0,
         resendCalls: 0,
         photoUploads: 0,
+        recoverCalls: 0,
+        getUserCalls: 0,
+        tokenCalls: 0,
+        passwordChanges: 0,
+        statusDelay: 0,
+        preferences: {},
+        labels: {},
         profiles: users.map((user, index) => ({
           user_id: user.id,
           display_name: ["Student One", "Student Two", "Teacher"][index],
@@ -189,6 +209,7 @@ export const test = base.extend<{ backend: Backend }>({
             },
           });
         if (url.pathname === "/auth/v1/token") {
+          state.tokenCalls++;
           const user =
             users.find((user) => user.email === body?.email) ?? users[0];
           if (body?.password === "wrong-password")
@@ -230,8 +251,25 @@ export const test = base.extend<{ backend: Backend }>({
           state.resendCalls++;
           return respond({});
         }
-        if (url.pathname === "/auth/v1/user")
+        if (url.pathname === "/auth/v1/recover") {
+          state.recoverCalls++;
+          if (state.emailLimited)
+            return respond(
+              {
+                code: "over_email_send_rate_limit",
+                error_code: "over_email_send_rate_limit",
+                message: "email rate exceeded",
+              },
+              429,
+            );
+          return respond({});
+        }
+        if (url.pathname === "/auth/v1/user") {
+          state.getUserCalls++;
+          if (request.method() === "PUT" && body?.password)
+            state.passwordChanges++;
           return respond(users[Math.max(0, who)]);
+        }
         if (url.pathname === "/auth/v1/logout")
           return route.fulfill({ status: 204 });
         const storage = "/storage/v1/object/";
@@ -274,13 +312,28 @@ export const test = base.extend<{ backend: Backend }>({
           return respond({ Key: `csl-avatars/${path}`, Id: "photo-fixture" });
         }
         const rpc = url.pathname.split("/").pop();
-        if (rpc === "csl_backend_status")
+        if (rpc === "csl_backend_status") {
+          if (state.statusDelay)
+            await new Promise((resolve) =>
+              setTimeout(resolve, state.statusDelay),
+            );
           return state.available
-            ? respond({ version: 1, questions: 972, platform: 2 })
+            ? respond({ version: 1, questions: 972, platform: state.platform })
             : respond({ message: "function not installed" }, 404);
+        }
         if (who < 0) return failed("Not signed in");
         const uid = users[who].id,
           profile = state.profiles[who];
+        if (rpc === "csl_preferences") {
+          if (body?.p_theme)
+            state.preferences[uid] = {
+              theme: body.p_theme,
+              bio: body.p_bio,
+            } as Appearance;
+          return respond(
+            state.preferences[uid] ?? { theme: "meadow", bio: "" },
+          );
+        }
         if (rpc === "csl_my_profile")
           return respond({ ...profile, credits: state.credits[uid] });
         if (rpc === "csl_my_lab") {
@@ -456,6 +509,7 @@ export const test = base.extend<{ backend: Backend }>({
               .filter(
                 (game) =>
                   game.state.completed &&
+                  !state.labels[game.state.id]?.archived &&
                   (body?.p_category === "all" ||
                     body?.p_category === game.state.category),
               )
@@ -472,11 +526,18 @@ export const test = base.extend<{ backend: Backend }>({
                 completed_at: new Date().toISOString(),
               })),
           );
-        if (rpc === "csl_teacher_data") {
-          if (!profile.is_teacher) return failed("Teacher access is required.");
+        if (rpc === "csl_teacher_data" || rpc === "csl_studio_data") {
+          const view = body?.p_view === "quizzes" ? "reports" : body?.p_view;
+          if (
+            !profile.is_teacher &&
+            !(
+              rpc === "csl_studio_data" &&
+              ["reports", "games"].includes(String(view))
+            )
+          )
+            return failed("Teacher access is required.");
           const filters = (body?.p_filters ?? {}) as Record<string, string>,
-            offset = Number(body?.p_offset ?? 0),
-            view = body?.p_view;
+            offset = Number(body?.p_offset ?? 0);
           if (view === "overview")
             return respond({
               rows: [],
@@ -494,6 +555,35 @@ export const test = base.extend<{ backend: Backend }>({
                   .length,
               },
               charts: [],
+              timeline: Array.from({ length: 7 }, (_, index) => ({
+                day_key: `2026-11-${String(4 + index).padStart(2, "0")}`,
+                quizzes: index === 6 ? state.rows.length : 0,
+                games: 0,
+              })),
+            });
+          if (view === "health")
+            return respond({
+              total: 4,
+              stats: {
+                quizzes: state.rows.length,
+                games: [...games.values()].filter((g) => g.state.completed)
+                  .length,
+                archived: Object.values(state.labels).filter((m) => m.archived)
+                  .length,
+                teachers: state.profiles.filter((p) => p.is_teacher && p.active)
+                  .length,
+              },
+              rows: [
+                ["wallets", "Class credit ledger"],
+                ["stock", "Supply stock"],
+                ["quizzes", "Quiz evidence"],
+                ["games", "Completed arcade rounds"],
+              ].map(([id, label]) => ({
+                id,
+                label,
+                issues: 0,
+                detail: "All recorded values agree.",
+              })),
             });
           let rows: Record<string, unknown>[] = [];
           if (view === "students")
@@ -521,6 +611,46 @@ export const test = base.extend<{ backend: Backend }>({
                 (r as CloudRecord & { teacher_note?: string }).teacher_note ??
                 "",
             }));
+          if (view === "games")
+            rows = [...games.values()]
+              .filter((g) => g.state.completed)
+              .map((g) => ({
+                id: g.state.id,
+                user_id: g.state.userId,
+                display_name: state.profiles.find(
+                  (p) => p.user_id === g.state.userId,
+                )!.display_name,
+                grade: 8,
+                section: "Curiosity",
+                category: g.state.category,
+                score: g.state.score,
+                correct: g.state.correct,
+                total: 9,
+                coins: g.state.coins,
+                received_at: new Date().toISOString(),
+              }));
+          if (
+            rpc === "csl_studio_data" &&
+            ["reports", "games"].includes(String(view))
+          )
+            rows = rows
+              .map((row): Record<string, unknown> => ({
+                ...row,
+                archived: state.labels[String(row.id)]?.archived ?? false,
+                metadata_version: state.labels[String(row.id)]?.version ?? 0,
+              }))
+              .filter(
+                (row) =>
+                  ((profile.is_teacher && filters.self !== "true") ||
+                    row.user_id === uid) &&
+                  ((filters.state ?? "active") === "all" ||
+                    row.archived ===
+                      ((filters.state ?? "active") === "archived")) &&
+                  (!filters.from ||
+                    String(row.received_at).slice(0, 10) >= filters.from) &&
+                  (!filters.to ||
+                    String(row.received_at).slice(0, 10) <= filters.to),
+              );
           if (view === "content")
             rows = [...bank.values()].map((question) => ({
               question,
@@ -556,22 +686,68 @@ export const test = base.extend<{ backend: Backend }>({
                   .toLowerCase()
                   .includes(filters.section.toLowerCase())) &&
               (!filters.deck || (r.deck_id ?? q?.deckId) === filters.deck) &&
+              (!filters.category || r.category === filters.category) &&
               (!filters.status || r.status === filters.status)
             );
           });
+          if (filters.sort)
+            rows.sort((a, b) =>
+              filters.sort === "best"
+                ? Number(b.score ?? Number(b.correct) / Number(b.total)) -
+                  Number(a.score ?? Number(a.correct) / Number(a.total))
+                : String(a.received_at).localeCompare(String(b.received_at)) *
+                  (filters.sort === "oldest" ? 1 : -1),
+            );
           return respond({
             total: rows.length,
             rows: rows.slice(offset, offset + 50),
-            ...(view === "reports"
+            ...(["reports", "games"].includes(String(view))
               ? {
                   stats: {
                     attempts: rows.length,
                     correct: rows.reduce((n, r) => n + Number(r.correct), 0),
                     answers: rows.reduce((n, r) => n + Number(r.total), 0),
+                    best: Math.max(0, ...rows.map((r) => Number(r.score ?? 0))),
                   },
                 }
               : {}),
           });
+        }
+        if (rpc === "csl_studio_command") {
+          if (!profile.is_teacher) return failed("Teacher access is required.");
+          const key = `studio/${uid}/${body?.p_request_id}`;
+          if (requests.has(key)) return respond(requests.get(key));
+          const value = body?.p_body as Record<string, unknown>;
+          if (body?.p_action === "records") {
+            const versions = value.versions as Record<string, number>;
+            for (const id of value.ids as string[]) {
+              expect(versions[id]).toBe(state.labels[id]?.version ?? 0);
+              state.labels[id] = {
+                archived: Boolean(value.archived),
+                version: versions[id] + 1,
+                reason: String(value.reason),
+              };
+            }
+          } else if (body?.p_action === "role") {
+            if (value.user_id === uid)
+              return failed("Your own teaching access is protected.");
+            const target = state.profiles.find(
+              (p) => p.user_id === value.user_id,
+            )!;
+            expect(target.is_teacher).toBe(value.was_teacher);
+            target.is_teacher = Boolean(value.is_teacher);
+          } else throw new Error("Unknown studio action");
+          state.activity.unshift({
+            id: state.activity.length + 1,
+            actor_name: profile.display_name,
+            action: `studio:${body?.p_action}`,
+            note: value.reason,
+            after_value: value,
+            created_at: new Date().toISOString(),
+          });
+          const result = { ok: true, value };
+          requests.set(key, result);
+          return respond(result);
         }
         if (rpc === "csl_teacher_command") {
           if (!profile.is_teacher) return failed("Teacher access is required.");

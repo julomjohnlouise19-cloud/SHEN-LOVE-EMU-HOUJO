@@ -25,7 +25,19 @@ The published classroom upgrade adds server-scored Science Arcade, private profi
 
 Follow [the complete Supabase setup guide](docs/SUPABASE_SETUP.md). Run the generated [setup.sql](supabase/setup.sql) in your project, configure Auth URLs, appoint the teacher with [bootstrap-teacher.sql](supabase/bootstrap-teacher.sql), then supply the public project URL and publishable key as GitHub repository variables. Local development uses the settings in [.env.example](.env.example). No private key is needed in the app.
 
-Cloud mode adds real email authentication, profiles/photos, quiz records, server grading, retryable uploads, server-timed arcade rounds/rankings, class credits and transactional stock reservations. Teachers have a separate workspace for analytics, editable profiles/access/credits, supplies, verified claims/refunds, questions, learning/game settings and audited changes. Original quiz scores are preserved; teacher notes add feedback. It preserves local demo data. Notebook, XP, review/quest/spin progress and unfinished practice remain on the device. Local development defaults to the demo. The Pages workflow blocks publication unless the real backend reports version 1, platform 2 and 972 questions.
+Cloud mode adds real email authentication, profiles/photos, quiz records, server grading, retryable uploads, server-timed arcade rounds/rankings, class credits and transactional stock reservations. Teachers have a separate workspace for analytics, editable profiles/access/credits, supplies, verified claims/refunds, questions, learning/game settings and audited changes. Original quiz scores are preserved; teacher notes add feedback. It preserves local demo data. Notebook, XP, review/quest/spin progress and unfinished practice remain on the device. Local development defaults to the demo. The Pages workflow verifies version 1, platform 2 or newer and 972 questions. New record-care and teaching-role controls activate on platform 3; login and the refreshed design remain compatible with platform 2.
+
+## Color, profiles and Teacher Studio
+
+Choose Meadow, Aurora or Sunset in **Profile → Colors & avatar**, write a short introduction and use **Save my style**. Color choices apply across the lab; platform-3 accounts synchronize them across devices. Platform-2 and local demo users save styles on the device. Profile details, photo controls, learning progress, account actions and backup export have clear sections.
+
+Pages have destination-labeled Back links and breadcrumbs. Dialogs offer **Close and return** plus a visible Close control. Learning answers stay saved when returning to a branch; the arcade timer continues on resumed rounds. Reduced motion and keyboard navigation remain supported.
+
+Email password login avoids a redundant Auth lookup. Anonymous welcome/guest entry does not wait for a database preflight. Sign-in has a busy state, password visibility, Caps Lock feedback and a **Forgot your password?** flow with a persisted mail-request cooldown. Password reset requires the verified recovery session; a URL alone cannot change a password. Request and open the reset email on the same device. Password login itself does not send an email. Delivery quotas/CAPTCHA settings still belong to the project owner; see the setup guides.
+
+The platform-3 [Studio upgrade guide](docs/STUDIO_UPGRADE.md) covers the short [studio-upgrade.sql](supabase/studio-upgrade.sql), class activity charts, filtered quiz/arcade history, archive/restore, evidence/ledger health and delegated teaching roles. Teachers may grant/revoke another active account's teaching access with an audited reason. Own-role changes and removal of the last active teacher are protected. Owner SQL remains the recovery path. Original answer evidence, scores, wallets and stock are preserved. Archiving an arcade round removes it from active rankings until restored, without changing credits.
+
+Suggested future additions: teacher-assigned quizzes with due dates, weekly progress digests and moderated class announcements. These are recommendations, not enabled controls in this release.
 
 ## Start
 

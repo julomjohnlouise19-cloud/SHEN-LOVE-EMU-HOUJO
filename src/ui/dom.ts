@@ -27,6 +27,8 @@ export function h<K extends keyof HTMLElementTagNameMap>(
       node.value = String(value);
     else if (key === "disabled" && "disabled" in node)
       (node as HTMLButtonElement).disabled = Boolean(value);
+    else if (key.startsWith("aria-") && value !== undefined && value !== null)
+      node.setAttribute(key, String(value));
     else if (value !== false && value !== undefined && value !== null)
       node.setAttribute(key, value === true ? "" : String(value));
   }
@@ -139,19 +141,28 @@ export function modal(title: string, content: Child[], wide = false) {
   dialog.append(
     h(
       "div",
-      { class: "modal-heading" },
+      { class: "modal-chrome" },
       h(
         "div",
-        { class: "modal-identity" },
-        schoolLogo(),
+        { class: "modal-heading" },
         h(
           "div",
-          null,
-          h("p", { class: "modal-brand-name" }, APP_NAME),
-          h("h2", null, title),
+          { class: "modal-identity" },
+          schoolLogo(),
+          h(
+            "div",
+            null,
+            h("p", { class: "modal-brand-name" }, APP_NAME),
+            h("h2", null, title),
+          ),
         ),
+        button("Close ×", close, "icon-button close", {
+          "aria-label": "Close dialog",
+        }),
       ),
-      button("×", close, "icon-button close", { "aria-label": "Close dialog" }),
+      button("← Close and return", close, "dialog-back", {
+        "aria-label": "Close and return to page",
+      }),
     ),
     ...content.filter(
       (c): c is Node | string => c instanceof Node || typeof c === "string",
@@ -168,14 +179,20 @@ export function modal(title: string, content: Child[], wide = false) {
   dialog.showModal();
   return { dialog, close };
 }
-export const field = (label: string, input: HTMLElement, help?: string) =>
-  h(
+export const field = (label: string, input: HTMLElement, help?: string) => {
+  if (
+    input.matches("input,select,textarea") &&
+    !input.hasAttribute("aria-label")
+  )
+    input.setAttribute("aria-label", label);
+  return h(
     "label",
     { class: "field" },
     h("span", null, label),
     input,
     help ? h("small", null, help) : null,
   );
+};
 export const input = (
   name: string,
   placeholder = "",

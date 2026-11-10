@@ -1,9 +1,12 @@
 import { arcadePage, disposeArcade } from "./ui/arcade";
 import { classCredits } from "./store/platform";
-import { cloudEnabled } from "./store/cloud";
+import { cloudEnabled, passwordRecoveryActive } from "./store/cloud";
+import { passwordRecoveryModal, authModal } from "./ui/auth";
 import { updateCloudNotices } from "./ui/cloud-status";
 import "./styles/main.css";
 import "./styles/refresh.css";
+import "./styles/studio.css";
+import { loadAppearance } from "./store/preferences";
 import {
   initStore,
   subscribe,
@@ -63,6 +66,12 @@ async function render() {
   const identityChanged = renderedUserId !== user?.id;
   if (path !== "/arcade" || identityChanged) disposeArcade();
   if (identityChanged) {
+    document.documentElement.dataset.theme = "meadow";
+    if (user)
+      void loadAppearance(user.id).then((value) => {
+        if (currentUser()?.id === user.id)
+          document.documentElement.dataset.theme = value.theme;
+      });
     resetNavigation();
     if (renderedUserId) {
       document.querySelector("#toasts")?.replaceChildren();
@@ -188,6 +197,7 @@ async function render() {
     return;
   }
   app.replaceChildren(shell(page, path));
+  if (passwordRecoveryActive()) passwordRecoveryModal();
   if (identityChanged)
     app.querySelector<HTMLElement>("#main")?.focus({ preventScroll: true });
   document.title = `${path === "/" ? "My little lab" : path.startsWith("/play") ? "A little discovery" : path === "/admin" ? "SSC mission control" : path.split("/").pop()?.replaceAll("-", " ")} · ${APP_NAME}`;
@@ -206,6 +216,7 @@ window.addEventListener("hashchange", () => {
   schedule();
 });
 window.addEventListener("pageshow", schedule);
+window.addEventListener("csl:password-recovery", schedule);
 window.addEventListener("focus", schedule);
 document.addEventListener("visibilitychange", schedule);
 window.addEventListener("csl:quota", () =>
@@ -224,6 +235,11 @@ window.addEventListener("csl:recovery", (e) =>
   }),
 );
 window.addEventListener("csl:cloud-status", updateCloudNotices);
+window.addEventListener("csl:appearance", (event) => {
+  const value = (event as CustomEvent).detail;
+  if (value.id === currentUser()?.id)
+    document.documentElement.dataset.theme = value.theme;
+});
 window.addEventListener("csl:platform", () => {
   document
     .querySelectorAll<HTMLElement>("[data-class-credit]")
@@ -244,6 +260,11 @@ try {
   initialized = true;
   subscribe(schedule);
   await render();
+  if (
+    new URLSearchParams(location.search).get("flow") === "recovery" &&
+    !passwordRecoveryActive()
+  )
+    authModal(false, true);
   setInterval(() => {
     if (renderedUserId !== currentUser()?.id) schedule();
   }, 1000);

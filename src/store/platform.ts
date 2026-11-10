@@ -19,6 +19,7 @@ export const getLabSnapshot = () =>
   owner === cloudUserId() ? snapshot : undefined;
 export const classCredits = () => getLabSnapshot()?.credits ?? 0;
 export const hasPlatform = () => platformVersion() >= 2;
+export const hasStudio = () => platformVersion() >= 3;
 export function clearLab() {
   owner = undefined;
   snapshot = undefined;
@@ -95,16 +96,46 @@ export async function teacherCommand(
   await refreshLab(true);
   return result;
 }
+export const studioData = (
+  view: "quizzes" | "games" | "health" | "overview",
+  filters: Record<string, string> = {},
+  offset = 0,
+) =>
+  platformRequest<TeacherData>("csl_studio_data", {
+    p_view: view,
+    p_filters: filters,
+    p_offset: offset,
+  });
+export async function studioCommand(
+  action: "records" | "role",
+  body: unknown,
+  requestId = crypto.randomUUID(),
+) {
+  const result = await platformRequest("csl_studio_command", {
+    p_request_id: requestId,
+    p_action: action,
+    p_body: body,
+  });
+  await refreshLab(true);
+  return result;
+}
 export const teacherData = (
   view: string,
   filters: Record<string, string> = {},
   offset = 0,
 ) =>
-  platformRequest<TeacherData>("csl_teacher_data", {
-    p_view: view,
-    p_filters: filters,
-    p_offset: offset,
-  });
+  hasStudio() && ["reports", "games", "health", "overview"].includes(view)
+    ? studioData(
+        (view === "reports" ? "quizzes" : view) as
+          "quizzes" | "games" | "health" | "overview",
+        filters,
+        offset,
+      )
+    : platformRequest<TeacherData>("csl_teacher_data", {
+        p_view: view,
+        p_filters: filters,
+        p_offset: offset,
+      });
 export interface ArcadeView {
   state: ArcadeState;
   question: Omit<Question, "answer" | "explanation" | "scienceFact"> | null;

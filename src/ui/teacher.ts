@@ -1,5 +1,10 @@
 import { currentUser } from "../store";
-import { teacherCommand, teacherData } from "../store/platform";
+import {
+  teacherCommand,
+  teacherData,
+  studioCommand,
+  hasStudio,
+} from "../store/platform";
 import { csvCell } from "../core/cloud-records";
 import { validArcadeRules, type ArcadeRules } from "../core/arcade";
 import { validRules } from "../core/rules";
@@ -9,7 +14,16 @@ import misconceptions from "../data/misconceptions.json";
 import { decks } from "../data/catalog";
 import type { Question, Rules } from "../core/types";
 import type { TeacherData } from "../core/platform";
-import { button, download, field, h, input, modal, toast } from "./dom";
+import {
+  button,
+  download,
+  field,
+  h,
+  input,
+  modal,
+  toast,
+  setButtonDisabled,
+} from "./dom";
 import { empty, pageHeading } from "./shell";
 import { go } from "./actions";
 import { icon } from "./svg";
@@ -18,6 +32,8 @@ const names: Record<string, string> = {
   overview: "Teacher studio",
   students: "Your class, growing together",
   reports: "Class discoveries",
+  games: "Arcade discoveries",
+  health: "A clear, cared-for classroom",
   shop: "The supply shelf",
   claims: "The collection desk",
   content: "The question studio",
@@ -30,6 +46,10 @@ const subtitles: Record<string, string> = {
   students: "Look after scientist profiles, class credits and account access.",
   reports:
     "Filter completed discoveries, review answers and leave a thoughtful teacher note.",
+  games:
+    "Compare completed rounds, review scores and keep the class leaderboard organized.",
+  health:
+    "Review record integrity, class balances and your archived learning history.",
   shop: "Keep prices, available stock and reward details up to date for your whole class.",
   claims:
     "Check a student’s code before collection. Cancellations return credits and stock together.",
@@ -96,12 +116,90 @@ export function teacherPage(section = "overview") {
   )
     return mountedTeacher.node;
   const key = `${viewer.id}/${section}`,
-    saved = memory.get(key) ?? { filters: {}, offset: 0 };
+    saved = memory.get(key) ?? {
+      filters: Object.fromEntries(
+        new URLSearchParams(location.hash.split("?")[1]),
+      ),
+      offset: 0,
+    };
   memory.set(key, saved);
   const page = h("div", { class: "teacher-page page-enter" });
   const content = h("div", { class: "teacher-content" });
   let data: TeacherData = { rows: [], total: 0 },
     sequence = 0;
+  const recordSection = ["reports", "games"].includes(section) && hasStudio();
+  const selected = new Map<string, Record<string, unknown>>();
+  const selectionText = h("strong", null, "0 selected");
+  const archiveButton = button(
+    "Archive selected",
+    () => organize([...selected.values()], true),
+    "button outline",
+    { disabled: true },
+  );
+  const restoreButton = button(
+    "Restore selected",
+    () => organize([...selected.values()], false),
+    "button outline",
+    { disabled: true },
+  );
+  function syncSelection() {
+    selectionText.textContent = `${selected.size} selected on this page`;
+    setButtonDisabled(
+      archiveButton,
+      ![...selected.values()].some((row) => !row.archived),
+    );
+    setButtonDisabled(
+      restoreButton,
+      ![...selected.values()].some((row) => !!row.archived),
+    );
+  }
+  const from = input("record-from", "", saved.filters.from ?? "", "date"),
+    until = input("record-to", "", saved.filters.to ?? "", "date");
+  from.required = false;
+  until.required = false;
+  const recordState = h(
+    "select",
+    { "aria-label": "Filter by record state" },
+    ...[
+      ["active", "Active records"],
+      ["archived", "Archived records"],
+      ["all", "All records"],
+    ].map(([value, text]) =>
+      h(
+        "option",
+        { value, selected: (saved.filters.state ?? "active") === value },
+        text,
+      ),
+    ),
+  );
+  const sort = h(
+    "select",
+    { "aria-label": "Sort records" },
+    ...[
+      ["newest", "Newest first"],
+      ["oldest", "Oldest first"],
+      ["best", "Highest score first"],
+    ].map(([value, text]) =>
+      h(
+        "option",
+        { value, selected: (saved.filters.sort ?? "newest") === value },
+        text,
+      ),
+    ),
+  );
+  const category = h(
+    "select",
+    { "aria-label": "Filter by science category" },
+    ...[
+      ["", "All sciences"],
+      ["life", "Biology"],
+      ["chemistry", "Chemistry"],
+      ["physics", "Physics"],
+      ["earth", "Earth & space"],
+    ].map(([value, text]) =>
+      h("option", { value, selected: saved.filters.category === value }, text),
+    ),
+  );
   const search = input(
     "search",
     section === "claims" ? "Name or claim code" : "Search this workspace",
@@ -158,20 +256,34 @@ export function teacherPage(section = "overview") {
           section: classroom.value,
           deck: deck.value,
           status: status.value,
+          from: from.value,
+          to: until.value,
+          state: recordState.value,
+          sort: sort.value,
+          category: category.value,
         };
         saved.offset = 0;
         void load();
       },
     },
     field("Find a record", search),
-    ["students", "reports", "claims"].includes(section)
+    ["students", "reports", "games", "claims"].includes(section)
       ? field("Grade", grade)
       : null,
-    ["students", "reports", "claims"].includes(section)
+    ["students", "reports", "games", "claims"].includes(section)
       ? field("Section", classroom)
       : null,
     ["reports", "content"].includes(section) ? field("Science", deck) : null,
     section === "claims" ? field("Status", status) : null,
+    section === "games" ? field("Science category", category) : null,
+    ...(recordSection
+      ? [
+          field("From date", from),
+          field("Through date", until),
+          field("Record state", recordState),
+          field("Order", sort),
+        ]
+      : []),
     button("Apply filters", () => undefined, "button outline", {
       type: "submit",
     }),
@@ -185,6 +297,11 @@ export function teacherPage(section = "overview") {
         grade.value = "";
         deck.value = "";
         status.value = "";
+        from.value = "";
+        until.value = "";
+        category.value = "";
+        recordState.value = "active";
+        sort.value = "newest";
         void load();
       },
       "text-button",
@@ -221,7 +338,8 @@ export function teacherPage(section = "overview") {
         ),
       ),
     );
-  if (!["overview", "settings"].includes(section)) page.append(filters);
+  if (!["overview", "settings", "health"].includes(section))
+    page.append(filters);
   page.append(
     h(
       "div",
@@ -230,7 +348,7 @@ export function teacherPage(section = "overview") {
       section === "shop"
         ? button("Add a supply", () => editItem(), "button primary")
         : null,
-      !["overview", "settings"].includes(section)
+      !["overview", "settings", "health"].includes(section)
         ? button("Export filtered data", exportData, "button outline")
         : null,
       h(
@@ -244,6 +362,8 @@ export function teacherPage(section = "overview") {
   );
   async function load() {
     const id = ++sequence;
+    selected.clear();
+    syncSelection();
     content.replaceChildren(
       h(
         "p",
@@ -279,8 +399,24 @@ export function teacherPage(section = "overview") {
       settings(data.rows[0] ?? {});
       return;
     }
+    if (section === "health") {
+      health(data);
+      return;
+    }
     const children: HTMLElement[] = [];
-    if (section === "reports" && data.stats) children.push(metrics(data.stats));
+    if (["reports", "games"].includes(section) && data.stats)
+      children.push(metrics(data.stats));
+    if (recordSection)
+      children.push(
+        h(
+          "div",
+          { class: "record-bulk" },
+          selectionText,
+          archiveButton,
+          restoreButton,
+          h("small", null, "Archive keeps original evidence and balances."),
+        ),
+      );
     if (!data.rows.length)
       children.push(
         empty(
@@ -324,27 +460,26 @@ export function teacherPage(section = "overview") {
     content.replaceChildren(...children);
   }
   function metrics(stats: Record<string, number>) {
-    const values =
-      section === "reports"
-        ? [
-            [stats.attempts ?? data.total, "Discoveries", "notebook"],
-            [
-              `${stats.answers ? Math.round(((stats.correct ?? 0) / stats.answers) * 100) : 0}%`,
-              "Class accuracy",
-              "sprout",
-            ],
-            [stats.correct ?? 0, "Correct answers", "check"],
-          ]
-        : [
-            [stats.students ?? 0, "Scientists", "sprout"],
-            [stats.attempts ?? 0, "Saved discoveries", "notebook"],
-            [
-              `${stats.answers ? Math.round(((stats.correct ?? 0) / stats.answers) * 100) : 0}%`,
-              "Class accuracy",
-              "trophy",
-            ],
-            [stats.pending ?? 0, "Awaiting collection", "box"],
-          ];
+    const values = ["reports", "games"].includes(section)
+      ? [
+          [stats.attempts ?? data.total, "Discoveries", "notebook"],
+          [
+            `${stats.answers ? Math.round(((stats.correct ?? 0) / stats.answers) * 100) : 0}%`,
+            section === "games" ? "Shot accuracy" : "Class accuracy",
+            "sprout",
+          ],
+          [stats.correct ?? 0, "Correct answers", "check"],
+        ]
+      : [
+          [stats.students ?? 0, "Scientists", "sprout"],
+          [stats.attempts ?? 0, "Saved discoveries", "notebook"],
+          [
+            `${stats.answers ? Math.round(((stats.correct ?? 0) / stats.answers) * 100) : 0}%`,
+            "Class accuracy",
+            "trophy",
+          ],
+          [stats.pending ?? 0, "Awaiting collection", "box"],
+        ];
     return h(
       "div",
       { class: "teacher-metrics" },
@@ -447,11 +582,166 @@ export function teacherPage(section = "overview") {
     );
     content.replaceChildren(
       metrics(stats),
+      ...(result.timeline ? [pulse(result.timeline)] : []),
       h("div", { class: "teacher-overview-grid" }, charts, quick),
+      ...(hasStudio()
+        ? [
+            h(
+              "div",
+              { class: "records-actions" },
+              button(
+                "Review arcade reports",
+                () => go("/teacher/games"),
+                "button outline",
+              ),
+              button(
+                "Check record health",
+                () => go("/teacher/health"),
+                "button outline",
+              ),
+            ),
+          ]
+        : []),
       h(
         "p",
         { class: "fine-print" },
         "Class credits and shop reservations are shared across your classroom. Notebook pages and practice XP stay on each device.",
+      ),
+    );
+  }
+  function pulse(timeline: NonNullable<TeacherData["timeline"]>) {
+    const max = Math.max(
+      1,
+      ...timeline.flatMap((day) => [day.quizzes, day.games]),
+    );
+    return h(
+      "section",
+      { class: "teacher-pulse" },
+      h(
+        "div",
+        { class: "teacher-pulse-heading" },
+        h("h2", null, "Your classroom pulse"),
+        h("p", null, "Seven days of saved discoveries · classroom timezone"),
+      ),
+      h(
+        "div",
+        {
+          class: "pulse-chart",
+          role: "img",
+          "aria-label": timeline
+            .map(
+              (day) =>
+                `${day.day_key}: ${day.quizzes} quizzes, ${day.games} arcade rounds`,
+            )
+            .join("; "),
+        },
+        ...timeline.map((day) =>
+          h(
+            "div",
+            { class: "pulse-day" },
+            h(
+              "div",
+              { class: "pulse-bars", "aria-hidden": true },
+              h("i", { style: { height: `${(day.quizzes / max) * 100}%` } }),
+              h("i", { style: { height: `${(day.games / max) * 100}%` } }),
+            ),
+            h(
+              "small",
+              null,
+              new Date(`${day.day_key}T12:00:00Z`).toLocaleDateString(
+                undefined,
+                { weekday: "short" },
+              ),
+            ),
+          ),
+        ),
+      ),
+      h(
+        "div",
+        { class: "pulse-legend" },
+        h("span", null, "Quizzes"),
+        h("span", null, "Arcade rounds"),
+      ),
+    );
+  }
+  function health(result: TeacherData) {
+    const stats = result.stats ?? {};
+    content.replaceChildren(
+      h(
+        "div",
+        { class: "teacher-metrics" },
+        ...[
+          [stats.quizzes ?? 0, "Quiz records"],
+          [stats.games ?? 0, "Completed rounds"],
+          [stats.archived ?? 0, "Archived records"],
+          [stats.teachers ?? 0, "Active teachers"],
+        ].map(([value, label]) =>
+          h(
+            "article",
+            { class: "teacher-metric" },
+            h("strong", null, value),
+            h("span", null, label),
+          ),
+        ),
+      ),
+      h(
+        "div",
+        { class: "health-grid" },
+        ...result.rows.map((row) =>
+          h(
+            "article",
+            {
+              class: `health-card ${number(row, "issues") ? "needs-attention" : ""}`,
+            },
+            h(
+              "div",
+              { class: "health-symbol" },
+              icon(number(row, "issues") ? "search" : "check", 23),
+            ),
+            h(
+              "div",
+              null,
+              h("h3", null, str(row, "label")),
+              h(
+                "strong",
+                null,
+                number(row, "issues")
+                  ? `${number(row, "issues")} records to review`
+                  : "All checked records agree",
+              ),
+              h("p", null, str(row, "detail")),
+            ),
+          ),
+        ),
+      ),
+      h(
+        "section",
+        { class: "teacher-panel" },
+        h("h2", null, "Keep the history useful"),
+        h(
+          "p",
+          { class: "muted" },
+          "Archive reviewed records to organize active reports. Restore them whenever you need the evidence again. Original scores and class balances are preserved.",
+        ),
+        h(
+          "div",
+          { class: "records-actions" },
+          button(
+            "Review active quizzes",
+            () => go("/teacher/reports?state=active"),
+            "button primary",
+          ),
+          button(
+            "Open archived quizzes",
+            () => go("/teacher/reports?state=archived"),
+            "button outline",
+          ),
+          button(
+            "Review arcade rounds",
+            () => go("/teacher/games"),
+            "button outline",
+          ),
+        ),
       ),
     );
   }
@@ -466,6 +756,15 @@ export function teacherPage(section = "overview") {
         "Manage",
       ],
       reports: ["Scientist", "Class", "Discovery", "Score", "Saved", "Review"],
+      games: [
+        "Scientist",
+        "Class",
+        "Science",
+        "Score",
+        "Accuracy",
+        "Saved",
+        "Manage",
+      ],
       shop: ["Supply", "Category", "Price", "Stock", "Availability", "Manage"],
       claims: [
         "Scientist",
@@ -491,6 +790,36 @@ export function teacherPage(section = "overview") {
           h(
             "tr",
             null,
+            ...(recordSection
+              ? [
+                  h(
+                    "th",
+                    { scope: "col" },
+                    h("input", {
+                      type: "checkbox",
+                      class: "record-select",
+                      "aria-label": "Select all records on this page",
+                      onChange: (event: Event) => {
+                        const checked = (event.target as HTMLInputElement)
+                          .checked;
+                        selected.clear();
+                        if (checked)
+                          rows.forEach((row) =>
+                            selected.set(str(row, "id"), row),
+                          );
+                        content
+                          .querySelectorAll<HTMLInputElement>(
+                            "[data-record-check]",
+                          )
+                          .forEach((input) => {
+                            input.checked = checked;
+                          });
+                        syncSelection();
+                      },
+                    }),
+                  ),
+                ]
+              : []),
             ...(headers[section] ?? []).map((label) =>
               h("th", { scope: "col" }, label),
             ),
@@ -500,7 +829,31 @@ export function teacherPage(section = "overview") {
           "tbody",
           null,
           ...rows.map((row) =>
-            h("tr", null, ...cells(row).map((cell) => h("td", null, cell))),
+            h(
+              "tr",
+              null,
+              ...(recordSection
+                ? [
+                    h(
+                      "td",
+                      null,
+                      h("input", {
+                        type: "checkbox",
+                        class: "record-select",
+                        "data-record-check": row.id,
+                        "aria-label": `Select record for ${str(row, "display_name")}, ${when(row.received_at)}`,
+                        onChange: (event: Event) => {
+                          if ((event.target as HTMLInputElement).checked)
+                            selected.set(str(row, "id"), row);
+                          else selected.delete(str(row, "id"));
+                          syncSelection();
+                        },
+                      }),
+                    ),
+                  ]
+                : []),
+              ...cells(row).map((cell) => h("td", null, cell)),
+            ),
           ),
         ),
       ),
@@ -528,6 +881,11 @@ export function teacherPage(section = "overview") {
           { class: "teacher-row-actions" },
           button("Edit profile", () => editStudent(row), "text-button"),
           button("Adjust credits", () => editCredits(row), "text-button"),
+          hasStudio()
+            ? button("Teaching access", () => editRole(row), "text-button", {
+                disabled: row.user_id === viewer!.id || !row.active,
+              })
+            : null,
         ),
       ];
     if (section === "shop")
@@ -595,7 +953,44 @@ export function teacherPage(section = "overview") {
         ),
         `${number(row, "correct")}/${number(row, "total")}`,
         when(row.received_at),
-        button("Answers & feedback", () => review(row), "text-button"),
+        h(
+          "div",
+          { class: "teacher-row-actions" },
+          button("Answers & feedback", () => review(row), "text-button"),
+          recordSection
+            ? button(
+                row.archived ? "Restore record" : "Archive record",
+                () => organize([row], !row.archived),
+                "text-button",
+              )
+            : null,
+        ),
+      ];
+    if (section === "games")
+      return [
+        str(row, "display_name"),
+        `${str(row, "grade")} · ${str(row, "section")}`,
+        str(row, "category") === "life"
+          ? "Biology"
+          : str(row, "category") === "earth"
+            ? "Earth & space"
+            : str(row, "category"),
+        number(row, "score").toLocaleString(),
+        `${number(row, "correct")}/9`,
+        when(row.received_at),
+        h(
+          "div",
+          { class: "teacher-row-actions" },
+          tag(
+            row.archived ? "Archived" : "Active",
+            row.archived ? "lilac" : "green",
+          ),
+          button(
+            row.archived ? "Restore record" : "Archive record",
+            () => organize([row], !row.archived),
+            "text-button",
+          ),
+        ),
       ];
     if (section === "content") {
       const q = row.question as Question;
@@ -628,6 +1023,91 @@ export function teacherPage(section = "overview") {
   }
   const tag = (text: string, color: string) =>
     h("span", { class: `teacher-tag ${color}` }, text);
+  function organize(rows: Record<string, unknown>[], archived: boolean) {
+    const targets = rows.filter((row) => Boolean(row.archived) !== archived);
+    if (!targets.length) return;
+    const reason = h("textarea", {
+      rows: 3,
+      required: true,
+      minlength: 3,
+      maxlength: 300,
+      placeholder: "Why are these records being organized?",
+    });
+    const request = crypto.randomUUID();
+    editor(
+      `${archived ? "Archive" : "Restore"} ${targets.length} record${targets.length === 1 ? "" : "s"}?`,
+      [
+        h(
+          "p",
+          { class: "notice" },
+          archived
+            ? "These records move out of active views. Original answers, scores and credits stay in place. Archived arcade rounds leave active rankings."
+            : "These records return to active views and eligible arcade rankings. This does not award credits again.",
+        ),
+        field("Reason for this record change", reason),
+      ],
+      () =>
+        studioCommand(
+          "records",
+          {
+            kind: section === "games" ? "games" : "quizzes",
+            ids: targets.map((row) => row.id),
+            versions: Object.fromEntries(
+              targets.map((row) => [
+                str(row, "id"),
+                number(row, "metadata_version"),
+              ]),
+            ),
+            archived,
+            reason: reason.value,
+          },
+          request,
+        ),
+    );
+  }
+  function editRole(row: Record<string, unknown>) {
+    const role = h(
+      "select",
+      null,
+      h(
+        "option",
+        { value: "student", selected: !row.is_teacher },
+        "Student scientist",
+      ),
+      h(
+        "option",
+        { value: "teacher", selected: !!row.is_teacher },
+        "Class teacher",
+      ),
+    );
+    const reason = input("role-reason", "Why is teaching access changing?");
+    reason.minLength = 3;
+    reason.maxLength = 300;
+    const request = crypto.randomUUID();
+    editor(
+      `Teaching access · ${str(row, "display_name")}`,
+      [
+        h(
+          "p",
+          { class: "notice" },
+          "Teachers can manage class accounts, records, questions, credits, supplies and other teaching roles. Review this access carefully before saving.",
+        ),
+        field("Account role", role),
+        field("Reason for access change", reason),
+      ],
+      () =>
+        studioCommand(
+          "role",
+          {
+            user_id: row.user_id,
+            was_teacher: !!row.is_teacher,
+            is_teacher: role.value === "teacher",
+            reason: reason.value,
+          },
+          request,
+        ),
+    );
+  }
   function editor(
     title: string,
     children: HTMLElement[],

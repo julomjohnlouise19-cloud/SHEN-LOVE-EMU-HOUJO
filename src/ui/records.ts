@@ -1,12 +1,514 @@
-import { currentUser } from "../store";
+import { currentUser, getState } from "../store";
+import { hasStudio, studioData } from "../store/platform";
+import { cloudUserId } from "../store/cloud";
+import { icon } from "./svg";
 import { cloudRecords, type CloudRecord } from "../store/cloud";
 import { csvCell } from "../core/cloud-records";
 import { decks } from "../data/catalog";
-import { h, button, download, modal } from "./dom";
+import { h, button, download, modal, field, input } from "./dom";
 import { pageHeading, empty } from "./shell";
 import { go, refresh } from "./actions";
 
+interface HistoryRow {
+  id: string;
+  user_id: string;
+  display_name: string;
+  grade: number;
+  section: string;
+  deck_id?: string;
+  category?: string;
+  level?: string;
+  mode?: string;
+  correct: number;
+  total: number;
+  score?: number;
+  coins?: number;
+  received_at: string;
+  archived: boolean;
+  teacher_note?: string;
+  responses?: CloudRecord["responses"];
+}
+let mountedRecords: { id: string; node: HTMLElement } | undefined;
+window.addEventListener("csl:platform", () => {
+  if (!cloudUserId()) mountedRecords = undefined;
+});
 export async function recordsPage(teacherOnly = false) {
+  const viewer = currentUser();
+  if (!hasStudio() || !viewer || viewer.id === "guest")
+    return legacyRecordsPage(teacherOnly);
+  if (teacherOnly && viewer.role !== "admin")
+    return empty(
+      "lock",
+      "Teacher access needed",
+      "Open your personal history to review your discoveries.",
+    );
+  if (mountedRecords?.id === viewer.id) return mountedRecords.node;
+  let kind: "quizzes" | "games" = "quizzes",
+    offset = 0,
+    total = 0,
+    sequence = 0,
+    rows: HistoryRow[] = [],
+    stats: Record<string, number> = {};
+  let filters: Record<string, string> = {
+    self: teacherOnly ? "false" : "true",
+    state: "active",
+    sort: "newest",
+  };
+  const page = h("div", { class: "records-page page-enter" }),
+    content = h("div");
+  const search = input(
+    "record-search",
+    "A science deck or discovery",
+    "",
+    "search",
+  );
+  search.required = false;
+  const from = input("record-from", "", "", "date"),
+    to = input("record-to", "", "", "date");
+  from.required = false;
+  to.required = false;
+  const deck = h(
+    "select",
+    null,
+    h("option", { value: "" }, "All science decks"),
+    ...decks.map((d) => h("option", { value: d.id }, d.name)),
+  );
+  const category = h(
+    "select",
+    null,
+    ...[
+      ["", "All sciences"],
+      ["life", "Biology"],
+      ["chemistry", "Chemistry"],
+      ["physics", "Physics"],
+      ["earth", "Earth & space"],
+    ].map(([value, label]) => h("option", { value }, label)),
+  );
+  const state = h(
+    "select",
+    null,
+    ...[
+      ["active", "Active records"],
+      ["archived", "Archived records"],
+      ["all", "All records"],
+    ].map(([value, label]) => h("option", { value }, label)),
+  );
+  const sort = h(
+    "select",
+    null,
+    ...[
+      ["newest", "Newest first"],
+      ["oldest", "Oldest first"],
+      ["best", "Highest score first"],
+    ].map(([value, label]) => h("option", { value }, label)),
+  );
+  const science = field("Science deck", deck);
+  const tabs = h(
+    "div",
+    { class: "filter-tabs", "aria-label": "Record type" },
+    ...(
+      [
+        ["quizzes", "Quiz history"],
+        ["games", "Arcade history"],
+      ] as const
+    ).map(([value, label]) =>
+      button(
+        label,
+        () => {
+          kind = value;
+          offset = 0;
+          filters = { ...filters, deck: "", category: "" };
+          deck.value = "";
+          category.value = "";
+          science.replaceChildren(
+            h(
+              "span",
+              null,
+              kind === "quizzes" ? "Science deck" : "Science category",
+            ),
+            kind === "quizzes" ? deck : category,
+          );
+          tabs.querySelectorAll("button").forEach((btn) => {
+            const active = btn.dataset.kind === kind;
+            btn.classList.toggle("selected", active);
+            btn.setAttribute("aria-pressed", String(active));
+          });
+          void load();
+        },
+        `filter-tab ${value === kind ? "selected" : ""}`,
+        { "data-kind": value, "aria-pressed": value === kind },
+      ),
+    ),
+  );
+  const filterForm = h(
+    "form",
+    {
+      class: "record-filters",
+      onSubmit: (event: SubmitEvent) => {
+        event.preventDefault();
+        filters = {
+          ...filters,
+          search: search.value,
+          deck: deck.value,
+          category: category.value,
+          from: from.value,
+          to: to.value,
+          state: state.value,
+          sort: sort.value,
+        };
+        offset = 0;
+        void load();
+      },
+    },
+    field("Search my records", search),
+    science,
+    field("Record state", state),
+    field("From date", from),
+    field("Through date", to),
+    field("Order", sort),
+    h(
+      "div",
+      { class: "record-filter-actions" },
+      button("Apply record filters", () => undefined, "button primary", {
+        type: "submit",
+      }),
+      button(
+        "Clear filters",
+        () => {
+          search.value = "";
+          deck.value = "";
+          category.value = "";
+          from.value = "";
+          to.value = "";
+          state.value = "active";
+          sort.value = "newest";
+          filters = { self: filters.self, state: "active", sort: "newest" };
+          offset = 0;
+          void load();
+        },
+        "button outline",
+      ),
+    ),
+  );
+  page.append(
+    pageHeading(
+      "YOUR DISCOVERY JOURNAL",
+      "Your saved discoveries",
+      "A clear history of your quizzes, arcade rounds and the science you’re growing into.",
+    ),
+    h(
+      "p",
+      { class: "record-privacy" },
+      icon("lock", 15),
+      "Your signed-in discoveries are private to you and your teachers. Notebook pages and unfinished practice stay on this device.",
+    ),
+    tabs,
+    filterForm,
+    content,
+  );
+  function details(row: HistoryRow) {
+    if (currentUser()?.id !== viewer!.id) return;
+    modal(
+      `${row.display_name} · ${row.correct}/${row.total}`,
+      [
+        h(
+          "p",
+          { class: "muted" },
+          `${row.deck_id ? deckName(row.deck_id) : scienceName(row.category ?? "")} · ${date(row.received_at)}`,
+        ),
+        row.teacher_note
+          ? h(
+              "div",
+              { class: "record-feedback-note" },
+              h("strong", null, "A note from your teacher"),
+              h("p", null, row.teacher_note),
+            )
+          : null,
+        ...(row.responses ?? []).map((response, index) =>
+          h(
+            "article",
+            { class: "record-answer" },
+            h("h3", null, `${index + 1}. ${response.prompt}`),
+            h(
+              "p",
+              null,
+              "Answer: ",
+              typeof response.value === "string"
+                ? response.value
+                : JSON.stringify(response.value),
+            ),
+            h("p", null, response.correct ? "Correct" : "Keep exploring"),
+          ),
+        ),
+        ...(kind === "games"
+          ? [
+              h(
+                "div",
+                { class: "record-summary" },
+                h(
+                  "div",
+                  null,
+                  h("strong", null, row.score ?? 0),
+                  h("small", null, "Round score"),
+                ),
+                h(
+                  "div",
+                  null,
+                  h("strong", null, `${row.correct}/9`),
+                  h("small", null, "Correct discoveries"),
+                ),
+                h(
+                  "div",
+                  null,
+                  h("strong", null, row.coins ?? 0),
+                  h("small", null, "Round coins left"),
+                ),
+              ),
+            ]
+          : []),
+      ],
+      true,
+    );
+  }
+  function csv(data: HistoryRow[], sourceKind = kind) {
+    const values = [
+      [
+        "Scientist",
+        "Grade",
+        "Section",
+        "Discovery",
+        "Level",
+        "Correct",
+        "Total",
+        "Arcade score",
+        "Saved at (UTC)",
+        "Archived",
+        "Teacher note",
+      ],
+      ...data.map((r) => [
+        r.display_name,
+        r.grade,
+        r.section,
+        r.deck_id ? deckName(r.deck_id) : scienceName(r.category ?? ""),
+        r.level ?? "",
+        r.correct,
+        r.total,
+        r.score ?? "",
+        r.received_at,
+        r.archived ? "Yes" : "No",
+        r.teacher_note ?? "",
+      ]),
+    ];
+    download(
+      sourceKind === "quizzes"
+        ? "cozy-science-quiz-records.csv"
+        : "cozy-science-arcade-records.csv",
+      "\uFEFF" + values.map((row) => row.map(csvCell).join(",")).join("\r\n"),
+      "text/csv;charset=utf-8",
+    );
+  }
+  async function exportAll() {
+    const sourceKind = kind,
+      sourceFilters = { ...filters };
+    const first = await studioData(sourceKind, sourceFilters, 0);
+    if (first.total > 20000)
+      throw new Error("Narrow your filters to export up to 20,000 records.");
+    const all = [...first.rows];
+    for (let start = 50; start < first.total; start += 50)
+      all.push(...(await studioData(sourceKind, sourceFilters, start)).rows);
+    if (new Set(all.map((row) => row.id)).size !== first.total)
+      throw new Error(
+        "Your history changed during export. Refresh and export again.",
+      );
+    if (currentUser()?.id === viewer!.id)
+      csv(all as unknown as HistoryRow[], sourceKind);
+  }
+  function recordTable(data: HistoryRow[]) {
+    const body = data.map((row) =>
+      h(
+        "tr",
+        null,
+        h("td", null, row.display_name),
+        h("td", null, `${row.grade} / ${row.section || "—"}`),
+        h(
+          "td",
+          null,
+          row.deck_id ? deckName(row.deck_id) : scienceName(row.category ?? ""),
+          h("small", { class: "record-meta" }, row.level ?? "Three levels"),
+          row.archived
+            ? h("span", { class: "record-state" }, "Archived")
+            : null,
+        ),
+        h(
+          "td",
+          null,
+          kind === "games"
+            ? `${(row.score ?? 0).toLocaleString()} points · ${row.correct}/9`
+            : `${row.correct}/${row.total}`,
+        ),
+        h("td", null, date(row.received_at)),
+        h(
+          "td",
+          null,
+          button(
+            kind === "games" ? "Round details" : "View answers",
+            () => details(row),
+            "text-button",
+            {
+              "aria-label": `${kind === "games" ? "View round" : "View answers"} for ${row.display_name}, ${date(row.received_at)}`,
+            },
+          ),
+        ),
+      ),
+    );
+    return h(
+      "div",
+      { class: "table-wrap" },
+      h(
+        "table",
+        null,
+        h(
+          "caption",
+          null,
+          `${offset + 1}–${offset + data.length} of ${total} matching discoveries`,
+        ),
+        h(
+          "thead",
+          null,
+          h(
+            "tr",
+            null,
+            ...[
+              "Scientist",
+              "Grade / section",
+              "Discovery",
+              "Score",
+              "Saved",
+              "Review",
+            ].map((text) => h("th", { scope: "col" }, text)),
+          ),
+        ),
+        h("tbody", null, ...body),
+      ),
+    );
+  }
+  function draw() {
+    const accuracy = stats.answers
+      ? Math.round(((stats.correct ?? 0) / stats.answers) * 100)
+      : 0;
+    content.replaceChildren(
+      h(
+        "div",
+        { class: "record-summary" },
+        ...[
+          [total, kind === "games" ? "Completed rounds" : "Saved discoveries"],
+          [`${accuracy}%`, "Answer accuracy"],
+          [
+            kind === "games"
+              ? (stats.best ?? 0).toLocaleString()
+              : (stats.correct ?? 0),
+            kind === "games" ? "Best round score" : "Correct answers",
+          ],
+        ].map(([value, label]) =>
+          h("div", null, h("strong", null, value), h("small", null, label)),
+        ),
+      ),
+      h(
+        "div",
+        { class: "records-actions" },
+        button("Refresh records", () => load(), "button outline"),
+        button("Download this page as CSV", () => csv(rows), "button outline", {
+          disabled: !rows.length,
+        }),
+        button("Export filtered records", exportAll, "button outline", {
+          disabled: !total,
+        }),
+      ),
+      rows.length
+        ? recordTable(rows)
+        : empty(
+            "notebook",
+            state.value === "archived"
+              ? "Your archive is clear"
+              : "Your first discovery is waiting",
+            "Finish a signed-in discovery or adjust your filters to find an earlier result.",
+            button(
+              "Explore Science Island",
+              () => go("/island"),
+              "button primary",
+            ),
+          ),
+      h(
+        "nav",
+        { class: "teacher-pagination", "aria-label": "Quiz record pages" },
+        button(
+          "Previous page",
+          () => {
+            offset = Math.max(0, offset - 50);
+            void load();
+          },
+          "button outline",
+          { disabled: offset === 0 },
+        ),
+        h("span", null, `Page ${Math.floor(offset / 50) + 1}`),
+        button(
+          "Next page",
+          () => {
+            offset += 50;
+            void load();
+          },
+          "button outline",
+          { disabled: offset + 50 >= total },
+        ),
+      ),
+      h(
+        "p",
+        { class: "fine-print" },
+        "Date filters follow your classroom timezone. Original answer evidence and scores are preserved.",
+      ),
+    );
+  }
+  async function load() {
+    const ownSequence = ++sequence;
+    content.replaceChildren(
+      h(
+        "p",
+        { class: "record-loading", role: "status" },
+        "Opening your discovery journal…",
+      ),
+    );
+    try {
+      const result = await studioData(kind, filters, offset);
+      if (ownSequence !== sequence || currentUser()?.id !== viewer!.id) return;
+      rows = result.rows as unknown as HistoryRow[];
+      total = result.total;
+      stats = result.stats ?? {};
+      draw();
+    } catch (error) {
+      if (ownSequence !== sequence || currentUser()?.id !== viewer!.id) return;
+      content.replaceChildren(
+        empty(
+          "notebook",
+          "Your journal needs a moment",
+          error instanceof Error ? error.message : "Please try again.",
+          button("Retry records", () => load(), "button primary"),
+        ),
+      );
+    }
+  }
+  mountedRecords = { id: viewer.id, node: page };
+  void load();
+  return page;
+}
+const scienceName = (value: string) =>
+  ({
+    life: "Biology",
+    chemistry: "Chemistry",
+    physics: "Physics",
+    earth: "Earth & space",
+  })[value] ?? value;
+
+async function legacyRecordsPage(teacherOnly = false) {
   const viewer = currentUser();
   if (!viewer || viewer.id === "guest")
     return empty(
@@ -233,6 +735,7 @@ function deckName(id: string) {
 function date(value: string) {
   return new Date(value).toLocaleString(undefined, {
     dateStyle: "medium",
+    timeZone: getState().rules.timezone,
     timeStyle: "short",
   });
 }

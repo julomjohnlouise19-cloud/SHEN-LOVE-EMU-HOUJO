@@ -14,7 +14,29 @@ import { checkEmailWait, recordEmailWait } from "./email";
 export const OUTBOX_KEY = "csl:cloud-outbox";
 const adapter = cloudEnabled ? new LocalStorageAdapter() : undefined;
 let identity: string | undefined;
+let recoveryUser: string | undefined;
+client?.auth.onAuthStateChange((event, session) => {
+  if (event === "PASSWORD_RECOVERY") {
+    recoveryUser = session?.user.id;
+    window.dispatchEvent(new Event("csl:password-recovery"));
+  } else if (event === "SIGNED_OUT") recoveryUser = undefined;
+});
+export const passwordRecoveryActive = () =>
+  !!identity && recoveryUser === identity;
+export const dismissPasswordRecovery = () => {
+  recoveryUser = undefined;
+};
+export async function finishPasswordRecovery(password: string) {
+  if (!passwordRecoveryActive())
+    throw new Error("Open a fresh password reset link from your email.");
+  if (password.length < 8 || password.length > 128)
+    throw new Error("Use a new password with 8–128 characters.");
+  const { error } = await client!.auth.updateUser({ password });
+  if (error) throw accountError(error);
+  recoveryUser = undefined;
+}
 let backendReady = false;
+let checking: Promise<void> | undefined;
 let platform = 0;
 export const platformVersion = () => platform;
 let syncing = false;
@@ -57,7 +79,14 @@ export interface CloudRecord {
     misconception?: string;
   }[];
 }
-async function ready() {
+function ready(): Promise<void> {
+  if (backendReady) return Promise.resolve();
+  checking ??= checkBackend().finally(() => {
+    checking = undefined;
+  });
+  return checking;
+}
+async function checkBackend() {
   if (!client)
     throw new Error("Online accounts are not enabled on this website yet.");
   if (backendReady) return;
@@ -69,15 +98,18 @@ async function ready() {
   platform = Number(data.platform) || 0;
   backendReady = true;
 }
-async function profile(): Promise<CloudProfile> {
-  const { data: auth, error: authError } = await client!.auth.getUser();
-  if (authError || !auth.user)
+async function profile(
+  verifiedUser?: { id: string; email?: string },
+  bindIdentity = true,
+): Promise<CloudProfile> {
+  const user = verifiedUser ?? (await client!.auth.getUser()).data.user;
+  if (!user)
     throw new Error("Please sign in again to connect your saved records.");
   const { data, error } = await client!.rpc("csl_my_profile");
   if (error) throw accountError(error);
   if (
     !data ||
-    data.user_id !== auth.user.id ||
+    data.user_id !== user.id ||
     typeof data.display_name !== "string" ||
     ![7, 8, 9, 10].includes(data.grade) ||
     typeof data.section !== "string" ||
@@ -88,12 +120,12 @@ async function profile(): Promise<CloudProfile> {
     );
   const latest = await client!.auth.getSession();
   if (
-    latest.data.session?.user.id !== auth.user.id ||
+    latest.data.session?.user.id !== user.id ||
     sessionStorage.getItem("csl:cloud-logged-out")
   )
     throw new Error("Your account changed. Please sign in again.");
-  identity = auth.user.id;
-  return { ...data, email: auth.user.email ?? "" } as CloudProfile;
+  if (bindIdentity) identity = user.id;
+  return { ...data, email: user.email ?? "" } as CloudProfile;
 }
 export async function initCloud(
   signedOut: () => void,
@@ -117,11 +149,21 @@ export async function initCloud(
     void flushCloud();
   });
   try {
-    await ready();
     const { data, error } = await client.auth.getSession();
     if (error) throw error;
-    if (!data.session || sessionStorage.getItem("csl:cloud-logged-out")) return;
-    return await profile();
+    if (!data.session || sessionStorage.getItem("csl:cloud-logged-out")) {
+      void ready().catch((error) =>
+        status(
+          error instanceof Error
+            ? error.message
+            : "Account services are unavailable.",
+        ),
+      );
+      return;
+    }
+    const [, result] = await Promise.all([ready(), profile(undefined, false)]);
+    identity = result.user_id;
+    return result;
   } catch (e) {
     identity = undefined;
     status(
@@ -133,14 +175,22 @@ export async function initCloud(
   }
 }
 export async function cloudLogin(email: string, password: string) {
-  await ready();
-  const { error } = await client!.auth.signInWithPassword({
-    email: email.trim(),
+  const address = email.trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address) || !password)
+    throw new Error("Enter your account email and password.");
+  if (!client) throw new Error("Account services are unavailable.");
+  const { data, error } = await client.auth.signInWithPassword({
+    email: address,
     password,
   });
   if (error) throw accountError(error);
+  if (!data.user)
+    throw new Error(
+      "Your account could not be verified. Please sign in again.",
+    );
   sessionStorage.removeItem("csl:cloud-logged-out");
-  const result = await profile();
+  const [, result] = await Promise.all([ready(), profile(data.user, false)]);
+  identity = result.user_id;
   status("");
   return result;
 }

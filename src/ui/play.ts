@@ -265,7 +265,7 @@ export async function playPage(runId: string) {
       "div",
       { class: "play-topline" },
       button(
-        h("span", null, "←", "Back to the branch"),
+        h("span", null, "← ", "Save & leave this quiz"),
         () => {
           modal("Take a little break?", [
             h(
