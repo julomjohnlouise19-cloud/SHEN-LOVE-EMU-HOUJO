@@ -2,6 +2,7 @@ import { defineConfig } from "@playwright/test";
 const basePath = process.env.VITE_BASE_PATH || "/SHEN-LOVE-EMU-HOUJO/";
 const site = `http://127.0.0.1:4174${basePath}`;
 export default defineConfig({
+  reporter: process.env.GITHUB_ACTIONS === "true" ? [["list"], ["github"]] : "list",
   testDir: "./e2e",
   testMatch: "**/pages.spec.ts",
   workers: 1,

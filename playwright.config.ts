@@ -1,5 +1,6 @@
 import { defineConfig } from "@playwright/test";
 export default defineConfig({
+  reporter: process.env.GITHUB_ACTIONS === "true" ? [["list"], ["github"]] : "list",
   testDir: "./e2e",
   testIgnore: ["**/pages.spec.ts", "**/cloud.spec.ts", "**/*.cloud.spec.ts"],
   fullyParallel: false,

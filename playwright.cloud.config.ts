@@ -2,6 +2,7 @@ import { defineConfig } from "@playwright/test";
 const base = "/SHEN-LOVE-EMU-HOUJO/";
 const site = `http://127.0.0.1:4175${base}`;
 export default defineConfig({
+  reporter: process.env.GITHUB_ACTIONS === "true" ? [["list"], ["github"]] : "list",
   testDir: "./e2e",
   testMatch: ["**/cloud.spec.ts", "**/*.cloud.spec.ts"],
   workers: 1,
