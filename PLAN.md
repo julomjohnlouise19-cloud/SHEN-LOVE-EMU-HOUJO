@@ -13,6 +13,8 @@ Local validation passed lint/type checking, all 62 unit/property tests, 972 revi
 
 Run 42967941133 passed live readiness, code/content and PostgreSQL checks but failed its standard browser step, so publication remains gated. Its check annotation contains only an exit code, and the workspace proxy denies the separate results-receiver.actions.githubusercontent.com log host. Add the standard GitHub test reporter to expose specific browser assertions through the already available check annotations; keep all scenarios and assertions in place.
 
+Run 42968730983 stopped in the isolated PostgreSQL check before reaching browsers. The same complete database suite passed locally. Inspection of the official image's entrypoint confirmed a temporary Unix-socket-only server before its final restart; change the test probe to loopback TCP so it cannot mistake initialization for readiness. The updated complete PostgreSQL suite, lint and typecheck passed locally. Database exceptions are now annotated before being rethrown, preserving the failing exit and container cleanup. No classroom SQL or records were changed.
+
 ## Scope and architecture
 Build a complete local-first, mobile-friendly science learning game with Vite and strict TypeScript, no UI framework. The supplied brief ends at §4.8; references to §§5–16 and Appendix A are absent. Decisions below replace only absent specifications, not supplied requirements. No design reference images were supplied.
 

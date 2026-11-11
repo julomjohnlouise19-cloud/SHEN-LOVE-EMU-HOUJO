@@ -129,7 +129,9 @@ try {
   let ready = false;
   for (let i = 0; i < 30; i++) {
     try {
-      docker(["exec", name, "pg_isready", "-U", "postgres"]);
+      // The image's temporary init server accepts Unix sockets before its restart.
+      // TCP readiness waits for the final server that will run the assertions.
+      docker(["exec", name, "pg_isready", "-h", "127.0.0.1", "-U", "postgres"]);
       ready = true;
       break;
     } catch {
@@ -216,6 +218,15 @@ try {
   console.log(
     `PostgreSQL passed: ${questions.length} grading cases + alternatives, Auth profiles, RLS, teacher access, immutable records, retries and setup rerun.`,
   );
+} catch (error) {
+  if (process.env.GITHUB_ACTIONS === "true") {
+    const detail =
+      error instanceof Error ? (error.stack ?? error.message) : String(error);
+    console.error(
+      `::error title=Isolated database verification::${detail.replaceAll("%", "%25").replaceAll("\r", "%0D").replaceAll("\n", "%0A")}`,
+    );
+  }
+  throw error;
 } finally {
   if (started) docker(["rm", "--force", name]);
 }
