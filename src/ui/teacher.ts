@@ -6,7 +6,6 @@ import {
   hasStudio,
 } from "../store/platform";
 import { csvCell } from "../core/cloud-records";
-import { validArcadeRules, type ArcadeRules } from "../core/arcade";
 import { validRules } from "../core/rules";
 import { isQuestion } from "../core/schema";
 import { validateQuestions, type Misconception } from "../core/validate";
@@ -32,7 +31,6 @@ const names: Record<string, string> = {
   overview: "Teacher studio",
   students: "Your class, growing together",
   reports: "Class discoveries",
-  games: "Arcade discoveries",
   health: "A clear, cared-for classroom",
   shop: "The supply shelf",
   claims: "The collection desk",
@@ -46,8 +44,6 @@ const subtitles: Record<string, string> = {
   students: "Look after scientist profiles, class credits and account access.",
   reports:
     "Filter completed discoveries, review answers and leave a thoughtful teacher note.",
-  games:
-    "Compare completed rounds, review scores and keep the class leaderboard organized.",
   health:
     "Review record integrity, class balances and your archived learning history.",
   shop: "Keep prices, available stock and reward details up to date for your whole class.",
@@ -56,7 +52,7 @@ const subtitles: Record<string, string> = {
   content:
     "Review the science, refine a card and choose what your class can practise.",
   settings:
-    "Set learning rewards and tune the arcade challenge for your classroom.",
+    "Set learning rewards and daily practice limits for your classroom.",
   activity:
     "An account of teacher edits, with the details needed to review a change.",
 };
@@ -127,7 +123,7 @@ export function teacherPage(section = "overview") {
   const content = h("div", { class: "teacher-content" });
   let data: TeacherData = { rows: [], total: 0 },
     sequence = 0;
-  const recordSection = ["reports", "games"].includes(section) && hasStudio();
+  const recordSection = section === "reports" && hasStudio();
   const selected = new Map<string, Record<string, unknown>>();
   const selectionText = h("strong", null, "0 selected");
   const archiveButton = button(
@@ -185,19 +181,6 @@ export function teacherPage(section = "overview") {
         { value, selected: (saved.filters.sort ?? "newest") === value },
         text,
       ),
-    ),
-  );
-  const category = h(
-    "select",
-    { "aria-label": "Filter by science category" },
-    ...[
-      ["", "All sciences"],
-      ["life", "Biology"],
-      ["chemistry", "Chemistry"],
-      ["physics", "Physics"],
-      ["earth", "Earth & space"],
-    ].map(([value, text]) =>
-      h("option", { value, selected: saved.filters.category === value }, text),
     ),
   );
   const search = input(
@@ -260,22 +243,20 @@ export function teacherPage(section = "overview") {
           to: until.value,
           state: recordState.value,
           sort: sort.value,
-          category: category.value,
         };
         saved.offset = 0;
         void load();
       },
     },
     field("Find a record", search),
-    ["students", "reports", "games", "claims"].includes(section)
+    ["students", "reports", "claims"].includes(section)
       ? field("Grade", grade)
       : null,
-    ["students", "reports", "games", "claims"].includes(section)
+    ["students", "reports", "claims"].includes(section)
       ? field("Section", classroom)
       : null,
     ["reports", "content"].includes(section) ? field("Science", deck) : null,
     section === "claims" ? field("Status", status) : null,
-    section === "games" ? field("Science category", category) : null,
     ...(recordSection
       ? [
           field("From date", from),
@@ -299,7 +280,6 @@ export function teacherPage(section = "overview") {
         status.value = "";
         from.value = "";
         until.value = "";
-        category.value = "";
         recordState.value = "active";
         sort.value = "newest";
         void load();
@@ -404,8 +384,7 @@ export function teacherPage(section = "overview") {
       return;
     }
     const children: HTMLElement[] = [];
-    if (["reports", "games"].includes(section) && data.stats)
-      children.push(metrics(data.stats));
+    if (section === "reports" && data.stats) children.push(metrics(data.stats));
     if (recordSection)
       children.push(
         h(
@@ -460,26 +439,27 @@ export function teacherPage(section = "overview") {
     content.replaceChildren(...children);
   }
   function metrics(stats: Record<string, number>) {
-    const values = ["reports", "games"].includes(section)
-      ? [
-          [stats.attempts ?? data.total, "Discoveries", "notebook"],
-          [
-            `${stats.answers ? Math.round(((stats.correct ?? 0) / stats.answers) * 100) : 0}%`,
-            section === "games" ? "Shot accuracy" : "Class accuracy",
-            "sprout",
-          ],
-          [stats.correct ?? 0, "Correct answers", "check"],
-        ]
-      : [
-          [stats.students ?? 0, "Scientists", "sprout"],
-          [stats.attempts ?? 0, "Saved discoveries", "notebook"],
-          [
-            `${stats.answers ? Math.round(((stats.correct ?? 0) / stats.answers) * 100) : 0}%`,
-            "Class accuracy",
-            "trophy",
-          ],
-          [stats.pending ?? 0, "Awaiting collection", "box"],
-        ];
+    const values =
+      section === "reports"
+        ? [
+            [stats.attempts ?? data.total, "Discoveries", "notebook"],
+            [
+              `${stats.answers ? Math.round(((stats.correct ?? 0) / stats.answers) * 100) : 0}%`,
+              "Class accuracy",
+              "sprout",
+            ],
+            [stats.correct ?? 0, "Correct answers", "check"],
+          ]
+        : [
+            [stats.students ?? 0, "Scientists", "sprout"],
+            [stats.attempts ?? 0, "Saved discoveries", "notebook"],
+            [
+              `${stats.answers ? Math.round(((stats.correct ?? 0) / stats.answers) * 100) : 0}%`,
+              "Class accuracy",
+              "trophy",
+            ],
+            [stats.pending ?? 0, "Awaiting collection", "box"],
+          ];
     return h(
       "div",
       { class: "teacher-metrics" },
@@ -566,8 +546,8 @@ export function teacherPage(section = "overview") {
         ],
         [
           "/teacher/settings",
-          "Tune your discovery fair",
-          "Adjust timers, target speed and rewards.",
+          "Shape your classroom",
+          "Adjust learning rewards and daily limits.",
           "settings",
         ],
       ].map(([path, title, text, ico]) =>
@@ -590,11 +570,6 @@ export function teacherPage(section = "overview") {
               "div",
               { class: "records-actions" },
               button(
-                "Review arcade reports",
-                () => go("/teacher/games"),
-                "button outline",
-              ),
-              button(
                 "Check record health",
                 () => go("/teacher/health"),
                 "button outline",
@@ -610,10 +585,7 @@ export function teacherPage(section = "overview") {
     );
   }
   function pulse(timeline: NonNullable<TeacherData["timeline"]>) {
-    const max = Math.max(
-      1,
-      ...timeline.flatMap((day) => [day.quizzes, day.games]),
-    );
+    const max = Math.max(1, ...timeline.map((day) => day.quizzes));
     return h(
       "section",
       { class: "teacher-pulse" },
@@ -629,10 +601,7 @@ export function teacherPage(section = "overview") {
           class: "pulse-chart",
           role: "img",
           "aria-label": timeline
-            .map(
-              (day) =>
-                `${day.day_key}: ${day.quizzes} quizzes, ${day.games} arcade rounds`,
-            )
+            .map((day) => `${day.day_key}: ${day.quizzes} completed quizzes`)
             .join("; "),
         },
         ...timeline.map((day) =>
@@ -643,7 +612,6 @@ export function teacherPage(section = "overview") {
               "div",
               { class: "pulse-bars", "aria-hidden": true },
               h("i", { style: { height: `${(day.quizzes / max) * 100}%` } }),
-              h("i", { style: { height: `${(day.games / max) * 100}%` } }),
             ),
             h(
               "small",
@@ -656,12 +624,7 @@ export function teacherPage(section = "overview") {
           ),
         ),
       ),
-      h(
-        "div",
-        { class: "pulse-legend" },
-        h("span", null, "Quizzes"),
-        h("span", null, "Arcade rounds"),
-      ),
+      h("div", { class: "pulse-legend" }, h("span", null, "Quizzes")),
     );
   }
   function health(result: TeacherData) {
@@ -672,7 +635,6 @@ export function teacherPage(section = "overview") {
         { class: "teacher-metrics" },
         ...[
           [stats.quizzes ?? 0, "Quiz records"],
-          [stats.games ?? 0, "Completed rounds"],
           [stats.archived ?? 0, "Archived records"],
           [stats.teachers ?? 0, "Active teachers"],
         ].map(([value, label]) =>
@@ -687,32 +649,34 @@ export function teacherPage(section = "overview") {
       h(
         "div",
         { class: "health-grid" },
-        ...result.rows.map((row) =>
-          h(
-            "article",
-            {
-              class: `health-card ${number(row, "issues") ? "needs-attention" : ""}`,
-            },
+        ...result.rows
+          .filter((row) => str(row, "id") !== "games")
+          .map((row) =>
             h(
-              "div",
-              { class: "health-symbol" },
-              icon(number(row, "issues") ? "search" : "check", 23),
-            ),
-            h(
-              "div",
-              null,
-              h("h3", null, str(row, "label")),
+              "article",
+              {
+                class: `health-card ${number(row, "issues") ? "needs-attention" : ""}`,
+              },
               h(
-                "strong",
-                null,
-                number(row, "issues")
-                  ? `${number(row, "issues")} records to review`
-                  : "All checked records agree",
+                "div",
+                { class: "health-symbol" },
+                icon(number(row, "issues") ? "search" : "check", 23),
               ),
-              h("p", null, str(row, "detail")),
+              h(
+                "div",
+                null,
+                h("h3", null, str(row, "label")),
+                h(
+                  "strong",
+                  null,
+                  number(row, "issues")
+                    ? `${number(row, "issues")} records to review`
+                    : "All checked records agree",
+                ),
+                h("p", null, str(row, "detail")),
+              ),
             ),
           ),
-        ),
       ),
       h(
         "section",
@@ -736,11 +700,6 @@ export function teacherPage(section = "overview") {
             () => go("/teacher/reports?state=archived"),
             "button outline",
           ),
-          button(
-            "Review arcade rounds",
-            () => go("/teacher/games"),
-            "button outline",
-          ),
         ),
       ),
     );
@@ -756,15 +715,6 @@ export function teacherPage(section = "overview") {
         "Manage",
       ],
       reports: ["Scientist", "Class", "Discovery", "Score", "Saved", "Review"],
-      games: [
-        "Scientist",
-        "Class",
-        "Science",
-        "Score",
-        "Accuracy",
-        "Saved",
-        "Manage",
-      ],
       shop: ["Supply", "Category", "Price", "Stock", "Availability", "Manage"],
       claims: [
         "Scientist",
@@ -966,32 +916,6 @@ export function teacherPage(section = "overview") {
             : null,
         ),
       ];
-    if (section === "games")
-      return [
-        str(row, "display_name"),
-        `${str(row, "grade")} · ${str(row, "section")}`,
-        str(row, "category") === "life"
-          ? "Biology"
-          : str(row, "category") === "earth"
-            ? "Earth & space"
-            : str(row, "category"),
-        number(row, "score").toLocaleString(),
-        `${number(row, "correct")}/9`,
-        when(row.received_at),
-        h(
-          "div",
-          { class: "teacher-row-actions" },
-          tag(
-            row.archived ? "Archived" : "Active",
-            row.archived ? "lilac" : "green",
-          ),
-          button(
-            row.archived ? "Restore record" : "Archive record",
-            () => organize([row], !row.archived),
-            "text-button",
-          ),
-        ),
-      ];
     if (section === "content") {
       const q = row.question as Question;
       return [
@@ -1041,8 +965,8 @@ export function teacherPage(section = "overview") {
           "p",
           { class: "notice" },
           archived
-            ? "These records move out of active views. Original answers, scores and credits stay in place. Archived arcade rounds leave active rankings."
-            : "These records return to active views and eligible arcade rankings. This does not award credits again.",
+            ? "These records move out of active views. Original answers, scores and credits stay in place. "
+            : "These records return to active views. This does not award credits again.",
         ),
         field("Reason for this record change", reason),
       ],
@@ -1050,7 +974,7 @@ export function teacherPage(section = "overview") {
         studioCommand(
           "records",
           {
-            kind: section === "games" ? "games" : "quizzes",
+            kind: "quizzes",
             ids: targets.map((row) => row.id),
             versions: Object.fromEntries(
               targets.map((row) => [
@@ -1330,7 +1254,6 @@ export function teacherPage(section = "overview") {
             description: description.value,
             price: Number(price.value),
             stock: Number(stock.value),
-            category: category.value,
             icon: illustration.value,
             color: color.value,
             active: active.checked,
@@ -1616,9 +1539,8 @@ export function teacherPage(section = "overview") {
     );
   }
   function settings(row: Record<string, unknown>) {
-    const rules = row.rules as Rules,
-      game = row.game as ArcadeRules;
-    if (!rules || !game) {
+    const rules = row.rules as Rules;
+    if (!rules) {
       content.replaceChildren(
         empty(
           "cat",
@@ -1700,112 +1622,8 @@ export function teacherPage(section = "overview") {
         type: "submit",
       }),
     );
-    const seconds = game.seconds.map((value, i) => {
-        const control = input(
-          `seconds-${i}`,
-          "Seconds",
-          String(value),
-          "number",
-        );
-        control.min = "8";
-        control.max = "60";
-        control.step = "1";
-        return control;
-      }),
-      motion = game.motion.map((value, i) => {
-        const control = input(
-          `motion-${i}`,
-          "Motion seconds",
-          String(value),
-          "number",
-        );
-        control.min = "1.25";
-        control.max = "8";
-        control.step = "0.25";
-        return control;
-      });
-    const gameLabels = {
-      points: "Points per correct shot",
-      penalty: "Wrong-shot point penalty",
-      coins: "Round coins per correct shot",
-      timeCost: "Extra-time coin cost",
-      dartCost: "Extra-dart coin cost",
-    };
-    const gameFields = (
-      Object.keys(gameLabels) as (keyof typeof gameLabels)[]
-    ).map((key) => {
-      const control = input(key, gameLabels[key], String(game[key]), "number");
-      control.min = "1";
-      control.max =
-        key === "coins"
-          ? "10"
-          : ["timeCost", "dartCost"].includes(key)
-            ? "20"
-            : "500";
-      control.step = "1";
-      return { key, control };
-    });
-    const gameError = h("p", { class: "form-error", role: "alert" }),
-      gameRequest = crypto.randomUUID();
-    const gameForm = h(
-      "form",
-      {
-        class: "teacher-panel",
-        onSubmit: async (event: SubmitEvent) => {
-          event.preventDefault();
-          gameError.textContent = "";
-          const next = {
-            ...game,
-            seconds: seconds.map((c) => Number(c.value)),
-            motion: motion.map((c) => Number(c.value)),
-            ...Object.fromEntries(
-              gameFields.map((f) => [f.key, Number(f.control.value)]),
-            ),
-          };
-          try {
-            if (!validArcadeRules(next))
-              throw new Error(
-                "Timers and movement durations must decrease by level. Check score and power-up limits too.",
-              );
-            await teacherCommand(
-              "game",
-              { game: next, version: row.version },
-              gameRequest,
-            );
-            toast("Arcade settings saved for new rounds.");
-            await load();
-          } catch (error) {
-            gameError.textContent =
-              error instanceof Error ? error.message : "Please try again.";
-          }
-        },
-      },
-      h("h2", null, "Science Arcade"),
-      h(
-        "p",
-        { class: "muted" },
-        "New rounds use these settings. Active rounds keep their original settings. Reload stays at one second.",
-      ),
-      ...seconds.map((control, i) =>
-        h(
-          "div",
-          { class: "form-row" },
-          field(`Level ${i + 1} · seconds per card`, control),
-          field(`Level ${i + 1} · movement duration`, motion[i]),
-        ),
-      ),
-      h(
-        "div",
-        { class: "teacher-settings-grid" },
-        ...gameFields.map((f) => field(gameLabels[f.key], f.control)),
-      ),
-      gameError,
-      button("Save arcade settings", () => undefined, "button primary", {
-        type: "submit",
-      }),
-    );
     content.replaceChildren(
-      h("div", { class: "teacher-settings-panels" }, ruleForm, gameForm),
+      h("div", { class: "teacher-settings-panels" }, ruleForm),
     );
   }
   function activity(row: Record<string, unknown>) {

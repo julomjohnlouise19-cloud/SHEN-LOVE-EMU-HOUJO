@@ -1,5 +1,7 @@
 # Activate the colorful Teacher Studio release
 
+> Current website: the arcade/shooting interface has been retired. Daily spin and all learning/classroom features remain. Legacy arcade tables/functions in these upgrade scripts are retained to preserve historical evidence and compatibility. The interface retirement and sign-in repair need no new SQL.
+
 Your website uses the same project and public settings. Existing accounts, questions, quiz evidence, class credits, stock and photo uploads stay in place.
 
 ## One database step

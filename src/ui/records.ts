@@ -16,13 +16,10 @@ interface HistoryRow {
   grade: number;
   section: string;
   deck_id?: string;
-  category?: string;
   level?: string;
   mode?: string;
   correct: number;
   total: number;
-  score?: number;
-  coins?: number;
   received_at: string;
   archived: boolean;
   teacher_note?: string;
@@ -43,8 +40,7 @@ export async function recordsPage(teacherOnly = false) {
       "Open your personal history to review your discoveries.",
     );
   if (mountedRecords?.id === viewer.id) return mountedRecords.node;
-  let kind: "quizzes" | "games" = "quizzes",
-    offset = 0,
+  let offset = 0,
     total = 0,
     sequence = 0,
     rows: HistoryRow[] = [],
@@ -73,17 +69,6 @@ export async function recordsPage(teacherOnly = false) {
     h("option", { value: "" }, "All science decks"),
     ...decks.map((d) => h("option", { value: d.id }, d.name)),
   );
-  const category = h(
-    "select",
-    null,
-    ...[
-      ["", "All sciences"],
-      ["life", "Biology"],
-      ["chemistry", "Chemistry"],
-      ["physics", "Physics"],
-      ["earth", "Earth & space"],
-    ].map(([value, label]) => h("option", { value }, label)),
-  );
   const state = h(
     "select",
     null,
@@ -103,43 +88,6 @@ export async function recordsPage(teacherOnly = false) {
     ].map(([value, label]) => h("option", { value }, label)),
   );
   const science = field("Science deck", deck);
-  const tabs = h(
-    "div",
-    { class: "filter-tabs", "aria-label": "Record type" },
-    ...(
-      [
-        ["quizzes", "Quiz history"],
-        ["games", "Arcade history"],
-      ] as const
-    ).map(([value, label]) =>
-      button(
-        label,
-        () => {
-          kind = value;
-          offset = 0;
-          filters = { ...filters, deck: "", category: "" };
-          deck.value = "";
-          category.value = "";
-          science.replaceChildren(
-            h(
-              "span",
-              null,
-              kind === "quizzes" ? "Science deck" : "Science category",
-            ),
-            kind === "quizzes" ? deck : category,
-          );
-          tabs.querySelectorAll("button").forEach((btn) => {
-            const active = btn.dataset.kind === kind;
-            btn.classList.toggle("selected", active);
-            btn.setAttribute("aria-pressed", String(active));
-          });
-          void load();
-        },
-        `filter-tab ${value === kind ? "selected" : ""}`,
-        { "data-kind": value, "aria-pressed": value === kind },
-      ),
-    ),
-  );
   const filterForm = h(
     "form",
     {
@@ -150,7 +98,6 @@ export async function recordsPage(teacherOnly = false) {
           ...filters,
           search: search.value,
           deck: deck.value,
-          category: category.value,
           from: from.value,
           to: to.value,
           state: state.value,
@@ -177,7 +124,6 @@ export async function recordsPage(teacherOnly = false) {
         () => {
           search.value = "";
           deck.value = "";
-          category.value = "";
           from.value = "";
           to.value = "";
           state.value = "active";
@@ -194,7 +140,7 @@ export async function recordsPage(teacherOnly = false) {
     pageHeading(
       "YOUR DISCOVERY JOURNAL",
       "Your saved discoveries",
-      "A clear history of your quizzes, arcade rounds and the science you’re growing into.",
+      "A clear history of your quizzes and the science you’re growing into.",
     ),
     h(
       "p",
@@ -202,7 +148,6 @@ export async function recordsPage(teacherOnly = false) {
       icon("lock", 15),
       "Your signed-in discoveries are private to you and your teachers. Notebook pages and unfinished practice stay on this device.",
     ),
-    tabs,
     filterForm,
     content,
   );
@@ -214,7 +159,7 @@ export async function recordsPage(teacherOnly = false) {
         h(
           "p",
           { class: "muted" },
-          `${row.deck_id ? deckName(row.deck_id) : scienceName(row.category ?? "")} · ${date(row.received_at)}`,
+          `${deckName(row.deck_id ?? "")} · ${date(row.received_at)}`,
         ),
         row.teacher_note
           ? h(
@@ -240,37 +185,11 @@ export async function recordsPage(teacherOnly = false) {
             h("p", null, response.correct ? "Correct" : "Keep exploring"),
           ),
         ),
-        ...(kind === "games"
-          ? [
-              h(
-                "div",
-                { class: "record-summary" },
-                h(
-                  "div",
-                  null,
-                  h("strong", null, row.score ?? 0),
-                  h("small", null, "Round score"),
-                ),
-                h(
-                  "div",
-                  null,
-                  h("strong", null, `${row.correct}/9`),
-                  h("small", null, "Correct discoveries"),
-                ),
-                h(
-                  "div",
-                  null,
-                  h("strong", null, row.coins ?? 0),
-                  h("small", null, "Round coins left"),
-                ),
-              ),
-            ]
-          : []),
       ],
       true,
     );
   }
-  function csv(data: HistoryRow[], sourceKind = kind) {
+  function csv(data: HistoryRow[]) {
     const values = [
       [
         "Scientist",
@@ -280,7 +199,6 @@ export async function recordsPage(teacherOnly = false) {
         "Level",
         "Correct",
         "Total",
-        "Arcade score",
         "Saved at (UTC)",
         "Archived",
         "Teacher note",
@@ -289,39 +207,34 @@ export async function recordsPage(teacherOnly = false) {
         r.display_name,
         r.grade,
         r.section,
-        r.deck_id ? deckName(r.deck_id) : scienceName(r.category ?? ""),
+        deckName(r.deck_id ?? ""),
         r.level ?? "",
         r.correct,
         r.total,
-        r.score ?? "",
         r.received_at,
         r.archived ? "Yes" : "No",
         r.teacher_note ?? "",
       ]),
     ];
     download(
-      sourceKind === "quizzes"
-        ? "cozy-science-quiz-records.csv"
-        : "cozy-science-arcade-records.csv",
+      "cozy-science-quiz-records.csv",
       "\uFEFF" + values.map((row) => row.map(csvCell).join(",")).join("\r\n"),
       "text/csv;charset=utf-8",
     );
   }
   async function exportAll() {
-    const sourceKind = kind,
-      sourceFilters = { ...filters };
-    const first = await studioData(sourceKind, sourceFilters, 0);
+    const sourceFilters = { ...filters };
+    const first = await studioData("quizzes", sourceFilters, 0);
     if (first.total > 20000)
       throw new Error("Narrow your filters to export up to 20,000 records.");
     const all = [...first.rows];
     for (let start = 50; start < first.total; start += 50)
-      all.push(...(await studioData(sourceKind, sourceFilters, start)).rows);
+      all.push(...(await studioData("quizzes", sourceFilters, start)).rows);
     if (new Set(all.map((row) => row.id)).size !== first.total)
       throw new Error(
         "Your history changed during export. Refresh and export again.",
       );
-    if (currentUser()?.id === viewer!.id)
-      csv(all as unknown as HistoryRow[], sourceKind);
+    if (currentUser()?.id === viewer!.id) csv(all as unknown as HistoryRow[]);
   }
   function recordTable(data: HistoryRow[]) {
     const body = data.map((row) =>
@@ -333,31 +246,20 @@ export async function recordsPage(teacherOnly = false) {
         h(
           "td",
           null,
-          row.deck_id ? deckName(row.deck_id) : scienceName(row.category ?? ""),
+          deckName(row.deck_id ?? ""),
           h("small", { class: "record-meta" }, row.level ?? "Three levels"),
           row.archived
             ? h("span", { class: "record-state" }, "Archived")
             : null,
         ),
-        h(
-          "td",
-          null,
-          kind === "games"
-            ? `${(row.score ?? 0).toLocaleString()} points · ${row.correct}/9`
-            : `${row.correct}/${row.total}`,
-        ),
+        h("td", null, `${row.correct}/${row.total}`),
         h("td", null, date(row.received_at)),
         h(
           "td",
           null,
-          button(
-            kind === "games" ? "Round details" : "View answers",
-            () => details(row),
-            "text-button",
-            {
-              "aria-label": `${kind === "games" ? "View round" : "View answers"} for ${row.display_name}, ${date(row.received_at)}`,
-            },
-          ),
+          button("View answers", () => details(row), "text-button", {
+            "aria-label": `View answers for ${row.display_name}, ${date(row.received_at)}`,
+          }),
         ),
       ),
     );
@@ -401,14 +303,9 @@ export async function recordsPage(teacherOnly = false) {
         "div",
         { class: "record-summary" },
         ...[
-          [total, kind === "games" ? "Completed rounds" : "Saved discoveries"],
+          [total, "Saved discoveries"],
           [`${accuracy}%`, "Answer accuracy"],
-          [
-            kind === "games"
-              ? (stats.best ?? 0).toLocaleString()
-              : (stats.correct ?? 0),
-            kind === "games" ? "Best round score" : "Correct answers",
-          ],
+          [stats.correct ?? 0, "Correct answers"],
         ].map(([value, label]) =>
           h("div", null, h("strong", null, value), h("small", null, label)),
         ),
@@ -478,7 +375,7 @@ export async function recordsPage(teacherOnly = false) {
       ),
     );
     try {
-      const result = await studioData(kind, filters, offset);
+      const result = await studioData("quizzes", filters, offset);
       if (ownSequence !== sequence || currentUser()?.id !== viewer!.id) return;
       rows = result.rows as unknown as HistoryRow[];
       total = result.total;
@@ -500,14 +397,6 @@ export async function recordsPage(teacherOnly = false) {
   void load();
   return page;
 }
-const scienceName = (value: string) =>
-  ({
-    life: "Biology",
-    chemistry: "Chemistry",
-    physics: "Physics",
-    earth: "Earth & space",
-  })[value] ?? value;
-
 async function legacyRecordsPage(teacherOnly = false) {
   const viewer = currentUser();
   if (!viewer || viewer.id === "guest")

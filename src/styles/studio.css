@@ -199,9 +199,6 @@ body {
   font-weight: 700;
   color: var(--lab-ink);
 }
-.main:has(.arcade-targets) > .page-navigation {
-  display: none;
-}
 .modal {
   background: var(--lab-surface);
   border-color: var(--lab-line);
@@ -1019,11 +1016,6 @@ body {
   color: var(--lab-muted);
   line-height: 1.6;
   margin: 20px 0;
-}
-.arcade-hero,
-.dashboard-arcade {
-  background: var(--lab-wash);
-  border-color: var(--lab-line);
 }
 .branch-card:hover,
 .shop-item:hover {

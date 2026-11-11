@@ -2,13 +2,12 @@ import { client } from "./cloud-client";
 import { cloudUserId, platformVersion } from "./cloud";
 import { accountError } from "../core/account-errors";
 import type {
-  ArcadeRanking,
   LabItem,
   LabOrder,
   LabSnapshot,
   TeacherData,
 } from "../core/platform";
-import type { ArcadeAction, ArcadeCategory, ArcadeState } from "../core/arcade";
+import type { ArcadeState } from "../core/arcade";
 import type { Question } from "../core/types";
 
 let owner: string | undefined;
@@ -141,36 +140,3 @@ export interface ArcadeView {
   question: Omit<Question, "answer" | "explanation" | "scienceFact"> | null;
   serverNow: number;
 }
-export const currentRemoteArcade = () =>
-  platformRequest<ArcadeView | null>("csl_arcade_current", {
-    p_user_id: cloudUserId(),
-  });
-export const startRemoteArcade = (
-  category: ArcadeCategory,
-  requestId: string,
-) =>
-  platformRequest<ArcadeView>("csl_arcade_start", {
-    p_user_id: cloudUserId(),
-    p_category: category,
-    p_request_id: requestId,
-  });
-export async function remoteArcadeAction(
-  view: ArcadeView,
-  action: ArcadeAction,
-  requestId: string,
-) {
-  const result = await platformRequest<ArcadeView>("csl_arcade_action", {
-    p_user_id: cloudUserId(),
-    p_session_id: view.state.id,
-    p_command_id: requestId,
-    p_question_id: view.question?.id,
-    p_action: action.type,
-    p_option: action.type === "shoot" ? action.option : "",
-  });
-  if (result.state.completed) void refreshLab(true).catch(() => undefined);
-  return result;
-}
-export const remoteArcadeRankings = (category: ArcadeCategory | "all") =>
-  platformRequest<ArcadeRanking[]>("csl_arcade_rankings", {
-    p_category: category,
-  });

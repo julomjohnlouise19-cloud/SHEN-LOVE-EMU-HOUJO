@@ -1,5 +1,5 @@
 import { currentUser, getState, clock, dispatch, loadDeck } from "../store";
-import { dayKey } from "../core/time";
+import { dayKey, addDays } from "../core/time";
 import { questDefinitions, levelOf, rankScientists } from "../core/rules";
 import { hashSeed } from "../core/random";
 import { seededRng } from "../core/random";
@@ -336,12 +336,14 @@ function noteModal(id?: string) {
     ],
   );
 }
-let spinning = false;
+let spinningFor: string | undefined;
 export function spinPage() {
   const s = getState(),
     u = currentUser()!,
     today = dayKey(clock, s.rules.timezone),
     spun = u.daily[today]?.spin;
+  const spinning = spinningFor === u.id;
+  const factIndex = hashSeed(today) % 6;
   const discoveries = [
     "Plants use light to make sugars.",
     "Gravity helps keep planets in orbit.",
@@ -360,11 +362,11 @@ export function spinPage() {
     );
   return h(
     "div",
-    { class: "page-enter" },
+    { class: "page-enter spin-page" },
     pageHeading(
       "A DAILY DOSE OF HAPPY SCIENCE",
       "A little spin. A little wonder.",
-      "One free discovery per Manila day. What will you find?",
+      `One free discovery each calendar day · ${s.rules.timezone}. What will you find?`,
     ),
     h(
       "div",
@@ -372,16 +374,26 @@ export function spinPage() {
       h(
         "div",
         { class: "wheel-side" },
-        h("span", { class: "wheel-pointer" }, "▼"),
+        h("span", { class: "wheel-pointer", "aria-hidden": true }, "▼"),
         h(
           "div",
-          { class: `science-wheel ${spinning ? "spinning" : ""}` },
-          ...["Atom", "Leaf", "Star", "Wave", "Cell", "Earth"].map((w, i) =>
+          {
+            class: `science-wheel ${spinning ? "spinning" : ""}`,
+            "aria-hidden": true,
+            style: {
+              "--wheel-landing": `${1440 - (factIndex * 60 + 30)}deg`,
+              transform:
+                spun && !spinning
+                  ? `rotate(${360 - (factIndex * 60 + 30)}deg)`
+                  : undefined,
+            },
+          },
+          ...["Leaf", "Orbit", "Wave", "Atom", "Life", "Earth"].map((w, i) =>
             h(
               "span",
               { class: `wheel-label wheel-label-${i}` },
               icon(
-                ["atom", "sprout", "star", "flask", "heart", "planet"][i],
+                ["sprout", "planet", "star", "atom", "heart", "planet"][i],
                 28,
               ),
               h("strong", null, w),
@@ -401,17 +413,28 @@ export function spinPage() {
         mascot("pudding"),
         h("span", { class: "eyebrow" }, "PUDDING’S LITTLE DISCOVERY WHEEL"),
         h(
-          "h2",
-          null,
-          spun
-            ? `A little ${latest?.data?.prize ?? 0}-merit surprise!`
-            : "Curiosity is always a good idea.",
+          "span",
+          {
+            class: `spin-availability ${spun ? "collected" : ""}`,
+            role: "status",
+          },
+          icon(spun ? "check" : "sparkles", 15),
+          spinning
+            ? "Finding your daily discovery…"
+            : spun
+              ? "Today’s reward is safely saved"
+              : "Your free daily discovery is ready",
         ),
         h(
-          "p",
-          { class: "muted" },
-          discoveries[hashSeed(today) % discoveries.length],
+          "h2",
+          null,
+          spinning
+            ? "A bright idea is on its way…"
+            : spun
+              ? `A little ${latest?.data?.prize ?? 0}-merit surprise!`
+              : "Curiosity is always a good idea.",
         ),
+        h("p", { class: "muted" }, discoveries[factIndex]),
         button(
           spinning
             ? "A little wonder is on its way…"
@@ -419,8 +442,8 @@ export function spinPage() {
               ? "Today’s discovery is yours"
               : "Let’s give it a spin",
           act(async () => {
-            if (spinning) return;
-            spinning = true;
+            if (spinningFor === u.id) return;
+            spinningFor = u.id;
             refresh();
             try {
               const events = await dispatch({ type: "SpinWheel" });
@@ -432,22 +455,64 @@ export function spinPage() {
                     : 1600,
                 ),
               );
-              toast(events[0].text);
+              if (currentUser()?.id === u.id) toast(events[0].text);
             } finally {
-              spinning = false;
+              if (spinningFor === u.id) spinningFor = undefined;
               refresh();
             }
           }),
           "button primary full",
-          { disabled: spun || spinning },
+          { disabled: spun || spinning, "aria-busy": spinning },
         ),
         h(
           "p",
           { class: "fine-print" },
           spun
-            ? "Your next spin opens on the next calendar day in Asia/Manila."
+            ? `Next discovery: ${addDays(today, 1)} at midnight · ${s.rules.timezone}. Your saved reward will still be here after a refresh.`
             : "No merits to spend. No chance of losing. Just a little science treat.",
         ),
+        spun && !spinning
+          ? h(
+              "section",
+              {
+                class: "spin-discovery-card",
+                "aria-label": "Your daily discovery",
+              },
+              h(
+                "span",
+                { class: "eyebrow" },
+                "A LITTLE WONDER TO TAKE WITH YOU",
+              ),
+              h(
+                "strong",
+                null,
+                `${latest?.data?.prize ?? 0} practice merits saved`,
+              ),
+              h("p", null, discoveries[factIndex]),
+              h(
+                "div",
+                { class: "spin-next-actions" },
+                button(
+                  "Explore today’s science",
+                  () =>
+                    go(
+                      `/branch/${["life", "physics", "physics", "chemistry", "life", "earth"][factIndex]}`,
+                    ),
+                  "button outline",
+                ),
+                button(
+                  "Open my notebook",
+                  () => go("/notebook"),
+                  "text-button",
+                ),
+              ),
+              h(
+                "small",
+                null,
+                "The wheel is free. Practice merits stay on this device; classroom shop credits have their own balance.",
+              ),
+            )
+          : null,
       ),
     ),
   );

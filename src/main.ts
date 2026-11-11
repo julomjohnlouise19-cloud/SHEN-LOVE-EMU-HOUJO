@@ -1,4 +1,3 @@
-import { arcadePage, disposeArcade } from "./ui/arcade";
 import { classCredits } from "./store/platform";
 import { cloudEnabled, passwordRecoveryActive } from "./store/cloud";
 import { passwordRecoveryModal, authModal } from "./ui/auth";
@@ -6,6 +5,7 @@ import { updateCloudNotices } from "./ui/cloud-status";
 import "./styles/main.css";
 import "./styles/refresh.css";
 import "./styles/studio.css";
+import "./styles/discovery.css";
 import { loadAppearance } from "./store/preferences";
 import {
   initStore,
@@ -62,9 +62,16 @@ let renderedUserId: string | undefined;
 async function render() {
   const id = ++renderId;
   const path = location.hash.slice(1).split("?")[0] || "/";
+  if (
+    path === "/arcade" ||
+    path.startsWith("/arcade/") ||
+    path === "/teacher/games"
+  ) {
+    go(path === "/teacher/games" ? "/teacher/reports" : "/island");
+    return;
+  }
   const user = currentUser();
   const identityChanged = renderedUserId !== user?.id;
-  if (path !== "/arcade" || identityChanged) disposeArcade();
   if (identityChanged) {
     document.documentElement.dataset.theme = "meadow";
     if (user)
@@ -99,15 +106,17 @@ async function render() {
     return;
   }
   if (path === "/welcome") {
-    go(entryDestination(user.role === "admin" ? "/admin" : "/"));
+    go(
+      entryDestination(
+        user.role === "admin" ? (cloudEnabled ? "/teacher" : "/admin") : "/",
+      ),
+    );
     return;
   }
-  if (
-    path === "/arcade" &&
-    !identityChanged &&
-    app.querySelector(".arcade-page")
-  )
+  if (path === "/leaderboard" && cloudEnabled && user.id !== "guest") {
+    go("/island");
     return;
+  }
   let page: HTMLElement;
   try {
     if (path === "/") page = dashboard();
@@ -115,7 +124,6 @@ async function render() {
     else if (path.startsWith("/branch/")) page = branchPage(path.split("/")[2]);
     else if (path.startsWith("/play/"))
       page = await playPage(path.split("/")[2]);
-    else if (path === "/arcade") page = arcadePage();
     else if (path === "/review") page = await reviewPage();
     else if (path === "/notebook") page = await notebookPage();
     else if (path === "/shop")
@@ -125,11 +133,7 @@ async function render() {
           : shopPage();
     else if (path === "/spin") page = spinPage();
     else if (path === "/quests") page = questsPage();
-    else if (path === "/leaderboard")
-      page =
-        cloudEnabled && user.id !== "guest"
-          ? (await import("./ui/arcade-rankings")).arcadeLeaderboardPage()
-          : leaderboardPage();
+    else if (path === "/leaderboard") page = leaderboardPage();
     else if (path === "/experiment") page = labPage();
     else if (path === "/records" && cloudEnabled)
       page = await (await import("./ui/records")).recordsPage();

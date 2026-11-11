@@ -221,7 +221,9 @@ test("profile colors and introduction sync, survive reload and keep accessible c
   await page
     .getByRole("button", { name: "Profile details", exact: true })
     .click();
-  await expect(page.getByRole("button", {name:"Close and return to page", exact:true})).toBeInViewport();
+  await expect(
+    page.getByRole("button", { name: "Close and return to page", exact: true }),
+  ).toBeInViewport();
   await page.screenshot({
     path: "/tmp/cozy-profile-studio-mobile.png",
     fullPage: true,
@@ -335,7 +337,10 @@ test("teacher archive and restore are audited, versioned and preserve original s
   ).toBeVisible();
   await expect(
     page.getByText("All checked records agree", { exact: true }),
-  ).toHaveCount(4);
+  ).toHaveCount(3);
+  await expect(
+    page.getByRole("heading", { name: "Completed arcade rounds", exact: true }),
+  ).toHaveCount(0);
   expect(backend.credits[users[0].id]).toBe(200);
   await page.setViewportSize({ width: 320, height: 780 });
   expect(

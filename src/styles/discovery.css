@@ -1,0 +1,298 @@
+.discovery-hero {
+  background:
+    radial-gradient(ellipse at 85% 10%, var(--lab-blue) 0, transparent 55%),
+    linear-gradient(125deg, var(--lab-soft), var(--lab-surface));
+  border: 1px solid var(--lab-line);
+  box-shadow: 7px 8px 0 color-mix(in srgb, var(--lab-brand) 8%, transparent);
+}
+.discovery-hero .hero-copy h2 {
+  font-size: clamp(32px, 3.5vw, 50px);
+  max-width: 12em;
+}
+.learning-trail {
+  margin: 30px 0 38px;
+  padding: clamp(19px, 3vw, 30px);
+  border: 1px solid var(--lab-line);
+  border-radius: 25px;
+  background-color: var(--lab-surface);
+  background-image: radial-gradient(var(--lab-line) 0.7px, transparent 0.7px);
+  background-size: 17px 17px;
+}
+.trail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+.trail-heading h2 {
+  margin: 6px 0 0;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(24px, 3vw, 31px);
+}
+.trail-date {
+  padding: 9px 13px;
+  background: var(--lab-soft);
+  border: 1px solid var(--lab-line);
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  transform: rotate(3deg);
+}
+.trail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+.trail-step {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 25px 22px 22px;
+  border: 1px solid var(--lab-line);
+  border-radius: 18px;
+  color: var(--lab-ink);
+  text-decoration: none;
+  min-width: 0;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.trail-step:hover,
+.trail-step:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px #253c3010;
+}
+.trail-step:focus-visible {
+  outline: 3px solid var(--lab-brand-deep);
+  outline-offset: 4px;
+}
+.trail-discover {
+  background: linear-gradient(145deg, var(--lab-soft), var(--lab-surface));
+}
+.trail-review {
+  background: linear-gradient(145deg, #f2eafa, var(--lab-surface));
+}
+.trail-notes {
+  background: linear-gradient(145deg, #fff0dc, var(--lab-surface));
+}
+.trail-step > .icon {
+  color: var(--lab-brand-deep);
+  margin-bottom: 16px;
+}
+.trail-number {
+  position: absolute;
+  right: 16px;
+  top: 9px;
+  color: #64756a;
+  font-family: "Fredoka", sans-serif;
+  font-size: 32px;
+}
+.trail-step h3 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 21px;
+  line-height: 1.35;
+  margin: 0 0 9px;
+}
+.trail-step p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0 0 20px;
+  flex: 1;
+}
+.trail-step .button {
+  align-self: flex-start;
+  font-size: 11px;
+  padding: 12px 15px;
+}
+.trail-link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.trail-progress {
+  display: grid;
+  grid-template-columns: 1fr minmax(140px, 34%);
+  gap: 20px;
+  align-items: center;
+  padding: 19px 0 12px;
+}
+.trail-progress > div:first-child {
+  display: grid;
+  gap: 5px;
+}
+.trail-progress strong {
+  font-size: 13px;
+}
+.trail-progress span,
+.trail-device {
+  font-size: 11px;
+  line-height: 1.7;
+}
+.trail-device {
+  display: block;
+}
+.daily-fact {
+  flex-wrap: wrap;
+}
+.daily-fact > div {
+  flex: 1;
+  min-width: min(260px, 100%);
+}
+.daily-fact .button {
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.wonder-count {
+  display: block;
+  margin-top: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.learning-help {
+  padding-left: 24px;
+}
+.learning-help li {
+  margin: 14px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.teacher-settings-panels:has(> form:only-child) {
+  grid-template-columns: 1fr;
+}
+.spin-page .spin-layout {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: clamp(20px, 3vw, 45px);
+  gap: clamp(20px, 3vw, 45px);
+  background:
+    radial-gradient(ellipse at 8% 12%, var(--lab-soft), transparent 60%),
+    var(--lab-surface);
+  border: 1px solid var(--lab-line);
+  box-shadow: var(--lab-shadow);
+  border-radius: 26px;
+}
+.spin-page .science-wheel {
+  width: min(100%, 330px);
+  height: auto;
+  aspect-ratio: 1;
+  background: conic-gradient(
+    var(--lab-soft) 0deg 60deg,
+    var(--lab-yellow) 60deg 120deg,
+    var(--lab-blue) 120deg 180deg,
+    var(--lab-lilac) 180deg 240deg,
+    var(--lab-peach) 240deg 300deg,
+    var(--lab-yellow) 300deg
+  );
+  border-color: color-mix(in srgb, var(--lab-brand) 30%, var(--lab-surface));
+  box-shadow:
+    0 0 0 5px var(--lab-surface),
+    0 0 0 7px var(--lab-line),
+    0 16px 28px #293b3512;
+}
+.spin-page .science-wheel.spinning {
+  animation-name: discovery-wheel-turn;
+}
+@keyframes discovery-wheel-turn {
+  to {
+    transform: rotate(var(--wheel-landing));
+  }
+}
+.spin-page .wheel-label {
+  color: var(--lab-ink);
+}
+.spin-page .wheel-center {
+  background: var(--lab-surface);
+  color: var(--lab-brand-deep);
+  border-color: var(--lab-line);
+  box-shadow: 0 3px 10px #293b3512;
+}
+.spin-availability {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--lab-brand-deep);
+  background: var(--lab-soft);
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin: 12px 0;
+  font-size: 11px;
+  font-weight: 700;
+}
+.spin-discovery-card {
+  padding: 20px;
+  margin-top: 24px;
+  border: 1px solid var(--lab-line);
+  border-radius: 17px;
+  background: var(--lab-surface);
+  box-shadow: 4px 5px 0 var(--lab-soft);
+}
+.spin-discovery-card > strong {
+  display: block;
+  font-family: "Fredoka", sans-serif;
+  font-size: 24px;
+  margin: 12px 0;
+}
+.spin-discovery-card p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.spin-discovery-card small {
+  display: block;
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+.spin-next-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.spin-next-actions .button,
+.spin-next-actions .text-button {
+  font-size: 11px;
+}
+.spin-page .wheel-side,
+.spin-page .spin-copy {
+  min-width: 0;
+}
+.spin-page .wheel-side {
+  overflow-x: clip;
+  padding: 18px 12px 0;
+}
+.spin-page .wheel-pointer {
+  top: 0;
+}
+@media (max-width: 800px) {
+  .spin-page .spin-layout {
+    grid-template-columns: 1fr;
+  }
+  .spin-next-actions {
+    justify-content: center;
+  }
+  .trail-grid {
+    grid-template-columns: 1fr;
+  }
+  .trail-step {
+    padding: 22px;
+  }
+  .trail-step > .icon {
+    margin-bottom: 10px;
+  }
+  .trail-step p {
+    margin-bottom: 14px;
+  }
+  .trail-progress {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .trail-date {
+    transform: none;
+  }
+}

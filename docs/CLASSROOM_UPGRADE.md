@@ -1,5 +1,7 @@
 # Activate the new classroom features
 
+> Current website: the arcade/shooting interface has been retired. Daily spin and all learning/classroom features remain. Legacy arcade tables/functions in these upgrade scripts are retained to preserve historical evidence and compatibility. The interface retirement and sign-in repair need no new SQL.
+
 Your existing accounts, teacher access and quiz records stay in place. This update adds Science Arcade, private profile photos, shared class credits, real stock reservations and Teacher Studio.
 
 ## 1. Run the database upgrade

@@ -1,5 +1,7 @@
 # Connect Supabase to The Cozy Science Lab
 
+> Current website: the arcade/shooting interface has been retired. Daily spin and all learning/classroom features remain. Legacy arcade tables/functions in these upgrade scripts are retained to preserve historical evidence and compatibility. The interface retirement and sign-in repair need no new SQL.
+
 Cloud mode saves email accounts, profiles/private photos, completed quizzes, server-scored arcade rounds, class credits and stock reservations. Students see their own quiz records; owner-appointed teachers manage class analytics, profiles/access/credits, supplies/claims, question edits, learning/game settings and activity history in Teacher Studio. The server grades quizzes against the published question revision and computes arcade scores/timing. This supports classroom practice and teacher-verified rewards, not supervised examinations.
 
 Local development defaults to the local demo. GitHub Pages selects cloud mode and checks the real backend before publication. **If you already installed the earlier setup, follow [the classroom upgrade and email-limit guide](CLASSROOM_UPGRADE.md)** and run `upgrade.sql`. New projects use the complete `setup.sql` below. Adding SQL to GitHub does not run it in the database.

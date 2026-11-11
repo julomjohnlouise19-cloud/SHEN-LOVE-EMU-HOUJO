@@ -276,63 +276,27 @@ test("one confirmation resend is available after its cooldown", async ({
   ).toBeDisabled();
 });
 
-test("signed-in arcade uses saved rules, reload, combos, boosts and class rankings", async ({
+test("retired minigame links open learning and leave class credits unchanged", async ({
   page,
   backend,
 }) => {
   await page.goto("./");
   await signIn(page);
-  await page.goto("#/arcade");
-  await page
-    .getByRole("button", { name: /Biology.*PLAY 9 DISCOVERIES/ })
-    .click();
-  for (let index = 0; index < 9; index++) {
-    await expect(page.locator(".arcade-question .eyebrow")).toHaveText(
-      `DISCOVERY ${index + 1} / 9`,
-    );
-    const prompt = await page.locator(".arcade-question h1").innerText(),
-      q = questions.find((q) => q.prompt === prompt)!;
-    if (index === 3) {
-      await page
-        .getByRole("button", { name: "Buy five extra seconds", exact: true })
-        .click();
-      await expect(
-        page.getByRole("button", {
-          name: "Buy five extra seconds",
-          exact: true,
-        }),
-      ).toBeDisabled();
-      await page
-        .getByRole("button", { name: "Buy an extra dart", exact: true })
-        .click();
-    }
-    await page
-      .getByRole("button", {
-        name: `Shoot ${q.options!.find((o) => o.id === q.answer)!.text}`,
-        exact: true,
-      })
-      .click();
+  for (const path of ["/arcade", "/leaderboard", "/arcade/life"]) {
+    await page.goto(`#${path}`);
+    await expect(page).toHaveURL(/#\/island$/);
+    await expect(
+      page.getByRole("link", { name: "Science Arcade", exact: true }),
+    ).toHaveCount(0);
   }
+  expect(backend.credits[users[0].id]).toBe(200);
+  await page.goto("#/records");
   await expect(
-    page.getByRole("heading", {
-      name: "A brilliant little bullseye!",
-      exact: true,
-    }),
-  ).toBeVisible();
-  await expect(page.locator(".arcade-final-score")).toHaveText("2,000");
-  expect(backend.credits[users[0].id]).toBe(209);
-  await expect(
-    page.getByText("9/9 correct · 22 round coins left", { exact: true }),
-  ).toBeVisible();
-  await page
-    .getByRole("button", { name: "View arcade leaderboard", exact: true })
-    .click();
-  await expect(
-    page.getByRole("cell", { name: "Student One", exact: true }),
+    page.getByRole("heading", { name: "Your saved discoveries", exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("cell", { name: "2000", exact: true }),
-  ).toBeVisible();
+    page.getByRole("button", { name: "Arcade history", exact: true }),
+  ).toHaveCount(0);
 });
 
 test("teacher studio is accessible on desktop and a narrow phone", async ({
@@ -424,30 +388,15 @@ test("teacher card and settings editors save reviewed changes for the class", as
   await expect(
     page.getByText("Learning settings saved.", { exact: true }),
   ).toBeVisible();
-  await page
-    .getByLabel("Level 1 · seconds per card", { exact: true })
-    .fill("25");
-  await page
-    .getByLabel("Level 2 · seconds per card", { exact: true })
-    .fill("18");
-  await page
-    .getByLabel("Level 3 · seconds per card", { exact: true })
-    .fill("10");
-  await page
-    .getByRole("button", { name: "Save arcade settings", exact: true })
-    .click();
-  await expect.poll(() => backend.game.seconds).toEqual([25, 18, 10]);
   await expect(
-    page.getByText("Arcade settings saved for new rounds.", { exact: true }),
-  ).toBeVisible();
-  await signOut(page);
-  await signIn(page);
-  await page.goto("#/arcade");
-  await page
-    .getByRole("button", { name: /Biology.*PLAY 9 DISCOVERIES/ })
-    .click();
-  await expect(page.locator("[data-arcade-timer]")).toHaveText(/2[45]/);
-  expect(backend.settingsVersion).toBe(3);
+    page.getByRole("button", { name: "Save arcade settings", exact: true }),
+  ).toHaveCount(0);
+  expect(backend.settingsVersion).toBe(2);
+  await page.goto("#/teacher/games");
+  await expect(page).toHaveURL(/#\/teacher\/reports$/);
+  await expect(
+    page.getByRole("link", { name: "Arcade reports", exact: true }),
+  ).toHaveCount(0);
 });
 
 test("teacher cancellation returns the student's credits and shelf stock", async ({

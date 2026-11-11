@@ -19,7 +19,6 @@ export function resetNavigation() {
 const nav = [
   ["/", "home", "My lab"],
   ["/island", "island", "Science Island"],
-  ["/arcade", "trophy", "Science Arcade"],
   ["/review", "box", "Review Box"],
   ["/notebook", "notebook", "My notebook"],
   ["/shop", "shop", "Supply shop"],
@@ -30,7 +29,6 @@ const teacherNav = [
   ["/teacher", "home", "Studio overview"],
   ["/teacher/students", "sprout", "Scientists"],
   ["/teacher/reports", "notebook", "Class reports"],
-  ["/teacher/games", "trophy", "Arcade reports"],
   ["/teacher/health", "check", "Record care"],
   ["/teacher/shop", "shop", "Stock & pricing"],
   ["/teacher/claims", "box", "Claims desk"],
@@ -55,12 +53,8 @@ export function shell(page: HTMLElement, route: string) {
     "nav",
     { "aria-label": "Main navigation" },
     ...(teacherMode
-      ? teacherNav.filter(
-          ([path]) =>
-            hasStudio() ||
-            !["/teacher/games", "/teacher/health"].includes(path),
-        )
-      : nav
+      ? teacherNav.filter(([path]) => hasStudio() || path !== "/teacher/health")
+      : nav.filter(([path]) => path !== "/leaderboard" || !connected)
     ).map(([path, ico, label]) =>
       h(
         "div",
@@ -403,7 +397,7 @@ export function helpModal() {
       "div",
       { class: "notice" },
       cloudEnabled
-        ? "Signed-in accounts save profiles, photos, quizzes and arcade rounds. Class credits and supply reservations are shared with your classroom. Notebook pages, practice XP, quests and spins stay on this device. Teachers verify physical collection."
+        ? "Signed-in accounts save profiles, photos and completed quizzes. Class credits and supply reservations are shared with your classroom. Notebook pages, practice XP, quests and spins stay on this device. Teachers verify physical collection."
         : "This is a local demo. Accounts and balances stay in this browser. Supply claims need school verification at the Grade 10 SSC room; no real purchase is placed online.",
     ),
     button(
@@ -484,16 +478,16 @@ function teacherHelpModal() {
   modal("A calm place to care for your class", [
     h(
       "ol",
-      { class: "arcade-help" },
+      { class: "learning-help" },
       ...[
         "Review class reports by grade, section or science deck. Open a quiz to see submitted answers and add a teacher note.",
         "Edit scientist profiles, pause access or adjust class credits with a clear reason. Existing discoveries stay saved.",
         "Manage supply prices and available stock. Verify the student's code before recording collection; cancellations return stock and credits together.",
         "Review science cards before saving changes. Earlier versions stay available for quizzes that were already started.",
-        "Tune arcade timers, movement and rewards for new rounds. Activity history records your edits so the class can review a change.",
+        "Tune learning rewards and daily limits for your class. Activity history records your edits so the class can review a change.",
         ...(hasStudio()
           ? [
-              "Use arcade reports and record care to filter history, archive reviewed results and restore evidence. Original scores and credits stay in place.",
+              "Use class reports and record care to filter quiz history, archive reviewed results and restore evidence. Original scores and credits stay in place.",
               "Manage another active account’s teaching access in Scientists. Changes need a reason; your own teaching role remains protected.",
             ]
           : []),

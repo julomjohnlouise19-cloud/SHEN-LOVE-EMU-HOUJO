@@ -189,7 +189,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       h(
         "p",
         null,
-        "Explore a science island, take your best shot in the arcade, and turn a little practice into an a-ha moment.",
+        "Follow your learning trail, collect bright science ideas, and turn a little practice into an a-ha moment.",
       ),
       h(
         "div",
@@ -426,6 +426,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
             section: section.value,
             grade: grade.value,
           };
+          const requestedDestination = entryDestination("");
           try {
             if (joining) {
               const signedIn = await register({
@@ -442,11 +443,19 @@ export function authModal(registerFirst = false, recoverFirst = false) {
               }
             } else await login(username.value, password.value);
             if (!dialog.open || view !== currentView) return;
+            const signedInUser = currentUser();
+            if (!signedInUser || signedInUser.id === "guest")
+              throw new Error(
+                "Your account could not be opened. Please sign in again.",
+              );
             close();
             go(
-              entryDestination(
-                currentUser()?.role === "admin" ? "/admin" : "/",
-              ),
+              requestedDestination ||
+                (signedInUser.role === "admin"
+                  ? cloudEnabled
+                    ? "/teacher"
+                    : "/admin"
+                  : "/"),
             );
             toast(
               joining
@@ -1028,7 +1037,7 @@ export function logoutModal() {
       user.id === "guest"
         ? "Your guest discoveries stay in this browser. You can choose guest exploration again from the welcome hub."
         : cloudEnabled
-          ? `${user.name}, saved discoveries stay in your account. Pending uploads and game progress stay on this device. Logging out ends your account session in this browser, including other tabs.`
+          ? `${user.name}, saved discoveries stay in your account. Pending uploads and unfinished practice stay on this device. Logging out ends your account session in this browser, including other tabs.`
           : `${user.name}, your discoveries stay saved in this browser. Sign in again whenever you’re ready.`,
     ),
     error,

@@ -9,6 +9,7 @@ import { go } from "./actions";
 import { pageHeading } from "./shell";
 import { openDeck } from "./learn";
 import { APP_NAME } from "./branding";
+import { cloudEnabled } from "../store/cloud";
 export function dashboard() {
   const u = currentUser()!,
     s = getState(),
@@ -22,14 +23,23 @@ export function dashboard() {
     .reverse()
     .find((run) => run.userId === u.id && !run.completed);
   const unfinishedDeck = unfinished ? deckById(unfinished.deckId) : undefined;
+  const gradeDecks = decks.filter(
+    (d) => d.branch !== "skills" && d.grades.includes(u.grade),
+  );
   const recommended =
-    decks.find(
-      (d) =>
-        d.id ===
-        Object.entries(u.mastery).find(([, m]) => m.completed === 0)?.[0],
-    ) ??
-    decks.find((d) => d.branch === "life" && d.grades.includes(u.grade)) ??
+    gradeDecks.find((d) => !u.mastery[d.id]?.completed) ??
+    [...gradeDecks].sort(
+      (a, b) =>
+        (u.mastery[a.id]?.attempts ?? 0) - (u.mastery[b.id]?.attempts ?? 0),
+    )[0] ??
     decks[0];
+  const explored = Object.values(u.mastery).filter(
+    (m) => m.completed > 0,
+  ).length;
+  const due = u.review.filter(
+    (card) => card.due <= today && card.lastReviewed !== today,
+  ).length;
+  const answersToday = Math.min(daily?.answers ?? 0, 8);
   const facts = [
     "A single tree can be home to hundreds of living things. Small habitats make a big difference.",
     "Sunlight takes about eight minutes to reach Earth. The light you see has been on a little journey.",
@@ -38,7 +48,134 @@ export function dashboard() {
     "A plant’s new mass comes mostly from carbon dioxide and water, with light supplying the energy.",
     "Your heart and lungs work together to bring oxygen to your cells. Teamwork is science, too.",
   ];
-  const dailyFact = facts[hashSeed(today) % facts.length];
+  let factIndex = hashSeed(today) % facts.length;
+  const factText = h("p", { role: "status" }, facts[factIndex]);
+  const factCount = h(
+    "small",
+    { class: "wonder-count" },
+    `IDEA ${factIndex + 1} OF ${facts.length}`,
+  );
+  const trail = h(
+    "section",
+    { class: "learning-trail", "aria-label": "Your learning trail" },
+    h(
+      "div",
+      { class: "trail-heading" },
+      h(
+        "div",
+        null,
+        h("p", { class: "eyebrow" }, "SMALL STEPS, YOUR OWN PACE"),
+        h("h2", null, "Your learning trail"),
+      ),
+      h(
+        "span",
+        { class: "trail-date" },
+        new Intl.DateTimeFormat("en-PH", {
+          month: "short",
+          day: "numeric",
+          timeZone: s.rules.timezone,
+        }).format(clock.now()),
+      ),
+    ),
+    h(
+      "div",
+      { class: "trail-grid" },
+      h(
+        "article",
+        { class: "trail-step trail-discover" },
+        h("span", { class: "trail-number", "aria-hidden": true }, "01"),
+        icon("island", 22),
+        h("h3", null, unfinishedDeck?.name ?? recommended.name),
+        h(
+          "p",
+          null,
+          unfinished
+            ? "Your unfinished discovery is ready whenever you are."
+            : `An eight-card discovery chosen for Grade ${u.grade}.`,
+        ),
+        button(
+          unfinished ? "Resume this discovery" : "Start today’s discovery",
+          () =>
+            unfinished
+              ? go(`/play/${unfinished.id}`)
+              : openDeck(recommended.id),
+          "button primary",
+        ),
+      ),
+      h(
+        "a",
+        {
+          href: "#/review",
+          class: "trail-step trail-review",
+          "aria-label": "Open Review Box",
+        },
+        h("span", { class: "trail-number", "aria-hidden": true }, "02"),
+        icon("box", 22),
+        h(
+          "h3",
+          null,
+          due ? `${due} ideas to revisit` : "Let your learning settle",
+        ),
+        h(
+          "p",
+          null,
+          due
+            ? "A gentle review helps a tricky idea click."
+            : "Your tricky science cards will find a home here.",
+        ),
+        h(
+          "span",
+          { class: "trail-link" },
+          "Visit your Review Box",
+          icon("arrow", 16),
+        ),
+      ),
+      h(
+        "a",
+        {
+          href: "#/notebook",
+          class: "trail-step trail-notes",
+          "aria-label": "Open my notebook",
+        },
+        h("span", { class: "trail-number", "aria-hidden": true }, "03"),
+        icon("notebook", 22),
+        h("h3", null, "Keep your a-ha moment"),
+        h(
+          "p",
+          null,
+          `${u.notes.length} notebook ${u.notes.length === 1 ? "page" : "pages"} on this device. What did you notice today?`,
+        ),
+        h(
+          "span",
+          { class: "trail-link" },
+          "Open your notebook",
+          icon("arrow", 16),
+        ),
+      ),
+    ),
+    h(
+      "div",
+      { class: "trail-progress" },
+      h(
+        "div",
+        null,
+        h("strong", null, `${answersToday} / 8 answers today`),
+        h(
+          "span",
+          null,
+          answersToday === 8
+            ? "A little goal, beautifully done."
+            : "One short discovery is a lovely place to start.",
+        ),
+      ),
+      progress((answersToday / 8) * 100, "Today’s eight-answer learning goal"),
+    ),
+    h(
+      "small",
+      { class: "trail-device" },
+      `${completed} completed practice sessions on this device.${cloudEnabled && u.id !== "guest" ? " Account quizzes also appear in Saved records." : " Practice and notebook pages stay on this device."}`,
+    ),
+  );
   return h(
     "div",
     { class: "dashboard page-enter" },
@@ -53,23 +190,6 @@ export function dashboard() {
         `${u.streak}-day streak`,
         h("span", { class: "streak-dot" }, "Keep growing"),
       ),
-    ),
-    h(
-      "section",
-      { class: "dashboard-arcade-callout" },
-      h("span", { class: "dashboard-arcade-icon" }, icon("trophy", 28)),
-      h(
-        "div",
-        null,
-        h("p", { class: "eyebrow" }, "NEW AT THE DISCOVERY FAIR"),
-        h("h2", null, "A little aim. A lot of science."),
-        h(
-          "p",
-          null,
-          "Moving targets, bright questions and your next winning combo.",
-        ),
-      ),
-      button("Play Science Arcade", () => go("/arcade"), "button primary"),
     ),
     unfinished && unfinishedDeck
       ? h(
@@ -102,7 +222,10 @@ export function dashboard() {
       : null,
     h(
       "section",
-      { class: "hero-card", "aria-label": `Welcome to ${APP_NAME}` },
+      {
+        class: "hero-card discovery-hero",
+        "aria-label": `Welcome to ${APP_NAME}`,
+      },
       h("span", { class: "hero-tape" }),
       h(
         "div",
@@ -111,21 +234,21 @@ export function dashboard() {
           "span",
           { class: "hero-tag" },
           h("span", { class: "tiny-flower" }, "✳"),
-          "BIG WONDERS START SMALL",
+          `${explored} OF ${decks.length} SCIENCE TOPICS EXPLORED`,
         ),
         h(
           "h2",
           null,
-          "Small discoveries.",
+          "Your curiosity.",
           h("br"),
-          h("span", { class: "underline" }, "Big a-ha moments."),
+          h("span", { class: "underline" }, "A world of possibility."),
         ),
         h(
           "p",
           null,
-          "Play a little. Learn a lot. Explore the science",
+          "A learning trail made for you. Find a science idea,",
           h("br", { class: "desktop-break" }),
-          " in you and the world around you.",
+          " make a discovery, and keep the thought that stays with you.",
         ),
         button(
           h("span", null, "Let’s explore", icon("arrow", 18)),
@@ -147,6 +270,7 @@ export function dashboard() {
         icon("arrowup", 12),
       ),
     ),
+    trail,
     h(
       "div",
       { class: "dashboard-columns" },
@@ -255,7 +379,7 @@ export function dashboard() {
             "span",
             null,
             icon("sprout", 17),
-            `${completed} ${completed === 1 ? "deck" : "decks"} explored`,
+            `${explored} ${explored === 1 ? "topic" : "topics"} explored`,
           ),
           h("span", null, icon("star", 17), `${u.xp} XP grown`),
           h("span", null, icon("heart", 17), "Every question is progress"),
@@ -351,9 +475,19 @@ export function dashboard() {
         "div",
         null,
         h("span", { class: "eyebrow" }, "A POCKETFUL OF SCIENCE"),
-        h("p", null, dailyFact),
+        factText,
+        factCount,
       ),
-      h("span", { class: "fact-doodle" }, "✦"),
+      button(
+        "Another little wonder",
+        () => {
+          factIndex = (factIndex + 1) % facts.length;
+          factText.textContent = facts[factIndex];
+          factCount.textContent = `IDEA ${factIndex + 1} OF ${facts.length}`;
+        },
+        "button outline",
+        { "aria-label": "Next science fact" },
+      ),
     ),
     h(
       "section",

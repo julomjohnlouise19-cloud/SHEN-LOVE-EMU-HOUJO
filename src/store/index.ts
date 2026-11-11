@@ -4,7 +4,7 @@ import { seededRng } from "../core/random";
 import { LocalStorageAdapter } from "./adapter";
 import { initialState, newUser } from "./seed";
 import { hashPassword, makeSalt, constantTimeEqual } from "./auth";
-import { isQuestion, validState, parseBackup } from "./schema";
+import { isQuestion, validState, parseBackup, object } from "./schema";
 import { migrateState } from "../core/migrations";
 import {
   cloudEnabled,
@@ -84,6 +84,30 @@ const requireActor = () => {
   if (!actor) throw new Error("Your session expired. Please sign in again.");
   return actor;
 };
+function repairCloudAccountNames(value: unknown): AppState | undefined {
+  if (!object(value) || value.version !== 3 || !Array.isArray(value.users))
+    return;
+  const seen = new Set<string>();
+  const users = [...value.users]
+    .reverse()
+    .map((cached) => {
+      if (
+        !object(cached) ||
+        typeof cached.id !== "string" ||
+        typeof cached.username !== "string"
+      )
+        return cached;
+      const email = cached.username.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return cached;
+      if (seen.has(email))
+        return { ...cached, username: `csl:retired:${cached.id}` };
+      seen.add(email);
+      return cached;
+    })
+    .reverse();
+  const repaired = { ...value, users };
+  return validState(repaired) ? repaired : undefined;
+}
 export async function initStore() {
   const existing = await adapter.get<unknown>(KEY);
   if (!validState(existing)) {
@@ -92,6 +116,13 @@ export async function initStore() {
     await adapter.transaction([KEY], (tx) => {
       const previous = tx.get<unknown>(KEY);
       if (validState(previous)) return;
+      const repaired = cloudEnabled
+        ? repairCloudAccountNames(previous)
+        : undefined;
+      if (repaired) {
+        tx.set(KEY, { ...repaired, rev: repaired.rev + 1 });
+        return;
+      }
       const migrated = migrateState(previous);
       if (validState(migrated)) {
         tx.set(KEY, { ...migrated, rev: migrated.rev + 1 });
@@ -146,15 +177,20 @@ export async function initStore() {
   }, 60000);
 }
 async function createSession(userId: string) {
+  const checkIdentity = () => {
+    if (cloudEnabled && userId !== "guest" && cloudUserId() !== userId)
+      throw new Error("Your account session changed. Please sign in again.");
+  };
+  checkIdentity();
   const previousToken = sessionToken();
   const record: Session = {
     token: crypto.randomUUID(),
     userId,
     expires: Date.now() + 8 * 60 * 60 * 1000,
   };
-  await adapter.transaction([KEY], (tx) => {
+  const next = await adapter.transaction([KEY], (tx) => {
     const s = tx.get<AppState>(KEY)!;
-    tx.set(KEY, {
+    const result = {
       ...s,
       rev: s.rev + 1,
       sessions: [
@@ -166,15 +202,30 @@ async function createSession(userId: string) {
       users: s.users.map((u) =>
         u.id === userId ? { ...u, lastSeen: Date.now() } : u,
       ),
-    });
+    };
+    if (!validState(result))
+      throw new Error(
+        "Your saved profile could not be opened safely. Refresh the page and try again.",
+      );
+    tx.set(KEY, result);
+    return result;
   });
+  checkIdentity();
+  if (next.rev >= state.rev) state = next;
   sessionStorage.setItem(
     "csl:session",
     JSON.stringify({ token: record.token }),
   );
+  if (currentUser()?.id !== userId) {
+    sessionStorage.removeItem("csl:session");
+    throw new Error(
+      "Your account session could not be opened. Please sign in again.",
+    );
+  }
   listeners.forEach((fn) => fn());
 }
 async function enterCloud(profile: CloudProfile) {
+  const email = profile.email.trim().toLowerCase();
   await adapter.transaction([KEY], (tx) => {
     const s = tx.get<AppState>(KEY)!;
     const previous = s.users.find((u) => u.id === profile.user_id);
@@ -186,7 +237,7 @@ async function enterCloud(profile: CloudProfile) {
           profile.display_name,
           Date.now(),
         )),
-      username: profile.email,
+      username: email,
       name: profile.display_name,
       grade: profile.grade,
       section: profile.section,
@@ -194,13 +245,29 @@ async function enterCloud(profile: CloudProfile) {
       salt: "",
       hash: "",
     };
-    tx.set(KEY, {
+    const next = {
       ...s,
       rev: s.rev + 1,
-      users: [...s.users.filter((u) => u.id !== user.id), user],
-    });
+      users: [
+        ...s.users
+          .filter((u) => u.id !== user.id)
+          .map((cached) =>
+            cached.username.trim().toLowerCase() === email
+              ? { ...cached, username: `csl:retired:${cached.id}` }
+              : cached,
+          ),
+        user,
+      ],
+    };
+    if (!validState(next))
+      throw new Error(
+        "Your saved profile could not be opened safely. Refresh the page and try again.",
+      );
+    tx.set(KEY, next);
   });
-  await (hasPlatform() ? refreshLab(true).catch(() => undefined) : Promise.resolve());
+  await (hasPlatform()
+    ? refreshLab(true).catch(() => undefined)
+    : Promise.resolve());
   await createSession(profile.user_id);
   void hydratePhoto(profile.user_id, profile).catch(() => undefined);
   await recoverCloudRuns(state.runs);
