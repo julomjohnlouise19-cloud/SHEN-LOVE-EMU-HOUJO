@@ -15,6 +15,8 @@ Run 42967941133 passed live readiness, code/content and PostgreSQL checks but fa
 
 Run 42968730983 stopped in the isolated PostgreSQL check before reaching browsers. The same complete database suite passed locally. Inspection of the official image's entrypoint confirmed a temporary Unix-socket-only server before its final restart; change the test probe to loopback TCP so it cannot mistake initialization for readiness. The updated complete PostgreSQL suite, lint and typecheck passed locally. Database exceptions are now annotated before being rethrown, preserving the failing exit and container cleanup. No classroom SQL or records were changed.
 
+Run 42969490317 passed database verification and 34 standard browser scenarios. The new annotations isolated the remaining failure to the new touch test reading the previous question's heading during the next-screen transition. Wait for the actual question number and answer controls before reading its prompt; likewise wait for the requested teacher page's breadcrumb before its loading indicator. The complete focused eight-answer touch lesson and loaded teacher-layout audit both passed after these synchronization fixes. No scenario, assertion or timeout was removed or relaxed.
+
 ## Scope and architecture
 Build a complete local-first, mobile-friendly science learning game with Vite and strict TypeScript, no UI framework. The supplied brief ends at §4.8; references to §§5–16 and Appendix A are absent. Decisions below replace only absent specifications, not supplied requirements. No design reference images were supplied.
 

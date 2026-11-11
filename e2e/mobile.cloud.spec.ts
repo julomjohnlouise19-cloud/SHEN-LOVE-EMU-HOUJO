@@ -205,7 +205,6 @@ test("every teacher section fits phone, tablet and landscape with long classroom
       const path = section === "overview" ? "/teacher" : `/teacher/${section}`;
       await page.goto(`#${path}`);
       await expect(page.locator("main h1")).toBeVisible();
-      await expect(page.locator(".teacher-loading")).toHaveCount(0);
       // The location breadcrumb must match before measuring an asynchronous page.
       await expect(page.locator(".page-navigation")).toContainText(
         section === "overview"
@@ -224,6 +223,7 @@ test("every teacher section fits phone, tablet and landscape with long classroom
               } as Record<string, string>
             )[section],
       );
+      await expect(page.locator(".teacher-loading")).toHaveCount(0);
       await fit(page);
       const edit = (
         {

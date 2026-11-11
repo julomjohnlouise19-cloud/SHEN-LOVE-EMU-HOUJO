@@ -158,7 +158,12 @@ test("an eight-card discovery works with touch controls and retains its result",
   await page.getByRole("button", { name: "Open Cells", exact: true }).tap();
   await page.getByRole("button", { name: "Let’s make a discovery" }).tap();
   for (let index = 0; index < 8; index++) {
-    await expect(page.locator(".question-card > h2")).toBeVisible();
+    await expect(page.locator(".play-counter strong")).toHaveText(
+      String(index + 1),
+    );
+    await expect(
+      page.getByRole("button", { name: "Check my answer", exact: true }),
+    ).toBeVisible();
     const prompt = await page.locator(".question-card > h2").innerText();
     const question = (cells as Question[]).find((q) => q.prompt === prompt)!;
     expect(question).toBeTruthy();
