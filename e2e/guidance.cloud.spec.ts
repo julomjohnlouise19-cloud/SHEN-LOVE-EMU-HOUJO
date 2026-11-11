@@ -133,6 +133,11 @@ test("missing inbox upgrade keeps drafts honest and recoverable", async ({
   await page
     .getByRole("button", { name: "Save draft on this device", exact: true })
     .click();
+  await expect(
+    page.getByText("Draft saved on this device. It has not been sent.", {
+      exact: true,
+    }),
+  ).toBeVisible();
   await page.reload();
   await expect(
     page.getByLabel("Suggestion title", { exact: true }),

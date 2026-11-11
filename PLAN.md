@@ -17,6 +17,8 @@ Run 42968730983 stopped in the isolated PostgreSQL check before reaching browser
 
 Run 42969490317 passed database verification and 34 standard browser scenarios. The new annotations isolated the remaining failure to the new touch test reading the previous question's heading during the next-screen transition. Wait for the actual question number and answer controls before reading its prompt; likewise wait for the requested teacher page's breadcrumb before its loading indicator. The complete focused eight-answer touch lesson and loaded teacher-layout audit both passed after these synchronization fixes. No scenario, assertion or timeout was removed or relaxed.
 
+Run 42970483750 passed all 35 standard and 40 of 41 cloud scenarios. Its remaining existing draft-recovery test reloaded immediately after clicking an asynchronous save, before the storage transaction confirmed completion. Wait for the existing “Draft saved on this device” confirmation before testing reload recovery. That focused scenario, lint and typecheck passed with the confirmation wait; the same saved-value and eventual classroom-delivery assertions remain required.
+
 ## Scope and architecture
 Build a complete local-first, mobile-friendly science learning game with Vite and strict TypeScript, no UI framework. The supplied brief ends at §4.8; references to §§5–16 and Appendix A are absent. Decisions below replace only absent specifications, not supplied requirements. No design reference images were supplied.
 
