@@ -4,7 +4,7 @@ A local-first science learning game for Philippine Grade 7–10 students. Vite +
 
 ## Open the website on GitHub Pages
 
-Play at **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website. School branding, topic search, saved-session resume, welcome/logout and desktop/mobile layouts were verified on the live site; see [the latest successful workflow run](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42961444956).
+Play at **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website. School branding, topic search, saved-session resume, welcome/logout and desktop/mobile layouts were verified on the live site; see [the latest successful workflow run](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42971638100).
 
 One-time repository setup (already enabled for this repository):
 
@@ -19,7 +19,7 @@ Creating the Pages site is an account-owner setup step. The connected integratio
 
 The workflow tests both the normal URL and the repository path before publishing. `VITE_BASE_PATH=/SHEN-LOVE-EMU-HOUJO/ npm run build` builds the Pages version, including matching offline cache paths. A different repository name needs its corresponding path. GitHub hosting alone does not synchronize accounts or progress. Optional Supabase cloud mode is described below.
 
-The guide, science reading sources, visible return controls, teacher shop save repair and private suggestion inbox are live. [Run 42961444956](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42961444956) passed all code, database, 70 browser scenarios and deployment checks; its live readiness notices verified **schema 1, platform 3, all 972 questions and suggestion inbox version 1**. No further SQL setup is needed on this project's backend. Daily spin, quizzes, profiles, photos, notebooks, wallets, stock and teacher tools remain; the shooting arcade stays retired. Refresh with **Ctrl+Shift+R** and sign in normally. Email sender configuration and quotas remain owner settings; real email delivery and personal account credentials were not exercised during this update.
+The mobile menu, readable account forms, compact dialogs and labelled teacher/record cards are live, alongside the guide, science references, prominent returns, teacher shop save repair and private suggestion inbox. [Run 42971638100](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42971638100) passed 62 unit tests, all code/content/database checks, 77 browser scenarios and Pages publication. Its live readiness notices verified **schema 1, platform 3, all 972 questions and suggestion inbox version 1**. No further SQL setup is needed. Daily spin, quizzes, profiles, photos, notebooks, wallets, stock and teacher tools remain; the shooting arcade stays retired. Reload the website on your phone, or use **Ctrl+Shift+R** on a computer, and sign in normally. Email sender configuration and quotas remain owner settings; real email delivery and personal account credentials were not exercised during this update.
 
 ## Friendly guide, reading sources and suggestions
 
