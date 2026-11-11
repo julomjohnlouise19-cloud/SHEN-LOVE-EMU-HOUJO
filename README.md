@@ -4,7 +4,7 @@ A local-first science learning game for Philippine Grade 7–10 students. Vite +
 
 ## Open the website on GitHub Pages
 
-Play at **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website. School branding, topic search, saved-session resume, welcome/logout and desktop/mobile layouts were verified on the live site; see [the successful workflow run](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42543853391).
+Play at **https://julomjohnlouise19-cloud.github.io/SHEN-LOVE-EMU-HOUJO/**. The GitHub repository stores the source code; GitHub Pages serves the built website. School branding, topic search, saved-session resume, welcome/logout and desktop/mobile layouts were verified on the live site; see [the latest successful workflow run](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42961444956).
 
 One-time repository setup (already enabled for this repository):
 
@@ -19,7 +19,7 @@ Creating the Pages site is an account-owner setup step. The connected integratio
 
 The workflow tests both the normal URL and the repository path before publishing. `VITE_BASE_PATH=/SHEN-LOVE-EMU-HOUJO/ npm run build` builds the Pages version, including matching offline cache paths. A different repository name needs its corresponding path. GitHub hosting alone does not synchronize accounts or progress. Optional Supabase cloud mode is described below.
 
-The login repair, learning dashboard and improved daily wheel are live. [Run 42937525420](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42937525420) passed all code, database, browser and deployment checks; its readiness notice verified the actual backend at **schema 1, platform 3, all 972 questions**. The shooting arcade is retired. Daily spin, quizzes, profiles, photos, notebooks, wallets, stock and teacher tools remain, including quiz archive/health and delegated teaching roles. Refresh the website with **Ctrl+Shift+R** and sign in normally; no new SQL is required. The [Studio guide](docs/STUDIO_UPGRADE.md) remains available for other existing projects. Email sender configuration and quotas remain owner settings and are separate from database readiness; real email delivery was not tested during this update.
+The guide, science reading sources, visible return controls, teacher shop save repair and private suggestion inbox are live. [Run 42961444956](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42961444956) passed all code, database, 70 browser scenarios and deployment checks; its live readiness notices verified **schema 1, platform 3, all 972 questions and suggestion inbox version 1**. No further SQL setup is needed on this project's backend. Daily spin, quizzes, profiles, photos, notebooks, wallets, stock and teacher tools remain; the shooting arcade stays retired. Refresh with **Ctrl+Shift+R** and sign in normally. Email sender configuration and quotas remain owner settings; real email delivery and personal account credentials were not exercised during this update.
 
 ## Friendly guide, reading sources and suggestions
 
@@ -29,7 +29,7 @@ Every deck and answered card offers **Sources & further reading**. The **Science
 
 **Suggestion box** lets a signed-in student send an idea, question or problem, optionally tied to a deck/card. Teachers use **Suggestion inbox** to review, change progress and reply privately. Authors can see their own history and replies; other students cannot. The inbox has a five-message daily limit, retry protection, paging and audited teacher replies. Drafts stay on the device and are never labelled delivered. The local demo inbox is shared only with its demo teacher on that browser.
 
-**One-time activation for an existing cloud project:** Supabase → SQL Editor → New snippet → paste the complete [suggestions-upgrade.sql](supabase/suggestions-upgrade.sql) → **Run** → refresh Suggestion box. The script adds its own tables/RPCs without resetting accounts, quizzes, wallets or stock. Until activated, the new UI preserves drafts and explains that classroom delivery is unavailable. New `setup.sql` includes the inbox. No secret key belongs in the website.
+**This project's inbox is already activated**, as verified by the deployment's live capability check. For other existing cloud projects: Supabase → SQL Editor → New snippet → paste the complete [suggestions-upgrade.sql](supabase/suggestions-upgrade.sql) → **Run** → refresh Suggestion box. The script adds its own tables/RPCs without resetting accounts, quizzes, wallets or stock. Until activated, the new UI preserves drafts and explains that classroom delivery is unavailable. New `setup.sql` includes the inbox. No secret key belongs in the website.
 
 Teacher shop saves now include the category required by the database, so stock and visibility choices can actually apply. Changes require **Save changes**; checking a box alone is a pending choice. A saved server edit stays successful if refreshing secondary totals fails, and the interface explains when a refresh is needed. Existing reservations, roles, stock concurrency protections and the retained daily wheel remain intact.
 
