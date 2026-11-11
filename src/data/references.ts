@@ -3,6 +3,7 @@ export interface ScienceReference {
   publisher: string;
   url: string;
   focus: string;
+  format?: "PDF";
 }
 const biology: ScienceReference = {
   title: "Biology 2e",
@@ -65,9 +66,10 @@ const statistics: ScienceReference = {
   focus: "Reading tables, representing data and interpreting evidence.",
 };
 const curriculum: ScienceReference = {
-  title: "K to 12 Basic Education Curriculum",
+  title: "K to 12 Science Curriculum Guide",
   publisher: "Philippine Department of Education",
-  url: "https://www.deped.gov.ph/k-to-12/about/k-to-12-basic-education-curriculum/",
+  url: "https://www.deped.gov.ph/wp-content/uploads/2019/01/Science-CG_with-tagged-sci-equipment_revised.pdf",
+  format: "PDF",
   focus:
     "Curriculum context for the Grade 7–10 science areas; no official competency codes are claimed.",
 };
@@ -101,4 +103,7 @@ export function referencesFor(deckId: string): ScienceReference[] {
       nasa,
     curriculum,
   ];
+}
+export function referenceCitation(ref: ScienceReference) {
+  return `${ref.publisher}. ${ref.title}. ${ref.url}`;
 }

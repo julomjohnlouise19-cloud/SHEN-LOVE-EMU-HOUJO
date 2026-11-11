@@ -161,6 +161,98 @@
 .reading-room > p {
   line-height: 1.8;
 }
+.reference-heading,
+.reference-actions,
+.reading-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.reference-heading {
+  justify-content: space-between;
+}
+.reference-format {
+  border-radius: 8px;
+  background: var(--lab-soft);
+  color: var(--lab-brand-deep);
+  padding: 5px 9px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.reference-domain {
+  overflow-wrap: anywhere;
+  color: var(--lab-muted);
+}
+.reference-actions .button {
+  min-height: 44px;
+  justify-content: center;
+  white-space: normal;
+  text-decoration: none;
+}
+.local-reading {
+  border: 1px solid var(--lab-line);
+  border-radius: 15px;
+  padding: 16px;
+  margin: 20px 0;
+  background: var(--lab-soft);
+}
+.local-reading summary {
+  min-height: 44px;
+  padding: 10px 0;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--lab-brand-deep);
+}
+.local-reading p,
+.local-reading li {
+  font-size: 13px;
+  line-height: 1.85;
+}
+.topic-reading-notes {
+  padding-left: 20px;
+}
+.topic-reading-notes li {
+  margin: 16px 0;
+}
+.publisher-heading {
+  font-size: 22px;
+}
+.reading-filters {
+  padding: 16px;
+  border: 1px solid var(--lab-line);
+  border-radius: 15px;
+  background: var(--lab-surface);
+}
+.reading-filters .field {
+  flex: 1 1 220px;
+  margin: 0;
+}
+.reading-filters input,
+.reading-filters select {
+  width: 100%;
+}
+.reading-filters .button {
+  align-self: end;
+}
+.reading-count {
+  font-size: 13px;
+  color: var(--lab-muted);
+}
+.reading-empty {
+  grid-column: 1/-1;
+  padding: 24px;
+  border: 1px dashed var(--lab-line);
+  border-radius: 15px;
+}
+@media (max-width: 650px) {
+  .reference-actions .button,
+  .reading-filters .button {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
 .suggestion-hero {
   display: flex;
   gap: 24px;

@@ -222,8 +222,7 @@ test("deck sources give honest provenance and safe external reading links", asyn
   await expect(dialog).toContainText("not presented as quotations");
   await expect(
     dialog.getByRole("link", {
-      name: "Open supporting reference ↗",
-      exact: true,
+      name: /^Open .+ from /,
     }),
   ).toHaveCount(2);
   expect(await dialog.locator("a").first().getAttribute("href")).toContain(

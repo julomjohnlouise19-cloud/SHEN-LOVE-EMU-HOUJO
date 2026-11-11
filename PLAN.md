@@ -1,5 +1,14 @@
 # The Cozy Science Lab — build plan
 
+## Reliable, readable science sources
+
+- [x] Replace the generic DepEd destination with a science-specific reference and make publisher links explicit.
+- [x] Provide useful local reading for every deck, clear copy/open controls and mobile-friendly source search/empty states.
+- [x] Verify sources, reading, navigation, offline behavior and existing gates.
+- [ ] Publish and verify the live source update.
+
+The restored workspace retained the source repair and completed logs: lint/typecheck, 62 unit tests, all 972 reviewed questions, SQL consistency, economy checks and 80 browser scenarios passed (38 standard, 41 cloud and one repository-path). New source scenarios read all 27 decks, reload notes offline, filter/reset with accessible empty states, exercise denied-clipboard selection and verify same-tab document navigation. Live external publication checks remain separate from the workspace's DepEd proxy denial.
+
 ## Stable mobile experience
 
 - [x] Audit student and teacher pages, account dialogs and learning controls at 320/390-pixel portrait, tablet and short landscape sizes.

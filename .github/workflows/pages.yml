@@ -42,6 +42,8 @@ jobs:
           npm run backend:sql -- --check
       - name: Test database permissions and grading
         run: npm run backend:test
+      - name: Check public science reading links
+        run: npm run sources:check -- --online
       - name: Install test browser
         run: npx playwright install --with-deps chromium
       - name: Select the installed Chromium
