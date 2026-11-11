@@ -1,0 +1,324 @@
+.page-navigation {
+  position: sticky;
+  top: 80px;
+  z-index: 12;
+  padding: 12px;
+  border: 1px solid var(--lab-line);
+  border-radius: 16px;
+  background: var(--lab-surface);
+  box-shadow: 0 5px 18px #293b3510;
+  flex-wrap: wrap;
+}
+.page-navigation .return-link,
+.dialog-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 12px 18px;
+  border: 2px solid var(--lab-brand-deep);
+  border-radius: 12px;
+  color: var(--lab-brand-deep);
+  background: var(--lab-soft);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.return-link:focus-visible,
+.dialog-back:focus-visible {
+  outline: 3px solid var(--lab-brand-deep);
+  outline-offset: 4px;
+}
+.teacher-edit-actions {
+  position: sticky;
+  bottom: -1px;
+  z-index: 3;
+  flex-wrap: wrap;
+  padding: 14px 0 5px;
+  background: var(--lab-surface);
+  border-top: 1px solid var(--lab-line);
+}
+.teacher-edit-actions .form-error:not(:empty) {
+  flex-basis: 100%;
+}
+.teacher-check {
+  min-height: 50px;
+  padding: 13px;
+  border: 1px solid var(--lab-line);
+  border-radius: 12px;
+  background: var(--lab-bg);
+  cursor: pointer;
+}
+.teacher-check:has(input:checked) {
+  background: var(--lab-soft);
+  border-color: var(--lab-brand);
+}
+.teacher-check input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--lab-brand);
+  flex-shrink: 0;
+}
+.guide-host:empty {
+  display: none;
+}
+.welcome-guide {
+  display: flex;
+  gap: 23px;
+  align-items: center;
+  margin: 20px 0 28px;
+  padding: 25px;
+  border: 1px solid var(--lab-line);
+  border-radius: 22px;
+  background: linear-gradient(125deg, var(--lab-soft), var(--lab-surface));
+  box-shadow: 5px 6px 0 color-mix(in srgb, var(--lab-brand) 8%, transparent);
+}
+.welcome-guide > .mascot {
+  width: 96px;
+  height: 105px;
+  flex-shrink: 0;
+}
+.guide-copy {
+  min-width: 0;
+  flex: 1;
+}
+.welcome-guide h2 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 25px;
+  margin: 8px 0;
+}
+.guide-description {
+  font-size: 13px;
+  line-height: 1.85;
+  max-width: 800px;
+}
+.guide-actions,
+.suggestion-actions,
+.suggestion-toolbar,
+.suggestion-pagination,
+.suggestion-note-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.guide-actions {
+  margin-top: 16px;
+}
+.guide-actions .button,
+.guide-actions .text-button {
+  font-size: 11px;
+}
+.science-sources > p {
+  font-size: 13px;
+  line-height: 1.85;
+}
+.reference-card,
+.suggestion-note {
+  padding: 23px;
+  border: 1px solid var(--lab-line);
+  border-radius: 17px;
+  background: var(--lab-surface);
+}
+.reference-card {
+  margin: 14px 0;
+}
+.reference-card h4 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 21px;
+  margin: 8px 0;
+}
+.reference-card p,
+.reference-card small {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.reference-card a {
+  color: var(--lab-brand-deep);
+  font-weight: 700;
+  font-size: 12px;
+  text-underline-offset: 4px;
+}
+.source-identity {
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: var(--lab-soft);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.source-button {
+  margin: 10px 0;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.reading-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.reading-room > p {
+  line-height: 1.8;
+}
+.suggestion-hero {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 28px;
+  background: linear-gradient(115deg, var(--lab-lilac), var(--lab-surface));
+  border: 1px solid var(--lab-line);
+  border-radius: 22px;
+  margin-bottom: 20px;
+}
+.suggestion-hero > .mascot {
+  width: 105px;
+  height: 110px;
+  flex-shrink: 0;
+}
+.suggestion-hero h1 {
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(27px, 3.5vw, 39px);
+  margin: 10px 0;
+}
+.suggestion-hero p {
+  line-height: 1.8;
+  font-size: 13px;
+}
+.suggestion-form {
+  padding: clamp(18px, 3vw, 30px);
+  margin: 24px 0;
+  border: 1px solid var(--lab-line);
+}
+.suggestion-form h2 {
+  font-family: "Fredoka", sans-serif;
+}
+.suggestion-form textarea,
+.suggestions-page select {
+  max-width: 100%;
+}
+.suggestion-count {
+  display: block;
+  margin: 8px 0 18px;
+  font-size: 11px;
+}
+.suggestion-service:empty {
+  display: none;
+}
+.suggestion-service:not(:empty) {
+  background: var(--lab-yellow);
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.suggestion-toolbar {
+  margin: 28px 0 20px;
+  justify-content: space-between;
+}
+.suggestion-toolbar h2 {
+  font-size: 23px;
+  font-family: "Fredoka", sans-serif;
+}
+.suggestion-history {
+  display: grid;
+  gap: 17px;
+}
+.suggestion-note {
+  box-shadow: 4px 5px 0 var(--lab-soft);
+}
+.suggestion-note-head {
+  justify-content: space-between;
+  font-size: 11px;
+}
+.suggestion-note h3 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 23px;
+  margin: 16px 0 10px;
+  overflow-wrap: anywhere;
+}
+.suggestion-message,
+.teacher-reply p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.suggestion-tag {
+  padding: 8px 12px;
+  border-radius: 30px;
+  background: var(--lab-yellow);
+  font-weight: 700;
+}
+.suggestion-tag.reviewing {
+  background: var(--lab-lilac);
+}
+.suggestion-tag.done {
+  background: var(--lab-soft);
+}
+.teacher-reply {
+  background: var(--lab-soft);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0;
+}
+.teacher-reply strong {
+  font-size: 12px;
+}
+.suggestion-pagination {
+  justify-content: space-between;
+  margin: 18px 0;
+  font-size: 12px;
+}
+.suggestion-empty {
+  text-align: center;
+  padding: 30px;
+}
+.suggestion-empty .mascot {
+  width: 90px;
+  height: 95px;
+}
+@media (max-width: 700px) {
+  .page-navigation {
+    top: 64px;
+    gap: 10px;
+    padding: 10px;
+  }
+  .page-navigation .return-link {
+    width: 100%;
+  }
+  .breadcrumbs {
+    flex-wrap: wrap;
+  }
+  .welcome-guide,
+  .suggestion-hero {
+    padding: 19px;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  .welcome-guide > .mascot {
+    display: none;
+  }
+  .suggestion-hero > .mascot {
+    width: 55px;
+    height: 65px;
+  }
+  .reading-grid {
+    grid-template-columns: 1fr;
+  }
+  .guide-actions .button {
+    flex: 1;
+  }
+  .guide-actions .text-button {
+    width: 100%;
+  }
+  .suggestion-toolbar select {
+    width: 100%;
+  }
+  .suggestion-form .button {
+    width: 100%;
+  }
+  .teacher-edit-actions .button {
+    width: 100%;
+  }
+}

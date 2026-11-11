@@ -5,6 +5,9 @@ import { icon } from "./svg";
 const titles: Record<string, string> = {
   "/": "My lab",
   "/island": "Science Island",
+  "/sources": "Science reading room",
+  "/suggestions": "Suggestion box",
+  "/teacher/suggestions": "Suggestion inbox",
   "/review": "Review Box",
   "/notebook": "My notebook",
   "/shop": "Supply shop",

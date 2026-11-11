@@ -12,6 +12,7 @@ import { authModal, profileModal, logoutModal } from "./auth";
 import { brandLink } from "./branding";
 import { connectionNotice } from "./connectivity";
 import { pageNavigation } from "./navigation";
+import { attachGuide, guideModal } from "./guide";
 let sidebarOpen = false;
 export function resetNavigation() {
   sidebarOpen = false;
@@ -20,6 +21,8 @@ const nav = [
   ["/", "home", "My lab"],
   ["/island", "island", "Science Island"],
   ["/review", "box", "Review Box"],
+  ["/sources", "notebook", "Science reading room"],
+  ["/suggestions", "heart", "Suggestion box"],
   ["/notebook", "notebook", "My notebook"],
   ["/shop", "shop", "Supply shop"],
   ["/spin", "spin", "Daily spin"],
@@ -29,6 +32,7 @@ const teacherNav = [
   ["/teacher", "home", "Studio overview"],
   ["/teacher/students", "sprout", "Scientists"],
   ["/teacher/reports", "notebook", "Class reports"],
+  ["/teacher/suggestions", "heart", "Suggestion inbox"],
   ["/teacher/health", "check", "Record care"],
   ["/teacher/shop", "shop", "Stock & pricing"],
   ["/teacher/claims", "box", "Claims desk"],
@@ -240,7 +244,7 @@ export function shell(page: HTMLElement, route: string) {
           teacherMode ? "Studio guide" : "How it works",
           h("span", { class: "question-mark" }, "?"),
         ),
-        teacherMode ? teacherHelpModal : helpModal,
+        guideModal,
         "text-button help-button",
       ),
       button(
@@ -293,10 +297,15 @@ export function shell(page: HTMLElement, route: string) {
       }),
     ),
   );
+  const guideHost = h("div", { class: "guide-host" });
+  setTimeout(() => {
+    void attachGuide(guideHost);
+  }, 0);
   const main = h(
     "main",
     { id: "main", class: "main", tabIndex: -1 },
     pageNavigation(route),
+    guideHost,
     page,
   );
   return h(
@@ -474,7 +483,7 @@ export function levelCard() {
   );
 }
 
-function teacherHelpModal() {
+export function teacherHelpModal() {
   modal("A calm place to care for your class", [
     h(
       "ol",

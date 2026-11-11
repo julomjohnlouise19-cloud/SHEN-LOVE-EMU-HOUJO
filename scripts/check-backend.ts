@@ -49,6 +49,14 @@ try {
       console.log(
         `::notice title=Verified classroom backend::Schema 1, platform ${installedPlatform}, 972 questions. ${installedPlatform >= 3 ? "Advanced Teacher Studio is enabled." : "Login/design are ready. Run supabase/studio-upgrade.sql to enable advanced archive, record-health and teaching-role tools."}`,
       );
+    const inbox = await client.rpc("csl_suggestions_status");
+    const inboxReady = !inbox.error && inbox.data?.version === 1;
+    const inboxNotice = inboxReady
+      ? "Classroom suggestion inbox version 1 is installed."
+      : "Suggestion inbox not installed yet. Run supabase/suggestions-upgrade.sql to activate classroom delivery. Other features remain available.";
+    console.log(inboxNotice);
+    if (process.env.GITHUB_ACTIONS === "true")
+      console.log(`::notice title=Suggestion inbox activation::${inboxNotice}`);
     if (installedPlatform < 3)
       console.log(
         "The login and design update is compatible with this installed backend. Advanced archive, record-health and teaching-role tools activate after the owner runs supabase/studio-upgrade.sql. See docs/STUDIO_UPGRADE.md.",

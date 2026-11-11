@@ -1052,6 +1052,8 @@ export function teacherPage(section = "overview") {
               event.preventDefault();
               if (submit.disabled) return;
               submit.disabled = true;
+              submit.setAttribute("aria-busy", "true");
+              submit.textContent = "Saving your changes…";
               error.textContent = "";
               try {
                 await save();
@@ -1063,12 +1065,13 @@ export function teacherPage(section = "overview") {
                   value instanceof Error ? value.message : "Please try again.";
               } finally {
                 submit.disabled = false;
+                submit.removeAttribute("aria-busy");
+                submit.textContent = "Save changes";
               }
             },
           },
           ...children,
-          error,
-          h("div", { class: "teacher-edit-actions" }, submit),
+          h("div", { class: "teacher-edit-actions" }, error, submit),
         ),
       ],
       true,
@@ -1242,7 +1245,7 @@ export function teacherPage(section = "overview") {
         h(
           "p",
           { class: "fine-print" },
-          "Archiving hides an item while preserving its reservations and history.",
+          "Save changes applies your choices. A listed item with zero stock cannot be reserved. Hiding an item preserves its reservations and history.",
         ),
       ],
       () =>
@@ -1252,6 +1255,7 @@ export function teacherPage(section = "overview") {
             id: itemId,
             name: name.value,
             description: description.value,
+            category: category.value,
             price: Number(price.value),
             stock: Number(stock.value),
             icon: illustration.value,

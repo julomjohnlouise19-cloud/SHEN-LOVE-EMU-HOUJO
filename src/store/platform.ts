@@ -83,6 +83,14 @@ export async function reserveItem(item: LabItem, requestId: string) {
   await refreshLab(true);
   return result;
 }
+async function refreshSavedEdit() {
+  try {
+    await refreshLab(true);
+  } catch {
+    loadedAt = 0;
+    window.dispatchEvent(new Event("csl:teacher-refresh-needed"));
+  }
+}
 export async function teacherCommand(
   action: string,
   body: unknown,
@@ -92,7 +100,7 @@ export async function teacherCommand(
     "csl_teacher_command",
     { p_request_id: requestId, p_action: action, p_body: body },
   );
-  await refreshLab(true);
+  await refreshSavedEdit();
   return result;
 }
 export const studioData = (
@@ -115,7 +123,7 @@ export async function studioCommand(
     p_action: action,
     p_body: body,
   });
-  await refreshLab(true);
+  await refreshSavedEdit();
   return result;
 }
 export const teacherData = (

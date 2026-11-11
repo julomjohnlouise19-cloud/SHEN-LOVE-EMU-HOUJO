@@ -64,11 +64,13 @@ if (!creditedQuiz.includes("from csl_private.question_versions"))
   );
 const seed = `with bank as (select value from jsonb_array_elements($csl_bank$${data}$csl_bank$::jsonb)), seeded as (insert into csl_private.questions(id,question) select value->>'id',value from bank on conflict(id) do update set question=coalesce((select question from public.csl_question_overrides where question_id=excluded.id),excluded.question) returning id) insert into csl_private.question_versions(question_id,revision,question) select value->>'id',0,value from bank, (select count(*) from seeded) s on conflict do nothing;`;
 const studio = await readFile("supabase/studio.sql", "utf8");
-const upgrade = `-- The Cozy Science Lab: existing-project upgrade. Keeps accounts, quiz records, teacher edits and stock.\nbegin;\n${platform}\n${await readFile("supabase/arcade.sql", "utf8")}\n${await readFile("supabase/teacher.sql", "utf8")}\n${creditedQuiz}\n${seed}\n${studio}\ncommit;\n`;
+const suggestions = await readFile("supabase/suggestions.sql", "utf8");
+const upgrade = `-- The Cozy Science Lab: existing-project upgrade. Keeps accounts, quiz records, teacher edits and stock.\nbegin;\n${platform}\n${await readFile("supabase/arcade.sql", "utf8")}\n${await readFile("supabase/teacher.sql", "utf8")}\n${creditedQuiz}\n${seed}\n${studio}\n${suggestions}\ncommit;\n`;
 const outputs = {
+  "supabase/suggestions-upgrade.sql": `-- Existing classroom project: run this entire additive script. Preserves all existing records.\nbegin;\n${suggestions}\ncommit;\n`,
   "supabase/setup.sql": `${schema}\n${upgrade}`,
   "supabase/upgrade.sql": upgrade,
-  "supabase/studio-upgrade.sql": `-- Existing platform-2 project: copy this entire file into SQL Editor and Run.\n-- Preserves accounts, answers, scores, credits, stock and teacher edits.\nbegin;\ndo $$ begin if to_regclass('public.csl_arcade_sessions') is null then raise exception 'Install the complete setup.sql first.'; end if; end $$;\n${studio}\ncommit;\n`,
+  "supabase/studio-upgrade.sql": `-- Existing platform-2 project: copy this entire file into SQL Editor and Run.\n-- Preserves accounts, answers, scores, credits, stock and teacher edits.\nbegin;\ndo $$ begin if to_regclass('public.csl_arcade_sessions') is null then raise exception 'Install the complete setup.sql first.'; end if; end $$;\n${studio}\n${suggestions}\ncommit;\n`,
 };
 if (process.argv.includes("--check")) {
   for (const [path, sql] of Object.entries(outputs))

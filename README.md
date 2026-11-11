@@ -21,6 +21,18 @@ The workflow tests both the normal URL and the repository path before publishing
 
 The login repair, learning dashboard and improved daily wheel are live. [Run 42937525420](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/42937525420) passed all code, database, browser and deployment checks; its readiness notice verified the actual backend at **schema 1, platform 3, all 972 questions**. The shooting arcade is retired. Daily spin, quizzes, profiles, photos, notebooks, wallets, stock and teacher tools remain, including quiz archive/health and delegated teaching roles. Refresh the website with **Ctrl+Shift+R** and sign in normally; no new SQL is required. The [Studio guide](docs/STUDIO_UPGRADE.md) remains available for other existing projects. Email sender configuration and quotas remain owner settings and are separate from database readiness; real email delivery was not tested during this update.
 
+## Friendly guide, reading sources and suggestions
+
+Accounts receive a skippable guide with student or teacher steps after login. It never blocks a deep-linked lesson and can be reopened from **How it works / Studio guide**. The guide remembers its completion for that account, role and browser. Large sticky **Back to …** controls name the return destination; dialog return and teacher Save/error controls remain visible.
+
+Every deck and answered card offers **Sources & further reading**. The **Science reading room** links curriculum context and relevant OpenStax, NASA, USGS, DOST–PAGASA, DOST–PHIVOLCS and BIPM resources. Questions are lab-authored practice, not quotations from those publishers. Constructed calculation/table data and teacher revisions are identified. External references require connectivity; saved citation notes stay available offline. The official OpenStax Biology 2e collection was checked through its publisher repository; external reference pages were not all fetched in this restricted environment.
+
+**Suggestion box** lets a signed-in student send an idea, question or problem, optionally tied to a deck/card. Teachers use **Suggestion inbox** to review, change progress and reply privately. Authors can see their own history and replies; other students cannot. The inbox has a five-message daily limit, retry protection, paging and audited teacher replies. Drafts stay on the device and are never labelled delivered. The local demo inbox is shared only with its demo teacher on that browser.
+
+**One-time activation for an existing cloud project:** Supabase → SQL Editor → New snippet → paste the complete [suggestions-upgrade.sql](supabase/suggestions-upgrade.sql) → **Run** → refresh Suggestion box. The script adds its own tables/RPCs without resetting accounts, quizzes, wallets or stock. Until activated, the new UI preserves drafts and explains that classroom delivery is unavailable. New `setup.sql` includes the inbox. No secret key belongs in the website.
+
+Teacher shop saves now include the category required by the database, so stock and visibility choices can actually apply. Changes require **Save changes**; checking a box alone is a pending choice. A saved server edit stays successful if refreshing secondary totals fails, and the interface explains when a refresh is needed. Existing reservations, roles, stock concurrency protections and the retained daily wheel remain intact.
+
 ## Sign-in, learning and the daily wheel
 
 The arcade/shooting game is retired from the website. The daily spinning wheel, local practice leaderboard, quizzes, profiles, notebook, rewards, shop and Teacher Studio remain. Old arcade links lead to science learning or class reports; historical database records and credit evidence are preserved. No SQL update is needed for this interface change.

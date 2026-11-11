@@ -8,6 +8,7 @@ import { h, button, modal, progress, toast, input, field } from "./dom";
 import { icon, mascot, diagram } from "./svg";
 import { act, go } from "./actions";
 import { pageHeading } from "./shell";
+import { sourceButton } from "./sources";
 const topicQueries = new Map<string, string>();
 
 function topicFinder() {
@@ -278,6 +279,7 @@ export function branchPage(id: string) {
               () => openDeck(d.id),
               "button subtle full",
             ),
+            sourceButton(d.id),
           ),
         );
       }),
@@ -376,6 +378,7 @@ export function openDeck(id: string, defaultLevel?: Difficulty) {
       "text-button full share-challenge",
     ),
     h("p", { class: "source-note" }, d.sourceNote),
+    sourceButton(d.id),
     h(
       "p",
       { class: "fine-print" },

@@ -6,6 +6,7 @@ import "./styles/main.css";
 import "./styles/refresh.css";
 import "./styles/studio.css";
 import "./styles/discovery.css";
+import "./styles/friendly.css";
 import { loadAppearance } from "./store/preferences";
 import {
   initStore,
@@ -124,6 +125,12 @@ async function render() {
     else if (path.startsWith("/branch/")) page = branchPage(path.split("/")[2]);
     else if (path.startsWith("/play/"))
       page = await playPage(path.split("/")[2]);
+    else if (path === "/sources")
+      page = (await import("./ui/sources")).sourcesPage();
+    else if (path === "/suggestions" || path === "/teacher/suggestions")
+      page = await (
+        await import("./ui/suggestions")
+      ).suggestionsPage(path.startsWith("/teacher"));
     else if (path === "/review") page = await reviewPage();
     else if (path === "/notebook") page = await notebookPage();
     else if (path === "/shop")
@@ -244,6 +251,11 @@ window.addEventListener("csl:appearance", (event) => {
   if (value.id === currentUser()?.id)
     document.documentElement.dataset.theme = value.theme;
 });
+window.addEventListener("csl:teacher-refresh-needed", () =>
+  toast(
+    "Your edit was saved. Refresh the view if classroom totals need updating.",
+  ),
+);
 window.addEventListener("csl:platform", () => {
   document
     .querySelectorAll<HTMLElement>("[data-class-credit]")

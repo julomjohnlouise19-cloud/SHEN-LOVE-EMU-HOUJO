@@ -47,6 +47,8 @@ interface Profile {
 }
 export interface Backend {
   available: boolean;
+  suggestionsReady: boolean;
+  suggestions: Record<string, unknown>[];
   platform: number;
   failUploads: boolean;
   uploads: number;
@@ -82,6 +84,8 @@ export const test = base.extend<{ backend: Backend }>({
     async ({ context }, use) => {
       const state: Backend = {
         available: true,
+        suggestionsReady: true,
+        suggestions: [],
         platform: 3,
         failUploads: false,
         uploads: 0,
@@ -352,9 +356,65 @@ export const test = base.extend<{ backend: Backend }>({
             ? respond({ version: 1, questions: 972, platform: state.platform })
             : respond({ message: "function not installed" }, 404);
         }
+        if (rpc === "csl_suggestions_status")
+          return state.suggestionsReady
+            ? respond({ version: 1 })
+            : respond({ message: "function not installed" }, 404);
         if (who < 0) return failed("Not signed in");
         const uid = users[who].id,
           profile = state.profiles[who];
+        if (rpc === "csl_send_suggestion") {
+          const id = String(body?.p_id),
+            old = state.suggestions.find((r) => r.id === id);
+          if (old)
+            return old.user_id === uid
+              ? respond(old)
+              : failed("Request already used");
+          const row = {
+            id,
+            user_id: uid,
+            display_name: profile.display_name,
+            category: body?.p_category,
+            title: body?.p_title,
+            message: body?.p_message,
+            deck_id: body?.p_deck,
+            question_id: body?.p_question,
+            status: "new",
+            reply: "",
+            version: 1,
+            created_at: new Date().toISOString(),
+          };
+          state.suggestions.unshift(row);
+          return respond(row);
+        }
+        if (rpc === "csl_suggestion_inbox") {
+          if (body?.p_teacher && !profile.is_teacher)
+            return failed("Teacher access required");
+          const rows = state.suggestions.filter(
+            (r) =>
+              (body?.p_teacher || r.user_id === uid) &&
+              (body?.p_status === "all" || r.status === body?.p_status),
+          );
+          const offset = Number(body?.p_offset) || 0;
+          return respond({
+            rows: rows.slice(offset, offset + 20),
+            total: rows.length,
+          });
+        }
+        if (rpc === "csl_reply_suggestion") {
+          if (!profile.is_teacher) return failed("Teacher access required");
+          const row = state.suggestions.find((r) => r.id === body?.p_id);
+          if (!row || row.version !== body?.p_version)
+            return failed(
+              "Another teacher updated this suggestion. Refresh before saving.",
+            );
+          Object.assign(row, {
+            status: body?.p_status,
+            reply: body?.p_reply,
+            version: Number(row.version) + 1,
+          });
+          return respond(row);
+        }
         if (rpc === "csl_preferences") {
           if (body?.p_theme)
             state.preferences[uid] = {
@@ -799,6 +859,12 @@ export const test = base.extend<{ backend: Backend }>({
           } else if (action === "credits")
             state.credits[String(value.user_id)] += Number(value.delta);
           else if (action === "item") {
+            if (
+              typeof value.category !== "string" ||
+              value.category.trim().length < 2 ||
+              typeof value.active !== "boolean"
+            )
+              return failed("Check the supply name, description and category.");
             const old = state.items.find((i) => i.id === value.id);
             expect(Number(value.version)).toBe(old?.version ?? 0);
             const next = {

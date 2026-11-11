@@ -10,6 +10,7 @@ import { empty } from "./shell";
 import { startDeck } from "./learn";
 let feedbackRun = "",
   feedbackIndex = -1;
+import { sourceButton } from "./sources";
 const hints = new Set<string>();
 const selectedAnswers = new Map<string, Answer>();
 export async function playPage(runId: string) {
@@ -418,6 +419,15 @@ export async function playPage(runId: string) {
                   )
                 : null,
               h("p", null, q.explanation),
+              sourceButton(q.deckId, q),
+              button(
+                "Suggest a card improvement",
+                () =>
+                  go(
+                    `/suggestions?deck=${encodeURIComponent(q.deckId)}&question=${encodeURIComponent(q.id)}`,
+                  ),
+                "text-button",
+              ),
               !result.correct
                 ? h(
                     "small",
