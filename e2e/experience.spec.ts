@@ -60,7 +60,10 @@ test("school identity renders at the left of welcome, mobile pages and dialogs",
     fullPage: true,
   });
   await page.setViewportSize({ width: 390, height: 844 });
-  const menu = page.getByRole("button", { name: "Toggle navigation" });
+  const menu = page.getByRole("button", {
+    name: "Toggle navigation",
+    includeHidden: true,
+  });
   await menu.click();
   await expect(menu).toHaveAttribute("aria-expanded", "true");
   await page.keyboard.press("Escape");

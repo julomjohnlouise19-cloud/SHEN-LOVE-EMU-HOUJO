@@ -14,8 +14,10 @@ import { connectionNotice } from "./connectivity";
 import { pageNavigation } from "./navigation";
 import { attachGuide, guideModal } from "./guide";
 let sidebarOpen = false;
+let releaseNavigation = () => {};
 export function resetNavigation() {
   sidebarOpen = false;
+  releaseNavigation();
 }
 const nav = [
   ["/", "home", "My lab"],
@@ -42,6 +44,8 @@ const teacherNav = [
   ["/", "arrow", "Return to my lab"],
 ];
 export function shell(page: HTMLElement, route: string) {
+  releaseNavigation();
+  const mobile = window.matchMedia("(max-width: 760px)");
   const user = currentUser(),
     s = getState();
   const today = dayKey({ now: () => Date.now() }, s.rules.timezone),
@@ -105,6 +109,7 @@ export function shell(page: HTMLElement, route: string) {
         {
           href: cloudEnabled ? "#/teacher" : "#/admin",
           class: `nav-link ${route === "/admin" ? "active" : ""}`,
+          onClick: closeNavigation,
         },
         icon("settings"),
         cloudEnabled ? "Teacher studio" : "Mission control",
@@ -119,6 +124,15 @@ export function shell(page: HTMLElement, route: string) {
       class: `sidebar ${teacherMode ? "teacher-sidebar" : ""} ${sidebarOpen ? "open" : ""}`,
       "aria-label": "Lab navigation",
     },
+    button(
+      "Close menu ×",
+      () => {
+        closeNavigation();
+        menuButton.focus({ preventScroll: true });
+      },
+      "button outline drawer-close",
+      { "aria-label": "Close menu" },
+    ),
     sidebarBrand,
     h(
       "span",
@@ -126,6 +140,28 @@ export function shell(page: HTMLElement, route: string) {
       teacherMode ? "YOUR CLASSROOM WORKSPACE" : "A HAPPY PLACE TO GET CURIOUS",
     ),
     navigation,
+    h(
+      "div",
+      { class: "drawer-tools" },
+      button(
+        teacherMode ? "Studio guide" : "How it works",
+        () => {
+          closeNavigation();
+          guideModal();
+        },
+        "button outline",
+        { "aria-label": "Open lab guide" },
+      ),
+      button(
+        "Notifications",
+        () => {
+          closeNavigation();
+          notificationsModal();
+        },
+        "button outline",
+        { "aria-label": "Open notifications" },
+      ),
+    ),
     h(
       "div",
       { class: "sidebar-bottom" },
@@ -172,13 +208,19 @@ export function shell(page: HTMLElement, route: string) {
           ),
           icon("chevron", 15),
         ),
-        profileModal,
+        () => {
+          closeNavigation();
+          profileModal();
+        },
         "profile-button",
       ),
       user?.id === "guest"
         ? button(
             "Save your progress · Join the lab",
-            () => authModal(true),
+            () => {
+              closeNavigation();
+              authModal(true);
+            },
             "join-link",
           )
         : null,
@@ -200,9 +242,7 @@ export function shell(page: HTMLElement, route: string) {
     icon("menu"),
     () => {
       sidebarOpen = !sidebarOpen;
-      aside.classList.toggle("open", sidebarOpen);
-      backdrop.hidden = !sidebarOpen;
-      menuButton.setAttribute("aria-expanded", String(sidebarOpen));
+      syncNavigation();
       if (sidebarOpen)
         aside
           .querySelector<HTMLElement>("nav a")
@@ -217,15 +257,28 @@ export function shell(page: HTMLElement, route: string) {
   );
   function closeNavigation() {
     sidebarOpen = false;
-    aside.classList.remove("open");
-    backdrop.hidden = true;
-    menuButton.setAttribute("aria-expanded", "false");
+    syncNavigation();
   }
   aside.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       event.preventDefault();
       closeNavigation();
       menuButton.focus();
+    } else if (event.key === "Tab" && mobile.matches && sidebarOpen) {
+      const controls = [
+        ...aside.querySelectorAll<HTMLElement>(
+          'a[href], button:not(:disabled), input:not(:disabled), [tabindex="0"]',
+        ),
+      ].filter((node) => node.getClientRects().length);
+      const first = controls[0],
+        last = controls.at(-1);
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
     }
   });
   const headerBrand = brandLink("#/", true);
@@ -308,31 +361,64 @@ export function shell(page: HTMLElement, route: string) {
     guideHost,
     page,
   );
-  return h(
+  const workspace = h(
     "div",
-    { class: "app-layout" },
-    aside,
-    backdrop,
+    { class: "workspace" },
+    header,
+    connectionNotice(),
+    cloudNotice(),
+    main,
     h(
-      "div",
-      { class: "workspace" },
-      header,
-      connectionNotice(),
-      cloudNotice(),
-      main,
+      "footer",
+      { class: "footer" },
       h(
-        "footer",
-        { class: "footer" },
-        h(
-          "span",
-          null,
-          icon("heart", 13),
-          "Made for curious minds. Grown one discovery at a time.",
-        ),
-        h("span", null, "SCIENCE ONLY. WONDER ALWAYS.", icon("sprout", 14)),
+        "span",
+        null,
+        icon("heart", 13),
+        "Made for curious minds. Grown one discovery at a time.",
       ),
+      h("span", null, "SCIENCE ONLY. WONDER ALWAYS.", icon("sprout", 14)),
     ),
   );
+  function syncNavigation() {
+    const open = mobile.matches && sidebarOpen;
+    aside.classList.toggle("open", open);
+    aside.inert = mobile.matches && !open;
+    if (open) {
+      aside.setAttribute("role", "dialog");
+      aside.setAttribute("aria-modal", "true");
+    } else {
+      aside.removeAttribute("role");
+      aside.removeAttribute("aria-modal");
+    }
+    backdrop.hidden = !open;
+    workspace.inert = open;
+    menuButton.setAttribute("aria-expanded", String(open));
+    document.documentElement.classList.toggle("navigation-open", open);
+  }
+  const resizeNavigation = () => {
+    const wasOpen = sidebarOpen;
+    if (!mobile.matches) sidebarOpen = false;
+    syncNavigation();
+    if (wasOpen && !mobile.matches) main.focus({ preventScroll: true });
+  };
+  mobile.addEventListener("change", resizeNavigation);
+  releaseNavigation = () => {
+    mobile.removeEventListener("change", resizeNavigation);
+    workspace.inert = false;
+    document.documentElement.classList.remove("navigation-open");
+  };
+  syncNavigation();
+  queueMicrotask(() => {
+    if (
+      aside.isConnected &&
+      mobile.matches &&
+      sidebarOpen &&
+      !aside.contains(document.activeElement)
+    )
+      aside.querySelector<HTMLElement>("nav a")?.focus({ preventScroll: true });
+  });
+  return h("div", { class: "app-layout" }, aside, backdrop, workspace);
 }
 export function pageHeading(
   eyebrow: string,

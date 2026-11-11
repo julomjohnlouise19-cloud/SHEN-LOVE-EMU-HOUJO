@@ -7,6 +7,7 @@ import "./styles/refresh.css";
 import "./styles/studio.css";
 import "./styles/discovery.css";
 import "./styles/friendly.css";
+import "./styles/mobile.css";
 import { loadAppearance } from "./store/preferences";
 import {
   initStore,
@@ -223,6 +224,7 @@ function schedule() {
 }
 connectRenderer(schedule);
 window.addEventListener("hashchange", () => {
+  resetNavigation();
   window.scrollTo({ top: 0 });
   schedule();
 });

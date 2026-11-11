@@ -69,6 +69,7 @@ function guide(done: () => void) {
     done();
   };
   const render = () => {
+    const hadFocus = panel.contains(document.activeElement);
     const step = steps[index];
     panel.replaceChildren(
       mascot(user.role === "admin" ? "flask" : "cat"),
@@ -80,7 +81,7 @@ function guide(done: () => void) {
           { class: "eyebrow" },
           `${user.role === "admin" ? "YOUR TEACHER FIELD GUIDE" : "WELCOME TO YOUR LITTLE LAB"} · ${index + 1} OF ${steps.length}`,
         ),
-        h("h2", null, step[0]),
+        h("h2", { tabindex: -1 }, step[0]),
         h("p", { class: "guide-description", role: "status" }, step[1]),
         progress(((index + 1) / steps.length) * 100, "Guide progress"),
         h(
@@ -118,6 +119,8 @@ function guide(done: () => void) {
         ),
       ),
     );
+    if (hadFocus)
+      panel.querySelector<HTMLElement>("h2")?.focus({ preventScroll: true });
   };
   render();
   return panel;

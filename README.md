@@ -35,6 +35,8 @@ Teacher shop saves now include the category required by the database, so stock a
 
 ## Sign-in, learning and the daily wheel
 
+On phones, the header stays available while scrolling and the menu provides its own **Close menu**, **How it works / Studio guide** and **Notifications** controls. The drawer keeps background scrolling and keyboard focus contained; closing it returns to the menu button. Teacher and saved-record tables become labelled cards on narrow screens, retaining selection and edit/review actions. Forms use 16-pixel text and larger touch targets, account fields appear before the decorative welcome panel, and short landscape dialogs have compact return controls. Screen resizing keeps entered form values. Browser zoom remains enabled and spacing respects device safe areas. This frontend update does not require SQL or change saved records, balances, stock rules or the daily wheel.
+
 The arcade/shooting game is retired from the website. The daily spinning wheel, local practice leaderboard, quizzes, profiles, notebook, rewards, shop and Teacher Studio remain. Old arcade links lead to science learning or class reports; historical database records and credit evidence are preserved. No SQL update is needed for this interface change.
 
 Successful sign-in opens **My lab** for a student or the separate **Teacher studio** for a teacher, while keeping a requested learning destination. A recreated account that reuses an old cached email gets its own verified identity; previous private notes remain with the previous account. A continuing verified identity keeps its own notes and progress. The cache repairs itself without clearing site data.

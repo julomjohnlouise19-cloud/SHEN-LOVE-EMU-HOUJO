@@ -22,6 +22,7 @@ import {
   modal,
   toast,
   setButtonDisabled,
+  responsiveTable,
 } from "./dom";
 import { empty, pageHeading } from "./shell";
 import { go } from "./actions";
@@ -727,7 +728,7 @@ export function teacherPage(section = "overview") {
       content: ["Science card", "Level", "Availability", "Manage"],
       activity: ["When", "Teacher", "Change", "Reason", "Review"],
     };
-    return h(
+    const wrapper = h(
       "div",
       { class: "table-wrap teacher-table" },
       h(
@@ -808,6 +809,7 @@ export function teacherPage(section = "overview") {
         ),
       ),
     );
+    return responsiveTable(wrapper);
   }
   function cells(
     row: Record<string, unknown>,

@@ -1,5 +1,16 @@
 # The Cozy Science Lab — build plan
 
+## Stable mobile experience
+
+- [x] Audit student and teacher pages, account dialogs and learning controls at 320/390-pixel portrait, tablet and short landscape sizes.
+- [x] Fix phone typography, touch targets, safe areas, scrolling and long content without changing saved data or classroom rules.
+- [x] Make the mobile menu dismissible, keyboard-contained and independent of background scrolling; keep guide and notifications accessible on phones.
+- [x] Make teacher and saved-record tables readable and actionable on narrow screens, preserving selection, editing and accessibility.
+- [x] Verify mobile account, learning, profile, shop and teacher workflows and complete existing code/content/browser gates.
+- [ ] Publish to GitHub Pages and verify the actual phone interface and deployed backend readiness.
+
+Local validation passed lint/type checking, all 62 unit/property tests, 972 reviewed cards, SQL-generation consistency, economy checks and all 77 browser scenarios (35 standard, 41 cloud, one repository-path). Touch checks cover 16 student routes at 320 × 568, 390 × 844, 768 × 1024 and 844 × 390; all ten teacher sections at phone, tablet and landscape sizes; long names; profile/feedback/claim/question dialogs; form values through resizing; stock/availability save and reload; record selection/archive/restore; and a complete eight-card Cells session. Drawer focus remains contained through a background render and returns to the trigger; background scrolling stays fixed. Native dialog padding taps no longer dismiss forms. Source and stock-dialog accessibility checks passed, and phone stock/landscape profile screenshots were inspected. The initial full run caught collection text sharing an element with hidden card labels; separating the value fixed it, and the complete final rerun passed. No new dependency, SQL migration, account-data reset or environment publication is required.
+
 ## Scope and architecture
 Build a complete local-first, mobile-friendly science learning game with Vite and strict TypeScript, no UI framework. The supplied brief ends at §4.8; references to §§5–16 and Appendix A are absent. Decisions below replace only absent specifications, not supplied requirements. No design reference images were supplied.
 

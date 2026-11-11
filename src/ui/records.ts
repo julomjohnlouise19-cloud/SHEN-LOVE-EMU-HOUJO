@@ -5,7 +5,15 @@ import { icon } from "./svg";
 import { cloudRecords, type CloudRecord } from "../store/cloud";
 import { csvCell } from "../core/cloud-records";
 import { decks } from "../data/catalog";
-import { h, button, download, modal, field, input } from "./dom";
+import {
+  h,
+  button,
+  download,
+  modal,
+  field,
+  input,
+  responsiveTable,
+} from "./dom";
 import { pageHeading, empty } from "./shell";
 import { go, refresh } from "./actions";
 
@@ -263,7 +271,7 @@ export async function recordsPage(teacherOnly = false) {
         ),
       ),
     );
-    return h(
+    const wrapper = h(
       "div",
       { class: "table-wrap" },
       h(
@@ -293,6 +301,7 @@ export async function recordsPage(teacherOnly = false) {
         h("tbody", null, ...body),
       ),
     );
+    return responsiveTable(wrapper);
   }
   function draw() {
     const accuracy = stats.answers
@@ -616,6 +625,7 @@ async function legacyRecordsPage(teacherOnly = false) {
       ),
     ),
   );
+  page.querySelectorAll<HTMLDivElement>(".table-wrap").forEach(responsiveTable);
   return page;
 }
 function deckName(id: string) {

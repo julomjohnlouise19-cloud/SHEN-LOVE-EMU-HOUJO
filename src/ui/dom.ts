@@ -129,6 +129,8 @@ export function toast(
   setTimeout(() => el.remove(), 7000);
 }
 export function modal(title: string, content: Child[], wide = false) {
+  const previousFocus = document.activeElement as HTMLElement | null;
+  let restored = false;
   const dialog = h("dialog", {
     class: `modal ${wide ? "wide" : ""}`,
     "aria-label": title,
@@ -137,7 +139,26 @@ export function modal(title: string, content: Child[], wide = false) {
     releaseToasts(dialog);
     dialog.close();
     dialog.remove();
+    restorePage();
   };
+  function restorePage() {
+    if (restored) return;
+    restored = true;
+    if (document.querySelector("dialog[open]")) return;
+    document.documentElement.classList.remove("modal-open");
+    if (
+      previousFocus?.isConnected &&
+      !previousFocus.closest("[inert]") &&
+      previousFocus.getClientRects().length
+    )
+      previousFocus.focus({ preventScroll: true });
+    else
+      [...document.querySelectorAll<HTMLElement>(".mobile-menu, #main")]
+        .find(
+          (node) => node.getClientRects().length && !node.closest("[inert]"),
+        )
+        ?.focus({ preventScroll: true });
+  }
   dialog.append(
     h(
       "div",
@@ -169,15 +190,79 @@ export function modal(title: string, content: Child[], wide = false) {
     ),
   );
   dialog.addEventListener("click", (e) => {
-    if (e.target === dialog) close();
+    if (e.target !== dialog) return;
+    const bounds = dialog.getBoundingClientRect();
+    if (
+      e.clientX < bounds.left ||
+      e.clientX > bounds.right ||
+      e.clientY < bounds.top ||
+      e.clientY > bounds.bottom
+    )
+      close();
   });
   dialog.addEventListener("close", () => {
     releaseToasts(dialog);
     dialog.remove();
+    restorePage();
   });
   document.body.append(dialog);
   dialog.showModal();
+  document.documentElement.classList.add("modal-open");
   return { dialog, close };
+}
+// Explicit roles retain table navigation when phone layouts present each row as a card.
+export function responsiveTable(wrapper: HTMLDivElement) {
+  const table = wrapper.querySelector("table");
+  if (!table) return wrapper;
+  wrapper.classList.add("mobile-records");
+  table.setAttribute("role", "table");
+  const headings = [...(table.tHead?.rows[0]?.cells ?? [])].map((cell) => {
+    cell.setAttribute("role", "columnheader");
+    cell.setAttribute("scope", "col");
+    const selection = cell.querySelector("input");
+    if (selection)
+      cell.append(
+        h(
+          "span",
+          { class: "mobile-cell-label", "aria-hidden": true },
+          selection.getAttribute("aria-label") ?? "Select all",
+        ),
+      );
+    return selection ? "Selection" : (cell.textContent?.trim() ?? "Details");
+  });
+  for (const group of [table.tHead, ...table.tBodies]) {
+    if (!group) continue;
+    group.setAttribute("role", "rowgroup");
+    for (const row of group.rows) {
+      row.setAttribute("role", "row");
+      if (group === table.tHead) continue;
+      [...row.cells].forEach((cell, i) => {
+        cell.setAttribute("role", "cell");
+        const value = h(
+          "div",
+          { class: "record-cell-value" },
+          ...cell.childNodes,
+        );
+        cell.replaceChildren(
+          h(
+            "span",
+            { class: "mobile-cell-label", "aria-hidden": true },
+            headings[i] ?? "Details",
+          ),
+          value,
+        );
+      });
+    }
+  }
+  for (const checkbox of table.querySelectorAll<HTMLInputElement>(
+    'input[type="checkbox"]',
+  )) {
+    if (checkbox.closest("label")) continue;
+    const label = h("label", { class: "record-checkbox-hit" });
+    checkbox.before(label);
+    label.append(checkbox);
+  }
+  return wrapper;
 }
 export const field = (label: string, input: HTMLElement, help?: string) => {
   if (
@@ -206,6 +291,7 @@ export const input = (
     value,
     required: true,
     autocomplete: type === "password" ? "current-password" : "off",
+    inputmode: type === "number" ? "decimal" : undefined,
   });
 export function progress(value: number, label: string, className = "") {
   return h(

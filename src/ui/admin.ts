@@ -12,7 +12,16 @@ import { validateQuestions } from "../core/validate";
 import { misconceptionCounts } from "../core/analytics";
 import misconceptions from "../data/misconceptions.json";
 import { decks } from "../data/catalog";
-import { h, button, field, input, modal, toast, download } from "./dom";
+import {
+  h,
+  button,
+  field,
+  input,
+  modal,
+  toast,
+  download,
+  responsiveTable,
+} from "./dom";
 import { icon, supply } from "./svg";
 import { act, refresh, go } from "./actions";
 import { pageHeading, empty } from "./shell";
@@ -63,6 +72,9 @@ export async function adminPage() {
   else if (tab === "Lab rules") content.append(rulesForm());
   else if (tab === "Questions") content.append(await questionEditor());
   else content.append(auditPage());
+  content
+    .querySelectorAll<HTMLDivElement>(".table-wrap")
+    .forEach(responsiveTable);
   return h(
     "div",
     { class: "page-enter admin-page" },
