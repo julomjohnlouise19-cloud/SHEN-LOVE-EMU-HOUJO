@@ -471,14 +471,20 @@ export async function studentLeaderboardPage() {
             ? `#${card.rank} · ${card.points} discovery points`
             : home.teacher
               ? "A teacher's view of growing minds"
-              : "Your science story belongs here",
+              : home.settings.listed
+                ? "Your shared profile is ready"
+                : "Your science story belongs here",
         ),
         h(
           "p",
           null,
           card
             ? `${card.discoveries} best discoveries ${period === "week" ? "this week" : "so far"}. Equal points share a rank.`
-            : "Choose your classroom username and join the leaderboard when you are ready.",
+            : home.teacher
+              ? "Celebrate your students' discoveries. Teacher accounts do not enter student rankings."
+              : home.settings.listed
+                ? "Choose All grades to include profiles without a shared grade. Your classroom sharing choices are saved."
+                : "Choose your classroom username and join the leaderboard when you are ready.",
         ),
       ),
       home.teacher

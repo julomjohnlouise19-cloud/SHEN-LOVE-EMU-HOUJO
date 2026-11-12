@@ -101,6 +101,22 @@ test("shared rankings count daily bests, preserve ties, expose only shared profi
   await page.getByRole("button", { name: "Friends only", exact: true }).click();
   await expect(rows).toHaveCount(1);
   await expect(rows.first()).toContainText("Student One");
+  await page
+    .getByRole("combobox", { name: "Grade filter", exact: true })
+    .selectOption("8");
+  await expect(
+    page.getByRole("region", { name: "Your discovery standing" }),
+  ).toContainText("Choose All grades");
+  await page
+    .getByRole("combobox", { name: "Grade filter", exact: true })
+    .selectOption("");
+  await expect(rows).toHaveCount(1);
+  await signOut(page);
+  await signIn(page, "teacher");
+  await page.goto("#/leaderboard");
+  await expect(
+    page.getByRole("region", { name: "Your discovery standing" }),
+  ).toContainText("Teacher accounts do not enter student rankings.");
 });
 
 test("a username invitation reaches its recipient, needs acceptance and connects the friends ranking", async ({
