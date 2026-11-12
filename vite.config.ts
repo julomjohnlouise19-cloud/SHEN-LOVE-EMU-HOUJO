@@ -4,6 +4,8 @@ import { readCloudConfig } from "./src/core/cloud-config";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { createHash } from "node:crypto";
+import { branches } from "./src/data/catalog";
+import { HANDBOOK_EDITION } from "./src/data/handbook-edition";
 const base = process.env.VITE_BASE_PATH || "/";
 if (!base.startsWith("/") || !base.endsWith("/"))
   throw new Error("VITE_BASE_PATH must start and end with /.");
@@ -44,6 +46,10 @@ export default defineConfig(({ mode }) => {
             `${base}fonts/fonts.css`,
             `${base}fonts/fredoka.woff2`,
             `${base}fonts/dm-sans.woff2`,
+            ...branches.map(
+              (branch) =>
+                `${base}study-guides/${branch.id}-study-handbook.pdf?v=${HANDBOOK_EDITION}`,
+            ),
             ...assets,
           ];
           const version = createHash("sha256")

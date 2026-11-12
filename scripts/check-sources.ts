@@ -1,10 +1,10 @@
 import { decks } from "../src/data/catalog";
-import { referencesFor } from "../src/data/references";
+import { referencesFor, periodicReference } from "../src/data/references";
 const sources = [
   ...new Map(
-    decks
-      .flatMap((deck) => referencesFor(deck.id))
-      .map((ref) => [ref.url, ref]),
+    [...decks.flatMap((deck) => referencesFor(deck.id)), periodicReference].map(
+      (ref) => [ref.url, ref],
+    ),
   ).values(),
 ];
 const online = process.argv.includes("--online");

@@ -25,9 +25,18 @@ The mobile menu, readable account forms, compact dialogs and labelled teacher/re
 
 Accounts receive a skippable guide with student or teacher steps after login. It never blocks a deep-linked lesson and can be reopened from **How it works / Studio guide**. The guide remembers its completion for that account, role and browser. Large sticky **Back to …** controls name the return destination; dialog return and teacher Save/error controls remain visible.
 
-Every deck and answered card offers **Sources & further reading**. The **Science reading room** has topic search, branch filters and a clear reset/empty state. **Read … notes in the lab** opens reviewed, lab-authored explanations for all 27 decks, including offline after caching. Supporting OpenStax, NASA, USGS, DOST–PAGASA, DOST–PHIVOLCS and BIPM publications remain separate from these notes. DepEd opens the direct **K to 12 Science Curriculum Guide PDF**, replacing the generic curriculum landing page. Publisher buttons show their title, agency and document type and open in the same tab; browser Back returns to the lab. **Copy citation** offers selectable text if clipboard permission is unavailable. Questions and local notes are original learning materials, not publisher quotations or copies of the official curriculum. Constructed data and teacher revisions stay identified.
+Every deck and answered card offers **Sources & further reading**. The **Science reading room** keeps topic search, branch filters, citations and the existing short topic notes, and adds four shelves:
 
-`npm run sources:check` validates the 12 curated HTTPS destinations. The deployment also uses `--online` to check public HTTP responses and the curriculum PDF signature; missing pages or an invalid PDF fail the check, while upstream access restrictions/timeouts are reported separately. Topic reading stays available inside the lab when a publisher cannot open. This workspace's network policy blocks direct DepEd checks, so a proxy denial is not treated as a publisher error.
+- **Study notes & sources:** 27 original Grade 7–10 guides with explanations, key terms, worked examples, misconception reminders and self-check answers. Each guide keeps its supporting sources and offers printing or its branch handbook.
+- **Periodic table:** all 118 named elements, searchable by name, symbol or atomic number, with family filters, phone cards and a conventional table layout. Select an element for its protons, neutral electrons, period, group and explanatory notes. IUPAC provides the supporting reference. Separate f-block rows and classification conventions are explained; no atomic weights or unmeasured properties are invented.
+- **Illustrations:** ten original, labelled vector models covering cells, a carbon atom, water/rock cycles, food chains, waves, the Solar System, investigations and an interactive circuit. Select labels to read explanations; open or close the circuit switch. Every model explains its limits. On narrow screens, swipe the diagram sideways to keep labels readable.
+- **PDF documents:** five self-hosted handbooks for Life Science, Chemistry, Physics, Earth & Space, and Science Skills. These are actual tagged PDFs with selectable text, illustrations, examples, self-check explanations and clickable references. Open or download one; the documents and reading tools remain available offline after the initial cache finishes, including PDF viewer byte-range requests.
+
+Supporting OpenStax, NASA, USGS, DOST–PAGASA, DOST–PHIVOLCS and BIPM publications remain separate from the lab's own notes. DepEd opens the direct **K to 12 Science Curriculum Guide PDF**. Publisher buttons show their title, agency and document type and open in the same tab; browser Back returns to the lab. **Copy citation** offers selectable text if clipboard permission is unavailable. Questions, study guides, handbooks and diagrams are original learning materials, not publisher quotations or official curriculum copies. Constructed data and teacher revisions stay identified. Local notes and downloadable handbooks support learning when an external publisher is unavailable.
+
+`npm run sources:check` validates the 13 curated HTTPS destinations. The deployment also uses `--online` to check public HTTP responses and the curriculum PDF signature; missing pages or an invalid PDF fail the check, while upstream access restrictions/timeouts are reported separately. This workspace's network policy blocks direct DepEd checks, so a proxy denial is not treated as a publisher error.
+
+Study content lives in `src/data/study-guides.ts`, `science-figures.ts` and `elements.ts`. After editing handbook content or supporting references, run **`npm run reading:build`** with Chromium installed (or set `CHROMIUM_PATH`), then **`npm run reading:check`** and commit the five PDFs, manifest and generated handbook edition together. The check verifies content coverage, all 118 element positions and document hashes. CI validates the committed handbooks without regenerating them; the content-derived edition also refreshes offline/HTTP caches when the books change. No SQL setup or additional API key is needed for this library.
 
 **Suggestion box** lets a signed-in student send an idea, question or problem, optionally tied to a deck/card. Teachers use **Suggestion inbox** to review, change progress and reply privately. Authors can see their own history and replies; other students cannot. The inbox has a five-message daily limit, retry protection, paging and audited teacher replies. Drafts stay on the device and are never labelled delivered. The local demo inbox is shared only with its demo teacher on that browser.
 
@@ -142,7 +151,7 @@ One editable rules object controls rewards. Defaults: 3/5/7 merits per correct e
 
 - `store/` owns localStorage. One versioned state envelope gives atomic writes even on quota failure. Web Locks serialize tabs, with a settling lease fallback. BroadcastChannel/storage events synchronize them.
 - Question banks load per branch and are never copied into localStorage. Local demo accounts stay on one browser/origin. Cloud quiz records, photos, class credits and reservations are shared across devices. Historical arcade evidence is preserved in the database after its interface is retired. Presence means active here within two minutes.
-- **Production builds** precache the shell, local fonts and all static science banks in the background. Wait for the first load to finish before going offline; after that, even unvisited decks work without a connection. Development deliberately does not register the worker.
+- **Production builds** precache the shell, local fonts, all static science banks, reading tools and five PDF handbooks in the background. Wait for the first load to finish before going offline; after that, even unvisited decks and library shelves work without a connection. External publisher pages still need internet access. Development deliberately does not register the worker.
 - Export a private backup from your profile. Admin → Audit & backup validates restores before replacement, then signs everyone out. Exports omit sessions and undo payloads.
 - Invalid JSON is quarantined at `csl:corrupt:<timestamp>`. Safe defaults load. Quota failures offer export and do not deduct balance or stock.
 - `npm run seed` writes a validated fresh demo backup to `/tmp/cozy-science-seed.json`. It does not clear browser data; an admin may explicitly restore it to reset a demo.
@@ -154,6 +163,8 @@ npm run lint
 npm run typecheck
 npm test
 npm run validate:questions
+npm run sources:check
+npm run reading:check
 npm run sim:economy
 npm run seed
 npm run build

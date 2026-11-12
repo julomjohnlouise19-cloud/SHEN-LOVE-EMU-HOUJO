@@ -51,6 +51,10 @@ function svg(markup: string, className: string, label?: string): SVGSVGElement {
   }
   return el;
 }
+// The reading library passes only diagrams generated from source-controlled shapes.
+export function readingSvg(markup: string, label: string) {
+  return svg(markup, "science-illustration", label);
+}
 export function icon(name: string, size = 20) {
   const el = svg(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${paths[name] ?? paths.flask}</svg>`,

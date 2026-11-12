@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "sourceHash": "336cfdc2f982cc726c9a5670d0e907984fb7577eb3f2b221a3dc91af07a2e864",
+  "files": [
+    {
+      "branch": "life",
+      "path": "study-guides/life-study-handbook.pdf",
+      "sha256": "e113d80d946d45a7e620e10c15451e7061d83b81c18dac5f66beebe62ec3481e",
+      "bytes": 183504
+    },
+    {
+      "branch": "chemistry",
+      "path": "study-guides/chemistry-study-handbook.pdf",
+      "sha256": "b15725b4b540037b6222ebaedfa2f41e16882ee6a6629863690a05fc8d124615",
+      "bytes": 194269
+    },
+    {
+      "branch": "physics",
+      "path": "study-guides/physics-study-handbook.pdf",
+      "sha256": "385319708f42d015ae7045717f607aaa66e62da446e40d154f59bf9de74bf51b",
+      "bytes": 152667
+    },
+    {
+      "branch": "earth",
+      "path": "study-guides/earth-study-handbook.pdf",
+      "sha256": "c542cf672614003ed12c6c7d1d9aaa49d5a2a2ab52b3980a0af137c72b2d94ec",
+      "bytes": 175555
+    },
+    {
+      "branch": "skills",
+      "path": "study-guides/skills-study-handbook.pdf",
+      "sha256": "c6453236e91a64dce26f4acc2b57613f0d8e7590691cb74671065bdb97bb82cb",
+      "bytes": 103032
+    }
+  ]
+}

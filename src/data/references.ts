@@ -5,6 +5,13 @@ export interface ScienceReference {
   focus: string;
   format?: "PDF";
 }
+export const periodicReference: ScienceReference = {
+  title: "Periodic Table of the Elements",
+  publisher: "International Union of Pure and Applied Chemistry (IUPAC)",
+  url: "https://iupac.org/what-we-do/periodic-table-of-elements/",
+  focus:
+    "Official element names, symbols, atomic numbers and periodic-table resources.",
+};
 const biology: ScienceReference = {
   title: "Biology 2e",
   publisher: "OpenStax · Rice University",

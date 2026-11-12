@@ -40,6 +40,7 @@ jobs:
           npm run validate:questions
           npm run sim:economy
           npm run backend:sql -- --check
+          npm run reading:check
       - name: Test database permissions and grading
         run: npm run backend:test
       - name: Check public science reading links

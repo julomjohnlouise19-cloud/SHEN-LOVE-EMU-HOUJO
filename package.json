@@ -21,7 +21,9 @@
     "backend:test": "node --import tsx scripts/test-backend-db.ts",
     "e2e:cloud": "playwright test --config playwright.cloud.config.ts",
     "backend:check": "node --import tsx scripts/check-backend.ts",
-    "sources:check": "node --import tsx scripts/check-sources.ts"
+    "sources:check": "node --import tsx scripts/check-sources.ts",
+    "reading:build": "node --import tsx scripts/build-reading-handbooks.ts",
+    "reading:check": "node --import tsx scripts/check-reading-library.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",

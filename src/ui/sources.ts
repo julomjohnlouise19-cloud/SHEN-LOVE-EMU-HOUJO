@@ -165,6 +165,13 @@ export function sourceDetails(deckId: string, question?: Question) {
       deck?.sourceNote ?? "Grade 7–10 science practice.",
     ),
     localReading(deckId),
+    button(
+      `Read the complete ${deck?.name ?? "science"} study guide`,
+      async () => {
+        (await import("./study-library")).studyGuideModal(deckId);
+      },
+      "button outline",
+    ),
     h("h3", { class: "publisher-heading" }, "Supporting publications"),
     ...referencesFor(deckId).map(referenceCard),
     h(
@@ -189,7 +196,42 @@ export function sourceButton(deckId: string, question?: Question) {
     },
   );
 }
-export function sourcesPage() {
+type ReadingShelf = "notes" | "periodic" | "illustrations" | "documents";
+const shelfNames: Record<ReadingShelf, string> = {
+  notes: "Study notes & sources",
+  periodic: "Periodic table",
+  illustrations: "Illustrations",
+  documents: "PDF documents",
+};
+let mountedRoom:
+  | {
+      owner: string | undefined;
+      node: HTMLElement;
+      choose: (shelf: ReadingShelf, persist?: boolean) => void;
+    }
+  | undefined;
+export async function sourcesPage() {
+  const requested =
+    new URLSearchParams(location.hash.split("?")[1]).get("view") ?? "notes";
+  const initial: ReadingShelf = Object.hasOwn(shelfNames, requested)
+    ? (requested as ReadingShelf)
+    : "notes";
+  const owner = currentUser()?.id;
+  if (mountedRoom && mountedRoom.owner === owner) {
+    mountedRoom.choose(initial, false);
+    return mountedRoom.node;
+  }
+  const [
+    { studyGuideButton, documentsShelf },
+    { periodicTableShelf },
+    { illustrationsShelf, illustrationCount },
+    { guideByDeck },
+  ] = await Promise.all([
+    import("./study-library"),
+    import("./periodic-table"),
+    import("./science-figures"),
+    import("../data/study-guides"),
+  ]);
   const list = h("div", { class: "reading-grid" });
   const search = input("source-search", "Find a science topic…", "", "search");
   search.required = false;
@@ -214,7 +256,7 @@ export function sourcesPage() {
     const matching = decks.filter(
       (d) =>
         (!branch.value || d.branch === branch.value) &&
-        `${d.name} ${d.description} ${d.sourceNote}`
+        `${d.name} ${d.description} ${d.sourceNote} ${guideByDeck(d.id)?.introduction ?? ""}`
           .toLowerCase()
           .includes(search.value.toLowerCase().trim()),
     );
@@ -227,6 +269,12 @@ export function sourcesPage() {
           { class: "reference-card" },
           h("h2", null, d.name),
           h("p", null, d.description),
+          h(
+            "p",
+            { class: "study-card-meta" },
+            "Concept notes · worked example · self-check",
+          ),
+          studyGuideButton(d.id),
           sourceButton(d.id),
         ),
       ),
@@ -248,15 +296,14 @@ export function sourcesPage() {
   search.addEventListener("input", update);
   branch.addEventListener("change", update);
   update();
-  return h(
-    "div",
-    { class: "reading-room page-enter" },
-    h("p", { class: "eyebrow" }, "CURIOUS MINDS CHECK THE EVIDENCE"),
-    h("h1", null, "The science reading room"),
+  const notes = h(
+    "section",
+    { "aria-label": "Study notes and sources" },
+    h("h2", { tabindex: -1 }, "Choose your next discovery"),
     h(
       "p",
       null,
-      "Read topic notes here, explore supporting publications and keep a useful citation. Every deck has reading inside the lab, even when a publisher’s website cannot open.",
+      "Each topic has a full study guide and its original supporting sources. Use the examples to practise, then reveal the self-check explanation.",
     ),
     h(
       "div",
@@ -268,4 +315,84 @@ export function sourcesPage() {
     count,
     list,
   );
+  const host = h("div", { class: "reading-shelf-content" });
+  const nav = h("nav", {
+    class: "reading-shelves",
+    "aria-label": "Reading room shelves",
+  });
+  let active: ReadingShelf | undefined;
+  const nodes = new Map<ReadingShelf, HTMLElement>([["notes", notes]]);
+  const choose = (shelf: ReadingShelf, persist = true) => {
+    if (persist) {
+      const params = new URLSearchParams(location.hash.split("?")[1]);
+      if (shelf === "notes") params.delete("view");
+      else params.set("view", shelf);
+      history.replaceState(
+        null,
+        "",
+        `#/sources${params.size ? `?${params}` : ""}`,
+      );
+    }
+    if (active === shelf) return;
+    active = shelf;
+    if (!nodes.has(shelf))
+      nodes.set(
+        shelf,
+        shelf === "periodic"
+          ? periodicTableShelf()
+          : shelf === "illustrations"
+            ? illustrationsShelf()
+            : documentsShelf((id) => {
+                branch.value = id;
+                search.value = "";
+                update();
+                choose("notes");
+                notes
+                  .querySelector<HTMLElement>("h2")
+                  ?.focus({ preventScroll: true });
+              }),
+      );
+    host.replaceChildren(nodes.get(shelf)!);
+    nav
+      .querySelectorAll<HTMLElement>("[data-reading-shelf]")
+      .forEach((node) =>
+        node.setAttribute(
+          "aria-pressed",
+          String(node.dataset.readingShelf === shelf),
+        ),
+      );
+  };
+  nav.append(
+    ...(Object.keys(shelfNames) as ReadingShelf[]).map((id) =>
+      button(shelfNames[id], () => choose(id), "button outline", {
+        "data-reading-shelf": id,
+        "aria-pressed": id === initial,
+      }),
+    ),
+  );
+  const room = h(
+    "div",
+    { class: "reading-room page-enter" },
+    h("p", { class: "eyebrow" }, "CURIOUS MINDS CHECK THE EVIDENCE"),
+    h("h1", null, "The science reading room"),
+    h(
+      "p",
+      null,
+      "Open a notebook, explore an element, or look closer at a science model. Your sources are here too, with original learning materials you can read and keep.",
+    ),
+    h(
+      "div",
+      { class: "reading-library-intro" },
+      h("span", null, h("strong", null, "27"), " topic guides"),
+      h("span", null, h("strong", null, "118"), " elements"),
+      h("span", null, h("strong", null, illustrationCount), " science models"),
+      h("span", null, h("strong", null, "5"), " PDF handbooks"),
+    ),
+    nav,
+    host,
+  );
+  search.addEventListener("search", update);
+  choose(initial, false);
+  mountedRoom = { owner, node: room, choose };
+  return room;
 }

@@ -4,7 +4,7 @@ export default tseslint.config(
   { ignores: ['dist/**', 'node_modules/**', 'playwright-report/**', 'test-results/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  { files: ['public/sw.js'], languageOptions: { globals: { self: 'readonly', caches: 'readonly', URL: 'readonly', fetch: 'readonly', Response: 'readonly' } } },
+  { files: ['public/sw.js'], languageOptions: { globals: { self: 'readonly', caches: 'readonly', URL: 'readonly', fetch: 'readonly', Response: 'readonly', Headers: 'readonly' } } },
   { files: ['**/*.ts'], rules: {
     '@typescript-eslint/no-explicit-any': 'error',
     'no-restricted-syntax': ['error', { selector: "AssignmentExpression[left.property.name='innerHTML']", message: 'Use safe DOM helpers; only ui/svg.ts accepts vetted static SVG.' }]

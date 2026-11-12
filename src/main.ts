@@ -9,6 +9,7 @@ import "./styles/discovery.css";
 import "./styles/friendly.css";
 import "./styles/mobile.css";
 import "./styles/accounts.css";
+import "./styles/reading.css";
 import { loadAppearance } from "./store/preferences";
 import {
   initStore,
@@ -130,7 +131,7 @@ async function render() {
     else if (path.startsWith("/play/"))
       page = await playPage(path.split("/")[2]);
     else if (path === "/sources")
-      page = (await import("./ui/sources")).sourcesPage();
+      page = await (await import("./ui/sources")).sourcesPage();
     else if (path === "/suggestions" || path === "/teacher/suggestions")
       page = await (
         await import("./ui/suggestions")

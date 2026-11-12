@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## Reading room study library
+
+- [x] Add original structured study notes for all 27 decks, preserving existing source cards, citations and reading controls.
+- [x] Add a searchable 118-element periodic table with accurate groups/periods, family explanations and accessible phone controls.
+- [x] Add labelled interactive science illustrations and downloadable, self-contained PDF study handbooks.
+- [x] Verify content, periodic-table data, documents, offline reading, accessibility and existing learning/account flows.
+- [ ] Publish and verify the complete reading room on the public website.
+
+Local checks passed lint/typecheck, 66 unit/property tests, all 972 reviewed cards, 13 curated reference addresses, generated SQL consistency, economy simulation and PDF source/artifact integrity. The complete 42-case standard browser suite passed. All four reading-library cases passed again after the final handbook regeneration and print fix; five cloud guidance/source/suggestion/teacher-stock cases and the Pages-path case also passed. Coverage includes all 27 guides and their self-checks/citations, all 118 elements, exact-symbol search, family filters, element-dialog focus return, ten labelled models, circuit switching, 320-pixel accessibility/bounded scrolling, real PDF downloads, offline reading and cached PDF byte ranges. Printing hides the app only while a study guide is open; other pages retain normal print visibility. PDF metadata/text and phone screenshots were inspected. The water-cycle model distinguishes soil from surface water. Existing source cards, citations and short topic reading are preserved. No database migration, private credential or real email request is needed for the library.
+
 ## Signup section choices
 
 - [x] Replace the signup section text field with a native dropdown containing the 20 unique supplied section names.
