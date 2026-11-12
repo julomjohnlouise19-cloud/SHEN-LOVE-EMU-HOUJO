@@ -46,9 +46,12 @@
   flex: 1 1 170px;
   white-space: normal;
 }
-.reading-shelves [aria-pressed="true"],
-.element-view-controls [aria-pressed="true"],
-.illustration-parts [aria-pressed="true"] {
+.reading-shelves .button[aria-pressed="true"],
+.reading-shelves .button[aria-pressed="true"]:hover,
+.element-view-controls .button[aria-pressed="true"],
+.element-view-controls .button[aria-pressed="true"]:hover,
+.illustration-parts .button[aria-pressed="true"],
+.illustration-parts .button[aria-pressed="true"]:hover {
   background: var(--lab-brand);
   border-color: var(--lab-brand);
   color: #fffefb;

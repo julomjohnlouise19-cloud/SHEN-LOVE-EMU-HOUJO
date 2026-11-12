@@ -70,6 +70,17 @@ test("the full periodic table supports accurate lookup, family filters and acces
   await page
     .getByRole("button", { name: "Periodic table", exact: true })
     .click();
+  await page
+    .getByRole("button", { name: "Periodic table", exact: true })
+    .hover();
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include(".reading-shelves")
+        .withTags(["wcag2a", "wcag2aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
   await expect(page.locator(".element-count")).toHaveText(
     "118 of 118 elements",
   );
@@ -132,6 +143,14 @@ test("the full periodic table supports accurate lookup, family filters and acces
   await page.screenshot({ path: "/tmp/cozy-periodic-cards-phone.png" });
   await page.getByRole("button", { name: "Table view", exact: true }).click();
   expect(
+    (
+      await new AxeBuilder({ page })
+        .include(".element-view-controls")
+        .withTags(["wcag2a", "wcag2aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  expect(
     await page
       .locator(".periodic-scroll")
       .evaluate((e) => e.scrollWidth > e.clientWidth),
@@ -176,6 +195,15 @@ test("science models retain keyboard focus, explain their limits and switch a wo
     await expect(dialog.locator(".illustration-explanation")).toContainText(
       figure.parts[0].explanation,
     );
+    if (figure.id === "plant-cell")
+      expect(
+        (
+          await new AxeBuilder({ page })
+            .include(".illustration-parts")
+            .withTags(["wcag2a", "wcag2aa"])
+            .analyze()
+        ).violations,
+      ).toEqual([]);
     if (figure.id === "circuit") {
       await dialog
         .getByRole("button", { name: "Close the switch", exact: true })
