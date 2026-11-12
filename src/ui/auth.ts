@@ -45,6 +45,7 @@ import {
 import { classCredits } from "../store/platform";
 import { levelOf } from "../core/rules";
 import { termsModal } from "./terms";
+import { schoolSections } from "../data/sections";
 export function authModal(registerFirst = false, recoverFirst = false) {
   let joining = registerFirst;
   let model = {
@@ -375,14 +376,23 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       { "aria-label": "Show password", "aria-pressed": false },
     );
     const name = input("name", "What should we call you?", model.name);
-    const section = input("section", "e.g. Discovery", model.section);
-    section.required = false;
+    const section = h(
+      "select",
+      { name: "section" },
+      h(
+        "option",
+        { value: "", selected: model.section === "" },
+        "Choose your section",
+      ),
+      ...schoolSections.map((value) =>
+        h("option", { value, selected: model.section === value }, value),
+      ),
+    );
     name.maxLength = 40;
-    section.maxLength = 40;
     name.addEventListener("input", () => {
       model.name = name.value;
     });
-    section.addEventListener("input", () => {
+    section.addEventListener("change", () => {
       model.section = section.value;
     });
     const grade = h(

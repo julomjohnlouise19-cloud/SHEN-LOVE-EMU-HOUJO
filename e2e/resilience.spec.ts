@@ -92,7 +92,7 @@ test("phase 4: a new account hashes its password, blocks admin access, and can c
   await page
     .getByRole("combobox", { name: "Grade", exact: true })
     .selectOption("7");
-  await page.getByLabel("Section (optional)").fill("SSC Curiosity");
+  await page.getByLabel("Section (optional)").selectOption("SSC");
   await page
     .getByRole("checkbox", {
       name: "I agree to the Terms and Conditions and Privacy Notice",
@@ -110,9 +110,16 @@ test("phase 4: a new account hashes its password, blocks admin access, and can c
         saltLength: u.salt.length,
         role: u.role,
         balance: u.merits,
+        section: u.section,
       };
     }),
-  ).toEqual({ hashLength: 64, saltLength: 32, role: "student", balance: 24 });
+  ).toEqual({
+    hashLength: 64,
+    saltLength: 32,
+    role: "student",
+    balance: 24,
+    section: "SSC",
+  });
   await page.goto("/#/admin");
   await expect(
     page.getByRole("heading", { name: "A space for our SSC teachers." }),

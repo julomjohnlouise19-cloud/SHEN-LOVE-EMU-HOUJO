@@ -15,6 +15,9 @@ test("signup requires a deliberate agreement and preserves the form while readin
   await page.getByLabel("Your name", { exact: true }).fill("New Scientist");
   await page.getByLabel("Email", { exact: true }).fill("new@example.test");
   await page.getByLabel("Password", { exact: true }).fill("cloud-password-123");
+  await page
+    .getByRole("combobox", { name: "Section (optional)", exact: true })
+    .selectOption("Grejalde");
   const submit = page.getByRole("button", {
     name: "Make my little lab",
     exact: true,
@@ -49,6 +52,9 @@ test("signup requires a deliberate agreement and preserves the form while readin
   );
   await expect(submit).toBeDisabled();
   expect(backend.signupCalls).toBe(0);
+  await expect(
+    page.getByRole("combobox", { name: "Section (optional)", exact: true }),
+  ).toHaveValue("Grejalde");
   await page.getByRole("checkbox", { name: agreement }).check();
   await submit.click();
   await expect(
@@ -58,6 +64,7 @@ test("signup requires a deliberate agreement and preserves the form while readin
   expect(backend.signupMetadata).toMatchObject({
     terms_accepted: true,
     terms_version: "1.0",
+    section: "Grejalde",
   });
   expect(
     Number.isFinite(

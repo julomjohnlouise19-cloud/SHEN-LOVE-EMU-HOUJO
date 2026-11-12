@@ -12,7 +12,7 @@ async function signupDetails(page: Page, email = "new@example.test") {
   await page.getByLabel("Grade", { exact: true }).selectOption("9");
   await page
     .getByLabel("Section (optional)", { exact: true })
-    .fill("Discovery");
+    .selectOption("SSC");
   await page
     .getByRole("checkbox", {
       name: "I agree to the Terms and Conditions and Privacy Notice",
@@ -80,7 +80,7 @@ test("failed confirmation preserves details, provides accessible recovery and ke
   await expect(page.getByLabel("Grade", { exact: true })).toHaveValue("9");
   await expect(
     page.getByLabel("Section (optional)", { exact: true }),
-  ).toHaveValue("Discovery");
+  ).toHaveValue("SSC");
   await expect(page.getByLabel("Password", { exact: true })).toHaveValue("");
   await expect(
     page.getByRole("button", { name: /Try again in/ }),

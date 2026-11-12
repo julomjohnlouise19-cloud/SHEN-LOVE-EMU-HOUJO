@@ -1,5 +1,13 @@
 # The Cozy Science Lab — build plan
 
+## Signup section choices
+
+- [x] Replace the signup section text field with a native dropdown containing the 20 unique supplied section names.
+- [x] Verify selected sections are retained and sent correctly, and check signup on phones and in the local demo.
+- [ ] Publish the tested change and verify the list on the public website.
+
+Native lint/typecheck, 63 unit tests, 972-card validation and SQL consistency passed. Updated existing browser coverage passed four cloud signup/email-recovery scenarios, the local signup/password-change case, the Cells learning slice and the Pages-path case. Selected Grejalde is preserved through the terms dialog and sent in Auth metadata; SSC survives local registration and failed-confirmation form recovery. The configured production build passed. Publication and a direct check of all 20 choices on the live website are the final steps.
+
 ## Reliable password-reset links
 
 - [x] Reproduce the email-link return that fails to open the new-password form, including a previously signed-out browser.

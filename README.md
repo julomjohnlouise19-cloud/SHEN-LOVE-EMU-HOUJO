@@ -57,6 +57,8 @@ Cloud mode adds real email authentication, profiles/photos, quiz records, server
 
 ## Color, profiles and Teacher Studio
 
+**Create account → Section** provides a native dropdown with the 20 unique school sections, including SSC, Dignos, Arcenal and Grejalde. Estiola appears once. A chosen section stays selected while reading the terms or returning to signup details and is saved with the account.
+
 Password-reset links now open a verified new-password form after logout and remain usable after refreshing the same tab. Saving a password needs Auth only, so a classroom-data outage cannot block it. The form includes show/hide controls, password confirmation, a saved-success screen and a **Continue to the lab** action. Unverified/expired links offer a safe retry. See [the reset-link guide](docs/PASSWORD_RESET.md) for the exact email-template placeholder and redirect settings; no SQL upgrade is needed.
 
 Signup now requires an explicit agreement to readable **Terms & Conditions and Privacy Notice**. Reading keeps the signup form intact and does not accept the agreement. New accounts submit the terms version and acceptance time; older accounts retain their existing status.
