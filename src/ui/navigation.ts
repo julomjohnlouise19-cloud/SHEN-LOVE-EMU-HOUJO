@@ -14,6 +14,7 @@ const titles: Record<string, string> = {
   "/spin": "Daily spin",
   "/quests": "Quests",
   "/leaderboard": "Leaderboard",
+  "/friends": "Science friends",
   "/records": "Saved records",
   "/experiment": "Science lab",
   "/teacher": "Teacher studio",

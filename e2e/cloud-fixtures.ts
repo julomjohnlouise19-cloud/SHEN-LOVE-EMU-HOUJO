@@ -50,6 +50,8 @@ export interface Backend {
   available: boolean;
   suggestionsReady: boolean;
   accountsReady: boolean;
+  communityReady: boolean;
+  sharedPhotoPaths: string[];
   suggestions: Record<string, unknown>[];
   platform: number;
   failUploads: boolean;
@@ -90,6 +92,8 @@ export const test = base.extend<{ backend: Backend }>({
         available: true,
         suggestionsReady: true,
         accountsReady: true,
+        communityReady: false,
+        sharedPhotoPaths: [],
         suggestions: [],
         platform: 3,
         failUploads: false,
@@ -342,7 +346,8 @@ export const test = base.extend<{ backend: Backend }>({
             expect(who >= 0).toBe(true);
             expect(
               path.startsWith(`${users[who].id}/`) ||
-                state.profiles[who].is_teacher,
+                state.profiles[who].is_teacher ||
+                state.sharedPhotoPaths.includes(path),
             ).toBe(true);
             return respond({
               signedURL: `/object/sign/csl-avatars/${path}?token=fixture`,
@@ -378,6 +383,7 @@ export const test = base.extend<{ backend: Backend }>({
                 questions: 972,
                 platform: state.platform,
                 accounts: state.accountsReady ? 1 : 0,
+                community: state.communityReady ? 1 : 0,
               })
             : respond({ message: "function not installed" }, 404);
         }

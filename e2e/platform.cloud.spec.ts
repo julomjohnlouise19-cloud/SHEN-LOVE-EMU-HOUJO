@@ -292,7 +292,7 @@ test("retired minigame links open learning and leave class credits unchanged", a
 }) => {
   await page.goto("./");
   await signIn(page);
-  for (const path of ["/arcade", "/leaderboard", "/arcade/life"]) {
+  for (const path of ["/arcade", "/arcade/life"]) {
     await page.goto(`#${path}`);
     await expect(page).toHaveURL(/#\/island$/);
     await expect(

@@ -160,7 +160,7 @@ declare uid uuid:=csl_private.actor(); result jsonb; begin
  select coalesce(jsonb_agg(to_jsonb(r)),'[]') into result from (select * from ranked order by rank limit 100) r; return result;
 end $$;
 create or replace function public.csl_backend_status() returns jsonb language sql stable security definer set search_path='' as $$
- select jsonb_build_object('version',1,'questions',(select count(*) from csl_private.questions),'platform',3);
+ select jsonb_build_object('version',1,'questions',(select count(*) from csl_private.questions),'platform',3,'accounts',case when to_regprocedure('public.csl_scientist_profile(uuid)') is null then 0 else 1 end,'community',case when to_regprocedure('public.csl_social_home()') is null then 0 else 1 end);
 $$;
 
 -- Private classroom suggestions. Requires the existing classroom setup; no old records are rewritten.

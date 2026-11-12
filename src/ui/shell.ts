@@ -37,6 +37,7 @@ const nav = [
   ["/shop", "shop", "Supply shop"],
   ["/spin", "spin", "Daily spin"],
   ["/leaderboard", "trophy", "Leaderboard"],
+  ["/friends", "heart", "Science friends"],
 ];
 const teacherNav = [
   ["/teacher", "home", "Studio overview"],
@@ -70,7 +71,7 @@ export function shell(page: HTMLElement, route: string) {
     { "aria-label": "Main navigation" },
     ...(teacherMode
       ? teacherNav.filter(([path]) => hasStudio() || path !== "/teacher/health")
-      : nav.filter(([path]) => path !== "/leaderboard" || !connected)
+      : nav
     ).map(([path, ico, label]) =>
       h(
         "div",

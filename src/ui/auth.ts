@@ -1060,6 +1060,32 @@ export function profileModal() {
       jumps,
       basicSection,
       appearanceSection,
+      h(
+        "section",
+        { class: "profile-panel" },
+        h("h3", null, "Your classroom identity"),
+        h(
+          "p",
+          null,
+          "Choose a public username, join the science league and connect with classmates. You choose which profile details are shared.",
+        ),
+        button(
+          "Classroom profile & username",
+          async () => {
+            await (await import("./community")).communitySettingsModal();
+          },
+          "button outline",
+        ),
+        h(
+          "a",
+          {
+            class: "button outline",
+            href: "#/friends",
+            onClick: () => close(),
+          },
+          "My science friends",
+        ),
+      ),
       accountSection,
     ],
     true,

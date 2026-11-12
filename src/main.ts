@@ -10,6 +10,7 @@ import "./styles/friendly.css";
 import "./styles/mobile.css";
 import "./styles/accounts.css";
 import "./styles/reading.css";
+import "./styles/community.css";
 import { loadAppearance } from "./store/preferences";
 import {
   initStore,
@@ -119,10 +120,6 @@ async function render() {
     );
     return;
   }
-  if (path === "/leaderboard" && cloudEnabled && user.id !== "guest") {
-    go("/island");
-    return;
-  }
   let page: HTMLElement;
   try {
     if (path === "/") page = dashboard();
@@ -145,7 +142,12 @@ async function render() {
           : shopPage();
     else if (path === "/spin") page = spinPage();
     else if (path === "/quests") page = questsPage();
-    else if (path === "/leaderboard") page = leaderboardPage();
+    else if (path === "/leaderboard")
+      page = cloudEnabled
+        ? await (await import("./ui/community")).studentLeaderboardPage()
+        : leaderboardPage();
+    else if (path === "/friends")
+      page = await (await import("./ui/community")).friendsPage();
     else if (path === "/experiment") page = labPage();
     else if (path === "/records" && cloudEnabled)
       page = await (await import("./ui/records")).recordsPage();

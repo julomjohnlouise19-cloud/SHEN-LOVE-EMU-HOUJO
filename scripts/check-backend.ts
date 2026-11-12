@@ -50,6 +50,15 @@ try {
         `::notice title=Verified classroom backend::Schema 1, platform ${installedPlatform}, 972 questions. ${installedPlatform >= 3 ? "Advanced Teacher Studio is enabled." : "Login/design are ready. Run supabase/studio-upgrade.sql to enable advanced archive, record-health and teaching-role tools."}`,
       );
     const inbox = await client.rpc("csl_suggestions_status");
+    const communityNotice =
+      Number(data.community) >= 1
+        ? "Student leaderboard and Science friends version 1 are installed."
+        : "Student leaderboard and Science friends need supabase/community-upgrade.sql. Existing classroom features remain available.";
+    console.log(communityNotice);
+    if (process.env.GITHUB_ACTIONS === "true")
+      console.log(
+        `::notice title=Classroom connections activation::${communityNotice}`,
+      );
     if (process.env.GITHUB_ACTIONS === "true")
       console.log(
         `::notice title=Scientist profile details::${Number(data.accounts) >= 1 ? "Enhanced teacher profile details are installed." : "Name, class, photos, bans and pickup messages work with the current backend. Run supabase/accounts-upgrade.sql to enable teacher email, biography and signup-agreement details."}`,

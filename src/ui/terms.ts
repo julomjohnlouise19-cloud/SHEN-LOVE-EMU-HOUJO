@@ -11,6 +11,10 @@ export function termsModal() {
       "Your account stores your name, email, grade and section. You may add a profile photo and introduction. Authorized teachers can view these profile details, completed quiz records, class credits, reservations and suggestions to support learning and manage the classroom. Do not put passwords or sensitive personal information in photos, notes or suggestions.",
     ],
     [
+      "Classroom sharing and friends",
+      "You can choose a public username and join the student leaderboard. Other signed-in classmates can then see your display name, username and learning achievements. Sharing your photo, introduction or grade is optional. You can change these choices, accept or decline friend requests, remove friends or block a scientist from the Science friends page.",
+    ],
+    [
       "What stays on your device",
       "Notebook pages, unfinished practice, practice XP, quests and Daily spin progress stay on this device. Completed discoveries, profile information, class credits and supply reservations use your classroom account. Signing out preserves your saved work; shared devices should always be signed out after use.",
     ],

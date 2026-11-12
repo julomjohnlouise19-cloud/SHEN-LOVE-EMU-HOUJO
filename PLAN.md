@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## Student leaderboard and science friends
+
+- [x] Add a shared, server-scored student leaderboard with weekly/all-time views, fair repeated-play handling, ranks and public learning cards.
+- [x] Add unique classroom usernames, deliberate profile sharing, friend requests by username, accept/decline/cancel, removal and blocking.
+- [x] Connect responsive leaderboard/friends pages and profile controls; preserve private account fields and existing photos/teacher access.
+- [x] Test permissions, ranking, request concurrency, username uniqueness, mobile/accessibility and existing learning/account flows.
+- [ ] Publish and verify the compatible website; report the installed live community capability and any owner-only activation step precisely.
+
+Local verification passed lint/typecheck, 70 unit/property tests, all 972 reviewed questions, source/PDF/SQL consistency and economy checks. The complete isolated PostgreSQL suite passed, including new daily-best scoring/ties, shared-field and current-photo RLS, unique usernames, actor-bound requests/retries, concurrent crossed requests and last daily slots, blocking, bans and additive reruns. Browser checks passed 22 combined community/platform/account scenarios plus a focused crossed-invitation case, the Cells learning/mastery/review slice, local signup/password changes, safe user text and the repository-path/offline scenario. This covers all seven new community cases, actual two-account acceptance/removal, deliberately enabled photos and stale actions; 320-pixel ranking/card/friends accessibility passed and phone/desktop screenshots were inspected. Shared photos and page caches are scoped to the current authenticated account. The user received the tested community-upgrade.sql and a simple activation guide; applying it requires the owner's SQL Editor because this chat has no authenticated database administrator connection. Existing classrooms remain compatible before activation. No real friend request, email, private login or production database migration was performed by these tests.
+
 ## Reading room study library
 
 - [x] Add original structured study notes for all 27 decks, preserving existing source cards, citations and reading controls.
