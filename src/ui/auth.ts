@@ -10,6 +10,7 @@ import {
   cloudEnabled,
   finishPasswordRecovery,
   dismissPasswordRecovery,
+  passwordRecoveryActive,
 } from "../store/cloud";
 import {
   currentUser,
@@ -92,7 +93,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       "p",
       { class: "auth-reset-status", role: "status" },
       recoverFirst
-        ? "Open a fresh reset link from the email requested on this device. If your link expired, request one new link below."
+        ? "We couldn’t verify this reset link. It may have expired, already been used, or opened in a different browser. Request one new link below, then open it in the same browser where you requested it."
         : "",
     );
     const send = button(
@@ -117,7 +118,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
             model.email = address.value.trim();
             await requestPasswordReset(model.email);
             info.textContent =
-              "If this email has an account, a reset link will arrive shortly. Check your inbox and spam folder, then open it on this device.";
+              "If this email has an account, a reset link will arrive shortly. Check your inbox and spam folder, then open it in this same browser.";
           } catch (value) {
             error.textContent =
               value instanceof Error ? value.message : "Please try again.";
@@ -145,6 +146,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
           : "Send reset link";
     }
     address.addEventListener("input", () => {
+      model.email = address.value;
       void update();
     });
     body.replaceChildren(
@@ -1229,7 +1231,11 @@ function photoEditor(user: NonNullable<ReturnType<typeof currentUser>>) {
 }
 
 export function passwordRecoveryModal() {
-  if (document.querySelector(".recovery-dialog")) return;
+  if (!passwordRecoveryActive() || document.querySelector(".recovery-dialog"))
+    return;
+  document
+    .querySelectorAll<HTMLDialogElement>(".auth-dialog[open]")
+    .forEach((dialog) => dialog.close());
   const password = input(
     "recovery-password",
     "Choose a new password",
@@ -1239,10 +1245,12 @@ export function passwordRecoveryModal() {
   password.autocomplete = "new-password";
   password.minLength = 8;
   password.maxLength = 128;
+  password.setAttribute("aria-label", "New password");
   const repeat = input("repeat-password", "Enter it once more", "", "password");
   repeat.autocomplete = "new-password";
   repeat.minLength = 8;
   repeat.maxLength = 128;
+  repeat.setAttribute("aria-label", "Repeat new password");
   const error = h("p", { class: "form-error", role: "alert" });
   const submit = button(
     "Save new password",
@@ -1250,7 +1258,40 @@ export function passwordRecoveryModal() {
     "button primary full",
     { type: "submit" },
   );
-  const { dialog, close } = modal("A fresh start for your account", [
+  const status = h("p", { class: "recovery-password-hint", role: "status" });
+  const visiblePassword = (control: HTMLInputElement, label: string) => {
+    const toggle = button(
+      "Show",
+      () => {
+        const reveal = control.type === "password";
+        control.type = reveal ? "text" : "password";
+        toggle.textContent = reveal ? "Hide" : "Show";
+        toggle.setAttribute(
+          "aria-label",
+          `${reveal ? "Hide" : "Show"} ${label}`,
+        );
+        toggle.setAttribute("aria-pressed", String(reveal));
+      },
+      "password-visibility",
+      { "aria-label": `Show ${label}`, "aria-pressed": false },
+    );
+    return h("span", { class: "password-field" }, control, toggle);
+  };
+  password.addEventListener("input", () => {
+    status.textContent =
+      password.value.length < 8
+        ? `Use at least 8 characters. ${8 - password.value.length} more to go.`
+        : "8+ characters · repeat your new password below.";
+  });
+  const content = h("div", { class: "recovery-content" });
+  const { dialog } = modal("A fresh start for your account", [content]);
+  content.append(
+    h(
+      "span",
+      { class: "recovery-verified" },
+      icon("check", 17),
+      "Reset link verified",
+    ),
     h(
       "p",
       { class: "muted" },
@@ -1263,27 +1304,57 @@ export function passwordRecoveryModal() {
           event.preventDefault();
           if (submit.disabled) return;
           submit.disabled = true;
+          submit.setAttribute("aria-busy", "true");
+          submit.textContent = "Saving your new password…";
           error.textContent = "";
           try {
             if (password.value !== repeat.value)
               throw new Error("The two passwords need to match.");
             await finishPasswordRecovery(password.value);
-            close();
-            toast("Your password is updated. Welcome back to the lab.");
+            password.value = "";
+            repeat.value = "";
+            content.replaceChildren(
+              h(
+                "section",
+                { class: "recovery-success", role: "status" },
+                icon("check", 30),
+                h("h3", { tabindex: -1 }, "Your password is updated"),
+                h(
+                  "p",
+                  null,
+                  "Your new password is saved. Continue to the lab to open your account.",
+                ),
+              ),
+              h(
+                "a",
+                {
+                  href: import.meta.env.BASE_URL,
+                  class: "button primary full",
+                },
+                "Continue to the lab",
+              ),
+            );
+            content.querySelector<HTMLElement>("h3")?.focus();
           } catch (value) {
             error.textContent =
               value instanceof Error ? value.message : "Please try again.";
           } finally {
             submit.disabled = false;
+            submit.removeAttribute("aria-busy");
+            submit.textContent = "Save new password";
           }
         },
       },
-      field("New password", password),
-      field("Repeat new password", repeat),
+      field("New password", visiblePassword(password, "new password")),
+      status,
+      field(
+        "Repeat new password",
+        visiblePassword(repeat, "repeated password"),
+      ),
       error,
       submit,
     ),
-  ]);
+  );
   dialog.classList.add("recovery-dialog");
   dialog.addEventListener("close", () => {
     dismissPasswordRecovery();

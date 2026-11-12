@@ -129,6 +129,15 @@ test("password reset requests one email, enforces cooldown and completes a verif
   await page
     .getByRole("button", { name: "Save new password", exact: true })
     .click();
+  await expect(
+    page.getByRole("heading", {
+      name: "Your password is updated",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await page
+    .getByRole("link", { name: "Continue to the lab", exact: true })
+    .click();
   await expect(page.getByRole("dialog")).toHaveCount(0);
   expect(backend.passwordChanges).toBe(1);
   await expect(

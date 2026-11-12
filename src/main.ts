@@ -105,6 +105,7 @@ async function render() {
       );
     app.replaceChildren(welcomeHub());
     document.title = `Welcome · ${APP_NAME}`;
+    if (passwordRecoveryActive()) passwordRecoveryModal();
     if (identityChanged)
       app.querySelector<HTMLElement>("#main")?.focus({ preventScroll: true });
     return;

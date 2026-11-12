@@ -12,32 +12,17 @@ import { LocalStorageAdapter, type Tx } from "./adapter";
 import { accountError } from "../core/account-errors";
 import { beginEmailRequest, recordEmailWait } from "./email";
 import { TERMS_VERSION } from "../core/agreement";
+import { restorePasswordRecovery, dismissPasswordRecovery } from "./recovery";
+export {
+  passwordRecoveryActive,
+  finishPasswordRecovery,
+  dismissPasswordRecovery,
+} from "./recovery";
 export const OUTBOX_KEY = "csl:cloud-outbox";
 const adapter = cloudEnabled ? new LocalStorageAdapter() : undefined;
 let identity: string | undefined;
-let recoveryUser: string | undefined;
 let accountFeatures = 0;
 export const accountsVersion = () => (platform >= 3 ? accountFeatures : 0);
-client?.auth.onAuthStateChange((event, session) => {
-  if (event === "PASSWORD_RECOVERY") {
-    recoveryUser = session?.user.id;
-    window.dispatchEvent(new Event("csl:password-recovery"));
-  } else if (event === "SIGNED_OUT") recoveryUser = undefined;
-});
-export const passwordRecoveryActive = () =>
-  !!identity && recoveryUser === identity;
-export const dismissPasswordRecovery = () => {
-  recoveryUser = undefined;
-};
-export async function finishPasswordRecovery(password: string) {
-  if (!passwordRecoveryActive())
-    throw new Error("Open a fresh password reset link from your email.");
-  if (password.length < 8 || password.length > 128)
-    throw new Error("Use a new password with 8–128 characters.");
-  const { error } = await client!.auth.updateUser({ password });
-  if (error) throw accountError(error);
-  recoveryUser = undefined;
-}
 let backendReady = false;
 let checking: Promise<void> | undefined;
 let platform = 0;
@@ -178,6 +163,8 @@ export async function initCloud(
   try {
     const { data, error } = await client.auth.getSession();
     if (error) throw error;
+    // Recovery needs Auth only; a classroom outage must not block changing a password.
+    if (data.session && (await restorePasswordRecovery())) return;
     if (!data.session || sessionStorage.getItem("csl:cloud-logged-out")) {
       void ready().catch((error) =>
         status(
@@ -206,6 +193,7 @@ export async function cloudLogin(email: string, password: string) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address) || !password)
     throw new Error("Enter your account email and password.");
   if (!client) throw new Error("Account services are unavailable.");
+  dismissPasswordRecovery();
   const { data, error } = await client.auth.signInWithPassword({
     email: address,
     password,
@@ -273,6 +261,7 @@ export async function cloudRegister(input: {
   return profile();
 }
 export async function cloudLogout() {
+  dismissPasswordRecovery();
   identity = undefined;
   pending = 0;
   sessionStorage.setItem("csl:cloud-logged-out", "1");

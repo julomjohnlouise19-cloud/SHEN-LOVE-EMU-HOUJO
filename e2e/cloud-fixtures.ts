@@ -63,6 +63,7 @@ export interface Backend {
   resendCalls: number;
   photoUploads: number;
   recoverCalls: number;
+  invalidRecoveryCode: boolean;
   getUserCalls: number;
   tokenCalls: number;
   passwordChanges: number;
@@ -102,6 +103,7 @@ export const test = base.extend<{ backend: Backend }>({
         resendCalls: 0,
         photoUploads: 0,
         recoverCalls: 0,
+        invalidRecoveryCode: false,
         getUserCalls: 0,
         tokenCalls: 0,
         passwordChanges: 0,
@@ -226,6 +228,18 @@ export const test = base.extend<{ backend: Backend }>({
           });
         if (url.pathname === "/auth/v1/token") {
           state.tokenCalls++;
+          if (
+            url.searchParams.get("grant_type") === "pkce" &&
+            state.invalidRecoveryCode
+          )
+            return respond(
+              {
+                code: "flow_state_expired",
+                message:
+                  "The recovery link has expired or has already been used.",
+              },
+              400,
+            );
           const user =
             users.find((user) => user.email === body?.email) ?? users[0];
           if (body?.password === "wrong-password")

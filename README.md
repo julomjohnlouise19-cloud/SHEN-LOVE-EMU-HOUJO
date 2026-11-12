@@ -57,6 +57,8 @@ Cloud mode adds real email authentication, profiles/photos, quiz records, server
 
 ## Color, profiles and Teacher Studio
 
+Password-reset links now open a verified new-password form after logout and remain usable after refreshing the same tab. Saving a password needs Auth only, so a classroom-data outage cannot block it. The form includes show/hide controls, password confirmation, a saved-success screen and a **Continue to the lab** action. Unverified/expired links offer a safe retry. See [the reset-link guide](docs/PASSWORD_RESET.md) for the exact email-template placeholder and redirect settings; no SQL upgrade is needed.
+
 Signup now requires an explicit agreement to readable **Terms & Conditions and Privacy Notice**. Reading keeps the signup form intact and does not accept the agreement. New accounts submit the terms version and acceptance time; older accounts retain their existing status.
 
 In **Teacher Studio → Scientists**, **View profile** shows photos and class details. Teachers can **Ban user** with confirmation and a reason, or **Restore access**, while preserving records, credits and reservations. The additive [account upgrade](docs/ACCOUNT_UPGRADE.md) enables teacher-only email, introduction, style, learning totals and submitted agreement details. Existing database installations keep working before that upgrade.

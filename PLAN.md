@@ -1,5 +1,14 @@
 # The Cozy Science Lab — build plan
 
+## Reliable password-reset links
+
+- [x] Reproduce the email-link return that fails to open the new-password form, including a previously signed-out browser.
+- [x] Restore only verified recovery sessions, keep the form usable after refresh and handle missing/expired links clearly.
+- [x] Make recovery independent of classroom database availability and improve the account reset controls on phones.
+- [ ] Pass code, content and account/browser checks, publish and verify the public reset interface; document any owner-only email-template/redirect settings.
+
+Reproduced the reported return failure with an actual SDK recovery-code exchange after logout: the old per-tab logout flag prevented classroom identity binding, so the new-password form never opened. The new Auth-only recovery handler revalidates a short-lived tab marker and supersedes that old logout flag only for the verified account. Native checks passed lint/typecheck, all 63 unit/property tests, 972 reviewed cards, SQL/source consistency and the economy simulation. Browser coverage passed all 52 cloud scenarios, ten standard learning/welcome scenarios and the repository-path scenario; seven focused reset checks also passed. New cases cover logout then callback/reload/save/continue, a delayed unavailable classroom backend, absent browser verification, expired codes and a normal session with only a recovery URL. The 320-pixel verified form passed WCAG AA checks and its screenshot was inspected. No real reset email, personal login or database mutation was performed. The exact owner-only email button/redirect setup and complete template are prepared in docs/PASSWORD_RESET.md and docs/emails/reset-password.html. GitHub's complete gates and public verification remain the publication step.
+
 ## Account agreements, scientist profiles and school collection
 
 - [x] Add readable classroom terms/privacy information and an explicit, initially unchecked signup agreement; retain a versioned acceptance record.
