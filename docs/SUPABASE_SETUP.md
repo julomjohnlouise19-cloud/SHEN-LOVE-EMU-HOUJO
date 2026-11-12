@@ -32,7 +32,7 @@ To check installation in the SQL Editor:
 select public.csl_backend_status();
 ```
 
-Expected result after the latest setup: `{"version":1,"questions":972,"platform":3}`. Existing projects missing `platform` must run the complete [upgrade.sql](../supabase/upgrade.sql). The migration preserves existing records, teacher edits, stock and wallets when repeated.
+Expected result after the latest setup: `{"version":1,"questions":972,"platform":3,"accounts":1}`. Existing projects missing `platform` must run the complete [upgrade.sql](../supabase/upgrade.sql). Existing platform-3 projects can use the shorter [account-details upgrade](ACCOUNT_UPGRADE.md). The migration preserves existing records, teacher edits, stock and wallets when repeated.
 
 ## 3. Configure email sign-in
 

@@ -3,7 +3,8 @@ import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import type { CloudRecord } from "../src/store/cloud";
 import type { ArcadeView } from "../src/store/platform";
-import type { Question, Rules, Answer } from "../src/core/types";
+import type { Question, Answer } from "../src/core/types";
+import type { ClassroomRules } from "../src/core/classroom";
 import type { LabItem, LabOrder } from "../src/core/platform";
 import {
   defaultArcadeRules,
@@ -48,6 +49,7 @@ interface Profile {
 export interface Backend {
   available: boolean;
   suggestionsReady: boolean;
+  accountsReady: boolean;
   suggestions: Record<string, unknown>[];
   platform: number;
   failUploads: boolean;
@@ -57,6 +59,7 @@ export interface Backend {
   emailLimited: boolean;
   emailDeliveryFailed: boolean;
   signupCalls: number;
+  signupMetadata: Record<string, unknown>;
   resendCalls: number;
   photoUploads: number;
   recoverCalls: number;
@@ -73,7 +76,7 @@ export interface Backend {
   items: LabItem[];
   orders: LabOrder[];
   credits: Record<string, number>;
-  rules: Rules;
+  rules: ClassroomRules;
   game: ArcadeRules;
   settingsVersion: number;
   activity: Record<string, unknown>[];
@@ -85,6 +88,7 @@ export const test = base.extend<{ backend: Backend }>({
       const state: Backend = {
         available: true,
         suggestionsReady: true,
+        accountsReady: true,
         suggestions: [],
         platform: 3,
         failUploads: false,
@@ -94,6 +98,7 @@ export const test = base.extend<{ backend: Backend }>({
         emailLimited: false,
         emailDeliveryFailed: false,
         signupCalls: 0,
+        signupMetadata: {},
         resendCalls: 0,
         photoUploads: 0,
         recoverCalls: 0,
@@ -247,6 +252,7 @@ export const test = base.extend<{ backend: Backend }>({
         }
         if (url.pathname === "/auth/v1/signup") {
           state.signupCalls++;
+          state.signupMetadata = (body?.data ?? {}) as Record<string, unknown>;
           if (state.emailDeliveryFailed)
             return respond(
               {
@@ -353,7 +359,12 @@ export const test = base.extend<{ backend: Backend }>({
               setTimeout(resolve, state.statusDelay),
             );
           return state.available
-            ? respond({ version: 1, questions: 972, platform: state.platform })
+            ? respond({
+                version: 1,
+                questions: 972,
+                platform: state.platform,
+                accounts: state.accountsReady ? 1 : 0,
+              })
             : respond({ message: "function not installed" }, 404);
         }
         if (rpc === "csl_suggestions_status")
@@ -363,6 +374,38 @@ export const test = base.extend<{ backend: Backend }>({
         if (who < 0) return failed("Not signed in");
         const uid = users[who].id,
           profile = state.profiles[who];
+        if (!profile.active)
+          return failed("Your account is paused. Please contact your teacher.");
+        if (rpc === "csl_scientist_profile") {
+          if (!state.accountsReady)
+            return failed("Function not installed", 404);
+          if (!profile.is_teacher) return failed("Teacher access is required.");
+          const target = state.profiles.find(
+            (p) => p.user_id === body?.p_user_id,
+          );
+          if (!target) return failed("Scientist not found.");
+          const rows = state.rows.filter((r) => r.user_id === target.user_id);
+          return respond({
+            ...target,
+            created_at: "2026-11-10T00:00:00Z",
+            email: users.find((u) => u.id === target.user_id)!.email,
+            ...(state.preferences[target.user_id] ?? {
+              theme: "meadow",
+              bio: "",
+            }),
+            credits: state.credits[target.user_id],
+            attempts: rows.length,
+            correct: rows.reduce((n, r) => n + r.correct, 0),
+            answers: rows.reduce((n, r) => n + r.total, 0),
+            pending_reservations: state.orders.filter(
+              (o) => o.user_id === target.user_id && o.status === "reserved",
+            ).length,
+            expected_updated: fingerprint(target),
+            terms_accepted: false,
+            terms_version: "",
+            terms_accepted_at: "",
+          });
+        }
         if (rpc === "csl_send_suggestion") {
           const id = String(body?.p_id),
             old = state.suggestions.find((r) => r.id === id);
@@ -848,6 +891,8 @@ export const test = base.extend<{ backend: Backend }>({
             value = body?.p_body as Record<string, unknown>;
           if (action === "student") {
             const p = state.profiles.find((p) => p.user_id === value.user_id)!;
+            if (!value.active && p.is_teacher)
+              return failed("Teacher accounts cannot be banned.");
             expect(value.expected_updated).toBe(fingerprint(p));
             Object.assign(p, {
               display_name: value.display_name,
@@ -888,7 +933,7 @@ export const test = base.extend<{ backend: Backend }>({
           } else if (action === "rules" || action === "game") {
             expect(value.version).toBe(state.settingsVersion);
             state.settingsVersion++;
-            if (action === "rules") state.rules = value.rules as Rules;
+            if (action === "rules") state.rules = value.rules as ClassroomRules;
             else state.game = value.game as ArcadeRules;
           } else if (action === "question") {
             const q = value.question as Question,

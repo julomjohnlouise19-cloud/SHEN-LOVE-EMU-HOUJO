@@ -7,6 +7,7 @@ export class AccountError extends Error {
       | "confirm"
       | "credentials"
       | "configuration"
+      | "access"
       | "other" = "other",
     public waitSeconds = 0,
   ) {
@@ -28,10 +29,15 @@ export function accountError(value: unknown): AccountError {
       "Sign-in verification needs an update. Ask your teacher to check the website’s sign-in protection settings.",
       "configuration",
     );
-  if (code === "user_banned")
+  if (
+    code === "user_banned" ||
+    /your account is (?:paused|banned)|account.*classroom access.*banned/i.test(
+      message,
+    )
+  )
     return new AccountError(
-      "This account is paused. Ask your teacher to review your access.",
-      "configuration",
+      "This account is banned from classroom access. Contact your teacher to request a review.",
+      "access",
     );
   if (
     code === "over_email_send_rate_limit" ||

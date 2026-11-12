@@ -23,6 +23,7 @@ import {
 } from "./cloud";
 import { clearLab, getLabSnapshot, hasPlatform, refreshLab } from "./platform";
 import { clearPrivatePhotos, hydratePhoto } from "./photos";
+import { TERMS_VERSION, agreementKey } from "../core/agreement";
 const KEY = "csl:state";
 const adapter = new LocalStorageAdapter();
 let state: AppState;
@@ -341,7 +342,12 @@ export async function register(input: {
   name: string;
   grade: number;
   section: string;
+  termsAccepted: boolean;
 }) {
+  if (input.termsAccepted !== true)
+    throw new Error(
+      "Please read and accept the Terms & Conditions before creating your account.",
+    );
   if (cloudEnabled) {
     const profile = await cloudRegister(input);
     if (profile) await enterCloud(profile);
@@ -363,12 +369,16 @@ export async function register(input: {
   const salt = makeSalt(),
     hash = await hashPassword(input.password, salt),
     id = crypto.randomUUID();
-  await adapter.transaction([KEY], (tx) => {
+  await adapter.transaction([KEY, agreementKey(id)], (tx) => {
     const s = tx.get<AppState>(KEY)!;
     if (s.users.some((u) => u.username === username))
       throw new Error(
         "That username has a scientist already. Try a different one.",
       );
+    tx.set(agreementKey(id), {
+      version: TERMS_VERSION,
+      acceptedAt: new Date().toISOString(),
+    });
     const user = {
       ...newUser(id, username, input.name.trim(), Date.now()),
       merits: s.rules.starterMerits,

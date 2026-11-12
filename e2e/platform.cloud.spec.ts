@@ -211,6 +211,11 @@ test("email sending limits have persistent cooldown and an existing-account path
     await page
       .getByLabel("Password", { exact: true })
       .fill("cloud-password-123");
+    await page
+      .getByRole("checkbox", {
+        name: "I agree to the Terms and Conditions and Privacy Notice",
+      })
+      .check();
     if (send)
       await page
         .getByRole("button", { name: "Make my little lab", exact: true })
@@ -257,6 +262,11 @@ test("one confirmation resend is available after its cooldown", async ({
   await page.getByLabel("Your name", { exact: true }).fill("New Scientist");
   await page.getByLabel("Email", { exact: true }).fill("new@example.test");
   await page.getByLabel("Password", { exact: true }).fill("cloud-password-123");
+  await page
+    .getByRole("checkbox", {
+      name: "I agree to the Terms and Conditions and Privacy Notice",
+    })
+    .check();
   await page
     .getByRole("button", { name: "Make my little lab", exact: true })
     .click();

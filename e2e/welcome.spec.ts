@@ -11,6 +11,11 @@ async function join(page: Page) {
   await page.getByLabel("Your name", { exact: true }).fill("Sky Reyes");
   await page.getByLabel("Username", { exact: true }).fill("sky_science");
   await page.getByLabel("Password", { exact: true }).fill("sky-demo-123");
+  await page
+    .getByRole("checkbox", {
+      name: "I agree to the Terms and Conditions and Privacy Notice",
+    })
+    .check();
   await page.getByRole("button", { name: "Make my little lab" }).click();
   await expect(page.getByRole("heading", { name: "Hey, Sky!" })).toBeVisible();
 }

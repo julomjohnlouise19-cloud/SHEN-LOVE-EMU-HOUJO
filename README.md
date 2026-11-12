@@ -57,6 +57,12 @@ Cloud mode adds real email authentication, profiles/photos, quiz records, server
 
 ## Color, profiles and Teacher Studio
 
+Signup now requires an explicit agreement to readable **Terms & Conditions and Privacy Notice**. Reading keeps the signup form intact and does not accept the agreement. New accounts submit the terms version and acceptance time; older accounts retain their existing status.
+
+In **Teacher Studio → Scientists**, **View profile** shows photos and class details. Teachers can **Ban user** with confirmation and a reason, or **Restore access**, while preserving records, credits and reservations. The additive [account upgrade](docs/ACCOUNT_UPGRADE.md) enables teacher-only email, introduction, style, learning totals and submitted agreement details. Existing database installations keep working before that upgrade.
+
+Supply reservations give clear pickup instructions for the **Grade 10 SSC classroom**, a claim code, and persistent **Notifications** reminders until collection/cancellation. Teachers can change the pickup location in **Lab settings → Supply collection**. The reminders are inside the website; they do not send email or browser push.
+
 Choose Meadow, Aurora or Sunset in **Profile → Colors & avatar**, write a short introduction and use **Save my style**. Color choices apply across the lab; platform-3 accounts synchronize them across devices. Platform-2 and local demo users save styles on the device. Profile details, photo controls, learning progress, account actions and backup export have clear sections.
 
 Pages have destination-labeled Back links and breadcrumbs. Dialogs offer **Close and return** plus a visible Close control. Learning answers stay saved when returning to a branch. Reduced motion and keyboard navigation remain supported.

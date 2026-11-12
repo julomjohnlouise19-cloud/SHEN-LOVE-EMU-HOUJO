@@ -93,6 +93,11 @@ test("phase 4: a new account hashes its password, blocks admin access, and can c
     .getByRole("combobox", { name: "Grade", exact: true })
     .selectOption("7");
   await page.getByLabel("Section (optional)").fill("SSC Curiosity");
+  await page
+    .getByRole("checkbox", {
+      name: "I agree to the Terms and Conditions and Privacy Notice",
+    })
+    .check();
   await page.getByRole("button", { name: "Make my little lab" }).click();
   await expect(page.getByRole("heading", { name: "Hey, Mika!" })).toBeVisible();
   expect(

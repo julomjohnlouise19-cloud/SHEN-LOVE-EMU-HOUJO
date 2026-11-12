@@ -23,6 +23,7 @@ end $$;
 create or replace function csl_private.valid_rules(r jsonb) returns boolean language plpgsql stable set search_path='' as $$
 declare k text; begin
  if jsonb_typeof(r)<>'object' or not exists(select 1 from pg_catalog.pg_timezone_names where name=r->>'timezone') then return false; end if;
+ if r?'pickupLocation' and (jsonb_typeof(r->'pickupLocation') is distinct from 'string' or char_length(btrim(r->>'pickupLocation')) not between 2 and 160) then return false; end if;
  foreach k in array array['starterMerits','comboBonus','meritEasy','meritMedium','meritHard','dailyCap','correctXP','attemptXP','xpPerLevel','comboEvery','reviewReward','dailyReward','questReward','spinMax','skillsLevel'] loop
   perform csl_private.integer_field(r,k,case when k in ('xpPerLevel','comboEvery','skillsLevel') then 1 else 0 end,case when k='xpPerLevel' then 10000 when k='dailyCap' then 1000 when k='starterMerits' then 200 when k='skillsLevel' then 100 else 500 end);
  end loop;
@@ -43,6 +44,7 @@ begin
   return previous.result;
  end if;
  if p_action='student' then
+  if p_body?'reason' then note_value:=btrim(p_body->>'reason'); if note_value is null or char_length(note_value) not between 3 and 300 then raise exception 'Add a reason of 3-300 characters.'; end if; end if;
   target_user:=(p_body->>'user_id')::uuid; target:=target_user::text;
   select to_jsonb(p) into before_value from public.csl_profiles p where user_id=target_user for update;
   if before_value is null then raise exception 'Student not found.'; end if;

@@ -1,14 +1,26 @@
 import { currentUser } from "../store";
-import { refreshLab, reserveItem } from "../store/platform";
+import { refreshLab, reserveItem, getLabSnapshot } from "../store/platform";
 import type { LabItem, LabOrder } from "../core/platform";
 import { button, h, modal, toast } from "./dom";
 import { icon, supply } from "./svg";
 import { empty, pageHeading } from "./shell";
 import { go } from "./actions";
+import { reservationDetails } from "./reservations";
+import { pickupLocation } from "../core/classroom";
 
 export async function classShopPage() {
-  const user = currentUser()!,
-    lab = await refreshLab(true);
+  const user = currentUser()!;
+  let lab = await refreshLab(true);
+  const reservations = button(
+    `My reservations (${lab.orders.length})`,
+    () => orders(getLabSnapshot()?.orders ?? lab.orders),
+    "button outline",
+  );
+  const collectionPlace = h(
+    "strong",
+    { class: "pickup-location-inline" },
+    pickupLocation(lab.rules),
+  );
   let category = "All supplies";
   const grid = h("div", { class: "shop-grid" });
   const page = h(
@@ -18,11 +30,7 @@ export async function classShopPage() {
       "LITTLE DISCOVERIES. USEFUL REWARDS.",
       "Your class supply shelf",
       "Earn class credits through saved discoveries, then reserve a little reward.",
-      button(
-        `My reservations (${lab.orders.length})`,
-        () => orders(lab.orders),
-        "button outline",
-      ),
+      reservations,
     ),
     h(
       "section",
@@ -35,14 +43,16 @@ export async function classShopPage() {
         h(
           "p",
           null,
-          "Your teacher keeps this shelf up to date. Show your claim code at school when collecting a reserved item.",
+          "Your teacher keeps this shelf up to date. Collect reserved items from the teacher at ",
+          collectionPlace,
+          ". Bring your claim code for verification.",
         ),
       ),
       h(
         "div",
         { class: "class-credit-total" },
         icon("coin", 28),
-        h("strong", null, lab.credits),
+        h("strong", { "data-class-credit": true }, lab.credits),
         h("span", null, "class credits"),
       ),
     ),
@@ -77,6 +87,7 @@ export async function classShopPage() {
     ),
   );
   function draw() {
+    collectionPlace.textContent = pickupLocation(lab.rules);
     page
       .querySelectorAll<HTMLElement>("[data-supply-category]")
       .forEach((button) => {
@@ -171,8 +182,13 @@ export async function classShopPage() {
             const order = await reserveItem(item, id);
             if (currentUser()?.id !== user.id) return;
             close();
-            orderDetails(order);
-            toast("Your reservation is saved.");
+            lab = getLabSnapshot() ?? lab;
+            reservations.textContent = `My reservations (${lab.orders.length})`;
+            draw();
+            reservationDetails(order);
+            toast(
+              "Reservation saved. Your claim code and pickup instructions are ready.",
+            );
           } catch (value) {
             error.textContent =
               value instanceof Error ? value.message : "Please try again.";
@@ -227,7 +243,7 @@ function orders(rows: LabOrder[]) {
               ),
               () => {
                 close();
-                orderDetails(order);
+                reservationDetails(order);
               },
               "supply-row-button",
             ),
@@ -238,36 +254,5 @@ function orders(rows: LabOrder[]) {
           { class: "muted" },
           "Your first little reward is waiting on the shelf.",
         ),
-  ]);
-}
-function orderDetails(order: LabOrder) {
-  modal("Your little reward, reserved", [
-    h(
-      "div",
-      { class: "ticket" },
-      icon("shop", 30),
-      h("h3", null, order.item_name),
-      h("strong", { class: "claim-code" }, order.code),
-      h("span", { class: `status-tag ${order.status}` }, order.status),
-    ),
-    h(
-      "p",
-      { class: "notice" },
-      order.status === "reserved"
-        ? "Show this code to your teacher at school. They will verify your reservation and record collection."
-        : order.status === "collected"
-          ? "Your teacher recorded this item as collected."
-          : "This reservation was cancelled and its credits returned.",
-    ),
-    button(
-      "Copy claim code",
-      async () => {
-        if (navigator.clipboard) {
-          await navigator.clipboard.writeText(order.code);
-          toast("Claim code copied.");
-        } else toast(`Your code is ${order.code}.`);
-      },
-      "button outline full",
-    ),
   ]);
 }

@@ -40,7 +40,14 @@ export async function platformRequest<T>(
   const { data, error } = await client.rpc(name, args);
   if (actor !== cloudUserId())
     throw new Error("Your account changed. Please sign in again.");
-  if (error) throw accountError(error);
+  if (error) {
+    const mapped = accountError(error);
+    if (mapped.kind === "access")
+      window.dispatchEvent(
+        new CustomEvent("csl:account-blocked", { detail: mapped.message }),
+      );
+    throw mapped;
+  }
   return data as T;
 }
 export async function refreshLab(force = false): Promise<LabSnapshot> {

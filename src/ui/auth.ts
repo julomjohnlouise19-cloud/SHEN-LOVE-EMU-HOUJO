@@ -43,9 +43,16 @@ import {
 } from "../store/preferences";
 import { classCredits } from "../store/platform";
 import { levelOf } from "../core/rules";
+import { termsModal } from "./terms";
 export function authModal(registerFirst = false, recoverFirst = false) {
   let joining = registerFirst;
-  let model = { email: "", name: "", section: "", grade: "7" };
+  let model = {
+    email: "",
+    name: "",
+    section: "",
+    grade: "7",
+    termsAccepted: false,
+  };
   let timer: ReturnType<typeof setInterval> | undefined;
   let view = 0;
   const { dialog, close } = modal(
@@ -390,6 +397,17 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     grade.addEventListener("change", () => {
       model.grade = grade.value;
     });
+    const terms = h("input", {
+      type: "checkbox",
+      name: "terms",
+      required: joining,
+      checked: model.termsAccepted,
+      "aria-label": "I agree to the Terms and Conditions and Privacy Notice",
+    });
+    terms.addEventListener("change", () => {
+      model.termsAccepted = terms.checked;
+      void updateSubmit();
+    });
     const error = h("p", { class: "form-error", role: "alert" });
     const recovery = h("div", { class: "auth-recovery" });
     const emailStatus = h("p", { class: "auth-email-wait", role: "status" });
@@ -411,6 +429,11 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         onSubmit: async (event: SubmitEvent) => {
           event.preventDefault();
           if (submit.disabled) return;
+          if (joining && !terms.checked) {
+            error.textContent =
+              "Please read and accept the Terms & Conditions before creating your account.";
+            return;
+          }
           sending = true;
           submit.disabled = true;
           submit.setAttribute("aria-busy", "true");
@@ -425,6 +448,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
             name: name.value,
             section: section.value,
             grade: grade.value,
+            termsAccepted: terms.checked,
           };
           const requestedDestination = entryDestination("");
           try {
@@ -435,6 +459,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
                 name: name.value,
                 grade: Number(grade.value),
                 section: section.value,
+                termsAccepted: terms.checked,
               });
               if (!dialog.open || view !== currentView) return;
               if (!signedIn) {
@@ -531,6 +556,23 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       error,
       recovery,
       emailStatus,
+      joining
+        ? h(
+            "div",
+            { class: "terms-agreement" },
+            h(
+              "label",
+              { class: "terms-check" },
+              terms,
+              h(
+                "span",
+                null,
+                "I have read and agree to the Terms & Conditions and Privacy Notice.",
+              ),
+            ),
+            button("Read Terms & Conditions", termsModal, "text-button"),
+          )
+        : null,
       submit,
       joining && cloudEnabled
         ? button(
@@ -600,7 +642,10 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       const wait =
         cloudEnabled && joining ? await emailWait(username.value) : 0;
       if (!dialog.open || view !== currentView) return;
-      setButtonDisabled(submit, sending || wait > 0);
+      setButtonDisabled(
+        submit,
+        sending || wait > 0 || (joining && !terms.checked),
+      );
       submit.textContent = sending
         ? joining
           ? "Creating your lab…"

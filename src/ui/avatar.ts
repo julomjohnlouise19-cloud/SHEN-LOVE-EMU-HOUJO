@@ -20,6 +20,8 @@ function update(node: HTMLElement) {
           alt: `${node.dataset.avatarName || "Scientist"} profile photo`,
           width: 64,
           height: 64,
+          onError: () =>
+            node.replaceChildren(mascot(node.dataset.avatarPreset || "cat")),
         })
       : mascot(node.dataset.avatarPreset || "cat"),
   );

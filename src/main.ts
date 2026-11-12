@@ -8,6 +8,7 @@ import "./styles/studio.css";
 import "./styles/discovery.css";
 import "./styles/friendly.css";
 import "./styles/mobile.css";
+import "./styles/accounts.css";
 import { loadAppearance } from "./store/preferences";
 import {
   initStore,
@@ -16,6 +17,7 @@ import {
   currentUser,
   exportBackup,
   clearInvalidSession,
+  logout,
 } from "./store";
 import { h, toast, button, download, modal } from "./ui/dom";
 import { shell, empty, resetNavigation } from "./ui/shell";
@@ -258,6 +260,26 @@ window.addEventListener("csl:teacher-refresh-needed", () =>
     "Your edit was saved. Refresh the view if classroom totals need updating.",
   ),
 );
+let closingBlockedAccount = false;
+window.addEventListener("csl:account-blocked", (event) => {
+  if (closingBlockedAccount || !currentUser() || currentUser()?.id === "guest")
+    return;
+  closingBlockedAccount = true;
+  void logout()
+    .catch(() => undefined)
+    .then(() => {
+      go("/welcome");
+      toast(
+        String(
+          (event as CustomEvent).detail ||
+            "Your classroom access is banned. Contact your teacher.",
+        ),
+      );
+    })
+    .finally(() => {
+      closingBlockedAccount = false;
+    });
+});
 window.addEventListener("csl:platform", () => {
   document
     .querySelectorAll<HTMLElement>("[data-class-credit]")

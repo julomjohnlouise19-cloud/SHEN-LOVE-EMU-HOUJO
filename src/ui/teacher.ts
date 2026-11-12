@@ -27,6 +27,11 @@ import {
 import { empty, pageHeading } from "./shell";
 import { go } from "./actions";
 import { icon } from "./svg";
+import { avatar as scientistAvatar } from "./avatar";
+import { hydrateTeacherPhoto } from "../store/photos";
+import { fullScientistProfile, type ScientistProfile } from "../store/accounts";
+import { accountsVersion } from "../store/cloud";
+import { pickupLocation, type ClassroomRules } from "../core/classroom";
 
 const names: Record<string, string> = {
   overview: "Teacher studio",
@@ -814,25 +819,47 @@ export function teacherPage(section = "overview") {
   function cells(
     row: Record<string, unknown>,
   ): (HTMLElement | string | number)[] {
-    if (section === "students")
+    if (section === "students") {
+      void hydrateTeacherPhoto(str(row, "user_id"), str(row, "photo_path"));
       return [
         h(
           "div",
-          null,
-          h("strong", null, str(row, "display_name")),
-          row.is_teacher
-            ? h("small", { class: "record-meta" }, "Teacher")
-            : null,
+          { class: "teacher-scientist-identity" },
+          h(
+            "span",
+            { class: "teacher-scientist-avatar" },
+            scientistAvatar(str(row, "user_id"), str(row, "display_name")),
+          ),
+          h(
+            "div",
+            null,
+            h("strong", null, str(row, "display_name")),
+            row.is_teacher
+              ? h("small", { class: "record-meta" }, "Teacher")
+              : null,
+          ),
         ),
         `${str(row, "grade")} · ${str(row, "section") || "No section"}`,
-        tag(row.active ? "Active" : "Paused", row.active ? "green" : "peach"),
+        tag(row.active ? "Active" : "Banned", row.active ? "green" : "peach"),
         number(row, "credits"),
         number(row, "attempts"),
         h(
           "div",
           { class: "teacher-row-actions" },
+          button("View profile", () => viewScientist(row), "text-button"),
           button("Edit profile", () => editStudent(row), "text-button"),
           button("Adjust credits", () => editCredits(row), "text-button"),
+          button(
+            row.active ? "Ban user" : "Restore access",
+            () => setScientistAccess(row),
+            "text-button",
+            {
+              disabled: Boolean(row.is_teacher),
+              title: row.is_teacher
+                ? "Manage teaching access before changing a teacher account’s access."
+                : undefined,
+            },
+          ),
           hasStudio()
             ? button("Teaching access", () => editRole(row), "text-button", {
                 disabled: row.user_id === viewer!.id || !row.active,
@@ -840,6 +867,7 @@ export function teacherPage(section = "overview") {
             : null,
         ),
       ];
+    }
     if (section === "shop")
       return [
         h(
@@ -1038,9 +1066,11 @@ export function teacherPage(section = "overview") {
     title: string,
     children: HTMLElement[],
     save: () => Promise<unknown>,
+    actionLabel = "Save changes",
+    savedMessage = "Your class changes are saved.",
   ) {
     const error = h("p", { class: "form-error", role: "alert" }),
-      submit = button("Save changes", () => undefined, "button primary", {
+      submit = button(actionLabel, () => undefined, "button primary", {
         type: "submit",
       });
     const { close } = modal(
@@ -1060,7 +1090,7 @@ export function teacherPage(section = "overview") {
               try {
                 await save();
                 close();
-                toast("Your class changes are saved.");
+                toast(savedMessage);
                 await load();
               } catch (value) {
                 error.textContent =
@@ -1068,7 +1098,7 @@ export function teacherPage(section = "overview") {
               } finally {
                 submit.disabled = false;
                 submit.removeAttribute("aria-busy");
-                submit.textContent = "Save changes";
+                submit.textContent = actionLabel;
               }
             },
           },
@@ -1077,6 +1107,224 @@ export function teacherPage(section = "overview") {
         ),
       ],
       true,
+    );
+  }
+  function viewScientist(row: Record<string, unknown>) {
+    let latestRow = row;
+    const actor = viewer!.id;
+    const host = h("div", { class: "teacher-scientist-profile" });
+    const { close } = modal("Scientist profile", [host], true);
+    const base: ScientistProfile = {
+      user_id: str(row, "user_id"),
+      display_name: str(row, "display_name"),
+      grade: number(row, "grade"),
+      section: str(row, "section"),
+      active: Boolean(row.active),
+      is_teacher: Boolean(row.is_teacher),
+      photo_path: str(row, "photo_path") || null,
+      created_at: str(row, "created_at"),
+      credits: number(row, "credits"),
+      attempts: number(row, "attempts"),
+    };
+    const renderProfile = (profile: ScientistProfile, complete: boolean) => {
+      latestRow = { ...latestRow, ...profile };
+      void hydrateTeacherPhoto(profile.user_id, profile.photo_path);
+      const detail = (label: string, value: string) =>
+        h("div", null, h("dt", null, label), h("dd", null, value));
+      host.replaceChildren(
+        h(
+          "section",
+          {
+            class: "scientist-card teacher-scientist-card",
+            "data-profile-theme": profile.theme ?? "meadow",
+          },
+          h(
+            "div",
+            { class: "scientist-card-avatar" },
+            scientistAvatar(profile.user_id, profile.display_name),
+          ),
+          h(
+            "div",
+            { class: "scientist-card-copy" },
+            h("p", { class: "eyebrow" }, "A SCIENTIST IN YOUR CLASSROOM"),
+            h("h3", null, profile.display_name),
+            h(
+              "p",
+              null,
+              `Grade ${profile.grade} · ${profile.section || "No section recorded"}`,
+            ),
+            tag(
+              profile.active ? "Active account" : "Banned account",
+              profile.active ? "green" : "peach",
+            ),
+          ),
+        ),
+        h(
+          "div",
+          { class: "profile-statistics" },
+          ...[
+            [String(profile.attempts), "Saved discoveries"],
+            [String(profile.credits), "Class credits"],
+            [
+              complete && profile.answers
+                ? `${Math.round(((profile.correct ?? 0) / profile.answers) * 100)}%`
+                : "—",
+              "Answer accuracy",
+            ],
+            [
+              complete ? String(profile.pending_reservations ?? 0) : "—",
+              "Pending pickups",
+            ],
+          ].map(([value, label]) =>
+            h("div", null, h("strong", null, value), h("span", null, label)),
+          ),
+        ),
+        h(
+          "dl",
+          { class: "scientist-detail-grid" },
+          detail("Account role", profile.is_teacher ? "Teacher" : "Student"),
+          detail(
+            "Joined the lab",
+            profile.created_at ? when(profile.created_at) : "Not recorded",
+          ),
+          detail(
+            "Email",
+            complete
+              ? profile.email || "No email stored"
+              : "Available after the account-details service update",
+          ),
+          detail(
+            "Account status",
+            profile.active
+              ? "Classroom access enabled"
+              : "Classroom access banned",
+          ),
+        ),
+        complete
+          ? h(
+              "section",
+              { class: "profile-panel" },
+              h("h3", null, "About this scientist"),
+              h(
+                "p",
+                { class: "scientist-bio" },
+                profile.bio ||
+                  "This scientist has not added an introduction yet.",
+              ),
+              h(
+                "p",
+                { class: "fine-print" },
+                `Profile colors: ${profile.theme ?? "meadow"}`,
+              ),
+              h("h3", null, "Signup agreement"),
+              h(
+                "p",
+                null,
+                profile.terms_accepted
+                  ? `Accepted Terms & Conditions${profile.terms_version ? ` version ${profile.terms_version}` : ""}${profile.terms_accepted_at ? ` · ${when(profile.terms_accepted_at)}` : ""}`
+                  : "No signup agreement is recorded for this account.",
+              ),
+            )
+          : h(
+              "p",
+              { class: "notice" },
+              "Profile photos and class details are available. Email, introduction and agreement details need the account-details service update.",
+            ),
+        h(
+          "div",
+          { class: "teacher-row-actions" },
+          button(
+            "Edit profile",
+            () => {
+              close();
+              editStudent(latestRow);
+            },
+            "button outline",
+          ),
+          button(
+            "Adjust credits",
+            () => {
+              close();
+              editCredits(latestRow);
+            },
+            "button outline",
+          ),
+          button(
+            profile.active ? "Ban user" : "Restore access",
+            () => {
+              close();
+              setScientistAccess(latestRow);
+            },
+            "button outline",
+            { disabled: profile.is_teacher },
+          ),
+        ),
+      );
+    };
+    renderProfile(base, false);
+    if (accountsVersion() >= 1)
+      void fullScientistProfile(base.user_id)
+        .then((profile) => {
+          if (profile && host.isConnected && currentUser()?.id === actor)
+            renderProfile(profile, true);
+        })
+        .catch(() => {
+          if (host.isConnected && currentUser()?.id === actor)
+            host.append(
+              h(
+                "p",
+                { class: "notice" },
+                "The latest extra details could not load. Refresh the workspace and open this profile again.",
+              ),
+            );
+        });
+  }
+  function setScientistAccess(row: Record<string, unknown>) {
+    if (row.is_teacher) {
+      toast("Manage teaching access before changing this account’s access.");
+      return;
+    }
+    const restore = !row.active;
+    const request = crypto.randomUUID();
+    const reason = input(
+      "access-reason",
+      restore
+        ? "Why is access being restored?"
+        : "Why is this account being banned?",
+    );
+    reason.minLength = 3;
+    reason.maxLength = 300;
+    editor(
+      restore ? "Restore classroom access" : "Ban this classroom account?",
+      [
+        h("h3", null, str(row, "display_name")),
+        h(
+          "p",
+          { class: "notice" },
+          restore
+            ? "This student will be able to sign in and use their existing classroom records again."
+            : "This student will lose access to their classroom account. Saved discoveries, credits and reservations stay preserved for teacher review.",
+        ),
+        field("Reason for account access change", reason),
+      ],
+      () =>
+        teacherCommand(
+          "student",
+          {
+            user_id: row.user_id,
+            display_name: row.display_name,
+            grade: row.grade,
+            section: row.section,
+            active: restore,
+            expected_updated: row.expected_updated,
+            reason: reason.value,
+          },
+          request,
+        ),
+      restore ? "Restore access" : "Confirm ban",
+      restore
+        ? "Classroom access restored."
+        : "This student’s classroom account is now banned.",
     );
   }
   function editStudent(row: Record<string, unknown>) {
@@ -1100,19 +1348,14 @@ export function teacherPage(section = "overview") {
         ),
       ),
     );
-    const active = h("input", {
-        type: "checkbox",
-        checked: Boolean(row.active),
-        disabled: Boolean(row.is_teacher),
-      }),
-      id = crypto.randomUUID();
+    const id = crypto.randomUUID();
     editor(
       "A scientist’s place in your class",
       [
         h(
           "p",
           { class: "muted" },
-          "Pause a student’s access without deleting discoveries. Teacher roles remain managed by the site owner.",
+          "Profile edits preserve the current account status. Use Ban user or Restore access to change classroom access with a reason.",
         ),
         field("Name", name),
         h(
@@ -1121,7 +1364,10 @@ export function teacherPage(section = "overview") {
           field("Grade", grade),
           field("Section", classroom),
         ),
-        h("label", { class: "teacher-check" }, active, "Account is active"),
+        tag(
+          row.active ? "Active account" : "Banned account",
+          row.active ? "green" : "peach",
+        ),
       ],
       () =>
         teacherCommand(
@@ -1131,7 +1377,7 @@ export function teacherPage(section = "overview") {
             display_name: name.value,
             grade: Number(grade.value),
             section: classroom.value,
-            active: active.checked,
+            active: Boolean(row.active),
             expected_updated: row.expected_updated,
           },
           id,
@@ -1545,7 +1791,7 @@ export function teacherPage(section = "overview") {
     );
   }
   function settings(row: Record<string, unknown>) {
-    const rules = row.rules as Rules;
+    const rules = row.rules as ClassroomRules;
     if (!rules) {
       content.replaceChildren(
         empty(
@@ -1594,12 +1840,15 @@ export function teacherPage(section = "overview") {
         onSubmit: async (event: SubmitEvent) => {
           event.preventDefault();
           ruleError.textContent = "";
-          const next = Object.fromEntries(
-            [...inputs].map(([key, value]) => [
-              key,
-              key === "timezone" ? value.value : Number(value.value),
-            ]),
-          );
+          const next = {
+            ...rules,
+            ...Object.fromEntries(
+              [...inputs].map(([key, value]) => [
+                key,
+                key === "timezone" ? value.value : Number(value.value),
+              ]),
+            ),
+          };
           try {
             if (!validRules(next as unknown as Rules))
               throw new Error("Please check the learning limits and timezone.");
@@ -1628,8 +1877,68 @@ export function teacherPage(section = "overview") {
         type: "submit",
       }),
     );
+    const pickup = input(
+      "pickup-location",
+      "For example: Grade 10 SSC classroom",
+      pickupLocation(rules),
+    );
+    pickup.minLength = 2;
+    pickup.maxLength = 160;
+    const pickupError = h("p", { class: "form-error", role: "alert" });
+    const pickupSave = button(
+      "Save pickup location",
+      () => undefined,
+      "button primary",
+      { type: "submit" },
+    );
+    const pickupRequest = crypto.randomUUID();
+    const pickupForm = h(
+      "form",
+      {
+        class: "teacher-panel",
+        onSubmit: async (event: SubmitEvent) => {
+          event.preventDefault();
+          if (pickupSave.disabled) return;
+          pickupSave.disabled = true;
+          pickupSave.setAttribute("aria-busy", "true");
+          pickupSave.textContent = "Saving pickup details…";
+          pickupError.textContent = "";
+          try {
+            const location = pickup.value.trim();
+            if (location.length < 2 || location.length > 160)
+              throw new Error("Use a pickup location of 2–160 characters.");
+            await teacherCommand(
+              "rules",
+              {
+                rules: { ...rules, pickupLocation: location },
+                version: row.version,
+              },
+              pickupRequest,
+            );
+            toast("Supply pickup location saved.");
+            await load();
+          } catch (error) {
+            pickupError.textContent =
+              error instanceof Error ? error.message : "Please try again.";
+          } finally {
+            pickupSave.disabled = false;
+            pickupSave.removeAttribute("aria-busy");
+            pickupSave.textContent = "Save pickup location";
+          }
+        },
+      },
+      h("h2", null, "Supply collection"),
+      h(
+        "p",
+        null,
+        "Students see this location in reservation confirmations and their pickup reminders. A teacher must still verify each claim code before collection.",
+      ),
+      field("Supply pickup location", pickup),
+      pickupError,
+      pickupSave,
+    );
     content.replaceChildren(
-      h("div", { class: "teacher-settings-panels" }, ruleForm),
+      h("div", { class: "teacher-settings-panels" }, ruleForm, pickupForm),
     );
   }
   function activity(row: Record<string, unknown>) {

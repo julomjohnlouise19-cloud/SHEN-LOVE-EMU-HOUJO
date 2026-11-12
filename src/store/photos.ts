@@ -3,12 +3,14 @@ import { cloudEnabled, cloudUserId, type CloudProfile } from "./cloud";
 import { LocalStorageAdapter } from "./adapter";
 import { hasPlatform, platformRequest } from "./platform";
 import { accountError } from "../core/account-errors";
+import { currentUser } from ".";
 
 const adapter = new LocalStorageAdapter();
 const photos = new Map<
   string,
   { url: string; path?: string; expires: number }
 >();
+const teacherPhotoPaths = new Map<string, string>();
 const key = (id: string) => `csl:photo:${id}`;
 const notify = () => window.dispatchEvent(new Event("csl:photo"));
 export function photoUrl(id: string) {
@@ -16,6 +18,7 @@ export function photoUrl(id: string) {
   return photo && photo.expires > Date.now() ? photo.url : undefined;
 }
 export function clearPrivatePhotos() {
+  teacherPhotoPaths.clear();
   for (const [id, p] of photos) if (p.path) photos.delete(id);
   notify();
 }
@@ -42,6 +45,39 @@ export async function hydratePhoto(id: string, profile?: CloudProfile) {
       photos.set(id, { url: value, expires: Infinity });
   }
   notify();
+}
+export async function hydrateTeacherPhoto(id: string, path?: string | null) {
+  const actor = cloudUserId();
+  if (!actor || currentUser()?.role !== "admin" || !client) return;
+  if (!path || !path.startsWith(`${id}/`)) {
+    teacherPhotoPaths.delete(id);
+    if (photos.get(id)?.path && photos.delete(id)) notify();
+    return;
+  }
+  teacherPhotoPaths.set(id, path);
+  const cached = photos.get(id);
+  if (cached?.path === path && cached.expires > Date.now()) return;
+  try {
+    const { data, error } = await client.storage
+      .from("csl-avatars")
+      .createSignedUrl(path, 3600);
+    if (
+      error ||
+      !data?.signedUrl ||
+      actor !== cloudUserId() ||
+      currentUser()?.role !== "admin" ||
+      teacherPhotoPaths.get(id) !== path
+    )
+      return;
+    photos.set(id, {
+      url: data.signedUrl,
+      path,
+      expires: Date.now() + 3500000,
+    });
+    notify();
+  } catch {
+    /* The illustrated avatar remains available when a photo cannot load. */
+  }
 }
 async function normalizePhoto(file: File): Promise<Blob> {
   if (

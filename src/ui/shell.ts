@@ -1,5 +1,13 @@
 import { avatar as scientistAvatar } from "./avatar";
-import { classCredits, hasPlatform, hasStudio } from "../store/platform";
+import {
+  classCredits,
+  hasPlatform,
+  hasStudio,
+  getLabSnapshot,
+  refreshLab,
+} from "../store/platform";
+import { pickupLocation, pickupReminder } from "../core/classroom";
+import { reservationDetails } from "./reservations";
 import { cloudEnabled } from "../store/cloud";
 import { cloudNotice } from "./cloud-status";
 import { currentUser, dispatch, getState } from "../store";
@@ -156,10 +164,13 @@ export function shell(page: HTMLElement, route: string) {
         "Notifications",
         () => {
           closeNavigation();
-          notificationsModal();
+          return notificationsModal();
         },
         "button outline",
-        { "aria-label": "Open notifications" },
+        {
+          "aria-label": "Open notifications",
+          "data-drawer-notifications": true,
+        },
       ),
     ),
     h(
@@ -226,9 +237,10 @@ export function shell(page: HTMLElement, route: string) {
         : null,
     ),
   );
-  const notices = s.notifications.filter(
-    (n) => n.userId === user?.id && !n.read,
-  ).length;
+  const notices =
+    s.notifications.filter((n) => n.userId === user?.id && !n.read).length +
+    (getLabSnapshot()?.orders.filter((order) => order.status === "reserved")
+      .length ?? 0);
   const backdrop = button(
     "",
     () => {
@@ -410,6 +422,7 @@ export function shell(page: HTMLElement, route: string) {
   };
   syncNavigation();
   queueMicrotask(() => {
+    refreshNotificationBadges();
     if (
       aside.isConnected &&
       mobile.matches &&
@@ -505,13 +518,90 @@ export function helpModal() {
     ),
   ]);
 }
-function notificationsModal() {
-  const user = currentUser(),
-    notices = getState()
-      .notifications.filter((n) => n.userId === user?.id)
-      .slice(-30)
-      .reverse();
-  modal("Little lab updates", [
+function refreshNotificationBadges() {
+  const state = getState();
+  if (!state) return;
+  const user = currentUser();
+  const pending =
+    getLabSnapshot()?.orders.filter((order) => order.status === "reserved")
+      .length ?? 0;
+  const count =
+    state.notifications.filter((n) => n.userId === user?.id && !n.read).length +
+    pending;
+  document
+    .querySelectorAll<HTMLElement>(".notification-button")
+    .forEach((node) => {
+      node.setAttribute(
+        "aria-label",
+        `Notifications${count ? `, ${count} updates` : ""}`,
+      );
+      const holder = node.querySelector("span");
+      holder?.querySelector(".notification-dot")?.remove();
+      if (count) holder?.append(h("i", { class: "notification-dot" }));
+    });
+  document
+    .querySelectorAll<HTMLElement>("[data-drawer-notifications]")
+    .forEach((node) => {
+      node.textContent = pending
+        ? `Notifications · ${pending} to collect`
+        : "Notifications";
+    });
+}
+window.addEventListener("csl:platform", refreshNotificationBadges);
+async function notificationsModal() {
+  const user = currentUser();
+  if (!user) return;
+  let refreshFailed = false;
+  if (cloudEnabled && user.id !== "guest" && hasPlatform())
+    await refreshLab(true).catch(() => {
+      refreshFailed = true;
+    });
+  if (currentUser()?.id !== user.id) return;
+  const pending =
+    getLabSnapshot()?.orders.filter((order) => order.status === "reserved") ??
+    [];
+  const location = pickupLocation(getLabSnapshot()?.rules);
+  const notices = getState()
+    .notifications.filter((n) => n.userId === user?.id)
+    .slice(-30)
+    .reverse();
+  const { close } = modal("Little lab updates", [
+    pending.length
+      ? h(
+          "section",
+          { class: "pickup-reminders", "aria-label": "Pending supply pickups" },
+          h("h3", null, "A little reward is waiting"),
+          ...pending.map((order) =>
+            h(
+              "article",
+              { class: "pickup-reminder" },
+              h("h4", null, order.item_name),
+              h("p", null, pickupReminder(order.item_name, location)),
+              h("p", null, "Claim code: ", h("strong", null, order.code)),
+              button(
+                "View pickup details",
+                () => {
+                  close();
+                  reservationDetails(order);
+                },
+                "button outline",
+              ),
+            ),
+          ),
+          h(
+            "small",
+            null,
+            "Pickup reminders stay here until the teacher records collection or cancels the reservation.",
+          ),
+        )
+      : null,
+    refreshFailed
+      ? h(
+          "p",
+          { class: "notice" },
+          "Connect to refresh your latest supply updates. Any saved pickup details are still shown below.",
+        )
+      : null,
     notices.length
       ? h(
           "div",
@@ -536,11 +626,13 @@ function notificationsModal() {
             ),
           ),
         )
-      : h(
-          "p",
-          { class: "muted" },
-          "All quiet in the lab. We’ll keep your discoveries and supply updates here.",
-        ),
+      : !pending.length
+        ? h(
+            "p",
+            { class: "muted" },
+            "All quiet in the lab. We’ll keep your discoveries and supply updates here.",
+          )
+        : null,
   ]);
   if (notices.some((n) => !n.read))
     void act(() => dispatch({ type: "ReadNotifications" }))();
@@ -576,7 +668,7 @@ export function teacherHelpModal() {
       { class: "learning-help" },
       ...[
         "Review class reports by grade, section or science deck. Open a quiz to see submitted answers and add a teacher note.",
-        "Edit scientist profiles, pause access or adjust class credits with a clear reason. Existing discoveries stay saved.",
+        "View scientist profiles and photos, ban or restore classroom access, or adjust class credits with a clear reason. Existing discoveries stay saved.",
         "Manage supply prices and available stock. Verify the student's code before recording collection; cancellations return stock and credits together.",
         "Review science cards before saving changes. Earlier versions stay available for quizzes that were already started.",
         "Tune learning rewards and daily limits for your class. Activity history records your edits so the class can review a change.",

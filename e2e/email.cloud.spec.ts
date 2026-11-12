@@ -13,6 +13,11 @@ async function signupDetails(page: Page, email = "new@example.test") {
   await page
     .getByLabel("Section (optional)", { exact: true })
     .fill("Discovery");
+  await page
+    .getByRole("checkbox", {
+      name: "I agree to the Terms and Conditions and Privacy Notice",
+    })
+    .check();
 }
 
 test("failed confirmation preserves details, provides accessible recovery and keeps the cooldown after reload", async ({

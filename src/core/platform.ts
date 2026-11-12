@@ -1,5 +1,6 @@
-import type { Item, Question, Rules } from "./types";
+import type { Item, Question } from "./types";
 import type { ArcadeRules } from "./arcade";
+import type { ClassroomRules } from "./classroom";
 
 export interface LabItem extends Item {
   active: boolean;
@@ -22,7 +23,7 @@ export interface LabSnapshot {
   credits: number;
   items: LabItem[];
   orders: LabOrder[];
-  rules: Rules;
+  rules: ClassroomRules;
   game: ArcadeRules;
   settings_version: number;
   overrides: { question: Question; active: boolean; version: number }[];

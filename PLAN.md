@@ -1,5 +1,16 @@
 # The Cozy Science Lab — build plan
 
+## Account agreements, scientist profiles and school collection
+
+- [x] Add readable classroom terms/privacy information and an explicit, initially unchecked signup agreement; retain a versioned acceptance record.
+- [x] Show profile photos and detailed scientist records in Teacher Studio, with server-checked access to biography, account email and agreement details.
+- [x] Add clear ban/restore actions with confirmation and reasons; enforce existing server account-access checks and preserve student records.
+- [x] Add teacher-editable collection instructions, reservation confirmations and persistent pickup reminders for the Grade 10 SSC classroom.
+- [ ] Verify signup, photos/privacy, bans/restoration, reservations, mobile layouts and additive database compatibility; publish and verify live capabilities.
+- [ ] Owner activation: run accounts-upgrade.sql in the project's SQL Editor to enable enhanced teacher email, biography and agreement details. The current database already supports photos, bans and pickup reminders.
+
+Local release checks passed: lint/typecheck, 63 unit/property tests, all 972 reviewed questions, source/SQL consistency, economy checks and 86 browser scenarios (38 standard, 47 cloud, one repository-path). A focused rerun verified the latest teacher photo-removal refresh and phone terms/profile layouts. Browser fixtures made no real accounts or email requests. Isolated PostgreSQL tests verified teacher-only profile fields, omitted credentials, submitted/legacy consent, banned account reads/writes, ban/restore with reasons and idempotent audit, teacher protection, pickup validation, unchanged records/wallets/orders and repeated upgrades. The configured production build passed. The owner-run account-details activation and GitHub/public-site verification remain separate final steps.
+
 ## Reliable, readable science sources
 
 - [x] Replace the generic DepEd destination with a science-specific reference and make publisher links explicit.

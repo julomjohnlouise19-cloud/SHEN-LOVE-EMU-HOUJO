@@ -49,6 +49,11 @@ test("email confirmation and guest exploration are explicit", async ({
     .getByLabel("Email", { exact: true })
     .fill("new-scientist@example.test");
   await page.getByLabel("Password", { exact: true }).fill("new-password-123");
+  await page
+    .getByRole("checkbox", {
+      name: "I agree to the Terms and Conditions and Privacy Notice",
+    })
+    .check();
   await page.getByRole("button", { name: "Make my little lab" }).click();
   await expect(
     page.getByRole("heading", { name: "Check your email" }),

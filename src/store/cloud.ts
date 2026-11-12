@@ -11,10 +11,13 @@ import type { Run } from "../core/types";
 import { LocalStorageAdapter, type Tx } from "./adapter";
 import { accountError } from "../core/account-errors";
 import { beginEmailRequest, recordEmailWait } from "./email";
+import { TERMS_VERSION } from "../core/agreement";
 export const OUTBOX_KEY = "csl:cloud-outbox";
 const adapter = cloudEnabled ? new LocalStorageAdapter() : undefined;
 let identity: string | undefined;
 let recoveryUser: string | undefined;
+let accountFeatures = 0;
+export const accountsVersion = () => (platform >= 3 ? accountFeatures : 0);
 client?.auth.onAuthStateChange((event, session) => {
   if (event === "PASSWORD_RECOVERY") {
     recoveryUser = session?.user.id;
@@ -96,6 +99,7 @@ async function checkBackend() {
       "Account services are temporarily unavailable. You can still explore as a guest. Please contact your teacher if this continues.",
     );
   platform = Number(data.platform) || 0;
+  accountFeatures = Number(data.accounts) || 0;
   backendReady = true;
 }
 async function profile(
@@ -127,6 +131,29 @@ async function profile(
   if (bindIdentity) identity = user.id;
   return { ...data, email: user.email ?? "" } as CloudProfile;
 }
+let lastAccessCheck = 0;
+export async function verifyClassroomAccess() {
+  const actor = identity;
+  if (!actor || !client || Date.now() - lastAccessCheck < 30000) return;
+  lastAccessCheck = Date.now();
+  const { error } = await client.rpc("csl_my_profile");
+  if (actor !== identity || !error) return;
+  const mapped = accountError(error);
+  if (mapped.kind === "access")
+    window.dispatchEvent(
+      new CustomEvent("csl:account-blocked", { detail: mapped.message }),
+    );
+}
+window.addEventListener("focus", () => {
+  void verifyClassroomAccess().catch(() => undefined);
+});
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) void verifyClassroomAccess().catch(() => undefined);
+});
+if (cloudEnabled)
+  setInterval(() => {
+    if (!document.hidden) void verifyClassroomAccess().catch(() => undefined);
+  }, 60000);
 export async function initCloud(
   signedOut: () => void,
 ): Promise<CloudProfile | undefined> {
@@ -200,7 +227,12 @@ export async function cloudRegister(input: {
   name: string;
   grade: number;
   section: string;
+  termsAccepted: boolean;
 }) {
+  if (input.termsAccepted !== true)
+    throw new Error(
+      "Please read and accept the Terms & Conditions before creating your account.",
+    );
   if (
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.username.trim()) ||
     input.password.length < 8 ||
@@ -224,6 +256,9 @@ export async function cloudRegister(input: {
         display_name: input.name.trim(),
         grade: input.grade,
         section: input.section.trim(),
+        terms_accepted: true,
+        terms_version: TERMS_VERSION,
+        terms_accepted_at: new Date().toISOString(),
       },
     },
   });

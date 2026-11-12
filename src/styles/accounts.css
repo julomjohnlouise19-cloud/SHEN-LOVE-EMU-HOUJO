@@ -1,0 +1,125 @@
+.terms-agreement {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px solid var(--lab-line);
+  border-radius: 13px;
+  background: var(--lab-soft);
+}
+.terms-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.terms-check input {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+  accent-color: var(--lab-brand);
+}
+.terms-agreement .text-button {
+  min-height: 44px;
+  margin-top: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.terms-section h3 {
+  font-family: "Fredoka", sans-serif;
+  margin: 24px 0 9px;
+  font-size: 23px;
+}
+.terms-section p {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.teacher-scientist-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.teacher-scientist-identity > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.teacher-scientist-avatar {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid var(--lab-line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--lab-soft);
+}
+.teacher-scientist-card {
+  margin-bottom: 18px;
+}
+.scientist-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin: 22px 0;
+}
+.scientist-detail-grid > div {
+  padding: 15px;
+  border: 1px solid var(--lab-line);
+  border-radius: 12px;
+  background: var(--lab-surface);
+}
+.scientist-detail-grid dt {
+  font-size: 11px;
+  color: var(--lab-muted);
+  margin-bottom: 6px;
+}
+.scientist-detail-grid dd {
+  margin: 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.scientist-bio {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.pickup-instructions,
+.pickup-reminder {
+  margin: 18px 0;
+  padding: 20px;
+  border: 1px solid var(--lab-line);
+  border-radius: 16px;
+  background: var(--lab-soft);
+}
+.pickup-instructions h3,
+.pickup-reminder h4 {
+  font-family: "Fredoka", sans-serif;
+  margin: 0 0 12px;
+}
+.pickup-instructions p,
+.pickup-reminder p {
+  font-size: 14px;
+  line-height: 1.85;
+}
+.pickup-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pickup-instructions small,
+.pickup-reminders > small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.8;
+}
+@media (max-width: 650px) {
+  .scientist-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .teacher-scientist-profile .teacher-row-actions {
+    flex-wrap: wrap;
+  }
+  .teacher-scientist-profile .teacher-row-actions .button {
+    flex: 1 1 100%;
+  }
+}

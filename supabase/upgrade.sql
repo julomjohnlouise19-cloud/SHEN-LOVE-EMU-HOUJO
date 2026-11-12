@@ -353,6 +353,7 @@ end $$;
 create or replace function csl_private.valid_rules(r jsonb) returns boolean language plpgsql stable set search_path='' as $$
 declare k text; begin
  if jsonb_typeof(r)<>'object' or not exists(select 1 from pg_catalog.pg_timezone_names where name=r->>'timezone') then return false; end if;
+ if r?'pickupLocation' and (jsonb_typeof(r->'pickupLocation') is distinct from 'string' or char_length(btrim(r->>'pickupLocation')) not between 2 and 160) then return false; end if;
  foreach k in array array['starterMerits','comboBonus','meritEasy','meritMedium','meritHard','dailyCap','correctXP','attemptXP','xpPerLevel','comboEvery','reviewReward','dailyReward','questReward','spinMax','skillsLevel'] loop
   perform csl_private.integer_field(r,k,case when k in ('xpPerLevel','comboEvery','skillsLevel') then 1 else 0 end,case when k='xpPerLevel' then 10000 when k='dailyCap' then 1000 when k='starterMerits' then 200 when k='skillsLevel' then 100 else 500 end);
  end loop;
@@ -373,6 +374,7 @@ begin
   return previous.result;
  end if;
  if p_action='student' then
+  if p_body?'reason' then note_value:=btrim(p_body->>'reason'); if note_value is null or char_length(note_value) not between 3 and 300 then raise exception 'Add a reason of 3-300 characters.'; end if; end if;
   target_user:=(p_body->>'user_id')::uuid; target:=target_user::text;
   select to_jsonb(p) into before_value from public.csl_profiles p where user_id=target_user for update;
   if before_value is null then raise exception 'Student not found.'; end if;
@@ -782,6 +784,39 @@ end $$;
 revoke all on function public.csl_send_suggestion(uuid,text,text,text,text,text,uuid),public.csl_suggestion_inbox(boolean,text,integer),public.csl_reply_suggestion(uuid,integer,text,text,uuid) from public,anon;
 grant execute on function public.csl_send_suggestion(uuid,text,text,text,text,text,uuid),public.csl_suggestion_inbox(boolean,text,integer),public.csl_reply_suggestion(uuid,integer,text,text,uuid) to authenticated;
 
+notify pgrst, 'reload schema';
+
+-- Additive teacher profile details; account bans continue to use the existing active flag.
+create or replace function public.csl_scientist_profile(p_user_id uuid) returns jsonb
+language plpgsql stable security definer set search_path='' as $$
+declare actor uuid:=csl_private.teacher(); result jsonb; begin
+ if p_user_id is null then raise exception 'Choose a scientist account.'; end if;
+ select jsonb_build_object(
+  'user_id',p.user_id,'display_name',p.display_name,'grade',p.grade,'section',p.section,'active',p.active,
+  'is_teacher',exists(select 1 from public.csl_teachers t where t.user_id=p.user_id),
+  'photo_path',p.photo_path,'created_at',p.created_at,'email',coalesce(u.email,''),
+  'expected_updated',md5(to_jsonb(p)::text),
+  'credits',coalesce(w.credits,0),'theme',coalesce(f.theme,'meadow'),'bio',coalesce(f.bio,''),
+  'attempts',(select count(*) from public.csl_quiz_attempts q where q.user_id=p.user_id),
+  'correct',(select coalesce(sum(q.correct),0) from public.csl_quiz_attempts q where q.user_id=p.user_id),
+  'answers',(select coalesce(sum(q.total),0) from public.csl_quiz_attempts q where q.user_id=p.user_id),
+  'pending_reservations',(select count(*) from public.csl_orders o where o.user_id=p.user_id and o.status='reserved'),
+  'terms_accepted',coalesce(u.raw_user_meta_data->'terms_accepted'='true'::jsonb,false),
+  'terms_version',left(coalesce(u.raw_user_meta_data->>'terms_version',''),32),
+  'terms_accepted_at',left(coalesce(u.raw_user_meta_data->>'terms_accepted_at',''),40)
+ ) into result from public.csl_profiles p join auth.users u on u.id=p.user_id
+ left join public.csl_wallets w using(user_id) left join public.csl_preferences f using(user_id)
+ where p.user_id=p_user_id;
+ if result is null then raise exception 'Scientist not found.'; end if;
+ return result;
+end $$;
+revoke all on function public.csl_scientist_profile(uuid) from public,anon;
+grant execute on function public.csl_scientist_profile(uuid) to authenticated;
+create or replace function public.csl_backend_status() returns jsonb language sql stable security definer set search_path='' as $$
+ select jsonb_build_object('version',1,'questions',(select count(*) from csl_private.questions),'platform',3,'accounts',1);
+$$;
+revoke all on function public.csl_backend_status() from public;
+grant execute on function public.csl_backend_status() to anon,authenticated;
 notify pgrst, 'reload schema';
 
 commit;

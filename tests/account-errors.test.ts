@@ -20,7 +20,16 @@ it("explains email quota, confirmation and sender restrictions without service b
   expect(accountError({ code: "captcha_failed" }).message).toContain(
     "sign-in protection",
   );
-  expect(accountError({ code: "user_banned" }).message).toContain("paused");
+  expect(accountError({ code: "user_banned" })).toMatchObject({
+    kind: "access",
+    message: expect.stringContaining("banned from classroom access"),
+  });
+  expect(
+    accountError({
+      message: "Your account is paused. Please contact your teacher.",
+    }).kind,
+  ).toBe("access");
+  expect(accountError({ message: "Failed to fetch" }).kind).not.toBe("access");
   expect(
     accountError({ message: "Supabase could not connect" }).message,
   ).not.toMatch(/supabase/i);
