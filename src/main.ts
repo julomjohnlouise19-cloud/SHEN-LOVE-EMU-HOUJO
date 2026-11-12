@@ -1,4 +1,5 @@
 import { classCredits } from "./store/platform";
+import { touchCommunityActivity } from "./store/community";
 import { cloudEnabled, passwordRecoveryActive } from "./store/cloud";
 import { passwordRecoveryModal, authModal } from "./ui/auth";
 import { updateCloudNotices } from "./ui/cloud-status";
@@ -77,6 +78,7 @@ async function render() {
     return;
   }
   const user = currentUser();
+  if (user) void touchCommunityActivity();
   const identityChanged = renderedUserId !== user?.id;
   if (identityChanged) {
     document.documentElement.dataset.theme = "meadow";
@@ -312,6 +314,9 @@ try {
   setInterval(() => {
     if (renderedUserId !== currentUser()?.id) schedule();
   }, 1000);
+  setInterval(() => {
+    void touchCommunityActivity();
+  }, 60000);
   if (import.meta.env.PROD && "serviceWorker" in navigator)
     navigator.serviceWorker
       .register(`${import.meta.env.BASE_URL}sw.js`, {

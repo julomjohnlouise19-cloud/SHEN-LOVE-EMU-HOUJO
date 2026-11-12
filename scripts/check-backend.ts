@@ -51,8 +51,8 @@ try {
       );
     const inbox = await client.rpc("csl_suggestions_status");
     const communityNotice =
-      Number(data.community) >= 1
-        ? "Student leaderboard and Science friends version 1 are installed."
+      Number(data.community) >= 2
+        ? "Immediate student rankings, existing-account friends and recent activity (community version 2) are installed."
         : "Student leaderboard and Science friends need supabase/community-upgrade.sql. Existing classroom features remain available.";
     console.log(communityNotice);
     if (process.env.GITHUB_ACTIONS === "true")

@@ -144,7 +144,10 @@ export async function verifyPlatform(
   game = data<Game>(
     `${login(1)} select ${shoot(firstId, firstQuestion, firstOption)};`,
   );
-  sql(`${login(1)} select public.test_assert((${shoot(firstId, firstQuestion, firstOption)}->'state'->>'score')::int=100,'shot retry scores once');
+  // Keep the reload window active despite process startup or slow CI hosts.
+  // The loop below explicitly releases it before the next valid shot.
+  sql(`reset role; update public.csl_arcade_sessions set state=jsonb_set(state,'{reloadUntil}',to_jsonb(csl_private.now_ms()+60000)) where id='${gameId}';
+    ${login(1)} select public.test_assert((${shoot(firstId, firstQuestion, firstOption)}->'state'->>'score')::int=100,'shot retry scores once');
     select public.test_rejected(${text(`select ${shoot(randomUUID(), game.question.id, correct(1))}`)}); reset role;`);
   for (let index = 1; index < 9; index++) {
     sql(

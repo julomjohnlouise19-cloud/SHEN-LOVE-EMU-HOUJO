@@ -383,7 +383,7 @@ export const test = base.extend<{ backend: Backend }>({
                 questions: 972,
                 platform: state.platform,
                 accounts: state.accountsReady ? 1 : 0,
-                community: state.communityReady ? 1 : 0,
+                community: state.communityReady ? 2 : 0,
               })
             : respond({ message: "function not installed" }, 404);
         }

@@ -8,14 +8,33 @@ end $$;
 create table if not exists public.csl_social_profiles (
  user_id uuid primary key references public.csl_profiles(user_id) on delete cascade,
  username text unique check(username ~ '^[a-z][a-z0-9_]{2,19}$' and username not in ('admin','teacher','system','support','moderator')),
- listed boolean not null default false,
+ listed boolean not null default true,
  share_photo boolean not null default false,
  share_bio boolean not null default false,
  share_grade boolean not null default false,
  version bigint not null default 1,
- updated_at timestamptz not null default now(),
- check(not listed or username is not null)
+ updated_at timestamptz not null default now()
 );
+-- v1 usernames are retained for compatibility. Existing deliberate opt-outs stay off.
+do $$ declare item record; begin
+ for item in select conname from pg_constraint where conrelid='public.csl_social_profiles'::regclass and contype='c' and position('username is not null' in lower(pg_get_constraintdef(oid)))>0 loop
+  execute format('alter table public.csl_social_profiles drop constraint %I',item.conname);
+ end loop;
+end $$;
+alter table public.csl_social_profiles alter column listed set default true;
+update public.csl_social_profiles set listed=true where username is null and version=1 and not listed;
+insert into public.csl_social_profiles(user_id) select user_id from public.csl_profiles on conflict do nothing;
+create or replace function csl_private.create_social_profile() returns trigger language plpgsql security definer set search_path='' as $$
+begin insert into public.csl_social_profiles(user_id) values(new.user_id) on conflict do nothing; return new; end $$;
+revoke all on function csl_private.create_social_profile() from public,anon,authenticated;
+drop trigger if exists csl_new_social_profile on public.csl_profiles;
+create trigger csl_new_social_profile after insert on public.csl_profiles for each row execute function csl_private.create_social_profile();
+create table if not exists csl_private.social_presence (
+ user_id uuid primary key references public.csl_profiles(user_id) on delete cascade,
+ last_active_at timestamptz not null default now()
+);
+alter table csl_private.social_presence enable row level security;
+revoke all on csl_private.social_presence from public,anon,authenticated;
 create table if not exists csl_private.friendships (
  user_low uuid not null references public.csl_profiles(user_id) on delete cascade,
  user_high uuid not null references public.csl_profiles(user_id) on delete cascade,
@@ -53,7 +72,7 @@ revoke all on csl_private.community_best from public,anon,authenticated;
 create or replace function csl_private.community_visible(target uuid,viewer uuid) returns boolean
 language sql stable security definer set search_path='' as $$
  select exists(select 1 from public.csl_profiles p join public.csl_social_profiles s using(user_id)
- where p.user_id=target and p.active and s.listed and s.username is not null
+ where p.user_id=target and p.active and s.listed
  and not exists(select 1 from public.csl_teachers where user_id=target)
  and not exists(select 1 from csl_private.friendships f where f.user_low=least(target,viewer) and f.user_high=greatest(target,viewer) and f.status='blocked'));
 $$;
@@ -69,6 +88,7 @@ begin
   'photo_path',case when s.share_photo then p.photo_path else null end,
   'bio',case when s.share_bio then coalesce(f.bio,'') else '' end,
   'grade',case when s.share_grade then p.grade else null end,
+  'active_recently',exists(select 1 from csl_private.social_presence where user_id=p.user_id and last_active_at>now()-interval '2 minutes'),
   'points',coalesce(t.correct,0)*10,'correct',coalesce(t.correct,0),'answers',coalesce(t.answers,0),'discoveries',coalesce(t.discoveries,0),
   'level',1+floor((coalesce(t.correct,0)*12+(coalesce(t.answers,0)-coalesce(t.correct,0))*3)/120.0)::int,
   'relationship',case when relation.status='accepted' then 'friends' when relation.status='blocked' then 'blocked'
@@ -98,17 +118,14 @@ grant execute on function public.csl_social_home() to authenticated;
 
 create or replace function public.csl_save_social_profile(p_username text,p_listed boolean,p_share_photo boolean,p_share_bio boolean,p_share_grade boolean,p_version bigint) returns jsonb
 language plpgsql security definer set search_path='' as $$
-declare uid uuid:=csl_private.actor(); handle text:=lower(btrim(p_username)); old public.csl_social_profiles;
+declare uid uuid:=csl_private.actor(); old public.csl_social_profiles;
 begin
  if public.csl_is_teacher() then raise exception 'Student sharing is available to student accounts. Teachers can view the class leaderboard.'; end if;
- if handle is null or handle !~ '^[a-z][a-z0-9_]{2,19}$' or handle in ('admin','teacher','system','support','moderator') or p_listed is null or p_share_photo is null or p_share_bio is null or p_share_grade is null then raise exception 'Choose a valid classroom username and sharing choices.'; end if;
+ if p_listed is null or p_share_photo is null or p_share_bio is null or p_share_grade is null then raise exception 'Check your classroom sharing choices.'; end if;
  insert into public.csl_social_profiles(user_id) values(uid) on conflict do nothing;
  select * into old from public.csl_social_profiles where user_id=uid for update;
  if old.version is distinct from p_version then raise exception 'Your sharing settings changed. Refresh before saving.'; end if;
- begin
-  update public.csl_social_profiles set username=handle,listed=p_listed,share_photo=p_share_photo,share_bio=p_share_bio,share_grade=p_share_grade,version=version+1,updated_at=now() where user_id=uid;
- exception when unique_violation then raise exception 'That username is already taken. Choose another one.';
- end;
+ update public.csl_social_profiles set listed=p_listed,share_photo=p_share_photo,share_bio=p_share_bio,share_grade=p_share_grade,version=version+1,updated_at=now() where user_id=uid;
  return public.csl_social_home();
 end $$;
 revoke all on function public.csl_save_social_profile(text,boolean,boolean,boolean,boolean,bigint) from public,anon;
@@ -116,36 +133,67 @@ grant execute on function public.csl_save_social_profile(text,boolean,boolean,bo
 
 create or replace function public.csl_leaderboard(p_period text default 'week',p_scope text default 'school',p_offset integer default 0,p_grade integer default null) returns jsonb
 language plpgsql stable security definer set search_path='' as $$
-declare uid uuid:=csl_private.actor(); result jsonb; start_day date;
+declare uid uuid:=csl_private.actor(); result jsonb; start_day date; week_day date; zone text;
 begin
  if p_period is null or p_period not in ('week','all') or p_scope is null or p_scope not in ('school','friends') or p_offset is null or p_offset<0 or p_offset>100000 or (p_grade is not null and p_grade not between 7 and 10) then raise exception 'Choose a valid leaderboard view.'; end if;
- start_day:=case when p_period='week' then date_trunc('week',now() at time zone coalesce((select rules->>'timezone' from public.csl_settings where id),'Asia/Manila'))::date else '-infinity'::date end;
+ zone:=coalesce((select rules->>'timezone' from public.csl_settings where id),'Asia/Manila');
+ week_day:=date_trunc('week',now() at time zone zone)::date;
+ start_day:=case when p_period='week' then week_day else '-infinity'::date end;
  with scored as (
-  select p.user_id,s.username,coalesce(sum(b.correct),0)*10 points,coalesce(sum(b.correct),0) correct,coalesce(sum(b.total),0) answers,count(b.user_id) discoveries
+  select p.user_id,p.display_name account_name,coalesce(sum(b.correct),0)*10 points,coalesce(sum(b.correct),0) correct,coalesce(sum(b.total),0) answers,count(b.user_id) discoveries
   from public.csl_profiles p join public.csl_social_profiles s using(user_id)
   left join csl_private.community_best b on b.user_id=p.user_id and b.classroom_day>=start_day
   where csl_private.community_visible(p.user_id,uid)
   and (p_grade is null or (s.share_grade and p.grade=p_grade))
   and (p_scope='school' or p.user_id=uid or exists(select 1 from csl_private.friendships f where f.user_low=least(p.user_id,uid) and f.user_high=greatest(p.user_id,uid) and f.status='accepted'))
-  group by p.user_id,s.username
+  group by p.user_id,p.display_name
  ), ranked as (select *,dense_rank() over(order by points desc) rank from scored), cards as (
   select r.*,csl_private.community_card(r.user_id,uid)||jsonb_build_object('rank',r.rank,'points',r.points,'correct',r.correct,'answers',r.answers,'discoveries',r.discoveries) card from ranked r
- ), paged as (select * from cards order by points desc,username,user_id limit 20 offset p_offset)
- select jsonb_build_object('rows',coalesce((select jsonb_agg(card order by points desc,username,user_id) from paged),'[]'),
- 'total',(select count(*) from ranked),'you',(select card from cards where user_id=uid)) into result;
+ ), paged as (select * from cards order by points desc,account_name,user_id limit 20 offset p_offset)
+ select jsonb_build_object('rows',coalesce((select jsonb_agg(card order by points desc,account_name,user_id) from paged),'[]'),
+ 'total',(select count(*) from ranked),'you',(select card from cards where user_id=uid),
+ 'week_start',week_day,'week_end',week_day+6,'refresh_at',(week_day+7)::timestamp at time zone zone,'server_now',now(),'timezone',zone) into result;
  return result;
 end $$;
 revoke all on function public.csl_leaderboard(text,text,integer,integer) from public,anon;
 grant execute on function public.csl_leaderboard(text,text,integer,integer) to authenticated;
 
-create or replace function public.csl_find_scientist(p_username text) returns jsonb language plpgsql stable security definer set search_path='' as $$
-declare uid uuid:=csl_private.actor(); target uuid; handle text:=lower(regexp_replace(btrim(p_username),'^@',''));
+create or replace function public.csl_touch_social_activity() returns void language plpgsql security definer set search_path='' as $$
+declare uid uuid:=csl_private.actor(); begin
+ if public.csl_is_teacher() or not exists(select 1 from public.csl_social_profiles where user_id=uid and listed) then return; end if;
+ insert into csl_private.social_presence(user_id,last_active_at) values(uid,now()) on conflict(user_id) do update set last_active_at=excluded.last_active_at;
+end $$;
+revoke all on function public.csl_touch_social_activity() from public,anon;
+grant execute on function public.csl_touch_social_activity() to authenticated;
+
+create or replace function public.csl_classmate_directory(p_query text default '',p_active_only boolean default false,p_offset integer default 0) returns jsonb
+language plpgsql stable security definer set search_path='' as $$
+declare uid uuid:=csl_private.actor(); query text:=lower(regexp_replace(btrim(coalesce(p_query,'')),'^@','')); result jsonb;
 begin
- if handle is null or handle !~ '^[a-z][a-z0-9_]{2,19}$' then raise exception 'Enter the complete username, using 3–20 letters, numbers or underscores.'; end if;
- select user_id into target from public.csl_social_profiles where username=handle;
- if target=uid then raise exception 'That is your username. Try a classmate’s username.'; end if;
- if target is null or not csl_private.community_visible(target,uid) then return null; end if;
- return csl_private.community_card(target,uid);
+ if char_length(query)>254 or (query<>'' and char_length(query)<2) or position(chr(10) in query)>0 or position(chr(13) in query)>0 or p_active_only is null or p_offset is null or p_offset<0 or p_offset>100000 then raise exception 'Enter an account name or existing sign-in and choose a valid page.'; end if;
+ with candidates as (
+  select p.user_id,p.display_name,pr.last_active_at,coalesce(pr.last_active_at>now()-interval '2 minutes',false) recent
+  from public.csl_profiles p join public.csl_social_profiles s using(user_id) left join csl_private.social_presence pr using(user_id)
+  where p.user_id<>uid and csl_private.community_visible(p.user_id,uid) and
+   (query='' or (position('@' in query)=0 and (position(query in lower(p.display_name))>0 or lower(coalesce(s.username,''))=query))
+    or exists(select 1 from auth.users u where u.id=p.user_id and
+      (lower(u.email)=query or (position('@' in query)=0 and (lower(split_part(u.email,'@',1))=query or lower(u.raw_user_meta_data->>'username')=query)))))
+ ), filtered as (select * from candidates where not p_active_only or recent), paged as (
+  select * from filtered order by recent desc,last_active_at desc nulls last,display_name,user_id limit 20 offset p_offset
+ )
+ select jsonb_build_object('rows',coalesce((select jsonb_agg(csl_private.community_card(user_id,uid) order by recent desc,last_active_at desc nulls last,display_name,user_id) from paged),'[]'),
+ 'total',(select count(*) from filtered),'active_count',(select count(*) from candidates where recent)) into result;
+ return result;
+end $$;
+revoke all on function public.csl_classmate_directory(text,boolean,integer) from public,anon;
+grant execute on function public.csl_classmate_directory(text,boolean,integer) to authenticated;
+
+create or replace function public.csl_find_scientist(p_username text) returns jsonb language plpgsql stable security definer set search_path='' as $$
+declare response jsonb; begin
+ if p_username is null or char_length(btrim(p_username))<2 then raise exception 'Enter an account name or existing sign-in.'; end if;
+ response:=public.csl_classmate_directory(p_username);
+ if (response->>'total')::int>1 then raise exception 'More than one classmate matches. Choose their card in Science friends.'; end if;
+ return response->'rows'->0;
 end $$;
 revoke all on function public.csl_find_scientist(text) from public,anon;
 grant execute on function public.csl_find_scientist(text) to authenticated;
@@ -191,7 +239,7 @@ begin
   if previous.payload<>payload then raise exception 'This action ID belongs to different details.'; end if;
   return previous.result;
  end if;
- if p_action='send' then
+ if p_action='send' and target is null then
   if handle !~ '^[a-z][a-z0-9_]{2,19}$' then raise exception 'Enter the complete username.'; end if;
   select user_id into target from public.csl_social_profiles where username=handle;
  end if;
@@ -252,7 +300,7 @@ do $$ begin
 end $$;
 create or replace function public.csl_backend_status() returns jsonb language sql stable security definer set search_path='' as $$
  select jsonb_build_object('version',1,'questions',(select count(*) from csl_private.questions),'platform',3,
- 'accounts',case when to_regprocedure('public.csl_scientist_profile(uuid)') is null then 0 else 1 end,'community',1);
+ 'accounts',case when to_regprocedure('public.csl_scientist_profile(uuid)') is null then 0 else 1 end,'community',2);
 $$;
 revoke all on function public.csl_backend_status() from public;
 grant execute on function public.csl_backend_status() to anon,authenticated;

@@ -1,29 +1,23 @@
 import { describe, expect, it } from "vitest";
 import {
-  publicUsername,
+  friendLookup,
+  weeklyCountdown,
   discoveryTotals,
   validateCommunitySettings,
   blankCommunitySettings,
   type ScoredDiscovery,
 } from "../src/core/community";
 describe("classroom connections", () => {
-  it("normalizes exact usernames without allowing login emails or staff impersonation", () => {
-    expect(publicUsername(" @Curious_Mina ")).toBe("curious_mina");
-    for (const name of [
-      "ab",
-      "3mina",
-      "two words",
-      "test@example.test",
-      "admin",
-      "teacher",
-      "system",
-      "a".repeat(21),
-    ])
-      expect(() => publicUsername(name)).toThrow();
+  it("accepts existing account names and sign-ins without requiring a new username", () => {
+    expect(friendLookup("  Jo Rivera  ")).toBe("Jo Rivera");
+    expect(friendLookup("student@example.test")).toBe("student@example.test");
+    expect(friendLookup("student1")).toBe("student1");
+    for (const value of ["a", "", "name\nother", "x".repeat(255)])
+      expect(() => friendLookup(value)).toThrow();
   });
-  it("starts sharing off and requires deliberate boolean choices and a known version", () => {
+  it("lists existing account names while extra profile details remain optional", () => {
     expect(blankCommunitySettings()).toMatchObject({
-      listed: false,
+      listed: true,
       share_photo: false,
       share_bio: false,
       share_grade: false,
@@ -39,6 +33,18 @@ describe("classroom connections", () => {
         listed: "yes" as unknown as boolean,
       }),
     ).toThrow();
+  });
+  it("counts down to a new week without erasing old achievements", () => {
+    const next = "2026-11-15T16:00:00Z";
+    expect(weeklyCountdown(Date.parse("2026-11-15T15:59:30Z"), next)).toBe(
+      "New week in 1m",
+    );
+    expect(weeklyCountdown(Date.parse("2026-11-15T16:00:00Z"), next)).toBe(
+      "A fresh week is starting…",
+    );
+    expect(weeklyCountdown(Date.parse("2026-11-14T14:00:00Z"), next)).toBe(
+      "New week in 1d 2h 0m",
+    );
   });
   const quiz = (
     correct: number,

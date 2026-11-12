@@ -1,46 +1,50 @@
 # Activate the student leaderboard and Science friends
 
-The website uses your existing classroom accounts. Run one additive database update to enable shared rankings, public usernames and friendship requests. Existing accounts, private photos, scores, credits, stock and reservations are preserved.
+Students use their **existing classroom account**. There is no new username to create. This additive update enables the automatic classmate directory, recent activity, shared weekly rankings and friend invitations. It preserves existing accounts, photos, quiz records, credits, stock, reservations and friendships.
 
-1. Open [your project's SQL Editor](https://supabase.com/dashboard/project/qevqgbuyboeudxlhfiik/sql/new).
-2. Create a **New snippet**. Copy the **entire** [community-upgrade.sql](../supabase/community-upgrade.sql), paste it into the editor and click **Run**.
-3. Run `select public.csl_backend_status();` in a snippet. The result should include **`"community": 1`**. This update requires the existing Studio/record-care upgrade, already installed on this classroom project.
-4. Refresh the website, sign in normally, and open **Leaderboard** or **Science friends**. A computer can use **Ctrl+Shift+R** once.
+## One setup step for the owner
 
-No new API key, password, email setting or account creation is required. The script can be run again without resetting friendships or sharing choices. Fresh installations receive the feature through the complete generated `setup.sql`; the complete `upgrade.sql` includes it too.
+1. Open [your project's SQL Editor](https://supabase.com/dashboard/project/qevqgbuyboeudxlhfiik/sql/new) and choose **New snippet**.
+2. Open [community-upgrade.sql](../supabase/community-upgrade.sql), choose **Raw**, and copy the **entire file**. Paste it into the snippet and click **Run**.
+3. Run `select public.csl_backend_status();` in the editor. Check that the result includes **`"community": 2`**.
+4. Refresh the website, sign in with the existing account, and open **Science friends** or **Leaderboard**. On a computer, use **Ctrl+Shift+R** once if the old interface remains.
 
-## Students: choose a classroom username
+Use the current file even if you previously ran community version 1. The same script installs version 2 from either no community service or version 1, and can be run again. Existing deliberate profile-hiding choices and optional-photo choices remain saved. Untouched accounts appear automatically by their existing account name. No new API key, email setting, password or account creation is required.
 
-Open **Science friends → Choose my username**, or **Profile → Classroom profile & username**.
+The existing classroom needs the Studio/record-care upgrade, already installed on this project. Fresh installations receive this feature through the complete generated `setup.sql`; the complete `upgrade.sql` includes it too. A publishable browser key cannot install database functions, so this step needs the project owner's SQL Editor or an authenticated database administrator connection.
 
-- Choose 3–20 characters, starting with a letter; use letters, numbers or underscores. Usernames are unique and case insensitive. A classroom username is separate from the email used to sign in.
-- Check **Join the student leaderboard and username search** when you want to participate. Sharing starts off for existing and new accounts.
-- Your display name, username and learning achievements become visible to signed-in classmates. Photo, introduction and grade sharing each have their own initially unchecked choice. Email, section, notebook pages, credits and account settings are excluded from shared learning cards.
-- Save. You can change your username or leave sharing later. Hidden/banned accounts disappear from rankings and username lookup; existing friendships are retained while sharing is off.
+## Students: open, find, connect
 
-If you share a photo, upload it using the existing profile photo control. Only the current selected photo receives the extra classroom read permission. Prior uploads remain private. Signed photo links are short lived and peer data is not saved into the offline cache.
+**Science friends** opens directly to **Classmates**, showing existing active student accounts without a search or username setup. Recently active classmates appear first. **Active recently** means a visible, signed-in website session contacted the classroom service within the last two minutes; it is an approximate activity indicator. The list refreshes automatically while open and online.
 
-## Rankings
+To find a specific friend, enter their existing account name or login name in **Classmate's name or sign-in**, then choose **Find classmates**. An exact sign-in email also works privately; emails never appear in cards or search responses. If names match more than one person, choose the appropriate card rather than sending an invitation to an arbitrary match. **Clear search** restores the classmate list. **Active recently** filters the list to recent activity; **All classmates** restores everyone available.
 
-The **Science league** offers **This week / All time**, **Classroom / Friends only**, a grade filter for deliberately shared grades, your own standing, leading scientists and paged rankings. Select a scientist to open their shared learning card.
+Choose **Add friend** on a card. The other student opens **Invitations** and chooses **Accept invitation** or **Decline invitation**. Crossed invitations still require acceptance. **Sent** lets students cancel a pending invitation; **My friends** shows accepted connections. Open a learning card for removal or blocking. **Blocked** lets the student unblock an account; unblocking does not restore a previous friendship.
 
-Each correct answer earns **10 discovery points** in the **best completed quiz for each deck, difficulty and classroom day**. Replaying the same quiz can improve that day's best result; repeated results do not stack points. Weeks start Monday in the classroom timezone, normally Asia/Manila. Equal points share a rank. Teacher accounts, banned accounts and archived evidence are excluded. Friends-only rankings include you and accepted friends; blocked pairs are hidden from each other.
+After cancellation, removal or decline, another invitation to the same scientist has a one-day cooldown. There is a ten-invitation rolling daily limit, a 50-pending-invitation limit and a 300-friend limit. Existing requests and friendships survive the update.
 
-Discovery level comes from the same best saved results: 12 XP per correct answer, 3 per other answer, and 120 XP per level. This shared achievement level is separate from device-only practice XP. Classroom credits and supply purchases never determine ranking. All scoring uses verified server records; the browser cannot submit a rank or points balance.
+## Profile sharing
 
-## Find and add friends
+Open **Science friends → Sharing choices**, or **Profile → Classroom sharing**. There is **no username field**: the existing account name is used automatically.
 
-1. Ask a classmate for their classroom username.
-2. In **Science friends**, enter the complete username (an optional `@` is accepted) and choose **Find scientist**.
-3. Check their learning card and choose **Add friend**.
-4. The recipient opens **Invitations** and chooses **Accept invitation** or **Decline invitation**. Two crossed invitations do not automatically create a friendship.
+- **Show my account name in classmates and rankings** controls the minimal name/learning-achievement listing. New and previously untouched accounts start listed. A previous deliberate opt-out is preserved, and students can hide or show their name later.
+- Photo, introduction and grade each have a separate, initially unchecked sharing choice. Only explicitly enabled details appear on a learning card.
+- Email, section, notebook pages, credits and account settings stay private. Guest visitors cannot browse the student directory or rankings. Hidden, banned and blocked accounts disappear according to the existing access rules.
 
-**Sent** contains your pending invitations and their cancellation controls. **My friends** lists accepted connections. Refresh or revisit the page to load current requests. Students can remove a friend, block a scientist or manage their own blocks. Unblocking does not restore a previous friendship. After cancellation, removal or decline, another invitation to the same scientist has a one-day cooldown. There is a ten-invitation rolling daily limit, a 50-pending-invitation limit and a 300-friend limit.
+Use the existing profile photo uploader to change a photo. Only the current selected, explicitly shared photo receives classroom read permission; prior uploads remain private. Photo links are short lived and peer data is not saved in the offline cache. Shared learning cards show the existing name and achievements, with optional details only as selected.
 
-Teachers retain the existing **Scientists** profile, ban/restore and **Record care** controls. Community visibility follows the same active-account checks; the new feature does not give students teacher access. Teachers can view the class leaderboard and continue reviewing full authorized profiles in Teacher Studio.
+## Weekly rankings
 
-## Verification and rollout
+**Leaderboard** immediately loads **This week → Classroom** with leading scientists and the ranking list. The week banner shows the date range, classroom timezone and **New week in…** countdown. Weeks start **Monday at 12:00 AM in the classroom timezone**, normally **Asia/Manila**. The page refreshes automatically while visible and online, including when a new week begins. **All time** keeps the historical standings; weekly refresh does not delete quiz records or all-time scores.
 
-`npm run backend:test` creates an isolated PostgreSQL database and verifies ranking ties and daily bests, username collisions, private fields, photo row policies, friend ownership, request retries, crossed-request concurrency, request limits, blocking, bans and upgrade reruns. `npm run e2e:cloud -- e2e/community.cloud.spec.ts` exercises the student UI with controlled accounts and no real emails.
+Use **Friends only** to compare accepted friends, or the grade filter for deliberately shared grades. Select a scientist to open their learning card. Equal points share a rank. Teachers can review the student standings but do not compete; banned accounts and archived evidence are excluded.
 
-The deployment reports the actual installed community capability. Before activation, the compatible website keeps existing features available and explains that shared connections need the classroom update. Applying SQL needs the project owner's SQL Editor or an authenticated database administrator connection; a publishable browser key cannot install tables or functions.
+Each correct answer earns **10 discovery points** in the **best completed quiz for each deck, difficulty and classroom day**. Replaying the same quiz can improve that day's best result; repeated attempts do not stack points. Discovery level uses the same best saved results: 12 XP per correct answer, 3 per other answer, and 120 XP per level. This shared achievement level is separate from device-only practice XP. Class credits and supply purchases do not determine rank. Scoring uses verified server records; browsers cannot submit a points balance or rank.
+
+Teachers retain **Scientists** profile details, ban/restore and **Record care** controls. Students receive no teacher permissions. Profile records, reading tools and other classroom features remain available before this update is installed; community pages explain that classroom connections need activation.
+
+## Verification
+
+`npm run backend:test` creates an isolated PostgreSQL database and verifies default directory visibility, private existing-login lookup, recent-activity expiry, weekly metadata, daily-best scores/ties, private fields/photo policies, friend ownership, retries, crossed-request concurrency, request limits, blocking, bans and preservation of explicit opt-outs on an upgrade from version 1.
+
+`npm run e2e:cloud -- e2e/community.cloud.spec.ts` tests the interface with controlled accounts, including automatic entry, matching names, two-account acceptance, weekly rollover, activity refresh, sharing choices, phone accessibility and compatibility before activation. No real account email or production friendship is used. The deployment reports the actual installed community capability; a published interface alone does not install the database update.

@@ -1067,10 +1067,10 @@ export function profileModal() {
         h(
           "p",
           null,
-          "Choose a public username, join the science league and connect with classmates. You choose which profile details are shared.",
+          "Your existing account name connects you with classmates and the science league. Choose which extra profile details to share.",
         ),
         button(
-          "Classroom profile & username",
+          "Classroom sharing",
           async () => {
             await (await import("./community")).communitySettingsModal();
           },

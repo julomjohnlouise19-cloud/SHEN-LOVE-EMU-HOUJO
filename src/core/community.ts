@@ -25,6 +25,7 @@ export interface ScientistCard {
   rank?: number;
   relationship: FriendshipState;
   friendship_version: number;
+  active_recently?: boolean;
 }
 export interface CommunityHome {
   settings: CommunitySettings;
@@ -37,32 +38,34 @@ export interface CommunityRanking {
   rows: ScientistCard[];
   total: number;
   you: ScientistCard | null;
+  week_start: string;
+  week_end: string;
+  refresh_at: string;
+  server_now: string;
+  timezone: string;
 }
 export interface FriendList {
   rows: ScientistCard[];
   total: number;
+  active_count?: number;
 }
 export const blankCommunitySettings = (): CommunitySettings => ({
   username: "",
-  listed: false,
+  listed: true,
   share_photo: false,
   share_bio: false,
   share_grade: false,
   version: 0,
 });
-export function publicUsername(value: string) {
-  const name = value.trim().replace(/^@/, "").toLowerCase();
-  if (
-    !/^[a-z][a-z0-9_]{2,19}$/.test(name) ||
-    ["admin", "teacher", "system", "support", "moderator"].includes(name)
-  )
+export function friendLookup(value: string) {
+  const name = value.trim();
+  if (name.length < 2 || name.length > 254 || /[\r\n\0]/.test(name))
     throw new Error(
-      "Choose 3–20 characters, starting with a letter. Use letters, numbers or underscores; choose your own name, not a staff title.",
+      "Enter at least two characters of their account name or existing sign-in.",
     );
   return name;
 }
 export function validateCommunitySettings(value: CommunitySettings) {
-  publicUsername(value.username);
   if (
     [value.listed, value.share_photo, value.share_bio, value.share_grade].some(
       (v) => typeof v !== "boolean",
@@ -73,6 +76,16 @@ export function validateCommunitySettings(value: CommunitySettings) {
     throw new Error(
       "Check your classroom sharing choices and refresh before saving.",
     );
+}
+export function weeklyCountdown(now: number, refreshAt: string) {
+  const remaining = Date.parse(refreshAt) - now;
+  if (!Number.isFinite(remaining)) return "Weekly standings";
+  if (remaining <= 0) return "A fresh week is starting…";
+  const minutes = Math.ceil(remaining / 60000);
+  const days = Math.floor(minutes / 1440),
+    hours = Math.floor((minutes % 1440) / 60),
+    mins = minutes % 60;
+  return `New week in ${days ? `${days}d ` : ""}${hours ? `${hours}h ` : ""}${mins}m`;
 }
 export interface ScoredDiscovery {
   user_id: string;

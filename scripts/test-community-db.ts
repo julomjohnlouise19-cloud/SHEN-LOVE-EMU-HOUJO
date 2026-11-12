@@ -10,29 +10,31 @@ export async function verifyCommunity(
     `reset role; set role authenticated; set request.jwt.claim.sub='${uid(n)}';`;
   const text = (v: string) => `'${v.replaceAll("'", "''")}'`;
   const data = <T>(query: string): T => JSON.parse(sql(query).trim());
-  const save = (n: number, version = 1, extra = "") =>
-    `public.csl_save_social_profile('scientist_${n}',true,false,false,false,${version})${extra}`;
+  const save = (_n: number, version = 1, extra = "") =>
+    `public.csl_save_social_profile(null,true,false,false,false,${version})${extra}`;
   const action = (
     kind: string,
     target: number,
     version = 0,
     request = randomUUID(),
   ) =>
-    `public.csl_social_action(${text(kind)},${kind === "send" ? "null" : `'${uid(target)}'`},${kind === "send" ? text(`scientist_${target}`) : "null"},${version},'${request}')`;
+    `public.csl_social_action(${text(kind)},'${uid(target)}',null,${version},'${request}')`;
   sql(readFileSync("supabase/community-upgrade.sql", "utf8"));
-  sql(`reset role; ${Array.from({ length: 6 }, (_, i) => `insert into auth.users(id,email,raw_user_meta_data) values('${uid(i + 1)}','community${i + 1}@example.test','{"display_name":"Community Scientist ${i + 1}","grade":8}');`).join("\n")}
-    set role anon; select public.test_assert(public.csl_backend_status()->>'community'='1','community capability');
+  sql(`reset role; update public.csl_social_profiles set listed=false,version=version+1;
+    ${Array.from({ length: 6 }, (_, i) => `insert into auth.users(id,email,raw_user_meta_data) values('${uid(i + 1)}','community${i + 1}@example.test','{"display_name":"Community Scientist ${i + 1}","grade":8}');`).join("\n")}
+    set role anon; select public.test_assert(public.csl_backend_status()->>'community'='2','community capability');
     select public.test_denied('select public.csl_social_home()');
+    select public.test_denied('select public.csl_classmate_directory()');
+    select public.test_denied('select public.csl_touch_social_activity()');
     ${login(1)} select public.test_denied('select * from public.csl_social_profiles');
     select public.test_denied('select * from csl_private.friendships');
     select public.test_denied('update public.csl_quiz_attempts set correct=8');
-    select public.test_assert(public.csl_social_home()->'settings'->>'listed'='false','sharing requires an explicit choice');
-    select public.test_assert((public.csl_leaderboard()->>'total')::int=0,'private profiles are absent from rankings');
-    select public.test_rejected('select public.csl_save_social_profile(''email@example.test'',true,false,false,false,1)');
-    select public.test_rejected('select public.csl_save_social_profile(''admin'',true,false,false,false,1)');
+    select public.test_assert(public.csl_social_home()->'settings'->>'listed'='true','existing account is ready without a new username');
+    select public.test_assert(public.csl_social_home()->'settings'->>'username'='','no new public username is created');
+    select public.test_assert((public.csl_leaderboard()->>'total')::int=6,'rankings include active account names immediately');
+    select public.test_assert((public.csl_classmate_directory()->>'total')::int=5,'classmates appear without searching or setup');
     select ${save(1)};
     ${login(2)} select public.csl_social_home();
-    select public.test_rejected('select public.csl_save_social_profile(''SCIENTIST_1'',true,false,false,false,1)');
     select ${save(2)};
     ${login(3)} select public.csl_social_home(); select ${save(3)};
     ${login(4)} select public.csl_social_home(); select ${save(4)};
@@ -91,7 +93,19 @@ export async function verifyCommunity(
   );
   if (all.you.points !== 90)
     throw new Error("All-time rankings must include earlier weeks.");
-  sql(`${login(1)} select public.test_assert(public.csl_find_scientist('@SCIENTIST_2')->>'user_id'='${uid(2)}','exact case-insensitive username lookup');
+  sql(`${login(1)} select public.test_assert(public.csl_find_scientist('COMMUNITY2@EXAMPLE.TEST')->>'user_id'='${uid(2)}','existing sign-in works privately');
+    select public.test_assert(public.csl_find_scientist('community2')->>'user_id'='${uid(2)}','existing login name works without a new username');
+    select public.test_assert(public.csl_find_scientist('Community Scientist 2')->>'user_id'='${uid(2)}','existing account name works');
+    select public.test_assert(not (public.csl_classmate_directory('community2@example.test')->'rows'->0 ?| array['email','section','last_active_at']),'lookup results exclude login email and exact activity times');
+    select public.csl_touch_social_activity();
+    ${login(2)} select public.test_assert(public.csl_classmate_directory('',true)->>'active_count'='1','recent activity is authenticated and server timed');
+    select public.test_assert(public.csl_scientist_card('${uid(1)}')->>'active_recently'='true','recent activity indicator is present');
+    select public.test_denied('update csl_private.social_presence set last_active_at=now()');
+    reset role; update csl_private.social_presence set last_active_at=now()-interval '3 minutes';
+    ${login(2)} select public.test_assert(public.csl_classmate_directory('',true)->>'total'='0','inactive sessions stop showing as recently active');
+    select public.test_assert((extract(isodow from (public.csl_leaderboard()->>'week_start')::date))=1,'weeks start on Monday');
+    select public.test_assert((public.csl_leaderboard()->>'refresh_at')::timestamptz>now(),'next weekly refresh is in the future');
+    ${login(1)}
     select public.test_assert(public.csl_find_scientist('missing_scientist') is null,'missing username stays empty');
     select public.test_rejected('select public.csl_leaderboard(''wrong'',''school'')');
     select public.test_rejected('select public.csl_leaderboard(''all'',''school'',-1)');
@@ -112,7 +126,7 @@ export async function verifyCommunity(
   ]);
   sql(`reset role; select public.test_assert((select count(*)=1 from csl_private.friendships where user_low='${uid(1)}' and user_high='${uid(3)}'),'concurrent crossed invitations keep one pending relationship');
     ${login(2)} select ${action("block", 1, 2)};
-    select public.test_assert(public.csl_find_scientist('scientist_1') is null,'blocked profiles disappear from username search');
+    select public.test_assert(public.csl_find_scientist('community1@example.test') is null,'blocked profiles disappear from existing-login search');
     select public.test_assert((select count(*)=0 from storage.objects where name like '${uid(1)}/%'),'blocking removes new photo access');
     ${login(1)} select public.test_assert(public.csl_scientist_card('${uid(2)}') is null,'block hides profiles in both directions');
     select public.test_assert(not exists(select 1 from jsonb_array_elements(public.csl_leaderboard('all','school')->'rows') r where r->>'user_id'='${uid(2)}'),'block hides rankings in both directions');
@@ -134,20 +148,28 @@ export async function verifyCommunity(
     );
   sql(`reset role; update public.csl_profiles set active=false where user_id='${uid(1)}';
     ${login(1)} select public.test_denied('select public.csl_social_home()'); select public.test_denied('select public.csl_leaderboard()');
-    ${login(3)} select public.test_assert(public.csl_find_scientist('scientist_1') is null,'banned students are not discoverable');
+    ${login(3)} select public.test_assert(public.csl_find_scientist('community1@example.test') is null,'banned students are not discoverable');
     reset role; update public.csl_profiles set active=true where user_id='${uid(1)}';
     update public.csl_social_profiles set listed=false where user_id='${uid(1)}';
-    ${login(3)} select public.test_assert(public.csl_find_scientist('scientist_1') is null,'opting out removes username discovery');
+    ${login(3)} select public.test_assert(public.csl_find_scientist('community1@example.test') is null,'opting out removes account discovery');
     select public.test_assert((select count(*)=0 from storage.objects where name like '${uid(1)}/%'),'opting out removes new shared-photo access'); reset role;`);
   const hash = () =>
     sql(
       "reset role; select md5((select jsonb_agg(to_jsonb(f) order by user_low,user_high) from csl_private.friendships f)::text);",
     ).trim();
   const before = hash();
+  sql(`reset role;
+    insert into auth.users(id,email,raw_user_meta_data) values('${uid(7)}','legacy7@example.test','{"display_name":"Unconfigured legacy profile"}'),('${uid(8)}','legacy8@example.test','{"display_name":"Deliberately hidden profile"}');
+    update public.csl_social_profiles set listed=false,version=1 where user_id='${uid(7)}';
+    update public.csl_social_profiles set listed=false,version=2 where user_id='${uid(8)}';
+    alter table public.csl_social_profiles add constraint legacy_username_required check(not listed or username is not null) not valid;`);
   sql(readFileSync("supabase/community-upgrade.sql", "utf8"));
   if (hash() !== before)
     throw new Error("Community upgrade rerun changed friendships.");
+  sql(`reset role; select public.test_assert((select listed and username is null from public.csl_social_profiles where user_id='${uid(7)}'),'unconfigured v1 profile uses its existing account');
+    select public.test_assert((select not listed from public.csl_social_profiles where user_id='${uid(8)}'),'deliberate v1 opt-out stays private');
+    select public.test_assert((select not listed from public.csl_social_profiles where user_id='${uid(1)}'),'existing sharing choices survive reruns');`);
   console.log(
-    "Community PostgreSQL passed: daily-best scores/ties, sharing privacy and current-photo RLS, unique usernames, request ownership/retries/concurrency/limits, blocking, bans and additive reruns.",
+    "Community PostgreSQL passed: immediate account rankings/directory, private login lookup, weekly metadata, server-timed activity, photo RLS, request ownership/retries/concurrency/limits, blocking, bans and v1 privacy-preserving upgrades.",
   );
 }

@@ -5,7 +5,7 @@ import {
   communityHome,
   saveCommunityProfile,
   communityRanking,
-  findScientist,
+  classmateDirectory,
   friendsList,
   friendAction,
   scientistCard,
@@ -17,6 +17,7 @@ import type {
   CommunityPeriod,
   CommunityScope,
 } from "../core/community";
+import { weeklyCountdown } from "../core/community";
 import { h, button, field, input, modal, toast } from "./dom";
 import { icon, mascot } from "./svg";
 import { communityAvatar } from "./community-avatar";
@@ -32,6 +33,8 @@ const pages = new Map<
     node: HTMLElement;
     route: string;
     refresh: () => Promise<void>;
+    tick?: () => void;
+    loadedAt?: number;
   }
 >();
 function entryGate() {
@@ -51,7 +54,7 @@ function entryGate() {
       "p",
       null,
       !cloudEnabled || user?.id === "guest"
-        ? "Sign in with your classroom account to compare saved discoveries, choose a username and invite friends."
+        ? "Sign in with your existing classroom account to see classmates, compare discoveries and add friends."
         : "Your saved discoveries are safe. Your teacher needs to activate the shared leaderboard and friends service before your class can join.",
     ),
     cloudEnabled && user?.id === "guest"
@@ -88,21 +91,12 @@ export async function communitySettingsModal(onSaved: () => void = () => {}) {
       h(
         "p",
         null,
-        "Teachers can view the class leaderboard. Student usernames and friend requests belong to student accounts.",
+        "Teachers can view the class leaderboard. Friend requests connect student accounts.",
       ),
     ]);
     return;
   }
   let settings = home.settings;
-  const username = input(
-    "community-username",
-    "curious_mina",
-    settings.username,
-  );
-  username.minLength = 3;
-  username.maxLength = 20;
-  username.autocapitalize = "none";
-  username.spellcheck = false;
   const choice = (label: string, checked: boolean) => {
     const box = h("input", { type: "checkbox", checked });
     return {
@@ -116,7 +110,7 @@ export async function communitySettingsModal(onSaved: () => void = () => {}) {
     };
   };
   const listed = choice(
-    "Join the student leaderboard and username search",
+    "Show my account name in classmates and rankings",
     settings.listed,
   );
   const photo = choice("Share my profile photo", settings.share_photo);
@@ -128,12 +122,13 @@ export async function communitySettingsModal(onSaved: () => void = () => {}) {
     h(
       "p",
       null,
-      "When you join, signed-in classmates can see your display name, username and learning achievements. Choose the extra details you want to share. Email, section, notebook pages and account settings stay private.",
+      "Classmates see your existing account name and learning achievements. Choose the extra details you want to share. Sign-in emails, section, notebook pages and account settings stay private.",
     ),
-    field(
-      "Classroom username",
-      username,
-      "3–20 characters: start with a letter, then use letters, numbers or underscores. This is separate from your sign-in email.",
+    h(
+      "p",
+      { class: "community-account-name" },
+      h("strong", null, currentUser()!.name),
+      " · your existing account",
     ),
     listed.node,
     photo.node,
@@ -142,16 +137,16 @@ export async function communitySettingsModal(onSaved: () => void = () => {}) {
     h(
       "p",
       { class: "community-note" },
-      "You can leave the leaderboard and username search whenever you like. Existing friends are hidden while sharing is off.",
+      "You can hide your name from classmates and rankings at any time. Existing friends are retained while sharing is off.",
     ),
     error,
     button(
-      "Save classroom profile",
+      "Save sharing choices",
       async () => {
         error.textContent = "";
         try {
           const result = await saveCommunityProfile({
-            username: username.value,
+            username: settings.username,
             listed: listed.box.checked,
             share_photo: photo.box.checked,
             share_bio: bio.box.checked,
@@ -174,7 +169,6 @@ export async function communitySettingsModal(onSaved: () => void = () => {}) {
         try {
           const result = await communityHome();
           settings = result.settings;
-          username.value = settings.username;
           listed.box.checked = settings.listed;
           photo.box.checked = settings.share_photo;
           bio.box.checked = settings.share_bio;
@@ -192,11 +186,12 @@ function friendControls(
   card: ScientistCard,
   home: CommunityHome,
   changed: () => void,
+  compact = false,
 ) {
   if (card.user_id === currentUser()?.id || home.teacher) return h("div");
   if (!home.settings.listed)
     return button(
-      "Choose a username to connect",
+      "Manage sharing to connect",
       () => communitySettingsModal(changed),
       "button outline",
     );
@@ -243,13 +238,13 @@ function friendControls(
         }
         const detail =
           kind === "block"
-            ? "You will be hidden from each other in username search and rankings, and friend requests will stop. An existing friendship will be removed."
+            ? "You will be hidden from each other in classmates and rankings, and friend requests will stop. An existing friendship will be removed."
             : kind === "remove"
               ? "This removes your friendship. Another invitation needs to be accepted before you become friends again."
               : "This removes your block. It does not restore a previous friendship.";
         const localError = h("p", { class: "form-error", role: "alert" });
         const { close } = modal(`${label}?`, [
-          h("p", null, `${card.display_name} · @${card.username || "hidden"}`),
+          h("p", null, card.display_name),
           h("p", null, detail),
           localError,
           button(
@@ -287,11 +282,11 @@ function friendControls(
         icon("heart", 14),
         "Science friends",
       ),
-      action("Remove friend", "remove", true),
+      ...(compact ? [] : [action("Remove friend", "remove", true)]),
     );
   if (card.relationship === "blocked")
     controls.append(action("Unblock scientist", "unblock", true));
-  else controls.append(action("Block scientist", "block", true));
+  else if (!compact) controls.append(action("Block scientist", "block", true));
   return h("div", { class: "friend-control-group" }, controls, error);
 }
 async function openScientist(
@@ -326,7 +321,7 @@ async function openScientist(
           null,
           h("p", { class: "eyebrow" }, "A FELLOW CURIOUS MIND"),
           h("h3", null, card.display_name),
-          h("p", null, `@${card.username}`),
+          activityBadge(card),
           card.grade
             ? h("span", { class: "community-pill" }, `Grade ${card.grade}`)
             : null,
@@ -376,13 +371,24 @@ function profileButton(
         "span",
         null,
         h("strong", null, card.display_name),
-        h("small", null, `@${card.username}`),
+        activityBadge(card),
         card.grade ? h("small", null, `Grade ${card.grade}`) : null,
       ),
     ),
     () => openScientist(card.user_id, home, changed),
     "community-profile-button",
     { "aria-label": `View ${card.display_name} learning card` },
+  );
+}
+function activityBadge(card: ScientistCard) {
+  return h(
+    "small",
+    { class: `classmate-activity ${card.active_recently ? "is-recent" : ""}` },
+    card.relationship === "blocked"
+      ? "Blocked"
+      : card.active_recently
+        ? "Active recently"
+        : "Classmate",
   );
 }
 function pageCache(path: string) {
@@ -458,6 +464,41 @@ export async function studentLeaderboardPage() {
       h("option", { value: n }, `Grade ${n} · shared profiles`),
     ),
   );
+  const weekTitle = h("h2", null, "This week's science league");
+  const weekDates = h("p", null, "Weekly standings refresh every Monday.");
+  const countdown = h("strong", { class: "weekly-countdown" });
+  const weekHero = h(
+    "section",
+    { class: "league-week-card", "aria-label": "Ranking week" },
+    h(
+      "span",
+      { class: "league-week-emblem", "aria-hidden": true },
+      icon("trophy", 44),
+    ),
+    h(
+      "div",
+      null,
+      h("p", { class: "eyebrow" }, "A FRESH WEEK OF DISCOVERIES"),
+      weekTitle,
+      weekDates,
+    ),
+    h(
+      "div",
+      { class: "league-week-timer" },
+      countdown,
+      h("small", null, "Standings update automatically"),
+    ),
+  );
+  let refreshAt = "",
+    serverNow = 0,
+    receivedAt = 0;
+  const tick = () => {
+    if (refreshAt && Number.isFinite(serverNow))
+      countdown.textContent = weeklyCountdown(
+        serverNow + Date.now() - receivedAt,
+        refreshAt,
+      );
+  };
   const drawOwn = (card: ScientistCard | null) => {
     own.replaceChildren(
       h(
@@ -484,7 +525,7 @@ export async function studentLeaderboardPage() {
               ? "Celebrate your students' discoveries. Teacher accounts do not enter student rankings."
               : home.settings.listed
                 ? "Choose All grades to include profiles without a shared grade. Your classroom sharing choices are saved."
-                : "Choose your classroom username and join the leaderboard when you are ready.",
+                : "Your existing account name is ready. You can show it in the league from sharing choices.",
         ),
       ),
       home.teacher
@@ -495,8 +536,8 @@ export async function studentLeaderboardPage() {
           )
         : button(
             home.settings.listed
-              ? `@${home.settings.username} · edit sharing`
-              : "Choose my username",
+              ? "Sharing choices"
+              : "Manage classroom sharing",
             () =>
               communitySettingsModal(() => {
                 void refresh();
@@ -525,6 +566,22 @@ export async function studentLeaderboardPage() {
       ]);
       if (request !== serial || currentUser()?.id !== owner) return;
       home = latest;
+      refreshAt = result.refresh_at;
+      serverNow = Date.parse(result.server_now);
+      receivedAt = Date.now();
+      if (refreshAt && Number.isFinite(serverNow)) {
+        const dayLabel = (value: string) =>
+          new Date(`${value}T12:00:00Z`).toLocaleDateString(undefined, {
+            month: "short",
+            day: "numeric",
+            timeZone: "UTC",
+          });
+        weekTitle.textContent = `${dayLabel(result.week_start)} – ${dayLabel(result.week_end)}`;
+        weekDates.textContent = `Resets ${new Date(refreshAt).toLocaleString(undefined, { timeZone: result.timezone, weekday: "long", hour: "numeric", minute: "2-digit" })} · ${result.timezone}`;
+        tick();
+      }
+      const cached = pages.get("leaderboard");
+      if (cached) cached.loadedAt = Date.now();
       drawOwn(result.you);
       standings.replaceChildren();
       if (!result.rows.length)
@@ -544,8 +601,8 @@ export async function studentLeaderboardPage() {
               "p",
               null,
               scope === "friends"
-                ? "Invite a classmate by username, then accept a request to compare discoveries together."
-                : "Students who join classroom sharing will appear here. Complete a science quiz to begin your points story.",
+                ? "Find a classmate and accept an invitation to compare discoveries together."
+                : "Active student accounts appear automatically. Complete a science quiz to begin your points story.",
             ),
             h(
               "a",
@@ -674,6 +731,8 @@ export async function studentLeaderboardPage() {
       node: page,
       route: location.hash,
       refresh,
+      tick,
+      loadedAt: Date.now(),
     });
     offset = 0;
     void refresh();
@@ -710,7 +769,7 @@ export async function studentLeaderboardPage() {
     );
   grade.addEventListener("change", sync);
   page.append(
-    own,
+    weekHero,
     h(
       "section",
       {
@@ -724,6 +783,7 @@ export async function studentLeaderboardPage() {
     ),
     status,
     standings,
+    own,
     h(
       "details",
       { class: "community-scoring paper" },
@@ -745,6 +805,8 @@ export async function studentLeaderboardPage() {
     node: page,
     route: location.hash,
     refresh,
+    tick,
+    loadedAt: Date.now(),
   });
   drawOwn(null);
   await refresh();
@@ -757,11 +819,11 @@ export async function friendsPage() {
   const owner = currentUser()!.id;
   const page = h(
     "div",
-    { class: "community-page page-enter" },
+    { class: "community-page friends-page-v2 page-enter" },
     pageHeading(
-      "A LITTLE SCIENCE CIRCLE",
-      "Curiosity is better with friends.",
-      "Find a classmate by username, share discoveries, and cheer each other on.",
+      "YOUR LITTLE SCIENCE CIRCLE",
+      "Meet classmates. Make discoveries.",
+      "Your existing account is all you need. Find a familiar face and say hello.",
     ),
   );
   if (!communityReady()) {
@@ -780,11 +842,11 @@ export async function friendsPage() {
       h(
         "section",
         { class: "community-empty paper" },
-        h("h2", null, "Look after your scientists from Teacher Studio"),
+        h("h2", null, "Your scientists are growing together"),
         h(
           "p",
           null,
-          "Friend requests connect student accounts. You can review classroom profiles and learning from your studio.",
+          "Friend requests connect student accounts. Review your classroom profiles and account access from Teacher Studio.",
         ),
         h(
           "a",
@@ -796,16 +858,22 @@ export async function friendsPage() {
     return page;
   }
   const requested = new URLSearchParams(location.hash.split("?")[1]).get("tab");
-  let kind: "friends" | "incoming" | "outgoing" | "blocked" =
+  type FriendTab = "discover" | "friends" | "incoming" | "outgoing" | "blocked";
+  let kind: FriendTab =
+    requested === "friends" ||
     requested === "incoming" ||
     requested === "outgoing" ||
     requested === "blocked"
       ? requested
-      : "friends";
+      : "discover";
   let offset = 0,
     sequence = 0,
-    searchSequence = 0;
-  const identity = h("section", { class: "friend-identity paper" });
+    appliedQuery = "",
+    activeOnly = false;
+  const identity = h("section", {
+    class: "friend-welcome-card",
+    "aria-label": "Your science circle",
+  });
   const tabs = h("nav", {
     class: "community-toggle friend-tabs",
     "aria-label": "Friend lists",
@@ -813,21 +881,21 @@ export async function friendsPage() {
   const status = h("p", { class: "community-load-status", role: "status" });
   const list = h("section", {
     class: "friend-list",
-    "aria-label": "Your science circle",
+    "aria-label": "Classmate cards",
   });
   const search = input(
-    "friend-username",
-    "Enter an exact username",
+    "friend-account",
+    "Account name or existing sign-in",
     "",
     "search",
   );
   search.required = false;
-  search.maxLength = 21;
+  search.maxLength = 254;
   search.autocapitalize = "none";
   search.spellcheck = false;
-  const result = h("div", {
-    class: "friend-search-result",
-    "aria-live": "polite",
+  const filterButtons = h("div", {
+    class: "community-toggle classmate-filters",
+    "aria-label": "Classmate activity",
   });
   const cardRow = (card: ScientistCard) =>
     h(
@@ -841,58 +909,76 @@ export async function friendsPage() {
           ? "Hidden from your science circle"
           : `${card.points} points · Discovery level ${card.level}`,
       ),
-      friendControls(card, home, changed),
+      friendControls(card, home, changed, kind === "discover"),
     );
+  function remember() {
+    pages.set("friends", {
+      owner,
+      node: page,
+      route: location.hash,
+      refresh,
+      loadedAt: Date.now(),
+    });
+  }
   function changed() {
-    result.replaceChildren();
+    void refresh();
+  }
+  function changeView(value: FriendTab) {
+    kind = value;
+    offset = 0;
+    history.replaceState(
+      null,
+      "",
+      `#/friends${kind === "discover" ? "" : `?tab=${kind}`}`,
+    );
+    remember();
     void refresh();
   }
   const refresh = async () => {
     const request = ++sequence;
-    status.textContent = "Refreshing your science circle…";
+    status.textContent = "Finding familiar faces…";
     try {
       const [rows, latest] = await Promise.all([
-        friendsList(kind, offset),
+        kind === "discover"
+          ? classmateDirectory(appliedQuery, activeOnly, offset)
+          : friendsList(kind, offset),
         communityHome(),
       ]);
       if (request !== sequence || currentUser()?.id !== owner) return;
       home = latest;
       identity.replaceChildren(
         h(
+          "span",
+          { class: "friend-welcome-art", "aria-hidden": true },
+          mascot("cat"),
+          icon("heart", 22),
+        ),
+        h(
           "div",
           null,
-          h("p", { class: "eyebrow" }, "YOUR CLASSROOM IDENTITY"),
-          h(
-            "h2",
-            null,
-            home.settings.username
-              ? `@${home.settings.username}`
-              : "Choose your scientist username",
-          ),
-          h(
-            "p",
-            null,
-            `${home.friends} friends · ${home.incoming} incoming · ${home.outgoing} sent`,
-          ),
+          h("h2", null, `Hi, ${currentUser()!.name}!`),
+          h("p", null, "Your existing account is ready to connect."),
           !home.settings.listed
             ? h(
                 "p",
                 null,
-                "Join classroom sharing to appear in username search and exchange friend requests.",
+                "Your name is hidden. You can show it again from Sharing choices.",
               )
             : null,
         ),
-        button(
-          home.settings.username
-            ? "Edit classroom profile"
-            : "Choose my username",
-          () => communitySettingsModal(changed),
-          "button primary",
-        ),
         h(
-          "a",
-          { href: "#/leaderboard?scope=friends", class: "button outline" },
-          "Compare discoveries",
+          "div",
+          { class: "friend-welcome-actions" },
+          h(
+            "a",
+            { href: "#/leaderboard?scope=friends", class: "button primary" },
+            "Our discovery league",
+          ),
+          button(
+            "Sharing choices",
+            () => communitySettingsModal(changed),
+            "button outline",
+          ),
         ),
       );
       for (const tab of tabs.querySelectorAll<HTMLElement>(
@@ -901,14 +987,25 @@ export async function friendsPage() {
         const value = tab.dataset.friendKind;
         tab.setAttribute("aria-pressed", String(value === kind));
         tab.textContent =
-          value === "friends"
-            ? `My friends (${home.friends})`
-            : value === "incoming"
-              ? `Invitations (${home.incoming})`
-              : value === "outgoing"
-                ? `Sent (${home.outgoing})`
-                : "Blocked";
+          value === "discover"
+            ? "Classmates"
+            : value === "friends"
+              ? `My friends (${home.friends})`
+              : value === "incoming"
+                ? `Invitations (${home.incoming})`
+                : value === "outgoing"
+                  ? `Sent (${home.outgoing})`
+                  : "Blocked";
       }
+      filterButtons.hidden = kind !== "discover";
+      for (const node of filterButtons.querySelectorAll<HTMLElement>(
+        "[data-active-filter]",
+      ))
+        node.setAttribute(
+          "aria-pressed",
+          String((node.dataset.activeFilter === "recent") === activeOnly),
+        );
+      list.classList.toggle("classmate-grid", rows.rows.length > 0);
       list.replaceChildren(...rows.rows.map(cardRow));
       if (!rows.rows.length)
         list.append(
@@ -919,28 +1016,57 @@ export async function friendsPage() {
             h(
               "h2",
               null,
-              kind === "incoming"
-                ? "No invitations waiting"
-                : kind === "outgoing"
-                  ? "No invitations on their way"
-                  : kind === "blocked"
-                    ? "Your blocked list is clear"
-                    : "Every science circle starts with hello",
+              kind === "discover"
+                ? appliedQuery
+                  ? "No classmates match yet"
+                  : activeOnly
+                    ? "A quiet moment in the lab"
+                    : "Your science circle is growing"
+                : kind === "incoming"
+                  ? "No invitations waiting"
+                  : kind === "outgoing"
+                    ? "No invitations on their way"
+                    : kind === "blocked"
+                      ? "Your blocked list is clear"
+                      : "Your next science friend is one hello away",
             ),
             h(
               "p",
               null,
-              kind === "friends"
-                ? "Ask a classmate for their username and find them above. They will appear here after accepting your invitation."
-                : "Use Refresh circle to check for the latest changes.",
+              kind === "discover"
+                ? activeOnly
+                  ? "Try All classmates to find someone and send an invitation for later."
+                  : "Use an existing account name or sign-in. Active student accounts appear here automatically."
+                : kind === "friends"
+                  ? "Open Classmates and add a familiar face. They join your circle after accepting."
+                  : "This list updates automatically while you are here.",
             ),
+            kind === "discover" && (activeOnly || appliedQuery)
+              ? button(
+                  "Show all classmates",
+                  () => {
+                    activeOnly = false;
+                    appliedQuery = "";
+                    search.value = "";
+                    changeView("discover");
+                  },
+                  "button outline",
+                )
+              : null,
           ),
         );
-      status.textContent = `${rows.total} ${rows.total === 1 ? "scientist" : "scientists"} in this list`;
-      list.append(
+      status.textContent =
+        kind === "discover"
+          ? `${rows.total} ${rows.total === 1 ? "classmate" : "classmates"} · ${rows.active_count ?? 0} active recently · updates automatically`
+          : `${rows.total} ${rows.total === 1 ? "scientist" : "scientists"} in this list`;
+      page.querySelector(".friend-page-controls")?.remove();
+      page.append(
         h(
           "nav",
-          { class: "community-pagination", "aria-label": "Friend pages" },
+          {
+            class: "community-pagination friend-page-controls",
+            "aria-label": "Friend pages",
+          },
           button(
             "Previous scientists",
             () => {
@@ -968,6 +1094,8 @@ export async function friendsPage() {
           ),
         ),
       );
+      const cached = pages.get("friends");
+      if (cached) cached.loadedAt = Date.now();
       void loadSharedPhotos(rows.rows);
     } catch (e) {
       if (request === sequence) status.textContent = message(e);
@@ -976,72 +1104,72 @@ export async function friendsPage() {
   const searchForm = h(
     "form",
     { class: "friend-search paper" },
-    h("h2", null, "Find your next science friend"),
     field(
-      "Friend’s username",
+      "Classmate's name or sign-in",
       search,
-      "Use their complete username, with or without @. Ten invitations per day.",
+      "A name, existing login name or exact sign-in email works. Emails stay private.",
     ),
-    button(
-      "Find scientist",
-      async () => {
-        const request = ++searchSequence;
-        result.replaceChildren(
-          h("p", { role: "status" }, "Looking for that scientist…"),
-        );
-        try {
-          const found = await findScientist(search.value);
-          if (request !== searchSequence || currentUser()?.id !== owner) return;
-          result.replaceChildren(
-            found
-              ? cardRow(found)
-              : h(
-                  "div",
-                  { class: "community-search-empty" },
-                  h("h3", null, "No shared profile found"),
-                  h(
-                    "p",
-                    null,
-                    "Check the exact username. Your classmate also needs to join classroom sharing.",
-                  ),
-                ),
-          );
-          if (found) void loadSharedPhotos([found]);
-        } catch (e) {
-          if (request === searchSequence)
-            result.replaceChildren(
-              h("p", { role: "alert", class: "form-error" }, message(e)),
-            );
-        }
-      },
-      "button primary",
+    h(
+      "div",
+      { class: "friend-search-actions" },
+      button(
+        "Find classmates",
+        () => {
+          appliedQuery = search.value.trim();
+          activeOnly = false;
+          changeView("discover");
+        },
+        "button primary",
+      ),
+      button(
+        "Clear search",
+        () => {
+          appliedQuery = "";
+          search.value = "";
+          activeOnly = false;
+          changeView("discover");
+        },
+        "button outline",
+      ),
     ),
-    result,
   );
   searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     searchForm.querySelector<HTMLButtonElement>("button")?.click();
   });
-  for (const value of ["friends", "incoming", "outgoing", "blocked"] as const)
+  for (const value of [
+    "discover",
+    "friends",
+    "incoming",
+    "outgoing",
+    "blocked",
+  ] as const)
     tabs.append(
-      button(
-        value,
-        () => {
-          kind = value;
-          offset = 0;
-          history.replaceState(null, "", `#/friends?tab=${kind}`);
-          pages.set("friends", {
-            owner,
-            node: page,
-            route: location.hash,
-            refresh,
-          });
-          void refresh();
-        },
-        "button outline",
-        { "data-friend-kind": value, "aria-pressed": value === kind },
-      ),
+      button(value, () => changeView(value), "button outline", {
+        "data-friend-kind": value,
+        "aria-pressed": value === kind,
+      }),
     );
+  filterButtons.append(
+    button(
+      "All classmates",
+      () => {
+        activeOnly = false;
+        changeView("discover");
+      },
+      "button outline",
+      { "data-active-filter": "all", "aria-pressed": true },
+    ),
+    button(
+      "Active recently",
+      () => {
+        activeOnly = true;
+        changeView("discover");
+      },
+      "button outline",
+      { "data-active-filter": "recent", "aria-pressed": false },
+    ),
+  );
   page.append(
     identity,
     searchForm,
@@ -1051,13 +1179,38 @@ export async function friendsPage() {
       tabs,
       button("Refresh circle", refresh, "button outline"),
     ),
+    filterButtons,
     status,
     list,
   );
-  pages.set("friends", { owner, node: page, route: location.hash, refresh });
+  remember();
   await refresh();
   return page;
 }
+
 window.addEventListener("csl:platform", () => {
   if (!cloudUserId()) pages.clear();
 });
+function refreshVisibleCommunity(force = false) {
+  if (document.hidden || !navigator.onLine || !communityReady()) return;
+  for (const entry of pages.values()) {
+    if (!entry.node.isConnected || entry.owner !== currentUser()?.id) continue;
+    entry.tick?.();
+    if (
+      document.querySelector("dialog[open]") ||
+      document.activeElement?.closest(
+        ".friend-list,.community-rank-list,.community-pagination",
+      )
+    )
+      continue;
+    if (Date.now() - (entry.loadedAt ?? 0) >= (force ? 15000 : 60000)) {
+      entry.loadedAt = Date.now();
+      void entry.refresh();
+    }
+  }
+}
+window.setInterval(() => refreshVisibleCommunity(), 30000);
+window.addEventListener("focus", () => refreshVisibleCommunity(true));
+document.addEventListener("visibilitychange", () =>
+  refreshVisibleCommunity(true),
+);

@@ -12,7 +12,7 @@ export function termsModal() {
     ],
     [
       "Classroom sharing and friends",
-      "You can choose a public username and join the student leaderboard. Other signed-in classmates can then see your display name, username and learning achievements. Sharing your photo, introduction or grade is optional. You can change these choices, accept or decline friend requests, remove friends or block a scientist from the Science friends page.",
+      "Signed-in classmates can find your existing account name and learning achievements in Science friends and rankings. Your sign-in email is never displayed to classmates. Photo, introduction and grade sharing are optional, and you can hide your name from the directory and rankings. Recent-activity badges reflect a visible session within the last two minutes. You can accept or decline requests, remove friends or block a scientist.",
     ],
     [
       "What stays on your device",

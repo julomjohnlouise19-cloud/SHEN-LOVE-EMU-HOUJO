@@ -8,7 +8,6 @@ import {
 import {
   blankCommunitySettings,
   discoveryTotals,
-  publicUsername,
   type CommunitySettings,
   type ScientistCard,
 } from "../src/core/community";
@@ -26,6 +25,10 @@ export interface SocialFixture {
   links: Link[];
   sent: number;
   searches: number;
+  nowMs: number;
+  presence: Record<string, number>;
+  rankingCalls: number;
+  directoryCalls: number;
 }
 export const test = cloudTest.extend<{ social: SocialFixture }>({
   social: [
@@ -37,7 +40,7 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
             u.id,
             {
               ...blankCommunitySettings(),
-              username: `curious_${i + 1}`,
+              username: "",
               listed: i < 2,
               version: 1,
             },
@@ -46,6 +49,10 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
         links: [],
         sent: 0,
         searches: 0,
+        nowMs: Date.now(),
+        presence: { [users[1].id]: Date.now() },
+        rankingCalls: 0,
+        directoryCalls: 0,
       };
       const actions = new Map<string, { payload: string; result: unknown }>();
       const pair = (a: string, b: string) =>
@@ -61,12 +68,25 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
           pair(target, viewer)?.status !== "blocked"
         );
       };
-      const today = new Date().toLocaleDateString("en-CA", {
-        timeZone: "Asia/Manila",
-      });
-      const monday = new Date(`${today}T00:00:00Z`);
-      monday.setUTCDate(monday.getUTCDate() - ((monday.getUTCDay() + 6) % 7));
-      const week = monday.toISOString().slice(0, 10);
+      const weekInfo = () => {
+        const today = new Date(social.nowMs).toLocaleDateString("en-CA", {
+          timeZone: "Asia/Manila",
+        });
+        const monday = new Date(`${today}T00:00:00Z`);
+        monday.setUTCDate(monday.getUTCDate() - ((monday.getUTCDay() + 6) % 7));
+        const week = monday.toISOString().slice(0, 10);
+        const end = new Date(monday);
+        end.setUTCDate(end.getUTCDate() + 6);
+        const next = new Date(`${week}T00:00:00+08:00`);
+        next.setTime(next.getTime() + 7 * 86400000);
+        return {
+          week_start: week,
+          week_end: end.toISOString().slice(0, 10),
+          refresh_at: next.toISOString(),
+          server_now: new Date(social.nowMs).toISOString(),
+          timezone: "Asia/Manila",
+        };
+      };
       const records = () =>
         backend.rows.map((r) => ({
           user_id: r.user_id,
@@ -98,6 +118,7 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
           answers: t?.answers ?? 0,
           discoveries: t?.discoveries ?? 0,
           level: t?.level ?? 1,
+          active_recently: (social.presence[id] ?? 0) > social.nowMs - 120000,
           relationship:
             relation?.status === "accepted"
               ? "friends"
@@ -129,7 +150,7 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
         };
       };
       await context.route(
-        /\/rest\/v1\/rpc\/csl_(?:social_home|save_social_profile|leaderboard|find_scientist|scientist_card|friend_list|social_action)$/,
+        /\/rest\/v1\/rpc\/csl_(?:social_home|save_social_profile|leaderboard|find_scientist|scientist_card|friend_list|social_action|classmate_directory|touch_social_activity)$/,
         async (route) => {
           const request = route.request();
           const respond = (value: unknown, status = 200) =>
@@ -172,13 +193,12 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
             )
             .map((p) => p.photo_path!);
           if (rpc === "csl_social_home") return respond(home(id));
+          if (rpc === "csl_touch_social_activity") {
+            if (social.settings[id]?.listed && !p.is_teacher)
+              social.presence[id] = social.nowMs;
+            return respond(null);
+          }
           if (rpc === "csl_save_social_profile") {
-            let name: string;
-            try {
-              name = publicUsername(String(body.p_username));
-            } catch {
-              return fail("Choose a valid classroom username.");
-            }
             const s = social.settings[id];
             if (p.is_teacher)
               return fail("Student sharing is available to student accounts.");
@@ -186,16 +206,8 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
               return fail(
                 "Your sharing settings changed. Refresh before saving.",
               );
-            if (
-              Object.entries(social.settings).some(
-                ([other, cfg]) => other !== id && cfg.username === name,
-              )
-            )
-              return fail(
-                "That username is already taken. Choose another one.",
-              );
             social.settings[id] = {
-              username: name,
+              username: s.username,
               listed: Boolean(body.p_listed),
               share_photo: Boolean(body.p_share_photo),
               share_bio: Boolean(body.p_share_bio),
@@ -205,9 +217,10 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
             return respond(home(id));
           }
           if (rpc === "csl_leaderboard") {
+            social.rankingCalls++;
             const stats = discoveryTotals(
               records(),
-              body.p_period === "week" ? week : "",
+              body.p_period === "week" ? weekInfo().week_start : "",
             );
             const rows = backend.profiles
               .filter(
@@ -233,7 +246,8 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
               })
               .sort(
                 (a, b) =>
-                  b.points - a.points || a.username.localeCompare(b.username),
+                  b.points - a.points ||
+                  a.display_name.localeCompare(b.display_name),
               );
             let rank = 0,
               points = -1;
@@ -249,6 +263,47 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
               rows: ranked.slice(offset, offset + 20),
               total: ranked.length,
               you: ranked.find((r) => r.user_id === id) ?? null,
+              ...weekInfo(),
+            });
+          }
+          if (rpc === "csl_classmate_directory") {
+            social.directoryCalls++;
+            social.searches++;
+            const q = String(body.p_query ?? "")
+              .trim()
+              .toLowerCase()
+              .replace(/^@/, "");
+            if (q && (q.length < 2 || q.length > 254 || /[\r\n]/.test(q)))
+              return fail("Enter an account name or existing sign-in.");
+            const all = backend.profiles
+              .filter((p) => p.user_id !== id && visible(p.user_id, id))
+              .filter((p) => {
+                const email =
+                  users.find((u) => u.id === p.user_id)?.email ?? "";
+                return (
+                  !q ||
+                  (q.includes("@")
+                    ? email.toLowerCase() === q
+                    : p.display_name.toLowerCase().includes(q) ||
+                      email.split("@")[0].toLowerCase() === q ||
+                      (!!social.settings[p.user_id].username &&
+                        social.settings[p.user_id].username === q))
+                );
+              })
+              .map((p) => card(p.user_id, id)!)
+              .sort(
+                (a, b) =>
+                  Number(b.active_recently) - Number(a.active_recently) ||
+                  a.display_name.localeCompare(b.display_name),
+              );
+            const filtered = body.p_active_only
+              ? all.filter((c) => c.active_recently)
+              : all;
+            const start = Number(body.p_offset ?? 0);
+            return respond({
+              rows: filtered.slice(start, start + 20),
+              total: filtered.length,
+              active_count: all.filter((c) => c.active_recently).length,
             });
           }
           if (rpc === "csl_scientist_card")
@@ -318,7 +373,7 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
                 ? respond(actions.get(key)!.result)
                 : fail("This action ID belongs to different details.");
             const target =
-              kind === "send"
+              kind === "send" && !body.p_target
                 ? Object.keys(social.settings).find(
                     (uid) => social.settings[uid].username === body.p_username,
                   )

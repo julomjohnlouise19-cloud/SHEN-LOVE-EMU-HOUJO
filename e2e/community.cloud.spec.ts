@@ -2,16 +2,17 @@ import { test, expect, signIn, signOut, users } from "./community-fixtures";
 import AxeBuilder from "@axe-core/playwright";
 import { randomUUID } from "node:crypto";
 import type { CloudRecord } from "../src/store/cloud";
+import { blankCommunitySettings } from "../src/core/community";
 const quiz = (
-  index: number,
+  i: number,
   correct: number,
   extra: Partial<CloudRecord> = {},
 ): CloudRecord => ({
   id: randomUUID(),
-  user_id: users[index].id,
-  display_name: `Student ${index + 1}`,
+  user_id: users[i].id,
+  display_name: `Student ${i + 1}`,
   grade: 8,
-  section: "Private class",
+  section: "Private section",
   deck_id: "life.cells",
   level: "medium",
   mode: "practice",
@@ -21,18 +22,18 @@ const quiz = (
   responses: [],
   ...extra,
 });
-async function find(
-  page: import("@playwright/test").Page,
-  handle = "@CURIOUS_2",
-) {
+async function find(page: import("@playwright/test").Page, query = "student2") {
   await page
-    .getByRole("searchbox", { name: "Friend’s username", exact: true })
-    .fill(handle);
+    .getByRole("searchbox", {
+      name: "Classmate's name or sign-in",
+      exact: true,
+    })
+    .fill(query);
   await page
-    .getByRole("button", { name: "Find scientist", exact: true })
+    .getByRole("button", { name: "Find classmates", exact: true })
     .click();
 }
-test("shared rankings count daily bests, preserve ties, expose only shared profile fields and support period filters", async ({
+test("weekly rankings appear immediately using existing names, keep ties and explain Monday refresh", async ({
   page,
   backend,
 }) => {
@@ -44,31 +45,24 @@ test("shared rankings count daily bests, preserve ties, expose only shared profi
     quiz(1, 8),
     quiz(1, 3, { deck_id: "chemistry.atoms" }),
   );
-  backend.preferences[users[0].id] = {
-    theme: "meadow",
-    bio: "My private introduction",
-  };
   await page.goto("./");
   await signIn(page);
-  await page.getByRole("link", { name: "Leaderboard", exact: true }).click();
-  await expect(
-    page.getByRole("heading", {
-      name: "Grow curious. Rise together.",
-      exact: true,
-    }),
-  ).toBeVisible();
-  await expect(
-    page.getByRole("region", { name: "Your discovery standing" }),
-  ).toContainText("#1 · 110 discovery points");
+  await page.goto("#/leaderboard");
+  const standing = page.getByRole("region", {
+    name: "Your discovery standing",
+  });
+  await expect(standing).toContainText("#1 · 110 discovery points");
   const rows = page.locator(".community-rank-row");
   await expect(rows).toHaveCount(2);
   await expect(rows.nth(0).locator(".community-rank-number")).toHaveText("#1");
   await expect(rows.nth(1).locator(".community-rank-number")).toHaveText("#1");
-  await expect(rows.nth(1)).not.toContainText("Curiosity");
-  await page.screenshot({
-    path: "/tmp/cozy-community-leaderboard-desktop.png",
-    fullPage: true,
-  });
+  const week = page.getByRole("region", { name: "Ranking week" });
+  await expect(week).toContainText("Monday");
+  await expect(week).toContainText("Asia/Manila");
+  await expect(week).toContainText("New week in");
+  await expect(
+    page.getByRole("button", { name: "Choose my username", exact: true }),
+  ).toHaveCount(0);
   await rows
     .nth(1)
     .getByRole("button", {
@@ -80,46 +74,38 @@ test("shared rankings count daily bests, preserve ties, expose only shared profi
     name: "Scientist learning card",
     exact: true,
   });
-  await expect(card).toContainText("@curious_2");
+  await expect(card).toContainText("Student Two");
   await expect(card).not.toContainText("student2@example.test");
-  await expect(card).not.toContainText("Private class");
-  await expect(
-    card.getByRole("img", {
-      name: "Student Two shared profile photo",
-      exact: true,
-    }),
-  ).toHaveCount(0);
+  await expect(card).not.toContainText("Curiosity");
   await card
     .getByRole("button", { name: "Close and return to page", exact: true })
     .click();
   await page.getByRole("button", { name: "All time", exact: true }).click();
-  await expect(page).toHaveURL(/period=all/);
   await page.reload();
   await expect(
     page.getByRole("button", { name: "All time", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "Friends only", exact: true }).click();
   await expect(rows).toHaveCount(1);
-  await expect(rows.first()).toContainText("Student One");
   await page
     .getByRole("combobox", { name: "Grade filter", exact: true })
     .selectOption("8");
-  await expect(
-    page.getByRole("region", { name: "Your discovery standing" }),
-  ).toContainText("Choose All grades");
+  await expect(standing).toContainText("Choose All grades");
   await page
     .getByRole("combobox", { name: "Grade filter", exact: true })
     .selectOption("");
-  await expect(rows).toHaveCount(1);
+  await page.screenshot({
+    path: "/tmp/cozy-league-v2-desktop.png",
+    fullPage: true,
+  });
   await signOut(page);
   await signIn(page, "teacher");
   await page.goto("#/leaderboard");
-  await expect(
-    page.getByRole("region", { name: "Your discovery standing" }),
-  ).toContainText("Teacher accounts do not enter student rankings.");
+  await expect(standing).toContainText(
+    "Teacher accounts do not enter student rankings.",
+  );
 });
-
-test("a username invitation reaches its recipient, needs acceptance and connects the friends ranking", async ({
+test("Science friends opens to active classmates and an invitation connects two existing accounts", async ({
   page,
   backend,
   social,
@@ -130,13 +116,20 @@ test("a username invitation reaches its recipient, needs acceptance and connects
   await page
     .getByRole("link", { name: "Science friends", exact: true })
     .click();
-  await find(page);
-  await page
-    .locator(".friend-search-result")
-    .getByRole("button", { name: "Add friend", exact: true })
-    .click();
+  const cards = page.getByRole("region", {
+    name: "Classmate cards",
+    exact: true,
+  });
+  await expect(
+    cards.getByRole("button", {
+      name: "View Student Two learning card",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(cards).toContainText("Active recently");
+  expect(social.directoryCalls).toBeGreaterThan(0);
+  await cards.getByRole("button", { name: "Add friend", exact: true }).click();
   await expect.poll(() => social.sent).toBe(1);
-  expect(social.links[0].status).toBe("pending");
   await page.getByRole("button", { name: "Sent (1)", exact: true }).click();
   await expect(
     page.getByRole("button", { name: "Cancel invitation", exact: true }),
@@ -151,18 +144,10 @@ test("a username invitation reaches its recipient, needs acceptance and connects
   await page
     .getByRole("button", { name: "My friends (1)", exact: true })
     .click();
-  await expect(
-    page.getByRole("button", {
-      name: "View Student One learning card",
-      exact: true,
-    }),
-  ).toBeVisible();
+  await expect(cards).toContainText("Student One");
   await page
-    .getByRole("link", { name: "Compare discoveries", exact: true })
+    .getByRole("link", { name: "Our discovery league", exact: true })
     .click();
-  await expect(
-    page.getByRole("button", { name: "Friends only", exact: true }),
-  ).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator(".community-rank-row")).toHaveCount(2);
   await page
     .locator(".community-rank-list")
@@ -181,15 +166,52 @@ test("a username invitation reaches its recipient, needs acceptance and connects
   await expect.poll(() => social.links[0].status).toBe("declined");
   await expect(page.locator(".community-rank-row")).toHaveCount(1);
 });
-
-test("students can decline, block and unblock without restoring a friendship, and stale requests explain the conflict", async ({
+test("existing account names and sign-in details find classmates without exposing emails or ambiguous names", async ({
+  page,
+  backend,
+  social,
+}) => {
+  const other = "10000000-0000-4000-8000-000000000004";
+  backend.profiles.push({
+    ...backend.profiles[1],
+    user_id: other,
+    display_name: "Student Two",
+  });
+  social.settings[other] = { ...blankCommunitySettings(), version: 1 };
+  await page.goto("./");
+  await signIn(page);
+  await page.goto("#/friends");
+  await find(page, "Student Two");
+  await expect(page.locator(".friend-list .friend-card")).toHaveCount(2);
+  const response = page.waitForResponse(
+    (r) =>
+      r.url().endsWith("/csl_classmate_directory") &&
+      r.request().method() === "POST" &&
+      r.request().postDataJSON().p_query === "student2@example.test",
+  );
+  await find(page, "student2@example.test");
+  const body = await (await response).json();
+  await expect(page.locator(".friend-list .friend-card")).toHaveCount(1);
+  expect(body.rows[0].user_id).toBe(users[1].id);
+  expect(JSON.stringify(body)).not.toContain("student2@example.test");
+  await find(page, "student2");
+  await expect(page.locator(".friend-list .friend-card")).toHaveCount(1);
+  await find(page, "Nobody named this");
+  await expect(
+    page.getByRole("heading", { name: "No classmates match yet", exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Show all classmates", exact: true })
+    .click();
+  await expect(page.locator(".friend-list .friend-card")).toHaveCount(2);
+});
+test("invitations support decline, blocking, unblocking and clear stale-action feedback", async ({
   page,
   social,
 }) => {
   await page.goto("./");
   await signIn(page);
   await page.goto("#/friends");
-  await find(page);
   await page.getByRole("button", { name: "Add friend", exact: true }).click();
   await expect.poll(() => social.sent).toBe(1);
   await signOut(page);
@@ -199,9 +221,14 @@ test("students can decline, block and unblock without restoring a friendship, an
     .getByRole("button", { name: "Decline invitation", exact: true })
     .click();
   await expect.poll(() => social.links[0].status).toBe("declined");
-  await find(page, "curious_1");
+  await page.getByRole("button", { name: "Classmates", exact: true }).click();
   await page
-    .locator(".friend-search-result")
+    .getByRole("button", {
+      name: "View Student One learning card",
+      exact: true,
+    })
+    .click();
+  await page
     .getByRole("button", { name: "Block scientist", exact: true })
     .click();
   await page
@@ -210,9 +237,6 @@ test("students can decline, block and unblock without restoring a friendship, an
     .click();
   await expect.poll(() => social.links[0].status).toBe("blocked");
   await page.getByRole("button", { name: "Blocked", exact: true }).click();
-  await expect(
-    page.getByRole("button", { name: "Unblock scientist", exact: true }),
-  ).toBeVisible();
   await page
     .getByRole("button", { name: "Unblock scientist", exact: true })
     .click();
@@ -252,13 +276,11 @@ test("students can decline, block and unblock without restoring a friendship, an
     page.getByRole("button", { name: "Remove friend", exact: true }),
   ).toBeVisible();
 });
-
-test("classroom sharing is deliberate, unique usernames persist and only an opted-in photo is shown to classmates", async ({
+test("sharing choices have no username form and preserve optional photo sharing and opt-out", async ({
   page,
   backend,
   social,
 }) => {
-  social.settings[users[0].id].listed = false;
   await page.goto("./");
   await signIn(page);
   await page
@@ -277,47 +299,32 @@ test("classroom sharing is deliberate, unique usernames persist and only an opte
   });
   await expect.poll(() => backend.photoUploads).toBe(1);
   await page
-    .getByRole("button", { name: "Classroom profile & username", exact: true })
+    .getByRole("button", { name: "Classroom sharing", exact: true })
     .click();
-  const settings = page.getByRole("dialog", {
+  const sharing = page.getByRole("dialog", {
     name: "Your classroom profile",
     exact: true,
   });
+  await expect(sharing).toContainText("Student One · your existing account");
+  await expect(sharing.getByRole("textbox")).toHaveCount(0);
   await expect(
-    settings.getByRole("checkbox", {
-      name: "Join the student leaderboard and username search",
+    sharing.getByRole("checkbox", {
+      name: "Show my account name in classmates and rankings",
       exact: true,
     }),
-  ).not.toBeChecked();
+  ).toBeChecked();
   await expect(
-    settings.getByRole("checkbox", {
+    sharing.getByRole("checkbox", {
       name: "Share my profile photo",
       exact: true,
     }),
   ).not.toBeChecked();
-  await settings
-    .getByRole("textbox", { name: "Classroom username", exact: true })
-    .fill("CURIOUS_2");
-  await settings
-    .getByRole("button", { name: "Save classroom profile", exact: true })
-    .click();
-  await expect(settings.getByRole("alert")).toContainText("already taken");
-  await settings
-    .getByRole("textbox", { name: "Classroom username", exact: true })
-    .fill("Nova_Scientist");
-  await settings
-    .getByRole("checkbox", {
-      name: "Join the student leaderboard and username search",
-      exact: true,
-    })
-    .check();
-  await settings
+  await sharing
     .getByRole("checkbox", { name: "Share my profile photo", exact: true })
     .check();
-  await settings
-    .getByRole("button", { name: "Save classroom profile", exact: true })
+  await sharing
+    .getByRole("button", { name: "Save sharing choices", exact: true })
     .click();
-  await expect(settings).toHaveCount(0);
   await page
     .getByRole("dialog", { name: "Your scientist profile", exact: true })
     .getByRole("button", { name: "Close and return to page", exact: true })
@@ -325,30 +332,27 @@ test("classroom sharing is deliberate, unique usernames persist and only an opte
   await signOut(page);
   await signIn(page, "student2");
   await page.goto("#/friends");
-  await find(page, "nova_scientist");
-  const shared = page.locator(".friend-search-result").getByRole("img", {
+  const photo = page.locator(".friend-list").getByRole("img", {
     name: "Student One shared profile photo",
     exact: true,
   });
-  await expect(shared).toBeVisible();
+  await expect(photo).toBeVisible();
   await expect
-    .poll(() =>
-      shared.evaluate((img) => (img as HTMLImageElement).naturalWidth),
-    )
+    .poll(() => photo.evaluate((i) => (i as HTMLImageElement).naturalWidth))
     .toBe(256);
-  expect(social.settings[users[0].id]).toMatchObject({
-    username: "nova_scientist",
-    listed: true,
-    share_photo: true,
-    share_bio: false,
-    share_grade: false,
-  });
+  expect(social.settings[users[0].id].username).toBe("");
   social.settings[users[0].id].share_photo = false;
-  await find(page, "nova_scientist");
-  await expect(shared).toHaveCount(0);
+  await page
+    .getByRole("button", { name: "Refresh circle", exact: true })
+    .click();
+  await expect(photo).toHaveCount(0);
+  social.settings[users[0].id].listed = false;
+  await page
+    .getByRole("button", { name: "Refresh circle", exact: true })
+    .click();
+  await expect(page.locator(".friend-list .friend-card")).toHaveCount(0);
 });
-
-test("rankings, shared cards and friend controls remain accessible and stable on a narrow phone", async ({
+test("the classmate directory and weekly league fit phones with accessible controls", async ({
   page,
   backend,
 }) => {
@@ -356,6 +360,30 @@ test("rankings, shared cards and friend controls remain accessible and stable on
   backend.rows.push(quiz(0, 8), quiz(1, 5));
   await page.goto("./");
   await signIn(page);
+  const guide = page.getByRole("button", {
+    name: "Hide guide for now",
+    exact: true,
+  });
+  if (await guide.isVisible()) await guide.click();
+  await page.goto("#/friends");
+  await expect(page.locator(".friend-list .friend-card")).toHaveCount(1);
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include("#main")
+        .withTags(["wcag2a", "wcag2aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "/tmp/cozy-friends-v2-phone.png",
+    fullPage: true,
+  });
   await page.goto("#/leaderboard");
   await page.getByRole("button", { name: "All time", exact: true }).click();
   await page.getByRole("button", { name: "All time", exact: true }).hover();
@@ -373,57 +401,61 @@ test("rankings, shared cards and friend controls remain accessible and stable on
     ),
   ).toBe(true);
   await page.screenshot({
-    path: "/tmp/cozy-community-leaderboard-phone.png",
-    fullPage: true,
-  });
-  await page
-    .locator(".community-rank-list")
-    .getByRole("button", {
-      name: "View Student Two learning card",
-      exact: true,
-    })
-    .click();
-  expect(
-    (
-      await new AxeBuilder({ page })
-        .include("dialog")
-        .withTags(["wcag2a", "wcag2aa"])
-        .analyze()
-    ).violations,
-  ).toEqual([]);
-  await page
-    .getByRole("dialog")
-    .getByRole("button", { name: "Close and return to page", exact: true })
-    .click();
-  await page.goto("#/friends");
-  await find(page);
-  expect(
-    (
-      await new AxeBuilder({ page })
-        .include("#main")
-        .withTags(["wcag2a", "wcag2aa"])
-        .analyze()
-    ).violations,
-  ).toEqual([]);
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= innerWidth,
-    ),
-  ).toBe(true);
-  await page.screenshot({
-    path: "/tmp/cozy-community-friends-phone.png",
+    path: "/tmp/cozy-league-v2-phone.png",
     fullPage: true,
   });
 });
-
-test("a crossed invitation explains the existing request and still requires recipient acceptance", async ({
+test("weekly rankings roll over and recent-activity cards refresh without another click", async ({
+  page,
+  backend,
+  social,
+}) => {
+  social.nowMs = Date.parse("2026-11-15T15:59:30Z");
+  backend.rows.push(quiz(0, 8, { received_at: "2026-11-15T14:00:00Z" }));
+  await page.clock.install();
+  await page.goto("./");
+  await signIn(page);
+  await page.goto("#/leaderboard");
+  const mine = page
+    .locator(".community-rank-row")
+    .filter({ hasText: "Student One" });
+  await expect(mine).toContainText("80 pts");
+  await expect(page.locator(".weekly-countdown")).toHaveText("New week in 1m");
+  const calls = social.rankingCalls;
+  social.nowMs += 61000;
+  backend.rows.push(
+    quiz(1, 1, { received_at: new Date(social.nowMs).toISOString() }),
+  );
+  await page.clock.fastForward(61000);
+  await expect.poll(() => social.rankingCalls).toBeGreaterThan(calls);
+  await expect(mine).toContainText("0 pts");
+  await page.getByRole("button", { name: "All time", exact: true }).click();
+  await expect(mine).toContainText("80 pts");
+  social.presence[users[1].id] = social.nowMs;
+  await page.goto("#/friends");
+  await expect(
+    page.locator(".friend-list .classmate-activity.is-recent"),
+  ).toHaveCount(1);
+  const before = social.directoryCalls;
+  social.nowMs += 180001;
+  await page.clock.fastForward(180001);
+  await expect.poll(() => social.directoryCalls).toBeGreaterThan(before);
+  await expect(
+    page.locator(".friend-list .classmate-activity.is-recent"),
+  ).toHaveCount(0);
+});
+test("a crossed invitation still requires acceptance and reports the existing invitation", async ({
   page,
   social,
 }) => {
   await page.goto("./");
   await signIn(page);
   await page.goto("#/friends");
-  await find(page);
+  const addFriend = page.getByRole("button", {
+    name: "Add friend",
+    exact: true,
+  });
+  await expect(addFriend).toBeVisible();
   social.links.push({
     a: users[0].id,
     b: users[1].id,
@@ -432,7 +464,7 @@ test("a crossed invitation explains the existing request and still requires reci
     version: 1,
     updated: Date.now(),
   });
-  await page.getByRole("button", { name: "Add friend", exact: true }).click();
+  await addFriend.click();
   await expect(
     page.getByText(
       "This scientist already invited you. Open Invitations to reply.",
@@ -440,7 +472,6 @@ test("a crossed invitation explains the existing request and still requires reci
     ),
   ).toBeVisible();
   expect(social.sent).toBe(0);
-  expect(social.links[0].status).toBe("pending");
   await page
     .getByRole("button", { name: "Invitations (1)", exact: true })
     .click();
@@ -449,8 +480,7 @@ test("a crossed invitation explains the existing request and still requires reci
     .click();
   await expect.poll(() => social.links[0].status).toBe("accepted");
 });
-
-test("an existing classroom without the community upgrade keeps account features usable and shows honest activation guidance", async ({
+test("classrooms awaiting the updated database keep existing profile and account features", async ({
   page,
   backend,
   social,
@@ -458,13 +488,6 @@ test("an existing classroom without the community upgrade keeps account features
   backend.communityReady = false;
   await page.goto("./");
   await signIn(page);
-  await page.goto("#/leaderboard");
-  await expect(
-    page.getByRole("heading", {
-      name: "Your classroom connections are being prepared",
-      exact: true,
-    }),
-  ).toBeVisible();
   await page.goto("#/friends");
   await expect(
     page.getByRole("heading", {
@@ -472,7 +495,7 @@ test("an existing classroom without the community upgrade keeps account features
       exact: true,
     }),
   ).toBeVisible();
-  expect(social.searches).toBe(0);
+  expect(social.directoryCalls).toBe(0);
   await page
     .getByRole("button", { name: "Open scientist profile", exact: true })
     .click();

@@ -3,7 +3,7 @@ import { cloudEnabled, cloudUserId, communityVersion } from "./cloud";
 import { client } from "./cloud-client";
 import { platformRequest } from "./platform";
 import {
-  publicUsername,
+  friendLookup,
   validateCommunitySettings,
   type CommunityHome,
   type CommunityRanking,
@@ -14,7 +14,7 @@ import {
   type FriendList,
 } from "../core/community";
 export const communityReady = () =>
-  cloudEnabled && !!cloudUserId() && communityVersion() >= 1;
+  cloudEnabled && !!cloudUserId() && communityVersion() >= 2;
 function requireCommunity() {
   if (!communityReady())
     throw new Error(
@@ -29,7 +29,7 @@ export async function saveCommunityProfile(value: CommunitySettings) {
   requireCommunity();
   validateCommunitySettings(value);
   const home = await platformRequest<CommunityHome>("csl_save_social_profile", {
-    p_username: publicUsername(value.username),
+    p_username: null,
     p_listed: value.listed,
     p_share_photo: value.share_photo,
     p_share_bio: value.share_bio,
@@ -56,8 +56,31 @@ export function communityRanking(
 export function findScientist(name: string) {
   requireCommunity();
   return platformRequest<ScientistCard | null>("csl_find_scientist", {
-    p_username: publicUsername(name),
+    p_username: friendLookup(name),
   });
+}
+export function classmateDirectory(query = "", activeOnly = false, offset = 0) {
+  requireCommunity();
+  return platformRequest<FriendList>("csl_classmate_directory", {
+    p_query: query.trim() ? friendLookup(query) : "",
+    p_active_only: activeOnly,
+    p_offset: offset,
+  });
+}
+let activityOwner: string | undefined;
+let lastActivity = 0;
+export async function touchCommunityActivity() {
+  const actor = cloudUserId();
+  if (!communityReady() || !actor || document.hidden || !navigator.onLine)
+    return;
+  if (activityOwner === actor && Date.now() - lastActivity < 45000) return;
+  activityOwner = actor;
+  lastActivity = Date.now();
+  try {
+    await platformRequest("csl_touch_social_activity");
+  } catch {
+    /* The directory remains usable while presence catches up. */
+  }
 }
 export function scientistCard(id: string) {
   requireCommunity();
@@ -86,8 +109,8 @@ export async function friendAction(
     "csl_social_action",
     {
       p_action: action,
-      p_target: action === "send" ? null : card.user_id,
-      p_username: action === "send" ? card.username : null,
+      p_target: card.user_id,
+      p_username: null,
       p_version: card.friendship_version,
       p_request_id: requestId,
     },

@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## Easy account discovery and live weekly standings
+
+- [x] Remove separate public-username creation and reuse existing account identity for friend lookup and cards.
+- [x] Open Science friends to an attractive active-student directory, with honest recent-activity indicators and easy invitations.
+- [x] Show weekly rankings immediately, including a classroom-timezone week range, reset countdown and automatic refresh.
+- [x] Preserve explicit sharing opt-outs, optional photos/private fields, friendships, blocking and existing learning data across the additive upgrade.
+- [ ] Verify database permissions/migration, existing-login search, live directory/weekly rollover, mobile/accessibility and publication.
+
+Local checks passed lint/typecheck, 71 unit/property tests, 972 reviewed questions, source/PDF/SQL consistency and the economy simulation. All 30 community/account/platform/guide browser scenarios passed, including the nine updated community cases, existing-login and private email lookup, duplicate account names, immediate classmate/weekly entry, two-account acceptance, crossed requests, explicit photo/visibility choices, automatic activity expiry and a simulated Monday rollover retaining all-time points. The Cells learning/mastery/review slice, local account/password change, safe user text and repository-path/offline scenario also passed. Phone WCAG AA and width checks passed; the classmate layout was tightened and rankings moved before the personal summary. The final complete isolated PostgreSQL suite passed default profile creation, server-clock presence, week metadata, privacy/RLS, friendship concurrency/limits and a version-1 upgrade preserving deliberate opt-outs. An existing legacy reload test now sets an active test window explicitly so process startup cannot consume its one-second rejection interval; product timing is unchanged. The current community-upgrade.sql and simple owner guide install capability 2 from either no community service or version 1. Existing features remain compatible before that owner-only database step. No production email, login, friend request or database migration was performed.
+
 ## Student leaderboard and science friends
 
 - [x] Add a shared, server-scored student leaderboard with weekly/all-time views, fair repeated-play handling, ranks and public learning cards.

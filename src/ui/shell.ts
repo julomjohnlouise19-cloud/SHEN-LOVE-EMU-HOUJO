@@ -365,7 +365,8 @@ export function shell(page: HTMLElement, route: string) {
   );
   const guideHost = h("div", { class: "guide-host" });
   setTimeout(() => {
-    void attachGuide(guideHost);
+    if (route !== "/friends" && route !== "/leaderboard")
+      void attachGuide(guideHost);
   }, 0);
   const main = h(
     "main",
