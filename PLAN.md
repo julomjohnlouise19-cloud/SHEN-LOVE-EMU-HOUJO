@@ -4,9 +4,11 @@
 
 - [x] Replace the signup section text field with a native dropdown containing the 20 unique supplied section names.
 - [x] Verify selected sections are retained and sent correctly, and check signup on phones and in the local demo.
-- [ ] Publish the tested change and verify the list on the public website.
+- [x] Publish the tested change and verify the list on the public website.
 
-Native lint/typecheck, 63 unit tests, 972-card validation and SQL consistency passed. Updated existing browser coverage passed four cloud signup/email-recovery scenarios, the local signup/password-change case, the Cells learning slice and the Pages-path case. Selected Grejalde is preserved through the terms dialog and sent in Auth metadata; SSC survives local registration and failed-confirmation form recovery. The configured production build passed. Publication and a direct check of all 20 choices on the live website are the final steps.
+Native lint/typecheck, 63 unit tests, 972-card validation and SQL consistency passed. Updated existing browser coverage passed four cloud signup/email-recovery scenarios, the local signup/password-change case, the Cells learning slice and the Pages-path case. Selected Grejalde is preserved through the terms dialog and sent in Auth metadata; SSC survives local registration and failed-confirmation form recovery. The configured production build passed.
+
+Application commit 6774d6f7773fa58273ff34c4401667dcc0134346 is published. [Run 43134035500](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/43134035500) passed all code, database and 91 browser scenarios and Pages publication. Published entry index-DkTaOKLm.js and shell-CnSAlnhZ.js matched the configured build byte for byte. Live phone/desktop checks verified all 20 exact names in the supplied order, unique Estiola, every option selectable, selection retention through Sign in/Join and reading terms, and 16-pixel phone controls with no horizontal overflow. Screenshots were inspected. No unexpected browser errors or failed site assets occurred; the known workspace restriction on the backend-status host was recorded separately. No actual signup email or production record was created during verification.
 
 ## Reliable password-reset links
 
