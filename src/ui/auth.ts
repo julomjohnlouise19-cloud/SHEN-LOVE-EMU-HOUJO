@@ -46,6 +46,7 @@ import { classCredits } from "../store/platform";
 import { levelOf } from "../core/rules";
 import { termsModal } from "./terms";
 import { schoolSections } from "../data/sections";
+import { mountProfileBanner } from "./profile-banner";
 export function authModal(registerFirst = false, recoverFirst = false) {
   let joining = registerFirst;
   let model = {
@@ -788,6 +789,26 @@ export function profileModal() {
       ),
     ),
   );
+  mountProfileBanner(hero, user.id);
+  const designButton = button(
+    h("span", null, icon("sparkles", 17), "Borders & banner"),
+    async () => {
+      await (await import("./profile-design")).profileDesignModal(designButton);
+    },
+    "button primary profile-design-launch",
+    { "aria-haspopup": "dialog" },
+  );
+  const designShortcut = h(
+    "section",
+    { class: "profile-design-shortcut" },
+    h(
+      "div",
+      null,
+      h("strong", null, "A profile with a little personality"),
+      h("p", null, "17 free borders · your own banner · one very you design"),
+    ),
+    designButton,
+  );
   const xp = user.xp % rules.xpPerLevel;
   const growth = h(
     "section",
@@ -1055,6 +1076,7 @@ export function profileModal() {
     "Your scientist profile",
     [
       hero,
+      designShortcut,
       statistics,
       growth,
       jumps,

@@ -21,6 +21,7 @@ import { weeklyCountdown } from "../core/community";
 import { h, button, field, input, modal, toast } from "./dom";
 import { icon, mascot } from "./svg";
 import { communityAvatar } from "./community-avatar";
+import { withProfileBanner } from "./profile-banner";
 import { go } from "./actions";
 import { pageHeading } from "./shell";
 
@@ -312,20 +313,23 @@ async function openScientist(
       return;
     }
     body.replaceChildren(
-      h(
-        "div",
-        { class: "community-profile-hero" },
-        communityAvatar(card.user_id, card.display_name),
+      withProfileBanner(
         h(
           "div",
-          null,
-          h("p", { class: "eyebrow" }, "A FELLOW CURIOUS MIND"),
-          h("h3", null, card.display_name),
-          activityBadge(card),
-          card.grade
-            ? h("span", { class: "community-pill" }, `Grade ${card.grade}`)
-            : null,
+          { class: "community-profile-hero" },
+          communityAvatar(card.user_id, card.display_name),
+          h(
+            "div",
+            null,
+            h("p", { class: "eyebrow" }, "A FELLOW CURIOUS MIND"),
+            h("h3", null, card.display_name),
+            activityBadge(card),
+            card.grade
+              ? h("span", { class: "community-pill" }, `Grade ${card.grade}`)
+              : null,
+          ),
         ),
+        card.user_id,
       ),
       ...(card.bio ? [h("p", { class: "community-bio" }, card.bio)] : []),
       h(

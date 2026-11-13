@@ -7,6 +7,7 @@ import { createHash } from "node:crypto";
 import { branches } from "./src/data/catalog";
 import { HANDBOOK_EDITION } from "./src/data/handbook-edition";
 import { researchers } from "./src/data/researchers";
+import { profileBorders } from "./src/data/profile-borders";
 const base = process.env.VITE_BASE_PATH || "/";
 if (!base.startsWith("/") || !base.endsWith("/"))
   throw new Error("VITE_BASE_PATH must start and end with /.");
@@ -50,6 +51,9 @@ export default defineConfig(({ mode }) => {
             `${base}researchers/moon-garden-frame.svg`,
             ...researchers.map(
               (person) => `${base}researchers/${person.id}.jpg`,
+            ),
+            ...profileBorders.map(
+              (border) => `${base}profile-borders/${border.id}.jpg`,
             ),
             ...branches.map(
               (branch) =>

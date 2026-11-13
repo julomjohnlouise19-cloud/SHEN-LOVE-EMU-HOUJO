@@ -1,4 +1,6 @@
 import { test, expect, exploreAsGuest } from "./fixtures";
+import { editor, closeProfile } from "./profile-design-helpers";
+import { profileBorders } from "../src/data/profile-borders";
 test("GitHub Pages loads styles, fonts, decks and offline assets under the repository path", async ({
   page,
   context,
@@ -67,6 +69,22 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   await about
     .getByRole("button", { name: "Close and return to page", exact: true })
     .click();
+  const design = await editor(page);
+  const borderArt = design.locator(".profile-frame-art img").first();
+  await borderArt.scrollIntoViewIfNeeded();
+  await expect(borderArt).toHaveAttribute(
+    "src",
+    `${prefix}profile-borders/ocean-treasures.jpg`,
+  );
+  await expect
+    .poll(() =>
+      borderArt.evaluate(
+        (img: HTMLImageElement) => img.complete && img.naturalWidth > 0,
+      ),
+    )
+    .toBe(true);
+  await design.getByRole("button", { name: "Cancel", exact: true }).click();
+  await closeProfile(page);
   await page.setViewportSize({ width: 1280, height: 720 });
   await page
     .getByRole("link", { name: "Explore Life Science, 6 decks" })
@@ -100,6 +118,8 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   expect(cachedPaths.length).toBeGreaterThan(30);
   expect(cachedPaths.every((path) => path.startsWith(prefix))).toBe(true);
   expect(cachedPaths).toContain(`${prefix}school-seal.webp`);
+  for (const border of profileBorders)
+    expect(cachedPaths).toContain(`${prefix}profile-borders/${border.id}.jpg`);
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator(".question-card")).toBeVisible();

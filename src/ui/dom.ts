@@ -150,7 +150,20 @@ export function modal(
   function restorePage() {
     if (restored) return;
     restored = true;
-    if (document.querySelector("dialog[open]")) return;
+    const remainingDialog = [
+      ...document.querySelectorAll<HTMLDialogElement>("dialog[open]"),
+    ].at(-1);
+    if (remainingDialog) {
+      const target =
+        previousFocus &&
+        remainingDialog.contains(previousFocus) &&
+        !previousFocus.matches(":disabled") &&
+        previousFocus.getClientRects().length
+          ? previousFocus
+          : remainingDialog.querySelector<HTMLElement>("button:not(:disabled)");
+      target?.focus({ preventScroll: true });
+      return;
+    }
     document.documentElement.classList.remove("modal-open");
     if (
       previousFocus?.isConnected &&

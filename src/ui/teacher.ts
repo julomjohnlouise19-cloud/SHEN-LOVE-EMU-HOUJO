@@ -29,6 +29,8 @@ import { go } from "./actions";
 import { icon } from "./svg";
 import { avatar as scientistAvatar } from "./avatar";
 import { hydrateTeacherPhoto } from "../store/photos";
+import { loadProfileDesigns } from "../store/profile-design";
+import { withProfileBanner } from "./profile-banner";
 import { fullScientistProfile, type ScientistProfile } from "../store/accounts";
 import { accountsVersion } from "../store/cloud";
 import { pickupLocation, type ClassroomRules } from "../core/classroom";
@@ -711,6 +713,8 @@ export function teacherPage(section = "overview") {
     );
   }
   function table(rows: Record<string, unknown>[]) {
+    if (section === "students")
+      void loadProfileDesigns(rows.map((row) => str(row, "user_id")));
     const headers: Record<string, string[]> = {
       students: [
         "Scientist",
@@ -1129,35 +1133,39 @@ export function teacherPage(section = "overview") {
     const renderProfile = (profile: ScientistProfile, complete: boolean) => {
       latestRow = { ...latestRow, ...profile };
       void hydrateTeacherPhoto(profile.user_id, profile.photo_path);
+      void loadProfileDesigns([profile.user_id]);
       const detail = (label: string, value: string) =>
         h("div", null, h("dt", null, label), h("dd", null, value));
       host.replaceChildren(
-        h(
-          "section",
-          {
-            class: "scientist-card teacher-scientist-card",
-            "data-profile-theme": profile.theme ?? "meadow",
-          },
+        withProfileBanner(
           h(
-            "div",
-            { class: "scientist-card-avatar" },
-            scientistAvatar(profile.user_id, profile.display_name),
-          ),
-          h(
-            "div",
-            { class: "scientist-card-copy" },
-            h("p", { class: "eyebrow" }, "A SCIENTIST IN YOUR CLASSROOM"),
-            h("h3", null, profile.display_name),
+            "section",
+            {
+              class: "scientist-card teacher-scientist-card",
+              "data-profile-theme": profile.theme ?? "meadow",
+            },
             h(
-              "p",
-              null,
-              `Grade ${profile.grade} · ${profile.section || "No section recorded"}`,
+              "div",
+              { class: "scientist-card-avatar" },
+              scientistAvatar(profile.user_id, profile.display_name),
             ),
-            tag(
-              profile.active ? "Active account" : "Banned account",
-              profile.active ? "green" : "peach",
+            h(
+              "div",
+              { class: "scientist-card-copy" },
+              h("p", { class: "eyebrow" }, "A SCIENTIST IN YOUR CLASSROOM"),
+              h("h3", null, profile.display_name),
+              h(
+                "p",
+                null,
+                `Grade ${profile.grade} · ${profile.section || "No section recorded"}`,
+              ),
+              tag(
+                profile.active ? "Active account" : "Banned account",
+                profile.active ? "green" : "peach",
+              ),
             ),
           ),
+          profile.user_id,
         ),
         h(
           "div",

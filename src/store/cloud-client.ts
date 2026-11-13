@@ -28,3 +28,4 @@ export const client = cloudEnabled
     })
   : undefined;
 export const projectOrigin = config.url;
+export const publicApiKey = config.publishableKey;

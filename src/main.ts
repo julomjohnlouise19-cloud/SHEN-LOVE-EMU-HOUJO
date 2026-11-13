@@ -13,6 +13,8 @@ import "./styles/accounts.css";
 import "./styles/reading.css";
 import "./styles/community.css";
 import "./styles/about.css";
+import "./styles/profile-design.css";
+import { loadProfileDesign } from "./store/profile-design";
 import { loadAppearance } from "./store/preferences";
 import {
   initStore,
@@ -88,6 +90,7 @@ async function render() {
         if (currentUser()?.id === user.id)
           document.documentElement.dataset.theme = value.theme;
       });
+    if (user) void loadProfileDesign(user.id).catch(() => undefined);
     resetNavigation();
     if (renderedUserId) {
       document.querySelector("#toasts")?.replaceChildren();

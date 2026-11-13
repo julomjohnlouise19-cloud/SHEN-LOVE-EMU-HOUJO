@@ -51,6 +51,11 @@ export interface Backend {
   suggestionsReady: boolean;
   accountsReady: boolean;
   communityReady: boolean;
+  profileStylesReady: boolean;
+  designMetadata: Record<string, unknown>;
+  failDesignMetadata: boolean;
+  failDesignUploads: boolean;
+  removedPhotoPaths: string[];
   sharedPhotoPaths: string[];
   suggestions: Record<string, unknown>[];
   platform: number;
@@ -93,6 +98,11 @@ export const test = base.extend<{ backend: Backend }>({
         suggestionsReady: true,
         accountsReady: true,
         communityReady: false,
+        profileStylesReady: false,
+        designMetadata: {},
+        failDesignMetadata: false,
+        failDesignUploads: false,
+        removedPhotoPaths: [],
         sharedPhotoPaths: [],
         suggestions: [],
         platform: 3,
@@ -327,7 +337,28 @@ export const test = base.extend<{ backend: Backend }>({
           state.getUserCalls++;
           if (request.method() === "PUT" && body?.password)
             state.passwordChanges++;
-          return respond(users[Math.max(0, who)]);
+          const user = users[Math.max(0, who)];
+          if (request.method() === "PUT" && body?.data) {
+            if (state.failDesignMetadata)
+              return respond(
+                { message: "Your design could not be saved. Try again." },
+                503,
+              );
+            const metadata = body.data as Record<string, unknown>;
+            if (metadata.csl_profile_style)
+              state.designMetadata[user.id] = structuredClone(
+                metadata.csl_profile_style,
+              );
+          }
+          return respond({
+            ...user,
+            user_metadata: {
+              ...user.user_metadata,
+              ...(state.designMetadata[user.id]
+                ? { csl_profile_style: state.designMetadata[user.id] }
+                : {}),
+            },
+          });
         }
         if (url.pathname === "/auth/v1/logout")
           return route.fulfill({ status: 204 });
@@ -357,11 +388,17 @@ export const test = base.extend<{ backend: Backend }>({
             for (const path of (body?.prefixes ?? []) as string[]) {
               expect(path.startsWith(`${users[who].id}/`)).toBe(true);
               photos.delete(path);
+              state.removedPhotoPaths.push(path);
             }
             return respond([]);
           }
           const path = url.pathname.slice(`${storage}csl-avatars/`.length),
             raw = request.postDataBuffer()!;
+          if (state.failDesignUploads)
+            return respond(
+              { message: "The image could not be uploaded. Try again." },
+              503,
+            );
           expect(path.startsWith(`${users[who].id}/`)).toBe(true);
           const riff = raw.indexOf(Buffer.from("RIFF"));
           expect(riff).toBeGreaterThanOrEqual(0);
@@ -384,6 +421,7 @@ export const test = base.extend<{ backend: Backend }>({
                 platform: state.platform,
                 accounts: state.accountsReady ? 1 : 0,
                 community: state.communityReady ? 2 : 0,
+                profile_styles: state.profileStylesReady ? 1 : 0,
               })
             : respond({ message: "function not installed" }, 404);
         }
@@ -396,6 +434,35 @@ export const test = base.extend<{ backend: Backend }>({
           profile = state.profiles[who];
         if (!profile.active)
           return failed("Your account is paused. Please contact your teacher.");
+        if (rpc === "csl_profile_styles") {
+          if (!state.profileStylesReady)
+            return failed("function not installed", 404);
+          const ids = (body?.p_users ?? []) as string[];
+          if (!ids.length || ids.length > 50)
+            return failed("Choose between one and fifty scientists.");
+          return respond(
+            ids.flatMap((id) => {
+              const target = state.profiles.find((p) => p.user_id === id);
+              if (!target || (!target.active && !profile.is_teacher)) return [];
+              const raw = state.designMetadata[id] as
+                Record<string, unknown> | undefined;
+              const design = {
+                version: 1,
+                border: "",
+                banner_path: null,
+                x: 50,
+                y: 50,
+                share_banner: false,
+                ...raw,
+              };
+              if (id !== uid && !profile.is_teacher && !design.share_banner)
+                design.banner_path = null;
+              if (design.banner_path)
+                state.sharedPhotoPaths.push(String(design.banner_path));
+              return [{ user_id: id, design }];
+            }),
+          );
+        }
         if (rpc === "csl_scientist_profile") {
           if (!state.accountsReady)
             return failed("Function not installed", 404);

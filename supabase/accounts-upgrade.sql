@@ -227,7 +227,7 @@ end $$;
 revoke all on function public.csl_scientist_profile(uuid) from public,anon;
 grant execute on function public.csl_scientist_profile(uuid) to authenticated;
 create or replace function public.csl_backend_status() returns jsonb language sql stable security definer set search_path='' as $$
- select jsonb_build_object('version',1,'questions',(select count(*) from csl_private.questions),'platform',3,'accounts',1,'community',case when to_regprocedure('public.csl_classmate_directory(text,boolean,integer)') is not null then 2 when to_regprocedure('public.csl_social_home()') is null then 0 else 1 end);
+ select jsonb_build_object('version',1,'questions',(select count(*) from csl_private.questions),'platform',3,'profile_styles',case when to_regprocedure('public.csl_profile_styles(uuid[])') is null then 0 else 1 end,'accounts',1,'community',case when to_regprocedure('public.csl_classmate_directory(text,boolean,integer)') is not null then 2 when to_regprocedure('public.csl_social_home()') is null then 0 else 1 end);
 $$;
 revoke all on function public.csl_backend_status() from public;
 grant execute on function public.csl_backend_status() to anon,authenticated;

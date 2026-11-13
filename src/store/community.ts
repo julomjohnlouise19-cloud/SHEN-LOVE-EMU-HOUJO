@@ -2,6 +2,7 @@ import { currentUser } from ".";
 import { cloudEnabled, cloudUserId, communityVersion } from "./cloud";
 import { client } from "./cloud-client";
 import { platformRequest } from "./platform";
+import { loadProfileDesigns } from "./profile-design";
 import {
   friendLookup,
   validateCommunitySettings,
@@ -137,6 +138,7 @@ export const sharedPhoto = (id: string) => {
 export async function loadSharedPhotos(cards: ScientistCard[]) {
   const actor = cloudUserId();
   if (!actor || !communityReady()) return;
+  void loadProfileDesigns(cards.map((card) => card.user_id));
   if (photoOwner !== actor) {
     photos.clear();
     photoPaths.clear();

@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## Student border gallery and personal banner
+
+- [x] Add the 17 distinct supplied border designs (one PDF image repeats), plus a clear no-border choice, in a dedicated profile design editor.
+- [x] Add an uploaded banner with live preview, repositioning, apply/remove/reset controls and readable profile text on any image.
+- [x] Save personal designs to the existing account and guest designs on this device; preserve photos, colors, bios, progress and private storage ownership.
+- [x] Integrate saved designs with avatars and authorized profile views; prepare a tested additive sharing bridge for teacher/classmate views.
+- [ ] Verify persistence, upload validation/failures, account changes, privacy, phone/keyboard accessibility and existing learning; publish the compatible website and report live sharing readiness.
+
+Lint/typecheck, 75 unit/property tests, all 972 reviewed questions and generated SQL consistency passed. The complete isolated PostgreSQL suite passed, including all 17 approved border IDs, owner/teacher reads, private banner redaction, deliberate sharing and revocation, storage ownership, blocks/bans, bounded metadata and non-destructive reruns. All 34 focused cloud browser scenarios passed: the five new design cases cover account persistence before the sharing bridge exists, rejected-write upload cleanup and retry, failed replacement/removal, a pinned in-flight save across account switching and separate classmate/teacher banner access. Existing account, community, guide, stock and Studio scenarios remained green. All 18 focused standard scenarios passed, including offline design persistence, invalid images, 320-pixel WCAG AA and visible controls, nested focus return, About us, Cells/mastery/review, daily spin, shop and logout. The Pages-path case passed with a decoded original border and all 17 border assets in the offline cache. Reading/document/source consistency and the economy simulation passed. The editor uses original exported artwork, a category gallery and separate banner controls; phone inner-panel width and nested-dialog focus were corrected during visual/accessibility review. The optional sharing SQL and owner guide are prepared; no production database migration or personal login/email has been performed.
+
 ## About us researcher panel
 
 - [x] Add a compact About us button that opens an in-page panel without changing the current URL or session.

@@ -55,6 +55,15 @@ try {
         ? "Immediate student rankings, existing-account friends and recent activity (community version 2) are installed."
         : "Student leaderboard and Science friends need supabase/community-upgrade.sql. Existing classroom features remain available.";
     console.log(communityNotice);
+    const profileStyleNotice =
+      Number(data.profile_styles) >= 1
+        ? "Shared profile borders and explicitly shared banners (profile styles version 1) are installed."
+        : "Personal borders and banners save to existing accounts. Teacher/classmate design views need supabase/profile-styles-upgrade.sql.";
+    console.log(profileStyleNotice);
+    if (process.env.GITHUB_ACTIONS === "true")
+      console.log(
+        `::notice title=Profile design sharing::${profileStyleNotice}`,
+      );
     if (process.env.GITHUB_ACTIONS === "true")
       console.log(
         `::notice title=Classroom connections activation::${communityNotice}`,
