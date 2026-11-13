@@ -12,6 +12,7 @@ import "./styles/mobile.css";
 import "./styles/accounts.css";
 import "./styles/reading.css";
 import "./styles/community.css";
+import "./styles/about.css";
 import { loadAppearance } from "./store/preferences";
 import {
   initStore,

@@ -33,6 +33,54 @@ async function find(page: import("@playwright/test").Page, query = "student2") {
     .getByRole("button", { name: "Find classmates", exact: true })
     .click();
 }
+test("highest verified scores stay first when scores change and ties retain their shared rank", async ({
+  page,
+  backend,
+  social,
+}) => {
+  const third = "00000000-0000-4000-8000-000000000004";
+  backend.profiles.push({
+    ...backend.profiles[1],
+    user_id: third,
+    display_name: "Zara Scientist",
+  });
+  social.settings[third] = { ...blankCommunitySettings(), version: 1 };
+  backend.rows.push(quiz(0, 2), quiz(1, 8));
+  await page.goto("./");
+  await signIn(page);
+  await page.goto("#/leaderboard");
+  const rows = page.locator(".community-rank-row");
+  await expect(rows).toHaveCount(3);
+  await expect(rows.nth(0)).toContainText("Student Two");
+  await expect(rows.nth(0)).toContainText("80 pts");
+  await expect(rows.nth(1)).toContainText("20 pts");
+  await expect(
+    page.getByText("Highest points first", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("list", { name: "Student rankings", exact: true }),
+  ).toBeVisible();
+  backend.rows.push(quiz(0, 8, { level: "hard" }));
+  await page
+    .getByRole("button", { name: "Refresh rankings", exact: true })
+    .click();
+  await expect(rows.nth(0)).toContainText("Student One");
+  await expect(rows.nth(0)).toContainText("100 pts");
+  await expect(rows.nth(0).locator(".community-rank-number")).toHaveText("#1");
+  await expect(rows.nth(1).locator(".community-rank-number")).toHaveText("#2");
+  backend.rows.push(quiz(1, 2, { level: "hard" }));
+  await page
+    .getByRole("button", { name: "Refresh rankings", exact: true })
+    .click();
+  await expect(rows.nth(1)).toContainText("100 pts");
+  await expect(rows.nth(0).locator(".community-rank-number")).toHaveText("#1");
+  await expect(rows.nth(1).locator(".community-rank-number")).toHaveText("#1");
+  await expect(rows.nth(2).locator(".community-rank-number")).toHaveText("#2");
+  await page.screenshot({
+    path: "/tmp/cozy-ranking-highest-first.png",
+    fullPage: true,
+  });
+});
 test("weekly rankings appear immediately using existing names, keep ties and explain Monday refresh", async ({
   page,
   backend,

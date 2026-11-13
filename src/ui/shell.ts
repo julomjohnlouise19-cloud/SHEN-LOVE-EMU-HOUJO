@@ -21,6 +21,7 @@ import { brandLink } from "./branding";
 import { connectionNotice } from "./connectivity";
 import { pageNavigation } from "./navigation";
 import { attachGuide, guideModal } from "./guide";
+import { aboutUsButton } from "./about-button";
 let sidebarOpen = false;
 let releaseNavigation = () => {};
 export function resetNavigation() {
@@ -124,6 +125,7 @@ export function shell(page: HTMLElement, route: string) {
         cloudEnabled ? "Teacher studio" : "Mission control",
       ),
     );
+  navigation.append(aboutUsButton("about-nav-button", closeNavigation));
   const sidebarBrand = brandLink();
   sidebarBrand.addEventListener("click", closeNavigation);
   const aside = h(
@@ -391,6 +393,7 @@ export function shell(page: HTMLElement, route: string) {
         icon("heart", 13),
         "Made for curious minds. Grown one discovery at a time.",
       ),
+      aboutUsButton(),
       h("span", null, "SCIENCE ONLY. WONDER ALWAYS.", icon("sprout", 14)),
     ),
   );

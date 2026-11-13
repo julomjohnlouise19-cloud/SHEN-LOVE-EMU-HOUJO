@@ -565,6 +565,9 @@ export async function studentLeaderboardPage() {
         communityHome(),
       ]);
       if (request !== serial || currentUser()?.id !== owner) return;
+      // Ranks and pagination remain server-owned. Preserve its tie order while
+      // ensuring the visible cards always show the highest verified points first.
+      const rows = [...result.rows].sort((a, b) => b.points - a.points);
       home = latest;
       refreshAt = result.refresh_at;
       serverNow = Date.parse(result.server_now);
@@ -584,7 +587,7 @@ export async function studentLeaderboardPage() {
       if (cached) cached.loadedAt = Date.now();
       drawOwn(result.you);
       standings.replaceChildren();
-      if (!result.rows.length)
+      if (!rows.length)
         standings.append(
           h(
             "div",
@@ -616,12 +619,35 @@ export async function studentLeaderboardPage() {
             ),
           ),
         );
-      if (!offset && result.rows.length)
+      if (rows.length)
+        standings.append(
+          h(
+            "div",
+            { class: "league-ranking-heading" },
+            h("h2", null, "The discovery leaderboard"),
+            h(
+              "p",
+              { id: "ranking-order-note" },
+              h(
+                "span",
+                { class: "ranking-order-pill" },
+                icon("trophy", 15),
+                "Highest points first",
+              ),
+              h(
+                "span",
+                null,
+                "Equal points share a rank. Every discovery counts.",
+              ),
+            ),
+          ),
+        );
+      if (!offset && rows.length)
         standings.append(
           h(
             "section",
             { class: "community-podium", "aria-label": "Leading scientists" },
-            ...result.rows.slice(0, 3).map((card) =>
+            ...rows.slice(0, 3).map((card) =>
               h(
                 "article",
                 { class: `podium-place place-${Math.min(card.rank ?? 3, 3)}` },
@@ -630,6 +656,17 @@ export async function studentLeaderboardPage() {
                   { class: "podium-rank" },
                   icon("trophy", 22),
                   `#${card.rank}`,
+                ),
+                h(
+                  "p",
+                  { class: "podium-honor" },
+                  card.points === 0
+                    ? "Your next discovery awaits"
+                    : card.rank === 1
+                      ? "Discovery leader"
+                      : card.rank === 2
+                        ? "Curious achiever"
+                        : "Rising scientist",
                 ),
                 profileButton(card, home, () => {
                   void refresh();
@@ -646,15 +683,28 @@ export async function studentLeaderboardPage() {
         );
       standings.append(
         h(
-          "div",
-          { class: "community-rank-list", "aria-label": "Student rankings" },
-          ...result.rows.map((card) =>
+          "ol",
+          {
+            class: "community-rank-list",
+            "aria-label": "Student rankings",
+            "aria-describedby": rows.length ? "ranking-order-note" : undefined,
+            start: offset + 1,
+          },
+          ...rows.map((card) =>
             h(
-              "article",
+              "li",
               {
                 class: `community-rank-row ${card.user_id === owner ? "is-you" : ""}`,
+                "data-rank": card.rank,
               },
-              h("span", { class: "community-rank-number" }, `#${card.rank}`),
+              h(
+                "span",
+                { class: "community-rank-number" },
+                card.rank && card.rank <= 3
+                  ? icon(card.rank === 1 ? "trophy" : "star", 15)
+                  : null,
+                `#${card.rank}`,
+              ),
               profileButton(card, home, () => {
                 void refresh();
               }),
@@ -709,7 +759,7 @@ export async function studentLeaderboardPage() {
         ),
       );
       standings.append(pager);
-      void loadSharedPhotos(result.rows);
+      void loadSharedPhotos(rows);
     } catch (e) {
       if (request === serial) status.textContent = message(e);
     }

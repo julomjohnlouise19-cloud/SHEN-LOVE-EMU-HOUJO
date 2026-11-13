@@ -128,8 +128,14 @@ export function toast(
   if (activeDialog) el.scrollIntoView({ block: "nearest" });
   setTimeout(() => el.remove(), 7000);
 }
-export function modal(title: string, content: Child[], wide = false) {
-  const previousFocus = document.activeElement as HTMLElement | null;
+export function modal(
+  title: string,
+  content: Child[],
+  wide = false,
+  returnFocus?: HTMLElement,
+) {
+  const previousFocus =
+    returnFocus ?? (document.activeElement as HTMLElement | null);
   let restored = false;
   const dialog = h("dialog", {
     class: `modal ${wide ? "wide" : ""}`,

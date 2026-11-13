@@ -424,6 +424,61 @@
 .community-rank-list {
   display: grid;
   gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.league-ranking-heading {
+  margin: 0 0 22px;
+}
+.league-ranking-heading h2 {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  margin: 0 0 13px;
+  color: var(--lab-ink);
+}
+.league-ranking-heading p {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--lab-muted);
+}
+.ranking-order-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--lab-soft);
+  border: 1px solid var(--lab-line);
+  border-radius: 20px;
+  color: var(--lab-brand-deep);
+  font-size: 11px;
+  font-weight: 650;
+  padding: 7px 11px;
+}
+.podium-place {
+  position: relative;
+  background: linear-gradient(160deg, #f2f9ff, var(--lab-blue));
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--lab-blue), transparent 30%);
+}
+.podium-place.place-1 {
+  background: linear-gradient(160deg, #fffbeb, var(--lab-yellow));
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--lab-yellow), transparent 30%);
+}
+.podium-place.place-2 {
+  background: linear-gradient(160deg, #f9f4ff, var(--lab-lilac));
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--lab-lilac), transparent 30%);
+}
+.podium-place .podium-honor {
+  margin: -3px 0 18px;
+  color: var(--lab-brand-deep);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  font-weight: 650;
 }
 .community-rank-row {
   display: grid;
@@ -444,6 +499,23 @@
   font-size: 23px;
   font-weight: 500;
   color: var(--lab-brand-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.community-rank-row[data-rank="1"] .community-rank-number,
+.community-rank-row[data-rank="2"] .community-rank-number,
+.community-rank-row[data-rank="3"] .community-rank-number {
+  border-radius: 15px;
+  padding: 8px 3px;
+  background: var(--lab-yellow);
+}
+.community-rank-row[data-rank="2"] .community-rank-number {
+  background: var(--lab-lilac);
+}
+.community-rank-row[data-rank="3"] .community-rank-number {
+  background: var(--lab-blue);
 }
 .community-rank-score {
   display: flex;

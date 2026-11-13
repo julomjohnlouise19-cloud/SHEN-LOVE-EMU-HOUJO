@@ -43,6 +43,30 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
     ),
   ).toBe(true);
   await page.screenshot({ path: "/tmp/cozy-pages-mobile.png", fullPage: true });
+  await page
+    .locator(".footer")
+    .getByRole("button", { name: "About us", exact: true })
+    .click();
+  const about = page.getByRole("dialog", { name: "About us", exact: true });
+  const portrait = about.locator(".researcher-photo").first();
+  await portrait.scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      portrait.evaluate(
+        (img: HTMLImageElement) => img.complete && img.naturalWidth > 0,
+      ),
+    )
+    .toBe(true);
+  await expect(portrait).toHaveAttribute(
+    "src",
+    `${prefix}researchers/tristan-andales.jpg`,
+  );
+  await expect(
+    about.locator(".researcher-portrait-frame").first(),
+  ).toHaveAttribute("src", `${prefix}researchers/moon-garden-frame.svg`);
+  await about
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await page.setViewportSize({ width: 1280, height: 720 });
   await page
     .getByRole("link", { name: "Explore Life Science, 6 decks" })

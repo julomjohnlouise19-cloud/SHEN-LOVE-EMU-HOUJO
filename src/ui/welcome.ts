@@ -7,6 +7,7 @@ import { entryDestination, go } from "./actions";
 import { heroIllustration, icon, mascot } from "./svg";
 import { brandLink } from "./branding";
 import { connectionNotice } from "./connectivity";
+import { aboutUsButton } from "./about-button";
 
 export function welcomeHub() {
   const notice = new URLSearchParams(location.hash.split("?")[1]).get("notice");
@@ -17,7 +18,12 @@ export function welcomeHub() {
       "header",
       { class: "welcome-header" },
       brandLink("#/welcome"),
-      h("span", { class: "welcome-tagline" }, "A HAPPY PLACE TO GET CURIOUS"),
+      h(
+        "div",
+        { class: "welcome-header-extra" },
+        h("span", { class: "welcome-tagline" }, "A HAPPY PLACE TO GET CURIOUS"),
+        aboutUsButton(),
+      ),
     ),
     h(
       "main",

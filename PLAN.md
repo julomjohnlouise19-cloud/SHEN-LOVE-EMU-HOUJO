@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## About us researcher panel
+
+- [x] Add a compact About us button that opens an in-page panel without changing the current URL or session.
+- [x] Include the user's exact introduction and the seven researchers' original PDF portraits, names, bios and hobbies.
+- [x] Give the portraits original moon, stars, cloud and lotus decorations inspired by the supplied frame, with colorful readable cards.
+- [ ] Verify phone/desktop layout, keyboard close and focus return, loaded photos, offline reading and existing learning flows; publish the tested update.
+- [x] Apply the clarified leaderboard order: highest points first, clear fair ties, distinctive leader cards and an accessible ordered ranking list; verify rank changes after refresh.
+
+Native lint/typecheck, 71 unit/property tests, 972 reviewed questions and SQL/PDF consistency checks passed. The new About us scenarios passed all seven loaded portraits, exact introduction, individual/all-bio expansion, unchanged URL/session/balance, offline portraits and bios, desktop/mobile menu entry, keyboard return and phone WCAG AA/bounded width. The shared modal supports an explicit return-focus target for the lazy-loaded About us button; existing callers retain the original behavior. The Cells/mastery/review slice passed. All ten community scenarios passed, including a lower-scoring account moving into first place after refresh, equal 100-point accounts sharing rank one, and a lower score remaining below them. Weekly rollover, sharing choices, friendship actions and phone accessibility still passed. The repository-path/offline scenario passed with explicit portrait and frame URL checks. Portraits were visually reviewed at the original image aspect ratios; cards use blue/lilac/mint and the final card is centered on wider layouts. About us needs no SQL or new URL. No classroom data, records, account borders or reading-room content changed.
+
 ## Easy account discovery and live weekly standings
 
 - [x] Remove separate public-username creation and reuse existing account identity for friend lookup and cards.
