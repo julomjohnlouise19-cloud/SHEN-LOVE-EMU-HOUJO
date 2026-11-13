@@ -209,65 +209,74 @@ test("reset delivery failure never claims an email was sent and does not block e
   expect(backend.resendCalls).toBe(0);
 });
 
-test("two tabs reserve one shared email request before the server responds", async ({
-  page,
-  context,
-  backend,
-}) => {
-  const other = await context.newPage();
-  let release!: () => void;
-  const pending = new Promise<void>((resolve) => {
-    release = resolve;
-  });
-  let arrivals = 0;
-  await context.route(`${host}/auth/v1/signup**`, async (route) => {
-    arrivals++;
-    await pending;
-    await route.fallback();
-  });
-  try {
-    await Promise.all([page.goto("./"), other.goto("./")]);
-    await Promise.all([signupDetails(page), signupDetails(other)]);
-    await Promise.all(
-      [page, other].map((tab) =>
-        tab
-          .getByRole("dialog")
-          .locator("form")
-          .evaluate((form) => (form as HTMLFormElement).requestSubmit()),
-      ),
-    );
-    await expect.poll(() => arrivals).toBe(1);
-    await expect
-      .poll(async () =>
-        (
-          await Promise.all(
-            [page, other].map((tab) =>
-              tab.locator(".form-error").allTextContents(),
-            ),
+for (const staleReads of [false, true])
+  test(`two tabs reserve one shared email request before the server responds${staleReads ? " even with stale compatibility storage" : ""}`, async ({
+    page,
+    context,
+    backend,
+  }) => {
+    if (staleReads)
+      await context.addInitScript(() => {
+        const get = Storage.prototype.getItem;
+        Storage.prototype.getItem = function (key: string) {
+          return key.startsWith("csl:email-wait:") ? null : get.call(this, key);
+        };
+      });
+    const other = await context.newPage();
+    let release!: () => void;
+    const pending = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    let arrivals = 0;
+    await context.route(`${host}/auth/v1/signup**`, async (route) => {
+      if (route.request().method() !== "POST") return route.fallback();
+      arrivals++;
+      await pending;
+      await route.fallback();
+    });
+    try {
+      await Promise.all([page.goto("./"), other.goto("./")]);
+      await Promise.all([signupDetails(page), signupDetails(other)]);
+      await Promise.all(
+        [page, other].map((tab) =>
+          tab
+            .getByRole("dialog")
+            .locator("form")
+            .evaluate((form) => (form as HTMLFormElement).requestSubmit()),
+        ),
+      );
+      await expect.poll(() => arrivals).toBe(1);
+      await expect
+        .poll(async () =>
+          (
+            await Promise.all(
+              [page, other].map((tab) =>
+                tab.locator(".form-error").allTextContents(),
+              ),
+            )
           )
+            .flat()
+            .join(" "),
         )
-          .flat()
-          .join(" "),
-      )
-      .toContain("before requesting another account email");
-    expect(backend.signupCalls).toBe(0);
-    release();
-    await expect.poll(() => backend.signupCalls).toBe(1);
-    await expect
-      .poll(
-        async () =>
-          (await page
-            .getByRole("heading", { name: "Check your email", exact: true })
-            .count()) +
-          (await other
-            .getByRole("heading", { name: "Check your email", exact: true })
-            .count()),
-      )
-      .toBe(1);
-    expect(arrivals).toBe(1);
-    expect(backend.resendCalls).toBe(0);
-  } finally {
-    release();
-    await other.close();
-  }
-});
+        .toContain("before requesting another account email");
+      expect(backend.signupCalls).toBe(0);
+      release();
+      await expect.poll(() => backend.signupCalls).toBe(1);
+      await expect
+        .poll(
+          async () =>
+            (await page
+              .getByRole("heading", { name: "Check your email", exact: true })
+              .count()) +
+            (await other
+              .getByRole("heading", { name: "Check your email", exact: true })
+              .count()),
+        )
+        .toBe(1);
+      expect(arrivals).toBe(1);
+      expect(backend.resendCalls).toBe(0);
+    } finally {
+      release();
+      await other.close();
+    }
+  });

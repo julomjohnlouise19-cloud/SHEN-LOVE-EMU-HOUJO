@@ -2,38 +2,51 @@ import { client } from "./cloud-client";
 import { LocalStorageAdapter } from "./adapter";
 import { AccountError, accountError } from "../core/account-errors";
 import { hashSeed } from "../core/random";
+import { emailDeadline } from "./email-reservations";
 
 const adapter = new LocalStorageAdapter();
 const key = (email: string) =>
   `csl:email-wait:${hashSeed(email.trim().toLowerCase())}`;
 export async function emailWait(email: string) {
-  const until = await adapter.get<number>(key(email));
+  const name = key(email);
+  const legacy = await adapter.get<number>(name);
+  const until = (await emailDeadline(name, legacy)) ?? legacy;
   return Math.max(0, Math.ceil(((Number(until) || 0) - Date.now()) / 1000));
 }
-export async function recordEmailWait(email: string, seconds: number) {
+async function updateDeadline(
+  email: string,
+  update: (until: number) => number,
+) {
   const name = key(email);
-  await adapter.transaction([name], (tx) =>
+  const deadline = await emailDeadline(
+    name,
+    await adapter.get<number>(name),
+    update,
+  );
+  await adapter.transaction([name], (tx) => {
+    const previous = Number(tx.get<number>(name)) || 0;
     tx.set(
       name,
-      Math.max(tx.get<number>(name) || 0, Date.now() + seconds * 1000),
-    ),
+      deadline === undefined ? update(previous) : Math.max(previous, deadline),
+    );
+  });
+}
+export async function recordEmailWait(email: string, seconds: number) {
+  await updateDeadline(email, (until) =>
+    Math.max(until, Date.now() + seconds * 1000),
   );
 }
 export async function beginEmailRequest(email: string) {
-  const name = key(email);
-  await adapter.transaction([name], (tx) => {
+  await updateDeadline(email, (until) => {
     const now = Date.now();
-    const wait = Math.max(
-      0,
-      Math.ceil(((Number(tx.get<number>(name)) || 0) - now) / 1000),
-    );
+    const wait = Math.max(0, Math.ceil((until - now) / 1000));
     if (wait)
       throw new AccountError(
         `Please wait ${wait >= 60 ? `${Math.ceil(wait / 60)} minute${wait > 60 ? "s" : ""}` : `${wait} seconds`} before requesting another account email. Existing accounts can still sign in.`,
         "rate",
         wait,
       );
-    tx.set(name, now + 60_000);
+    return now + 60_000;
   });
 }
 export async function resendConfirmation(email: string) {
