@@ -1,5 +1,10 @@
 import { test, expect, signIn, signOut, users } from "./community-fixtures";
-import { banner, editor, closeProfile } from "./profile-design-helpers";
+import {
+  banner,
+  editor,
+  closeProfile,
+  applyDesign,
+} from "./profile-design-helpers";
 import type { ProfileDesign } from "../src/core/profile-design";
 
 test("personal designs save to existing accounts before the optional sharing bridge is installed", async ({
@@ -35,8 +40,10 @@ test("personal designs save to existing accounts before the optional sharing bri
     .getByRole("slider", { name: "Vertical image focus", exact: true })
     .fill("100");
   await design
-    .getByRole("button", { name: "Apply my design", exact: true })
+    .getByRole("button", { name: "Preview & finish", exact: true })
     .click();
+  expect(backend.designMetadata[users[0].id]).toBeUndefined();
+  await applyDesign(design);
   await expect(design).toHaveCount(0);
   expect(backend.designMetadata[users[0].id]).toMatchObject({
     border: "moon-garden",
@@ -72,17 +79,13 @@ test("a rejected metadata save removes the new upload, keeps the draft and suppo
     .setInputFiles(await banner(page));
   await expect(design.locator(".design-preview-cover img")).toBeVisible();
   backend.failDesignMetadata = true;
-  await design
-    .getByRole("button", { name: "Apply my design", exact: true })
-    .click();
+  await applyDesign(design);
   await expect(design.getByRole("alert")).toContainText("could not be saved");
   await expect.poll(() => backend.removedPhotoPaths.length).toBe(1);
   expect(backend.designMetadata[users[0].id]).toBeUndefined();
-  await expect(design.locator(".design-preview-cover img")).toBeVisible();
+  await expect(design.locator(".design-review-cover img")).toBeVisible();
   backend.failDesignMetadata = false;
-  await design
-    .getByRole("button", { name: "Apply my design", exact: true })
-    .click();
+  await applyDesign(design);
   await expect(design).toHaveCount(0);
   const saved = backend.designMetadata[users[0].id] as ProfileDesign;
   expect(saved.banner_path).toBeTruthy();
@@ -92,6 +95,7 @@ test("a rejected metadata save removes the new upload, keeps the draft and suppo
 
 test("a failed replacement preserves the saved banner and removing it leaves the profile photo alone", async ({
   page,
+  context,
   backend,
 }) => {
   await page.goto("./");
@@ -102,9 +106,7 @@ test("a failed replacement preserves the saved banner and removing it leaves the
     .getByLabel("Upload your banner", { exact: true })
     .setInputFiles(await banner(page));
   await expect(design.locator(".design-preview-cover img")).toBeVisible();
-  await design
-    .getByRole("button", { name: "Apply my design", exact: true })
-    .click();
+  await applyDesign(design);
   await expect(design).toHaveCount(0);
   const before = structuredClone(
     backend.designMetadata[users[0].id],
@@ -118,9 +120,7 @@ test("a failed replacement preserves the saved banner and removing it leaves the
     "Banner ready",
   );
   backend.failDesignUploads = true;
-  await design
-    .getByRole("button", { name: "Apply my design", exact: true })
-    .click();
+  await applyDesign(design);
   await expect(design.getByRole("alert")).toContainText(
     "could not be uploaded",
   );
@@ -131,14 +131,27 @@ test("a failed replacement preserves the saved banner and removing it leaves the
     page.locator(".scientist-card .profile-cover-image"),
   ).toBeVisible();
   backend.failDesignUploads = false;
+  await context.route("**/storage/v1/object/sign/csl-avatars/**", (route) =>
+    route.fulfill({
+      status: 503,
+      contentType: "application/json",
+      body: JSON.stringify({ message: "Preview temporarily unavailable" }),
+      headers: { "access-control-allow-origin": "*" },
+    }),
+  );
+  await page.reload();
   design = await editor(page);
   await design.getByRole("button", { name: "My banner", exact: true }).click();
+  await expect(design.locator(".design-banner-notice")).toContainText(
+    "has not opened yet",
+  );
+  await expect(
+    design.getByRole("button", { name: "Remove banner", exact: true }),
+  ).toBeEnabled();
   await design
     .getByRole("button", { name: "Remove banner", exact: true })
     .click();
-  await design
-    .getByRole("button", { name: "Apply my design", exact: true })
-    .click();
+  await applyDesign(design);
   await expect(design).toHaveCount(0);
   await expect
     .poll(() => backend.removedPhotoPaths)
@@ -180,9 +193,7 @@ test("an in-flight save stays bound to its verified owner across logout and anot
     }
     await route.fallback();
   });
-  await design
-    .getByRole("button", { name: "Apply my design", exact: true })
-    .click();
+  await applyDesign(design);
   await waiting;
   try {
     await page.keyboard.press("Escape");
@@ -227,9 +238,7 @@ test("shared borders preserve banner consent and teachers can review a private b
       exact: true,
     }),
   ).not.toBeChecked();
-  await design
-    .getByRole("button", { name: "Apply my design", exact: true })
-    .click();
+  await applyDesign(design);
   await expect(design).toHaveCount(0);
   await closeProfile(page);
   await signOut(page);
@@ -250,10 +259,16 @@ test("shared borders preserve banner consent and teachers can review a private b
     card.locator("[data-selected-border='ocean-treasures']"),
   ).toBeVisible();
   await expect(card.locator(".profile-cover-image")).toHaveCount(0);
+  await page.setViewportSize({ width: 320, height: 740 });
+  expect(
+    await card.evaluate((node) => node.scrollWidth <= node.clientWidth),
+  ).toBe(true);
+  await expect(card.locator(".profile-frame-face")).toBeVisible();
   await card
     .getByRole("button", { name: "Close and return to page", exact: true })
     .click();
   await signOut(page);
+  await page.setViewportSize({ width: 1280, height: 720 });
   await signIn(page, "teacher");
   await page.getByRole("link", { name: "Scientists", exact: true }).click();
   await page
@@ -282,9 +297,7 @@ test("shared borders preserve banner consent and teachers can review a private b
       exact: true,
     })
     .check();
-  await design
-    .getByRole("button", { name: "Apply my design", exact: true })
-    .click();
+  await applyDesign(design);
   await expect(design).toHaveCount(0);
   await closeProfile(page);
   await signOut(page);

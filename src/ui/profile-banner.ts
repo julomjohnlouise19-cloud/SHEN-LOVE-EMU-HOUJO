@@ -3,7 +3,9 @@ import { h } from "./dom";
 
 export function mountProfileBanner(host: HTMLElement, id: string) {
   host.dataset.profileBannerOwner = id;
-  host.prepend(
+  const cover =
+    host.querySelector<HTMLElement>(":scope > .profile-cover") ?? host;
+  cover.prepend(
     h("div", { class: "profile-banner-layer", "aria-hidden": true }),
   );
   draw(host);
@@ -20,9 +22,7 @@ function draw(host: HTMLElement) {
   const url = bannerUrl(id),
     design = getProfileDesign(id);
   host.classList.toggle("has-custom-banner", !!url);
-  const layer = host.querySelector<HTMLElement>(
-    ":scope > .profile-banner-layer",
-  );
+  const layer = host.querySelector<HTMLElement>(".profile-banner-layer");
   layer?.replaceChildren(
     ...(url
       ? [

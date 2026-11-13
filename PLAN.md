@@ -1,5 +1,14 @@
 # The Cozy Science Lab — build plan
 
+## Outside portrait frames and reliable banner preview
+
+- [x] Place the original decorative frames outside a full-size circular portrait and reserve space in profile, classmate and teacher layouts.
+- [x] Fix the banner's white decorative blocks with a dedicated cover and readable identity area, shared by the actual profile and editor previews.
+- [x] Add a complete final preview with wide/phone views, clear editing/saving states and improved upload/focus controls.
+- [ ] Verify photo/frame geometry, banner preview-to-save behavior, account persistence, phone/keyboard accessibility and existing learning; publish and check the live result.
+
+Lint/typecheck, 75 unit/property tests, 972 reviewed questions, generated SQL consistency and the configured production build passed. The five focused standard scenarios passed all 17 outside-frame/full-portrait geometry checks, live focus and full final review, wide/phone views, saved cover with transparent identity copy and no decorative blocks, readable phone names, 320-pixel accessibility/bounded width, visible controls, offline persistence and Cells/mastery/review. The Pages-path/offline case passed. Across the focused cloud runs, all 19 account/design/Studio scenarios passed, including all five final design cases: no account write before Apply, save/reload without new SQL, compensated uploads/retry, replacement failure, unavailable-banner removal, pinned account changes, shared frames and teacher review. One old assertion was updated to check the active final-review image after a rejected save; it had been checking the now-hidden edit preview. Visual review caught and corrected a phone container-query specificity issue and brought the final card into view automatically. The banner repair replaces the overly broad direct-child background selector that painted decorative orbit elements as white blocks. Existing banner files, positions, border IDs and privacy settings use the same backend format; no new migration is needed for this repair.
+
 ## Student border gallery and personal banner
 
 - [x] Add the 17 distinct supplied border designs (one PDF image repeats), plus a clear no-border choice, in a dedicated profile design editor.

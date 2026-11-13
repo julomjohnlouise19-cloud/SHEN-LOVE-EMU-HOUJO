@@ -1,8 +1,8 @@
 import { borderById } from "../data/profile-borders";
 import { h } from "./dom";
 
-// Keep the supplied artwork intact. The UI positions it as a round portrait
-// sticker and places the photo in its aperture, including opaque source images.
+// The portrait keeps its full box. A separate, masked artwork ring extends
+// outside it; opaque source interiors never cover or shrink the face.
 export function paintProfileAvatar(
   node: HTMLElement,
   picture: Node,
@@ -15,8 +15,10 @@ export function paintProfileAvatar(
     node.replaceChildren(picture);
     return;
   }
-  const [cx, cy, size] = border.face;
+  const [cx, cy] = border.face;
   const [left, top, side] = border.crop;
+  const centeredLeft = left + ((cx - 50) / 100) * side;
+  const centeredTop = top + ((cy - 50) / 100) * side;
   node.replaceChildren(
     h(
       "span",
@@ -34,8 +36,8 @@ export function paintProfileAvatar(
         decoding: "async",
         loading: "lazy",
         style: {
-          left: `${(-left / side) * 100}%`,
-          top: `${(-top / side) * 100}%`,
+          left: `${(-centeredLeft / side) * 100}%`,
+          top: `${(-centeredTop / side) * 100}%`,
           width: `${(border.width / side) * 100}%`,
           height: `${(border.height / side) * 100}%`,
         },
@@ -45,12 +47,6 @@ export function paintProfileAvatar(
       "span",
       {
         class: "profile-frame-face",
-        style: {
-          left: `${cx - size / 2}%`,
-          top: `${cy - size / 2}%`,
-          width: `${size}%`,
-          height: `${size}%`,
-        },
       },
       picture,
     ),

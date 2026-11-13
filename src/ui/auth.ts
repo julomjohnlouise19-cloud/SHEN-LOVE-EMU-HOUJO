@@ -6,6 +6,7 @@ import {
 } from "../store/email";
 import { photoUrl, removePhoto, uploadPhoto } from "../store/photos";
 import { avatar as scientistAvatar } from "./avatar";
+import { profileHero, profileIdentity } from "./profile-hero";
 import {
   cloudEnabled,
   finishPasswordRecovery,
@@ -725,42 +726,9 @@ export function profileModal() {
     dirty = true;
     bioCount.textContent = `${bio.value.length}/160`;
   });
-  const hero = h(
-    "section",
-    { class: "scientist-card", "data-profile-theme": preference.theme },
-    h("div", { class: "profile-orbit orbit-a", "aria-hidden": true }),
-    h("div", { class: "profile-orbit orbit-b", "aria-hidden": true }),
-    h(
-      "div",
-      { class: "scientist-card-avatar", "aria-hidden": true },
-      scientistAvatar(user.id, user.name, user.avatar),
-    ),
-    h(
-      "div",
-      { class: "scientist-card-copy" },
-      h("p", { class: "eyebrow" }, "YOUR CURIOUS CORNER"),
-      h("h3", null, user.name),
-      h(
-        "span",
-        { class: "profile-role" },
-        icon(user.role === "admin" ? "settings" : "sprout", 14),
-        user.role === "admin"
-          ? "Class teacher"
-          : user.id === "guest"
-            ? "Guest explorer"
-            : "Student scientist",
-      ),
-      h(
-        "p",
-        null,
-        `Grade ${user.grade}${user.section ? ` · ${user.section}` : ""}`,
-      ),
-    ),
-    h(
-      "span",
-      { class: "profile-hero-art", "aria-hidden": true },
-      mascot("sprout"),
-    ),
+  const hero = profileHero(
+    profileIdentity(user, preference.theme),
+    scientistAvatar(user.id, user.name, user.avatar),
   );
   const statistics = h(
     "div",

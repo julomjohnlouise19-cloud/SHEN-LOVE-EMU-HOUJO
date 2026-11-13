@@ -1,6 +1,6 @@
 # Profile borders and uploaded banners
 
-Students open **Profile → Borders & banner**. Choose a border, try a banner, then choose **Apply my design**. The editor has 17 distinct designs from the supplied PDF (one source image repeats), category filters, a no-border choice and a live preview. All borders are free.
+Students open **Profile → Borders & banner**. Choose a border, try a banner, then choose **Preview & finish**. Check the complete profile in **Wide view** and **Phone view**, then choose **Apply my design**. **Keep editing** returns to the controls with the draft intact. The editor has 17 distinct designs from the supplied PDF (one source image repeats), category filters and a no-border choice. All borders are free and sit outside the full circular portrait.
 
 **Personal designs work with the existing account setup.** No new username, password or key is needed. The banner uploader is separate from the profile-photo uploader. Existing photos, introduction, colors, progress, credits and account roles are preserved. Guest designs stay on the same device.
 
@@ -20,7 +20,8 @@ Run only this short script for an existing community-v2 classroom. It adds autho
 ## Banner choices and privacy
 
 - Upload a JPG, PNG or WebP up to **5 MB** and **24 megapixels**. The website resizes and converts it into a WebP no larger than 256 KiB before upload.
-- Use **Horizontal image focus** and **Vertical image focus** to position the image. **Center image**, **Remove banner** and **Reset design** are available. **Cancel** leaves the saved design alone.
+- Choose an image or drop one into the upload area. Use **Horizontal image focus**, **Vertical image focus** and the **Top / Middle / Bottom** shortcuts to position it. The crop preview updates immediately; the full final preview uses the same cover and identity layout as the saved profile. **Center image**, **Remove banner** and **Reset design** are available. **Cancel** leaves the saved design alone.
+- The cover is separate from the readable name and account details. Decorative background shapes cannot become blank white overlays. If a saved banner cannot open, the editor explains that and still allows replacement or removal.
 - Banners start private. After the sharing bridge is installed, authorized teachers can review them. Students may deliberately enable **Show my banner on my shared learning card**. Replacing a banner turns this choice off again.
 - Classmates see borders only on profiles they are already allowed to see. Banner sharing is separate from the existing photo-sharing choice. Hidden, blocked and banned profiles retain the existing restrictions; teachers retain authorized account review.
 - The bucket stays private. Only the current, explicitly shared banner receives classmate read permission. Old uploaded banners are not made public. Signed image links expire and are kept in memory, outside backups and offline caches.

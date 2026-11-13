@@ -1,4 +1,16 @@
-import { expect, type Page } from "@playwright/test";
+import { expect, type Page, type Locator } from "@playwright/test";
+
+export async function applyDesign(design: Locator) {
+  const preview = design.getByRole("button", {
+    name: "Preview & finish",
+    exact: true,
+  });
+  if (await preview.isVisible()) await preview.click();
+  await expect(design.locator(".design-review-pane")).toBeVisible();
+  await design
+    .getByRole("button", { name: "Apply my design", exact: true })
+    .click();
+}
 
 export async function editor(page: Page) {
   const profile = page.getByRole("dialog", {
