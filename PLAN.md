@@ -15,6 +15,8 @@ Initial release attempt 95bc08ed15afdb51032e4271ad5ced0b8798e81b reached GitHub 
 
 The email reservation repair passed lint/typecheck, all 78 unit/property tests, all ten email/recovery scenarios and twelve repeated cross-tab cases (six normal, six forced-stale compatibility views). IndexedDB serializes the deadline read and write; the existing hashed localStorage deadline is retained as a compatibility mirror, and preflight requests are excluded from the email POST count. No SMTP or production account data was changed.
 
+Run 43366916627 passed 51 standard cases and 77 of 78 cloud cases, but did not publish: the normal two-tab test required a rate-error message even when the repaired UI had already disabled its submit button and shown the cooldown. The exactly-one-POST assertion passed, as did the stale-storage regression. Correct the test to await both initially enabled forms, identify the tab that did not submit, and verify its disabled countdown plus the visible one-email-at-a-time status. No further application change is needed. The corrected state check passed six repeated cases locally; final ready-form checks and publication follow.
+
 ## Outside portrait frames and reliable banner preview
 
 - [x] Place the original decorative frames outside a full-size circular portrait and reserve space in profile, classmate and teacher layouts.

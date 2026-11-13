@@ -228,15 +228,27 @@ for (const staleReads of [false, true])
       release = resolve;
     });
     let arrivals = 0;
+    let sender: Page | undefined;
     await context.route(`${host}/auth/v1/signup**`, async (route) => {
       if (route.request().method() !== "POST") return route.fallback();
       arrivals++;
+      sender = route.request().frame().page();
       await pending;
       await route.fallback();
     });
     try {
       await Promise.all([page.goto("./"), other.goto("./")]);
       await Promise.all([signupDetails(page), signupDetails(other)]);
+      await Promise.all(
+        [page, other].map((tab) =>
+          expect(
+            tab.getByRole("button", {
+              name: "Make my little lab",
+              exact: true,
+            }),
+          ).toBeEnabled(),
+        ),
+      );
       await Promise.all(
         [page, other].map((tab) =>
           tab
@@ -246,19 +258,13 @@ for (const staleReads of [false, true])
         ),
       );
       await expect.poll(() => arrivals).toBe(1);
-      await expect
-        .poll(async () =>
-          (
-            await Promise.all(
-              [page, other].map((tab) =>
-                tab.locator(".form-error").allTextContents(),
-              ),
-            )
-          )
-            .flat()
-            .join(" "),
-        )
-        .toContain("before requesting another account email");
+      const waitingTab = sender === page ? other : page;
+      await expect(
+        waitingTab.getByRole("button", { name: /Try again in/ }),
+      ).toBeDisabled();
+      await expect(waitingTab.locator(".auth-email-wait")).toContainText(
+        "One account email at a time",
+      );
       expect(backend.signupCalls).toBe(0);
       release();
       await expect.poll(() => backend.signupCalls).toBe(1);
