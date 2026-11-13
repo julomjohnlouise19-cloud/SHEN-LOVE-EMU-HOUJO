@@ -63,7 +63,7 @@ test("signup requires a deliberate agreement and preserves the form while readin
   expect(backend.signupCalls).toBe(1);
   expect(backend.signupMetadata).toMatchObject({
     terms_accepted: true,
-    terms_version: "1.0",
+    terms_version: "1.1",
     section: "Grejalde",
   });
   expect(

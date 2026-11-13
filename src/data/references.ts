@@ -84,6 +84,13 @@ export function referencesFor(deckId: string): ScienceReference[] {
   const branch = deckId.split(".")[0];
   const specific = (
     {
+      "life.body": {
+        title: "Anatomy and Physiology 2e",
+        publisher: "OpenStax · Rice University",
+        url: "https://openstax.org/details/books/anatomy-and-physiology-2e",
+        focus:
+          "Body organization, organ structures and how human body systems cooperate. The lab's introductory notes use age-appropriate summaries.",
+      },
       "earth.plates": geology,
       "earth.volcanoes": volcano,
       "earth.weather": weather,

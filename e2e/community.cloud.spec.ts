@@ -33,7 +33,7 @@ async function find(page: import("@playwright/test").Page, query = "student2") {
     .getByRole("button", { name: "Find classmates", exact: true })
     .click();
 }
-test("highest verified scores stay first when scores change and ties retain their shared rank", async ({
+test("current credits determine highest-first rankings, spending changes order and ties share a rank", async ({
   page,
   backend,
   social,
@@ -45,72 +45,63 @@ test("highest verified scores stay first when scores change and ties retain thei
     display_name: "Zara Scientist",
   });
   social.settings[third] = { ...blankCommunitySettings(), version: 1 };
-  backend.rows.push(quiz(0, 2), quiz(1, 8));
+  backend.credits[users[0].id] = 20;
+  backend.credits[users[1].id] = 80;
+  backend.credits[third] = 10;
+  backend.rows.push(quiz(0, 8), quiz(1, 1));
   await page.goto("./");
   await signIn(page);
   await page.goto("#/leaderboard");
   const rows = page.locator(".community-rank-row");
   await expect(rows).toHaveCount(3);
   await expect(rows.nth(0)).toContainText("Student Two");
-  await expect(rows.nth(0)).toContainText("80 pts");
-  await expect(rows.nth(1)).toContainText("20 pts");
+  await expect(rows.nth(0)).toContainText("80 credits");
   await expect(
-    page.getByText("Highest points first", { exact: true }),
+    page.getByText("Highest credits first", { exact: true }),
   ).toBeVisible();
-  await expect(
-    page.getByRole("list", { name: "Student rankings", exact: true }),
-  ).toBeVisible();
-  backend.rows.push(quiz(0, 8, { level: "hard" }));
+  backend.credits[users[0].id] = 100;
   await page
     .getByRole("button", { name: "Refresh rankings", exact: true })
     .click();
   await expect(rows.nth(0)).toContainText("Student One");
-  await expect(rows.nth(0)).toContainText("100 pts");
-  await expect(rows.nth(0).locator(".community-rank-number")).toHaveText("#1");
-  await expect(rows.nth(1).locator(".community-rank-number")).toHaveText("#2");
-  backend.rows.push(quiz(1, 2, { level: "hard" }));
+  await expect(rows.nth(0)).toContainText("100 credits");
+  backend.credits[users[1].id] = 100;
   await page
     .getByRole("button", { name: "Refresh rankings", exact: true })
     .click();
-  await expect(rows.nth(1)).toContainText("100 pts");
   await expect(rows.nth(0).locator(".community-rank-number")).toHaveText("#1");
   await expect(rows.nth(1).locator(".community-rank-number")).toHaveText("#1");
   await expect(rows.nth(2).locator(".community-rank-number")).toHaveText("#2");
+  backend.credits[users[0].id] = 5;
+  await page
+    .getByRole("button", { name: "Refresh rankings", exact: true })
+    .click();
+  await expect(rows.nth(2)).toContainText("Student One");
+  await expect(rows.nth(2)).toContainText("5 credits");
   await page.screenshot({
-    path: "/tmp/cozy-ranking-highest-first.png",
+    path: "/tmp/cozy-credit-rankings-desktop.png",
     fullPage: true,
   });
 });
-test("weekly rankings appear immediately using existing names, keep ties and explain Monday refresh", async ({
+test("credit rankings use existing names, preserve private cards, filters and teacher exclusion", async ({
   page,
   backend,
 }) => {
-  backend.rows.push(
-    quiz(0, 4),
-    quiz(0, 8),
-    quiz(0, 6),
-    quiz(0, 3, { level: "hard" }),
-    quiz(1, 8),
-    quiz(1, 3, { deck_id: "chemistry.atoms" }),
-  );
+  backend.credits[users[0].id] = 200;
+  backend.credits[users[1].id] = 200;
   await page.goto("./");
   await signIn(page);
   await page.goto("#/leaderboard");
-  const standing = page.getByRole("region", {
-    name: "Your discovery standing",
-  });
-  await expect(standing).toContainText("#1 · 110 discovery points");
+  const standing = page.getByRole("region", { name: "Your credit standing" });
+  await expect(standing).toContainText("#1 · 200 class credits");
+  await expect(
+    page.getByRole("button", { name: "This week", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("region", { name: "Live class-credit rankings" }),
+  ).toContainText("Current balances");
   const rows = page.locator(".community-rank-row");
   await expect(rows).toHaveCount(2);
-  await expect(rows.nth(0).locator(".community-rank-number")).toHaveText("#1");
-  await expect(rows.nth(1).locator(".community-rank-number")).toHaveText("#1");
-  const week = page.getByRole("region", { name: "Ranking week" });
-  await expect(week).toContainText("Monday");
-  await expect(week).toContainText("Asia/Manila");
-  await expect(week).toContainText("New week in");
-  await expect(
-    page.getByRole("button", { name: "Choose my username", exact: true }),
-  ).toHaveCount(0);
   await rows
     .nth(1)
     .getByRole("button", {
@@ -122,36 +113,25 @@ test("weekly rankings appear immediately using existing names, keep ties and exp
     name: "Scientist learning card",
     exact: true,
   });
-  await expect(card).toContainText("Student Two");
   await expect(card).not.toContainText("student2@example.test");
   await expect(card).not.toContainText("Curiosity");
   await card
     .getByRole("button", { name: "Close and return to page", exact: true })
     .click();
-  await page.getByRole("button", { name: "All time", exact: true }).click();
-  await page.reload();
-  await expect(
-    page.getByRole("button", { name: "All time", exact: true }),
-  ).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "Friends only", exact: true }).click();
   await expect(rows).toHaveCount(1);
+  await page.reload();
+  await expect(
+    page.getByRole("button", { name: "Friends only", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
   await page
     .getByRole("combobox", { name: "Grade filter", exact: true })
     .selectOption("8");
   await expect(standing).toContainText("Choose All grades");
-  await page
-    .getByRole("combobox", { name: "Grade filter", exact: true })
-    .selectOption("");
-  await page.screenshot({
-    path: "/tmp/cozy-league-v2-desktop.png",
-    fullPage: true,
-  });
   await signOut(page);
   await signIn(page, "teacher");
   await page.goto("#/leaderboard");
-  await expect(standing).toContainText(
-    "Teacher accounts do not enter student rankings.",
-  );
+  await expect(standing).toContainText("Teacher accounts do not compete");
 });
 test("Science friends opens to active classmates and an invitation connects two existing accounts", async ({
   page,
@@ -357,7 +337,7 @@ test("sharing choices have no username form and preserve optional photo sharing 
   await expect(sharing.getByRole("textbox")).toHaveCount(0);
   await expect(
     sharing.getByRole("checkbox", {
-      name: "Show my account name in classmates and rankings",
+      name: "Show my account name and class credits in classmates and rankings",
       exact: true,
     }),
   ).toBeChecked();
@@ -400,7 +380,7 @@ test("sharing choices have no username form and preserve optional photo sharing 
     .click();
   await expect(page.locator(".friend-list .friend-card")).toHaveCount(0);
 });
-test("the classmate directory and weekly league fit phones with accessible controls", async ({
+test("the classmate directory and credit league fit phones with accessible controls", async ({
   page,
   backend,
 }) => {
@@ -433,8 +413,7 @@ test("the classmate directory and weekly league fit phones with accessible contr
     fullPage: true,
   });
   await page.goto("#/leaderboard");
-  await page.getByRole("button", { name: "All time", exact: true }).click();
-  await page.getByRole("button", { name: "All time", exact: true }).hover();
+  await page.getByRole("button", { name: "Classroom", exact: true }).hover();
   expect(
     (
       await new AxeBuilder({ page })
@@ -453,13 +432,14 @@ test("the classmate directory and weekly league fit phones with accessible contr
     fullPage: true,
   });
 });
-test("weekly rankings roll over and recent-activity cards refresh without another click", async ({
+test("credit balances refresh across a new week without resetting and activity cards expire", async ({
   page,
   backend,
   social,
 }) => {
   social.nowMs = Date.parse("2026-11-15T15:59:30Z");
-  backend.rows.push(quiz(0, 8, { received_at: "2026-11-15T14:00:00Z" }));
+  backend.credits[users[0].id] = 80;
+  backend.credits[users[1].id] = 10;
   await page.clock.install();
   await page.goto("./");
   await signIn(page);
@@ -467,8 +447,10 @@ test("weekly rankings roll over and recent-activity cards refresh without anothe
   const mine = page
     .locator(".community-rank-row")
     .filter({ hasText: "Student One" });
-  await expect(mine).toContainText("80 pts");
-  await expect(page.locator(".weekly-countdown")).toHaveText("New week in 1m");
+  await expect(mine).toContainText("80 credits");
+  await expect(page.locator(".credit-live-label")).toHaveText(
+    "Current balances",
+  );
   const calls = social.rankingCalls;
   social.nowMs += 61000;
   backend.rows.push(
@@ -476,9 +458,8 @@ test("weekly rankings roll over and recent-activity cards refresh without anothe
   );
   await page.clock.fastForward(61000);
   await expect.poll(() => social.rankingCalls).toBeGreaterThan(calls);
-  await expect(mine).toContainText("0 pts");
-  await page.getByRole("button", { name: "All time", exact: true }).click();
-  await expect(mine).toContainText("80 pts");
+  await expect(mine).toContainText("80 credits");
+  await expect(mine).toContainText("80 credits");
   social.presence[users[1].id] = social.nowMs;
   await page.goto("#/friends");
   await expect(
@@ -563,4 +544,32 @@ test("classrooms awaiting the updated database keep existing profile and account
       exact: true,
     }),
   ).toHaveAttribute("href", /COMMUNITY_SETUP/);
+});
+
+test("credit rankings wait for activation without relabelling old discovery points", async ({
+  page,
+  backend,
+  social,
+}) => {
+  backend.creditRankingsReady = false;
+  await page.goto("./");
+  await signIn(page);
+  await page.goto("#/leaderboard");
+  await expect(
+    page.getByRole("heading", {
+      name: "Class-credit rankings are being prepared",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("200 class credits in your account", { exact: true }),
+  ).toBeVisible();
+  await expect(page.locator(".league-podium, .standings-list")).toHaveCount(0);
+  expect(social.rankingCalls).toBe(0);
+  await signOut(page);
+  await signIn(page, "teacher");
+  await page.goto("#/leaderboard");
+  await expect(
+    page.getByRole("link", { name: "Open credit-ranking setup", exact: true }),
+  ).toHaveAttribute("href", /CREDIT_RANKINGS_SETUP/);
 });

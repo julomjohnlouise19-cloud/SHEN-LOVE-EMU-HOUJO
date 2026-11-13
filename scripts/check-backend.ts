@@ -52,13 +52,22 @@ try {
     const inbox = await client.rpc("csl_suggestions_status");
     const communityNotice =
       Number(data.community) >= 2
-        ? "Immediate student rankings, existing-account friends and recent activity (community version 2) are installed."
+        ? "Existing-account friends, learning cards and recent activity (community version 2) are installed. Credit rankings have a separate capability check."
         : "Student leaderboard and Science friends need supabase/community-upgrade.sql. Existing classroom features remain available.";
     console.log(communityNotice);
+    const creditNotice =
+      Number(data.credit_rankings) >= 1
+        ? "Current class-credit leaderboard is installed."
+        : "Current class-credit rankings need supabase/credit-rankings-upgrade.sql. Existing wallets and learning records are preserved.";
+    console.log(creditNotice);
+    if (process.env.GITHUB_ACTIONS === "true")
+      console.log(
+        `::notice title=Class-credit ranking activation::${creditNotice}`,
+      );
     const profileStyleNotice =
       Number(data.profile_styles) >= 1
-        ? "Shared profile borders and explicitly shared banners (profile styles version 1) are installed."
-        : "Personal borders and banners save to existing accounts. Teacher/classmate design views need supabase/profile-styles-upgrade.sql.";
+        ? "Authorized profile decoration reads and explicitly shared banners (profile styles version 1) are installed."
+        : "Personal banners save to existing accounts. Teacher/classmate banner views need the bridge included in supabase/credit-rankings-upgrade.sql, or profile-styles-upgrade.sql alone.";
     console.log(profileStyleNotice);
     if (process.env.GITHUB_ACTIONS === "true")
       console.log(

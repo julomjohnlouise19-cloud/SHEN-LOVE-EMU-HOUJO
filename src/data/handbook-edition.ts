@@ -1,1 +1,1 @@
-export const HANDBOOK_EDITION = "336cfdc2f982";
+export const HANDBOOK_EDITION = "825d650d2d4b";

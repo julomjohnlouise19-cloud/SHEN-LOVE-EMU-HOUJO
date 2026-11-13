@@ -68,9 +68,11 @@ const suggestions = await readFile("supabase/suggestions.sql", "utf8");
 const accounts = await readFile("supabase/accounts.sql", "utf8");
 const community = await readFile("supabase/community.sql", "utf8");
 const profileStyles = await readFile("supabase/profile-styles.sql", "utf8");
+const creditRankings = await readFile("supabase/credit-rankings.sql", "utf8");
 const teacher = await readFile("supabase/teacher.sql", "utf8");
-const upgrade = `-- The Cozy Science Lab: existing-project upgrade. Keeps accounts, quiz records, teacher edits and stock.\nbegin;\n${platform}\n${await readFile("supabase/arcade.sql", "utf8")}\n${teacher}\n${creditedQuiz}\n${seed}\n${studio}\n${suggestions}\n${accounts}\n${community}\n${profileStyles}\ncommit;\n`;
+const upgrade = `-- The Cozy Science Lab: existing-project upgrade. Keeps accounts, quiz records, teacher edits and stock.\nbegin;\n${platform}\n${await readFile("supabase/arcade.sql", "utf8")}\n${teacher}\n${creditedQuiz}\n${seed}\n${studio}\n${suggestions}\n${accounts}\n${community}\n${profileStyles}\n${creditRankings}\ncommit;\n`;
 const outputs = {
+  "supabase/credit-rankings-upgrade.sql": `-- Existing community-v2 classroom: current class-credit rankings and shared profile designs.\n-- Preserves accounts, wallets, stock, reservations, quiz records, friendships and opt-outs.\nbegin;\n${profileStyles}\n${creditRankings}\ncommit;\n`,
   "supabase/profile-styles-upgrade.sql": `-- Existing community-v2 classroom: optional shared profile designs.\n-- Keeps all accounts, photos, learning records, supplies and existing privacy choices.\nbegin;\n${profileStyles}\ncommit;\n`,
   "supabase/community-upgrade.sql": `-- Existing platform-3 classroom: run this entire additive script in SQL Editor.\n-- Preserves accounts, photos, quiz records, credits, supplies and private profile data.\nbegin;\n${community}\ncommit;\n`,
   "supabase/accounts-upgrade.sql": `-- Existing platform-3 project: run the entire additive script in SQL Editor.\n-- Preserves accounts, quiz evidence, balances, stock and reservations.\nbegin;\ndo $$ begin if to_regclass('public.csl_preferences') is null then raise exception 'Install the Studio upgrade before the account-details upgrade.'; end if; end $$;\n${teacher}\n${accounts}\ncommit;\n`,

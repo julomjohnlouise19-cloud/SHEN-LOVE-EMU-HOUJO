@@ -11,6 +11,14 @@ test("personal designs save to existing accounts before the optional sharing bri
   page,
   backend,
 }) => {
+  backend.designMetadata[users[0].id] = {
+    version: 1,
+    border: "moon-garden",
+    banner_path: null,
+    x: 50,
+    y: 50,
+    share_banner: false,
+  };
   const sharedRequests: string[] = [];
   page.on("request", (request) => {
     if (request.url().includes("/csl_profile_styles"))
@@ -28,9 +36,7 @@ test("personal designs save to existing accounts before the optional sharing bri
   const photo = backend.profiles[0].photo_path;
   const credits = backend.credits[users[0].id];
   const design = await editor(page);
-  await design
-    .getByRole("button", { name: "Choose Moon garden border", exact: true })
-    .click();
+  await expect(design.locator(".design-border-option")).toHaveCount(0);
   await design.getByRole("button", { name: "My banner", exact: true }).click();
   await design
     .getByLabel("Upload your banner", { exact: true })
@@ -42,7 +48,10 @@ test("personal designs save to existing accounts before the optional sharing bri
   await design
     .getByRole("button", { name: "Preview & finish", exact: true })
     .click();
-  expect(backend.designMetadata[users[0].id]).toBeUndefined();
+  expect(backend.designMetadata[users[0].id]).toMatchObject({
+    banner_path: null,
+    y: 50,
+  });
   await applyDesign(design);
   await expect(design).toHaveCount(0);
   expect(backend.designMetadata[users[0].id]).toMatchObject({
@@ -174,8 +183,12 @@ test("an in-flight save stays bound to its verified owner across logout and anot
   await signIn(page);
   const design = await editor(page);
   await design
-    .getByRole("button", { name: "Choose Ocean treasures border", exact: true })
-    .click();
+    .getByLabel("Upload your banner", { exact: true })
+    .setInputFiles(await banner(page));
+  await expect(design.locator(".design-preview-cover img")).toBeVisible();
+  await design
+    .getByRole("slider", { name: "Vertical image focus", exact: true })
+    .fill("100");
   let release!: () => void, reached!: () => void;
   const gate = new Promise<void>((resolve) => {
     release = resolve;
@@ -203,7 +216,7 @@ test("an in-flight save stays bound to its verified owner across logout and anot
     release();
     await expect
       .poll(() => backend.designMetadata[users[0].id])
-      .toMatchObject({ border: "ocean-treasures" });
+      .toMatchObject({ y: 100 });
     expect(backend.designMetadata[users[1].id]).toBeUndefined();
     const other = await editor(page);
     await expect(other.locator(".design-preview-avatar")).toHaveAttribute(
@@ -221,12 +234,17 @@ test("shared borders preserve banner consent and teachers can review a private b
   backend,
 }) => {
   backend.profileStylesReady = true;
+  backend.designMetadata[users[0].id] = {
+    version: 1,
+    border: "ocean-treasures",
+    banner_path: null,
+    x: 50,
+    y: 50,
+    share_banner: false,
+  };
   await page.goto("./");
   await signIn(page);
   let design = await editor(page);
-  await design
-    .getByRole("button", { name: "Choose Ocean treasures border", exact: true })
-    .click();
   await design.getByRole("button", { name: "My banner", exact: true }).click();
   await design
     .getByLabel("Upload your banner", { exact: true })

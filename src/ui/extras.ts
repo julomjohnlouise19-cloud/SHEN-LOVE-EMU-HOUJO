@@ -19,6 +19,7 @@ import { icon, mascot } from "./svg";
 import { act, go, refresh } from "./actions";
 import { empty, levelCard, pageHeading } from "./shell";
 import { startDeck, dailyDeck } from "./learn";
+import { dailyWheel } from "./daily-wheel";
 
 export async function reviewPage() {
   const u = currentUser()!,
@@ -374,33 +375,7 @@ export function spinPage() {
       h(
         "div",
         { class: "wheel-side" },
-        h("span", { class: "wheel-pointer", "aria-hidden": true }, "▼"),
-        h(
-          "div",
-          {
-            class: `science-wheel ${spinning ? "spinning" : ""}`,
-            "aria-hidden": true,
-            style: {
-              "--wheel-landing": `${1440 - (factIndex * 60 + 30)}deg`,
-              transform:
-                spun && !spinning
-                  ? `rotate(${360 - (factIndex * 60 + 30)}deg)`
-                  : undefined,
-            },
-          },
-          ...["Leaf", "Orbit", "Wave", "Atom", "Life", "Earth"].map((w, i) =>
-            h(
-              "span",
-              { class: `wheel-label wheel-label-${i}` },
-              icon(
-                ["sprout", "planet", "star", "atom", "heart", "planet"][i],
-                28,
-              ),
-              h("strong", null, w),
-            ),
-          ),
-          h("div", { class: "wheel-center" }, icon("sparkles", 38)),
-        ),
+        dailyWheel(spinning, !!spun, factIndex),
         h(
           "p",
           { class: "fine-print" },

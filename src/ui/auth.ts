@@ -6,6 +6,7 @@ import {
 } from "../store/email";
 import { photoUrl, removePhoto, uploadPhoto } from "../store/photos";
 import { avatar as scientistAvatar } from "./avatar";
+import { imageInputAccept } from "../store/image-file";
 import { profileHero, profileIdentity } from "./profile-hero";
 import {
   cloudEnabled,
@@ -759,7 +760,7 @@ export function profileModal() {
   );
   mountProfileBanner(hero, user.id);
   const designButton = button(
-    h("span", null, icon("sparkles", 17), "Borders & banner"),
+    h("span", null, icon("island", 17), "Edit banner"),
     async () => {
       await (await import("./profile-design")).profileDesignModal(designButton);
     },
@@ -772,8 +773,12 @@ export function profileModal() {
     h(
       "div",
       null,
-      h("strong", null, "A profile with a little personality"),
-      h("p", null, "17 free borders · your own banner · one very you design"),
+      h("strong", null, "Your own little backdrop"),
+      h(
+        "p",
+        null,
+        "Choose an image, find the perfect placement, and preview your profile.",
+      ),
     ),
     designButton,
   );
@@ -1198,20 +1203,38 @@ function passwordModal() {
 function photoEditor(user: NonNullable<ReturnType<typeof currentUser>>) {
   const picker = h("input", {
     type: "file",
-    accept: "image/jpeg,image/png,image/webp",
+    accept: imageInputAccept,
     "aria-label": "Choose profile photo",
   });
   const error = h("p", { class: "form-error", role: "alert" });
+  const imageStatus = h("p", {
+    class: "fine-print photo-upload-status",
+    role: "status",
+  });
+  let imageBusy = false;
   const remove = button(
     "Remove photo",
     async () => {
+      if (imageBusy) return;
+      imageBusy = true;
+      picker.disabled = true;
+      error.textContent = "";
+      imageStatus.textContent = "Removing your profile photo…";
       try {
         await removePhoto(user.id);
+        if (!picker.isConnected || currentUser()?.id !== user.id) return;
         setButtonDisabled(remove, true);
+        imageStatus.textContent = "Your illustrated avatar is ready.";
         toast("Profile photo removed.");
       } catch (value) {
         error.textContent =
           value instanceof Error ? value.message : "Please try again.";
+        imageStatus.textContent =
+          "Your photo could not be removed. Please try again.";
+      } finally {
+        imageBusy = false;
+        picker.disabled = false;
+        setButtonDisabled(remove, !photoUrl(user.id));
       }
     },
     "text-button",
@@ -1219,21 +1242,31 @@ function photoEditor(user: NonNullable<ReturnType<typeof currentUser>>) {
   );
   picker.addEventListener("change", async () => {
     const file = picker.files?.[0];
-    if (!file) return;
+    if (!file || imageBusy) return;
+    imageBusy = true;
     error.textContent = "";
     picker.disabled = true;
+    setButtonDisabled(remove, true);
+    imageStatus.textContent = "Preparing and saving your photo…";
     try {
       await uploadPhoto(user.id, file);
+      if (!picker.isConnected || currentUser()?.id !== user.id) return;
       setButtonDisabled(remove, false);
+      imageStatus.textContent =
+        "Your photo is saved. You can choose another whenever you like.";
       toast("Your profile photo is ready.");
     } catch (value) {
       error.textContent =
         value instanceof Error
           ? value.message
           : "This photo could not be uploaded.";
+      imageStatus.textContent =
+        "Choose another image or try again. Your previous photo remains available.";
     } finally {
+      imageBusy = false;
       picker.disabled = false;
       picker.value = "";
+      setButtonDisabled(remove, !photoUrl(user.id));
     }
   });
   return h(
@@ -1248,9 +1281,10 @@ function photoEditor(user: NonNullable<ReturnType<typeof currentUser>>) {
       h(
         "p",
         { class: "fine-print" },
-        "JPG, PNG or WebP · up to 5 MB. Photos are cropped to a square. Your photo is visible to you and your teachers.",
+        "JPG, PNG, WebP, GIF or AVIF · up to 20 MB. Compatible phone photos work too. Photos are cropped to a square and save automatically; they are visible to you and authorized teachers.",
       ),
       remove,
+      imageStatus,
       error,
     ),
   );

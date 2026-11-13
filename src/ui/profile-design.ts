@@ -6,10 +6,9 @@ import {
   prepareBanner,
   saveProfileDesign,
 } from "../store/profile-design";
+import { imageInputAccept } from "../store/image-file";
 import { photoUrl } from "../store/photos";
 import { getAppearance } from "../store/preferences";
-import { borderById, profileBorders } from "../data/profile-borders";
-import { defaultProfileDesign } from "../core/profile-design";
 import { h, button, field, modal, setButtonDisabled, toast } from "./dom";
 import { icon, mascot } from "./svg";
 import { paintProfileAvatar } from "./profile-art";
@@ -19,59 +18,64 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
   const account = currentUser();
   if (!account || document.querySelector("dialog.profile-design-dialog[open]"))
     return;
-  const user = account;
-  const initial = await loadProfileDesign(user.id);
-  let draft = { ...initial };
+  const user = account,
+    initial = await loadProfileDesign(user.id);
   if (currentUser()?.id !== user.id) return;
-  let tab = "borders",
-    category = "All styles",
-    preparing = false;
-  let bannerKind: "keep" | "replace" | "remove" = "keep";
+  let draft = { ...initial },
+    kind: "keep" | "replace" | "remove" = "keep";
   let prepared: { blob: Blob; preview: string } | undefined;
-  let originalBanner = bannerUrl(user.id);
+  let originalBanner = bannerUrl(user.id),
+    reviewing = false,
+    saving = false,
+    preparing = false;
+  let preparation = 0,
+    controller: AbortController | undefined;
   const error = h("p", { class: "form-error", role: "alert" });
   const status = h(
     "p",
     { class: "design-save-status", role: "status" },
-    "Try a frame and a backdrop. Preview everything before you save.",
+    "Choose a backdrop, check the full preview, then save your banner.",
   );
-  const bannerNotice = h("p", {
-    class: "design-help design-banner-notice",
-    role: "status",
-    hidden: true,
+  const picker = h("input", {
+    type: "file",
+    accept: imageInputAccept,
+    "aria-label": "Upload your banner",
   });
+  const identity = profileIdentity(user, getAppearance(user.id).theme);
   const previewAvatar = h("span", {
     class: "design-preview-avatar",
     "aria-hidden": true,
   });
+  const preview = profileHero(identity, previewAvatar);
+  preview.classList.add("design-preview-card");
+  preview.setAttribute("aria-label", "Your profile banner preview");
   const cover = h("div", {
     class: "design-preview-cover profile-banner-layer",
     "aria-hidden": true,
   });
-  const selected = h("strong", { class: "design-selected-name" });
-  const identity = profileIdentity(user, getAppearance(user.id).theme);
-  const preview = profileHero(identity, previewAvatar);
-  preview.classList.add("design-preview-card");
-  preview.setAttribute("aria-label", "Your profile design preview");
   preview.querySelector(".profile-cover")!.append(cover);
   const reviewAvatar = h("span", {
     class: "design-review-avatar",
     "aria-hidden": true,
   });
+  const reviewProfile = profileHero(identity, reviewAvatar);
   const reviewCover = h("div", {
     class: "design-review-cover profile-banner-layer",
     "aria-hidden": true,
   });
-  const reviewProfile = profileHero(identity, reviewAvatar);
   reviewProfile.querySelector(".profile-cover")!.append(reviewCover);
   const reviewDevice = h(
     "div",
     { class: "design-review-device", "data-view": "wide" },
     reviewProfile,
   );
-  const reviewTitle = h("h3", { tabindex: -1 }, "Meet your new profile");
+  const reviewTitle = h(
+    "h3",
+    { tabindex: -1 },
+    "Your banner, beautifully in place",
+  );
   const reviewDetails = h("dl", { class: "design-review-details" });
-  const reviewViews = h("div", {
+  const views = h("div", {
     class: "design-review-views",
     "aria-label": "Preview size",
   });
@@ -79,12 +83,12 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
     ["wide", "Wide view"],
     ["phone", "Phone view"],
   ])
-    reviewViews.append(
+    views.append(
       button(
         label,
         () => {
           reviewDevice.dataset.view = view;
-          reviewViews
+          views
             .querySelectorAll<HTMLElement>("button")
             .forEach((node) =>
               node.setAttribute(
@@ -112,31 +116,14 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
       h(
         "p",
         null,
-        "Your banner, portrait and frame together. Check both sizes, then make it yours.",
+        "Check your cover and profile together in both sizes before saving.",
       ),
     ),
-    reviewViews,
+    views,
     reviewDevice,
     reviewDetails,
   );
-  const previewState = h(
-    "span",
-    { class: "design-preview-state" },
-    "Saved look",
-  );
-  const gallery = h("div", {
-    class: "design-border-grid",
-    "aria-label": "Profile border gallery",
-  });
-  const filters = h("div", {
-    class: "design-filter-row",
-    "aria-label": "Border styles",
-  });
-  const picker = h("input", {
-    type: "file",
-    accept: "image/jpeg,image/png,image/webp",
-    "aria-label": "Upload your banner",
-  });
+  const state = h("span", { class: "design-preview-state" }, "Saved banner");
   const x = h("input", {
     type: "range",
     min: 0,
@@ -153,46 +140,43 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
   });
   const xValue = h("output", null, `${draft.x}%`),
     yValue = h("output", null, `${draft.y}%`);
+  const share = h("input", { type: "checkbox", checked: draft.share_banner });
+  const notice = h("p", {
+    class: "design-help design-banner-notice",
+    role: "status",
+    hidden: true,
+  });
   const focusCover = h("div", {
     class: "design-focus-preview",
     role: "img",
     "aria-label": "Live banner crop preview",
   });
-  const share = h("input", { type: "checkbox", checked: draft.share_banner });
-  share.addEventListener("change", () => {
-    draft.share_banner = share.checked;
+  function focus(px: number, py: number) {
+    draft.x = px;
+    draft.y = py;
+    x.value = String(px);
+    y.value = String(py);
+    xValue.textContent = `${px}%`;
+    yValue.textContent = `${py}%`;
     changed();
-  });
-  const resetPosition = button(
-    "Center image",
-    () => {
-      draft.x = draft.y = 50;
-      x.value = y.value = "50";
-      xValue.textContent = yValue.textContent = "50%";
-      changed();
-    },
-    "button outline",
-  );
-  for (const [input, axis, output] of [
-    [x, "x", xValue],
-    [y, "y", yValue],
-  ] as const)
-    input.addEventListener("input", () => {
-      draft[axis] = Number(input.value);
-      output.textContent = `${input.value}%`;
-      changed();
-    });
-  const remove = button(
-    "Remove banner",
-    () => {
-      bannerKind = "remove";
-      prepared = undefined;
-      draft.banner_path = null;
-      draft.share_banner = false;
-      share.checked = false;
-      changed();
-    },
-    "button outline",
+  }
+  const center = button("Center image", () => focus(50, 50), "button outline");
+  const remove = button("Remove banner", () => resetBanner(), "button outline");
+  const presets = h(
+    "div",
+    { class: "design-focus-presets", "aria-label": "Quick banner focus" },
+    ...[
+      [0, "Top"],
+      [50, "Middle"],
+      [100, "Bottom"],
+    ].map(([value, label]) =>
+      button(
+        String(label),
+        () => focus(draft.x, Number(value)),
+        "design-filter",
+        { "data-focus-y": value, "aria-pressed": draft.y === value },
+      ),
+    ),
   );
   const uploadZone = h(
     "div",
@@ -203,12 +187,16 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
       icon("island", 26),
     ),
     h("strong", null, "A little window into your world"),
-    h("p", null, "Drop a favorite image here, or choose one below."),
+    h(
+      "p",
+      null,
+      "Drop an image here, or choose one below. You can choose another while it opens.",
+    ),
     field("Upload your banner", picker),
   );
   uploadZone.addEventListener("dragover", (event) => {
     event.preventDefault();
-    if (!preparing) uploadZone.classList.add("is-dragging");
+    if (!saving) uploadZone.classList.add("is-dragging");
   });
   uploadZone.addEventListener("dragleave", () =>
     uploadZone.classList.remove("is-dragging"),
@@ -217,52 +205,38 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
     event.preventDefault();
     uploadZone.classList.remove("is-dragging");
     const file = event.dataTransfer?.files[0];
-    if (file) void chooseBanner(file);
+    if (file && !saving) void chooseBanner(file);
   });
-  const focusPresets = h(
-    "div",
-    { class: "design-focus-presets", "aria-label": "Quick banner focus" },
-    ...[
-      [0, "Top"],
-      [50, "Middle"],
-      [100, "Bottom"],
-    ].map(([value, label]) =>
-      button(
-        String(label),
-        () => {
-          draft.y = Number(value);
-          y.value = String(value);
-          yValue.textContent = `${value}%`;
-          changed();
-        },
-        "design-filter",
-        { "data-focus-y": value, "aria-pressed": draft.y === value },
-      ),
-    ),
-  );
+  picker.addEventListener("change", () => {
+    if (picker.files?.[0]) void chooseBanner(picker.files[0]);
+  });
+  share.addEventListener("change", () => {
+    draft.share_banner = share.checked;
+    changed();
+  });
+  for (const control of [x, y])
+    control.addEventListener("input", () =>
+      focus(Number(x.value), Number(y.value)),
+    );
   const bannerPane = h(
     "section",
-    {
-      class: "design-banner-pane",
-      "aria-label": "Banner editor",
-      hidden: true,
-    },
+    { class: "design-banner-pane", "aria-label": "Banner editor" },
     h(
       "div",
       { class: "design-panel-heading" },
-      h("h3", null, "A backdrop that feels like you"),
+      h("h3", null, "Make room for your favorite view"),
       h(
         "p",
         null,
-        "Bring your own image. Move the focus and preview it behind your portrait.",
+        "Choose your image and move the focus. Your portrait stays separate.",
       ),
     ),
     uploadZone,
-    bannerNotice,
+    notice,
     h(
       "p",
       { class: "design-help" },
-      "JPG, PNG or WebP · up to 5 MB. Your profile photo stays separate.",
+      "JPG, PNG, WebP, GIF or AVIF · up to 20 MB. Compatible phone photos work too; unsupported HEIC files need a JPG copy.",
     ),
     h(
       "div",
@@ -272,9 +246,9 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
       xValue,
       field("Vertical image focus", y),
       yValue,
-      focusPresets,
+      presets,
     ),
-    h("div", { class: "design-inline-actions" }, resetPosition, remove),
+    h("div", { class: "design-inline-actions" }, center, remove),
     cloudEnabled && user.id !== "guest" && profileStylesVersion() >= 1
       ? h(
           "label",
@@ -289,173 +263,146 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
       cloudEnabled && user.id !== "guest"
         ? profileStylesVersion() >= 1
           ? "Your banner is visible to you and authorized teachers. Sharing with classmates is optional."
-          : "Your banner is private to your account. Classmate sharing becomes available when your classroom enables shared designs."
-        : "Your banner and border stay with this profile on this device.",
+          : "Your banner stays private to your account until classroom sharing is enabled."
+        : "Your banner stays with this profile on this device.",
     ),
-  );
-  picker.addEventListener("change", () => {
-    if (picker.files?.[0]) void chooseBanner(picker.files[0]);
-  });
-  async function chooseBanner(file: File) {
-    if (preparing || editorBody.disabled) return;
-    preparing = true;
-    setButtonDisabled(save, true);
-    picker.disabled = true;
-    error.textContent = "";
-    status.textContent = "Getting your banner ready…";
-    try {
-      const result = await prepareBanner(file);
-      if (!dialog.isConnected || currentUser()?.id !== user.id) return;
-      prepared = result;
-      bannerKind = "replace";
-      draft.share_banner = false;
-      share.checked = false;
-      draft.x = draft.y = 50;
-      x.value = y.value = "50";
-      xValue.textContent = yValue.textContent = "50%";
-      changed();
-      status.textContent =
-        "Banner ready to preview. Apply your design to keep it.";
-    } catch (value) {
-      if (dialog.isConnected) {
-        error.textContent =
-          value instanceof Error
-            ? value.message
-            : "That image could not be prepared.";
-        status.textContent =
-          "Choose another image, or keep your current design.";
-      }
-    } finally {
-      preparing = false;
-      picker.disabled = false;
-      picker.value = "";
-      setButtonDisabled(save, false);
-    }
-  }
-  const borderPane = h(
-    "section",
-    { class: "design-borders-pane", "aria-label": "Border editor" },
-    h(
-      "div",
-      { class: "design-panel-heading" },
-      h("h3", null, "Find your favorite frame"),
-      h(
-        "p",
-        null,
-        "17 free frames that sit around your portrait. Your photo stays fully visible.",
-      ),
-    ),
-    filters,
-    gallery,
   );
   const tabs = h("nav", {
     class: "design-tabs",
-    "aria-label": "Design editor sections",
+    "aria-label": "Banner editor sections",
   });
   for (const [id, label, art] of [
-    ["borders", "Borders", "sparkles"],
     ["banner", "My banner", "island"],
     ["review", "Preview", "check"],
   ])
     tabs.append(
       button(
         h("span", null, icon(art, 17), label),
-        () => selectTab(id),
+        () => selectStep(id === "review"),
         "design-tab",
-        { "data-design-tab": id, "aria-pressed": tab === id },
+        { "data-design-tab": id, "aria-pressed": id === "banner" },
       ),
     );
-  const categories = [
-    "All styles",
-    ...new Set(profileBorders.map((border) => border.category)),
-  ];
-  for (const value of categories)
-    filters.append(
-      button(
-        value,
-        () => {
-          category = value;
-          filters
-            .querySelectorAll<HTMLElement>("button")
-            .forEach((node) =>
-              node.setAttribute(
-                "aria-pressed",
-                String(node.textContent === value),
-              ),
-            );
-          drawGallery();
-        },
-        "design-filter",
-        { "aria-pressed": value === category },
+  const workspace = h(
+    "div",
+    { class: "design-workspace" },
+    h(
+      "div",
+      { class: "design-preview-column" },
+      h(
+        "div",
+        { class: "design-preview-label" },
+        icon("sparkles", 14),
+        "LIVE PREVIEW",
+        state,
       ),
-    );
+      preview,
+      h(
+        "p",
+        { class: "design-preview-note" },
+        icon("heart", 14),
+        "A backdrop that feels like you.",
+      ),
+    ),
+    bannerPane,
+  );
+  const save = button(
+    "Preview & finish",
+    async () => {
+      if (preparing || saving) return;
+      if (!reviewing) {
+        selectStep(true);
+        reviewTitle.focus({ preventScroll: true });
+        return;
+      }
+      error.textContent = "";
+      status.textContent = "Saving your banner…";
+      saving = true;
+      editorBody.disabled = true;
+      for (const control of [reset, back, cancel])
+        setButtonDisabled(control, true);
+      try {
+        await saveProfileDesign(user.id, draft, {
+          kind,
+          blob: prepared?.blob,
+          preview: prepared?.preview,
+        });
+        if (currentUser()?.id !== user.id || !dialog.isConnected) return;
+        close();
+        toast("Your banner is saved. Looking good, scientist!");
+      } catch (value) {
+        error.textContent =
+          value instanceof Error
+            ? value.message
+            : "Your banner could not be saved. Please try again.";
+        status.textContent =
+          "Your preview is still here. You can try applying it again.";
+      } finally {
+        saving = false;
+        editorBody.disabled = false;
+        for (const control of [reset, back, cancel])
+          setButtonDisabled(control, false);
+      }
+    },
+    "button primary",
+  );
+  const reset = button("Reset banner", resetBanner, "button outline");
+  const back = button(
+    "Keep editing",
+    () => selectStep(false),
+    "button outline",
+    { hidden: true },
+  );
+  const cancel = button("Cancel", () => close(), "button outline");
+  const editorBody = h(
+    "fieldset",
+    { class: "profile-design-body" },
+    h(
+      "div",
+      { class: "design-studio-intro" },
+      h("p", { class: "eyebrow" }, "YOUR OWN LITTLE BACKDROP"),
+      h("p", null, "Bring a little of your world into the lab."),
+    ),
+    tabs,
+    workspace,
+    reviewPane,
+  );
+  const { dialog, close } = modal(
+    "Your profile banner",
+    [
+      editorBody,
+      h(
+        "footer",
+        { class: "design-studio-actions" },
+        error,
+        status,
+        h("div", null, reset, back, cancel, save),
+      ),
+    ],
+    true,
+    returnFocus,
+  );
+  dialog.classList.add("profile-design-dialog");
+  dialog.dataset.designStep = "banner";
   function picture() {
-    const url = photoUrl(user!.id);
+    const url = photoUrl(user.id);
     return url
       ? h("img", {
           src: url,
           alt: "",
           decoding: "async",
           onError: (event: Event) =>
-            (event.target as HTMLImageElement).replaceWith(
-              mascot(user!.avatar),
-            ),
+            (event.target as HTMLImageElement).replaceWith(mascot(user.avatar)),
         })
-      : mascot(user!.avatar);
+      : mascot(user.avatar);
   }
-  function drawGallery() {
-    const choices = [
-      { id: "", name: "No border" },
-      ...profileBorders.filter(
-        (border) => category === "All styles" || border.category === category,
-      ),
-    ];
-    gallery.replaceChildren(
-      ...choices.map((border) => {
-        const portrait = h("span", {
-          class: "design-option-avatar",
-          "aria-hidden": true,
-        });
-        paintProfileAvatar(portrait, picture(), border.id);
-        return button(
-          h(
-            "span",
-            null,
-            portrait,
-            h("strong", null, border.name),
-            h("small", null, "Free"),
-          ),
-          () => {
-            draft.border = border.id;
-            changed();
-            gallery
-              .querySelectorAll<HTMLElement>("[data-border-choice]")
-              .forEach((node) =>
-                node.setAttribute(
-                  "aria-pressed",
-                  String(node.dataset.borderChoice === draft.border),
-                ),
-              );
-          },
-          "design-border-option",
-          {
-            "data-border-choice": border.id,
-            "aria-label": border.id
-              ? `Choose ${border.name} border`
-              : "Use no border",
-            "aria-pressed": draft.border === border.id,
-          },
-        );
-      }),
-    );
-  }
-  function drawPreview() {
-    paintProfileAvatar(previewAvatar, picture(), draft.border);
-    paintProfileAvatar(reviewAvatar, picture(), draft.border);
+  function draw() {
+    for (const portrait of [previewAvatar, reviewAvatar])
+      paintProfileAvatar(portrait, picture(), draft.border);
     const image =
-      bannerKind === "replace"
+      kind === "replace"
         ? prepared?.preview
-        : bannerKind === "remove"
+        : kind === "remove"
           ? undefined
           : originalBanner;
     for (const card of [preview, reviewProfile])
@@ -472,24 +419,21 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
             ]
           : []),
       );
-    selected.textContent =
-      borderById(draft.border)?.name ?? "Just you · no border";
+    const pending = kind === "keep" && !!draft.banner_path && !image;
     for (const control of [
       x,
       y,
-      resetPosition,
-      ...focusPresets.querySelectorAll<HTMLButtonElement>("button"),
+      center,
+      ...presets.querySelectorAll<HTMLButtonElement>("button"),
     ])
       control.disabled = !image;
-    const savedBannerPending =
-      bannerKind === "keep" && !!draft.banner_path && !image;
-    remove.disabled = !image && !savedBannerPending;
-    share.disabled = !image && !savedBannerPending;
-    bannerNotice.hidden = !savedBannerPending;
-    bannerNotice.textContent = savedBannerPending
+    remove.disabled = !image && !pending && !preparing;
+    share.disabled = !image && !pending;
+    notice.hidden = !pending;
+    notice.textContent = pending
       ? "Your saved banner has not opened yet. You can keep it, choose a replacement, or remove it."
       : "";
-    focusPresets
+    presets
       .querySelectorAll<HTMLElement>("button")
       .forEach((node) =>
         node.setAttribute(
@@ -498,23 +442,28 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
         ),
       );
     const dirty =
-      bannerKind !== "keep" ||
-      JSON.stringify(draft) !== JSON.stringify(initial);
-    previewState.textContent = dirty ? "Unsaved preview" : "Saved look";
-    previewState.dataset.state = dirty ? "draft" : "saved";
+      kind !== "keep" ||
+      draft.x !== initial.x ||
+      draft.y !== initial.y ||
+      draft.share_banner !== initial.share_banner;
+    state.textContent = preparing
+      ? "Opening image…"
+      : dirty
+        ? "Unsaved preview"
+        : "Saved banner";
+    state.dataset.state = dirty || preparing ? "draft" : "saved";
     reviewDetails.replaceChildren(
       ...[
-        ["Portrait frame", borderById(draft.border)?.name ?? "No border"],
         [
           "Banner",
           image
             ? "Your uploaded image"
-            : savedBannerPending
+            : pending
               ? "Saved banner · preview unavailable"
               : "Cozy color gradient",
         ],
         [
-          "Banner visibility",
+          "Visibility",
           cloudEnabled && user.id !== "guest"
             ? draft.share_banner
               ? "Shared learning card"
@@ -526,165 +475,112 @@ export async function profileDesignModal(returnFocus?: HTMLElement) {
       ),
     );
   }
-  function selectTab(id: string) {
-    tab = id;
-    dialog.dataset.designStep = id;
-    const reviewing = tab === "review";
-    workspace.hidden = reviewing;
-    reviewPane.hidden = !reviewing;
-    borderPane.hidden = tab !== "borders";
-    bannerPane.hidden = tab !== "banner";
-    reset.hidden = reviewing;
-    back.hidden = !reviewing;
-    save.textContent = reviewing ? "Apply my design" : "Preview & finish";
+  function changed() {
+    error.textContent = "";
+    status.textContent =
+      "Preview & finish to check your complete profile before saving.";
+    draw();
+  }
+  function cancelPreparation() {
+    preparation++;
+    controller?.abort();
+    controller = undefined;
+    preparing = false;
+    setButtonDisabled(save, saving);
+  }
+  function resetBanner() {
+    cancelPreparation();
+    prepared = undefined;
+    kind = "remove";
+    draft = { ...draft, banner_path: null, x: 50, y: 50, share_banner: false };
+    share.checked = false;
+    picker.value = "";
+    focus(50, 50);
+  }
+  async function chooseBanner(file: File) {
+    if (saving) return;
+    cancelPreparation();
+    const attempt = preparation;
+    controller = new AbortController();
+    preparing = true;
+    setButtonDisabled(save, true);
+    error.textContent = "";
+    status.textContent =
+      "Opening and preparing your image… You can choose another file or reset the banner.";
+    draw();
+    try {
+      const result = await prepareBanner(file, controller.signal);
+      if (
+        attempt !== preparation ||
+        !dialog.isConnected ||
+        currentUser()?.id !== user.id
+      )
+        return;
+      prepared = result;
+      kind = "replace";
+      draft.share_banner = false;
+      share.checked = false;
+      focus(50, 50);
+      status.textContent =
+        "Banner ready to preview. Preview & finish when you like the placement.";
+    } catch (value) {
+      if (attempt !== preparation || !dialog.isConnected) return;
+      error.textContent =
+        value instanceof Error
+          ? value.message
+          : "This image could not be prepared.";
+      status.textContent =
+        "Choose another image or keep your current banner. Your saved banner has not changed.";
+    } finally {
+      if (attempt === preparation) {
+        preparing = false;
+        controller = undefined;
+        picker.value = "";
+        setButtonDisabled(save, saving);
+        draw();
+      }
+    }
+  }
+  function selectStep(review: boolean) {
+    reviewing = review;
+    dialog.dataset.designStep = review ? "review" : "banner";
+    workspace.hidden = review;
+    reviewPane.hidden = !review;
+    reset.hidden = review;
+    back.hidden = !review;
+    save.textContent = review ? "Apply my banner" : "Preview & finish";
     tabs
       .querySelectorAll<HTMLElement>("[data-design-tab]")
       .forEach((node) =>
         node.setAttribute(
           "aria-pressed",
-          String(node.dataset.designTab === tab),
+          String((node.dataset.designTab === "review") === review),
         ),
       );
-    status.textContent = reviewing
-      ? "This is a preview. Apply your design when everything feels right."
+    status.textContent = review
+      ? "Check both sizes, then apply your banner. Your saved portrait stays the same."
       : "Your changes stay in preview until you apply them.";
     editorBody.scrollTop = 0;
-    if (reviewing)
+    if (review)
       requestAnimationFrame(() => {
-        if (dialog.isConnected && tab === "review")
+        if (dialog.isConnected && reviewing)
           reviewDevice.scrollIntoView({ block: "start" });
       });
   }
-  function changed() {
-    error.textContent = "";
-    status.textContent =
-      "Looking good. Preview & finish to see the complete profile.";
-    drawPreview();
-  }
-  const save = button(
-    "Preview & finish",
-    async () => {
-      if (tab !== "review") {
-        selectTab("review");
-        reviewTitle.focus({ preventScroll: true });
-        return;
-      }
-      error.textContent = "";
-      status.textContent = "Saving your profile design…";
-      editorBody.disabled = true;
-      setButtonDisabled(reset, true);
-      setButtonDisabled(cancel, true);
-      setButtonDisabled(back, true);
-      try {
-        await saveProfileDesign(user.id, draft, {
-          kind: bannerKind,
-          blob: prepared?.blob,
-          preview: prepared?.preview,
-        });
-        if (currentUser()?.id !== user.id || !dialog.isConnected) return;
-        close();
-        toast("Your profile design is saved. Looking good, scientist!");
-      } catch (value) {
-        error.textContent =
-          value instanceof Error
-            ? value.message
-            : "Your design could not be saved. Please try again.";
-        status.textContent =
-          "Your preview is still here. Try applying it again.";
-      } finally {
-        editorBody.disabled = false;
-        setButtonDisabled(reset, false);
-        setButtonDisabled(cancel, false);
-        setButtonDisabled(back, false);
-      }
-    },
-    "button primary",
-  );
-  const reset = button(
-    "Reset design",
-    () => {
-      draft = defaultProfileDesign();
-      bannerKind = "remove";
-      prepared = undefined;
-      share.checked = false;
-      x.value = y.value = "50";
-      xValue.textContent = yValue.textContent = "50%";
-      changed();
-      drawGallery();
-    },
-    "button outline",
-  );
-  const cancel = button("Cancel", () => close(), "button outline");
-  const back = button(
-    "Keep editing",
-    () => selectTab("banner"),
-    "button outline",
-    { hidden: true },
-  );
-  const workspace = h(
-    "div",
-    { class: "design-workspace" },
-    h(
-      "div",
-      { class: "design-preview-column" },
-      h(
-        "div",
-        { class: "design-preview-label" },
-        icon("sparkles", 14),
-        "LIVE PREVIEW",
-        previewState,
-      ),
-      preview,
-      h("div", { class: "design-preview-caption" }, selected),
-      h(
-        "p",
-        { class: "design-preview-note" },
-        icon("heart", 14),
-        "A little personality, a lot of curiosity.",
-      ),
-    ),
-    h("div", null, borderPane, bannerPane),
-  );
-  const editorBody = h(
-    "fieldset",
-    { class: "profile-design-body" },
-    h(
-      "div",
-      { class: "design-studio-intro" },
-      h("p", { class: "eyebrow" }, "YOUR FACE. YOUR FRAME. YOUR LITTLE WORLD."),
-      h("p", null, "Make a science signature that feels like you."),
-    ),
-    tabs,
-    workspace,
-    reviewPane,
-  );
-  const { dialog, close } = modal(
-    "Your profile design",
-    [
-      editorBody,
-      h(
-        "footer",
-        { class: "design-studio-actions" },
-        error,
-        status,
-        h("div", null, reset, back, cancel, save),
-      ),
-    ],
-    true,
-    returnFocus,
-  );
-  dialog.classList.add("profile-design-dialog");
-  dialog.dataset.designStep = "borders";
-  drawGallery();
-  drawPreview();
   const refresh = () => {
     originalBanner = bannerUrl(user.id);
-    drawPreview();
+    draw();
   };
   window.addEventListener("csl:profile-design", refresh);
+  window.addEventListener("csl:photo", refresh);
   dialog.addEventListener(
     "close",
-    () => window.removeEventListener("csl:profile-design", refresh),
+    () => {
+      cancelPreparation();
+      window.removeEventListener("csl:profile-design", refresh);
+      window.removeEventListener("csl:photo", refresh);
+    },
     { once: true },
   );
+  draw();
 }

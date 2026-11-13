@@ -12,7 +12,7 @@ export function termsModal() {
     ],
     [
       "Classroom sharing and friends",
-      "Signed-in classmates can find your existing account name and learning achievements in Science friends and rankings. Your sign-in email is never displayed to classmates. Photo, introduction and grade sharing are optional, and you can hide your name from the directory and rankings. Recent-activity badges reflect a visible session within the last two minutes. You can accept or decline requests, remove friends or block a scientist.",
+      "When your account is listed, signed-in classmates can find your existing account name, learning achievements and current class-credit balance in Science friends and rankings. Your sign-in email is never displayed to classmates. Photo, introduction and grade sharing are optional, and you can hide your name from the directory and rankings. Recent-activity badges reflect a visible session within the last two minutes. You can accept or decline requests, remove friends or block a scientist.",
     ],
     [
       "What stays on your device",

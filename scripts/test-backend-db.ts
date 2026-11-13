@@ -10,6 +10,7 @@ import { verifyStudio } from "./test-studio-db";
 import { verifyAccounts } from "./test-accounts-db";
 import { verifyCommunity } from "./test-community-db";
 import { verifyProfileStyles } from "./test-profile-styles-db";
+import { verifyCreditRankings } from "./test-credit-rankings-db";
 
 const image = "postgres:17-alpine";
 const name = `cozy-db-test-${randomUUID()}`;
@@ -221,6 +222,7 @@ try {
   verifyAccounts(sql);
   await verifyCommunity(sql, concurrentSql);
   verifyProfileStyles(sql);
+  verifyCreditRankings(sql);
   console.log(
     `PostgreSQL passed: ${questions.length} grading cases + alternatives, Auth profiles, RLS, teacher access, immutable records, retries and setup rerun.`,
   );

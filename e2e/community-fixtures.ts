@@ -34,6 +34,7 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
   social: [
     async ({ backend, context }, use) => {
       backend.communityReady = true;
+      backend.creditRankingsReady = true;
       const social: SocialFixture = {
         settings: Object.fromEntries(
           users.map((u, i) => [
@@ -150,7 +151,7 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
         };
       };
       await context.route(
-        /\/rest\/v1\/rpc\/csl_(?:social_home|save_social_profile|leaderboard|find_scientist|scientist_card|friend_list|social_action|classmate_directory|touch_social_activity)$/,
+        /\/rest\/v1\/rpc\/csl_(?:social_home|save_social_profile|leaderboard|credit_leaderboard|find_scientist|scientist_card|friend_list|social_action|classmate_directory|touch_social_activity)$/,
         async (route) => {
           const request = route.request();
           const respond = (value: unknown, status = 200) =>
@@ -215,6 +216,48 @@ export const test = cloudTest.extend<{ social: SocialFixture }>({
               version: s.version + 1,
             };
             return respond(home(id));
+          }
+          if (rpc === "csl_credit_leaderboard") {
+            if (!backend.creditRankingsReady)
+              return fail("Credit rankings are not installed.");
+            social.rankingCalls++;
+            const rows = backend.profiles
+              .filter(
+                (p) =>
+                  visible(p.user_id, id) &&
+                  (body.p_scope !== "friends" ||
+                    p.user_id === id ||
+                    pair(p.user_id, id)?.status === "accepted") &&
+                  (!body.p_grade ||
+                    (social.settings[p.user_id].share_grade &&
+                      p.grade === body.p_grade)),
+              )
+              .map((p) => ({
+                ...card(p.user_id, id)!,
+                credits: backend.credits[p.user_id] ?? 0,
+              }))
+              .sort(
+                (a, b) =>
+                  b.credits - a.credits ||
+                  a.display_name.localeCompare(b.display_name),
+              );
+            let rank = 0,
+              balance = -1;
+            const ranked = rows.map((row) => {
+              if (row.credits !== balance) {
+                rank++;
+                balance = row.credits;
+              }
+              return { ...row, rank };
+            });
+            const offset = Number(body.p_offset ?? 0);
+            return respond({
+              basis: "class_credits",
+              rows: ranked.slice(offset, offset + 20),
+              total: ranked.length,
+              you: ranked.find((row) => row.user_id === id) ?? null,
+              server_now: new Date(social.nowMs).toISOString(),
+            });
           }
           if (rpc === "csl_leaderboard") {
             social.rankingCalls++;

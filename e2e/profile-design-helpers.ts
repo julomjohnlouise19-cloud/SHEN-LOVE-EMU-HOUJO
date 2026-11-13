@@ -8,7 +8,7 @@ export async function applyDesign(design: Locator) {
   if (await preview.isVisible()) await preview.click();
   await expect(design.locator(".design-review-pane")).toBeVisible();
   await design
-    .getByRole("button", { name: "Apply my design", exact: true })
+    .getByRole("button", { name: "Apply my banner", exact: true })
     .click();
 }
 
@@ -22,10 +22,10 @@ export async function editor(page: Page) {
       .getByRole("button", { name: "Open scientist profile", exact: true })
       .click();
   await profile
-    .getByRole("button", { name: "Borders & banner", exact: true })
+    .getByRole("button", { name: "Edit banner", exact: true })
     .click();
   const design = page.getByRole("dialog", {
-    name: "Your profile design",
+    name: "Your profile banner",
     exact: true,
   });
   await expect(design).toBeVisible();

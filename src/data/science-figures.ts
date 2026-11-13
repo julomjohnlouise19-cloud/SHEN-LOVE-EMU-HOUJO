@@ -850,5 +850,286 @@ export const scienceFigures: ScienceFigure[] = [
     ],
   },
 ];
+scienceFigures.push(
+  {
+    id: "human-anatomy",
+    title: "Human anatomy: an organ map",
+    branch: "life",
+    width: 720,
+    height: 440,
+    description:
+      "Locate major organs and connect their structures with circulation, breathing, digestion and coordination.",
+    limit:
+      "Simplified front-view projection, not to scale. Organs overlap in real bodies; the kidneys sit toward the back. Anatomical left is the person's left, on the viewer's right. This is a learning model, not a diagnostic image.",
+    parts: [
+      {
+        id: "brain",
+        name: "Brain",
+        explanation:
+          "Protected by the skull, the brain helps process information and coordinate responses. It works with the spinal cord and other nerves.",
+      },
+      {
+        id: "airway",
+        name: "Trachea and bronchi",
+        explanation:
+          "Air passes down the trachea and into branching bronchi. Gas exchange mainly occurs farther along in the lungs' alveoli, not in the trachea.",
+      },
+      {
+        id: "lungs",
+        name: "Lungs",
+        explanation:
+          "The lungs contain many alveoli with thin walls and a large combined surface area. Oxygen and carbon dioxide exchange with nearby blood.",
+      },
+      {
+        id: "heart",
+        name: "Heart",
+        explanation:
+          "The heart is a muscular pump between the lungs, with much of it slightly left of the body's midline. It moves blood through pulmonary and systemic circuits.",
+      },
+      {
+        id: "stomach",
+        name: "Stomach",
+        explanation:
+          "The stomach mixes food with acidic gastric fluid and helps digest it. Most nutrient absorption occurs later in the small intestine.",
+      },
+      {
+        id: "intestine",
+        name: "Small intestine",
+        explanation:
+          "The small intestine continues digestion and absorbs most digested nutrients. Its folds, villi and microvilli increase surface area.",
+      },
+      {
+        id: "kidneys",
+        name: "Kidneys",
+        explanation:
+          "The paired kidneys lie toward the back of the abdomen. They filter blood and help regulate water and dissolved substances while forming urine.",
+      },
+      {
+        id: "support",
+        name: "Skeleton and support",
+        explanation:
+          "Bones support the body and protect organs; joints and muscles enable movement. Only a few supporting structures are sketched in this model.",
+      },
+    ],
+    shapes: [
+      shape("path", {
+        d: "M338 101 L338 120 Q295 122 282 155 L252 278 Q250 291 266 294 Q279 295 282 281 L308 203 L306 316 L324 420 L348 420 L360 336 L373 420 L397 420 L414 316 L412 203 L438 281 Q442 295 454 293 Q469 289 467 278 L438 155 Q425 122 382 120 L382 101 Z",
+        fill: "#fae7d8",
+        stroke: "#7f8d81",
+        "stroke-width": 2.5,
+      }),
+      circle(360, 65, 39, "#fae7d8"),
+      line(360, 115, 360, 335, "support"),
+      line(338, 350, 331, 410, "support"),
+      line(382, 350, 389, 410, "support"),
+      ellipse(360, 60, 26, 18, "#d7c8ed", "brain"),
+      shape(
+        "path",
+        {
+          d: "M355 117 L355 155 L339 171 M365 117 L365 155 L382 171",
+          fill: "none",
+          stroke: "#8aabb9",
+          "stroke-width": 8,
+        },
+        "airway",
+      ),
+      ellipse(329, 190, 27, 44, "#b9dce9", "lungs"),
+      ellipse(391, 190, 27, 44, "#b9dce9", "lungs"),
+      shape(
+        "path",
+        {
+          d: "M376 225 C345 204 352 185 366 189 C373 182 390 188 391 201 Q391 213 376 225 Z",
+          fill: "#df8e94",
+          stroke: "#ad676d",
+          "stroke-width": 2.5,
+        },
+        "heart",
+      ),
+      ellipse(318, 259, 11, 20, "#d69a83", "kidneys"),
+      ellipse(403, 259, 11, 20, "#d69a83", "kidneys"),
+      ellipse(380, 255, 23, 18, "#f3c588", "stomach"),
+      shape(
+        "path",
+        {
+          d: "M332 287 C318 279 314 298 333 299 L383 299 C400 298 401 310 383 311 L335 311 C316 311 317 322 337 324 L382 324",
+          fill: "none",
+          stroke: "#88ac81",
+          "stroke-width": 9,
+          "stroke-linecap": "round",
+        },
+        "intestine",
+      ),
+      text(112, 46, "Brain", "brain"),
+      line(154, 50, 333, 60, "brain"),
+      text(112, 137, "Trachea and bronchi", "airway", 16),
+      line(191, 141, 351, 137, "airway"),
+      text(591, 154, "Lungs", "lungs"),
+      line(545, 158, 417, 177, "lungs"),
+      text(594, 217, "Heart", "heart"),
+      line(550, 215, 390, 204, "heart"),
+      text(112, 246, "Kidneys", "kidneys"),
+      line(167, 249, 307, 257, "kidneys"),
+      text(593, 274, "Stomach", "stomach"),
+      line(542, 271, 402, 257, "stomach"),
+      text(109, 319, "Small intestine", "intestine", 16),
+      line(181, 317, 323, 311, "intestine"),
+      text(591, 376, "Skeleton and support", "support", 16),
+      line(501, 372, 389, 379, "support"),
+      text(
+        359,
+        438,
+        "A front-view projection; some organs are shown through other structures",
+        undefined,
+        13,
+      ),
+    ],
+  },
+  {
+    id: "volcano-structure",
+    title: "Inside a volcano",
+    branch: "earth",
+    width: 720,
+    height: 440,
+    description:
+      "Follow magma through a volcano, compare lava with ash, and learn why water and volcanic debris can create lahars.",
+    limit:
+      "Schematic composite-volcano cross-section, not to scale. Real volcanoes vary in shape and plumbing. This diagram is not a hazard map or an eruption forecast; follow current PHIVOLCS and local-authority guidance.",
+    parts: [
+      {
+        id: "reservoir",
+        name: "Magma storage",
+        explanation:
+          "Magma can collect in storage regions below a volcano. It is molten or partly molten material derived from processes in the crust and mantle, not Earth's outer core.",
+      },
+      {
+        id: "vent",
+        name: "Main passage and vent",
+        explanation:
+          "Magma and gases may rise through passages toward a vent, an opening to the surface. Not every volcano has one simple central pipe.",
+      },
+      {
+        id: "crater",
+        name: "Crater",
+        explanation:
+          "A crater is a surface depression around a volcanic vent. Craters and larger collapse depressions called calderas have different origins and scales.",
+      },
+      {
+        id: "ash",
+        name: "Ash and gases",
+        explanation:
+          "Volcanic ash consists of small rock, mineral and glass fragments. Eruptions can release ash and gases; appearance alone cannot establish safety.",
+      },
+      {
+        id: "lava",
+        name: "Lava flow",
+        explanation:
+          "Magma is called lava after it reaches the surface. When lava cools and solidifies, it forms igneous rock.",
+      },
+      {
+        id: "cone",
+        name: "Cone and deposits",
+        explanation:
+          "Many composite volcanoes build up from layers of lava and fragmented volcanic material. Shield volcanoes and other volcano types have different shapes.",
+      },
+      {
+        id: "lahar",
+        name: "Lahar pathway",
+        explanation:
+          "Water mixed with volcanic debris can form a lahar. It may travel along river valleys, even after an eruption. Actual danger zones require current official hazard maps.",
+      },
+    ],
+    shapes: [
+      box(60, 310, 600, 105, "#e9dfcd"),
+      shape(
+        "polygon",
+        {
+          points: "137,310 322,152 343,152 365,169 390,152 410,152 584,310",
+          fill: "#c9b28e",
+          stroke: "#7d7767",
+          "stroke-width": 3,
+        },
+        "cone",
+      ),
+      shape(
+        "path",
+        {
+          d: "M187 286 L331 179 M226 305 L344 199 M400 189 L534 300",
+          fill: "none",
+          stroke: "#e8cf9d",
+          "stroke-width": 8,
+        },
+        "cone",
+      ),
+      ellipse(366, 363, 62, 30, "#e97e53", "reservoir"),
+      shape(
+        "path",
+        {
+          d: "M353 345 L354 205 L365 169 L377 205 L379 345 Z",
+          fill: "#ee925a",
+          stroke: "#b66a48",
+          "stroke-width": 2,
+        },
+        "vent",
+      ),
+      shape(
+        "path",
+        {
+          d: "M322 152 Q365 180 410 152",
+          fill: "none",
+          stroke: "#6d655e",
+          "stroke-width": 7,
+        },
+        "crater",
+      ),
+      circle(342, 97, 29, "#d0d3dc", "ash"),
+      circle(380, 66, 31, "#d0d3dc", "ash"),
+      circle(410, 105, 34, "#d0d3dc", "ash"),
+      circle(367, 115, 30, "#d0d3dc", "ash"),
+      shape(
+        "path",
+        {
+          d: "M409 169 Q424 192 450 220 Q462 238 488 251 L529 280",
+          fill: "none",
+          stroke: "#ef6139",
+          "stroke-width": 12,
+          "stroke-linecap": "round",
+        },
+        "lava",
+      ),
+      shape(
+        "path",
+        {
+          d: "M526 291 Q554 316 583 327 Q611 337 641 364",
+          fill: "none",
+          stroke: "#899b9f",
+          "stroke-width": 12,
+          "stroke-linecap": "round",
+        },
+        "lahar",
+      ),
+      text(113, 124, "Crater", "crater"),
+      line(162, 126, 329, 155, "crater"),
+      text(583, 62, "Ash and gases", "ash", 17),
+      line(516, 69, 416, 85, "ash"),
+      text(113, 222, "Passage and vent", "vent", 16),
+      line(184, 226, 355, 226, "vent"),
+      text(590, 218, "Lava flow", "lava"),
+      line(534, 218, 451, 222, "lava"),
+      text(109, 304, "Cone and deposits", "cone", 16),
+      line(190, 299, 253, 260, "cone"),
+      text(578, 395, "Possible lahar pathway", "lahar", 16),
+      line(581, 377, 605, 341, "lahar"),
+      text(144, 385, "Magma storage", "reservoir", 17),
+      line(218, 379, 305, 364, "reservoir"),
+      text(
+        360,
+        438,
+        "A learning model, not a current hazard map",
+        undefined,
+        14,
+      ),
+    ],
+  },
+);
 export const figureById = (id: string) =>
   scienceFigures.find((figure) => figure.id === id);

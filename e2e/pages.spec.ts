@@ -70,19 +70,10 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
     .getByRole("button", { name: "Close and return to page", exact: true })
     .click();
   const design = await editor(page);
-  const borderArt = design.locator(".profile-frame-art img").first();
-  await borderArt.scrollIntoViewIfNeeded();
-  await expect(borderArt).toHaveAttribute(
-    "src",
-    `${prefix}profile-borders/ocean-treasures.jpg`,
-  );
-  await expect
-    .poll(() =>
-      borderArt.evaluate(
-        (img: HTMLImageElement) => img.complete && img.naturalWidth > 0,
-      ),
-    )
-    .toBe(true);
+  await expect(
+    design.getByLabel("Upload your banner", { exact: true }),
+  ).toBeVisible();
+  await expect(design.locator(".design-border-option")).toHaveCount(0);
   await design.getByRole("button", { name: "Cancel", exact: true }).click();
   await closeProfile(page);
   await page.setViewportSize({ width: 1280, height: 720 });

@@ -1,51 +1,36 @@
 import { test, expect, exploreAsGuest } from "./fixtures";
 import AxeBuilder from "@axe-core/playwright";
 import { editor, banner, applyDesign } from "./profile-design-helpers";
-import { profileBorders } from "../src/data/profile-borders";
-test("students can try all supplied borders, apply one and restore it after reload", async ({
+test("the focused banner editor has no border picker and cancel keeps the saved banner", async ({
   page,
 }) => {
   await exploreAsGuest(page);
-  const url = page.url();
-  const design = await editor(page);
-  await expect(design.locator(".design-border-option")).toHaveCount(18);
-  await design
-    .getByRole("button", { name: "Choose Ocean treasures border", exact: true })
-    .click();
-  await expect(design.locator(".design-preview-avatar")).toHaveAttribute(
-    "data-selected-border",
-    "ocean-treasures",
-  );
+  const original = page.url(),
+    design = await editor(page);
+  await expect(design.locator(".design-border-option")).toHaveCount(0);
   await expect(
-    design.getByRole("button", {
-      name: "Choose Ocean treasures border",
-      exact: true,
-    }),
-  ).toHaveAttribute("aria-pressed", "true");
-  await design.getByRole("button", { name: "Enchanted", exact: true }).click();
-  await expect(design.locator(".design-border-option")).toHaveCount(5);
-  await design.getByRole("button", { name: "All styles", exact: true }).click();
-  await expect(design.locator(".design-border-option")).toHaveCount(18);
-  await page.screenshot({ path: "/tmp/cozy-profile-design-desktop.png" });
+    design.getByRole("button", { name: "Borders", exact: true }),
+  ).toHaveCount(0);
+  await design
+    .getByLabel("Upload your banner", { exact: true })
+    .setInputFiles(await banner(page));
+  await expect(design.locator(".design-preview-cover img")).toBeVisible();
+  await design.getByRole("button", { name: "Bottom", exact: true }).click();
   await applyDesign(design);
   await expect(design).toHaveCount(0);
-  await expect(
-    page.locator(".scientist-card-avatar .scientist-avatar"),
-  ).toHaveAttribute("data-selected-border", "ocean-treasures");
-  expect(page.url()).toBe(url);
+  expect(page.url()).toBe(original);
   await page.reload();
   const restored = await editor(page);
-  await expect(restored.locator(".design-preview-avatar")).toHaveAttribute(
-    "data-selected-border",
-    "ocean-treasures",
+  await expect(restored.locator(".design-preview-cover img")).toHaveCSS(
+    "object-position",
+    "50% 100%",
   );
-  await restored
-    .getByRole("button", { name: "Use no border", exact: true })
-    .click();
+  await restored.getByRole("button", { name: "Top", exact: true }).click();
   await restored.getByRole("button", { name: "Cancel", exact: true }).click();
-  await expect(
-    page.locator(".scientist-card-avatar .scientist-avatar"),
-  ).toHaveAttribute("data-selected-border", "ocean-treasures");
+  await expect(page.locator(".profile-dialog .profile-cover-image")).toHaveCSS(
+    "object-position",
+    "50% 100%",
+  );
 });
 test("banner preview, positioning, offline persistence and removal leave the photo and balance intact", async ({
   page,
@@ -156,55 +141,16 @@ test("the design studio rejects invalid images and fits a phone with visible sav
   await expect(
     page
       .getByRole("dialog", { name: "Your scientist profile", exact: true })
-      .getByRole("button", { name: "Borders & banner", exact: true }),
+      .getByRole("button", { name: "Edit banner", exact: true }),
   ).toBeFocused();
 });
 
-test("frames stay outside the full portrait and final banner review matches the saved profile without decorative blocks", async ({
+test("complete banner review matches the saved profile without border controls or decorative blocks", async ({
   page,
 }) => {
   await exploreAsGuest(page);
   const design = await editor(page);
-  for (const border of profileBorders) {
-    await design
-      .getByRole("button", {
-        name: `Choose ${border.name} border`,
-        exact: true,
-      })
-      .click();
-    const geometry = await design
-      .locator(".design-preview-avatar")
-      .evaluate((node) => {
-        const portrait = node.querySelector<HTMLElement>(
-          ".profile-frame-face",
-        )!;
-        const art = node.querySelector<HTMLElement>(".profile-frame-art")!;
-        const r = node.getBoundingClientRect(),
-          p = portrait.getBoundingClientRect(),
-          a = art.getBoundingClientRect();
-        return {
-          fullPortrait:
-            Math.abs(r.width - p.width) < 1 &&
-            Math.abs(r.height - p.height) < 1,
-          outside:
-            a.left < p.left &&
-            a.top < p.top &&
-            a.right > p.right &&
-            a.bottom > p.bottom,
-          overflow: getComputedStyle(node).overflow,
-          mask: getComputedStyle(art).maskImage,
-        };
-      });
-    expect(geometry, border.id).toMatchObject({
-      fullPortrait: true,
-      outside: true,
-      overflow: "visible",
-    });
-    expect(geometry.mask).toContain("radial-gradient");
-  }
-  await design
-    .getByRole("button", { name: "Choose Moon garden border", exact: true })
-    .click();
+  await expect(design.locator(".design-border-option")).toHaveCount(0);
   await design.getByRole("button", { name: "My banner", exact: true }).click();
   await design
     .getByLabel("Upload your banner", { exact: true })
@@ -258,7 +204,7 @@ test("frames stay outside the full portrait and final banner review matches the 
       .evaluate((node) => node.scrollWidth <= node.clientWidth),
   ).toBe(true);
   await expect(
-    design.getByRole("button", { name: "Apply my design", exact: true }),
+    design.getByRole("button", { name: "Apply my banner", exact: true }),
   ).toBeInViewport();
   await page.screenshot({ path: "/tmp/cozy-profile-cover-review-phone.png" });
   await design
@@ -297,18 +243,5 @@ test("frames stay outside the full portrait and final banner review matches the 
   expect(
     await actual.evaluate((node) => node.scrollWidth <= node.clientWidth),
   ).toBe(true);
-  const frameFits = await actual.evaluate((node) => {
-    const hero = node.getBoundingClientRect();
-    const art = node
-      .querySelector(".profile-frame-art")!
-      .getBoundingClientRect();
-    return (
-      art.left >= hero.left &&
-      art.right <= hero.right &&
-      art.top >= hero.top &&
-      art.bottom <= hero.bottom
-    );
-  });
-  expect(frameFits).toBe(true);
   await page.screenshot({ path: "/tmp/cozy-profile-cover-saved-phone.png" });
 });

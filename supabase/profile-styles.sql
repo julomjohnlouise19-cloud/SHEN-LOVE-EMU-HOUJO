@@ -58,7 +58,7 @@ create or replace function public.csl_backend_status() returns jsonb language sq
  select jsonb_build_object('version',1,'questions',(select count(*) from csl_private.questions),'platform',3,
  'accounts',case when to_regprocedure('public.csl_scientist_profile(uuid)') is null then 0 else 1 end,
  'community',case when to_regprocedure('public.csl_classmate_directory(text,boolean,integer)') is not null then 2 when to_regprocedure('public.csl_social_home()') is not null then 1 else 0 end,
- 'profile_styles',case when to_regprocedure('public.csl_profile_styles(uuid[])') is null then 0 else 1 end);
+ 'profile_styles',case when to_regprocedure('public.csl_profile_styles(uuid[])') is null then 0 else 1 end,'credit_rankings',case when to_regprocedure('public.csl_credit_leaderboard(text,integer,integer)') is null then 0 else 1 end);
 $$;
 revoke all on function public.csl_backend_status() from public;
 grant execute on function public.csl_backend_status() to anon,authenticated;

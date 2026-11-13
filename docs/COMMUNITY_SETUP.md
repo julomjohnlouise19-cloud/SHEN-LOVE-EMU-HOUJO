@@ -1,8 +1,8 @@
 # Activate the student leaderboard and Science friends
 
-Students use their **existing classroom account**. There is no new username to create. This additive update enables the automatic classmate directory, recent activity, shared weekly rankings and friend invitations. It preserves existing accounts, photos, quiz records, credits, stock, reservations and friendships.
+Students use their **existing classroom account**. There is no new username to create. This additive update enables the automatic classmate directory, recent activity, shared student learning cards and friend invitations. It preserves existing accounts, photos, quiz records, credits, stock, reservations and friendships.
 
-**Live classroom verified:** [Run 43335835596](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/43335835596) confirmed community version 2 is installed. The latest About us and highest-score leaderboard interface update needs no further SQL.
+**Live classroom verified:** [Run 43335835596](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/43335835596) confirmed community version 2 is installed. The new current-credit leaderboard additionally needs the [credit-ranking activation step](CREDIT_RANKINGS_SETUP.md); the script also activates the existing optional banner-sharing bridge.
 
 ## One-time database setup
 
@@ -29,19 +29,17 @@ After cancellation, removal or decline, another invitation to the same scientist
 
 Open **Science friends → Sharing choices**, or **Profile → Classroom sharing**. There is **no username field**: the existing account name is used automatically.
 
-- **Show my account name in classmates and rankings** controls the minimal name/learning-achievement listing. New and previously untouched accounts start listed. A previous deliberate opt-out is preserved, and students can hide or show their name later.
+- **Show my account name and class credits in classmates and rankings** controls the name/learning-achievement listing and current credit balance in rankings. New and previously untouched accounts start listed. A previous deliberate opt-out is preserved, and students can hide or show their name later.
 - Photo, introduction and grade each have a separate, initially unchecked sharing choice. Only explicitly enabled details appear on a learning card.
-- Email, section, notebook pages, credits and account settings stay private. Guest visitors cannot browse the student directory or rankings. Hidden, banned and blocked accounts disappear according to the existing access rules.
+- Listed names and current credit balances appear in rankings. Email, section, notebook pages and account settings stay private. Guest visitors cannot browse the student directory or rankings. Hidden, banned and blocked accounts disappear according to the existing access rules.
 
 Use the existing profile photo uploader to change a photo. Only the current selected, explicitly shared photo receives classroom read permission; prior uploads remain private. Photo links are short lived and peer data is not saved in the offline cache. Shared learning cards show the existing name and achievements, with optional details only as selected.
 
-## Weekly rankings
+## Current class-credit rankings
 
-**Leaderboard** immediately loads **This week → Classroom** with leading scientists and the ranking list. The week banner shows the date range, classroom timezone and **New week in…** countdown. Weeks start **Monday at 12:00 AM in the classroom timezone**, normally **Asia/Manila**. The page refreshes automatically while visible and online, including when a new week begins. **All time** keeps the historical standings; weekly refresh does not delete quiz records or all-time scores.
+After [activation](CREDIT_RANKINGS_SETUP.md), **Leaderboard** immediately loads **Classroom** with the highest current wallet balances first. Equal balances share a rank. Use **Friends only** to compare accepted friends or filter by deliberately shared grade. Select a scientist to open the existing learning card. Teachers review standings without competing; hidden, banned and blocked accounts retain their restrictions.
 
-Use **Friends only** to compare accepted friends, or the grade filter for deliberately shared grades. Select a scientist to open their learning card. Equal points share a rank. Teachers can review the student standings but do not compete; banned accounts and archived evidence are excluded.
-
-Each correct answer earns **10 discovery points** in the **best completed quiz for each deck, difficulty and classroom day**. Replaying the same quiz can improve that day's best result; repeated attempts do not stack points. Discovery level uses the same best saved results: 12 XP per correct answer, 3 per other answer, and 120 XP per level. This shared achievement level is separate from device-only practice XP. Class credits and supply purchases do not determine rank. Scoring uses verified server records; browsers cannot submit a points balance or rank.
+Earning credits, reserving supplies, refunds and audited teacher adjustments change the balance and can change position. **These balances do not reset every week.** The page refreshes automatically while visible and online. Verified quiz discovery points and discovery levels remain learning achievements; they no longer determine the student leaderboard. The old discovery-score RPC remains available to older clients, without deleting evidence or changing wallets. Before the credit update is installed, the interface explains the required activation rather than relabelling points as credits.
 
 Teachers retain **Scientists** profile details, ban/restore and **Record care** controls. Students receive no teacher permissions. Profile records, reading tools and other classroom features remain available before this update is installed; community pages explain that classroom connections need activation.
 
@@ -49,4 +47,4 @@ Teachers retain **Scientists** profile details, ban/restore and **Record care** 
 
 `npm run backend:test` creates an isolated PostgreSQL database and verifies default directory visibility, private existing-login lookup, recent-activity expiry, weekly metadata, daily-best scores/ties, private fields/photo policies, friend ownership, retries, crossed-request concurrency, request limits, blocking, bans and preservation of explicit opt-outs on an upgrade from version 1.
 
-`npm run e2e:cloud -- e2e/community.cloud.spec.ts` tests the interface with controlled accounts, including automatic entry, matching names, two-account acceptance, weekly rollover, activity refresh, sharing choices, phone accessibility and compatibility before activation. No real account email or production friendship is used. The deployment reports the actual installed community capability; a published interface alone does not install the database update.
+`npm run e2e:cloud -- e2e/community.cloud.spec.ts` tests the interface with controlled accounts, including automatic entry, matching names, two-account acceptance, current-credit order and spending changes, activity refresh, sharing choices, phone accessibility and compatibility before activation. No real account email or production friendship is used. The deployment reports the actual installed community capability; a published interface alone does not install the database update.

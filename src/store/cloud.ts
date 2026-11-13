@@ -26,6 +26,9 @@ export const accountsVersion = () => (platform >= 3 ? accountFeatures : 0);
 let communityFeatures = 0;
 export const communityVersion = () => (platform >= 3 ? communityFeatures : 0);
 let profileStyleFeatures = 0;
+let creditRankingFeatures = 0;
+export const creditRankingsVersion = () =>
+  platform >= 3 ? creditRankingFeatures : 0;
 export const profileStylesVersion = () =>
   platform >= 3 ? profileStyleFeatures : 0;
 let backendReady = false;
@@ -92,6 +95,7 @@ async function checkBackend() {
   accountFeatures = Number(data.accounts) || 0;
   communityFeatures = Number(data.community) || 0;
   profileStyleFeatures = Number(data.profile_styles) || 0;
+  creditRankingFeatures = Number(data.credit_rankings) || 0;
   backendReady = true;
 }
 async function profile(

@@ -57,11 +57,11 @@ const definitions: [string, string, string, string, number[], string][] = [
   ],
   [
     "life.body",
-    "Human Body Systems",
-    "Discover the brilliant teamwork happening inside you.",
+    "Anatomy & Body Systems",
+    "Meet your organs, explore their structures, and discover how your body works together.",
     "body",
     [8, 9],
-    "Body systems, health, disease and immunity",
+    "Human anatomy, organs and tissues, body systems, health, disease and immunity",
   ],
   [
     "life.genetics",

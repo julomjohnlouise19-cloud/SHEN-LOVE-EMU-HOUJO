@@ -1,5 +1,10 @@
 import { currentUser } from ".";
-import { cloudEnabled, cloudUserId, communityVersion } from "./cloud";
+import {
+  cloudEnabled,
+  cloudUserId,
+  communityVersion,
+  creditRankingsVersion,
+} from "./cloud";
 import { client } from "./cloud-client";
 import { platformRequest } from "./platform";
 import { loadProfileDesigns } from "./profile-design";
@@ -13,9 +18,37 @@ import {
   type CommunityScope,
   type ScientistCard,
   type FriendList,
+  type CreditRanking,
 } from "../core/community";
 export const communityReady = () =>
   cloudEnabled && !!cloudUserId() && communityVersion() >= 2;
+export const creditRankingsReady = () =>
+  communityReady() && creditRankingsVersion() >= 1;
+export async function creditRanking(
+  scope: CommunityScope,
+  offset = 0,
+  grade: number | null = null,
+) {
+  if (!creditRankingsReady())
+    throw new Error(
+      "Class-credit rankings need the classroom update. Please contact your teacher.",
+    );
+  const value = await platformRequest<CreditRanking>("csl_credit_leaderboard", {
+    p_scope: scope,
+    p_offset: offset,
+    p_grade: grade,
+  });
+  if (
+    value.basis !== "class_credits" ||
+    value.rows.some(
+      (row) => !Number.isSafeInteger(row.credits) || row.credits < 0,
+    )
+  )
+    throw new Error(
+      "These credit standings could not be verified. Please refresh.",
+    );
+  return value;
+}
 function requireCommunity() {
   if (!communityReady())
     throw new Error(

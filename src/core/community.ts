@@ -44,6 +44,17 @@ export interface CommunityRanking {
   server_now: string;
   timezone: string;
 }
+export interface CreditStanding extends ScientistCard {
+  credits: number;
+  rank: number;
+}
+export interface CreditRanking {
+  basis: "class_credits";
+  rows: CreditStanding[];
+  total: number;
+  you: CreditStanding | null;
+  server_now: string;
+}
 export interface FriendList {
   rows: ScientistCard[];
   total: number;

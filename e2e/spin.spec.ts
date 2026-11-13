@@ -7,6 +7,15 @@ test("the retained daily wheel explains its saved reward, supports motion prefer
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await exploreAsGuest(page);
   await page.getByRole("link", { name: "Daily spin", exact: true }).click();
+  await expect(page.locator(".wheel-bulb")).toHaveCount(16);
+  await expect(
+    page.locator(".carnival-wheel-stage .wheel-pointer"),
+  ).toBeVisible();
+  await expect(page.locator(".wheel-pedestal")).toBeVisible();
+  await page.screenshot({
+    path: "/tmp/cozy-carnival-wheel-desktop.png",
+    fullPage: true,
+  });
   await expect(
     page
       .getByRole("status")
@@ -37,6 +46,14 @@ test("the retained daily wheel explains its saved reward, supports motion prefer
   await page.reload();
   await expect(discovery.locator("strong")).toHaveText(result!);
   await expect(discovery.locator("p")).toHaveText(fact!);
+  const selected = Number(
+    await page.locator(".science-wheel").getAttribute("data-discovery-slot"),
+  );
+  const landing = await page.locator(".science-wheel").evaluate((element) => {
+    const matrix = new DOMMatrix(getComputedStyle(element).transform);
+    return ((Math.atan2(matrix.b, matrix.a) * 180) / Math.PI + 360) % 360;
+  });
+  expect(landing).toBeCloseTo(360 - (selected * 60 + 30), 1);
   await expect(page.getByText(/Next discovery: .* at midnight/)).toBeVisible();
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 320, height: 844 });
@@ -56,6 +73,10 @@ test("the retained daily wheel explains its saved reward, supports motion prefer
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({
     path: testInfo.outputPath("daily-wheel-mobile.png"),
+    fullPage: true,
+  });
+  await page.screenshot({
+    path: "/tmp/cozy-carnival-wheel-mobile.png",
     fullPage: true,
   });
   await discovery

@@ -1,11 +1,13 @@
 import { client } from "./cloud-client";
 import { cloudEnabled, cloudUserId, type CloudProfile } from "./cloud";
 import { LocalStorageAdapter } from "./adapter";
-import { hasPlatform, platformRequest } from "./platform";
-import { accountError } from "../core/account-errors";
+import { prepareImage } from "./image-file";
+import { imageAccount, ImageRequestError } from "./image-service";
+import { readProfileDesign } from "../core/profile-design";
 import { currentUser } from ".";
 
 const adapter = new LocalStorageAdapter();
+let photoEpoch = 0;
 const photos = new Map<
   string,
   { url: string; path?: string; expires: number }
@@ -18,6 +20,7 @@ export function photoUrl(id: string) {
   return photo && photo.expires > Date.now() ? photo.url : undefined;
 }
 export function clearPrivatePhotos() {
+  photoEpoch++;
   teacherPhotoPaths.clear();
   for (const [id, p] of photos) if (p.path) photos.delete(id);
   notify();
@@ -79,106 +82,80 @@ export async function hydrateTeacherPhoto(id: string, path?: string | null) {
     /* The illustrated avatar remains available when a photo cannot load. */
   }
 }
-async function normalizePhoto(file: File): Promise<Blob> {
-  if (
-    !["image/jpeg", "image/png", "image/webp"].includes(file.type) ||
-    !file.size ||
-    file.size > 5 * 1024 * 1024
-  )
-    throw new Error("Choose a JPG, PNG or WebP photo smaller than 5 MB.");
-  let bitmap: ImageBitmap;
-  try {
-    bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
-  } catch {
-    throw new Error(
-      "That file could not be opened as a photo. Try another JPG, PNG or WebP.",
-    );
-  }
-  try {
-    if (
-      !bitmap.width ||
-      !bitmap.height ||
-      bitmap.width * bitmap.height > 24000000
-    )
-      throw new Error("Choose a photo smaller than 24 megapixels.");
-    const canvas = document.createElement("canvas");
-    canvas.width = 256;
-    canvas.height = 256;
-    const ctx = canvas.getContext("2d");
-    if (!ctx)
-      throw new Error("Photo processing is unavailable in this browser.");
-    const side = Math.min(bitmap.width, bitmap.height);
-    ctx.drawImage(
-      bitmap,
-      (bitmap.width - side) / 2,
-      (bitmap.height - side) / 2,
-      side,
-      side,
-      0,
-      0,
-      256,
-      256,
-    );
-    const blob = await new Promise<Blob | null>((resolve) =>
-      canvas.toBlob(resolve, "image/webp", 0.85),
-    );
-    if (!blob || blob.type !== "image/webp" || blob.size > 262144)
-      throw new Error(
-        "This photo could not be prepared. Try a smaller image or a newer browser.",
-      );
-    return blob;
-  } finally {
-    bitmap.close();
-  }
-}
-const dataUrl = (blob: Blob) =>
-  new Promise<string>((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result));
-    reader.onerror = () => reject(new Error("This photo could not be read."));
-    reader.readAsDataURL(blob);
-  });
 export async function uploadPhoto(id: string, file: File) {
-  const blob = await normalizePhoto(file);
+  if (id !== currentUser()?.id)
+    throw new Error("Sign in to update your own photo.");
+  const epoch = photoEpoch;
+  const { blob, preview } = await prepareImage(file, "photo");
+  const stillOwner = () =>
+    epoch === photoEpoch &&
+    currentUser()?.id === id &&
+    (!cloudEnabled || id === "guest" || cloudUserId() === id);
+  if (!stillOwner())
+    throw new Error("Your account changed. Open your profile again.");
   if (cloudEnabled && id !== "guest") {
-    if (!hasPlatform())
-      throw new Error(
-        "Photo uploads need a service update. Please contact your teacher.",
-      );
-    if (id !== cloudUserId())
-      throw new Error("Sign in to update your own photo.");
-    const path = `${id}/${crypto.randomUUID()}.webp`,
-      old = photos.get(id)?.path;
-    const { error } = await client!.storage
-      .from("csl-avatars")
-      .upload(path, blob, {
-        contentType: "image/webp",
-        upsert: false,
-        cacheControl: "3600",
-      });
-    if (error) throw accountError(error);
+    const { request, remove, profile, user } = await imageAccount(id);
+    const path = `${id}/${crypto.randomUUID()}.webp`;
+    const old = profile.photo_path;
+    let writing = false;
     try {
-      await platformRequest("csl_set_photo", { p_user_id: id, p_path: path });
+      await request(`/storage/v1/object/csl-avatars/${path}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "image/webp",
+          "x-upsert": "false",
+          "Cache-Control": "max-age=3600",
+        },
+        body: blob,
+      });
+      if (!stillOwner())
+        throw new Error("Your account changed. Open your profile again.");
+      writing = true;
+      await request("/rest/v1/rpc/csl_set_photo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ p_user_id: id, p_path: path }),
+      });
     } catch (error) {
-      await client!.storage.from("csl-avatars").remove([path]);
+      if (!writing || (error instanceof ImageRequestError && error.rejected))
+        await remove(path).catch(() => undefined);
       throw error;
     }
-    if (id !== cloudUserId()) return;
-    photos.set(id, { url: await dataUrl(blob), path, expires: Infinity });
-    if (old) await client!.storage.from("csl-avatars").remove([old]);
+    if (
+      old &&
+      old !== path &&
+      old !==
+        readProfileDesign(user.user_metadata?.csl_profile_style, id).banner_path
+    )
+      void remove(old).catch(() => undefined);
+    if (!stillOwner()) return;
+    photos.set(id, { url: preview, path, expires: Date.now() + 3500000 });
   } else {
-    const value = await dataUrl(blob);
-    await adapter.set(key(id), value);
-    photos.set(id, { url: value, expires: Infinity });
+    await adapter.set(key(id), preview);
+    if (!stillOwner()) return;
+    photos.set(id, { url: preview, expires: Infinity });
   }
   notify();
 }
 export async function removePhoto(id: string) {
-  const old = photos.get(id)?.path;
+  if (id !== currentUser()?.id)
+    throw new Error("Sign in to update your own photo.");
+  const epoch = photoEpoch;
   if (cloudEnabled && id !== "guest") {
-    await platformRequest("csl_set_photo", { p_user_id: id, p_path: null });
-    if (old) await client!.storage.from("csl-avatars").remove([old]);
+    const { request, remove, profile, user } = await imageAccount(id);
+    await request("/rest/v1/rpc/csl_set_photo", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user_id: id, p_path: null }),
+    });
+    if (
+      profile.photo_path &&
+      profile.photo_path !==
+        readProfileDesign(user.user_metadata?.csl_profile_style, id).banner_path
+    )
+      void remove(profile.photo_path).catch(() => undefined);
   } else await adapter.set(key(id), null);
+  if (epoch !== photoEpoch || currentUser()?.id !== id) return;
   photos.delete(id);
   notify();
 }

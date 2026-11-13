@@ -71,7 +71,7 @@ Google enforces sending limits and may restrict App passwords for some accounts.
 After the database upgrade and successful deployment:
 
 - **Science Arcade:** choose a science category, play nine targets, use round coins for boosts and compare best completed scores. Signed-in rounds are timed and scored by the service; guest scores stay on the device.
-- **Profile photo:** open the profile button, choose a JPG/PNG/WebP photo under 5 MB, and use Remove photo to return to an illustrated avatar. Photos are stored privately for the owner and teachers.
+- **Profile photo:** open the profile button, choose a supported image up to 20 MiB/64 megapixels (see [current upload instructions](PROFILE_DESIGN_SETUP.md)), and use Remove photo to return to an illustrated avatar. Photos are stored privately for the owner and teachers.
 - **Teacher studio:** teachers manage profiles/access, adjust credits with reasons, edit stock and prices, verify or cancel reservations, review answers/notes, edit science cards and tune learning/arcade settings. Activity history records changes.
 - **Supply shelf:** signed-in students reserve from shared stock using class credits. Teachers verify the claim code before collection. Cancelling restores stock and credits together.
 

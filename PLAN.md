@@ -1,5 +1,16 @@
 # The Cozy Science Lab — build plan
 
+## Reliable images, banner-focused profiles, credit rankings and requested science topics
+
+- [x] Reproduce and repair both image inputs, including missing file labels, browser decoding fallback, camera-size photos, interrupted edits and account-safe saves.
+- [x] Remove the profile border-selection interface as the user's latest correction; retain a focused banner editor and preserve existing saved profile data.
+- [x] Make Anatomy explicit in the complete body-systems deck/notes and expand Anatomy and Volcanoes with accurate labelled models, sources, self-checks and matching PDF handbooks.
+- [x] Change the student leaderboard to current server-owned class credits, with fair ties, current-balance refresh and the existing sharing/access rules; prepare the additive activation SQL.
+- [x] Restyle the daily wheel with the supplied gold/orange rim, lights, bright segments, center pointer and pedestal while preserving outcomes and daily limits.
+- [ ] Verify image errors/recovery, both topics, rankings/privacy, mobile accessibility and existing learning; publish and report actual backend readiness.
+
+Local verification passed lint/typecheck, 78 unit/property tests, all 972 reviewed questions, generated SQL consistency, the economy simulation, 14 source addresses and all 27 notes/118 elements/12 models/five matching handbooks. The full isolated PostgreSQL suite passed, including the new authoritative credit balances, earning/spending, shared ties, opt-outs, private fields, friends, blocks/bans, teacher exclusion and additive reruns. Fifty focused browser scenarios passed across 18 standard, 31 cloud and one Pages-path case. They cover both file inputs without MIME labels or createImageBitmap, corrupt-file recovery and files above the former 5 MiB limit, cancelled late banner decoding, cleanup failures, photo/banner account switching, draft/apply/reload/reset, no border chooser, mobile WCAG AA and visible controls, both science topics/models/sources/playable decks, unchanged daily wheel limits, credit sorting/spending/ties and an honest pre-activation state. The first fallback-decoder reproduction failed on both inputs before the fix; one new assertion was corrected to inspect the now-hidden empty banner error after successful recovery. Desktop/phone banner and wheel screenshots were inspected. Current terms version 1.1 discloses listed credit balances without altering older recorded agreements. Website publication and public checks are the remaining delivery gate.
+
 ## Outside portrait frames and reliable banner preview
 
 - [x] Place the original decorative frames outside a full-size circular portrait and reserve space in profile, classmate and teacher layouts.

@@ -49,8 +49,16 @@ export const studyGuides: StudyGuide[] = [
   {
     deckId: "life.body",
     introduction:
-      "Body systems cooperate. A useful way to study them is to follow a substance, such as oxygen or a nutrient, from one system to another.",
+      "Anatomy studies body structures; physiology studies how they work. Explore the organ map, then follow oxygen and food to see how structures and body systems cooperate.",
     ideas: [
+      [
+        "From cells to a whole person",
+        "Cells form tissues, tissues help make organs, and organs cooperate in organ systems. The heart contains several tissues, including muscle and nervous tissue; an organ is not made from just one cell type.",
+      ],
+      [
+        "Finding the organs",
+        "The brain is protected by the skull. The lungs and heart lie in the chest, above the diaphragm. The stomach and intestines occupy the abdomen. The kidneys lie toward the back of the abdominal cavity. A front-view diagram may show overlapping structures separately.",
+      ],
       [
         "Exchange and transport",
         "The respiratory system exchanges gases with the environment. Oxygen moves from the lungs into blood, and circulation carries it toward tissues. Cells use oxygen in aerobic respiration; breathing and cellular respiration are different processes.",
@@ -65,6 +73,16 @@ export const studyGuides: StudyGuide[] = [
       ],
     ],
     terms: [
+      ["Anatomy", "The study of body structures and their relationships."],
+      ["Physiology", "The study of how living structures function."],
+      [
+        "Organ",
+        "A structure containing different tissues that work together, such as the heart.",
+      ],
+      [
+        "Alveoli",
+        "Tiny lung air sacs with thin walls where gases exchange with nearby blood.",
+      ],
       ["Tissue", "A group of cells working together in a function."],
       [
         "Homeostasis",
@@ -81,7 +99,7 @@ export const studyGuides: StudyGuide[] = [
       "Why does faster breathing during exercise involve more than the lungs?",
       "Working muscles need more energy; respiration, circulation and coordination work together to support gas exchange and transport.",
     ],
-    figures: ["animal-cell"],
+    figures: ["human-anatomy", "animal-cell"],
   },
   {
     deckId: "life.genetics",
@@ -703,8 +721,20 @@ export const studyGuides: StudyGuide[] = [
   {
     deckId: "earth.volcanoes",
     introduction:
-      "Earthquakes and volcanic activity arise from different processes, though both can be associated with tectonic settings.",
+      "Explore a volcano from its underground magma to its surface vents, then compare volcanic hazards with earthquakes. Both can relate to tectonic activity, but they arise through different processes.",
     ideas: [
+      [
+        "Inside a volcano",
+        "Magma is molten or partly molten material below the surface. It can move through passages to a vent, where lava, gases or fragments may emerge. A crater is a surface depression around a vent. Real volcanoes have different shapes and plumbing systems; magma does not come from Earth's outer core.",
+      ],
+      [
+        "Lava, ash and dangerous flows",
+        "Lava is erupted molten rock. Volcanic ash consists of tiny rock, mineral and glass fragments. Pyroclastic flows are fast, hot mixtures of gas and volcanic material. A lahar mixes water with volcanic debris and can travel down river valleys, including after an eruption.",
+      ],
+      [
+        "Why eruptions vary",
+        "Magma composition, viscosity, gas content and changing pressure influence eruption behaviour. Gas can become trapped in viscous magma, supporting explosive activity. A volcano's appearance alone cannot tell you whether an area is safe.",
+      ],
       [
         "Earthquake sources",
         "An earthquake often begins when rocks slip along a fault and release elastic strain energy. The focus is the source within Earth; the epicentre is the point on the surface above it.",
@@ -719,6 +749,18 @@ export const studyGuides: StudyGuide[] = [
       ],
     ],
     terms: [
+      ["Magma", "Molten or partly molten material below Earth's surface."],
+      ["Lava", "Molten rock after it reaches the surface."],
+      [
+        "Vent",
+        "An opening through which volcanic material reaches the surface.",
+      ],
+      ["Crater", "A surface depression surrounding a volcanic vent."],
+      ["Lahar", "A flowing mixture of water and volcanic debris."],
+      [
+        "Pyroclastic flow",
+        "A fast-moving, hot mixture of volcanic gas and solid fragments.",
+      ],
       ["Fault", "A fracture or zone along which rocks have moved."],
       ["Epicentre", "The surface point above an earthquake's focus."],
     ],
@@ -732,7 +774,7 @@ export const studyGuides: StudyGuide[] = [
       "Does a single earthquake have the same intensity in every town?",
       "No. Intensity describes effects at each location and can vary widely.",
     ],
-    figures: ["rock-cycle"],
+    figures: ["volcano-structure", "rock-cycle"],
   },
   {
     deckId: "earth.weather",

@@ -1,14 +1,10 @@
 import { currentUser } from ".";
 import { LocalStorageAdapter } from "./adapter";
-import {
-  cloudEnabled,
-  cloudUserId,
-  profileStylesVersion,
-  type CloudProfile,
-} from "./cloud";
-import { client, projectOrigin, publicApiKey } from "./cloud-client";
+import { cloudEnabled, cloudUserId, profileStylesVersion } from "./cloud";
+import { client } from "./cloud-client";
+import { prepareImage } from "./image-file";
+import { imageAccount, ImageRequestError } from "./image-service";
 import { platformRequest } from "./platform";
-import { accountError } from "../core/account-errors";
 import {
   defaultProfileDesign,
   isBannerData,
@@ -68,59 +64,8 @@ export function bannerUrl(id: string) {
     void hydrateCover(id, design, captured);
   return undefined;
 }
-const blobData = (blob: Blob) =>
-  new Promise<string>((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result));
-    reader.onerror = () => reject(new Error("This image could not be read."));
-    reader.readAsDataURL(blob);
-  });
-export async function prepareBanner(
-  file: File,
-): Promise<{ blob: Blob; preview: string }> {
-  if (
-    !["image/jpeg", "image/png", "image/webp"].includes(file.type) ||
-    !file.size ||
-    file.size > 5 * 1024 * 1024
-  )
-    throw new Error("Choose a JPG, PNG or WebP image smaller than 5 MB.");
-  let image: ImageBitmap;
-  try {
-    image = await createImageBitmap(file, { imageOrientation: "from-image" });
-  } catch {
-    throw new Error(
-      "That image could not be opened. Try another JPG, PNG or WebP.",
-    );
-  }
-  try {
-    if (!image.width || !image.height || image.width * image.height > 24000000)
-      throw new Error("Choose an image smaller than 24 megapixels.");
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    if (!ctx)
-      throw new Error("Image preparation is unavailable in this browser.");
-    for (const [longSide, quality] of [
-      [1280, 0.82],
-      [1120, 0.72],
-      [960, 0.6],
-    ]) {
-      const scale = Math.min(1, longSide / Math.max(image.width, image.height));
-      canvas.width = Math.max(1, Math.round(image.width * scale));
-      canvas.height = Math.max(1, Math.round(image.height * scale));
-      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-      const blob = await new Promise<Blob | null>((resolve) =>
-        canvas.toBlob(resolve, "image/webp", quality),
-      );
-      if (blob?.type === "image/webp" && blob.size <= 262144)
-        return { blob, preview: await blobData(blob) };
-    }
-    throw new Error(
-      "That image is too detailed to prepare. Try a smaller image.",
-    );
-  } finally {
-    image.close();
-  }
-}
+export const prepareBanner = (file: File, signal?: AbortSignal) =>
+  prepareImage(file, "banner", signal);
 async function hydrateCover(
   id: string,
   design: ProfileDesign,
@@ -259,18 +204,8 @@ export async function saveProfileDesign(
   if (cloudEnabled && id !== "guest") {
     if (id !== cloudUserId())
       throw new Error("Sign in to edit your own profile.");
-    const { data } = await client!.auth.getSession();
-    const session = data.session;
-    if (!session || session.user.id !== id)
-      throw new Error("Your account changed. Sign in again.");
-    const token = session.access_token;
-    const verified = await client!.auth.getUser(token);
-    if (verified.error || verified.data.user?.id !== id)
-      throw new Error("Please sign in again before saving.");
-    previous = readProfileDesign(
-      verified.data.user.user_metadata?.csl_profile_style,
-      id,
-    );
+    const { request, remove, profile, user } = await imageAccount(id);
+    previous = readProfileDesign(user.user_metadata?.csl_profile_style, id);
     if (banner.kind === "keep" && previous.banner_path !== next.banner_path)
       next = {
         ...next,
@@ -279,31 +214,10 @@ export async function saveProfileDesign(
         y: previous.y,
         share_banner: false,
       };
-    const profile = await platformRequest<CloudProfile>("csl_my_profile");
-    if (profile.user_id !== id || !validContext(captured))
-      throw new Error("Your account changed. Sign in again.");
-    // Pin both storage and Auth writes to the verified starting account.
-    const request = async (path: string, init: RequestInit) => {
-      const response = await fetch(`${projectOrigin}${path}`, {
-        ...init,
-        headers: {
-          apikey: publicApiKey,
-          Authorization: `Bearer ${token}`,
-          ...init.headers,
-        },
-        signal: AbortSignal.timeout(15000),
-      });
-      const body = await response.json().catch(() => ({}));
-      if (!response.ok) throw accountError(body);
-      return body;
-    };
-    const remove = (path: string) =>
-      request("/storage/v1/object/csl-avatars", {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prefixes: [path] }),
-      });
+    if (!validContext(captured))
+      throw new Error("Your account changed. Open your profile again.");
     let uploaded: string | undefined;
+    let writing = false;
     try {
       if (banner.kind === "replace") {
         uploaded = `${id}/${crypto.randomUUID()}.webp`;
@@ -320,6 +234,7 @@ export async function saveProfileDesign(
       } else if (banner.kind === "remove") next.banner_path = null;
       if (!validContext(captured))
         throw new Error("Your account changed. Open your profile again.");
+      writing = true;
       const result = await request("/auth/v1/user", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -328,7 +243,12 @@ export async function saveProfileDesign(
       if (result.id !== id)
         throw new Error("Your profile could not be verified. Sign in again.");
     } catch (error) {
-      if (uploaded) await remove(uploaded).catch(() => undefined);
+      // Keep an uploaded image if a disconnected metadata write may have committed.
+      if (
+        uploaded &&
+        (!writing || (error instanceof ImageRequestError && error.rejected))
+      )
+        await remove(uploaded).catch(() => undefined);
       throw error;
     }
     if (

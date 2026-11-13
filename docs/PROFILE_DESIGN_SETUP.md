@@ -1,34 +1,26 @@
-# Profile borders and uploaded banners
+# Profile photos and banners
 
-Students open **Profile → Borders & banner**. Choose a border, try a banner, then choose **Preview & finish**. Check the complete profile in **Wide view** and **Phone view**, then choose **Apply my design**. **Keep editing** returns to the controls with the draft intact. The editor has 17 distinct designs from the supplied PDF (one source image repeats), category filters and a no-border choice. All borders are free and sit outside the full circular portrait.
+Open **Profile → Edit banner** to choose a backdrop, position it, then choose **Preview & finish**. Check the complete profile in **Wide view** and **Phone view**, then choose **Apply my banner**. **Keep editing** preserves the draft. The border-selection interface has been removed at the user's request. Existing saved decorations are preserved; banner controls do not change them.
 
-**Personal designs work with the existing account setup.** No new username, password or key is needed. The banner uploader is separate from the profile-photo uploader. Existing photos, introduction, colors, progress, credits and account roles are preserved. Guest designs stay on the same device.
+Personal photos and banners work with the existing account setup. No new SQL, key or username is needed for personal uploads. The two uploaders remain separate. Guest banners stay on the same device.
 
-**Published and verified:** [Run 43354218301](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/43354218301) passed all 117 browser scenarios and published the outside frame, clean banner cover and full final preview. This interface repair requires no new SQL. Its real backend-readiness check reports the separate sharing update below is still required for classmates' and teachers' design views.
+## Upload and preview
 
-## Let classmates and teachers see saved designs
+- Both inputs accept supported raster images up to **20 MiB** and **64 megapixels**. JPG, PNG, WebP, GIF, BMP and AVIF are recognized from their contents, even if a phone supplies no file-type label. HEIC works only where the browser can decode it; otherwise export it as JPG or PNG first. Animated inputs become a still image.
+- The browser crops profile photos to a square and normalizes uploads to private WebP files no larger than **256 KiB**. It uses a fallback decoder when the primary browser API is unavailable. Corrupt, unsupported and oversized files receive clear guidance; a failed preparation leaves the saved image alone.
+- **Profile photo** saves automatically. Upload status explains preparation, saving and removal. The same file can be retried after an error.
+- For a banner, choose a file or drop it into the upload area. Move the horizontal/vertical focus sliders or use **Top / Middle / Bottom**. **Center image** resets placement. **Remove banner** and **Reset banner** affect only the backdrop; **Cancel** leaves the saved profile unchanged.
+- A new selection replaces an unfinished preview. Resetting, removing or closing cancels pending preparation so a late image cannot reappear. Preparing a draft does not upload or save it; **Apply my banner** does.
+- The preview and saved profile share the same readable cover/identity layout. An unavailable saved banner can still be replaced or removed. Phone save and return controls remain visible.
 
-The website can save a student's own border and banner before this optional database update is installed. Displaying them in **Science friends**, **Leaderboard** learning cards and **Teacher Studio → Scientists** needs the small sharing bridge below. The existing classroom already has its required community version 2.
+## Optional classmate and teacher banner views
 
-1. Open [your project's SQL Editor](https://supabase.com/dashboard/project/qevqgbuyboeudxlhfiik/sql/new) and choose **New snippet**.
-2. Open [profile-styles-upgrade.sql](../supabase/profile-styles-upgrade.sql), choose **Raw**, copy the **entire file**, paste it into the snippet and click **Run**.
-3. Run `select public.csl_backend_status();` and check for **`"profile_styles": 1`**.
-4. Refresh the website. Open **Profile → Borders & banner**, apply a design, then check the learning card or teacher's scientist view.
+The live classroom already has community version 2. Follow [the one-step credit-ranking setup](CREDIT_RANKINGS_SETUP.md) to activate both the credit leaderboard and the existing banner-sharing bridge. If only banner sharing is wanted, run the entire [profile-styles-upgrade.sql](../supabase/profile-styles-upgrade.sql) in a new SQL Editor snippet and verify `"profile_styles": 1` through `select public.csl_backend_status();`.
 
-Run only this short script for an existing community-v2 classroom. It adds authorized reads and a storage policy; it does not reset accounts or records. The script can be run again. Fresh projects receive it through `setup.sql`, and the complete `upgrade.sql` includes it. A publishable browser key cannot install this update; the project owner must use SQL Editor or an authenticated database administrator connection.
+Banners start private. Authorized teachers can review them after the bridge is installed. Students may deliberately enable **Show my banner on my shared learning card**; replacing a banner turns that choice off again. Photo sharing remains a separate choice. Hidden, blocked and banned profiles keep the existing restrictions. Only the current explicitly shared file is eligible for classmate access; old uploads are not made public.
 
-## Banner choices and privacy
-
-- Upload a JPG, PNG or WebP up to **5 MB** and **24 megapixels**. The website resizes and converts it into a WebP no larger than 256 KiB before upload.
-- Choose an image or drop one into the upload area. Use **Horizontal image focus**, **Vertical image focus** and the **Top / Middle / Bottom** shortcuts to position it. The crop preview updates immediately; the full final preview uses the same cover and identity layout as the saved profile. **Center image**, **Remove banner** and **Reset design** are available. **Cancel** leaves the saved design alone.
-- The cover is separate from the readable name and account details. Decorative background shapes cannot become blank white overlays. If a saved banner cannot open, the editor explains that and still allows replacement or removal.
-- Banners start private. After the sharing bridge is installed, authorized teachers can review them. Students may deliberately enable **Show my banner on my shared learning card**. Replacing a banner turns this choice off again.
-- Classmates see borders only on profiles they are already allowed to see. Banner sharing is separate from the existing photo-sharing choice. Hidden, blocked and banned profiles retain the existing restrictions; teachers retain authorized account review.
-- The bucket stays private. Only the current, explicitly shared banner receives classmate read permission. Old uploaded banners are not made public. Signed image links expire and are kept in memory, outside backups and offline caches.
-- Cosmetic metadata cannot grant teaching access, credits or rank. Uploads and saves are bound to the verified starting account, including if the user switches accounts while a request is in flight.
+The bucket stays private. Signed links expire, stay in memory and are excluded from backups and offline caches. Uploads and metadata writes stay bound to the verified starting account, including during an account switch. Cosmetic changes cannot grant roles, credits or rank. If saving is interrupted with an uncertain server response, reopen the profile to check whether the save completed before retrying.
 
 ## Verification
 
-`npm run backend:test` verifies all 17 border IDs, owner/teacher reads, private and deliberately shared banners, blocking/bans, bounded metadata, foreign paths and additive reruns in an isolated PostgreSQL database.
-
-`npm run e2e -- e2e/profile-design.spec.ts` checks the device/guest editor, reload/offline persistence, invalid files and phone accessibility. `npm run e2e:cloud -- e2e/profile-design.cloud.spec.ts` checks account saves, upload failures/cleanup, retries, account switching and authorized views with controlled test accounts. These tests do not send real emails or change production records.
+`npm run e2e -- e2e/profile-design.spec.ts` checks guest/device persistence, previews, phone accessibility and return controls. `npm run e2e:cloud -- e2e/image-inputs.cloud.spec.ts e2e/profile-design.cloud.spec.ts` checks both uploaders, missing labels, fallback decoding, invalid-file recovery, camera-sized files, cancellation, retries, cleanup, account changes and authorized views. `npm run backend:test` verifies private storage, approved legacy decoration metadata, banner consent, blocks/bans and additive reruns. Controlled checks do not send real emails or modify production accounts.

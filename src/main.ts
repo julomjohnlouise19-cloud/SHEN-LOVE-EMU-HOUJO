@@ -14,6 +14,7 @@ import "./styles/reading.css";
 import "./styles/community.css";
 import "./styles/about.css";
 import "./styles/profile-design.css";
+import "./styles/daily-wheel.css";
 import { loadProfileDesign } from "./store/profile-design";
 import { loadAppearance } from "./store/preferences";
 import {
