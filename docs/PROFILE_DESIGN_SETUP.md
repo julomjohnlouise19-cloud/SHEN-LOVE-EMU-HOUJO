@@ -4,7 +4,7 @@ Students open **Profile → Borders & banner**. Choose a border, try a banner, t
 
 **Personal designs work with the existing account setup.** No new username, password or key is needed. The banner uploader is separate from the profile-photo uploader. Existing photos, introduction, colors, progress, credits and account roles are preserved. Guest designs stay on the same device.
 
-**Published and verified:** [Run 43347979432](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/43347979432) passed all checks and published personal editing. Its real backend-readiness check reports the sharing update below is still required for classmates' and teachers' design views.
+**Published and verified:** [Run 43354218301](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/43354218301) passed all 117 browser scenarios and published the outside frame, clean banner cover and full final preview. This interface repair requires no new SQL. Its real backend-readiness check reports the separate sharing update below is still required for classmates' and teachers' design views.
 
 ## Let classmates and teachers see saved designs
 
