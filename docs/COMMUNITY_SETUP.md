@@ -2,7 +2,9 @@
 
 Students use their **existing classroom account**. There is no new username to create. This additive update enables the automatic classmate directory, recent activity, shared weekly rankings and friend invitations. It preserves existing accounts, photos, quiz records, credits, stock, reservations and friendships.
 
-## One setup step for the owner
+**Live classroom verified:** [Run 43335835596](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/43335835596) confirmed community version 2 is installed. The latest About us and highest-score leaderboard interface update needs no further SQL.
+
+## One-time database setup
 
 1. Open [your project's SQL Editor](https://supabase.com/dashboard/project/qevqgbuyboeudxlhfiik/sql/new) and choose **New snippet**.
 2. Open [community-upgrade.sql](../supabase/community-upgrade.sql), choose **Raw**, and copy the **entire file**. Paste it into the snippet and click **Run**.
