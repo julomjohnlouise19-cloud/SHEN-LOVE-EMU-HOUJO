@@ -1,5 +1,19 @@
 # The Cozy Science Lab — build plan
 
+## Science Island · Discovery Activities
+
+- [x] Add a clearly nested, responsive Discovery Activities hub with matching, word search, flashcards, Planet Explorer and an achievement passport.
+- [x] Build deterministic science activity rules with genuine matching/word validation, hints, flashcard retry, planet knowledge checks and earned badges.
+- [x] Persist account-scoped activity progress safely across refresh/tabs; keep class-credit authority in the existing backend.
+- [x] Add optional user-enabled sound effects, accessible pointer/tap/keyboard controls, clear returns and reduced motion.
+- [x] Add a derived daily-wheel notification and a seven-week, 49-day class-credit claim calendar, protected by server dates, ownership, idempotency and an additive database update.
+- [x] Improve incorrect-choice explanations, review Cells difficulty, enlarge supporting text and give guest Records a direct sign-in action.
+- [ ] Verify logic, learning sources, mobile accessibility, persistence/offline/account isolation, calendar credit integrity and existing learning; sync GitHub, publish and check the public website.
+
+Implementation and initial verification: all 92 unit/property checks, 972-card validation, generated SQL consistency, reading/source integrity, economy simulation and the full isolated PostgreSQL suite pass. Seven calendar browser cases pass, including receipt loss/retry, competing tabs, account isolation, teacher confirmation/save recovery, 320-pixel accessibility and the guest Records action. The first standard run passed 58 of 60 cases; two new test defects were identified: an automated drag jumped to an off-screen destination before a native drag began, and a test looked for a photosynthesis word absent from the actual medium prompt. Continuous native dragging was verified independently, and the scenarios now use the real gesture and exact contextual prompt. Final focused browser checks pass: the real matching gesture, specific mitochondrion feedback, optional evidence practice, device-day wheel reminder, six fresh randomized Word Hunt boards, six cross-tab account restore/claim cases, and the extended repository-path/offline case. The full cloud run passed 84/85; its remaining case reached the restoring-session screen beyond the five-second assertion window. The test now explicitly waits for account readiness (up to the existing network window) and passed all six repeats in roughly five seconds each. No credit rule was weakened. Publication and public verification remain.
+
+- [ ] Project owner: run supabase/daily-rewards-upgrade.sql to activate the class-credit calendar and included pending credit-ranking/banner-sharing bridge. The chat has no authenticated database-admin connection.
+
 ## Reliable images, banner-focused profiles, credit rankings and requested science topics
 
 - [x] Reproduce and repair both image inputs, including missing file labels, browser decoding fallback, camera-size photos, interrupted edits and account-safe saves.

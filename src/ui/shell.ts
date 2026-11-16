@@ -10,7 +10,8 @@ import { pickupLocation, pickupReminder } from "../core/classroom";
 import { reservationDetails } from "./reservations";
 import { cloudEnabled } from "../store/cloud";
 import { cloudNotice } from "./cloud-status";
-import { currentUser, dispatch, getState } from "../store";
+import { currentUser, dispatch, getState, subscribe } from "../store";
+import { wheelReminderAvailable } from "../store/daily-reminders";
 import { dayKey } from "../core/time";
 import { levelOf } from "../core/rules";
 import { h, button, modal, progress } from "./dom";
@@ -37,6 +38,7 @@ const nav = [
   ["/notebook", "notebook", "My notebook"],
   ["/shop", "shop", "Supply shop"],
   ["/spin", "spin", "Daily spin"],
+  ["/daily-rewards", "calendar", "Daily rewards"],
   ["/leaderboard", "trophy", "Leaderboard"],
   ["/friends", "heart", "Science friends"],
 ];
@@ -243,7 +245,8 @@ export function shell(page: HTMLElement, route: string) {
   const notices =
     s.notifications.filter((n) => n.userId === user?.id && !n.read).length +
     (getLabSnapshot()?.orders.filter((order) => order.status === "reserved")
-      .length ?? 0);
+      .length ?? 0) +
+    Number(wheelReminderAvailable());
   const backdrop = button(
     "",
     () => {
@@ -532,7 +535,8 @@ function refreshNotificationBadges() {
       .length ?? 0;
   const count =
     state.notifications.filter((n) => n.userId === user?.id && !n.read).length +
-    pending;
+    pending +
+    Number(wheelReminderAvailable());
   document
     .querySelectorAll<HTMLElement>(".notification-button")
     .forEach((node) => {
@@ -549,10 +553,13 @@ function refreshNotificationBadges() {
     .forEach((node) => {
       node.textContent = pending
         ? `Notifications · ${pending} to collect`
-        : "Notifications";
+        : wheelReminderAvailable()
+          ? "Notifications · Daily spin ready"
+          : "Notifications";
     });
 }
 window.addEventListener("csl:platform", refreshNotificationBadges);
+window.addEventListener("csl:daily-tick", refreshNotificationBadges);
 async function notificationsModal() {
   const user = currentUser();
   if (!user) return;
@@ -570,7 +577,49 @@ async function notificationsModal() {
     .notifications.filter((n) => n.userId === user?.id)
     .slice(-30)
     .reverse();
-  const { close } = modal("Little lab updates", [
+  const wheelNotice = h("section", {
+    class: "wheel-notification",
+    "aria-label": "Daily wheel reminder",
+  });
+  const quietNotice = h(
+    "p",
+    { class: "muted" },
+    "All quiet in the lab. We’ll keep your discoveries and supply updates here.",
+  );
+  const paintWheel = () => {
+    const available = currentUser()?.id === user.id && wheelReminderAvailable();
+    wheelNotice.hidden = !available;
+    quietNotice.hidden = !!(notices.length || pending.length || available);
+    if (available)
+      wheelNotice.replaceChildren(
+        h(
+          "span",
+          { class: "wheel-notification-art", "aria-hidden": true },
+          icon("spin", 32),
+        ),
+        h(
+          "div",
+          null,
+          h("p", { class: "eyebrow" }, "A LITTLE DAILY DISCOVERY"),
+          h("h3", null, "Today’s wheel is waiting"),
+          h(
+            "p",
+            null,
+            "Your free daily practice spin is ready. There’s a little science and a practice-merit reward to discover.",
+          ),
+          button(
+            "Spin today’s wheel",
+            () => {
+              close();
+              go("/spin");
+            },
+            "button primary",
+          ),
+        ),
+      );
+  };
+  const { close, dialog } = modal("Little lab updates", [
+    wheelNotice,
     pending.length
       ? h(
           "section",
@@ -631,14 +680,20 @@ async function notificationsModal() {
             ),
           ),
         )
-      : !pending.length
-        ? h(
-            "p",
-            { class: "muted" },
-            "All quiet in the lab. We’ll keep your discoveries and supply updates here.",
-          )
-        : null,
+      : null,
+    quietNotice,
   ]);
+  paintWheel();
+  const unsubscribeWheel = subscribe(paintWheel);
+  window.addEventListener("csl:daily-tick", paintWheel);
+  dialog.addEventListener(
+    "close",
+    () => {
+      unsubscribeWheel();
+      window.removeEventListener("csl:daily-tick", paintWheel);
+    },
+    { once: true },
+  );
   if (notices.some((n) => !n.read))
     void act(() => dispatch({ type: "ReadNotifications" }))();
 }

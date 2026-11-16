@@ -1,4 +1,16 @@
 const paths: Record<string, string> = {
+  calendar:
+    '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18M7 14h2M12 14h2M7 18h2M12 18h2"/>',
+  connections:
+    '<rect x="2" y="3" width="7" height="7" rx="2"/><rect x="15" y="14" width="7" height="7" rx="2"/><path d="M9 6h4a5 5 0 0 1 5 5v3M6 10v3a5 5 0 0 0 5 5h4"/>',
+  wordgrid:
+    '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18M6 6l12 12"/>',
+  cards:
+    '<rect x="7" y="6" width="14" height="16" rx="2"/><path d="M16 3H5a2 2 0 0 0-2 2v12M11 11h6M11 15h4"/>',
+  bulb: '<path d="M9 18h6M9 21h6M8 14a7 7 0 1 1 8 0c-1 1-1 2-1 4H9c0-2 0-3-1-4Z"/>',
+  volume:
+    '<path d="M4 9h4l5-5v16l-5-5H4ZM16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/>',
+  muted: '<path d="M4 9h4l5-5v16l-5-5H4ZM17 9l5 6M22 9l-5 6"/>',
   home: '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
   island: '<path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/>',
   box: '<path d="M4 8h16v13H4zM3 3h18v5H3zM9 12h6"/>',
@@ -163,6 +175,8 @@ diagramArt.circulatory =
   '<path d="M130 45q30-45 60 0l20 109-30 31h-40l-30-31Z" fill="#f5ebda"/><path d="M160 78q-25-25-28 0 2 17 28 32 25-15 28-32-3-25-28 0Z" fill="#d5a08d"/><path d="M150 109v55m20-55v55m-20-45-25 19m45-19 25 19M149 70V35m21 35V35" stroke="#b68c7e" stroke-width="4"/><path d="M139 103v58m42-58v58" stroke="#819eaa" stroke-width="4"/>';
 diagramArt.stars =
   '<ellipse cx="160" cy="100" rx="125" ry="67" fill="#eee9f1"/><path d="M160 100q-70-55-90-10t80 50 70-55-65-30-30 45 65 10" stroke="#b9aac7" stroke-width="7"/><circle cx="160" cy="100" r="17" fill="#f3da96"/><circle cx="79" cy="80" r="3" fill="#b7a282"/><circle cx="117" cy="131" r="3" fill="#b7a282"/><circle cx="224" cy="99" r="3" fill="#b7a282"/><circle cx="201" cy="62" r="3" fill="#b7a282"/>';
+diagramArt.specializedCells =
+  '<ellipse cx="71" cy="91" rx="47" ry="30" fill="#d68f90" stroke="#985456"/><ellipse cx="71" cy="91" rx="22" ry="12" fill="#f3c8c2" stroke="#b67578"/><path d="M26 130q45 18 90 0" stroke="#985456"/><text x="22" y="163" font-size="15" fill="#354b42" stroke="none">Red blood cell</text><path d="m184 60-14-24m20 25 11-29m-15 41-28-6m28 14-29 17m37-12-8 28m18-35 28-18" stroke="#7974aa" stroke-width="4"/><path d="M185 63q16-10 21 4t-5 22q-15 8-23-5t7-21Z" fill="#d9d0ef" stroke="#7974aa"/><circle cx="192" cy="76" r="6" fill="#a995cf"/><path d="m207 77 52 34m-36-25 9-11m2 18 9-11m-1 16 9-10m8 23 22-9m-22 9 4 24m-4-24 25 10" stroke="#7974aa" stroke-width="4"/><text x="191" y="163" font-size="15" fill="#354b42" stroke="none">Nerve cell</text><text x="81" y="193" font-size="12" fill="#465e51" stroke="none">Simplified shapes · not to scale</text>';
 export function diagram(name: string) {
   return svg(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" fill="none" stroke="#68765d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="sans-serif">${diagramArt[name] ?? diagramArt.cell}</svg>`,
@@ -172,6 +186,8 @@ export function diagram(name: string) {
   );
 }
 const diagramDescriptions: Record<string, string> = {
+  specializedCells:
+    "Two specialized cells, not to scale: a red blood cell is a thin disc with a depressed centre; a nerve cell has branching extensions and a long axon.",
   cell: "Animal cell model: outer cell membrane, cytoplasm, a nucleus containing DNA, and bean-shaped mitochondria.",
   plant:
     "Plant cell model: a rigid cell wall, inner membrane, large central vacuole, nucleus and green chloroplasts.",

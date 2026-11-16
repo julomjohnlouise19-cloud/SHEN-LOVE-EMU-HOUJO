@@ -53,6 +53,7 @@ export interface Backend {
   communityReady: boolean;
   creditRankingsReady: boolean;
   profileStylesReady: boolean;
+  dailyCalendarReady: boolean;
   designMetadata: Record<string, unknown>;
   failDesignMetadata: boolean;
   failDesignUploads: boolean;
@@ -101,6 +102,7 @@ export const test = base.extend<{ backend: Backend }>({
         communityReady: false,
         creditRankingsReady: false,
         profileStylesReady: false,
+        dailyCalendarReady: false,
         designMetadata: {},
         failDesignMetadata: false,
         failDesignUploads: false,
@@ -425,6 +427,7 @@ export const test = base.extend<{ backend: Backend }>({
                 community: state.communityReady ? 2 : 0,
                 credit_rankings: state.creditRankingsReady ? 1 : 0,
                 profile_styles: state.profileStylesReady ? 1 : 0,
+                daily_calendar: state.dailyCalendarReady ? 1 : 0,
               })
             : respond({ message: "function not installed" }, 404);
         }

@@ -11,6 +11,11 @@ import { startDeck } from "./learn";
 let feedbackRun = "",
   feedbackIndex = -1;
 import { sourceButton } from "./sources";
+import {
+  incorrectChoiceRationale,
+  questionDiagram,
+} from "../core/learning-support";
+import { reasoningCheck } from "./reasoning-check";
 const hints = new Set<string>();
 const selectedAnswers = new Map<string, Answer>();
 export async function playPage(runId: string) {
@@ -351,7 +356,7 @@ export async function playPage(runId: string) {
           ? h(
               "div",
               { class: "question-diagram" },
-              diagram(q.diagram),
+              diagram(questionDiagram(q)!),
               h(
                 "p",
                 { class: "fine-print" },
@@ -418,6 +423,13 @@ export async function playPage(runId: string) {
                     answerLabel(q),
                   )
                 : null,
+              !result.correct && incorrectChoiceRationale(q, result.value)
+                ? h(
+                    "p",
+                    { class: "choice-rationale" },
+                    incorrectChoiceRationale(q, result.value)!,
+                  )
+                : null,
               h("p", null, q.explanation),
               sourceButton(q.deckId, q),
               button(
@@ -458,6 +470,7 @@ export async function playPage(runId: string) {
                 },
                 "button primary",
               ),
+              reasoningCheck(q),
             )
           : null,
       ),

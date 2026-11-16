@@ -5,6 +5,12 @@ import { icon } from "./svg";
 const titles: Record<string, string> = {
   "/": "My lab",
   "/island": "Science Island",
+  "/island/activities": "Discovery Activities",
+  "/island/activities/match": "Match Lab",
+  "/island/activities/words": "Word Hunt",
+  "/island/activities/cards": "Flashcards",
+  "/island/activities/planets": "Planet Explorer",
+  "/island/activities/badges": "Discovery passport",
   "/sources": "Science reading room",
   "/suggestions": "Suggestion box",
   "/teacher/suggestions": "Suggestion inbox",
@@ -12,6 +18,7 @@ const titles: Record<string, string> = {
   "/notebook": "My notebook",
   "/shop": "Supply shop",
   "/spin": "Daily spin",
+  "/daily-rewards": "Daily claim calendar",
   "/quests": "Quests",
   "/leaderboard": "Leaderboard",
   "/friends": "Science friends",
@@ -33,7 +40,15 @@ export function pageNavigation(route: string) {
     parent = "/",
     parentLabel = "my lab";
   const crumbs: [string, string][] = [["/", "My lab"]];
-  if (route.startsWith("/branch/")) {
+  if (route.startsWith("/island/activities")) {
+    parent = route === "/island/activities" ? "/island" : "/island/activities";
+    parentLabel =
+      route === "/island/activities"
+        ? "Science Island"
+        : "Discovery Activities";
+    crumbs.push(["/island", "Science Island"]);
+    if (route !== "/island/activities") crumbs.push([parent, parentLabel]);
+  } else if (route.startsWith("/branch/")) {
     label =
       branches.find((b) => b.id === route.split("/")[2])?.name ??
       "Science branch";

@@ -131,6 +131,19 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
     .click();
   await page.getByRole("button", { name: "Let’s make a discovery" }).click();
   await expect(page.locator(".question-card")).toBeVisible();
+  await page.goto(`${site}#/island/activities/words?topic=chemistry`);
+  await expect(page.locator("[data-letter-index]")).toHaveCount(100);
+  await page
+    .getByRole("button", { name: "A little hint", exact: true })
+    .click();
+  await expect(page.locator(".word-cell.is-hinted")).toHaveCount(1);
+  await page.reload();
+  await expect(page.locator(".word-cell.is-hinted")).toHaveCount(1);
+  await page.goto(`${site}#/daily-rewards`);
+  await expect(page.getByRole("gridcell")).toHaveCount(49);
+  await expect(
+    page.getByRole("button", { name: "Calendar preview", exact: true }),
+  ).toBeDisabled();
   await page.getByRole("button", { name: "Log out", exact: true }).click();
   await page.getByRole("button", { name: "Log out now" }).click();
   await expect(

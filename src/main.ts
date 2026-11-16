@@ -15,6 +15,9 @@ import "./styles/community.css";
 import "./styles/about.css";
 import "./styles/profile-design.css";
 import "./styles/daily-wheel.css";
+import "./styles/activities.css";
+import "./styles/daily-calendar.css";
+import "./styles/readability.css";
 import { loadProfileDesign } from "./store/profile-design";
 import { loadAppearance } from "./store/preferences";
 import {
@@ -131,6 +134,13 @@ async function render() {
   try {
     if (path === "/") page = dashboard();
     else if (path === "/island") page = islandPage();
+    else if (
+      path === "/island/activities" ||
+      path.startsWith("/island/activities/")
+    )
+      page = await (
+        await import("./ui/activities")
+      ).activitiesPage(path.split("/")[3] ?? "");
     else if (path.startsWith("/branch/")) page = branchPage(path.split("/")[2]);
     else if (path.startsWith("/play/"))
       page = await playPage(path.split("/")[2]);
@@ -148,6 +158,8 @@ async function render() {
           ? await (await import("./ui/class-shop")).classShopPage()
           : shopPage();
     else if (path === "/spin") page = spinPage();
+    else if (path === "/daily-rewards")
+      page = await (await import("./ui/daily-calendar")).dailyCalendarPage();
     else if (path === "/quests") page = questsPage();
     else if (path === "/leaderboard")
       page = cloudEnabled
@@ -322,6 +334,7 @@ try {
   setInterval(() => {
     void touchCommunityActivity();
   }, 60000);
+  setInterval(() => window.dispatchEvent(new Event("csl:daily-tick")), 30000);
   if (import.meta.env.PROD && "serviceWorker" in navigator)
     navigator.serviceWorker
       .register(`${import.meta.env.BASE_URL}sw.js`, {

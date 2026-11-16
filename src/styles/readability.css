@@ -1,0 +1,196 @@
+/* Readable secondary text while keeping the lab's existing pastel surfaces. */
+.fine-print,
+.auth-fields .fine-print,
+.profile-dialog .fine-print,
+.spin-copy > .fine-print,
+.question-diagram .fine-print,
+.results-page > .fine-print {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #485e54;
+}
+.eyebrow,
+.page-heading .eyebrow,
+.play-header .eyebrow,
+.daily-fact .eyebrow,
+.spin-copy .eyebrow,
+.next-deck-copy .eyebrow,
+.shop-banner .eyebrow,
+.results-page > .eyebrow {
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 1.3px;
+}
+.page-subtitle {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #4c6259;
+}
+.breadcrumbs {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.page-navigation .return-link,
+.dialog-back {
+  font-size: 14px;
+}
+.field > span,
+.field > label {
+  font-size: 13px;
+}
+.deck-meta,
+.record-meta,
+.quiz-meta,
+.trail-date,
+.topic-status,
+.question-meta {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.question-type,
+.play-counter {
+  font-size: 12px;
+  color: #485e54;
+}
+.answer-feedback p {
+  font-size: 14px;
+  line-height: 1.85;
+}
+.answer-feedback small {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.answer-feedback .button {
+  font-size: 14px;
+}
+.activity-small,
+.activity-save-note,
+.activity-source-row p,
+.format-card-footer > span,
+.activity-hero-stats > span,
+.activity-badge p,
+.word-trail-list li p {
+  font-size: 13px;
+  line-height: 1.85;
+}
+.compact .activity-badge p {
+  font-size: 12px;
+}
+.badge-state,
+.activity-tool,
+.activity-pill,
+.activity-round-progress span,
+.planet-type,
+.planet-model-note,
+.planet-map-caption > span,
+.mini-planet-stamp,
+.calendar-day-state,
+.calendar-week-number small {
+  font-size: 12px;
+}
+.planet-stop strong {
+  font-size: 12px;
+}
+.planet-stop > span:last-child {
+  font-size: 10px;
+}
+.planet-stop small {
+  font-size: 11px;
+}
+.planet-map-caption p {
+  font-size: 13px;
+}
+.word-board-footer,
+.word-board-footer .text-button {
+  font-size: 12px;
+}
+.answer-feedback .choice-rationale {
+  padding: 15px 18px;
+  border-left: 4px solid #b68c56;
+  border-radius: 0 12px 12px 0;
+  background: #fff4df;
+  color: #634d2c;
+  font-size: 15px;
+  line-height: 1.85;
+}
+.reasoning-check {
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px solid #cbd4e7;
+  border-radius: 19px;
+  background: #eff1fc;
+  color: #344963;
+}
+.reasoning-check h3 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 8px 0 13px;
+}
+.reasoning-check p {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.reasoning-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+.reasoning-options .button {
+  white-space: normal;
+  text-align: left;
+  justify-content: start;
+  min-height: 48px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.reasoning-answer {
+  padding: 16px;
+  border: 1px solid #c0d4bf;
+  border-radius: 13px;
+  background: #e5f0df;
+  color: #355237;
+}
+@media (max-width: 400px) {
+  .answer-feedback .reasoning-check {
+    padding: 16px 12px;
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+  .answer-feedback .reasoning-check h3 {
+    font-size: 23px;
+  }
+  .reasoning-options .button {
+    padding: 12px;
+    line-height: 1.7;
+  }
+  .activity-tools {
+    gap: 7px;
+  }
+  .activity-tool {
+    flex: 1 0 45%;
+  }
+  .hint-tool {
+    flex-basis: 100%;
+  }
+  .activity-hero-stats {
+    gap: 15px;
+  }
+  .activity-hero-stats > span {
+    font-size: 12px;
+    max-width: 72px;
+  }
+  .activity-hero-stats strong {
+    font-size: 24px;
+  }
+  .compact .activity-badge p {
+    min-height: 92px;
+  }
+  .planet-stop strong {
+    font-size: 11px;
+  }
+  .planet-stop > span:last-child {
+    font-size: 9px;
+  }
+}

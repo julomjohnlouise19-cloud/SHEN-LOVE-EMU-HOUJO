@@ -413,6 +413,11 @@ async function legacyRecordsPage(teacherOnly = false) {
       "notebook",
       "Your discoveries, together",
       "Sign in to save completed discoveries. Guest practice stays on this device.",
+      button(
+        "Sign in to save progress",
+        async () => (await import("./auth")).authModal(),
+        "button primary",
+      ),
     );
   const params = new URLSearchParams(location.hash.split("?")[1]);
   const offset = Math.max(

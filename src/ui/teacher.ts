@@ -1945,9 +1945,30 @@ export function teacherPage(section = "overview") {
       pickupError,
       pickupSave,
     );
+    const calendarHost = h("div");
+    const settingsOwner = currentUser()?.id;
     content.replaceChildren(
       h("div", { class: "teacher-settings-panels" }, ruleForm, pickupForm),
+      calendarHost,
     );
+    void import("./daily-calendar")
+      .then((module) => module.teacherCalendarPanel())
+      .then((panel) => {
+        if (calendarHost.isConnected && currentUser()?.id === settingsOwner)
+          calendarHost.replaceChildren(panel);
+      })
+      .catch((error) => {
+        if (calendarHost.isConnected)
+          calendarHost.replaceChildren(
+            h(
+              "p",
+              { class: "notice" },
+              error instanceof Error
+                ? error.message
+                : "Refresh to load calendar controls.",
+            ),
+          );
+      });
   }
   function activity(row: Record<string, unknown>) {
     const before = row.before_value,

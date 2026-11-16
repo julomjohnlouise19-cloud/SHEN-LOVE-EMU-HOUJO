@@ -1,7 +1,7 @@
 import { branches, decks, deckById, branchById } from "../data/catalog";
 import { currentUser, getState, dispatch, loadDeck, clock } from "../store";
 import { dayKey } from "../core/time";
-import { hashSeed, seededRng, shuffle } from "../core/random";
+import { hashSeed, seededRng } from "../core/random";
 import { levelOf, recommendDifficulty } from "../core/rules";
 import type { Difficulty, Run } from "../core/types";
 import { h, button, modal, progress, toast, input, field } from "./dom";
@@ -9,6 +9,7 @@ import { icon, mascot, diagram } from "./svg";
 import { act, go } from "./actions";
 import { pageHeading } from "./shell";
 import { sourceButton } from "./sources";
+import { sessionQuestions } from "../core/learning-support";
 const topicQueries = new Map<string, string>();
 
 function topicFinder() {
@@ -135,6 +136,36 @@ export function islandPage() {
       "Five little worlds. One big adventure in science.",
     ),
     topicFinder(),
+    h(
+      "section",
+      { class: "island-activity-entry", "aria-label": "Discovery Activities" },
+      h(
+        "span",
+        { class: "island-activity-icon", "aria-hidden": true },
+        icon("sparkles", 30),
+      ),
+      h(
+        "div",
+        null,
+        h("p", { class: "eyebrow" }, "A LITTLE PLAY. A LOT OF A-HA."),
+        h("h2", null, "Discovery Activities"),
+        h(
+          "p",
+          null,
+          "Match science ideas, find hidden words, flip flashcards and explore the planets. Collect a little badge along the way.",
+        ),
+      ),
+      h(
+        "a",
+        {
+          href: "#/island/activities",
+          class: "button primary",
+          "aria-label": "Open Discovery Activities",
+        },
+        "Explore activities",
+        icon("arrow", 17),
+      ),
+    ),
     h(
       "section",
       { class: "island-map paper", "aria-label": "Science Island branch map" },
@@ -430,9 +461,7 @@ export async function startDeck(
     : bank.filter((q) => q.level === level);
   if (!pool.length)
     throw new Error("This deck has no available cards at that level.");
-  const ids = shuffle(pool, rng)
-      .slice(0, 8)
-      .map((q) => q.id),
+  const ids = sessionQuestions(pool, level, rng).map((q) => q.id),
     runId = crypto.randomUUID();
   await dispatch({
     type: "StartRun",

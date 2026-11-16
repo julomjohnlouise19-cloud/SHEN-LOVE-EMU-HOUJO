@@ -60,6 +60,15 @@ try {
         ? "Current class-credit leaderboard is installed."
         : "Current class-credit rankings need supabase/credit-rankings-upgrade.sql. Existing wallets and learning records are preserved.";
     console.log(creditNotice);
+    const calendarNotice =
+      Number(data.daily_calendar) >= 1
+        ? "Seven-week class-credit calendar is installed."
+        : "Daily class-credit claims need supabase/daily-rewards-upgrade.sql. The 49-day preview remains available; no local class credits are created.";
+    console.log(calendarNotice);
+    if (process.env.GITHUB_ACTIONS === "true")
+      console.log(
+        `::notice title=Daily class-credit calendar::${calendarNotice}`,
+      );
     if (process.env.GITHUB_ACTIONS === "true")
       console.log(
         `::notice title=Class-credit ranking activation::${creditNotice}`,
