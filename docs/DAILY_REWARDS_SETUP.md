@@ -1,6 +1,6 @@
 # Turn on the seven-week class-credit calendar
 
-This is a one-time database update for an existing classroom. It preserves accounts, quiz records, shop stock, balances and reservations. It also includes the pending class-credit leaderboard and authorized banner-sharing updates.
+This is a one-time database update for an existing classroom. It preserves accounts, quiz records, shop stock, balances and reservations. It also safely re-applies the compatible class-credit leaderboard and authorized banner-sharing updates; those two capabilities are already installed on this classroom.
 
 1. Open your project in the [database dashboard](https://supabase.com/dashboard/project/qevqgbuyboeudxlhfiik/sql/new).
 2. Open a **new SQL Editor snippet**.
@@ -13,7 +13,7 @@ This is a one-time database update for an existing classroom. It preserves accou
    ```
 
    The result should include `daily_calendar: 1`, `credit_rankings: 1` and `profile_styles: 1`.
-6. Refresh the website. Students open **Daily rewards**. Teachers open **Teacher Studio → Lab settings → Daily claim calendar**.
+6. Refresh the website. Students open **Daily rewards**. Teachers open **Teacher Studio → Lab settings → Seven-week daily rewards**.
 
 No private key or password belongs in the website or GitHub. The update must be run by the project owner; adding website files alone cannot install database functions.
 
