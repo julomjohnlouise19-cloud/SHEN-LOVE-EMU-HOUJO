@@ -1,6 +1,6 @@
 # Turn on the seven-week class-credit calendar
 
-This classroom is already activated: [run 44059192765](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/44059192765) verified `daily_calendar: 1`, `credit_rankings: 1` and `profile_styles: 1`. You do not need to repeat the setup here. Students open the header's **Daily rewards** gift button; teachers manage defaults in **Teacher Studio → Lab settings**.
+This classroom is already activated: [run 44063734172](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/44063734172) verified `daily_calendar: 1`, `credit_rankings: 1` and `profile_styles: 1`. You do not need to repeat the setup here. Students open the header's **Daily rewards** gift button; teachers manage defaults in **Teacher Studio → Lab settings**.
 
 For another existing classroom, the following one-time update preserves accounts, quiz records, shop stock, balances and reservations. It also safely re-applies the compatible class-credit leaderboard and authorized banner-sharing updates.
 
