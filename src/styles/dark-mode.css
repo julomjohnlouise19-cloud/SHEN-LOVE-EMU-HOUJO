@@ -683,3 +683,112 @@
   color: var(--lab-ink);
   border-color: var(--lab-line);
 }
+
+.table-wrap .text-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid var(--lab-line);
+  border-radius: 10px;
+  line-height: 1.5;
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+}
+.table-wrap .text-button:focus-visible {
+  outline: 2px solid var(--lab-brand);
+  outline-offset: 3px;
+}
+:root[data-color-mode="dark"] .table-wrap :is(thead, th) {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .table-wrap th {
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+:root[data-color-mode="dark"] .table-wrap caption {
+  color: var(--lab-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+:root[data-color-mode="dark"] .table-wrap td {
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .table-wrap .your-rank,
+:root[data-color-mode="dark"] .table-wrap tbody tr:focus-within {
+  background: var(--lab-soft);
+}
+:root[data-color-mode="dark"] :is(.teacher-tag, .status-tag) {
+  --status-bg: #4d4325;
+  --status-ink: #fff0bd;
+  --status-line: #a38950;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid var(--status-line);
+  border-radius: 999px;
+  background: var(--status-bg);
+  color: var(--status-ink);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+:root[data-color-mode="dark"] :is(.teacher-tag, .status-tag)::before {
+  content: "";
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+:root[data-color-mode="dark"]
+  :is(
+    .teacher-tag.green,
+    .status-tag.collected,
+    .status-tag.claimed,
+    .status-tag.redeemed
+  ) {
+  --status-bg: #244a34;
+  --status-ink: #d5f1de;
+  --status-line: #60836b;
+}
+:root[data-color-mode="dark"] :is(.teacher-tag.peach, .status-tag.cancelled) {
+  --status-bg: #4e352c;
+  --status-ink: #ffe0c9;
+  --status-line: #b88766;
+}
+:root[data-color-mode="dark"] .teacher-tag.lilac {
+  --status-bg: #3a3554;
+  --status-ink: #e8deff;
+  --status-line: #9282b5;
+}
+@media (hover: hover) {
+  .table-wrap .text-button:hover:not(:disabled),
+  :root[data-color-mode="dark"] .table-wrap .text-button:hover:not(:disabled) {
+    background: var(--lab-brand);
+    color: var(--lab-bg);
+    border-color: var(--lab-brand);
+  }
+  :root[data-color-mode="dark"] .table-wrap tbody tr:hover {
+    background: color-mix(in srgb, var(--lab-soft), transparent 45%);
+  }
+}
+@media (max-width: 1100px) {
+  .table-wrap .text-button {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .table-wrap .text-button {
+    transition:
+      background-color 0.14s,
+      border-color 0.14s,
+      color 0.14s;
+  }
+}
