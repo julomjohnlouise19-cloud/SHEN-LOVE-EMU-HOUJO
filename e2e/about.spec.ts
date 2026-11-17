@@ -67,7 +67,7 @@ test("About us opens on the welcome page with seven real portraits and returns w
   await page.screenshot({ path: "/tmp/cozy-about-team-overview.png" });
   await page.setViewportSize({ width: 1280, height: 720 });
   await dialog
-    .getByRole("button", { name: "Back to the website", exact: true })
+    .getByRole("button", { name: "Close and return to page", exact: true })
     .click();
   await expect(trigger).toBeFocused();
 });

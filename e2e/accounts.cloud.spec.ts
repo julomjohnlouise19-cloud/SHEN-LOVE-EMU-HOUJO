@@ -13,7 +13,9 @@ test("signup requires a deliberate agreement and preserves the form while readin
     .getByRole("button", { name: "Create account", exact: true })
     .click();
   await page.getByLabel("Your name", { exact: true }).fill("New Scientist");
-  await page.getByLabel("Email", { exact: true }).fill("new@example.test");
+  await page
+    .getByLabel("Email", { exact: true })
+    .fill("new.scientist@gmail.com");
   await page.getByLabel("Password", { exact: true }).fill("cloud-password-123");
   await page
     .getByRole("combobox", { name: "Section (optional)", exact: true })
@@ -42,7 +44,7 @@ test("signup requires a deliberate agreement and preserves the form while readin
   ).toEqual([]);
   await page.screenshot({ path: testInfo.outputPath("signup-terms-320.png") });
   await terms
-    .getByRole("button", { name: "Close dialog", exact: true })
+    .getByRole("button", { name: "Close and return to page", exact: true })
     .click();
   await expect(page.getByLabel("Your name", { exact: true })).toHaveValue(
     "New Scientist",
@@ -99,7 +101,9 @@ test("teachers see the actual student photo, introduction and account details", 
     buffer: Buffer.from(image, "base64"),
   });
   await expect.poll(() => backend.photoUploads).toBe(1);
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   backend.preferences[users[0].id] = {
     theme: "aurora",
     bio: "I love learning about cells and our planet.",
@@ -149,7 +153,7 @@ test("teachers see the actual student photo, introduction and account details", 
     ),
   ).toBe(true);
   await dialog
-    .getByRole("button", { name: "Close dialog", exact: true })
+    .getByRole("button", { name: "Close and return to page", exact: true })
     .click();
   backend.profiles[0].photo_path = null;
   await page
@@ -196,7 +200,9 @@ test("teacher bans require a reason, block sign-in and can be restored without d
   await expect(page.getByRole("dialog").locator(".form-error")).toContainText(
     "banned from classroom access",
   );
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await signIn(page, "teacher");
   await page.getByRole("link", { name: "Scientists", exact: true }).click();
   await row
@@ -258,7 +264,9 @@ test("reservation instructions persist in notifications and follow the teacher's
   await expect(pickup).toContainText("Grade 10 SSC classroom");
   await expect(pickup).toContainText("Bring your claim code for verification");
   const code = backend.orders[0].code;
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await page.reload();
   await page.getByRole("button", { name: /^Notifications/ }).click();
   const pending = page.getByRole("region", {
@@ -266,7 +274,9 @@ test("reservation instructions persist in notifications and follow the teacher's
     exact: true,
   });
   await expect(pending).toContainText(code);
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await signOut(page);
   await signIn(page, "teacher");
   await page.getByRole("link", { name: "Lab settings", exact: true }).click();
@@ -295,7 +305,9 @@ test("reservation instructions persist in notifications and follow the teacher's
   await signIn(page);
   await page.getByRole("button", { name: /^Notifications/ }).click();
   await expect(pending).toContainText("Science corner");
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   backend.orders[0].status = "collected";
   await page.getByRole("button", { name: /^Notifications/ }).click();
   await expect(pending).toHaveCount(0);

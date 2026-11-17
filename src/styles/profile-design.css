@@ -145,6 +145,10 @@
 .profile-cover .profile-banner-layer {
   z-index: 0;
 }
+.profile-composition:not(.has-custom-banner) .profile-cover {
+  aspect-ratio: 4.8;
+  max-height: 170px;
+}
 .profile-composition .profile-identity-layout {
   display: grid;
   grid-template-columns: 156px minmax(0, 1fr);
@@ -183,7 +187,8 @@
 }
 .profile-composition .scientist-card-copy .eyebrow {
   color: #53665e;
-  font-size: 8px;
+  font-size: 11px;
+  line-height: 1.6;
   margin: 0 0 8px;
 }
 .profile-composition .scientist-card-copy h3 {
@@ -194,11 +199,12 @@
 .profile-composition .profile-role {
   color: #375348;
   background: #eaf2eb;
+  font-size: 12px;
 }
 .profile-composition .profile-class-detail {
   color: #52675d;
   margin: 12px 0 0;
-  font-size: 12px;
+  font-size: 13px;
 }
 @container scientist-profile (max-width: 440px) {
   .profile-composition .profile-identity-layout {

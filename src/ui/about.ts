@@ -98,7 +98,7 @@ export function aboutUsModal(returnFocus?: HTMLElement) {
       );
     }),
   );
-  const { dialog, close } = modal(
+  const { dialog } = modal(
     "About us",
     [
       h(
@@ -151,7 +151,6 @@ export function aboutUsModal(returnFocus?: HTMLElement) {
           icon("heart", 18),
           "Made with curiosity, care and a little team spirit.",
         ),
-        button("Back to the website", () => close(), "button outline"),
       ),
     ],
     true,

@@ -117,7 +117,7 @@ test("topic search finds decks across branches, explains empty results and respe
       exact: true,
     }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   await search.fill("zzzyy no such science topic");
   await expect(page.locator(".topic-status")).toContainText(
     "No matching decks",
@@ -242,7 +242,7 @@ test("offline guidance preserves an active search and the school logo remains av
     })
     .click();
   await expect(page.getByRole("dialog").locator(".school-logo")).toBeVisible();
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   await page.reload();
   await expect(page.locator("[data-connection-notice]")).toBeVisible();
   expect(

@@ -2,7 +2,7 @@ import { test, expect, host, users } from "./cloud-fixtures";
 import type { Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-async function signupDetails(page: Page, email = "new@example.test") {
+async function signupDetails(page: Page, email = "new.scientist@gmail.com") {
   await page
     .getByRole("button", { name: "Create account", exact: true })
     .click();
@@ -27,7 +27,7 @@ test("failed confirmation preserves details, provides accessible recovery and ke
   backend.emailDeliveryFailed = true;
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("./");
-  await signupDetails(page, users[0].email);
+  await signupDetails(page, "student.one@gmail.com");
   await page
     .getByRole("button", { name: "Make my little lab", exact: true })
     .click();
@@ -75,7 +75,7 @@ test("failed confirmation preserves details, provides accessible recovery and ke
     "New Scientist",
   );
   await expect(page.getByLabel("Email", { exact: true })).toHaveValue(
-    users[0].email,
+    "student.one@gmail.com",
   );
   await expect(page.getByLabel("Grade", { exact: true })).toHaveValue("9");
   await expect(
@@ -86,7 +86,7 @@ test("failed confirmation preserves details, provides accessible recovery and ke
     page.getByRole("button", { name: /Try again in/ }),
   ).toBeDisabled();
   await page.reload();
-  await signupDetails(page, users[0].email);
+  await signupDetails(page, "student.one@gmail.com");
   await expect(
     page.getByRole("button", { name: /Try again in/ }),
   ).toBeDisabled();
@@ -95,7 +95,7 @@ test("failed confirmation preserves details, provides accessible recovery and ke
     .getByRole("button", { name: "I already have an account", exact: true })
     .click();
   await expect(page.getByLabel("Email", { exact: true })).toHaveValue(
-    users[0].email,
+    "student.one@gmail.com",
   );
   await expect(
     page.getByRole("button", { name: "Welcome back", exact: true }),
@@ -129,7 +129,7 @@ test("confirmation retry distinguishes another delivery failure from an accepted
   ).toBeVisible();
   await page.clock.fastForward(61000);
   await page
-    .getByRole("button", { name: "Send one new link", exact: true })
+    .getByRole("button", { name: "Send a new code", exact: true })
     .click();
   await expect.poll(() => backend.resendCalls).toBe(1);
   await expect(
@@ -147,7 +147,7 @@ test("confirmation retry distinguishes another delivery failure from an accepted
   backend.emailDeliveryFailed = false;
   await page.clock.fastForward(61000);
   await page
-    .getByRole("button", { name: "Send one new link", exact: true })
+    .getByRole("button", { name: "Send a new code", exact: true })
     .click();
   await expect(
     page.getByRole("heading", { name: "Check your email", exact: true }),
@@ -155,7 +155,7 @@ test("confirmation retry distinguishes another delivery failure from an accepted
   await expect(page.locator(".auth-confirmation .form-error")).toBeEmpty();
   await expect(
     page.locator(".auth-confirmation .auth-reset-status"),
-  ).toContainText("A new confirmation was requested");
+  ).toContainText("A new verification code was requested");
   expect(backend.resendCalls).toBe(2);
   expect(backend.signupCalls).toBe(1);
   expect(backend.tokenCalls).toBe(0);

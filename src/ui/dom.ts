@@ -196,13 +196,16 @@ export function modal(
             h("h2", null, title),
           ),
         ),
-        button("Close ×", close, "icon-button close", {
-          "aria-label": "Close dialog",
-        }),
+        button(
+          h("span", { "aria-hidden": true }, "×"),
+          close,
+          "icon-button close dialog-close",
+          {
+            "aria-label": "Close and return to page",
+            title: `Close ${title}`,
+          },
+        ),
       ),
-      button("← Close and return", close, "dialog-back", {
-        "aria-label": "Close and return to page",
-      }),
     ),
     ...content.filter(
       (c): c is Node | string => c instanceof Node || typeof c === "string",

@@ -54,13 +54,22 @@ export function accountError(value: unknown): AccountError {
       "rate",
       60,
     );
+  if (code === "otp_disabled")
+    return new AccountError(
+      "Email-code verification needs an account setting update. Ask your teacher to check the email verification setup.",
+      "configuration",
+    );
+  if (code === "otp_expired")
+    return new AccountError(
+      "That code is incorrect, expired or already used. Check the latest email, or request one new code when the countdown ends.",
+    );
   if (
     /error sending (?:confirmation|recovery|reset|magic link|invite)?\s*email|failed to send (?:confirmation|recovery|reset)?\s*email/i.test(
       message,
     )
   )
     return new AccountError(
-      "The account email could not be sent. Your teacher needs to check the email sender settings. If you already confirmed your account, you can still sign in. Wait before requesting one new link.",
+      "The account email could not be sent. Your teacher needs to check the email sender settings. If you already verified your account, you can still sign in. Wait before requesting one new code.",
       "delivery",
       60,
     );
@@ -74,7 +83,7 @@ export function accountError(value: unknown): AccountError {
     );
   if (code === "email_not_confirmed" || /email not confirmed/i.test(message))
     return new AccountError(
-      "Confirm your email before signing in. Check your inbox and spam folder, or request one new confirmation link.",
+      "Verify your email before signing in. Enter the six-digit code from your inbox or spam folder, or request one new code.",
       "confirm",
     );
   if (

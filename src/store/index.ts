@@ -12,6 +12,7 @@ import {
   initCloud,
   cloudLogin,
   cloudRegister,
+  cloudVerifyEmailCode,
   cloudLogout,
   cloudChangePassword,
   cloudUpdateProfile,
@@ -335,6 +336,11 @@ export async function login(username: string, password: string) {
   await adapter.set(limiterKey, { tries: 0, until: 0 });
   await hydratePhoto(user.id);
   await createSession(user.id);
+}
+export async function verifyEmailCode(email: string, code: string) {
+  if (!cloudEnabled)
+    throw new Error("Email codes are available for online classroom accounts.");
+  await enterCloud(await cloudVerifyEmailCode(email, code));
 }
 export async function register(input: {
   username: string;

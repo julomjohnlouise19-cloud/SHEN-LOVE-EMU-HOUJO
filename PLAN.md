@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## Consistent layouts, readable controls and email-code signup
+
+- [x] Correct the profile identity rectangle/cover layout, activated teacher-calendar panels, header guide control and periodic-table Dark mode shown in the screenshots.
+- [x] Consolidate duplicate dialog exits into one X and simplify page returns while retaining accessible names, Escape, nested focus return and clear destinations.
+- [x] Add Gmail signup validation and a server-verified six-digit email-code form, retaining terms, passwords, existing sign-ins, rate limits and failure recovery. Prepare the exact owner email template and configuration guide.
+- [x] Audit populated student/teacher routes and important dialogs in both themes and on phones; fix the further contrast, clipping and readability defects found.
+- [ ] Run the required checks, synchronize GitHub, verify publication and state any remaining owner email-template step accurately.
+
+Focused verification passes lint/typecheck, 95 unit/property checks, all 972 reviewed questions, SQL/document consistency and the economy simulation. Fifteen standard browser scenarios cover About us, profiles, reading and Dark mode including all 118 periodic elements, ten family colors, filters, detail/focus return and phone card view. The populated cloud audit performs 70 WCAG AA scans across student/teacher routes and account screens in both themes; two profile/calendar scenarios verify uploaded photos, long names, four widths, single-X focus return, calendar confirmation/retry/reload and unchanged wallets/stock. Nine email scenarios cover malformed Gmail addresses, rejected/accepted requests, wrong/correct server codes, phone Dark mode, alias/cross-tab cooldowns, disabled-confirmation detection, reload and existing non-Gmail sign-in. The broader audit found and repaired additional quests, badges and experiment-readout contrast defects. No real email, personal login or production data was changed. The owner must save docs/email-code-template.html in Confirm signup and keep Confirm email enabled; this chat has no authenticated Auth-management connection and cannot publish private email settings.
+
 ## Readable teacher and student tables
 
 - [x] Replace the pale Dark mode table headers, stock/access/availability tags and reservation chips with readable themed surfaces.

@@ -68,8 +68,11 @@ export interface Backend {
   emailLimited: boolean;
   emailDeliveryFailed: boolean;
   signupCalls: number;
+  signupAutoConfirmed: boolean;
   signupMetadata: Record<string, unknown>;
   resendCalls: number;
+  verifyCalls: number;
+  emailCodeRequests: { email: string; token: string; type: string }[];
   photoUploads: number;
   recoverCalls: number;
   invalidRecoveryCode: boolean;
@@ -117,8 +120,11 @@ export const test = base.extend<{ backend: Backend }>({
         emailLimited: false,
         emailDeliveryFailed: false,
         signupCalls: 0,
+        signupAutoConfirmed: false,
         signupMetadata: {},
         resendCalls: 0,
+        verifyCalls: 0,
+        emailCodeRequests: [],
         photoUploads: 0,
         recoverCalls: 0,
         invalidRecoveryCode: false,
@@ -152,6 +158,7 @@ export const test = base.extend<{ backend: Backend }>({
         overrides: [],
       };
       const errors: string[] = [],
+        verifiedEmails = new Map<string, string>(),
         photos = new Map<string, Buffer>(),
         requests = new Map<string, unknown>(),
         games = new Map<string, ArcadeView>();
@@ -193,6 +200,8 @@ export const test = base.extend<{ backend: Backend }>({
           if (
             message.location().url.startsWith(host) &&
             (/(?:400|404|429|503)/.test(message.text()) ||
+              (/\/auth\/v1\/verify/.test(message.location().url) &&
+                /403/.test(message.text())) ||
               (state.emailDeliveryFailed &&
                 /\/auth\/v1\/(?:signup|resend|recover)/.test(
                   message.location().url,
@@ -282,6 +291,41 @@ export const test = base.extend<{ backend: Backend }>({
             user,
           });
         }
+        if (url.pathname === "/auth/v1/verify") {
+          state.verifyCalls++;
+          state.emailCodeRequests.push({
+            email: String(body?.email ?? ""),
+            token: String(body?.token ?? ""),
+            type: String(body?.type ?? ""),
+          });
+          if (body?.token !== "123456" || body?.type !== "signup")
+            return respond(
+              {
+                code: "otp_expired",
+                message: "Token has expired or is invalid",
+              },
+              403,
+            );
+          const user = {
+            ...users[0],
+            email: String(body.email),
+            email_confirmed_at: new Date().toISOString(),
+          };
+          verifiedEmails.set(user.id, user.email);
+          const payload = {
+            sub: user.id,
+            aud: "authenticated",
+            role: "authenticated",
+            exp: Math.floor(Date.now() / 1000) + 3600,
+          };
+          return respond({
+            access_token: `${Buffer.from('{"alg":"HS256","typ":"JWT"}').toString("base64url")}.${Buffer.from(JSON.stringify(payload)).toString("base64url")}.fixture`,
+            token_type: "bearer",
+            expires_in: 3600,
+            refresh_token: "fixture-refresh",
+            user,
+          });
+        }
         if (url.pathname === "/auth/v1/signup") {
           state.signupCalls++;
           state.signupMetadata = (body?.data ?? {}) as Record<string, unknown>;
@@ -302,6 +346,22 @@ export const test = base.extend<{ backend: Backend }>({
               },
               429,
             );
+          if (state.signupAutoConfirmed) {
+            const user = { ...users[0], email: body?.email };
+            const payload = {
+              sub: user.id,
+              aud: "authenticated",
+              role: "authenticated",
+              exp: Math.floor(Date.now() / 1000) + 3600,
+            };
+            return respond({
+              access_token: `${Buffer.from('{"alg":"HS256","typ":"JWT"}').toString("base64url")}.${Buffer.from(JSON.stringify(payload)).toString("base64url")}.fixture`,
+              token_type: "bearer",
+              expires_in: 3600,
+              refresh_token: "fixture-refresh",
+              user,
+            });
+          }
           return respond({ ...users[0], email: body?.email, identities: [] });
         }
         if (url.pathname === "/auth/v1/resend") {
@@ -356,6 +416,7 @@ export const test = base.extend<{ backend: Backend }>({
           }
           return respond({
             ...user,
+            email: verifiedEmails.get(user.id) ?? user.email,
             user_metadata: {
               ...user.user_metadata,
               ...(state.designMetadata[user.id]

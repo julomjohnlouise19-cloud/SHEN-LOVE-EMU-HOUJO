@@ -24,6 +24,7 @@ export function periodicTableShelf() {
     ),
   );
   const count = h("p", { class: "element-count", role: "status" });
+  const legendButtons: HTMLButtonElement[] = [];
   const diagram = h("div", { class: "periodic-view" });
   const detail = h("section", {
     class: "element-detail",
@@ -75,6 +76,8 @@ export function periodicTableShelf() {
         "aria-label": `${element.number} ${element.name} (${element.symbol})`,
         "aria-pressed": element.number === selected.number,
         "data-element-number": element.number,
+        "data-element-family": element.family,
+        title: `${element.number} · ${element.name} (${element.symbol})`,
         style: {
           "--element-color": elementFamilies[element.family].color,
           gridColumn: element.column + 1,
@@ -87,7 +90,11 @@ export function periodicTableShelf() {
     detail.replaceChildren(
       h(
         "div",
-        { class: "element-identity", style: { "--element-color": f.color } },
+        {
+          class: "element-identity",
+          "data-element-family": selected.family,
+          style: { "--element-color": f.color },
+        },
         h("span", { class: "element-big-symbol" }, selected.symbol),
         h(
           "div",
@@ -136,6 +143,12 @@ export function periodicTableShelf() {
     );
   }
   function update() {
+    legendButtons.forEach((control) =>
+      control.setAttribute(
+        "aria-pressed",
+        String(control.dataset.elementFamily === family.value),
+      ),
+    );
     const query = search.value.trim().toLowerCase();
     const symbolMatch = query
       ? elements.find((e) => e.symbol.toLowerCase() === query)
@@ -310,12 +323,15 @@ export function periodicTableShelf() {
     h(
       "div",
       { class: "element-legend", "aria-label": "Element family colours" },
-      ...Object.entries(elementFamilies).map(([id, value]) =>
-        button(
+      ...Object.entries(elementFamilies).map(([id, value]) => {
+        const control = button(
           h(
             "span",
             null,
-            h("i", { "aria-hidden": true, style: { background: value.color } }),
+            h("i", {
+              "aria-hidden": true,
+              style: { "--element-color": value.color },
+            }),
             value.name,
           ),
           () => {
@@ -323,9 +339,15 @@ export function periodicTableShelf() {
             update();
           },
           "element-legend-button",
-          { "aria-label": `Filter ${value.name}` },
-        ),
-      ),
+          {
+            "aria-label": `Filter ${value.name}`,
+            "aria-pressed": false,
+            "data-element-family": id,
+          },
+        );
+        legendButtons.push(control);
+        return control;
+      }),
     ),
     h(
       "p",

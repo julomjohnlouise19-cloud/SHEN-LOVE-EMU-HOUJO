@@ -11,6 +11,8 @@ it("explains email quota, confirmation and sender restrictions without service b
     waitSeconds: 60,
   });
   expect(accountError({ code: "email_not_confirmed" }).kind).toBe("confirm");
+  expect(accountError({ code: "otp_expired" }).message).toContain("expired");
+  expect(accountError({ code: "otp_disabled" }).kind).toBe("configuration");
   expect(accountError({ code: "email_address_not_authorized" }).kind).toBe(
     "configuration",
   );

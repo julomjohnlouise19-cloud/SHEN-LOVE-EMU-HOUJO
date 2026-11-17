@@ -1,7 +1,6 @@
 import { branches, decks } from "../data/catalog";
 import { getState } from "../store";
 import { h } from "./dom";
-import { icon } from "./svg";
 const titles: Record<string, string> = {
   "/": "My lab",
   "/island": "Science Island",
@@ -81,13 +80,9 @@ export function pageNavigation(route: string) {
           href: `#${parent}`,
           class: "return-link",
           "aria-label": `Back to ${parentLabel}`,
+          title: `Return to ${parentLabel}`,
         },
-        h(
-          "span",
-          { class: "return-arrow", "aria-hidden": true },
-          icon("arrow", 16),
-        ),
-        `Back to ${parentLabel}`,
+        h("span", { class: "return-arrow", "aria-hidden": true }, "×"),
       ),
     );
   nav.append(

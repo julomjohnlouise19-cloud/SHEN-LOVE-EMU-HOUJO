@@ -45,7 +45,7 @@ test("phase 3: all branch decks, Skills Lab gate, seeded share links and calcula
   await page.getByRole("button", { name: "Open Cells", exact: true }).click();
   await page.getByRole("button", { name: "Share a little challenge" }).click();
   const link = await page.getByLabel("Your seeded challenge link").inputValue();
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   await page.goto(link);
   await page
     .getByRole("button", { name: "Accept this little challenge" })

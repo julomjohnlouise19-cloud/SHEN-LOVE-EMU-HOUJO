@@ -1,4 +1,5 @@
 import { AccountError } from "../core/account-errors";
+import { emailCode } from "../core/email-verification";
 import {
   emailWait,
   resendConfirmation,
@@ -17,6 +18,7 @@ import {
 import {
   currentUser,
   login,
+  verifyEmailCode,
   register,
   dispatch,
   logout,
@@ -67,6 +69,13 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     true,
   );
   dialog.classList.add("auth-dialog");
+  function stageTitle(title: string) {
+    dialog.setAttribute("aria-label", title);
+    dialog.querySelector(".modal-identity h2")!.textContent = title;
+    dialog
+      .querySelector(".dialog-close")
+      ?.setAttribute("title", `Close ${title}`);
+  }
   const body = h("div", { class: "auth-layout" });
   dialog.append(body);
   dialog.addEventListener("close", () => {
@@ -83,6 +92,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     render();
   };
   function resetPanel() {
+    stageTitle("Account recovery");
     const currentView = ++view;
     let sending = false;
     clearInterval(timer);
@@ -168,9 +178,10 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         ),
         form,
         button(
-          "Back to sign in",
+          "Sign in instead",
           () => changeMode(false),
           "button outline full",
+          { "aria-label": "Back to sign in" },
         ),
       ),
     );
@@ -218,34 +229,58 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     accepted = false,
     signupFailed = false,
   ) {
+    stageTitle("Verify your email");
     const currentView = ++view;
-    let sending = false;
+    let sending = false,
+      verifying = false;
     clearInterval(timer);
     const message = h("p", { class: "form-error", role: "alert" });
     const status = h("p", { class: "auth-reset-status", role: "status" });
     const heading = h("h3", { tabindex: -1 });
     const description = h("p");
+    const destination = entryDestination("");
+    const code = input("email-code", "000000", "", "text");
+    code.inputMode = "numeric";
+    code.autocomplete = "one-time-code";
+    code.maxLength = 12;
+    code.pattern = "[0-9]{6}";
+    code.classList.add("email-code-input");
+    const verify = button(
+      "Verify code & enter",
+      () => undefined,
+      "button primary full",
+      {
+        type: "submit",
+        disabled: true,
+      },
+    );
+    code.addEventListener("input", () => {
+      const value = emailCode(code.value);
+      if (value) code.value = value;
+      setButtonDisabled(verify, verifying || sending || !value);
+    });
     function explain(error?: AccountError, requested = false) {
       heading.textContent = error
         ? "Email delivery needs attention"
         : requested
           ? "Check your email"
-          : "Confirm your email";
+          : "Enter your email code";
       description.textContent = error
         ? signupFailed
-          ? "The email step failed, so your account may not have been created. After your teacher fixes the sender, go back to signup details and try again. If you already registered, request one new link below."
-          : "We couldn’t request your confirmation email. Ask your teacher to check the email sender, then request one new link below."
+          ? "The email could not be sent, so your account may not have been created. Edit your signup details and try again after your teacher fixes the sender. If you already registered, request one new code below."
+          : "We couldn’t request your email code. Ask your teacher to check the email sender, then request one new code below."
         : requested
-          ? "If this address can register, a confirmation link will arrive in your inbox. Open it, then sign in here. Check your spam folder too."
-          : "If you have already registered, request one confirmation link below. Open the link before signing in. A confirmed account can sign in straight away.";
+          ? "Check your inbox or spam folder for a six-digit code. Enter the latest code below."
+          : "Enter your latest email code, or request a new one. Already verified? Sign in with your password.";
       message.textContent = error?.message ?? "";
       status.textContent = "";
     }
     explain(failure, accepted);
     const resend = button(
-      "Send one new link",
+      "Send a new code",
       async () => {
         sending = true;
+        setButtonDisabled(verify, true);
         message.textContent = "";
         status.textContent = "";
         try {
@@ -253,7 +288,9 @@ export function authModal(registerFirst = false, recoverFirst = false) {
           if (!dialog.open || view !== currentView) return;
           explain(undefined, true);
           status.textContent =
-            "A new confirmation was requested. Check your inbox and spam folder.";
+            "A new verification code was requested. Check your inbox and spam folder.";
+          code.value = "";
+          code.focus();
         } catch (error) {
           if (!dialog.open || view !== currentView) return;
           if (error instanceof AccountError && error.kind === "delivery")
@@ -267,6 +304,51 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       },
       "button outline full",
     );
+    const verificationForm = h(
+      "form",
+      {
+        onSubmit: async (event: SubmitEvent) => {
+          event.preventDefault();
+          const value = emailCode(code.value);
+          if (verifying || sending || !value) return;
+          verifying = true;
+          message.textContent = "";
+          status.textContent = "Verifying your code…";
+          setButtonDisabled(verify, true);
+          verify.setAttribute("aria-busy", "true");
+          await updateWait();
+          try {
+            await verifyEmailCode(model.email, value);
+            if (!dialog.open || view !== currentView) return;
+            const user = currentUser();
+            if (!user || user.id === "guest")
+              throw new Error("Please sign in to open your verified account.");
+            close();
+            go(destination || (user.role === "admin" ? "/teacher" : "/"));
+            toast("Email verified. Welcome to your science lab!");
+            refresh();
+          } catch (error) {
+            if (!dialog.open || view !== currentView) return;
+            status.textContent = "";
+            message.textContent =
+              error instanceof Error
+                ? error.message
+                : "The code could not be verified. Try again.";
+            code.focus();
+          } finally {
+            verifying = false;
+            verify.removeAttribute("aria-busy");
+            if (dialog.open && view === currentView) await updateWait();
+          }
+        },
+      },
+      h("p", { class: "auth-email" }, model.email),
+      field("Six-digit verification code", code),
+      message,
+      status,
+      h("p", { class: "fine-print" }, "Use the latest code. Never share it."),
+      verify,
+    );
     const panel = h(
       "div",
       { class: "auth-fields auth-confirmation" },
@@ -274,15 +356,17 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       h("p", { class: "eyebrow" }, "YOUR NEXT STEP"),
       heading,
       description,
-      h("p", { class: "auth-email" }, model.email),
-      message,
-      status,
-      button("Back to sign in", () => changeMode(false), "button primary full"),
+      verificationForm,
       resend,
-      button(
-        "Back to signup details",
-        () => changeMode(true),
-        "text-button full",
+      h(
+        "div",
+        { class: "auth-code-actions" },
+        button("Sign in instead", () => changeMode(false), "text-button", {
+          "aria-label": "Back to sign in",
+        }),
+        button("Edit signup details", () => changeMode(true), "text-button", {
+          "aria-label": "Back to signup details",
+        }),
       ),
       button(
         "Explore as guest",
@@ -293,23 +377,22 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         },
         "text-button full",
       ),
-      h(
-        "p",
-        { class: "fine-print" },
-        "Guest practice stays on this device. Email confirmation is still required for a new account. Request one link at a time.",
-      ),
+      h("p", { class: "fine-print" }, "Guest practice stays on this device."),
     );
     body.replaceChildren(art(), panel);
-    heading.focus();
+    dialog.scrollTop = 0;
+    if (failure) heading.focus({ preventScroll: true });
+    else code.focus({ preventScroll: true });
     async function updateWait() {
       const wait = await emailWait(model.email);
       if (!dialog.open || view !== currentView) return;
-      setButtonDisabled(resend, sending || wait > 0);
+      setButtonDisabled(resend, sending || verifying || wait > 0);
+      setButtonDisabled(verify, sending || verifying || !emailCode(code.value));
       resend.textContent = sending
-        ? "Requesting your link…"
+        ? "Requesting your code…"
         : wait
           ? `Request again in ${wait >= 60 ? `${Math.ceil(wait / 60)}m` : `${wait}s`}`
-          : "Send one new link";
+          : "Send a new code";
     }
     await updateWait();
     timer = setInterval(() => {
@@ -317,12 +400,17 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     }, 1000);
   }
   function render() {
+    stageTitle("A little space for your curiosity");
     const currentView = ++view;
     let sending = false;
     clearInterval(timer);
     const username = input(
       "username",
-      cloudEnabled ? "you@example.com" : "Your scientist name",
+      cloudEnabled
+        ? joining
+          ? "yourname@gmail.com"
+          : "Your account email"
+        : "Your scientist name",
       model.email,
       cloudEnabled ? "email" : "text",
     );
@@ -428,7 +516,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     const recovery = h("div", { class: "auth-recovery" });
     const emailStatus = h("p", { class: "auth-email-wait", role: "status" });
     const confirmationOptions = button(
-      "Check confirmation options",
+      "Enter email code",
       () => confirmation(),
       "text-button full",
     );
@@ -534,7 +622,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
               if (value.kind === "confirm")
                 recovery.append(
                   button(
-                    "Check confirmation options",
+                    "Enter email code",
                     () => confirmation(),
                     "text-button full",
                   ),
@@ -672,7 +760,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
             ? "Make my little lab"
             : "Welcome back";
       emailStatus.textContent = wait
-        ? "One account email at a time. You can still sign in to an existing confirmed account or check confirmation options."
+        ? "One account email at a time. You can still sign in to an existing verified account or enter an email code."
         : "";
       confirmationOptions.hidden = sending || wait === 0;
     }

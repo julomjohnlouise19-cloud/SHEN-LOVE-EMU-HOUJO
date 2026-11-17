@@ -179,7 +179,7 @@ test("phase 2: daily spin, notebook, demo accounts, supply redemption and admin 
   await expect(
     page.getByRole("dialog").getByText("redeemed", { exact: true }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   await page.goto("/#/admin");
   await page.getByRole("button", { name: "Admin sign in" }).click();
   await page.getByLabel("Username", { exact: true }).fill("admin");

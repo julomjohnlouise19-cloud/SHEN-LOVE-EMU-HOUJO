@@ -61,7 +61,7 @@ test("email confirmation and guest exploration are explicit", async ({
   await expect(
     page.getByRole("button", { name: "Log out", exact: true }),
   ).toHaveCount(0);
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   await page
     .getByRole("button", { name: "Explore as guest", exact: true })
     .click();
@@ -129,7 +129,7 @@ test("quiz upload survives failures and logout without crossing accounts", async
   ).toBeVisible();
   await page.getByRole("button", { name: /View answers for/ }).click();
   await expect(page.locator(".record-answer")).toHaveCount(8);
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   const file = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download this page as CSV" }).click();
   expect((await file).suggestedFilename()).toBe(
@@ -241,7 +241,7 @@ test("missing database setup keeps guest practice available and blocks fake clou
   await expect(page.locator(".form-error")).toContainText(
     "Account services are temporarily unavailable",
   );
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   await page
     .getByRole("button", { name: "Explore as guest", exact: true })
     .click();

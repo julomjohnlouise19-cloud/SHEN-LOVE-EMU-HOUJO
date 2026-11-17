@@ -3,13 +3,24 @@ import { LocalStorageAdapter } from "./adapter";
 import { AccountError, accountError } from "../core/account-errors";
 import { hashSeed } from "../core/random";
 import { emailDeadline } from "./email-reservations";
+import { emailMailbox } from "../core/email-verification";
 
 const adapter = new LocalStorageAdapter();
 const key = (email: string) =>
-  `csl:email-wait:${hashSeed(email.trim().toLowerCase())}`;
+  `csl:email-wait:${hashSeed(emailMailbox(email))}`;
+async function savedDeadline(email: string) {
+  const keys = new Set([
+    key(email),
+    `csl:email-wait:${hashSeed(email.trim().toLowerCase())}`,
+  ]);
+  const values = await Promise.all(
+    [...keys].map((name) => adapter.get<number>(name)),
+  );
+  return Math.max(0, ...values.map((value) => Number(value) || 0));
+}
 export async function emailWait(email: string) {
   const name = key(email);
-  const legacy = await adapter.get<number>(name);
+  const legacy = await savedDeadline(email);
   const until = (await emailDeadline(name, legacy)) ?? legacy;
   return Math.max(0, Math.ceil(((Number(until) || 0) - Date.now()) / 1000));
 }
@@ -20,7 +31,7 @@ async function updateDeadline(
   const name = key(email);
   const deadline = await emailDeadline(
     name,
-    await adapter.get<number>(name),
+    await savedDeadline(email),
     update,
   );
   await adapter.transaction([name], (tx) => {

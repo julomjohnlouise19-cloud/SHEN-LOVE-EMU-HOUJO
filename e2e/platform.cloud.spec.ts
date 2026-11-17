@@ -59,7 +59,7 @@ test("teacher stock edits reach the class shelf and verified claims", async ({
   expect(backend.items.find((i) => i.id === "pencil")!.stock).toBe(1);
   const code = backend.orders[0].code;
   await expect(page.getByText(code, { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   await signOut(page);
   await signIn(page, "teacher");
   await page.getByRole("link", { name: "Claims desk", exact: true }).click();
@@ -169,7 +169,7 @@ test("profile photos are normalized, saved privately, restored and removable", a
   ).toBe(256);
   expect(backend.photoUploads).toBe(1);
   expect(backend.profiles[0].photo_path).toContain(`${users[0].id}/`);
-  await page.getByRole("button", { name: "Close dialog" }).click();
+  await page.getByRole("button", { name: "Close and return to page" }).click();
   await page.reload();
   await page.getByRole("button", { name: "Open scientist profile" }).click();
   await expect(photo).toBeVisible();
@@ -430,7 +430,9 @@ test("teacher cancellation returns the student's credits and shelf stock", async
     })
     .click();
   await expect.poll(() => backend.orders.length).toBe(1);
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await signOut(page);
   await signIn(page, "teacher");
   await page.getByRole("link", { name: "Claims desk", exact: true }).click();

@@ -469,6 +469,7 @@
   border: 1px solid #293b3566;
   border-radius: 5px;
   flex-shrink: 0;
+  background: var(--element-color);
 }
 .periodic-grid {
   display: grid;
@@ -531,7 +532,7 @@
   min-width: 0;
 }
 .element-tile small {
-  font-size: 9px;
+  font-size: 11px;
   align-self: flex-start;
   margin-left: 4px;
 }
@@ -540,11 +541,10 @@
   line-height: 1.1;
 }
 .element-tile span > span {
-  font-size: 7.5px;
-  line-height: 1.3;
+  font-size: 9.5px;
+  line-height: 1.4;
   width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
 }
 .element-tile[aria-pressed="true"] {
   outline: 3px solid #244837;

@@ -207,7 +207,9 @@ test("profile colors and introduction sync, survive reload and keep accessible c
   await page
     .getByRole("button", { name: "Save my style", exact: true })
     .click();
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await page.evaluate(
     (id) => localStorage.removeItem(`csl:appearance:${id}`),
     users[0].id,
@@ -237,7 +239,9 @@ test("profile colors and introduction sync, survive reload and keep accessible c
     path: "/tmp/cozy-profile-studio-mobile.png",
     fullPage: true,
   });
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await signOut(page);
   await expect(page.locator("html")).toHaveAttribute("data-theme", "meadow");
 });
@@ -446,7 +450,9 @@ test("login and refreshed profiles remain usable before the optional studio upgr
     .getByRole("button", { name: "Save my style", exact: true })
     .click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "sunset");
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "sunset");
 });

@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { test, expect, exploreAsGuest } from "./fixtures";
+import { displayMode, boundedPage } from "./interface-helpers";
 
 async function turnDark(page: import("@playwright/test").Page) {
   await page
@@ -9,6 +10,97 @@ async function turnDark(page: import("@playwright/test").Page) {
   await page.locator(".dark-mode-switch").click();
   await expect(page.locator("html")).toHaveAttribute("data-color-mode", "dark");
 }
+
+test("the periodic table keeps all families, filters and guides readable in both modes", async ({
+  page,
+}) => {
+  test.setTimeout(120000);
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await exploreAsGuest(page, "/#/sources");
+  await displayMode(page, "dark");
+  await page
+    .getByRole("button", { name: "Periodic table", exact: true })
+    .click();
+  await expect(page.locator(".element-tile")).toHaveCount(118);
+  const colors = await page
+    .locator(".element-tile")
+    .evaluateAll((nodes) => [
+      ...new Set(nodes.map((node) => getComputedStyle(node).backgroundColor)),
+    ]);
+  expect(colors).toHaveLength(10);
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include(".periodic-shelf")
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await page.locator(".periodic-scroll").scrollIntoViewIfNeeded();
+  await page.screenshot({ path: "/tmp/cozy-periodic-dark-desktop.png" });
+  const search = page.getByRole("searchbox", {
+    name: "Find an element",
+    exact: true,
+  });
+  await search.fill("Fe");
+  const iron = page.getByRole("button", { name: "26 Iron (Fe)", exact: true });
+  await iron.click();
+  const guide = page.getByRole("dialog", {
+    name: "Iron · element guide",
+    exact: true,
+  });
+  await expect(guide).toContainText("Atomic number");
+  await expect(guide.locator(".dialog-close")).toHaveCount(1);
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include("dialog")
+        .withTags(["wcag2a", "wcag2aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await page.keyboard.press("Escape");
+  await expect(iron).toBeFocused();
+  await page
+    .getByRole("button", { name: "Clear element filters", exact: true })
+    .click();
+  const noble = page.getByRole("button", {
+    name: "Filter Noble gases",
+    exact: true,
+  });
+  await noble.click();
+  await expect(noble).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".element-count")).toHaveText("7 of 118 elements");
+  await page
+    .getByRole("button", { name: "Clear element filters", exact: true })
+    .click();
+  await expect(noble).toHaveAttribute("aria-pressed", "false");
+  await page.setViewportSize({ width: 320, height: 740 });
+  await page.getByRole("button", { name: "Card view", exact: true }).click();
+  await expect(page.locator(".element-cards .element-tile")).toHaveCount(118);
+  await boundedPage(page);
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include(".periodic-shelf")
+        .withTags(["wcag2a", "wcag2aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await page.screenshot({ path: "/tmp/cozy-periodic-dark-cards-320.png" });
+  await displayMode(page, "light");
+  await expect(page.locator(".element-count")).toHaveText(
+    "118 of 118 elements",
+  );
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include(".periodic-shelf")
+        .withTags(["wcag2a", "wcag2aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+});
 
 test("profile dark mode is keyboard accessible, stays after reload and can return to light", async ({
   page,

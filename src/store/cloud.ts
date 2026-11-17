@@ -9,9 +9,10 @@ import {
 } from "../core/cloud-records";
 import type { Run } from "../core/types";
 import { LocalStorageAdapter, type Tx } from "./adapter";
-import { accountError } from "../core/account-errors";
+import { AccountError, accountError } from "../core/account-errors";
 import { beginEmailRequest, recordEmailWait } from "./email";
 import { TERMS_VERSION } from "../core/agreement";
+import { registrationEmail, emailCode } from "../core/email-verification";
 import { restorePasswordRecovery, dismissPasswordRecovery } from "./recovery";
 export {
   passwordRecoveryActive,
@@ -236,6 +237,11 @@ export async function cloudRegister(input: {
     throw new Error(
       "Please read and accept the Terms & Conditions before creating your account.",
     );
+  const address = registrationEmail(input.username);
+  if (!address)
+    throw new Error(
+      "Use a Gmail address you can open, such as yourname@gmail.com. We will email a code to verify it.",
+    );
   if (
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.username.trim()) ||
     input.password.length < 8 ||
@@ -251,7 +257,7 @@ export async function cloudRegister(input: {
   await ready();
   await beginEmailRequest(input.username);
   const { data, error } = await client!.auth.signUp({
-    email: input.username.trim().toLowerCase(),
+    email: address,
     password: input.password,
     options: {
       emailRedirectTo: `${location.origin}${import.meta.env.BASE_URL}`,
@@ -272,8 +278,40 @@ export async function cloudRegister(input: {
   }
   await recordEmailWait(input.username, 60);
   if (!data.session) return undefined;
+  await cloudLogout();
+  throw new AccountError(
+    "Email verification is not enabled yet. Ask your teacher to turn on email confirmation before creating new accounts.",
+    "configuration",
+  );
+}
+export async function cloudVerifyEmailCode(email: string, value: string) {
+  const address = email.trim().toLowerCase();
+  const token = emailCode(value);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address) || !token)
+    throw new Error("Enter the six-digit code from your latest account email.");
+  if (!client) throw new Error("Account services are unavailable.");
+  await ready();
+  const { data, error } = await client.auth.verifyOtp({
+    email: address,
+    token,
+    type: "signup",
+  });
+  if (error) throw accountError(error);
+  if (
+    !data.user ||
+    !data.session ||
+    data.session.user.id !== data.user.id ||
+    data.user.email?.toLowerCase() !== address
+  )
+    throw new Error(
+      "The code could not verify this email. Request a new code and try again.",
+    );
+  dismissPasswordRecovery();
   sessionStorage.removeItem("csl:cloud-logged-out");
-  return profile();
+  const result = await profile(data.user, false);
+  identity = result.user_id;
+  status("");
+  return result;
 }
 export async function cloudLogout() {
   dismissPasswordRecovery();

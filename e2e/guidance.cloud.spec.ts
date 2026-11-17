@@ -182,7 +182,9 @@ test("teacher availability and category choices save, persist and change the stu
   await expect(
     page.getByLabel("Available on the class shelf", { exact: true }),
   ).not.toBeChecked();
-  await page.getByRole("button", { name: "Close dialog", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Close and return to page", exact: true })
+    .click();
   await signOut(page);
   await signIn(page);
   await page.goto("#/shop");

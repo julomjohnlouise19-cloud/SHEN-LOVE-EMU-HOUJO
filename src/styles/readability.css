@@ -1,4 +1,114 @@
 /* Readable secondary text while keeping the lab's existing pastel surfaces. */
+.topbar .help-button {
+  min-height: 40px;
+  padding: 7px 11px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+}
+.topbar .help-button .help-label {
+  color: inherit;
+  font-size: 12px;
+}
+.topbar .help-button:focus-visible {
+  outline: 2px solid var(--lab-brand);
+  outline-offset: 3px;
+}
+.page-navigation .return-link,
+.modal .dialog-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  min-width: 44px;
+  max-width: 44px;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 26px;
+  line-height: 1;
+}
+.page-navigation .return-arrow {
+  font-size: 26px;
+}
+.modal .dialog-close {
+  align-self: flex-start;
+  margin: 0;
+}
+.modal .dialog-close:focus-visible,
+.page-navigation .return-link:focus-visible {
+  outline: 2px solid var(--lab-brand);
+  outline-offset: 3px;
+}
+.auth-fields .email-code-input {
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.35em;
+  text-align: center;
+  padding: 15px;
+  min-height: 58px;
+}
+.level-card small,
+.badge > small,
+.badge > span,
+.quest-detail-meta {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.auth-fields p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.modal.auth-dialog:has(.auth-confirmation) {
+  width: min(560px, calc(100vw - 28px));
+  max-width: min(560px, calc(100vw - 28px));
+}
+.auth-dialog:has(.auth-confirmation) .auth-layout {
+  display: block;
+  min-height: 0;
+}
+.auth-dialog:has(.auth-confirmation) .auth-story,
+.auth-confirmation .auth-check,
+.auth-confirmation > .eyebrow {
+  display: none;
+}
+.auth-fields.auth-confirmation {
+  padding: 14px 0 0;
+}
+.auth-confirmation > h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+.auth-confirmation .auth-email {
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+.auth-code-actions {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+}
+.auth-code-actions .text-button {
+  flex: 1;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 7px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.periodic-scroll,
+.teacher-calendar-panel {
+  scroll-margin-top: 170px;
+}
+.modal .modal-brand-name {
+  font-size: 11px;
+  line-height: 1.5;
+}
 .fine-print,
 .auth-fields .fine-print,
 .profile-dialog .fine-print,
@@ -36,7 +146,7 @@
 }
 .field > span,
 .field > label {
-  font-size: 13px;
+  font-size: 14px;
 }
 .deck-meta,
 .record-meta,
