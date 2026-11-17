@@ -1,6 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { test, expect, exploreAsGuest } from "./fixtures";
 import { displayMode, boundedPage } from "./interface-helpers";
+import cells from "../src/data/questions/life/cells.json" with { type: "json" };
+import type { Question } from "../src/core/types";
 
 async function turnDark(page: import("@playwright/test").Page) {
   await page
@@ -216,10 +218,28 @@ test("dark lab pages and the reward popup retain readable contrast and week navi
     .click();
   for (const stage of ["question", "feedback"]) {
     if (stage === "feedback") {
-      await page.locator(".answer-option").first().click();
+      const prompt = await page.locator(".question-card > h2").innerText();
+      const question = (cells as Question[]).find(
+        (item) => item.prompt === prompt,
+      )!;
+      expect(question).toBeTruthy();
+      if (question.type === "match") {
+        for (const [key, value] of Object.entries(question.answer))
+          await page
+            .getByRole("combobox", { name: `Match ${key}` })
+            .selectOption(value);
+      } else if (question.type !== "order") {
+        if (question.options)
+          await page.locator(".answer-option").first().click();
+        else
+          await page
+            .getByLabel("Your answer", { exact: true })
+            .fill(String(question.answer));
+      }
       await page
         .getByRole("button", { name: "Check my answer", exact: true })
         .click();
+      await expect(page.locator(".answer-feedback")).toBeVisible();
     }
     const quiz = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
