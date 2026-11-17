@@ -1,5 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { test, expect, exploreAsGuest } from "./fixtures";
+import cells from "../src/data/questions/life/cells.json" with { type: "json" };
+import type { Question } from "../src/core/types";
 
 test("header rewards open over a quiz, preserve its answer and return keyboard focus", async ({
   page,
@@ -16,8 +18,36 @@ test("header rewards open over a quiz, preserve its answer and return keyboard f
     .getByRole("button", { name: "Let’s make a discovery", exact: true })
     .click();
   const question = await page.locator(".question-card > h2").innerText();
-  const answer = page.locator(".answer-option").first();
-  await answer.click();
+  const card = (cells as Question[]).find((q) => q.prompt === question)!;
+  expect(card).toBeTruthy();
+  const area = page.locator(".answer-area");
+  if (card.type === "match") {
+    for (const [key, value] of Object.entries(card.answer))
+      await area
+        .getByRole("combobox", { name: `Match ${key}` })
+        .selectOption(value);
+  } else if (card.type === "order") {
+    await area.locator("button:enabled").first().click();
+  } else if (card.options) {
+    await area.locator(".answer-option").first().click();
+  } else {
+    await area
+      .getByLabel("Your answer", { exact: true })
+      .fill(String(card.answer));
+  }
+  const readDraft = () =>
+    area.evaluate((node) => ({
+      text: node.textContent,
+      controls: [
+        ...node.querySelectorAll<
+          HTMLInputElement | HTMLSelectElement | HTMLButtonElement
+        >("input,select,button[aria-pressed]"),
+      ].map((control) => ({
+        value: control.value,
+        pressed: control.getAttribute("aria-pressed"),
+      })),
+    }));
+  const draft = await readDraft();
   const url = page.url(),
     reward = page.locator("[data-daily-rewards-button]");
   await reward.focus();
@@ -38,7 +68,7 @@ test("header rewards open over a quiz, preserve its answer and return keyboard f
   await expect(dialog).toHaveCount(0);
   await expect(reward).toBeFocused();
   await expect(page.locator(".question-card > h2")).toHaveText(question);
-  await expect(answer).toHaveAttribute("aria-pressed", "true");
+  expect(await readDraft()).toEqual(draft);
   await expect(
     page.getByRole("button", { name: "Check my answer", exact: true }),
   ).toBeEnabled();
