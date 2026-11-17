@@ -39,6 +39,7 @@ import {
 import { mascot, icon } from "./svg";
 import { go, refresh, entryDestination, welcomeRoute } from "./actions";
 import { themes } from "../core/appearance";
+import { displayModeControl } from "./display-mode";
 import {
   getAppearance,
   loadAppearance,
@@ -927,6 +928,7 @@ export function profileModal() {
       { class: "muted" },
       "Choose a color story for the whole lab. Your illustrations and text stay clear in every palette.",
     ),
+    displayModeControl(user.id),
     palette,
     field("A little about me", bio),
     bioCount,
@@ -1028,7 +1030,7 @@ export function profileModal() {
     { class: "profile-jumps", "aria-label": "Profile sections" },
     ...[
       [basicSection, "Profile details"],
-      [appearanceSection, "Colors & avatar"],
+      [appearanceSection, "Appearance"],
       [accountSection, "Account settings"],
     ].map(([target, label]) =>
       button(

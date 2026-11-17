@@ -1,6 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { test, expect, users, addDays } from "./calendar-fixtures";
-import { signIn, signOut } from "./cloud-fixtures";
+import { signIn, signOut, host } from "./cloud-fixtures";
 
 test("daily claims save real account credits once, refresh competing tabs and persist after reload", async ({
   page,
@@ -10,10 +10,18 @@ test("daily claims save real account credits once, refresh competing tabs and pe
 }) => {
   await page.goto("./");
   await signIn(page);
-  await page.goto("./#/daily-rewards");
-  await expect(page.getByRole("gridcell")).toHaveCount(49);
+  const origin = page.url();
+  const reward = page.locator("[data-daily-rewards-button]");
+  await expect(reward).toHaveAttribute("data-reward-state", "ready");
+  await reward.click();
+  await expect(
+    page.getByRole("dialog", { name: "Daily rewards", exact: true }),
+  ).toBeVisible();
+  expect(page.url()).toBe(origin);
+  await expect(page.getByRole("gridcell")).toHaveCount(7);
   const other = await context.newPage();
-  await other.goto("./#/daily-rewards");
+  await other.goto("./#/island");
+  await other.locator("[data-daily-rewards-button]").click();
   await expect(
     other.getByRole("button", { name: "Claim 5 class credits", exact: true }),
   ).toBeEnabled({ timeout: 20000 });
@@ -27,10 +35,13 @@ test("daily claims save real account credits once, refresh competing tabs and pe
   await expect(
     other.getByRole("button", { name: "Claimed today", exact: true }),
   ).toBeDisabled();
+  await expect(reward).toHaveAttribute("data-reward-state", "claimed");
   expect(backend.credits[users[0].id]).toBe(initial + 5);
   expect(calendar.calendars[users[0].id].claims).toHaveLength(1);
   expect(calendar.requests[0].owner).toBe(users[0].id);
   await page.reload();
+  await expect(reward).toHaveAttribute("data-reward-state", "claimed");
+  await reward.click();
   await expect(
     page.getByRole("button", { name: "Claimed today", exact: true }),
   ).toBeDisabled();
@@ -38,6 +49,156 @@ test("daily claims save real account credits once, refresh competing tabs and pe
     "Claimed",
   );
   expect(backend.credits[users[0].id]).toBe(initial + 5);
+});
+
+test("a delayed calendar read cannot restore the ready marker after a successful popup claim", async ({
+  page,
+  backend,
+  calendar,
+}) => {
+  await page.goto("./");
+  await signIn(page);
+  const reward = page.locator("[data-daily-rewards-button]");
+  await expect(reward).toHaveAttribute("data-reward-state", "ready");
+  await reward.click();
+  await expect(
+    page.getByRole("button", { name: "Claim 5 class credits", exact: true }),
+  ).toBeEnabled();
+  let release!: () => void,
+    entered = false;
+  const held = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  const stale = {
+    version: 1,
+    student: true,
+    enabled: true,
+    timezone: "Asia/Manila",
+    server_day: calendar.day,
+    started_on: null,
+    day_index: 1,
+    daily_credits: 5,
+    weekly_credits: 10,
+    eligible: true,
+    balance: backend.credits[users[0].id],
+    claims: [],
+  };
+  await page.route(`${host}/rest/v1/rpc/csl_daily_calendar`, async (route) => {
+    if (route.request().method() === "OPTIONS") return route.fallback();
+    entered = true;
+    await held;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      headers: {
+        "access-control-allow-origin": "*",
+        "access-control-allow-headers": "*",
+      },
+      body: JSON.stringify(stale),
+    });
+  });
+  try {
+    await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+    await expect.poll(() => entered).toBe(true);
+    await page
+      .getByRole("button", { name: "Claim 5 class credits", exact: true })
+      .click();
+    await expect(reward).toHaveAttribute("data-reward-state", "claimed");
+    const response = page.waitForResponse(
+      `${host}/rest/v1/rpc/csl_daily_calendar`,
+    );
+    release();
+    await (await response).finished();
+    await page.evaluate(
+      () =>
+        new Promise((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve)),
+        ),
+    );
+    await expect(
+      page.getByRole("button", { name: "Claimed today", exact: true }),
+    ).toBeDisabled();
+    await expect(reward).toHaveAttribute("data-reward-state", "claimed");
+    expect(calendar.calendars[users[0].id].claims).toHaveLength(1);
+  } finally {
+    release();
+  }
+});
+
+test("rewards open immediately and can close and reopen while account status is still loading", async ({
+  page,
+  backend,
+  calendar,
+}) => {
+  backend.credits[users[0].id] = 1234567;
+  await page.setViewportSize({ width: 320, height: 568 });
+  let release!: () => void,
+    reads = 0;
+  const held = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  await page.route(`${host}/rest/v1/rpc/csl_daily_calendar`, async (route) => {
+    if (route.request().method() === "OPTIONS") return route.fallback();
+    reads++;
+    await held;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      headers: {
+        "access-control-allow-origin": "*",
+        "access-control-allow-headers": "*",
+      },
+      body: JSON.stringify({
+        version: 1,
+        student: true,
+        enabled: true,
+        timezone: "Asia/Manila",
+        server_day: calendar.day,
+        started_on: null,
+        day_index: 1,
+        daily_credits: 5,
+        weekly_credits: 10,
+        eligible: true,
+        balance: backend.credits[users[0].id],
+        claims: [],
+      }),
+    });
+  });
+  try {
+    await page.goto("./");
+    await signIn(page);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    const origin = page.url(),
+      reward = page.locator("[data-daily-rewards-button]");
+    await reward.click();
+    const dialog = page.getByRole("dialog", {
+      name: "Daily rewards",
+      exact: true,
+    });
+    await expect(dialog).toContainText("Opening your daily rewards");
+    await dialog
+      .getByRole("button", { name: "Close and return to page", exact: true })
+      .click();
+    await expect(reward).toBeEnabled();
+    await expect(reward).toBeFocused();
+    await expect(
+      page.getByRole("button", { name: "Log out", exact: true }),
+    ).toBeInViewport();
+    await reward.click();
+    await expect(dialog).toContainText("Opening your daily rewards");
+    expect(reads).toBe(1);
+    release();
+    await expect(dialog.getByRole("gridcell")).toHaveCount(7);
+    await expect(page.getByRole("dialog")).toHaveCount(1);
+    expect(page.url()).toBe(origin);
+    expect(calendar.requests).toHaveLength(0);
+  } finally {
+    release();
+  }
 });
 
 test("the seventh dated day awards the bonus, missed days stay missed and the trail ends", async ({
@@ -67,6 +228,9 @@ test("the seventh dated day awards the bonus, missed days stay missed and the tr
   await page
     .getByRole("button", { name: "Claim 10 class credits", exact: true })
     .click();
+  await expect(page.locator(".calendar-live")).toContainText(
+    "10 class credits claimed",
+  );
   expect(backend.credits[owner]).toBe(initial + 10);
   calendar.day = addDays(calendar.day, 43);
   await page.reload();

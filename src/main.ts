@@ -18,6 +18,8 @@ import "./styles/daily-wheel.css";
 import "./styles/activities.css";
 import "./styles/daily-calendar.css";
 import "./styles/readability.css";
+import "./styles/dark-mode.css";
+import { loadColorMode, loadDeviceColorMode } from "./store/color-mode";
 import { loadProfileDesign } from "./store/profile-design";
 import { loadAppearance } from "./store/preferences";
 import {
@@ -53,6 +55,11 @@ import {
   welcomeRoute,
 } from "./ui/actions";
 const app = document.querySelector<HTMLDivElement>("#app")!;
+await loadDeviceColorMode()
+  .then((mode) => {
+    document.documentElement.dataset.colorMode = mode;
+  })
+  .catch(() => undefined);
 document.querySelector(".skip-link")?.addEventListener("click", (event) => {
   event.preventDefault();
   const main = document.querySelector<HTMLElement>("#main");
@@ -89,6 +96,13 @@ async function render() {
   const identityChanged = renderedUserId !== user?.id;
   if (identityChanged) {
     document.documentElement.dataset.theme = "meadow";
+    if (user)
+      void loadColorMode(user.id)
+        .then((mode) => {
+          if (currentUser()?.id === user.id)
+            document.documentElement.dataset.colorMode = mode;
+        })
+        .catch(() => undefined);
     if (user)
       void loadAppearance(user.id).then((value) => {
         if (currentUser()?.id === user.id)

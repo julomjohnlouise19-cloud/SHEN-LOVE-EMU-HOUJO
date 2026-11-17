@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## Daily rewards button and optional site-wide Dark mode
+
+- [x] Replace the sidebar entry with an always reachable header reward button, alongside notifications, that opens the calendar without changing the current page.
+- [x] Reuse the existing claim interface in a compact, accessible popup with reliable close/focus return, nested day details and honest availability/claimed indicators.
+- [x] Complete the requested redo with compact week browsing, per-week progress and keyboard/today shortcuts.
+- [x] Add a profile Dark mode switch for the entire website, with account-scoped device persistence, cross-tab updates and readable dark surfaces; retain Saved records after the user cancelled its removal.
+- [ ] Verify phones, keyboard use, account changes, claim refresh/retry and the existing learning flow; sync GitHub and verify publication.
+
+Final focused verification passed lint/typecheck, 92 unit/property checks, all 972 reviewed questions, six standard browser scenarios and eleven cloud-fixture scenarios. Checks cover week browsing and keyboard/today navigation, preserved quiz choices/routes, nested focus return, bounded rewards at 320/390/768/1280 pixels, global Dark mode contrast across 15 learning/account routes plus quiz feedback, phone profiles/rewards, welcome/sign-in, populated credit rankings/friends/shop and Teacher Studio, reload and cross-tab persistence, account switching and unchanged synced palettes/Saved records. Calendar cases also cover cross-tab claims, delayed pre-claim reads, slow-load close/reopen, a seven-digit balance at 320 pixels and unchanged teacher confirmations. Screenshots were inspected. Earlier in this task the complete 63-case standard suite and repository-path/offline case passed; the final full CI and production preview/publication remain the delivery gate. No reward rule or SQL changed, and Dark mode requires no owner setup.
+
 ## Science Island · Discovery Activities
 
 - [x] Add a clearly nested, responsive Discovery Activities hub with matching, word search, flashcards, Planet Explorer and an achievement passport.

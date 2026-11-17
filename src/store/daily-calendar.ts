@@ -18,27 +18,45 @@ export const calendarReady = () =>
   cloudEnabled && !!cloudUserId() && dailyCalendarVersion() >= 1;
 let cache:
   { owner: string; calendar: DailyCalendar; loaded: number } | undefined;
+let cacheEpoch = 0;
+let loading: { owner: string; promise: Promise<DailyCalendar> } | undefined;
 export const cachedCalendar = () =>
   cache && cache.owner === cloudUserId() ? cache.calendar : undefined;
 export async function loadCalendar() {
   const owner = cloudUserId();
   if (!calendarReady() || !owner)
     throw new Error("Your class-credit calendar is being prepared.");
+  if (loading?.owner === owner) return loading.promise;
   if (!watching.has(owner)) {
     watching.add(owner);
-    adapter.subscribe(markerKey(owner), () =>
+    adapter.subscribe(markerKey(owner), () => {
+      if (cache?.owner === owner) cache.loaded = 0;
       window.dispatchEvent(
         new CustomEvent("csl:daily-calendar", { detail: owner }),
-      ),
-    );
+      );
+    });
   }
-  const result = await platformRequest<unknown>("csl_daily_calendar");
-  if (!validCalendar(result) || owner !== cloudUserId())
-    throw new Error(
-      "The reward calendar could not be verified. Refresh and try again.",
-    );
-  cache = { owner, calendar: result, loaded: Date.now() };
-  return result;
+  const epoch = cacheEpoch;
+  const promise = (async () => {
+    const result = await platformRequest<unknown>("csl_daily_calendar");
+    if (!validCalendar(result) || owner !== cloudUserId())
+      throw new Error(
+        "The reward calendar could not be verified. Refresh and try again.",
+      );
+    if (epoch !== cacheEpoch) {
+      if (cache?.owner === owner) return cache.calendar;
+      throw new Error("Refresh your calendar to see the latest rewards.");
+    }
+    cache = { owner, calendar: result, loaded: Date.now() };
+    window.dispatchEvent(new Event("csl:daily-calendar-status"));
+    return result;
+  })();
+  loading = { owner, promise };
+  try {
+    return await promise;
+  } finally {
+    if (loading?.promise === promise) loading = undefined;
+  }
 }
 interface PendingClaim {
   owner: string;
@@ -109,7 +127,9 @@ export async function claimCalendar(calendar: DailyCalendar) {
     throw new Error(
       "Reopen your calendar to check whether the claim was saved.",
     );
+  cacheEpoch++;
   cache = { owner, calendar: result.calendar, loaded: Date.now() };
+  window.dispatchEvent(new Event("csl:daily-calendar-status"));
   await clear().catch(() => undefined);
   await adapter
     .set(markerKey(owner), crypto.randomUUID())
@@ -139,6 +159,8 @@ export async function saveCalendarSettings(
     },
   );
   cache = undefined;
+  cacheEpoch++;
+  window.dispatchEvent(new Event("csl:daily-calendar-status"));
   return result;
 }
 export async function refreshCalendarIfNeeded() {
@@ -154,5 +176,8 @@ export async function refreshCalendarIfNeeded() {
   await loadCalendar();
 }
 window.addEventListener("csl:platform", () => {
-  if (!cloudUserId()) cache = undefined;
+  if (!cloudUserId()) {
+    cache = undefined;
+    cacheEpoch++;
+  }
 });

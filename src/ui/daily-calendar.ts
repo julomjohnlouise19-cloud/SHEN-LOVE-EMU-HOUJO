@@ -22,31 +22,36 @@ const dateLabel = (day: string) =>
     day: "numeric",
     timeZone: "UTC",
   }).format(new Date(`${day}T12:00:00Z`));
-let mounted:
-  | { owner: string; node: HTMLElement; refresh: () => Promise<void> }
-  | undefined;
+type CalendarView = "page" | "dialog";
+const mounted = new Map<
+  CalendarView,
+  { owner: string; node: HTMLElement; refresh: () => Promise<void> }
+>();
 window.addEventListener("csl:daily-calendar", (event) => {
-  if (
-    mounted?.node.isConnected &&
-    mounted.owner === (event as CustomEvent).detail
-  )
-    void mounted.refresh();
+  for (const view of mounted.values())
+    if (view.node.isConnected && view.owner === (event as CustomEvent).detail)
+      void view.refresh();
 });
+function refreshVisibleCalendars() {
+  for (const view of mounted.values())
+    if (view.node.isConnected) void view.refresh();
+}
 window.addEventListener("focus", () => {
-  if (mounted?.node.isConnected) void mounted.refresh();
+  refreshVisibleCalendars();
 });
 document.addEventListener("visibilitychange", () => {
-  if (!document.hidden && mounted?.node.isConnected) void mounted.refresh();
+  if (!document.hidden) refreshVisibleCalendars();
 });
 setInterval(() => {
-  if (!document.hidden && mounted?.node.isConnected) void mounted.refresh();
+  if (!document.hidden) refreshVisibleCalendars();
 }, 60000);
 
-export async function dailyCalendarPage() {
+export async function dailyCalendarPage(view: CalendarView = "page") {
   const user = currentUser()!;
-  if (mounted?.owner === user.id) {
-    void mounted.refresh();
-    return mounted.node;
+  const previous = mounted.get(view);
+  if (previous?.owner === user.id) {
+    void previous.refresh();
+    return previous.node;
   }
   let calendar = calendarPreview(
     dayKey(clock, getState().rules.timezone),
@@ -56,6 +61,7 @@ export async function dailyCalendarPage() {
   let ready = false,
     busy = false,
     refreshing = false;
+  let selectedWeek: number | undefined;
   const page = h("div", { class: "daily-calendar-page page-enter" });
   const live = h("p", {
     class: "calendar-live",
@@ -65,11 +71,17 @@ export async function dailyCalendarPage() {
   });
   const body = h("div");
   page.append(
-    pageHeading(
-      "SEVEN WEEKS OF SHOWING UP",
-      "Little habits. Growing rewards.",
-      "A 49-day trail of daily class credits. Claim one reward each classroom day and give your curiosity a little boost.",
-    ),
+    view === "dialog"
+      ? h(
+          "p",
+          { class: "calendar-dialog-intro" },
+          "Claim today's reward and explore your seven-week trail.",
+        )
+      : pageHeading(
+          "SEVEN WEEKS OF SHOWING UP",
+          "Little habits. Growing rewards.",
+          "A 49-day trail of daily class credits. Claim one reward each classroom day and give your curiosity a little boost.",
+        ),
     live,
     body,
   );
@@ -236,13 +248,53 @@ export async function dailyCalendarPage() {
       class: "daily-reward-grid",
       role: "grid",
       "aria-label": "Seven-week daily claim calendar",
+      "aria-rowcount": 7,
     });
     const buttons: HTMLButtonElement[] = [];
+    const rows: HTMLDivElement[] = [];
+    const weekButtons: HTMLButtonElement[] = [];
+    const currentWeek =
+      ready && calendar.day_index <= 49
+        ? Math.ceil(calendar.day_index / 7)
+        : undefined;
+    const weekSummary = h("p", {
+      class: "calendar-week-summary",
+      role: "status",
+    });
+    function showWeek(value: number) {
+      const week = Math.max(1, Math.min(7, value));
+      selectedWeek = week;
+      rows.forEach((row, index) => {
+        row.hidden = view === "dialog" && index + 1 !== week;
+      });
+      weekButtons.forEach((control, index) =>
+        control.setAttribute("aria-pressed", String(index + 1 === week)),
+      );
+      const claimed = cells.filter(
+        (day) => day.week === week && day.status === "claimed",
+      ).length;
+      weekSummary.textContent = `Week ${week} of 7 · Days ${(week - 1) * 7 + 1}–${week * 7} · ${claimed}/7 claimed`;
+      if (view === "dialog") {
+        grid.setAttribute(
+          "aria-label",
+          `Week ${week} of the seven-week daily claim calendar`,
+        );
+        const focusDay =
+          calendar.day_index >= (week - 1) * 7 + 1 &&
+          calendar.day_index <= week * 7
+            ? calendar.day_index
+            : (week - 1) * 7 + 1;
+        buttons.forEach((control, index) => {
+          control.tabIndex = index + 1 === focusDay ? 0 : -1;
+        });
+      }
+    }
     for (let week = 1; week <= 7; week++) {
       const row = h("div", {
         class: "calendar-week",
         role: "row",
         "aria-label": `Week ${week}`,
+        "aria-rowindex": week,
       });
       row.append(
         h(
@@ -303,7 +355,43 @@ export async function dailyCalendarPage() {
         row.append(tile);
       }
       grid.append(row);
+      rows.push(row);
     }
+    const weekPicker =
+      view === "dialog"
+        ? h(
+            "nav",
+            {
+              class: "calendar-week-picker",
+              "aria-label": "Choose reward week",
+            },
+            ...Array.from({ length: 7 }, (_, index) => {
+              const week = index + 1,
+                claimed = cells.filter(
+                  (day) => day.week === week && day.status === "claimed",
+                ).length;
+              const control = button(
+                h(
+                  "span",
+                  null,
+                  h("strong", null, week),
+                  h("small", null, `${claimed}/7`),
+                ),
+                () => showWeek(week),
+                "calendar-week-button",
+                {
+                  "aria-label": `Show week ${week}, ${claimed} of 7 days claimed`,
+                  "aria-pressed": false,
+                  "aria-current": currentWeek === week ? "date" : undefined,
+                  title: `Week ${week}${currentWeek === week ? " · Includes today" : ""}`,
+                },
+              );
+              weekButtons.push(control);
+              return control;
+            }),
+          )
+        : null;
+    showWeek(selectedWeek ?? currentWeek ?? (calendar.day_index > 49 ? 7 : 1));
     grid.addEventListener("keydown", (event) => {
       const cell = (event.target as HTMLElement).closest<HTMLElement>(
         "[data-calendar-day]",
@@ -326,6 +414,7 @@ export async function dailyCalendarPage() {
                     : undefined;
       if (next === undefined) return;
       event.preventDefault();
+      if (view === "dialog") showWeek(Math.floor(next / 7) + 1);
       buttons[next]?.focus();
     });
     body.replaceChildren(
@@ -427,6 +516,7 @@ export async function dailyCalendarPage() {
         ),
         h("p", null, `${calendar.timezone} · One claim per classroom day`),
       ),
+      ...(weekPicker ? [weekPicker, weekSummary] : []),
       h(
         "div",
         { class: "calendar-grid-tools" },
@@ -438,6 +528,8 @@ export async function dailyCalendarPage() {
         button(
           "Show today in the calendar",
           () => {
+            if (view === "dialog")
+              showWeek(Math.ceil(Math.min(calendar.day_index, 49) / 7));
             const target = buttons[Math.min(calendar.day_index, 49) - 1];
             target?.focus({ preventScroll: true });
             target?.scrollIntoView({
@@ -531,9 +623,71 @@ export async function dailyCalendarPage() {
       );
     }
   }
-  mounted = { owner: user.id, node: page, refresh };
+  mounted.set(view, { owner: user.id, node: page, refresh });
   draw();
   return page;
+}
+
+let rewardDialog: HTMLDialogElement | undefined;
+export async function dailyRewardsModal(trigger?: HTMLElement) {
+  const owner = currentUser()?.id;
+  if (!owner) return;
+  if (rewardDialog?.open) {
+    rewardDialog.focus();
+    return;
+  }
+  const host = h(
+    "div",
+    { class: "reward-dialog-body", "aria-busy": true },
+    h(
+      "p",
+      { class: "calendar-dialog-loading", role: "status" },
+      "Opening your daily rewards…",
+    ),
+  );
+  const { dialog, close } = modal("Daily rewards", [host], true, trigger);
+  dialog.classList.add("daily-rewards-dialog");
+  rewardDialog = dialog;
+  const leave = () => close();
+  window.addEventListener("hashchange", leave);
+  dialog.addEventListener(
+    "close",
+    () => {
+      window.removeEventListener("hashchange", leave);
+      if (rewardDialog === dialog) rewardDialog = undefined;
+      const instance = mounted.get("dialog");
+      if (instance && host.contains(instance.node)) mounted.delete("dialog");
+      if (
+        currentUser()?.id === owner &&
+        !document.querySelector("dialog[open]")
+      )
+        document
+          .querySelector<HTMLElement>("[data-daily-rewards-button]")
+          ?.focus({ preventScroll: true });
+    },
+    { once: true },
+  );
+  try {
+    const content = await dailyCalendarPage("dialog");
+    if (!dialog.open || currentUser()?.id !== owner) {
+      if (dialog.open) close();
+      return;
+    }
+    host.replaceChildren(content);
+  } catch (error) {
+    if (dialog.open && currentUser()?.id === owner)
+      host.replaceChildren(
+        h(
+          "p",
+          { class: "notice", role: "status" },
+          error instanceof Error
+            ? error.message
+            : "Close and reopen your daily rewards.",
+        ),
+      );
+  } finally {
+    host.removeAttribute("aria-busy");
+  }
 }
 
 export async function teacherCalendarPanel() {

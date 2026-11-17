@@ -13,7 +13,7 @@ This is a one-time database update for an existing classroom. It preserves accou
    ```
 
    The result should include `daily_calendar: 1`, `credit_rankings: 1` and `profile_styles: 1`.
-6. Refresh the website. Students open **Daily rewards**. Teachers open **Teacher Studio → Lab settings → Seven-week daily rewards**.
+6. Refresh the website. Students press the **Daily rewards gift button in the header beside notifications**; it opens a popup on the current page. Teachers open **Teacher Studio → Lab settings → Seven-week daily rewards**.
 
 No private key or password belongs in the website or GitHub. The update must be run by the project owner; adding website files alone cannot install database functions.
 

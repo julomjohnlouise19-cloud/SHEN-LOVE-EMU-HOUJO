@@ -1,0 +1,685 @@
+.display-mode-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin: 22px 0;
+  padding: 20px;
+  border: 1px solid #cad6db;
+  border-radius: 18px;
+  background: linear-gradient(125deg, #eef4f2, #eeedf9);
+}
+.display-mode-copy h4 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 10px;
+}
+.display-mode-copy p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 7px 0;
+  color: #455d55;
+}
+.dark-mode-switch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  min-height: 44px;
+}
+.dark-mode-switch strong {
+  font-size: 12px;
+}
+.dark-mode-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.mode-switch-track {
+  display: block;
+  position: relative;
+  width: 54px;
+  height: 30px;
+  border: 1px solid #71847b;
+  border-radius: 20px;
+  background: #71847b;
+}
+.mode-switch-track > span {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fffef9;
+  transition: transform 0.15s;
+}
+.dark-mode-switch input:checked + .mode-switch-track {
+  background: #355a75;
+  border-color: #355a75;
+}
+.dark-mode-switch input:checked + .mode-switch-track > span {
+  transform: translateX(24px);
+}
+.dark-mode-switch input:focus-visible + .mode-switch-track {
+  outline: 3px solid var(--lab-brand);
+  outline-offset: 4px;
+}
+.dark-mode-switch input:disabled + .mode-switch-track {
+  opacity: 0.65;
+}
+.display-mode-status {
+  grid-column: 1/-1;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #355d4b;
+}
+.display-mode-status:empty {
+  display: none;
+}
+@media (max-width: 480px) {
+  .display-mode-panel {
+    padding: 16px;
+    gap: 12px;
+  }
+  .display-mode-copy p {
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mode-switch-track > span {
+    transition: none;
+  }
+}
+
+:root[data-color-mode="dark"] {
+  color-scheme: dark;
+  --lab-brand: #a2d9bb;
+  --lab-brand-deep: #86bfa0;
+  --lab-ink: #e4eee9;
+  --lab-muted: #b2c7bc;
+  --lab-bg: #101b18;
+  --lab-surface: #1a2a23;
+  --lab-soft: #253d32;
+  --lab-line: #42594c;
+  --lab-peach: #49372d;
+  --lab-lilac: #35354f;
+  --lab-blue: #263f4b;
+  --lab-yellow: #453b25;
+  --lab-wash: linear-gradient(125deg, #20392e, #30334c 65%, #3c302a);
+  --muted: var(--lab-muted);
+  --cream: var(--lab-bg);
+  --paper: var(--lab-surface);
+  --ink: var(--lab-ink);
+  --border: var(--lab-line);
+  --line: var(--lab-line);
+}
+:root[data-color-mode="dark"] body,
+:root[data-color-mode="dark"] .workspace,
+:root[data-color-mode="dark"] .welcome-hub,
+:root[data-color-mode="dark"] .loading-screen {
+  background: var(--lab-bg);
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"] .welcome-hero {
+  background: var(--lab-wash);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .welcome-notice,
+    .welcome-features > article,
+    .welcome-features > div,
+    .welcome-storage,
+    .auth-confirmation,
+    .auth-confirmation-notice,
+    .auth-fields .segmented,
+    .auth-confirmation-box
+  ) {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .welcome-tagline,
+    .welcome-description,
+    .welcome-copy,
+    .welcome-footer,
+    .auth-note,
+    .auth-length-hint
+  ) {
+  color: var(--lab-muted);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .sidebar,
+    .topbar,
+    .page-navigation,
+    .modal,
+    .paper,
+    .profile-panel,
+    .profile-growth,
+    .profile-statistics > div,
+    .scientist-card-copy,
+    .profile-role,
+    .theme-choice,
+    .avatar-choice,
+    .profile-privacy,
+    .display-mode-panel,
+    .design-shortcut,
+    .profile-design-intro,
+    .design-settings,
+    .design-preview-pane,
+    .design-review-pane,
+    .researcher-card,
+    .reference-card,
+    .study-section,
+    .handbook-card,
+    .class-shop-card,
+    .shop-item,
+    .notebook-card,
+    .notebook-page,
+    .search-field,
+    .record-card,
+    .friend-card,
+    .scientist-card,
+    .league-row,
+    .leaderboard-table,
+    .empty-state,
+    .activity-toolbar,
+    .activity-format-card,
+    .activity-badge,
+    .activity-saved-round,
+    .activity-complete,
+    .word-board-card,
+    .word-trail-list,
+    .planet-field-notes,
+    .planet-check,
+    .planet-passport,
+    .calendar-board,
+    .calendar-today-card,
+    .calendar-how,
+    .reasoning-check,
+    .suggestion-form,
+    .suggestion-card,
+    .guide-card,
+    .guide-host > section,
+    .lab-summary,
+    .daily-spin-card,
+    .quest-card,
+    .branch-card,
+    .next-deck,
+    .resume-card,
+    .answer-area,
+    .auth-fields,
+    .auth-story,
+    .profile-photo-editor
+  ) {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .profile-cover,
+    .profile-composition,
+    .profile-banner-fallback,
+    .hero-card,
+    .discovery-hero,
+    .calendar-hero,
+    .activity-hero,
+    .island-activity-entry,
+    .activity-hub-hero,
+    .activity-hero-planet,
+    .learning-trail,
+    .profile-growth,
+    .planet-portrait,
+    .spin-page .spin-layout,
+    .league-week-card,
+    .podium-place,
+    .handbook-cover,
+    .welcome-guide,
+    .suggestion-hero,
+    .teacher-welcome,
+    .activity-passport-preview,
+    .activity-passport-banner,
+    .display-mode-panel
+  ) {
+  background: var(--lab-wash);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .trail-step,
+    .trail-progress,
+    .daily-fact,
+    .study-self-check,
+    .study-remember,
+    .study-check,
+    .suggestion-tips,
+    .terms-content,
+    .profile-jumps,
+    .design-upload-zone,
+    .design-focus-preview,
+    .wheel-notification,
+    .calendar-week-picker,
+    .activity-feedback,
+    .match-selection-status,
+    .activity-help-list,
+    .notebook-tip,
+    .mini-planet-stamp,
+    .profile-role,
+    .streak-pill
+  ) {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(p, small, li, dt, dd, label, th, td, h1, h2, h3, h4, h5, h6),
+:root[data-color-mode="dark"]
+  :is(
+    .fine-print,
+    .muted,
+    .eyebrow,
+    .page-subtitle,
+    .breadcrumb,
+    .breadcrumbs,
+    .deck-meta,
+    .question-type,
+    .play-counter,
+    .profile-bio-count,
+    .profile-role,
+    .profile-section-title,
+    .profile-statistics strong,
+    .profile-statistics span,
+    .profile-growth small,
+    .display-mode-status,
+    .calendar-week-summary,
+    .activity-small,
+    .activity-save-note,
+    .badge-state,
+    .planet-type,
+    .planet-map-caption,
+    .planet-model-note,
+    .calendar-day-state,
+    .calendar-day-date,
+    .calendar-week-number,
+    .calendar-summary,
+    .source-note,
+    .record-meta
+  ) {
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .fine-print,
+    .muted,
+    .page-subtitle,
+    .profile-bio-count,
+    .calendar-pan-hint,
+    .activity-source-row p,
+    .activity-small,
+    .activity-save-note,
+    .badge-state,
+    .planet-model-note,
+    .calendar-day-state,
+    .calendar-day-date
+  ) {
+  color: var(--lab-muted);
+}
+:root[data-color-mode="dark"] a {
+  color: #b0e3c5;
+}
+:root[data-color-mode="dark"]
+  :is(
+    .button,
+    .text-button,
+    .icon-button,
+    .logout-button,
+    .return-link,
+    .dialog-back,
+    .activity-tool,
+    .theme-choice,
+    .calendar-week-button,
+    .avatar-choice,
+    .auth-fields .segmented button,
+    .profile-jumps .button
+  ) {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .button.primary,
+    .auth-fields .segmented button.selected,
+    .calendar-week-button[aria-pressed="true"]
+  ) {
+  background: var(--lab-brand);
+  color: #10251b;
+  border-color: var(--lab-brand);
+}
+:root[data-color-mode="dark"]
+  :is(.button.primary, .calendar-week-button[aria-pressed="true"])
+  :is(span, strong, small) {
+  color: #10251b;
+}
+:root[data-color-mode="dark"] .button.primary:hover:not(:disabled) {
+  background: var(--lab-brand-deep);
+  color: #10251b;
+}
+:root[data-color-mode="dark"]
+  :is(
+    .theme-choice.selected,
+    .avatar-choice.selected,
+    .nav-link.active,
+    .nav-link:hover,
+    .source-chip,
+    .pill,
+    .hero-tag,
+    .streak-dot
+  ) {
+  background: #2d4b3b;
+  color: #d8f1e1;
+  border-color: #8dbb9f;
+}
+:root[data-color-mode="dark"] .theme-choice.selected :is(small, strong) {
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"] .theme-choice :is(strong, small) {
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"] :is(input:not([type="range"]), textarea, select),
+:root[data-color-mode="dark"]
+  .field
+  :is(input:not([type="range"]), textarea, select) {
+  background: #11221a;
+  color: var(--lab-ink);
+  border-color: #668471;
+}
+:root[data-color-mode="dark"] :is(input, textarea)::placeholder {
+  color: #adc1b5;
+  opacity: 1;
+}
+:root[data-color-mode="dark"] :is(input[type="checkbox"], input[type="radio"]) {
+  accent-color: #a2d9bb;
+}
+:root[data-color-mode="dark"]
+  .dark-mode-switch
+  input:checked
+  + .mode-switch-track {
+  background: #426b88;
+  border-color: #a1c6e0;
+}
+:root[data-color-mode="dark"] .mode-switch-track > span {
+  background: #f5f6e9;
+}
+:root[data-color-mode="dark"] .rewards-button {
+  background: #473d25;
+  color: #ffe1a1;
+  border-color: #bfa16a;
+}
+:root[data-color-mode="dark"] .rewards-button[data-reward-state="ready"] {
+  background: #665022;
+  color: #ffedb1;
+  border-color: #ead083;
+}
+:root[data-color-mode="dark"] .rewards-button[data-reward-state="claimed"] {
+  background: #234432;
+  color: #d2f2d8;
+  border-color: #8bb997;
+}
+:root[data-color-mode="dark"] .reward-button-badge {
+  background: #f4d989;
+  color: #15291f;
+  border-color: #10251b;
+}
+:root[data-color-mode="dark"] .calendar-day {
+  background: #20362b;
+  color: #e4eee9;
+  border-color: #52705d;
+}
+:root[data-color-mode="dark"] .calendar-day.is-weekly {
+  background: #493d25;
+  color: #ffecb8;
+  border-color: #ac9459;
+}
+:root[data-color-mode="dark"] .calendar-day.state-today {
+  background: #383c62;
+  border-color: #b7b6ef;
+}
+:root[data-color-mode="dark"] .calendar-day.state-claimed {
+  background: #214b34;
+  border-color: #8cb897;
+}
+:root[data-color-mode="dark"] .calendar-day.state-missed {
+  background: #29332e;
+  opacity: 1;
+  color: #bfcfc5;
+}
+:root[data-color-mode="dark"]
+  :is(.calendar-kicker, .calendar-today-art, .calendar-day-seal) {
+  background: #4b4128;
+  color: #ffe4a6;
+  border-color: #a38c54;
+}
+:root[data-color-mode="dark"]
+  :is(
+    .calendar-live,
+    .reasoning-answer,
+    .answer-feedback.success,
+    .activity-feedback.feedback-match,
+    .activity-feedback.feedback-complete
+  ) {
+  background: #1e4430;
+  color: #e2f3e4;
+  border-color: #83ae8b;
+}
+:root[data-color-mode="dark"]
+  :is(
+    .calendar-live.is-error,
+    .form-error,
+    .notice,
+    .connection-notice,
+    .answer-feedback.gentle,
+    .activity-feedback.feedback-wrong,
+    .choice-rationale
+  ) {
+  background: #493728;
+  color: #ffe5c9;
+  border-color: #b99a76;
+}
+:root[data-color-mode="dark"] .answer-feedback .choice-rationale {
+  background: #564027;
+  color: #fff0d7;
+  border-color: #e1bd7c;
+}
+:root[data-color-mode="dark"]
+  :is(
+    .answer-option,
+    .match-term,
+    .match-definition,
+    .word-cell,
+    .flashcard-front,
+    .flashcard-back
+  ) {
+  background: #233c30;
+  color: var(--lab-ink);
+  border-color: #688a75;
+}
+:root[data-color-mode="dark"]
+  :is(
+    .answer-option.selected,
+    .match-term.is-selected,
+    .match-definition.is-hinted,
+    .word-cell.is-selected,
+    .word-cell.is-hinted
+  ) {
+  background: #4b452b;
+  color: #fff0c7;
+  border-color: #d8c27f;
+}
+:root[data-color-mode="dark"]
+  :is(
+    .answer-option.correct,
+    .match-term.is-solved,
+    .match-definition.is-solved,
+    .word-cell.is-found
+  ) {
+  background: #234d36;
+  color: #e1f3df;
+  border-color: #93c79c;
+}
+:root[data-color-mode="dark"] .answer-option.incorrect {
+  background: #573a39;
+  color: #ffe9e0;
+  border-color: #d7a397;
+}
+:root[data-color-mode="dark"] :is(.science-diagram, .science-illustration) {
+  background: #f3f4e8;
+  border-radius: 14px;
+  padding: 10px;
+}
+:root[data-color-mode="dark"] .science-diagram text {
+  fill: #31442f;
+}
+:root[data-color-mode="dark"] :is(.periodic-cell, .element-cell) {
+  background: #21352c;
+  color: var(--lab-ink);
+  border-color: #708a7b;
+}
+:root[data-color-mode="dark"]
+  .calendar-week-button[aria-pressed="true"]
+  :is(strong, small) {
+  color: #10251b;
+}
+:root[data-color-mode="dark"] .calendar-hero h2,
+:root[data-color-mode="dark"] .calendar-summary strong {
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"] .footer {
+  border-color: var(--lab-line);
+  color: var(--lab-muted);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .sidebar-note,
+    .cloud-notice,
+    .companion-note,
+    .shop-banner,
+    .class-shop-banner,
+    .shop-balance,
+    .class-credit-total,
+    .filter-tab,
+    .activity-open-link,
+    .planet-passport-strip,
+    .scene-pair > span,
+    .spin-result,
+    .spin-explainer,
+    .discovery-result,
+    .guide-banner,
+    .profile-design-shortcut
+  ) {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .trail-number,
+    .deck-count,
+    .branch-toolbar > span,
+    .mastery-label,
+    .run-stats > span,
+    .run-stats strong,
+    .teacher-save-note,
+    .word-board-footer,
+    .flashcard-side > span:last-child,
+    .branch-number,
+    .branch-card-bottom,
+    .deck-meta > span,
+    .lab-summary > span,
+    .mini-eyebrow,
+    .map-compass,
+    .map-caption,
+    .island-footnote,
+    .item-price,
+    .item-price strong,
+    .format-card-footer > span,
+    .lab-label,
+    .nav-caption,
+    .sidebar-note strong,
+    .profile-text strong,
+    .balance-inner,
+    .balance-inner strong,
+    .balance-inner > span,
+    .footer > span
+  ) {
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"] .island-inner :is(strong, span) {
+  color: #293d2c;
+}
+:root[data-color-mode="dark"] .teacher-sidebar .profile-button {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .filter-tab.selected {
+  background: var(--lab-brand);
+  color: #10251b;
+}
+:root[data-color-mode="dark"] .modal .modal-chrome {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .calendar-summary > span {
+  color: var(--lab-muted);
+}
+:root[data-color-mode="dark"] :is(.welcome-hero, .about-intro, .auth-benefit) {
+  background: var(--lab-wash);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .welcome-features > * {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .help-label,
+    .shop-balance > span,
+    .shop-balance > strong,
+    .leitner-boxes strong,
+    .leitner-boxes small,
+    .researcher-number
+  ) {
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"]
+  :is(
+    .question-mark,
+    .leitner-boxes > span,
+    .researcher-card-top,
+    .about-intro-badges > span
+  ) {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(.leaderboard-banner, .about-introduction, .about-signoff) {
+  background: var(--lab-wash);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}

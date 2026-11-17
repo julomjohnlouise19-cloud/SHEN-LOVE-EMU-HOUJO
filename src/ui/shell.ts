@@ -23,6 +23,7 @@ import { connectionNotice } from "./connectivity";
 import { pageNavigation } from "./navigation";
 import { attachGuide, guideModal } from "./guide";
 import { aboutUsButton } from "./about-button";
+import { dailyRewardsButton } from "./reward-button";
 let sidebarOpen = false;
 let releaseNavigation = () => {};
 export function resetNavigation() {
@@ -38,7 +39,6 @@ const nav = [
   ["/notebook", "notebook", "My notebook"],
   ["/shop", "shop", "Supply shop"],
   ["/spin", "spin", "Daily spin"],
-  ["/daily-rewards", "calendar", "Daily rewards"],
   ["/leaderboard", "trophy", "Leaderboard"],
   ["/friends", "heart", "Science friends"],
 ];
@@ -331,6 +331,7 @@ export function shell(page: HTMLElement, route: string) {
           "aria-label": `Notifications${notices ? `, ${notices} unread` : ""}`,
         },
       ),
+      dailyRewardsButton(),
       button(
         h(
           "span",

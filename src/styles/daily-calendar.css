@@ -1,6 +1,270 @@
 .daily-calendar-page {
   color: #29433c;
 }
+.rewards-button {
+  border: 1px solid #ddcfad;
+  border-radius: 14px;
+  padding: 10px 12px;
+  min-width: 42px;
+  min-height: 42px;
+  color: #73551f;
+  background: #fff8e6;
+  flex-shrink: 0;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    transform 0.18s;
+}
+.rewards-button:hover {
+  background: #ffefc6;
+  border-color: #ba954e;
+  transform: translateY(-1px);
+}
+.rewards-button[data-reward-state="ready"] {
+  background: #ffedb9;
+  border-color: #b28a39;
+  box-shadow: 0 0 0 3px #e2bf5c25;
+}
+.rewards-button[data-reward-state="claimed"] {
+  background: #ecf3e5;
+  border-color: #c2d2b6;
+  color: #3d613b;
+}
+.reward-button-inner {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.reward-button-label {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.reward-button-art {
+  position: relative;
+  display: flex;
+}
+.reward-button-badge {
+  position: absolute;
+  top: -7px;
+  right: -8px;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #fffdf5;
+  background: #785515;
+  color: white;
+}
+.rewards-button[data-reward-state="claimed"] .reward-button-badge {
+  background: #446b3f;
+}
+.reward-button-badge[hidden] {
+  display: none;
+}
+.modal.wide.daily-rewards-dialog {
+  width: min(980px, calc(100vw - 36px));
+  max-width: min(980px, calc(100vw - 36px));
+  min-width: 0;
+}
+.reward-dialog-body {
+  min-width: 0;
+}
+.calendar-week-picker {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 7px;
+  padding: 12px;
+  border: 1px solid #d7d2e4;
+  border-radius: 19px;
+  background: #f1eef9;
+  margin: 18px 0 12px;
+}
+.calendar-week-button {
+  min-width: 0;
+  min-height: 54px;
+  border: 1px solid #d5d0e1;
+  border-radius: 12px;
+  padding: 7px 3px;
+  color: #4f526e;
+  background: #fffef9;
+  cursor: pointer;
+}
+.calendar-week-button > span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+.calendar-week-button strong {
+  font-family: "Fredoka", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+.calendar-week-button small {
+  font-size: 11px;
+}
+.calendar-week-button[aria-current="date"] {
+  border-color: #9c9254;
+}
+.calendar-week-button[aria-pressed="true"] {
+  background: #4d5879;
+  color: white;
+  border-color: #4d5879;
+  box-shadow: 0 3px 0 #303c5b26;
+}
+.calendar-week-button:hover {
+  border-color: #657091;
+}
+.calendar-week-summary {
+  font-size: 13px;
+  color: #4b5f55;
+  line-height: 1.8;
+  margin: 10px 0 16px;
+}
+.calendar-week[hidden] {
+  display: none;
+}
+@media (max-width: 380px) {
+  .calendar-week-picker {
+    padding: 8px;
+    gap: 4px;
+  }
+  .calendar-week-button {
+    min-height: 50px;
+  }
+}
+.calendar-dialog-loading {
+  padding: 28px;
+  font-size: 15px;
+  color: #465e51;
+}
+.calendar-dialog-intro {
+  margin: 0 0 20px;
+  color: #465e51;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.daily-rewards-dialog .calendar-hero {
+  padding: 24px;
+  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.85fr);
+  border-radius: 23px;
+}
+.daily-rewards-dialog .calendar-hero h2 {
+  font-size: 29px;
+}
+.daily-rewards-dialog .calendar-today-card {
+  padding: 20px;
+}
+.daily-rewards-dialog .calendar-today-art {
+  width: 64px;
+  height: 64px;
+  margin: 16px auto;
+}
+.daily-rewards-dialog .calendar-summary {
+  gap: 19px;
+}
+.daily-rewards-dialog .calendar-how {
+  padding: 22px;
+}
+@media (max-width: 1100px) {
+  .reward-button-label {
+    display: none;
+  }
+  .rewards-button {
+    padding: 10px;
+  }
+}
+@media (max-width: 760px) {
+  .topbar .rewards-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 9px;
+    border-radius: 12px;
+  }
+  .modal.wide.daily-rewards-dialog {
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+    padding: 16px;
+  }
+  .daily-rewards-dialog .calendar-hero {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    gap: 18px;
+  }
+  .daily-rewards-dialog .calendar-hero-copy {
+    width: 100%;
+  }
+  .daily-rewards-dialog .calendar-hero-copy h2 {
+    font-size: 25px;
+    margin: 16px 0 12px;
+  }
+  .daily-rewards-dialog .calendar-today-card {
+    width: 100%;
+    min-width: 0;
+    order: -1;
+  }
+  .daily-rewards-dialog .calendar-today-art {
+    display: none;
+  }
+  .daily-rewards-dialog .calendar-grid-heading h2 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 380px) {
+  .topbar {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .topbar .topbar-actions {
+    gap: 4px;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  .topbar .logout-button {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+  .topbar .balance-pill {
+    padding: 7px;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .topbar .balance-inner {
+    min-width: 0;
+  }
+  .topbar .balance-inner strong {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .daily-rewards-dialog {
+    padding: 13px;
+  }
+  .daily-rewards-dialog .calendar-hero {
+    padding: 14px;
+  }
+  .daily-rewards-dialog .calendar-summary {
+    gap: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rewards-button {
+    transition: none;
+  }
+  .rewards-button:hover {
+    transform: none;
+  }
+}
 .calendar-hero {
   display: grid;
   grid-template-columns: 1.2fr 0.85fr;
