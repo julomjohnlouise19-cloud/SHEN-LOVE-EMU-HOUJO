@@ -69,7 +69,7 @@ export function accountError(value: unknown): AccountError {
     )
   )
     return new AccountError(
-      "The account email could not be sent. Your teacher needs to check the email sender settings. If you already verified your account, you can still sign in. Wait before requesting one new code.",
+      "The account email could not be sent. Your teacher needs to check the email sender settings. If you already verified your account, you can still sign in. Wait before requesting another account email.",
       "delivery",
       60,
     );
