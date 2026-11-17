@@ -207,7 +207,7 @@ test("email sending limits have persistent cooldown and an existing-account path
     await page.getByLabel("Your name", { exact: true }).fill("Student One");
     await page
       .getByLabel("Email", { exact: true })
-      .fill("student1@example.test");
+      .fill("student.one@gmail.com");
     await page
       .getByLabel("Password", { exact: true })
       .fill("cloud-password-123");
@@ -240,8 +240,9 @@ test("email sending limits have persistent cooldown and an existing-account path
     .getByRole("button", { name: "I already have an account", exact: true })
     .click();
   await expect(page.getByLabel("Email", { exact: true })).toHaveValue(
-    "student1@example.test",
+    "student.one@gmail.com",
   );
+  await page.getByLabel("Email", { exact: true }).fill("student1@example.test");
   await page.getByLabel("Password", { exact: true }).fill("cloud-password-123");
   await page.getByRole("button", { name: "Welcome back", exact: true }).click();
   await expect(
@@ -260,7 +261,9 @@ test("one confirmation resend is available after its cooldown", async ({
     .getByRole("button", { name: "Create account", exact: true })
     .click();
   await page.getByLabel("Your name", { exact: true }).fill("New Scientist");
-  await page.getByLabel("Email", { exact: true }).fill("new@example.test");
+  await page
+    .getByLabel("Email", { exact: true })
+    .fill("new.scientist@gmail.com");
   await page.getByLabel("Password", { exact: true }).fill("cloud-password-123");
   await page
     .getByRole("checkbox", {
@@ -278,7 +281,7 @@ test("one confirmation resend is available after its cooldown", async ({
   expect(backend.resendCalls).toBe(0);
   await page.clock.fastForward(61000);
   await page
-    .getByRole("button", { name: "Send one new link", exact: true })
+    .getByRole("button", { name: "Send a new code", exact: true })
     .click();
   await expect.poll(() => backend.resendCalls).toBe(1);
   await expect(

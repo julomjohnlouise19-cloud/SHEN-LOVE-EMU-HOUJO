@@ -47,7 +47,7 @@ test("email confirmation and guest exploration are explicit", async ({
   await page.getByLabel("Your name", { exact: true }).fill("New Scientist");
   await page
     .getByLabel("Email", { exact: true })
-    .fill("new-scientist@example.test");
+    .fill("new.scientist@gmail.com");
   await page.getByLabel("Password", { exact: true }).fill("new-password-123");
   await page
     .getByRole("checkbox", {
