@@ -83,7 +83,7 @@ export function accountError(value: unknown): AccountError {
     );
   if (code === "email_not_confirmed" || /email not confirmed/i.test(message))
     return new AccountError(
-      "Verify your email before signing in. Enter the six-digit code from your inbox or spam folder, or request one new code.",
+      "Verify your email before signing in. Enter the complete code from your inbox or spam folder, or request one new code.",
       "confirm",
     );
   if (

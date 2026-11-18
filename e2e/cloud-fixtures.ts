@@ -76,6 +76,7 @@ export interface Backend {
   resendCalls: number;
   verifyCalls: number;
   emailCodeRequests: { email: string; token: string; type: string }[];
+  emailCodeLength: 6 | 8;
   photoUploads: number;
   recoverCalls: number;
   invalidRecoveryCode: boolean;
@@ -130,6 +131,7 @@ export const test = base.extend<{ backend: Backend }>({
         resendCalls: 0,
         verifyCalls: 0,
         emailCodeRequests: [],
+        emailCodeLength: 6,
         photoUploads: 0,
         recoverCalls: 0,
         invalidRecoveryCode: false,
@@ -308,7 +310,11 @@ export const test = base.extend<{ backend: Backend }>({
             token: String(body?.token ?? ""),
             type: String(body?.type ?? ""),
           });
-          if (body?.token !== "123456" || body?.type !== "signup")
+          if (
+            body?.token !==
+              (state.emailCodeLength === 8 ? "12345678" : "123456") ||
+            body?.type !== "signup"
+          )
             return respond(
               {
                 code: "otp_expired",

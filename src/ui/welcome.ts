@@ -8,6 +8,7 @@ import { heroIllustration, icon, mascot } from "./svg";
 import { brandLink } from "./branding";
 import { connectionNotice } from "./connectivity";
 import { aboutUsButton } from "./about-button";
+import { siteHelpButton } from "./site-help-button";
 
 export function welcomeHub() {
   const notice = new URLSearchParams(location.hash.split("?")[1]).get("notice");
@@ -17,7 +18,12 @@ export function welcomeHub() {
     h(
       "header",
       { class: "welcome-header" },
-      brandLink("#/welcome"),
+      h(
+        "div",
+        { class: "brand-with-help" },
+        brandLink("#/welcome"),
+        siteHelpButton(),
+      ),
       h(
         "div",
         { class: "welcome-header-extra" },

@@ -59,6 +59,9 @@ describe("Gmail signup and emailed codes", () => {
     expect(emailCode("000123")).toBe("000123");
     expect(emailCode("123 456")).toBe("123456");
     expect(emailCode("123-456")).toBe("123456");
+    expect(emailCode("00001234")).toBe("00001234");
+    expect(emailCode("1234 5678")).toBe("12345678");
+    expect(emailCode("123456789")).toBeUndefined();
     for (const code of ["", "12345", "1234567", "12a456", "1e2345"])
       expect(emailCode(code)).toBeUndefined();
   });

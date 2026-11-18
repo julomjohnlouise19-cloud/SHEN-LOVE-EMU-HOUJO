@@ -34,7 +34,7 @@ let profileStyleFeatures = 0;
 let creditRankingFeatures = 0;
 let dailyCalendarFeatures = 0;
 let dailyWheelFeatures = 0;
-export const dailyWheelVersion = () => platform >= 3 ? dailyWheelFeatures : 0;
+export const dailyWheelVersion = () => (platform >= 3 ? dailyWheelFeatures : 0);
 export const dailyCalendarVersion = () =>
   platform >= 3 ? dailyCalendarFeatures : 0;
 export const creditRankingsVersion = () =>
@@ -302,7 +302,9 @@ export async function cloudVerifyEmailCode(email: string, value: string) {
   const address = email.trim().toLowerCase();
   const token = emailCode(value);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address) || !token)
-    throw new Error("Enter the six-digit code from your latest account email.");
+    throw new Error(
+      "Enter the complete verification code from your latest account email.",
+    );
   if (!client) throw new Error("Account services are unavailable.");
   await ready();
   const { data, error } = await client.auth.verifyOtp({

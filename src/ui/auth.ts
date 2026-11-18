@@ -239,11 +239,11 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     const heading = h("h3", { tabindex: -1 });
     const description = h("p");
     const destination = entryDestination("");
-    const code = input("email-code", "6-digit code", "", "text");
+    const code = input("email-code", "Enter code", "", "text");
     code.inputMode = "numeric";
     code.autocomplete = "one-time-code";
-    code.maxLength = 12;
-    code.pattern = "[0-9]{6}";
+    code.maxLength = 16;
+    code.pattern = "(?:[0-9]{6}|[0-9]{8})";
     code.classList.add("email-code-input");
     const verify = button(
       "Verify code & enter",
@@ -270,7 +270,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
           ? "The email could not be sent, so your account may not have been created. Edit your signup details and try again after your teacher fixes the sender. If you already registered, request one new code below."
           : "We couldn’t request your email code. Ask your teacher to check the email sender, then request one new code below."
         : requested
-          ? "If this address can register, check your Gmail inbox or Spam for a six-digit code. Enter the latest code below."
+          ? "If this address can register, check your Gmail inbox or Spam for your verification code. Enter the complete code below."
           : "Enter your latest email code, or request a new one. Already verified? Sign in with your password.";
       message.textContent = error?.message ?? "";
       status.textContent = "";
@@ -353,7 +353,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         ),
         h("strong", null, model.email),
       ),
-      field("Six-digit verification code", code),
+      field("Email verification code", code),
       message,
       status,
       h("p", { class: "fine-print" }, "Use the latest code. Never share it."),

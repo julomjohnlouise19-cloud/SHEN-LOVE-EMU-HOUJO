@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## Logo help and eight-digit verification
+
+- [x] Match the user's selected eight-digit email standard, accept complete older six-digit messages and preserve exact server verification without truncating codes. Update the owner guide and token template.
+- [x] Add a question-mark button beside the logo on welcome, student and teacher screens, opening a cute mascot introduction and six interactive tour stops with keyboard tabs, Previous/Next controls and a simple first step.
+- [ ] Verify light/dark phone/desktop layouts, keyboard and nested guide focus, unchanged science cards/routes/balances and correct online reward explanations; publish with the earlier Dark mode and shared-wheel work.
+
+The user now reports receiving eight-digit email and explicitly selecting length 8. The completed email gates pass lint/typecheck, 99 unit/property checks and 11 account scenarios, including transmission of the full eight-digit token, wrong-code rejection, older six-digit verification, pending-account rejection and cross-tab delivery throttling. No private inbox or real token was accessed by this chat.
+
+The interactive help passes both standard browser scenarios, covering welcome access before signup, all six tabs, arrow/Home/End keys, Previous/Next wraparound, nested guide focus, unchanged science cards/routes/balances, light/Dark mode and 1280/768/390/320 widths. Twelve combined cloud guide/code scenarios pass visitors, students and teachers, actual shared-reward copy and complete eight-digit server verification. All 99 units and SQL/document/economy checks pass. The existing school identity, rewards and experience regressions also passed. The desktop and phone guide screenshots were reviewed; the phone step controls have separate count and button rows for readability.
+
 ## Complete Dark mode surfaces and honest inbox verification
 
 - [x] Reproduce the pale Review Box and About us chips; unify dark panels, chips, buttons, selected/hover/focus states and native controls while retaining readable scientific art and original photos.
@@ -9,7 +19,7 @@
 - [x] Replace the online practice wheel with server-awarded daily class credits, durable receipts, atomic wallet/ledger writes, account-bound retries and a tested owner activation script.
 - [x] Audit completed route renders and empty/populated/dialog states on phones and desktops in both themes; verify keyboard behavior, existing accounts, rewards and zero unexpected console errors.
 - [ ] Run the required checks, sync GitHub, verify the published website and report any private sender-setting/logs dependency accurately.
-- [ ] Owner activation: run the tested daily-wheel-upgrade.sql in the private project and verify daily_wheel: 1. The user explicitly reports this has not been run yet; the online interface remains capability-gated until activation.
+- [x] Verify daily-wheel activation: although the earlier user reply said the SQL had not been run, the subsequent hosted backend check in run 44301978956 explicitly reports the server-owned daily class-credit wheel installed. No production migration or wallet mutation was performed from this chat.
 
 Local gates passed lint/typecheck, 99 unit/property checks, all 972 reviewed questions, generated SQL/document consistency and economy checks. The complete isolated PostgreSQL suite passed, including the new wheel's wallet/ledger atomicity, roles/RLS, forged-user/stale-day/reused-ID rejection, concurrent claims, lost-response retries, zero prizes, wallet limits, captured Manila midnight and additive reruns. Six new wheel browser scenarios passed shared balances and unchanged practice merits, durable reload, server-save/response loss retry, two tabs, next-day zero receipts, account switching, guest/missing-capability gates and teacher preview/maximum controls. Five code cases passed malformed/overlong Gmail rejection before POST, correct/wrong code verification, pending-state and missing-mail help, phone accessibility, cooldown aliases, auto-confirmation misconfiguration and unverified server-user rejection. The corrected profile-section test passes preservation of a legacy section, the shared 20 options, student persistence/reload and teacher saves. Three standard scenarios pass empty/populated Review Box, expanded About us cards/hobbies and complete banner upload/focus/presets/final preview/apply/reload in Dark mode at desktop/phone widths and light-mode checks.
 

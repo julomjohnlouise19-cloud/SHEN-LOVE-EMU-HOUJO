@@ -54,7 +54,7 @@ function guide(done: () => void) {
           ],
           [
             "Your voice belongs here",
-            "Send a suggestion or report a confusing card. Your teachers can read it and reply privately. The large Back button always names your destination.",
+            "Send a suggestion or report a confusing card. Your teachers can read it and reply privately. Use the X to close an area; breadcrumbs show where you are.",
             "/suggestions",
             "Open the suggestion box",
           ],

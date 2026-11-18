@@ -19,6 +19,31 @@ async function signup(page: Page, address = "learner.science@gmail.com") {
     .check();
 }
 
+test("the selected eight-digit provider code is verified completely without truncation", async ({
+  page,
+  backend,
+}) => {
+  backend.emailCodeLength = 8;
+  await page.goto("./");
+  await signup(page);
+  await page
+    .getByRole("button", { name: "Make my little lab", exact: true })
+    .click();
+  const code = page.getByLabel("Email verification code", { exact: true });
+  await code.fill("1234 5678");
+  await expect(code).toHaveValue("12345678");
+  await page
+    .getByRole("button", { name: "Verify code & enter", exact: true })
+    .click();
+  await expect(
+    page.getByRole("button", { name: "Log out", exact: true }),
+  ).toBeVisible();
+  expect(backend.emailCodeRequests).toEqual([
+    { email: "learner.science@gmail.com", token: "12345678", type: "signup" },
+  ]);
+  expect(backend.verifyCalls).toBe(1);
+});
+
 test("Gmail signup requires a server-verified code before opening the student interface", async ({
   page,
   backend,
@@ -46,7 +71,7 @@ test("Gmail signup requires a server-verified code before opening the student in
     .getByLabel("Email", { exact: true })
     .fill("learner.science@gmail.com");
   await create.click();
-  const code = page.getByLabel("Six-digit verification code", { exact: true });
+  const code = page.getByLabel("Email verification code", { exact: true });
   await expect(code).toBeVisible();
   await expect(page.locator('[data-email-status="pending"]')).toContainText(
     "Not verified yet",
@@ -127,7 +152,7 @@ test("email code entry is accessible on a phone and resending preserves the cool
     .click();
   const panel = page.locator(".auth-confirmation");
   await expect(
-    panel.getByLabel("Six-digit verification code", { exact: true }),
+    panel.getByLabel("Email verification code", { exact: true }),
   ).toBeVisible();
   await expect(
     page.getByRole("button", { name: /Request again in/ }),
@@ -172,7 +197,7 @@ test("Gmail aliases share the signup email cooldown across tabs", async ({
     .getByRole("button", { name: "Make my little lab", exact: true })
     .click();
   await expect(
-    page.getByLabel("Six-digit verification code", { exact: true }),
+    page.getByLabel("Email verification code", { exact: true }),
   ).toBeVisible();
   const other = await context.newPage();
   await other.goto("./");
@@ -233,7 +258,7 @@ test("an unconfirmed server user cannot enter through password login or a mislea
     .getByRole("button", { name: "Make my little lab", exact: true })
     .click();
   await page
-    .getByLabel("Six-digit verification code", { exact: true })
+    .getByLabel("Email verification code", { exact: true })
     .fill("123456");
   await page
     .getByRole("button", { name: "Verify code & enter", exact: true })

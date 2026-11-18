@@ -27,6 +27,7 @@ import { pageNavigation } from "./navigation";
 import { attachGuide, guideModal } from "./guide";
 import { aboutUsButton } from "./about-button";
 import { dailyRewardsButton } from "./reward-button";
+import { siteHelpButton } from "./site-help-button";
 let sidebarOpen = false;
 let releaseNavigation = () => {};
 export function resetNavigation() {
@@ -307,7 +308,13 @@ export function shell(page: HTMLElement, route: string) {
   const header = h(
     "header",
     { class: "topbar" },
-    h("div", { class: "topbar-left" }, menuButton, headerBrand),
+    h(
+      "div",
+      { class: "topbar-left" },
+      menuButton,
+      headerBrand,
+      siteHelpButton(),
+    ),
     h(
       "div",
       { class: "topbar-actions" },

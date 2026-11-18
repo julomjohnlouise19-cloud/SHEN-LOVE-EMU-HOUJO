@@ -1,6 +1,38 @@
 import { copyFile } from "node:fs/promises";
 import { test, expect, signIn, signOut, users } from "./cloud-fixtures";
 import AxeBuilder from "@axe-core/playwright";
+test("the website overview explains shared rewards for visitors, students and teachers", async ({
+  page,
+  backend,
+}) => {
+  await page.goto("./#/welcome");
+  for (const account of [null, "student1", "teacher"] as const) {
+    if (account) await signIn(page, account);
+    const url = page.url();
+    const trigger = page.getByRole("button", {
+      name: "About The Cozy Science Lab",
+      exact: true,
+    });
+    await trigger.click();
+    const overview = page.getByRole("dialog", {
+      name: "A little guide to your science world",
+      exact: true,
+    });
+    await overview.getByRole("tab", { name: "Rewards", exact: true }).click();
+    await expect(overview).toContainText("seven-week daily calendar");
+    await expect(overview).toContainText("when your classroom enables them");
+    await overview.getByRole("tab", { name: "Friends", exact: true }).click();
+    await expect(overview).toContainText("highest first");
+    await expect(overview).toContainText("verified account");
+    await expect(overview).toContainText("Teacher studio");
+    await page.keyboard.press("Escape");
+    await expect(trigger).toBeFocused();
+    expect(page.url()).toBe(url);
+    if (account) await signOut(page);
+  }
+  expect(backend.credits[users[0].id]).toBe(200);
+  expect(backend.credits[users[1].id]).toBe(200);
+});
 test("account guide steps can be completed, stay dismissed and replay from help", async ({
   page,
 }) => {

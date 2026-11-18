@@ -26,7 +26,7 @@ export function hasVerifiedInbox(user: {
 
 export function emailCode(value: string): string | undefined {
   const code = value.replace(/[\s-]/g, "");
-  return /^\d{6}$/.test(code) ? code : undefined;
+  return /^(?:\d{6}|\d{8})$/.test(code) ? code : undefined;
 }
 
 // Gmail dot/plus variants share one inbox and must share the email cooldown.
