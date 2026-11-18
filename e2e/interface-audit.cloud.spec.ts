@@ -1,13 +1,18 @@
 import AxeBuilder from "@axe-core/playwright";
 import { randomUUID } from "node:crypto";
 import { test, expect, signIn, signOut, users } from "./community-fixtures";
-import { displayMode, boundedPage } from "./interface-helpers";
+import {
+  displayMode,
+  boundedPage,
+  visitRenderedRoute,
+  brightSurfaces,
+} from "./interface-helpers";
 
 test("populated student and teacher pages plus account dialogs remain readable in both modes", async ({
   page,
   backend,
 }, info) => {
-  test.setTimeout(300000);
+  test.setTimeout(600000);
   const timestamp = new Date().toISOString();
   backend.rows = [0, 1].map((index) => ({
     id: randomUUID(),
@@ -55,6 +60,10 @@ test("populated student and teacher pages plus account dialogs remain readable i
   const failures: { view: string; mode: string; issues: unknown[] }[] = [];
   async function scan(view: string, mode: string) {
     await boundedPage(page);
+    if (mode === "dark") {
+      const bright = await brightSurfaces(page);
+      if (bright.length) failures.push({ view, mode, issues: [{ bright }] });
+    }
     const result = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
       .analyze();
@@ -116,7 +125,7 @@ test("populated student and teacher pages plus account dialogs remain readable i
               "/experiment",
             ];
       for (const route of routes) {
-        await page.goto(`#${route}`);
+        await visitRenderedRoute(page, route);
         await expect(
           page.getByRole("button", { name: "Log out", exact: true }),
         ).toBeVisible();
@@ -139,7 +148,10 @@ test("populated student and teacher pages plus account dialogs remain readable i
           await expect(page.locator(".friend-card").first()).toBeVisible();
         if (route === "/leaderboard")
           await expect(page.locator(".community-rank-row")).toHaveCount(2);
-        await scan(route, mode);
+        for (const width of [1440, 320]) {
+          await page.setViewportSize({ width, height: 1000 });
+          await scan(route + "@" + width, mode);
+        }
       }
     }
     await signOut(page);

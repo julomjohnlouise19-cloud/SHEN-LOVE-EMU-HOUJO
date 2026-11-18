@@ -91,7 +91,7 @@ test("teacher profiles, credit reasons, exports and activity stay editable", asy
     .click();
   const dialog = page.getByRole("dialog");
   await dialog.getByLabel("Name", { exact: true }).fill("Jane Scientist");
-  await dialog.getByLabel("Section", { exact: true }).fill("Discovery");
+  await dialog.getByLabel("Section", { exact: true }).selectOption("Montejo");
   await dialog
     .getByRole("button", { name: "Save changes", exact: true })
     .click();

@@ -36,10 +36,26 @@ test("Gmail signup requires a server-verified code before opening the student in
   expect(backend.signupCalls).toBe(0);
   await page
     .getByLabel("Email", { exact: true })
+    .fill("a".repeat(31) + "@gmail.com");
+  await create.click();
+  await expect(page.locator(".auth-fields .form-error")).toContainText(
+    "Use a Gmail address you can open",
+  );
+  expect(backend.signupCalls).toBe(0);
+  await page
+    .getByLabel("Email", { exact: true })
     .fill("learner.science@gmail.com");
   await create.click();
   const code = page.getByLabel("Six-digit verification code", { exact: true });
   await expect(code).toBeVisible();
+  await expect(page.locator('[data-email-status="pending"]')).toContainText(
+    "Not verified yet",
+  );
+  await page.getByText("No email yet?", { exact: true }).click();
+  await expect(page.locator(".auth-mail-help")).toContainText(
+    "A request is not proof",
+  );
+  await page.getByText("No email yet?", { exact: true }).click();
   expect(
     (
       await new AxeBuilder({ page })
@@ -193,4 +209,46 @@ test("signup does not silently skip inbox verification when the server auto-conf
   await expect(
     page.getByRole("button", { name: "Log out", exact: true }),
   ).toHaveCount(0);
+});
+
+test("an unconfirmed server user cannot enter through password login or a misleading code response", async ({
+  page,
+  backend,
+}) => {
+  backend.unverifiedUsers = [users[0].id];
+  await page.goto("./");
+  await page.getByRole("button", { name: "Sign in", exact: true }).click();
+  await page.getByLabel("Email", { exact: true }).fill(users[0].email);
+  await page.getByLabel("Password", { exact: true }).fill("cloud-password-123");
+  await page.getByRole("button", { name: "Welcome back", exact: true }).click();
+  await expect(page.locator(".form-error")).toContainText(
+    "email is still unverified",
+  );
+  await expect(
+    page.getByRole("button", { name: "Log out", exact: true }),
+  ).toHaveCount(0);
+  await page.reload();
+  await signup(page);
+  await page
+    .getByRole("button", { name: "Make my little lab", exact: true })
+    .click();
+  await page
+    .getByLabel("Six-digit verification code", { exact: true })
+    .fill("123456");
+  await page
+    .getByRole("button", { name: "Verify code & enter", exact: true })
+    .click();
+  await expect(page.locator(".auth-confirmation .form-error")).toContainText(
+    "email is still unverified",
+  );
+  await expect(
+    page.getByRole("button", { name: "Log out", exact: true }),
+  ).toHaveCount(0);
+  await page.reload();
+  await expect(
+    page.getByRole("heading", {
+      name: "A little curiosity starts here.",
+      exact: true,
+    }),
+  ).toBeVisible();
 });

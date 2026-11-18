@@ -70,9 +70,11 @@ const community = await readFile("supabase/community.sql", "utf8");
 const profileStyles = await readFile("supabase/profile-styles.sql", "utf8");
 const creditRankings = await readFile("supabase/credit-rankings.sql", "utf8");
 const dailyCalendar = await readFile("supabase/daily-calendar.sql", "utf8");
+const dailyWheel = await readFile("supabase/daily-wheel.sql", "utf8");
 const teacher = await readFile("supabase/teacher.sql", "utf8");
-const upgrade = `-- The Cozy Science Lab: existing-project upgrade. Keeps accounts, quiz records, teacher edits and stock.\nbegin;\n${platform}\n${await readFile("supabase/arcade.sql", "utf8")}\n${teacher}\n${creditedQuiz}\n${seed}\n${studio}\n${suggestions}\n${accounts}\n${community}\n${profileStyles}\n${creditRankings}\n${dailyCalendar}\ncommit;\n`;
+const upgrade = `-- The Cozy Science Lab: existing-project upgrade. Keeps accounts, quiz records, teacher edits and stock.\nbegin;\n${platform}\n${await readFile("supabase/arcade.sql", "utf8")}\n${teacher}\n${creditedQuiz}\n${seed}\n${studio}\n${suggestions}\n${accounts}\n${community}\n${profileStyles}\n${creditRankings}\n${dailyCalendar}\n${dailyWheel}\ncommit;\n`;
 const outputs = {
+  "supabase/daily-wheel-upgrade.sql": `-- Existing platform-3 classroom: one daily wheel reward in shared class credits.\n-- Keeps accounts, balances, records, reservations and all device practice history.\nbegin;\n${dailyWheel}\ncommit;\n`,
   "supabase/daily-rewards-upgrade.sql": `-- Existing community-v2 classroom: seven-week class-credit calendar, credit rankings and authorized banner reads.\n-- Preserves accounts, balances, records, stock, friendships and privacy choices.\nbegin;\n${profileStyles}\n${creditRankings}\n${dailyCalendar}\ncommit;\n`,
   "supabase/credit-rankings-upgrade.sql": `-- Existing community-v2 classroom: current class-credit rankings and shared profile designs.\n-- Preserves accounts, wallets, stock, reservations, quiz records, friendships and opt-outs.\nbegin;\n${profileStyles}\n${creditRankings}\ncommit;\n`,
   "supabase/profile-styles-upgrade.sql": `-- Existing community-v2 classroom: optional shared profile designs.\n-- Keeps all accounts, photos, learning records, supplies and existing privacy choices.\nbegin;\n${profileStyles}\ncommit;\n`,

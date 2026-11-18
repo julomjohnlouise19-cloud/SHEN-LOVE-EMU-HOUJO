@@ -3,6 +3,7 @@ import {
   emailCode,
   emailMailbox,
   registrationEmail,
+  hasVerifiedInbox,
 } from "../src/core/email-verification";
 
 describe("Gmail signup and emailed codes", () => {
@@ -23,8 +24,36 @@ describe("Gmail signup and emailed codes", () => {
       ".student@gmail.com",
       "student.@gmail.com",
       "student name@gmail.com",
+      `${"a".repeat(31)}@gmail.com`,
     ])
       expect(registrationEmail(address)).toBeUndefined();
+    expect(registrationEmail(`${"a".repeat(30)}+class@gmail.com`)).toBe(
+      `${"a".repeat(30)}+class@gmail.com`,
+    );
+    expect(registrationEmail(`${"a.".repeat(29)}a@gmail.com`)).toBe(
+      `${"a.".repeat(29)}a@gmail.com`,
+    );
+  });
+  it("requires confirmation from the account service rather than a plausible address or user metadata", () => {
+    expect(hasVerifiedInbox({ email: "real.looking@gmail.com" })).toBe(false);
+    expect(
+      hasVerifiedInbox({
+        email: "real.looking@gmail.com",
+        email_confirmed_at: "",
+      }),
+    ).toBe(false);
+    expect(
+      hasVerifiedInbox({
+        email: "real.looking@gmail.com",
+        email_confirmed_at: "not a date",
+      }),
+    ).toBe(false);
+    expect(
+      hasVerifiedInbox({
+        email: "teacher@school.edu",
+        email_confirmed_at: "2026-11-10T00:00:00Z",
+      }),
+    ).toBe(true);
   });
   it("retains leading zeroes and accepts pasted code spacing without accepting partial or alphabetic codes", () => {
     expect(emailCode("000123")).toBe("000123");

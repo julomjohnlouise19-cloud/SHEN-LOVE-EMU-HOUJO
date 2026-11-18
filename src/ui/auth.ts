@@ -50,7 +50,7 @@ import {
 import { classCredits } from "../store/platform";
 import { levelOf } from "../core/rules";
 import { termsModal } from "./terms";
-import { schoolSections } from "../data/sections";
+import { sectionSelect } from "./sections";
 import { mountProfileBanner } from "./profile-banner";
 export function authModal(registerFirst = false, recoverFirst = false) {
   let joining = registerFirst;
@@ -239,7 +239,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     const heading = h("h3", { tabindex: -1 });
     const description = h("p");
     const destination = entryDestination("");
-    const code = input("email-code", "000000", "", "text");
+    const code = input("email-code", "6-digit code", "", "text");
     code.inputMode = "numeric";
     code.autocomplete = "one-time-code";
     code.maxLength = 12;
@@ -270,7 +270,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
           ? "The email could not be sent, so your account may not have been created. Edit your signup details and try again after your teacher fixes the sender. If you already registered, request one new code below."
           : "We couldn’t request your email code. Ask your teacher to check the email sender, then request one new code below."
         : requested
-          ? "Check your inbox or spam folder for a six-digit code. Enter the latest code below."
+          ? "If this address can register, check your Gmail inbox or Spam for a six-digit code. Enter the latest code below."
           : "Enter your latest email code, or request a new one. Already verified? Sign in with your password.";
       message.textContent = error?.message ?? "";
       status.textContent = "";
@@ -342,7 +342,17 @@ export function authModal(registerFirst = false, recoverFirst = false) {
           }
         },
       },
-      h("p", { class: "auth-email" }, model.email),
+      h(
+        "div",
+        { class: "auth-email", "data-email-status": "pending" },
+        h(
+          "span",
+          { class: "auth-inbox-state" },
+          icon("lock", 14),
+          "Not verified yet",
+        ),
+        h("strong", null, model.email),
+      ),
       field("Six-digit verification code", code),
       message,
       status,
@@ -359,8 +369,37 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       verificationForm,
       resend,
       h(
+        "details",
+        { class: "auth-mail-help" },
+        h("summary", null, "No email yet?"),
+        h(
+          "ul",
+          null,
+          h(
+            "li",
+            null,
+            "Check that this address matches the Gmail inbox you can open. Use Edit signup details to correct it.",
+          ),
+          h(
+            "li",
+            null,
+            "Check Spam and search your mail for The Cozy Science Lab.",
+          ),
+          h(
+            "li",
+            null,
+            "Already registered? Choose Sign in instead and use your website password.",
+          ),
+          h(
+            "li",
+            null,
+            "After the countdown, request one new code. If nothing arrives, ask your teacher to check email delivery. A request is not proof that a message reached your inbox.",
+          ),
+        ),
+      ),
+      h(
         "div",
-        { class: "auth-code-actions" },
+        { class: "auth-code-actions auth-secondary-actions" },
         button("Sign in instead", () => changeMode(false), "text-button", {
           "aria-label": "Back to sign in",
         }),
@@ -468,18 +507,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       { "aria-label": "Show password", "aria-pressed": false },
     );
     const name = input("name", "What should we call you?", model.name);
-    const section = h(
-      "select",
-      { name: "section" },
-      h(
-        "option",
-        { value: "", selected: model.section === "" },
-        "Choose your section",
-      ),
-      ...schoolSections.map((value) =>
-        h("option", { value, selected: model.section === value }, value),
-      ),
-    );
+    const section = sectionSelect(model.section);
     name.maxLength = 40;
     name.addEventListener("input", () => {
       model.name = name.value;
@@ -516,7 +544,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     const recovery = h("div", { class: "auth-recovery" });
     const emailStatus = h("p", { class: "auth-email-wait", role: "status" });
     const confirmationOptions = button(
-      "Enter email code",
+      "Verify email",
       () => confirmation(),
       "text-button full",
     );
@@ -638,6 +666,13 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       },
       joining ? field("Your name", name) : null,
       field(cloudEnabled ? "Email" : "Username", username),
+      joining && cloudEnabled
+        ? h(
+            "p",
+            { class: "auth-inbox-hint" },
+            "Use an existing Gmail inbox you can open. We’ll send its verification code there.",
+          )
+        : null,
       field("Password", h("span", { class: "password-field" }, password, show)),
       caps,
       joining
@@ -679,13 +714,15 @@ export function authModal(registerFirst = false, recoverFirst = false) {
         : null,
       submit,
       joining && cloudEnabled
-        ? button(
-            "I already have an account",
-            () => changeMode(false),
-            "text-button full",
+        ? h(
+            "div",
+            { class: "auth-secondary-actions" },
+            button("Sign in instead", () => changeMode(false), "text-button", {
+              "aria-label": "I already have an account",
+            }),
+            confirmationOptions,
           )
         : null,
-      joining && cloudEnabled ? confirmationOptions : null,
     );
     const content: HTMLElement = h(
       "section",
@@ -786,9 +823,8 @@ export function profileModal() {
   const rules = getState().rules,
     level = levelOf(user, rules);
   const name = input("name", "Your scientist name", user.name),
-    section = input("section", "Your section", user.section);
+    section = sectionSelect(user.section);
   name.maxLength = 40;
-  section.maxLength = 40;
   section.required = false;
   const grade = h(
     "select",

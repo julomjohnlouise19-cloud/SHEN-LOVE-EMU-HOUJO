@@ -50,6 +50,102 @@
   padding: 15px;
   min-height: 58px;
 }
+.auth-fields .email-code-input::placeholder {
+  font-size: 15px;
+  letter-spacing: 0;
+}
+.auth-email > strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.auth-inbox-state {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 650;
+  margin-bottom: 5px;
+}
+.auth-inbox-hint {
+  margin: -5px 0 10px;
+  color: var(--lab-muted);
+}
+.auth-secondary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+.auth-secondary-actions .text-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 140px;
+  min-height: 44px;
+  width: auto;
+  border: 1px solid var(--lab-line);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  background: var(--lab-surface);
+  font-size: 13px;
+}
+.auth-secondary-actions .text-button[hidden] {
+  display: none;
+}
+.auth-mail-help {
+  margin-top: 12px;
+  padding: 4px 12px;
+  border: 1px solid var(--lab-line);
+  border-radius: 12px;
+  color: var(--lab-ink);
+  background: var(--lab-surface);
+}
+.auth-mail-help > summary {
+  cursor: pointer;
+  padding: 12px 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.auth-mail-help li {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.auth-mail-help ul {
+  padding-left: 18px;
+}
+.auth-dialog .terms-check input {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin: 3px 0 0;
+}
+.review-intro p,
+.boss-card p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.leitner-boxes {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.leitner-boxes small {
+  font-size: 11px;
+}
+.researcher-hobbies li,
+.researcher-bio summary {
+  font-size: 13px;
+}
+.design-position-controls output,
+.design-preview-label,
+.design-step-kicker {
+  font-size: 12px;
+  line-height: 1.7;
+}
 .level-card small,
 .badge > small,
 .badge > span,

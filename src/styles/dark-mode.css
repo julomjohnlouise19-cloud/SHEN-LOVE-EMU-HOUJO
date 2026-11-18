@@ -107,6 +107,10 @@
   --lab-surface: #1a2a23;
   --lab-soft: #253d32;
   --lab-line: #42594c;
+  --lab-control: #294d3a;
+  --lab-control-hover: #345f48;
+  --lab-control-ink: #e7f3ec;
+  --lab-control-line: #78a98a;
   --lab-peach: #49372d;
   --lab-lilac: #35354f;
   --lab-blue: #263f4b;
@@ -515,18 +519,18 @@
     .auth-fields .segmented button.selected,
     .calendar-week-button[aria-pressed="true"]
   ) {
-  background: var(--lab-brand);
-  color: #10251b;
-  border-color: var(--lab-brand);
+  background: var(--lab-control);
+  color: var(--lab-control-ink);
+  border-color: var(--lab-control-line);
 }
 :root[data-color-mode="dark"]
   :is(.button.primary, .calendar-week-button[aria-pressed="true"])
   :is(span, strong, small) {
-  color: #10251b;
+  color: var(--lab-control-ink);
 }
 :root[data-color-mode="dark"] .button.primary:hover:not(:disabled) {
-  background: var(--lab-brand-deep);
-  color: #10251b;
+  background: var(--lab-control-hover);
+  color: var(--lab-control-ink);
 }
 :root[data-color-mode="dark"]
   :is(
@@ -711,7 +715,7 @@
 :root[data-color-mode="dark"]
   .calendar-week-button[aria-pressed="true"]
   :is(strong, small) {
-  color: #10251b;
+  color: var(--lab-control-ink);
 }
 :root[data-color-mode="dark"] .calendar-hero h2,
 :root[data-color-mode="dark"] .calendar-summary strong {
@@ -778,7 +782,7 @@
   color: var(--lab-ink);
 }
 :root[data-color-mode="dark"] .island-inner :is(strong, span) {
-  color: #293d2c;
+  color: var(--lab-ink);
 }
 :root[data-color-mode="dark"] .teacher-sidebar .profile-button {
   background: var(--lab-soft);
@@ -786,8 +790,8 @@
   border-color: var(--lab-line);
 }
 :root[data-color-mode="dark"] .filter-tab.selected {
-  background: var(--lab-brand);
-  color: #10251b;
+  background: var(--lab-control);
+  color: var(--lab-control-ink);
 }
 :root[data-color-mode="dark"] .modal .modal-chrome {
   background: var(--lab-surface);
@@ -834,6 +838,224 @@
   background: var(--lab-wash);
   color: var(--lab-ink);
   border-color: var(--lab-line);
+}
+
+:root[data-color-mode="dark"] .green {
+  background: var(--lab-soft);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .lilac {
+  background: var(--lab-lilac);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .blue {
+  background: var(--lab-blue);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .peach {
+  background: var(--lab-peach);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .yellow {
+  background: var(--lab-yellow);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] :is(.review-intro, .boss-card) {
+  background: var(--lab-wash);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] :is(.review-intro, .boss-card) :is(h2, p, small) {
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"] .researcher-card {
+  --researcher-wash: #253a4a;
+  --researcher-accent: #b2d0f6;
+  box-shadow: 0 5px 0 #0b1712;
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] .researcher-color-1 {
+  --researcher-wash: #38314b;
+  --researcher-accent: #d7c3f2;
+}
+:root[data-color-mode="dark"] .researcher-color-2 {
+  --researcher-wash: #24443c;
+  --researcher-accent: #a3d9c7;
+}
+:root[data-color-mode="dark"] .researcher-card:hover {
+  box-shadow: 0 8px 0 #0b1712;
+}
+:root[data-color-mode="dark"] .about-dialog .researcher-card-top {
+  background: linear-gradient(var(--researcher-wash), var(--lab-surface) 98%);
+}
+:root[data-color-mode="dark"] .about-dialog .researcher-bio {
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  .about-dialog
+  :is(.researcher-bio summary, .researcher-role) {
+  color: var(--researcher-accent);
+}
+:root[data-color-mode="dark"] .researcher-hobbies li {
+  background: var(--researcher-wash);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] :is(.about-us-button, .about-read-all) {
+  background: var(--lab-blue);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"] :is(.about-us-button, .about-read-all):hover {
+  background: var(--lab-soft);
+  box-shadow: 0 4px 0 #0b1712;
+}
+:root[data-color-mode="dark"]
+  :is(button, a, summary, input, select, textarea):focus-visible {
+  outline-color: var(--lab-brand);
+}
+:root[data-color-mode="dark"]
+  :is(.button, .text-button, .icon-button, .logout-button):hover:not(
+    :disabled
+  ) {
+  border-color: #87ad97;
+}
+:root[data-color-mode="dark"] .button.danger {
+  background: #4d2d32;
+  color: #ffe0e2;
+  border-color: #aa6f79;
+}
+:root[data-color-mode="dark"] .button.danger:hover:not(:disabled) {
+  background: #63343b;
+}
+:root[data-color-mode="dark"] input:-webkit-autofill {
+  -webkit-text-fill-color: var(--lab-ink);
+  box-shadow: 0 0 0 1000px var(--lab-bg) inset;
+  caret-color: var(--lab-ink);
+}
+:root[data-color-mode="dark"] .auth-dialog .auth-fields button.text-button {
+  background: transparent;
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"]
+  .auth-dialog
+  .auth-secondary-actions
+  button.text-button {
+  background: var(--lab-soft);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  .auth-dialog
+  button.text-button:hover:not(:disabled) {
+  background: var(--lab-soft);
+  border-color: #87ad97;
+}
+:root[data-color-mode="dark"] :is(.auth-mail-help, .auth-mail-help[open]) {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+
+:root[data-color-mode="dark"]
+  :is(.circle-button, .planet-answer, .stock-label) {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  :is(.circle-button, .planet-answer):hover:not(:disabled) {
+  background: var(--lab-control-hover);
+  color: var(--lab-control-ink);
+}
+:root[data-color-mode="dark"]
+  :is(.button, .icon-button, .logout-button):not(.primary):not(.danger):not(
+    [aria-pressed="true"]
+  ):hover:not(:disabled) {
+  background: var(--lab-soft);
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  :is(
+    .design-tabs,
+    .design-position-controls,
+    .design-share-choice,
+    .design-review-details,
+    .design-review-views,
+    .design-upload-icon,
+    .design-preview-state,
+    .design-layer-note
+  ) {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+  box-shadow: none;
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  :is(.design-tab, .design-filter, .design-view-button) {
+  background: transparent;
+  color: var(--lab-ink);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  :is(.design-tab, .design-filter, .design-view-button)[aria-pressed="true"] {
+  background: var(--lab-control);
+  color: var(--lab-control-ink);
+  border-color: var(--lab-control-line);
+  box-shadow: none;
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  :is(.design-tab, .design-filter, .design-view-button):hover:not(:disabled) {
+  background: var(--lab-control-hover);
+  color: var(--lab-control-ink);
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  .design-position-controls
+  :is(label, output) {
+  color: var(--lab-ink);
+}
+:root[data-color-mode="dark"] .profile-design-dialog input[type="range"] {
+  accent-color: var(--lab-brand);
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  input::file-selector-button {
+  background: var(--lab-control);
+  color: var(--lab-control-ink);
+  border-color: var(--lab-control-line);
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  .design-upload-zone.is-dragging {
+  background: var(--lab-blue);
+  border-color: var(--lab-brand);
+}
+
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  :is(.design-review-details > div, .design-review-device) {
+  background: var(--lab-surface);
+  border-color: var(--lab-line);
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  :is(
+    .design-preview-label,
+    .design-step-kicker,
+    .design-preview-note,
+    .design-review-details dt,
+    .design-review-details dd
+  ) {
+  color: var(--lab-muted);
+}
+:root[data-color-mode="dark"]
+  .profile-design-dialog
+  .design-preview-state[data-state="draft"] {
+  background: var(--lab-yellow);
+  color: #ffecb8;
 }
 
 .table-wrap .text-button {
@@ -921,11 +1143,15 @@
   --status-line: #9282b5;
 }
 @media (hover: hover) {
-  .table-wrap .text-button:hover:not(:disabled),
-  :root[data-color-mode="dark"] .table-wrap .text-button:hover:not(:disabled) {
+  .table-wrap .text-button:hover:not(:disabled) {
     background: var(--lab-brand);
     color: var(--lab-bg);
     border-color: var(--lab-brand);
+  }
+  :root[data-color-mode="dark"] .table-wrap .text-button:hover:not(:disabled) {
+    background: var(--lab-control-hover);
+    color: var(--lab-control-ink);
+    border-color: var(--lab-control-line);
   }
   :root[data-color-mode="dark"] .table-wrap tbody tr:hover {
     background: color-mix(in srgb, var(--lab-soft), transparent 45%);

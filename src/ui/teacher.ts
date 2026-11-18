@@ -34,6 +34,7 @@ import { withProfileBanner } from "./profile-banner";
 import { fullScientistProfile, type ScientistProfile } from "../store/accounts";
 import { accountsVersion } from "../store/cloud";
 import { pickupLocation, type ClassroomRules } from "../core/classroom";
+import { sectionSelect } from "./sections";
 
 const names: Record<string, string> = {
   overview: "Teacher studio",
@@ -79,7 +80,7 @@ const ruleLabels: Record<keyof Rules, string> = {
   reviewReward: "Review practice reward",
   dailyReward: "Daily practice reward",
   questReward: "Quest practice reward",
-  spinMax: "Practice spin maximum",
+  spinMax: "Daily class-credit spin maximum",
   skillsLevel: "Skills Lab unlock level",
 };
 let mountedTeacher:
@@ -1341,9 +1342,8 @@ export function teacherPage(section = "overview") {
         "Scientist name",
         str(row, "display_name"),
       ),
-      classroom = input("section", "Section", str(row, "section"));
+      classroom = sectionSelect(str(row, "section"));
     name.maxLength = 40;
-    classroom.maxLength = 40;
     classroom.required = false;
     const grade = h(
       "select",
@@ -1877,7 +1877,7 @@ export function teacherPage(section = "overview") {
       h(
         "p",
         { class: "muted" },
-        "Class credit limits are checked when completed discoveries are saved. XP, review, quests and spins remain practice on each device.",
+        "Class credit limits are checked when completed discoveries are saved. The activated daily wheel also saves class credits to the shared wallet. XP, review and quests remain practice on each device.",
       ),
       h("div", { class: "teacher-settings-grid" }, ...ruleFields),
       ruleError,

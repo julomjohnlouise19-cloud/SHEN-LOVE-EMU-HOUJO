@@ -171,7 +171,7 @@ async function render() {
         cloudEnabled && user.id !== "guest"
           ? await (await import("./ui/class-shop")).classShopPage()
           : shopPage();
-    else if (path === "/spin") page = spinPage();
+    else if (path === "/spin") page = await spinPage();
     else if (path === "/daily-rewards")
       page = await (await import("./ui/daily-calendar")).dailyCalendarPage();
     else if (path === "/quests") page = questsPage();

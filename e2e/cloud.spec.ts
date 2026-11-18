@@ -255,7 +255,7 @@ test("cloud profile updates survive reload", async ({ page }) => {
   await signIn(page);
   await page.getByRole("button", { name: "Open scientist profile" }).click();
   await page.getByLabel("Name", { exact: true }).fill("Updated Scientist");
-  await page.getByLabel("Section", { exact: true }).fill("Discovery");
+  await page.getByLabel("Section", { exact: true }).selectOption("Montejo");
   await page.getByRole("button", { name: "Save my profile" }).click();
   await expect(
     page.getByRole("button", { name: /Updated Scientist Grade/ }),
@@ -266,7 +266,7 @@ test("cloud profile updates survive reload", async ({ page }) => {
     "Updated Scientist",
   );
   await expect(page.getByLabel("Section", { exact: true })).toHaveValue(
-    "Discovery",
+    "Montejo",
   );
 });
 

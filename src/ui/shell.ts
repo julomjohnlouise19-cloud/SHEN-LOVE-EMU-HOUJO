@@ -11,7 +11,10 @@ import { reservationDetails } from "./reservations";
 import { cloudEnabled } from "../store/cloud";
 import { cloudNotice } from "./cloud-status";
 import { currentUser, dispatch, getState, subscribe } from "../store";
-import { wheelReminderAvailable } from "../store/daily-reminders";
+import {
+  wheelReminderAvailable,
+  refreshWheelReminder,
+} from "../store/daily-reminders";
 import { dayKey } from "../core/time";
 import { levelOf } from "../core/rules";
 import { h, button, modal, progress } from "./dom";
@@ -376,7 +379,7 @@ export function shell(page: HTMLElement, route: string) {
   }, 0);
   const main = h(
     "main",
-    { id: "main", class: "main", tabIndex: -1 },
+    { id: "main", class: "main", tabIndex: -1, "data-page-route": route },
     pageNavigation(route),
     guideHost,
     page,
@@ -432,6 +435,7 @@ export function shell(page: HTMLElement, route: string) {
   syncNavigation();
   queueMicrotask(() => {
     refreshNotificationBadges();
+    void refreshWheelReminder().then(refreshNotificationBadges);
     if (
       aside.isConnected &&
       mobile.matches &&
@@ -514,7 +518,7 @@ export function helpModal() {
       "div",
       { class: "notice" },
       cloudEnabled
-        ? "Signed-in accounts save profiles, photos and completed quizzes. Class credits and supply reservations are shared with your classroom. Notebook pages, practice XP, quests and spins stay on this device. Teachers verify physical collection."
+        ? "Signed-in accounts save profiles, photos and completed quizzes. Class credits, the daily reward wheel and supply reservations are shared with your classroom. Notebook pages, practice XP and quests stay on this device. Teachers verify physical collection."
         : "This is a local demo. Accounts and balances stay in this browser. Supply claims need school verification at the Grade 10 SSC room; no real purchase is placed online.",
     ),
     button(
@@ -560,10 +564,15 @@ function refreshNotificationBadges() {
     });
 }
 window.addEventListener("csl:platform", refreshNotificationBadges);
-window.addEventListener("csl:daily-tick", refreshNotificationBadges);
+window.addEventListener(
+  "csl:daily-tick",
+  () => void refreshWheelReminder().then(refreshNotificationBadges),
+);
+window.addEventListener("csl:daily-wheel", refreshNotificationBadges);
 async function notificationsModal() {
   const user = currentUser();
   if (!user) return;
+  await refreshWheelReminder();
   let refreshFailed = false;
   if (cloudEnabled && user.id !== "guest" && hasPlatform())
     await refreshLab(true).catch(() => {
@@ -606,7 +615,9 @@ async function notificationsModal() {
           h(
             "p",
             null,
-            "Your free daily practice spin is ready. There’s a little science and a practice-merit reward to discover.",
+            cloudEnabled
+              ? "Your free daily spin is ready. Discover a little science and collect class credits in your shared wallet."
+              : "Your free daily practice spin is ready. There’s a little science and a practice-merit reward to discover.",
           ),
           button(
             "Spin today’s wheel",
@@ -687,11 +698,13 @@ async function notificationsModal() {
   paintWheel();
   const unsubscribeWheel = subscribe(paintWheel);
   window.addEventListener("csl:daily-tick", paintWheel);
+  window.addEventListener("csl:daily-wheel", paintWheel);
   dialog.addEventListener(
     "close",
     () => {
       unsubscribeWheel();
       window.removeEventListener("csl:daily-tick", paintWheel);
+      window.removeEventListener("csl:daily-wheel", paintWheel);
     },
     { once: true },
   );

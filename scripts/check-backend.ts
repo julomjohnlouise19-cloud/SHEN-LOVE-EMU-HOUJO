@@ -65,6 +65,13 @@ try {
         ? "Seven-week class-credit calendar is installed."
         : "Daily class-credit claims need supabase/daily-rewards-upgrade.sql. The 49-day preview remains available; no local class credits are created.";
     console.log(calendarNotice);
+    const wheelNotice =
+      Number(data.daily_wheel) >= 1
+        ? "Server-owned daily wheel class credits are installed."
+        : "The daily class-credit wheel needs supabase/daily-wheel-upgrade.sql. Accounts, calendars and existing balances remain intact.";
+    console.log(wheelNotice);
+    if (process.env.GITHUB_ACTIONS === "true")
+      console.log(`::notice title=Daily class-credit wheel::${wheelNotice}`);
     if (process.env.GITHUB_ACTIONS === "true")
       console.log(
         `::notice title=Daily class-credit calendar::${calendarNotice}`,

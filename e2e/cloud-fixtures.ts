@@ -27,6 +27,7 @@ export const users = ["student1", "student2", "teacher"].map((name, index) => ({
   app_metadata: {},
   user_metadata: {},
   created_at: "2026-11-10T00:00:00Z",
+  email_confirmed_at: "2026-11-10T00:00:00Z",
 }));
 const sourceBank = readdirSync("src/data/questions").flatMap((dir) =>
   readdirSync(`src/data/questions/${dir}`).flatMap(
@@ -54,6 +55,7 @@ export interface Backend {
   creditRankingsReady: boolean;
   profileStylesReady: boolean;
   dailyCalendarReady: boolean;
+  dailyWheelReady: boolean;
   designMetadata: Record<string, unknown>;
   failDesignMetadata: boolean;
   failDesignUploads: boolean;
@@ -69,6 +71,7 @@ export interface Backend {
   emailDeliveryFailed: boolean;
   signupCalls: number;
   signupAutoConfirmed: boolean;
+  unverifiedUsers: string[];
   signupMetadata: Record<string, unknown>;
   resendCalls: number;
   verifyCalls: number;
@@ -106,6 +109,7 @@ export const test = base.extend<{ backend: Backend }>({
         creditRankingsReady: false,
         profileStylesReady: false,
         dailyCalendarReady: false,
+        dailyWheelReady: false,
         designMetadata: {},
         failDesignMetadata: false,
         failDesignUploads: false,
@@ -121,6 +125,7 @@ export const test = base.extend<{ backend: Backend }>({
         emailDeliveryFailed: false,
         signupCalls: 0,
         signupAutoConfirmed: false,
+        unverifiedUsers: [],
         signupMetadata: {},
         resendCalls: 0,
         verifyCalls: 0,
@@ -288,7 +293,12 @@ export const test = base.extend<{ backend: Backend }>({
             token_type: "bearer",
             expires_in: 3600,
             refresh_token: "fixture-refresh",
-            user,
+            user: {
+              ...user,
+              email_confirmed_at: state.unverifiedUsers.includes(user.id)
+                ? undefined
+                : user.email_confirmed_at,
+            },
           });
         }
         if (url.pathname === "/auth/v1/verify") {
@@ -309,7 +319,9 @@ export const test = base.extend<{ backend: Backend }>({
           const user = {
             ...users[0],
             email: String(body.email),
-            email_confirmed_at: new Date().toISOString(),
+            email_confirmed_at: state.unverifiedUsers.includes(users[0].id)
+              ? undefined
+              : new Date().toISOString(),
           };
           verifiedEmails.set(user.id, user.email);
           const payload = {
@@ -362,7 +374,12 @@ export const test = base.extend<{ backend: Backend }>({
               user,
             });
           }
-          return respond({ ...users[0], email: body?.email, identities: [] });
+          return respond({
+            ...users[0],
+            email: body?.email,
+            email_confirmed_at: undefined,
+            identities: [],
+          });
         }
         if (url.pathname === "/auth/v1/resend") {
           state.resendCalls++;
@@ -416,6 +433,9 @@ export const test = base.extend<{ backend: Backend }>({
           }
           return respond({
             ...user,
+            email_confirmed_at: state.unverifiedUsers.includes(user.id)
+              ? undefined
+              : user.email_confirmed_at,
             email: verifiedEmails.get(user.id) ?? user.email,
             user_metadata: {
               ...user.user_metadata,
@@ -489,6 +509,7 @@ export const test = base.extend<{ backend: Backend }>({
                 credit_rankings: state.creditRankingsReady ? 1 : 0,
                 profile_styles: state.profileStylesReady ? 1 : 0,
                 daily_calendar: state.dailyCalendarReady ? 1 : 0,
+                daily_wheel: state.dailyWheelReady ? 1 : 0,
               })
             : respond({ message: "function not installed" }, 404);
         }

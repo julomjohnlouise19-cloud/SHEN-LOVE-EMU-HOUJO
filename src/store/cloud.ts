@@ -12,7 +12,11 @@ import { LocalStorageAdapter, type Tx } from "./adapter";
 import { AccountError, accountError } from "../core/account-errors";
 import { beginEmailRequest, recordEmailWait } from "./email";
 import { TERMS_VERSION } from "../core/agreement";
-import { registrationEmail, emailCode } from "../core/email-verification";
+import {
+  registrationEmail,
+  emailCode,
+  hasVerifiedInbox,
+} from "../core/email-verification";
 import { restorePasswordRecovery, dismissPasswordRecovery } from "./recovery";
 export {
   passwordRecoveryActive,
@@ -29,6 +33,8 @@ export const communityVersion = () => (platform >= 3 ? communityFeatures : 0);
 let profileStyleFeatures = 0;
 let creditRankingFeatures = 0;
 let dailyCalendarFeatures = 0;
+let dailyWheelFeatures = 0;
+export const dailyWheelVersion = () => platform >= 3 ? dailyWheelFeatures : 0;
 export const dailyCalendarVersion = () =>
   platform >= 3 ? dailyCalendarFeatures : 0;
 export const creditRankingsVersion = () =>
@@ -101,15 +107,23 @@ async function checkBackend() {
   profileStyleFeatures = Number(data.profile_styles) || 0;
   creditRankingFeatures = Number(data.credit_rankings) || 0;
   dailyCalendarFeatures = Number(data.daily_calendar) || 0;
+  dailyWheelFeatures = Number(data.daily_wheel) || 0;
   backendReady = true;
 }
 async function profile(
-  verifiedUser?: { id: string; email?: string },
+  verifiedUser?: { id: string; email?: string; email_confirmed_at?: string },
   bindIdentity = true,
 ): Promise<CloudProfile> {
   const user = verifiedUser ?? (await client!.auth.getUser()).data.user;
   if (!user)
     throw new Error("Please sign in again to connect your saved records.");
+  if (!hasVerifiedInbox(user)) {
+    await cloudLogout().catch(() => undefined);
+    throw new AccountError(
+      "Your email is still unverified. Enter the code from that inbox before opening your account.",
+      "confirm",
+    );
+  }
   const { data, error } = await client!.rpc("csl_my_profile");
   if (error) throw accountError(error);
   if (

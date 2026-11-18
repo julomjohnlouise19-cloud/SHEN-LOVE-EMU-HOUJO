@@ -16,7 +16,7 @@ export function termsModal() {
     ],
     [
       "What stays on your device",
-      "Notebook pages, unfinished practice, practice XP, quests and Daily spin progress stay on this device. Completed discoveries, profile information, class credits and supply reservations use your classroom account. Signing out preserves your saved work; shared devices should always be signed out after use.",
+      "Notebook pages, unfinished practice, practice XP and quests stay on this device. Completed discoveries, profile information, class credits, daily reward receipts and supply reservations use your classroom account. Signing out preserves your saved work; shared devices should always be signed out after use.",
     ],
     [
       "Supplies and collection",

@@ -20,6 +20,7 @@ import { act, go, refresh } from "./actions";
 import { empty, levelCard, pageHeading } from "./shell";
 import { startDeck, dailyDeck } from "./learn";
 import { dailyWheel } from "./daily-wheel";
+import { cloudEnabled } from "../store/cloud";
 
 export async function reviewPage() {
   const u = currentUser()!,
@@ -338,7 +339,8 @@ function noteModal(id?: string) {
   );
 }
 let spinningFor: string | undefined;
-export function spinPage() {
+export async function spinPage() {
+  if (cloudEnabled) return (await import("./class-wheel")).classWheelPage();
   const s = getState(),
     u = currentUser()!,
     today = dayKey(clock, s.rules.timezone),
