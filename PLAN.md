@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## New-student profile welcome and guide dismissal
+
+- [x] Start unseen student guides with an optional profile-customization welcome; provide working photo/name, banner and color/Dark mode shortcuts with a cute coach and no forced edits or new login name.
+- [x] Make Don’t show again explicit and persistent for the current account/role/device; retain completion flags, teacher steps, reload/navigation dismissal and manual reopening through the question mark.
+- [ ] Test signup → eight-digit verification → customization, mobile Dark mode, banner focus return, unchanged credits, saved preferences and permanent dismissal; publish with all earlier fixes and final instructions.
+
+The full 73-case standard browser suite passed after correcting activity progress panels to semantic palette backgrounds/ink. Hosted run 44456953627 had exposed three old pale activity counters inheriting the new light ink; the palette audit now covers active match/word/card routes in every light/dark color story, and the bright-surface audit explicitly includes those counters. This is separate from the new welcome-guide work below.
+
+The subsequent guide changes pass lint/typecheck, 99 unit/property checks and all 16 targeted cloud scenarios. The eight-digit signup case now follows the new student into the profile coach, focuses the actual name settings, opens/closes the banner studio with focus return, saves Sunset, enables Dark mode and passes phone WCAG AA. Reload preserves the preference and hides the completed guide; the question mark manually reopens it, Don’t show again closes it permanently for automatic display, and another reload stays clear. Credits remain unchanged. The separate guide replay/dismissal, mobile account/teacher layouts and account verification/recovery checks also pass. The 320-pixel coach screenshot was inspected.
+
 ## Working site-wide color stories
 
 - [x] Repair palette selection with immediate application and independent saving, readable active/saving/error feedback, account isolation and cross-tab updates without saving an unfinished biography.

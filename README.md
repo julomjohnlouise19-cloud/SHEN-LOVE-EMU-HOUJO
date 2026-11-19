@@ -63,6 +63,8 @@ The seven portraits were exported from the PDF as JPEGs at their original image 
 
 ## Friendly guide, reading sources and suggestions
 
+New student guides begin with **Customize my profile**. Its cute coach has real photo/name, banner-editor and color/Dark mode shortcuts, with an optional Done action and no forced edits. **Don’t show again** remembers dismissal for the account and role on this device; completed guides stay hidden after navigation/reload. Previously completed guides are retained. Reopen the instructions from **? → Show me the step-by-step guide** whenever needed.
+
 The **?** beside the title logo opens a cute introduction and six interactive tour stops: Explore, Play, Remember, Friends, Rewards and My profile. Tap a stop, use Previous/Next or navigate the tabs with arrow keys. It works for visitors, students and teachers in both display modes without changing the current page or science card.
 
 Accounts also receive a skippable guide with student or teacher steps after login. It never blocks a deep-linked lesson and can be reopened from **How it works / Studio guide** or the overview's step-by-step button. The guide remembers its completion for that account, role and browser. Compact **X** controls close dialogs and return from pages; accessible labels and breadcrumbs name the destination. Teacher Save/error controls remain visible.

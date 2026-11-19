@@ -43,13 +43,25 @@ test("account guide steps can be completed, stay dismissed and replay from help"
     exact: true,
   });
   await expect(guide).toBeVisible();
-  for (let n = 0; n < 3; n++)
+  for (let n = 0; n < 4; n++)
     await guide.getByRole("button", { name: "Next step", exact: true }).click();
   await expect(guide).toContainText("Your voice belongs here");
   await guide
     .getByRole("button", { name: "Ready to explore", exact: true })
     .click();
   await expect(guide).toHaveCount(0);
+  await page.reload();
+  await expect(guide).toHaveCount(0);
+  await page.getByRole("button", { name: /How it works/ }).click();
+  await expect(
+    page.getByRole("dialog", {
+      name: "Your guide to The Cozy Science Lab",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Don’t show again", exact: true })
+    .click();
   await page.reload();
   await expect(guide).toHaveCount(0);
   await page.getByRole("button", { name: /How it works/ }).click();

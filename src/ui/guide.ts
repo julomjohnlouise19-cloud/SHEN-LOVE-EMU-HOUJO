@@ -3,6 +3,7 @@ import { hasSeenGuide, finishGuide } from "../store/guide";
 import { h, button, modal, progress } from "./dom";
 import { mascot } from "./svg";
 import { go } from "./actions";
+import { profileModal } from "./auth";
 function guide(done: () => void) {
   const user = currentUser()!;
   const steps =
@@ -34,6 +35,12 @@ function guide(done: () => void) {
           ],
         ]
       : [
+          [
+            "Make this little lab yours",
+            "Welcome, scientist! Pick a photo, add a banner and try your favorite colors. Start with one little change; your usual login stays the same.",
+            "profile",
+            "Customize my profile",
+          ],
           [
             "Follow your curiosity",
             "Choose a branch, a deck and a comfortable difficulty. Each discovery has eight science cards.",
@@ -111,11 +118,19 @@ function guide(done: () => void) {
             step[3],
             async () => {
               await finish();
-              go(step[2]);
+              if (step[2] === "profile") profileModal({ onboarding: true });
+              else go(step[2]);
             },
             "text-button",
           ),
-          button("Hide guide for now", finish, "text-button"),
+          button("Don’t show again", finish, "text-button guide-dismiss", {
+            "aria-label": "Don’t show again",
+          }),
+        ),
+        h(
+          "p",
+          { class: "guide-return-note" },
+          "Tuck these tips away when you’re ready. Reopen them anytime from ? → step-by-step guide. This choice is remembered for your account on this device.",
         ),
       ),
     );

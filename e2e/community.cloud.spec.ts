@@ -389,7 +389,7 @@ test("the classmate directory and credit league fit phones with accessible contr
   await page.goto("./");
   await signIn(page);
   const guide = page.getByRole("button", {
-    name: "Hide guide for now",
+    name: "Don’t show again",
     exact: true,
   });
   if (await guide.isVisible()) await guide.click();

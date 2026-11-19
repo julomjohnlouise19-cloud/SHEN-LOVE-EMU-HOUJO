@@ -42,6 +42,85 @@ test("the selected eight-digit provider code is verified completely without trun
     { email: "learner.science@gmail.com", token: "12345678", type: "signup" },
   ]);
   expect(backend.verifyCalls).toBe(1);
+  const welcome = page.getByRole("region", {
+    name: "How to use your lab",
+    exact: true,
+  });
+  await expect(welcome).toContainText("Make this little lab yours");
+  await welcome
+    .getByRole("button", { name: "Customize my profile", exact: true })
+    .click();
+  const profile = page.getByRole("dialog", {
+    name: "Your scientist profile",
+    exact: true,
+  });
+  const coach = profile.getByRole("region", {
+    name: "Profile customization guide",
+    exact: true,
+  });
+  await expect(coach).toContainText("Hello, new scientist!");
+  await coach
+    .getByRole("button", { name: "Show photo and name settings", exact: true })
+    .click();
+  await expect(profile.getByLabel("Name", { exact: true })).toBeFocused();
+  const banner = coach.getByRole("button", {
+    name: "Open banner studio from profile guide",
+    exact: true,
+  });
+  await banner.click();
+  await expect(page.getByRole("dialog")).toHaveCount(2);
+  await page.keyboard.press("Escape");
+  await expect(banner).toBeFocused();
+  await coach
+    .getByRole("button", {
+      name: "Show colors and Dark mode settings",
+      exact: true,
+    })
+    .click();
+  await profile
+    .getByRole("button", { name: "Choose Sunset colors", exact: true })
+    .click();
+  await expect(profile.locator(".palette-status")).toContainText(
+    "Saved to your account",
+  );
+  await profile.locator(".dark-mode-switch").click();
+  await expect(page.locator("html")).toHaveAttribute("data-color-mode", "dark");
+  await page.setViewportSize({ width: 320, height: 740 });
+  await profile.evaluate((node) => (node.scrollTop = 0));
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include(".profile-dialog")
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await page.screenshot({
+    path: "/tmp/cozy-new-scientist-profile-guide-320.png",
+  });
+  await page.keyboard.press("Escape");
+  await page.reload();
+  await expect(welcome).toHaveCount(0);
+  await page
+    .getByRole("button", { name: "About The Cozy Science Lab", exact: true })
+    .click();
+  await page
+    .getByRole("button", {
+      name: "Show me the step-by-step guide",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByRole("dialog", {
+      name: "Your guide to The Cozy Science Lab",
+      exact: true,
+    })
+    .getByRole("button", { name: "Don’t show again", exact: true })
+    .click();
+  await page.keyboard.press("Escape");
+  await page.reload();
+  await expect(welcome).toHaveCount(0);
+  expect(backend.credits[users[0].id]).toBe(200);
 });
 
 test("Gmail signup requires a server-verified code before opening the student interface", async ({

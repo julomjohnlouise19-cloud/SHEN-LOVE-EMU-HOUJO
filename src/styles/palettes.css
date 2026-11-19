@@ -285,6 +285,17 @@
   min-height: 24px;
   margin: -6px 0 18px;
 }
+:root[data-theme] .activity-round-progress {
+  background: var(--lab-soft);
+  border-color: var(--lab-line);
+  color: var(--lab-ink);
+}
+:root[data-theme] .activity-round-progress :is(strong, span) {
+  color: var(--lab-ink);
+}
+:root[data-theme] .activity-round-progress progress {
+  accent-color: var(--lab-brand);
+}
 .theme-choice > span {
   position: relative;
 }

@@ -815,7 +815,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
   if (recoverFirst) resetPanel();
   else render();
 }
-export function profileModal() {
+export function profileModal(options: { onboarding?: boolean } = {}) {
   const user = currentUser();
   if (!user) {
     authModal();
@@ -1231,9 +1231,110 @@ export function profileModal() {
       ),
     ),
   );
+  const coachBanner = button(
+    h(
+      "span",
+      null,
+      icon("island", 20),
+      h("strong", null, "2. Find your favorite view"),
+      h(
+        "small",
+        null,
+        "Add a banner, move its focus and preview before saving.",
+      ),
+    ),
+    async () =>
+      (await import("./profile-design")).profileDesignModal(coachBanner),
+    "profile-setup-step",
+    {
+      "aria-label": "Open banner studio from profile guide",
+      "aria-haspopup": "dialog",
+    },
+  );
+  const coach: HTMLElement | null = options.onboarding
+    ? h(
+        "section",
+        {
+          class: "profile-setup-guide",
+          "aria-label": "Profile customization guide",
+        },
+        h(
+          "div",
+          { class: "profile-setup-welcome" },
+          mascot("cat"),
+          h(
+            "div",
+            null,
+            h("p", { class: "eyebrow" }, "A LITTLE PROFILE MAGIC"),
+            h("h3", null, "Hello, new scientist!"),
+            h(
+              "p",
+              null,
+              "Let’s make a cozy corner that feels like you. Choose a little step below, or come back when you’re ready.",
+            ),
+          ),
+        ),
+        h(
+          "div",
+          { class: "profile-setup-steps" },
+          button(
+            h(
+              "span",
+              null,
+              icon("cat", 20),
+              h("strong", null, "1. Say hello, your way"),
+              h(
+                "small",
+                null,
+                "Photos save automatically. For a new display name, press Save my profile.",
+              ),
+            ),
+            () => {
+              basicSection.scrollIntoView({ block: "start" });
+              name.focus({ preventScroll: true });
+            },
+            "profile-setup-step",
+            { "aria-label": "Show photo and name settings" },
+          ),
+          coachBanner,
+          button(
+            h(
+              "span",
+              null,
+              icon("sparkles", 20),
+              h("strong", null, "3. Pick your cozy colors"),
+              h(
+                "small",
+                null,
+                "Try Meadow, Aurora or Sunset and whole-site Dark mode. Colors save automatically.",
+              ),
+            ),
+            () => {
+              appearanceSection.scrollIntoView({ block: "start" });
+              palette
+                .querySelector<HTMLButtonElement>('button[aria-pressed="true"]')
+                ?.focus({ preventScroll: true });
+            },
+            "profile-setup-step",
+            { "aria-label": "Show colors and Dark mode settings" },
+          ),
+        ),
+        button(
+          "I’m ready to explore",
+          () => coach?.remove(),
+          "button outline profile-setup-done",
+        ),
+        h(
+          "p",
+          { class: "fine-print" },
+          "No rush. Open ? → step-by-step guide → Customize my profile to see these tips again.",
+        ),
+      )
+    : null;
   const { dialog, close } = modal(
     "Your scientist profile",
     [
+      coach,
       hero,
       designShortcut,
       statistics,

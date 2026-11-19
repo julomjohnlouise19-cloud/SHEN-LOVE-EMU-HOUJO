@@ -81,12 +81,12 @@ test("mobile account fields stay readable and usable through resizing, guide and
   await page.keyboard.press("Enter");
   await expect(
     page.getByRole("heading", {
-      name: "Think, answer, understand",
+      name: "Follow your curiosity",
       exact: true,
     }),
   ).toBeFocused();
   await page
-    .getByRole("button", { name: "Hide guide for now", exact: true })
+    .getByRole("button", { name: "Don’t show again", exact: true })
     .tap();
   await page.getByRole("button", { name: "Open scientist profile" }).tap();
   await page

@@ -70,6 +70,9 @@ test("each color story applies immediately across learning screens in light and 
         "/island",
         "/review",
         "/island/activities",
+        "/island/activities/match",
+        "/island/activities/words",
+        "/island/activities/cards",
         "/shop",
       ]) {
         await visitRenderedRoute(page, route);

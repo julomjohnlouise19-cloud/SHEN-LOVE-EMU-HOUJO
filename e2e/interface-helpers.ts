@@ -53,6 +53,7 @@ export async function brightSurfaces(page: Page, scope = "body") {
       ".level-card",
       ".badge",
       ".experiment-readout",
+      ".activity-round-progress",
       ".daily-challenge",
       ".record-card",
       ".design-tabs",
