@@ -7,6 +7,7 @@ interface WheelFixture {
   slot: number;
   failAfter: boolean;
   failBefore: boolean;
+  failRead: boolean;
   reads: number;
   requests: string[];
   claims: Map<string, WheelReceipt>;
@@ -22,6 +23,7 @@ export const test = base.extend<{ wheel: WheelFixture }>({
         slot: 4,
         failAfter: false,
         failBefore: false,
+        failRead: false,
         reads: 0,
         requests: [],
         claims: new Map(),
@@ -70,6 +72,14 @@ export const test = base.extend<{ wheel: WheelFixture }>({
         if (!owner) return respond({ message: "Sign in first" }, 400);
         if (name === "csl_daily_wheel") {
           state.reads++;
+          if (state.failRead) {
+            return respond(
+              {
+                message: "Your daily spin could not connect. Please try again.",
+              },
+              503,
+            );
+          }
           return respond(snapshot(owner));
         }
         const body = request.postDataJSON() as {

@@ -100,6 +100,8 @@ Successful sign-in opens **My lab** for a student or the separate **Teacher stud
 
 The dashboard offers a personal **learning trail**, a daily eight-answer goal, relevant review and notebook shortcuts, a fresh-topic recommendation and browsable science facts. These practice counters are clearly scoped to the device. The retained **Daily spin** has a gold/orange rim, white bulbs, six vivid science sectors, a central needle and pedestal. It explains availability and the next classroom calendar day, saves one reward, restores it after refresh and opens related science or the notebook. Signed-in classroom accounts use a server-awarded class-credit wheel after the [daily-wheel activation](docs/DAILY_WHEEL_SETUP.md). The server keeps one durable outcome per classroom day, and updates the shared wallet and ledger atomically. Old device practice rewards stay unchanged; local-demo mode retains its practice wheel.
 
+The shared wheel shows one saved-result card with its science fact, next-spin date and onward actions. It updates automatically without a Refresh wheel button, duplicate completed control or floating wallet toast. A zero-credit spin clearly leaves the balance unchanged. Connection failures offer **Try again**, while server receipts and retry protection preserve the same daily award.
+
 After publication, open the website, press **Ctrl+Shift+R** once, sign in with your **website password**, and choose a science topic or **Daily spin**. Keep notebook data: do not clear site storage to install this update. No Gmail, API-key or database setting needs to be changed for the post-login UI fix.
 
 ## Connect a Supabase backend

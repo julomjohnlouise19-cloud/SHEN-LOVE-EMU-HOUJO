@@ -41,13 +41,44 @@ test("daily wheel awards shared class credits, refreshes the wallet and keeps th
     ),
   ).toBe(before);
   await page.reload();
+  await expect(page.locator(".spin-availability")).toHaveText(
+    "Today’s spin is complete",
+  );
   await expect(
-    page.getByRole("button", { name: "Today’s reward is saved", exact: true }),
-  ).toBeDisabled();
+    page.getByRole("button", { name: "Spin for class credits", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Refresh wheel", exact: true }),
+  ).toHaveCount(0);
   await expect(
     page.getByRole("region", { name: "Your daily discovery", exact: true }),
   ).toContainText("5 class credits saved");
+  await expect(
+    page.getByRole("heading", { name: "5 class credits saved", exact: true }),
+  ).toHaveCount(1);
+  await expect(page.locator(".wheel-next-spin time")).toHaveAttribute(
+    "datetime",
+    "2026-11-19",
+  );
+  await expect(page.locator("#toasts")).not.toContainText(
+    "class credits saved to your wallet",
+  );
   expect(wheel.requests).toHaveLength(1);
+  const shop = page.getByRole("button", {
+    name: "Visit the supply shop",
+    exact: true,
+  });
+  await shop.focus();
+  const reads = wheel.reads;
+  await page.evaluate(
+    (owner) =>
+      window.dispatchEvent(
+        new CustomEvent("csl:daily-wheel", { detail: owner }),
+      ),
+    users[0].id,
+  );
+  await expect.poll(() => wheel.reads).toBeGreaterThan(reads);
+  await expect(shop).toBeFocused();
   await displayMode(page, "dark");
   for (const width of [1280, 320]) {
     await page.setViewportSize({ width, height: 900 });
@@ -122,29 +153,82 @@ test("two tabs share one daily outcome and the next day opens a durable zero-cre
   release();
   wheel.holdSpin = undefined;
   for (const tab of [page, other])
-    await expect(
-      tab.getByRole("button", { name: "Today’s reward is saved", exact: true }),
-    ).toBeDisabled();
+    await expect(tab.locator(".spin-availability")).toHaveText(
+      "Today’s spin is complete",
+    );
   expect(backend.credits[users[0].id]).toBe(205);
   expect(wheel.claims.size).toBe(1);
   wheel.day = "2026-11-19";
   wheel.prize = 0;
   wheel.slot = 0;
-  await page
-    .getByRole("button", { name: "Refresh wheel", exact: true })
-    .click();
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
   await page
     .getByRole("button", { name: "Spin for class credits", exact: true })
     .click();
   await expect(
     page.getByRole("region", { name: "Your daily discovery", exact: true }),
-  ).toContainText("0 class credits saved");
-  await page.reload();
+  ).toContainText("No class credits this spin. Your balance stays the same.");
   await expect(
-    page.getByRole("button", { name: "Today’s reward is saved", exact: true }),
-  ).toBeDisabled();
+    page.getByRole("button", { name: "Refresh wheel", exact: true }),
+  ).toHaveCount(0);
+  await expect(page.locator(".wheel-next-spin time")).toHaveAttribute(
+    "datetime",
+    "2026-11-20",
+  );
+  await expect(page.locator("#toasts")).not.toContainText("0 class credits");
+  await page.reload();
+  await expect(page.locator(".spin-availability")).toHaveText(
+    "Today’s spin is complete",
+  );
+  const discovery = page.getByRole("region", {
+    name: "Your daily discovery",
+    exact: true,
+  });
+  await displayMode(page, "dark");
+  for (const width of [1280, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    await boundedPage(page);
+    expect(
+      (
+        await new AxeBuilder({ page })
+          .include("#main")
+          .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+          .analyze()
+      ).violations,
+    ).toEqual([]);
+    await discovery.scrollIntoViewIfNeeded();
+    await page.screenshot({ path: `/tmp/cozy-wheel-zero-clean-${width}.png` });
+  }
+  await discovery
+    .getByRole("button", { name: "Explore Science Island", exact: true })
+    .click();
+  await expect(page).toHaveURL(/#\/island$/);
   expect(backend.credits[users[0].id]).toBe(205);
   expect(wheel.claims.size).toBe(2);
+});
+
+test("an interrupted wheel read has a working retry without a refresh control", async ({
+  page,
+  wheel,
+  backend,
+}) => {
+  wheel.failRead = true;
+  await page.goto("./");
+  await signIn(page);
+  await visitRenderedRoute(page, "/spin");
+  const error = page.locator(".class-wheel-page .form-error");
+  await expect(error).toContainText("could not connect");
+  await expect(
+    page.getByRole("button", { name: "Refresh wheel", exact: true }),
+  ).toHaveCount(0);
+  wheel.failRead = false;
+  await page.getByRole("button", { name: "Try again", exact: true }).click();
+  await expect(
+    page.getByRole("button", { name: "Spin for class credits", exact: true }),
+  ).toBeEnabled();
+  await expect(error).toHaveCount(0);
+  expect(wheel.requests).toHaveLength(0);
+  expect(backend.credits[users[0].id]).toBe(200);
 });
 
 test("late spin responses stay with the original account after logout", async ({

@@ -1,5 +1,14 @@
 # The Cozy Science Lab — build plan
 
+## Cleaner saved daily-wheel result
+
+- [x] Remove Refresh wheel and the duplicate disabled completed button; consolidate the saved total, science fact and next-spin timing into one responsive themed card.
+- [x] Describe zero-credit outcomes accurately, remove the redundant wallet toast, preserve normal server-owned awards and retain automatic updates and connection recovery.
+- [x] Verify positive/zero results, two tabs, day rollover without a manual refresh, retry/reload/account isolation, keyboard focus and phone/dark-mode layouts.
+- [ ] Publish the fix and verify the deployed website.
+
+Local lint/typecheck and all 99 unit/property checks pass. All seven focused cloud-wheel scenarios pass, including an interrupted read with a real retry, lost-response idempotence, simultaneous tabs, automatic next-day availability, zero-credit copy, account isolation and teacher/guest gates. Routine unchanged wheel updates preserve keyboard focus. Desktop and 320-pixel Dark mode contrast/layout checks pass; the saved-result screenshots were inspected. No database, wallet rule or reward range changed.
+
 ## New-student profile welcome and guide dismissal
 
 - [x] Start unseen student guides with an optional profile-customization welcome; provide working photo/name, banner and color/Dark mode shortcuts with a cute coach and no forced edits or new login name.

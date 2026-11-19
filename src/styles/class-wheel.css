@@ -1,0 +1,121 @@
+.class-wheel-page .spin-copy {
+  min-width: 0;
+}
+.class-wheel-page.has-daily-receipt .spin-copy > .mascot {
+  width: 82px;
+  height: 90px;
+  margin-bottom: 14px;
+}
+.class-wheel-page .spin-discovery-card {
+  padding: clamp(18px, 2.5vw, 28px);
+  margin-top: 18px;
+  border: 1px solid var(--lab-line);
+  border-radius: 22px;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+}
+.class-wheel-page .wheel-discovery-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: var(--lab-brand-deep);
+}
+.class-wheel-page .wheel-discovery-heading .icon {
+  flex-shrink: 0;
+}
+.class-wheel-page .wheel-discovery-heading .eyebrow {
+  margin: 0;
+  color: inherit;
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+.class-wheel-page .spin-discovery-card .wheel-reward-title {
+  margin: 0 0 12px;
+  font-size: clamp(25px, 2.2vw, 36px);
+  line-height: 1.25;
+  color: var(--lab-ink);
+  overflow-wrap: anywhere;
+}
+.class-wheel-page .wheel-reward-title:focus-visible {
+  outline: 2px solid var(--lab-brand);
+  outline-offset: 5px;
+  border-radius: 5px;
+}
+.class-wheel-page
+  :is(.wheel-science-fact, .wheel-zero-result, .wheel-saved-notice) {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 16px;
+  color: var(--lab-ink);
+}
+.class-wheel-page .wheel-zero-result {
+  color: var(--lab-muted);
+}
+.class-wheel-page .wheel-next-spin {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  margin: 20px 0;
+  border: 1px solid var(--lab-line);
+  border-radius: 15px;
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+}
+.class-wheel-page .wheel-next-spin > .icon {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--lab-brand-deep);
+}
+.class-wheel-page .wheel-next-spin > div {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  overflow-wrap: anywhere;
+}
+.class-wheel-page .wheel-next-spin strong {
+  font-size: 12px;
+  color: var(--lab-brand-deep);
+}
+.class-wheel-page .wheel-next-spin time {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.class-wheel-page .wheel-next-spin small {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--lab-muted);
+}
+.class-wheel-page .spin-next-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+.class-wheel-page .spin-next-actions .button {
+  justify-content: center;
+  min-width: 0;
+  min-height: 44px;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+.class-wheel-page .spin-discovery-card > small {
+  display: block;
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--lab-muted);
+}
+.class-wheel-page .wheel-retry {
+  min-height: 44px;
+}
+@media (max-width: 540px) {
+  .class-wheel-page .spin-next-actions {
+    grid-template-columns: 1fr;
+  }
+}
