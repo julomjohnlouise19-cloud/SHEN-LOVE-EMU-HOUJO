@@ -68,7 +68,26 @@ function svg(markup: string, className: string, label?: string): SVGSVGElement {
 }
 // The reading library passes only diagrams generated from source-controlled shapes.
 export function readingSvg(markup: string, label: string) {
-  return svg(markup, "science-illustration", label);
+  return themeScienceDrawing(svg(markup, "science-illustration", label));
+}
+function themeScienceDrawing(drawing: SVGSVGElement) {
+  for (const shape of drawing.querySelectorAll<SVGElement>(
+    "[fill], [stroke]",
+  )) {
+    if (shape.tagName.toLowerCase() === "text") continue;
+    for (const attribute of ["fill", "stroke"]) {
+      const value = shape.getAttribute(attribute);
+      if (
+        value &&
+        !["none", "currentColor", "transparent"].includes(value) &&
+        CSS.supports("color", value)
+      ) {
+        shape.style.setProperty(`--science-original-${attribute}`, value);
+        shape.setAttribute(`data-science-${attribute}`, "");
+      }
+    }
+  }
+  return drawing;
 }
 export function icon(name: string, size = 20) {
   const el = svg(
@@ -181,11 +200,13 @@ diagramArt.stars =
 diagramArt.specializedCells =
   '<ellipse cx="71" cy="91" rx="47" ry="30" fill="#d68f90" stroke="#985456"/><ellipse cx="71" cy="91" rx="22" ry="12" fill="#f3c8c2" stroke="#b67578"/><path d="M26 130q45 18 90 0" stroke="#985456"/><text x="22" y="163" font-size="15" fill="#354b42" stroke="none">Red blood cell</text><path d="m184 60-14-24m20 25 11-29m-15 41-28-6m28 14-29 17m37-12-8 28m18-35 28-18" stroke="#7974aa" stroke-width="4"/><path d="M185 63q16-10 21 4t-5 22q-15 8-23-5t7-21Z" fill="#d9d0ef" stroke="#7974aa"/><circle cx="192" cy="76" r="6" fill="#a995cf"/><path d="m207 77 52 34m-36-25 9-11m2 18 9-11m-1 16 9-10m8 23 22-9m-22 9 4 24m-4-24 25 10" stroke="#7974aa" stroke-width="4"/><text x="191" y="163" font-size="15" fill="#354b42" stroke="none">Nerve cell</text><text x="81" y="193" font-size="12" fill="#465e51" stroke="none">Simplified shapes · not to scale</text>';
 export function diagram(name: string) {
-  return svg(
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" fill="none" stroke="#68765d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="sans-serif">${diagramArt[name] ?? diagramArt.cell}</svg>`,
-    "science-diagram",
-    diagramDescriptions[name] ??
-      "Science model for this topic. Use the question text and data to answer.",
+  return themeScienceDrawing(
+    svg(
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" fill="none" stroke="#68765d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="sans-serif">${diagramArt[name] ?? diagramArt.cell}</svg>`,
+      "science-diagram",
+      diagramDescriptions[name] ??
+        "Science model for this topic. Use the question text and data to answer.",
+    ),
   );
 }
 const diagramDescriptions: Record<string, string> = {

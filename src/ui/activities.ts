@@ -1,3 +1,4 @@
+import { badgeArtwork } from "./badge-art";
 import { currentUser } from "../store";
 import {
   activityAction,
@@ -210,11 +211,9 @@ function badgeCards(progress: ActivityProgress, compact = false) {
           class: `activity-badge ${badge.color} ${earned ? "is-earned" : "is-locked"}`,
           "aria-label": `${badge.name}: ${earned ? "earned" : "in progress"}`,
         },
-        h(
-          "span",
-          { class: "activity-badge-medal", "aria-hidden": true },
-          icon(badge.icon, compact ? 25 : 35),
-          earned ? h("span", { class: "medal-check" }, "✓") : null,
+        badgeArtwork(
+          { id: `activity:${badge.id}`, icon: badge.icon, earned },
+          compact ? "activity-mini" : "",
         ),
         h("h3", null, badge.name),
         h("p", null, badge.description),

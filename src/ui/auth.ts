@@ -26,6 +26,7 @@ import {
   changePassword,
   getState,
   guestSession,
+  clock,
 } from "../store";
 import {
   button,
@@ -42,6 +43,8 @@ import { mascot, icon } from "./svg";
 import { go, refresh, entryDestination, welcomeRoute } from "./actions";
 import { themes } from "../core/appearance";
 import { displayModeControl } from "./display-mode";
+import { experienceControls } from "./experience-controls";
+import { reducedMotion } from "../store/experience";
 import {
   getAppearance,
   loadAppearance,
@@ -49,7 +52,8 @@ import {
   saveTheme,
 } from "../store/preferences";
 import { classCredits } from "../store/platform";
-import { levelOf } from "../core/rules";
+import { learningGrowth, activeLearningStreak } from "../core/growth";
+import { dayKey } from "../core/time";
 import { termsModal } from "./terms";
 import { sectionSelect } from "./sections";
 import { mountProfileBanner } from "./profile-banner";
@@ -822,7 +826,8 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
     return;
   }
   const rules = getState().rules,
-    level = levelOf(user, rules);
+    learning = learningGrowth(user, rules),
+    level = learning.level;
   const name = input("name", "Your scientist name", user.name),
     section = sectionSelect(user.section);
   name.maxLength = 40;
@@ -864,7 +869,7 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
     { class: "profile-statistics" },
     ...[
       [level, "Learning level"],
-      [user.streak, "Day streak"],
+      [activeLearningStreak(user, dayKey(clock, rules.timezone)), "Day streak"],
       [
         cloudEnabled && user.id !== "guest" ? classCredits() : user.merits,
         cloudEnabled && user.id !== "guest" ? "Class credits" : "Merits",
@@ -917,7 +922,7 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
     h(
       "div",
       null,
-      h("strong", null, `Level ${level} · keep your curiosity growing`),
+      h("strong", null, `Level ${level} · ${learning.title.name}`),
       h("span", null, `${xp}/${rules.xpPerLevel} XP to the next level`),
     ),
     progress((xp / rules.xpPerLevel) * 100, "Learning level progress"),
@@ -925,6 +930,14 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
       "small",
       null,
       "Practice XP, streaks and deck progress are shown for this device.",
+    ),
+    button(
+      "Visit my growth garden",
+      () => {
+        document.querySelector<HTMLDialogElement>(".profile-dialog")?.close();
+        go("/growth");
+      },
+      "button outline growth-profile-link",
     ),
   );
   const avatarButtons = h(
@@ -1129,6 +1142,7 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
       "Choose a color story for the whole lab. Your illustrations and text stay clear in every palette.",
     ),
     displayModeControl(user.id),
+    experienceControls(user.id),
     palette,
     paletteStatus,
     field("A little about me", bio),
@@ -1221,9 +1235,7 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
         String(label),
         () => {
           (target as HTMLElement).scrollIntoView({
-            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-              ? "auto"
-              : "smooth",
+            behavior: reducedMotion() ? "auto" : "smooth",
             block: "start",
           });
         },

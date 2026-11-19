@@ -10,6 +10,8 @@ import { pageHeading } from "./shell";
 import { openDeck } from "./learn";
 import { APP_NAME } from "./branding";
 import { cloudEnabled } from "../store/cloud";
+import { growthShortcut } from "./growth-card";
+import { activeLearningStreak } from "../core/growth";
 export function dashboard() {
   const u = currentUser()!,
     s = getState(),
@@ -187,10 +189,11 @@ export function dashboard() {
         "span",
         { class: "streak-pill" },
         icon("flame", 18),
-        `${u.streak}-day streak`,
+        `${activeLearningStreak(u, today)}-day streak`,
         h("span", { class: "streak-dot" }, "Keep growing"),
       ),
     ),
+    growthShortcut(),
     unfinished && unfinishedDeck
       ? h(
           "section",

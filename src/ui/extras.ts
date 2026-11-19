@@ -21,6 +21,9 @@ import { empty, levelCard, pageHeading } from "./shell";
 import { startDeck, dailyDeck } from "./learn";
 import { dailyWheel } from "./daily-wheel";
 import { cloudEnabled } from "../store/cloud";
+import { learningBadges } from "../core/growth";
+import { badgeArtwork } from "./badge-art";
+import { reducedMotion } from "../store/experience";
 
 export async function reviewPage() {
   const u = currentUser()!,
@@ -425,12 +428,7 @@ export async function spinPage() {
             try {
               const events = await dispatch({ type: "SpinWheel" });
               await new Promise((resolve) =>
-                setTimeout(
-                  resolve,
-                  matchMedia("(prefers-reduced-motion: reduce)").matches
-                    ? 0
-                    : 1600,
-                ),
+                setTimeout(resolve, reducedMotion() ? 0 : 1600),
               );
               if (currentUser()?.id === u.id) toast(events[0].text);
             } finally {
@@ -586,31 +584,25 @@ export function questsPage() {
       h("h2", null, "Little milestones"),
       h("p", { class: "muted" }, "Growing knowledge is worth celebrating."),
       h(
+        "a",
+        { href: "#/growth", class: "button outline" },
+        "Visit my badge garden",
+      ),
+      h(
         "div",
         { class: "badge-grid" },
-        ...[
-          ["first-deck", "First little discovery", "Finish a deck"],
-          ["ten-right", "Bright connections", "Get 10 ideas right"],
-          [
-            "perfect-deck",
-            "A perfect little run",
-            "Answer a full deck correctly",
-          ],
-          ["week-streak", "Growing every day", "Explore for 7 days in a row"],
-        ].map(([id, name, desc]) =>
-          h(
-            "div",
-            { class: `badge ${u.badges.includes(id) ? "earned" : ""}` },
-            icon(u.badges.includes(id) ? "star" : "lock", 28),
-            h("strong", null, name),
-            h("small", null, desc),
+        ...learningBadges(u, s.runs, today)
+          .filter((badge) => !badge.topicId)
+          .map((badge) =>
             h(
-              "span",
-              null,
-              u.badges.includes(id) ? "Yours to keep" : "Still growing",
+              "div",
+              { class: `badge ${badge.earned ? "earned" : ""}` },
+              badgeArtwork(badge, "mini"),
+              h("strong", null, badge.name),
+              h("small", null, badge.description),
+              h("span", null, badge.earned ? "Yours to keep" : "Still growing"),
             ),
           ),
-        ),
       ),
     ),
   );

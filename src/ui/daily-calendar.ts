@@ -1,4 +1,5 @@
 import { currentUser, getState, clock } from "../store";
+import { reducedMotion } from "../store/experience";
 import { cloudEnabled } from "../store/cloud";
 import {
   calendarReady,
@@ -535,9 +536,7 @@ export async function dailyCalendarPage(view: CalendarView = "page") {
             target?.scrollIntoView({
               block: "center",
               inline: "center",
-              behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-                ? "auto"
-                : "smooth",
+              behavior: reducedMotion() ? "auto" : "smooth",
             });
           },
           "text-button",

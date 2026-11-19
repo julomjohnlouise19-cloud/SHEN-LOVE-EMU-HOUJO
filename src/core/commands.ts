@@ -15,6 +15,7 @@ import {
   validRules,
 } from "./rules";
 import { isQuestion } from "./schema";
+import { cozyTitle, learningBadges } from "./growth";
 
 export class RuleError extends Error {}
 const requireThat: (condition: unknown, text: string) => asserts condition = (
@@ -198,21 +199,26 @@ export function execute(
       if (levelOf(user, ctx.rules) > levelOf(original, ctx.rules))
         event(
           "LevelUp",
-          `${user.name} reached Level ${levelOf(user, ctx.rules)}!`,
+          `${user.name} reached Level ${levelOf(user, ctx.rules)} · ${cozyTitle(levelOf(user, ctx.rules)).name}!`,
+          { runId: run.id, questionId: q.id, level: levelOf(user, ctx.rules) },
         );
-      const badges = [
-        ["first-deck", run.completed],
-        [
-          "ten-right",
-          Object.values(user.mastery).reduce((n, m) => n + m.correct, 0) >= 10,
-        ],
-        ["perfect-deck", run.completed && run.answers.every((a) => a.correct)],
-        ["week-streak", user.streak >= 7],
-      ] as const;
-      for (const [badge, unlocked] of badges)
-        if (unlocked && !user.badges.includes(badge)) {
-          user.badges.push(badge);
-          event("BadgeEarned", `A new badge: ${badge.replaceAll("-", " ")}.`);
+      const previousBadges = new Set(
+        learningBadges(original, state.runs, today)
+          .filter((badge) => badge.earned)
+          .map((badge) => badge.id),
+      );
+      const updatedRuns = state.runs.map((value) =>
+        value.id === run.id ? run : value,
+      );
+      for (const badge of learningBadges(user, updatedRuns, today))
+        if (badge.earned && !user.badges.includes(badge.id)) {
+          user.badges.push(badge.id);
+          if (!previousBadges.has(badge.id))
+            event("BadgeEarned", `A new badge: ${badge.name}.`, {
+              badgeId: badge.id,
+              runId: run.id,
+              questionId: q.id,
+            });
         }
       event(
         "AnswerSubmitted",

@@ -31,6 +31,16 @@ export async function visitRenderedRoute(page: Page, route: string) {
 export async function brightSurfaces(page: Page, scope = "body") {
   return page.locator(scope).evaluate((root) => {
     const selectors = [
+      "section",
+      "article",
+      "fieldset",
+      "thead",
+      "th",
+      ".notice",
+      ".pill",
+      ".progress",
+      ".illustration-preview",
+      ".illustration-scroll",
       ".paper",
       ".review-intro",
       ".boss-card",
@@ -65,18 +75,32 @@ export async function brightSurfaces(page: Page, scope = "body") {
       ".design-preview-state",
       ".design-share-choice",
       ".spin-discovery-card",
+      ".difficulty-option",
+      ".deck-sheet-art",
+      ".deck-art",
+      ".question-diagram",
+      ".science-diagram",
+      ".science-illustration",
+      ".growth-hero",
+      ".growth-companion",
+      ".growth-collection",
+      ".growth-title-stop",
+      ".growth-badge-card",
+      ".growth-celebration",
       "button",
       "input:not([type=checkbox]):not([type=radio]):not([type=range])",
       "select",
       "textarea",
     ].join(",");
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = 1;
+    const context = canvas.getContext("2d")!;
     const luminance = (raw: string) => {
-      const channels = raw.match(/[\d.]+/g)?.map(Number) ?? [];
-      if (
-        channels.length < 3 ||
-        (channels[3] !== undefined && channels[3] < 0.85)
-      )
-        return 0;
+      context.clearRect(0, 0, 1, 1);
+      context.fillStyle = raw;
+      context.fillRect(0, 0, 1, 1);
+      const channels = [...context.getImageData(0, 0, 1, 1).data];
+      if (channels[3] < 217) return 0;
       const rgb = channels
         .slice(0, 3)
         .map((n) => n / 255)
@@ -98,9 +122,9 @@ export async function brightSurfaces(page: Page, scope = "body") {
           style.backgroundColor,
           ...(style.backgroundImage.includes("url(")
             ? []
-            : [...style.backgroundImage.matchAll(/rgba?\([^)]+\)/g)].map(
-                (match) => match[0],
-              )),
+            : [
+                ...style.backgroundImage.matchAll(/(?:rgba?|color)\([^)]+\)/g),
+              ].map((match) => match[0])),
         ];
         if (!colors.some((color) => luminance(color) > 0.4)) return [];
         return [

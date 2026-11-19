@@ -8,6 +8,11 @@ import { icon, diagram, mascot } from "./svg";
 import { act, go, refresh } from "./actions";
 import { empty } from "./shell";
 import { startDeck } from "./learn";
+import { growthCelebration } from "./growth-card";
+import { learningGrowth } from "../core/growth";
+import { soundEnabled, reducedMotion } from "../store/experience";
+import { soundButton, celebrateLevelUp } from "./experience-controls";
+import { activitySound } from "./activity-audio";
 let feedbackRun = "",
   feedbackIndex = -1;
 import { sourceButton } from "./sources";
@@ -207,7 +212,29 @@ export async function playPage(runId: string) {
         feedbackRun = runId;
         feedbackIndex = index;
         try {
-          await dispatch({ type: "SubmitAnswer", runId, question: q, value });
+          const owner = currentUser()?.id;
+          const events = await dispatch({
+            type: "SubmitAnswer",
+            runId,
+            question: q,
+            value,
+          });
+          if (owner && currentUser()?.id === owner) {
+            if (soundEnabled(owner))
+              void activitySound(
+                events.some((event) => event.type === "LevelUp")
+                  ? "complete"
+                  : events.some(
+                        (event) =>
+                          event.type === "AnswerSubmitted" &&
+                          event.data?.correct,
+                      )
+                    ? "correct"
+                    : "wrong",
+              );
+            if (events.some((event) => event.type === "LevelUp"))
+              celebrateLevelUp();
+          }
           refresh();
         } catch (e) {
           feedbackRun = "";
@@ -270,6 +297,7 @@ export async function playPage(runId: string) {
     h(
       "div",
       { class: "play-topline" },
+      soundButton(),
       button(
         h("span", null, "← ", "Save & leave this quiz"),
         () => {
@@ -453,6 +481,7 @@ export async function playPage(runId: string) {
                     icon("coin", 15),
                     `+${result.merits} merits · +${result.xp} XP`,
                   ),
+              growthCelebration(run.id, q.id),
               button(
                 h(
                   "span",
@@ -466,7 +495,10 @@ export async function playPage(runId: string) {
                   feedbackRun = "";
                   feedbackIndex = -1;
                   refresh();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  window.scrollTo({
+                    top: 0,
+                    behavior: reducedMotion() ? "auto" : "smooth",
+                  });
                 },
                 "button primary",
               ),
@@ -479,7 +511,9 @@ export async function playPage(runId: string) {
         { class: "play-companion" },
         h(
           "div",
-          { class: "companion-note" },
+          {
+            class: `companion-note ${revealing ? (result?.correct ? "mascot-cheer" : "mascot-think") : ""}`,
+          },
           mascot(branchById(deck.branch)?.icon ?? "cat"),
           h(
             "p",
@@ -558,6 +592,7 @@ function resultPage(runId: string) {
       { class: "page-subtitle" },
       `${d.name} · ${run.level} · Every question made a connection.`,
     ),
+    growthCelebration(run.id),
     h(
       "div",
       { class: "result-stats paper" },
@@ -599,7 +634,7 @@ function resultPage(runId: string) {
       h(
         "small",
         { class: "muted" },
-        `Level ${levelOf(u, s.rules)} · Your understanding grows every time you try.`,
+        `Level ${levelOf(u, s.rules)} · ${learningGrowth(u, s.rules).title.name} · Your understanding grows every time you try.`,
       ),
     ),
     correct < run.ids.length

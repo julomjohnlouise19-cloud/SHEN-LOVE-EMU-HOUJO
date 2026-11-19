@@ -14,6 +14,7 @@ import { pageHeading } from "./shell";
 import { mascot, icon } from "./svg";
 import { authModal } from "./auth";
 import { go } from "./actions";
+import { reducedMotion } from "../store/experience";
 
 const facts = [
   "Plants use light to make sugars.",
@@ -115,10 +116,7 @@ export function classWheelPage() {
           animating = result.receipt.claim_date === wheel.server_day;
           render();
           await new Promise((resolve) =>
-            setTimeout(
-              resolve,
-              matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1600,
-            ),
+            setTimeout(resolve, reducedMotion() ? 0 : 1600),
           );
         } catch (failure) {
           if (isOwner())

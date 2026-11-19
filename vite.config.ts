@@ -45,6 +45,7 @@ export default defineConfig(({ mode }) => {
           const paths = [
             base,
             `${base}school-seal.webp`,
+            `${base}badge-buddies/science-buddies.webp`,
             `${base}fonts/fonts.css`,
             `${base}fonts/fredoka.woff2`,
             `${base}fonts/dm-sans.woff2`,

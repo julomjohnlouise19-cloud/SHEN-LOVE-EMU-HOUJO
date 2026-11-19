@@ -23,6 +23,9 @@ import "./styles/site-help.css";
 import "./styles/palettes.css";
 import "./styles/profile-setup.css";
 import "./styles/class-wheel.css";
+import "./styles/dark-complete.css";
+import "./styles/growth.css";
+import { loadExperience, applyExperience } from "./store/experience";
 import { loadColorMode, loadDeviceColorMode } from "./store/color-mode";
 import { loadProfileDesign } from "./store/profile-design";
 import { loadAppearance } from "./store/preferences";
@@ -99,6 +102,8 @@ async function render() {
   if (user) void touchCommunityActivity();
   const identityChanged = renderedUserId !== user?.id;
   if (identityChanged) {
+    applyExperience();
+    if (user) void loadExperience(user.id).catch(() => undefined);
     document.documentElement.dataset.theme = "meadow";
     if (user)
       void loadColorMode(user.id)
@@ -151,6 +156,8 @@ async function render() {
   let page: HTMLElement;
   try {
     if (path === "/") page = dashboard();
+    else if (path === "/growth")
+      page = (await import("./ui/growth")).growthPage();
     else if (path === "/island") page = islandPage();
     else if (
       path === "/island/activities" ||

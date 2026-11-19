@@ -116,6 +116,7 @@ test("populated student and teacher pages plus account dialogs remain readable i
               "/shop",
               "/spin",
               "/quests",
+              "/growth",
               "/leaderboard",
               "/friends",
               "/review",

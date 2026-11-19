@@ -4,6 +4,7 @@ import { h } from "./dom";
 const titles: Record<string, string> = {
   "/": "My lab",
   "/island": "Science Island",
+  "/growth": "My growth",
   "/island/activities": "Discovery Activities",
   "/island/activities/match": "Match Lab",
   "/island/activities/words": "Word Hunt",

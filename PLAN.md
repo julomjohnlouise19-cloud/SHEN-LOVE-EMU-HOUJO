@@ -1,5 +1,19 @@
 # The Cozy Science Lab — build plan
 
+## Cozy learning titles and badge garden
+
+- [x] Fix the newly reported pale diagram canvas and difficulty choices, and extend Dark mode coverage to science drawings, deck pickers and the complete student/teacher interface.
+- [x] Build a shared, deterministic XP/title ladder and honest achievement criteria, preserving earned badges and existing account/device progress.
+- [x] Add an interactive growth garden with title milestones, earned/in-progress badge details and topic shortcuts; connect the dashboard, profile, quests and quiz results.
+- [x] Celebrate genuine level/badge unlocks with accessible mascot feedback; keep practice XP separate from trusted class credits.
+- [x] Use the five supplied science-animal pictures as transparent badge/title artwork, with themed frames and reliable lazy loading in both modes.
+- [x] Compress/cache the shared badge artwork, keep phone controls large, and add saved optional sound/mute and reduced-motion preferences with actual level-up confetti.
+- [x] Verify earning, replay/reload/tab/account behavior and phone/light/Dark mode accessibility.
+- [ ] Publish and verify the live update.
+
+Local gates pass lint/typecheck, 105 unit/property checks, the unchanged 30-day economy simulation, canonical SQL consistency and all reading-library checks. The five new standard scenarios pass real quiz earning/reload/actions, all three palettes in both modes, source-controlled diagrams/deck pickers/models, sound/mute and reduced-motion behavior, and touch Android emulation with a slow connection and a 4× CPU slowdown. Three cloud scenarios pass account/tab isolation (including sound/motion preferences and unchanged class credits), populated student/teacher tables and the full interface/dialog audit in both modes. The activity matching/earned-passport regression and the Pages-path/offline case also pass, including the shared artwork offline. Final audio shutdown was rechecked with both experience cases; compressed artwork retains its dimensions and alpha. Desktop/phone badge and Genetics screenshots were inspected. A first quiz test read the previous prompt before the next question rendered; waiting for the existing Check my answer control corrected that test race. No classroom migration or real personal signup/email/wallet change was performed.
+
+
 ## Cleaner saved daily-wheel result
 
 - [x] Remove Refresh wheel and the duplicate disabled completed button; consolidate the saved total, science fact and next-spin timing into one responsive themed card.

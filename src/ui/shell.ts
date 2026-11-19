@@ -17,6 +17,7 @@ import {
 } from "../store/daily-reminders";
 import { dayKey } from "../core/time";
 import { levelOf } from "../core/rules";
+import { learningGrowth } from "../core/growth";
 import { h, button, modal, progress } from "./dom";
 import { icon, mascot } from "./svg";
 import { act, go } from "./actions";
@@ -37,6 +38,7 @@ export function resetNavigation() {
 const nav = [
   ["/", "home", "My lab"],
   ["/island", "island", "Science Island"],
+  ["/growth", "sprout", "My growth"],
   ["/review", "box", "Review Box"],
   ["/sources", "notebook", "Science reading room"],
   ["/suggestions", "heart", "Suggestion box"],
@@ -721,14 +723,19 @@ async function notificationsModal() {
 export function levelCard() {
   const u = currentUser()!;
   const r = getState().rules;
+  const growth = learningGrowth(u, r);
   return h(
-    "div",
-    { class: "level-card" },
+    "a",
+    {
+      class: "level-card growth-level-link",
+      href: "#/growth",
+      "aria-label": "Open my growth garden",
+    },
     h("span", { class: "level-badge" }, icon("star", 18)),
     h(
       "div",
       null,
-      h("strong", null, `Level ${levelOf(u, r)} · Curious explorer`),
+      h("strong", null, `Level ${growth.level} · ${growth.title.name}`),
       progress(
         ((u.xp % r.xpPerLevel) / r.xpPerLevel) * 100,
         "Progress to next level",

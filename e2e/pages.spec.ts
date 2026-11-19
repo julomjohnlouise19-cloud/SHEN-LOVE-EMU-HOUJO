@@ -109,6 +109,7 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   expect(cachedPaths.length).toBeGreaterThan(30);
   expect(cachedPaths.every((path) => path.startsWith(prefix))).toBe(true);
   expect(cachedPaths).toContain(`${prefix}school-seal.webp`);
+  expect(cachedPaths).toContain(`${prefix}badge-buddies/science-buddies.webp`);
   for (const border of profileBorders)
     expect(cachedPaths).toContain(`${prefix}profile-borders/${border.id}.jpg`);
   await context.setOffline(true);
@@ -139,6 +140,17 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   await expect(page.locator(".word-cell.is-hinted")).toHaveCount(1);
   await page.reload();
   await expect(page.locator(".word-cell.is-hinted")).toHaveCount(1);
+  await page.goto(`${site}#/growth`);
+  await expect(page.locator(".growth-page")).toBeVisible();
+  const buddy = page.locator(".growth-badge-card .growth-buddy img").first();
+  await buddy.scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      buddy.evaluate(
+        (image: HTMLImageElement) => image.complete && image.naturalWidth > 0,
+      ),
+    )
+    .toBe(true);
   await page.goto(`${site}#/daily-rewards`);
   await expect(page.getByRole("gridcell")).toHaveCount(49);
   await expect(
