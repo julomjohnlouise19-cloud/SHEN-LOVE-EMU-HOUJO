@@ -77,10 +77,21 @@ test("help stays by the logo in both themes and nested guidance preserves a scie
   const url = page.url();
   const balance = await page.locator(".balance-pill").textContent();
   const trigger = page.locator(".topbar-left .site-help-button");
-  for (const width of [1280, 768, 390, 320]) {
+  for (const width of [1280, 1100, 1024, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 844 });
     await expect(trigger).toBeInViewport();
     await boundedPage(page);
+    expect(
+      await trigger.evaluate((node) => {
+        const logo = node
+          .closest(".topbar-left")!
+          .querySelector(".school-logo")!;
+        return (
+          logo.getBoundingClientRect().right <=
+          node.getBoundingClientRect().left
+        );
+      }),
+    ).toBe(true);
     await trigger.click();
     const dialog = page.getByRole("dialog", { name: title, exact: true });
     for (const label of [

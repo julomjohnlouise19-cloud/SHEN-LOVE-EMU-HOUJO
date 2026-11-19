@@ -23,7 +23,7 @@ import {
 import { explorerPlanets } from "../data/activity-planets";
 import { decks } from "../data/catalog";
 import { seededRng, shuffle } from "../core/random";
-import { h, button, modal, toast, field } from "./dom";
+import { h, button, modal, toast, field, setButtonDisabled } from "./dom";
 import { icon } from "./svg";
 import { pageHeading } from "./shell";
 import { sourceButton } from "./sources";
@@ -407,6 +407,12 @@ export async function activitiesPage(requestedMode: string) {
     if (busy || currentUser()?.id !== user.id) return false;
     busy = true;
     page.setAttribute("aria-busy", "true");
+    const waiting = [
+      ...stage.querySelectorAll<HTMLButtonElement>("button:enabled"),
+    ];
+    waiting.forEach((control) => {
+      setButtonDisabled(control, true);
+    });
     try {
       const result = await activityAction(command);
       if (currentUser()?.id !== user.id || !page.isConnected) return false;
@@ -443,6 +449,9 @@ export async function activitiesPage(requestedMode: string) {
     } finally {
       busy = false;
       page.removeAttribute("aria-busy");
+      waiting.forEach((control) => {
+        if (control.isConnected) setButtonDisabled(control, false);
+      });
     }
   }
   async function begin() {

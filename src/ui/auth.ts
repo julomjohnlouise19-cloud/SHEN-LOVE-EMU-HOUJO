@@ -46,6 +46,7 @@ import {
   getAppearance,
   loadAppearance,
   saveAppearance,
+  saveTheme,
 } from "../store/preferences";
 import { classCredits } from "../store/platform";
 import { levelOf } from "../core/rules";
@@ -835,7 +836,9 @@ export function profileModal() {
   );
   let chosenAvatar = user.avatar,
     preference = getAppearance(user.id),
-    dirty = false;
+    bioDirty = false,
+    appearanceReady = false,
+    savingPalette = false;
   const error = h("p", { class: "form-error", role: "alert" });
   const bio = h("textarea", {
     rows: 3,
@@ -849,7 +852,7 @@ export function profileModal() {
     `${bio.value.length}/160`,
   );
   bio.addEventListener("input", () => {
-    dirty = true;
+    bioDirty = true;
     bioCount.textContent = `${bio.value.length}/160`;
   });
   const hero = profileHero(
@@ -947,6 +950,11 @@ export function profileModal() {
       ),
     ),
   );
+  const paletteStatus = h(
+    "p",
+    { class: "palette-status", role: "status" },
+    "Loading your colors…",
+  );
   const palette = h(
     "div",
     { class: "theme-choices" },
@@ -963,28 +971,76 @@ export function profileModal() {
             ),
           ),
           h("strong", null, theme.name),
+          h(
+            "span",
+            {
+              class: "theme-choice-state",
+              hidden: preference.theme !== theme.id,
+              "aria-hidden": true,
+            },
+            icon("check", 14),
+            "Active",
+          ),
           h("small", null, theme.description),
         ),
-        () => {
-          dirty = true;
+        async () => {
+          if (
+            !appearanceReady ||
+            savingPalette ||
+            currentUser()?.id !== user.id
+          )
+            return;
+          if (preference.theme === theme.id) return;
+          const previous = preference.theme;
+          savingPalette = true;
           preference = { ...preference, theme: theme.id };
           hero.dataset.profileTheme = theme.id;
+          document.documentElement.dataset.theme = theme.id;
+          paletteStatus.textContent = `Saving ${theme.name}…`;
+          styleError.textContent = "";
+          setButtonDisabled(styleSave, true);
           drawPalette();
+          try {
+            await saveTheme(user.id, theme.id);
+            if (currentUser()?.id === user.id)
+              paletteStatus.textContent = `${theme.name} is on. ${cloudEnabled && user.id !== "guest" ? "Saved to your account." : "Saved on this device."}`;
+          } catch (error) {
+            if (currentUser()?.id === user.id) {
+              preference = { ...preference, theme: previous };
+              hero.dataset.profileTheme = previous;
+              document.documentElement.dataset.theme = previous;
+              paletteStatus.textContent =
+                "Your previous colors are still on. Choose a style to try again.";
+              styleError.textContent =
+                error instanceof Error
+                  ? error.message
+                  : "Your colors could not be saved.";
+            }
+          } finally {
+            savingPalette = false;
+            drawPalette();
+            setButtonDisabled(styleSave, false);
+          }
         },
         `theme-choice ${preference.theme === theme.id ? "selected" : ""}`,
         {
           "aria-label": `Choose ${theme.name} colors`,
           "data-theme-choice": theme.id,
           "aria-pressed": preference.theme === theme.id,
+          disabled: true,
         },
       ),
     ),
   );
   function drawPalette() {
+    setButtonDisabled(styleSave, !appearanceReady || savingPalette);
     palette.querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
       const active = btn.dataset.themeChoice === preference.theme;
       btn.classList.toggle("selected", active);
       btn.setAttribute("aria-pressed", String(active));
+      setButtonDisabled(btn, !appearanceReady || savingPalette);
+      const state = btn.querySelector<HTMLElement>(".theme-choice-state");
+      if (state) state.hidden = !active;
     });
   }
   const basicSection = h(
@@ -1038,6 +1094,26 @@ export function profileModal() {
     ),
   );
   const styleError = h("p", { class: "form-error", role: "alert" });
+  const styleSave = button(
+    "Save my style",
+    async () => {
+      styleError.textContent = "";
+      const introduction = bio.value;
+      try {
+        await saveAppearance(user.id, {
+          theme: preference.theme,
+          bio: introduction,
+        });
+        if (bio.value === introduction) bioDirty = false;
+        toast("Your colors and introduction are saved.");
+      } catch (value) {
+        styleError.textContent =
+          value instanceof Error ? value.message : "Please try again.";
+      }
+    },
+    "button primary full",
+    { disabled: true },
+  );
   const appearanceSection = h(
     "section",
     { class: "profile-panel" },
@@ -1054,6 +1130,7 @@ export function profileModal() {
     ),
     displayModeControl(user.id),
     palette,
+    paletteStatus,
     field("A little about me", bio),
     bioCount,
     h("h4", null, "Your illustrated avatar"),
@@ -1064,24 +1141,7 @@ export function profileModal() {
       "Save your profile to update the illustrated avatar. Your photo stays visible until you remove it.",
     ),
     styleError,
-    button(
-      "Save my style",
-      async () => {
-        styleError.textContent = "";
-        try {
-          await saveAppearance(user.id, {
-            theme: preference.theme,
-            bio: bio.value,
-          });
-          dirty = false;
-          toast("Your colors and introduction are saved.");
-        } catch (value) {
-          styleError.textContent =
-            value instanceof Error ? value.message : "Please try again.";
-        }
-      },
-      "button primary full",
-    ),
+    styleSave,
   );
   const accountSection = h(
     "section",
@@ -1212,14 +1272,45 @@ export function profileModal() {
     true,
   );
   dialog.classList.add("profile-dialog");
-  void loadAppearance(user.id).then((value) => {
-    if (!dialog.isConnected || dirty || currentUser()?.id !== user.id) return;
-    preference = value;
-    bio.value = value.bio;
-    bioCount.textContent = `${value.bio.length}/160`;
+  const reflectAppearance = (event: Event) => {
+    const value = (event as CustomEvent).detail;
+    if (value.id !== user.id || currentUser()?.id !== user.id || savingPalette)
+      return;
+    preference = { ...preference, theme: value.theme };
     hero.dataset.profileTheme = value.theme;
+    if (!bioDirty) {
+      bio.value = value.bio;
+      bioCount.textContent = `${value.bio.length}/160`;
+    }
     drawPalette();
-  });
+  };
+  window.addEventListener("csl:appearance", reflectAppearance);
+  dialog.addEventListener(
+    "close",
+    () => window.removeEventListener("csl:appearance", reflectAppearance),
+    { once: true },
+  );
+  void loadAppearance(user.id)
+    .then((value) => {
+      if (!dialog.isConnected || currentUser()?.id !== user.id) return;
+      appearanceReady = true;
+      preference = value;
+      hero.dataset.profileTheme = value.theme;
+      if (!bioDirty) {
+        bio.value = value.bio;
+        bioCount.textContent = `${value.bio.length}/160`;
+      }
+      paletteStatus.textContent =
+        "Choose a style. Your whole lab updates and saves automatically.";
+      drawPalette();
+    })
+    .catch((error) => {
+      if (!dialog.isConnected || currentUser()?.id !== user.id) return;
+      paletteStatus.textContent =
+        "Your colors could not be loaded. Close and reopen your profile to try again.";
+      styleError.textContent =
+        error instanceof Error ? error.message : "Please try again.";
+    });
 }
 
 export function logoutModal() {

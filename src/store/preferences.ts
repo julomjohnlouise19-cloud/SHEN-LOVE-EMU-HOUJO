@@ -6,15 +6,37 @@ import {
   defaultAppearance,
   isAppearance,
   type Appearance,
+  type ThemeId,
 } from "../core/appearance";
 const adapter = new LocalStorageAdapter();
 const cache = new Map<string, Appearance>();
 const pending = new Map<string, Promise<Appearance>>();
+const writes = new Map<string, Promise<void>>();
+const watched = new Set<string>();
 const key = (id: string) => `csl:appearance:${id}`;
+function announce(id: string, value: Appearance) {
+  cache.set(id, value);
+  window.dispatchEvent(
+    new CustomEvent("csl:appearance", { detail: { id, ...value } }),
+  );
+}
+function assertOwner(id: string) {
+  if (
+    currentUser()?.id !== id ||
+    (cloudEnabled && id !== "guest" && cloudUserId() !== id)
+  )
+    throw new Error("Sign in to personalize your own lab.");
+}
 export function getAppearance(id: string) {
   return cache.get(id) ?? { ...defaultAppearance };
 }
 export async function loadAppearance(id: string): Promise<Appearance> {
+  if (!watched.has(id)) {
+    watched.add(id);
+    adapter.subscribe(key(id), (value) => {
+      if (isAppearance(value) && currentUser()?.id === id) announce(id, value);
+    });
+  }
   if (cache.has(id)) return cache.get(id)!;
   if (pending.has(id)) return pending.get(id)!;
   const task = (async () => {
@@ -32,10 +54,8 @@ export async function loadAppearance(id: string): Promise<Appearance> {
     pending.delete(id);
   }
 }
-export async function saveAppearance(id: string, value: Appearance) {
-  if (currentUser()?.id !== id)
-    throw new Error("Sign in to personalize your own lab.");
-  const valid = { ...value, bio: value.bio.trim() };
+async function persist(id: string, valid: Appearance) {
+  assertOwner(id);
   if (!isAppearance(valid))
     throw new Error(
       "Choose a lab color and an introduction of up to 160 characters.",
@@ -45,13 +65,38 @@ export async function saveAppearance(id: string, value: Appearance) {
       p_theme: valid.theme,
       p_bio: valid.bio,
     });
-  if (currentUser()?.id !== id)
-    throw new Error("Your account changed. Please sign in again.");
-  await adapter.set(key(id), valid);
-  cache.set(id, valid);
-  window.dispatchEvent(
-    new CustomEvent("csl:appearance", { detail: { id, ...valid } }),
-  );
+  assertOwner(id);
+  await adapter.transaction([key(id)], (tx) => {
+    assertOwner(id);
+    tx.set(key(id), valid);
+  });
+  assertOwner(id);
+  announce(id, valid);
+}
+function queue(id: string, change: (saved: Appearance) => Appearance) {
+  assertOwner(id);
+  const task = (writes.get(id) ?? Promise.resolve())
+    .catch(() => undefined)
+    .then(async () => {
+      assertOwner(id);
+      const saved = await loadAppearance(id);
+      assertOwner(id);
+      await persist(id, change(saved));
+    });
+  writes.set(id, task);
+  void task
+    .finally(() => {
+      if (writes.get(id) === task) writes.delete(id);
+    })
+    .catch(() => undefined);
+  return task;
+}
+export function saveAppearance(id: string, value: Appearance) {
+  const snapshot = { ...value, bio: value.bio.trim() };
+  return queue(id, () => snapshot);
+}
+export function saveTheme(id: string, theme: ThemeId) {
+  return queue(id, (saved) => ({ ...saved, theme }));
 }
 window.addEventListener("csl:platform", () => {
   if (!cloudUserId()) {

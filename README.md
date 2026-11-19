@@ -1,5 +1,7 @@
 # The Cozy Science Lab
 
+Read the [student and teacher quick start](docs/QUICK_START.md) for the final website instructions.
+
 A local-first science learning game for Philippine Grade 7–10 students. Vite + strict TypeScript, no UI framework. The optional Supabase backend uses the official browser SDK. Learning illustrations are inline SVG; the supplied Gun-ob High School seal is shared across the website as a transparent image. Google Fonts are self-hosted with OFL licenses.
 
 ## Open the website on GitHub Pages
@@ -33,7 +35,9 @@ The notification bell shows a daily-wheel reminder until that account has spun f
 
 ## Optional Dark mode
 
-Open **Profile → Appearance → Dark mode**. The switch changes the whole website: navigation, lessons, shop, activities, profile, rewards, welcome and sign-in screens. Photos, banners and scientific illustrations keep their original colours. The setting applies immediately, is saved for this account on this device, and updates other tabs. New accounts on the same device inherit its most recent display mode until they choose their own. Existing accent palettes and introductions continue to use their current save/sync controls. Dark mode needs no database update.
+Open **Profile → Appearance → Dark mode**. The switch changes the whole website: navigation, lessons, shop, activities, profile, rewards, welcome and sign-in screens. Photos, banners and scientific illustrations keep their original colours. The setting applies immediately, is saved for this account on this device, and updates other tabs. New accounts on the same device inherit its most recent display mode until they choose their own. Dark mode needs no database update.
+
+Select **Meadow**, **Aurora** or **Sunset** in the same Appearance area. Colors apply immediately across the website and save automatically to the account, or to this device for guests. Each has its own coordinated light and dark palette. The active label and saving status show the result; a failed save restores the previous style and lets you retry. Matching tabs update together. Selecting colors preserves unfinished introduction text; press **Save my style** when that introduction is ready.
 
 Teacher and student tables use readable Dark mode headers, captions and colored access/stock/reservation badges. Table actions have clear borders, keyboard focus, optional hover feedback and 44-pixel phone targets. These shared styles preserve mobile card layouts and existing account, stock, credit and moderation controls, without adding network requests or animation loops.
 

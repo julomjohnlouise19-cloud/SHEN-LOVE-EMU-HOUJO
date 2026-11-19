@@ -7,6 +7,10 @@
 .topbar-left .site-help-button {
   margin-left: 10px;
 }
+.topbar-left,
+.topbar-left > .school-brand {
+  flex-shrink: 0;
+}
 .site-help-button {
   width: 44px;
   height: 44px;
@@ -259,5 +263,20 @@
   }
   .welcome-header-extra {
     margin-left: auto;
+  }
+}
+@media (max-width: 380px) {
+  .topbar .balance-pill {
+    display: none;
+  }
+}
+@media (min-width: 601px) and (max-width: 1200px) {
+  .topbar .compact-brand .brand-copy {
+    display: none;
+  }
+}
+@media (min-width: 761px) and (max-width: 1200px) {
+  .topbar-actions {
+    gap: 10px;
   }
 }

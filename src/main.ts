@@ -20,6 +20,7 @@ import "./styles/daily-calendar.css";
 import "./styles/readability.css";
 import "./styles/dark-mode.css";
 import "./styles/site-help.css";
+import "./styles/palettes.css";
 import { loadColorMode, loadDeviceColorMode } from "./store/color-mode";
 import { loadProfileDesign } from "./store/profile-design";
 import { loadAppearance } from "./store/preferences";

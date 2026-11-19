@@ -82,10 +82,21 @@ test("matching supports wrong feedback, a real drag, hints, keyboard pairs and s
     "1 / 6",
   );
   for (const id of ids.slice(1)) {
-    await page.locator(`[data-match-term="${id}"]`).focus();
+    const term = page.locator(`[data-match-term="${id}"]`);
+    await expect(term).toBeEnabled();
+    await term.focus();
     await page.keyboard.press("Enter");
+    await expect(term).toHaveAttribute("aria-pressed", "true");
     await page.locator(`[data-definition="${id}"]`).focus();
     await page.keyboard.press("Space");
+    await expect(page.locator(".activities-page")).not.toHaveAttribute(
+      "aria-busy",
+      "true",
+    );
+    if (id !== ids.at(-1))
+      await expect(page.locator(".activity-round-progress strong")).toHaveText(
+        `${ids.indexOf(id) + 1} / 6`,
+      );
   }
   await expect(
     page.getByRole("heading", { name: "Discovery complete!", exact: true }),

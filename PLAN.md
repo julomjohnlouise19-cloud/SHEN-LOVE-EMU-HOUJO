@@ -1,5 +1,15 @@
 # The Cozy Science Lab — build plan
 
+## Working site-wide color stories
+
+- [x] Repair palette selection with immediate application and independent saving, readable active/saving/error feedback, account isolation and cross-tab updates without saving an unfinished biography.
+- [x] Give Meadow, Aurora and Sunset coordinated surfaces, controls and distinct dark versions across learning, social, reward, profile and teacher areas; preserve photos, banners and scientific categories.
+- [ ] Verify all three styles in both display modes, saving/reload/failure/account changes, key populated routes, phone header spacing and the interactive introduction; publish and verify the public build.
+
+Local gates pass lint/typecheck, all 99 unit/property checks, 13 combined activity/palette/help/reward scenarios and all four new cloud palette scenarios. The latter retain unsaved biography drafts, roll back failed saves, preserve another account's saved fields and balances, and synchronize a second tab without replacing its draft. Sixty additional WCAG AA scans cover all three palettes in both modes across learning, profiles, populated teacher controls, Science friends and credit standings. A faint Sunset rank number was corrected before the final passing run. Teacher gradient backgrounds are included in the distinct-color checks. Phone/tablet header checks now explicitly prevent the logo/help overlap, including 320/390/768/1024/1100/1280 widths. Desktop and phone palette screenshots were inspected.
+
+Hosted run 44306609162 exposed the existing matching test racing the next pair against a pending save. The activity stage now visibly pauses action buttons during a save and restores them safely on completion/error; the regression waits for committed progress. All seven activity cases passed, then the matching case passed two additional repetitions with the final button-state helper. The four palette scenarios passed again with the final Sunset contrast correction. No new dependency, classroom migration, production email or real account/wallet mutation was needed. docs/QUICK_START.md contains the final student, teacher and email-owner instructions.
+
 ## Logo help and eight-digit verification
 
 - [x] Match the user's selected eight-digit email standard, accept complete older six-digit messages and preserve exact server verification without truncating codes. Update the owner guide and token template.
@@ -9,6 +19,8 @@
 The user now reports receiving eight-digit email and explicitly selecting length 8. The completed email gates pass lint/typecheck, 99 unit/property checks and 11 account scenarios, including transmission of the full eight-digit token, wrong-code rejection, older six-digit verification, pending-account rejection and cross-tab delivery throttling. No private inbox or real token was accessed by this chat.
 
 The interactive help passes both standard browser scenarios, covering welcome access before signup, all six tabs, arrow/Home/End keys, Previous/Next wraparound, nested guide focus, unchanged science cards/routes/balances, light/Dark mode and 1280/768/390/320 widths. Twelve combined cloud guide/code scenarios pass visitors, students and teachers, actual shared-reward copy and complete eight-digit server verification. All 99 units and SQL/document/economy checks pass. The existing school identity, rewards and experience regressions also passed. The desktop and phone guide screenshots were reviewed; the phone step controls have separate count and button rows for readability.
+
+The isolated production preview also passed complete quiz-draft preservation, all six guide stops, reward-popup weeks/focus, Dark mode reload/sign-out, compact profiles, Review Box, expanded researcher bios and all 118 periodic elements without unexpected errors or anonymous private requests. Screenshot review caught the shrinking header brand allowing the help button to overlap the seal at 320 pixels despite the page remaining bounded. Reserve the brand/help widths and hide the small balance shortcut below 381 pixels; balances remain available in the profile and shop. Add a direct logo/help non-overlap regression.
 
 ## Complete Dark mode surfaces and honest inbox verification
 
