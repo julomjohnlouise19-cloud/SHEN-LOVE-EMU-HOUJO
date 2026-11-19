@@ -5,9 +5,13 @@
 - [x] Remove Refresh wheel and the duplicate disabled completed button; consolidate the saved total, science fact and next-spin timing into one responsive themed card.
 - [x] Describe zero-credit outcomes accurately, remove the redundant wallet toast, preserve normal server-owned awards and retain automatic updates and connection recovery.
 - [x] Verify positive/zero results, two tabs, day rollover without a manual refresh, retry/reload/account isolation, keyboard focus and phone/dark-mode layouts.
-- [ ] Publish the fix and verify the deployed website.
+- [x] Publish the fix and verify the deployed website.
 
 Local lint/typecheck and all 99 unit/property checks pass. All seven focused cloud-wheel scenarios pass, including an interrupted read with a real retry, lost-response idempotence, simultaneous tabs, automatic next-day availability, zero-credit copy, account isolation and teacher/guest gates. Routine unchanged wheel updates preserve keyboard focus. Desktop and 320-pixel Dark mode contrast/layout checks pass; the saved-result screenshots were inspected. No database, wallet rule or reward range changed.
+
+Application source 0bd40a4346e72568f2d73cf48fb26022d635a4da is published. [Run 44465821598](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/44465821598) passed both jobs, 99 unit/property checks and all 186 browser scenarios (73 standard, 112 cloud and one Pages/offline case), plus the science, code, document, source and isolated database gates. Hosted readiness confirms the existing calendar and server-owned class-credit wheel are installed; this UI fix requires no SQL step.
+
+The public entry is index-DEd47TK9.js, and all 67 checked production JavaScript/CSS, service worker, fonts, seal and handbook files match the isolated verified build byte for byte. A fresh public browser passes the wheel's guest sign-in action, removed Refresh wheel control, light/Dark mode accessibility and bounded 1280/320-pixel layouts. Public and saved-result screenshots were inspected. Final diagnostics show zero unexpected UI errors, failed assets, pending requests or anonymous private requests. One workspace-blocked backend-status request is recorded separately; GitHub verified the actual backend. An initial smoke script navigated before guest login finished; waiting for the existing ready state corrected that test race. Signed-in awards and zero-credit receipts were exercised through fixtures, without a real signup, wallet mutation or production migration. The production preview also passes the existing profile coach, guide dismissal, palettes, activity counters, rewards, profiles and periodic-table checks. The final documentation commit records verification without changing deployed application files.
 
 ## New-student profile welcome and guide dismissal
 
