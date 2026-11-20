@@ -11,7 +11,7 @@ const titles: Record<string, string> = {
   "/island/activities/cards": "Flashcards",
   "/island/activities/planets": "Planet Explorer",
   "/island/activities/badges": "Discovery passport",
-  "/sources": "Science reading room",
+  "/sources": "Study Room",
   "/suggestions": "Suggestion box",
   "/teacher/suggestions": "Suggestion inbox",
   "/review": "Review Box",

@@ -14,6 +14,7 @@ import { pageHeading } from "./shell";
 import { go } from "./actions";
 import { openDeck } from "./learn";
 import { badgeArtwork, titleBuddy } from "./badge-art";
+import { learningCalendar } from "./learning-calendar";
 
 export function growthPage() {
   const user = currentUser()!,
@@ -324,6 +325,7 @@ export function growthPage() {
       ),
       companion,
     ),
+    learningCalendar(),
     h(
       "section",
       { class: "growth-title-section", "aria-label": "Your cozy title path" },

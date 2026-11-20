@@ -7,6 +7,8 @@ import {
 import { loadDeck, currentUser } from "../store";
 import type { Question } from "../core/types";
 import { h, button, modal, input, field, toast } from "./dom";
+import { videosShelf } from "./science-videos";
+import { scienceVideos } from "../data/science-videos";
 function referenceCard(ref: ScienceReference) {
   const citation = referenceCitation(ref);
   return h(
@@ -196,9 +198,11 @@ export function sourceButton(deckId: string, question?: Question) {
     },
   );
 }
-type ReadingShelf = "notes" | "periodic" | "illustrations" | "documents";
+type ReadingShelf =
+  "notes" | "videos" | "periodic" | "illustrations" | "documents";
 const shelfNames: Record<ReadingShelf, string> = {
   notes: "Study notes & sources",
+  videos: "Science videos",
   periodic: "Periodic table",
   illustrations: "Illustrations",
   documents: "PDF documents",
@@ -318,7 +322,7 @@ export async function sourcesPage() {
   const host = h("div", { class: "reading-shelf-content" });
   const nav = h("nav", {
     class: "reading-shelves",
-    "aria-label": "Reading room shelves",
+    "aria-label": "Study Room shelves",
   });
   let active: ReadingShelf | undefined;
   const nodes = new Map<ReadingShelf, HTMLElement>([["notes", notes]]);
@@ -338,19 +342,21 @@ export async function sourcesPage() {
     if (!nodes.has(shelf))
       nodes.set(
         shelf,
-        shelf === "periodic"
-          ? periodicTableShelf()
-          : shelf === "illustrations"
-            ? illustrationsShelf()
-            : documentsShelf((id) => {
-                branch.value = id;
-                search.value = "";
-                update();
-                choose("notes");
-                notes
-                  .querySelector<HTMLElement>("h2")
-                  ?.focus({ preventScroll: true });
-              }),
+        shelf === "videos"
+          ? videosShelf()
+          : shelf === "periodic"
+            ? periodicTableShelf()
+            : shelf === "illustrations"
+              ? illustrationsShelf()
+              : documentsShelf((id) => {
+                  branch.value = id;
+                  search.value = "";
+                  update();
+                  choose("notes");
+                  notes
+                    .querySelector<HTMLElement>("h2")
+                    ?.focus({ preventScroll: true });
+                }),
       );
     host.replaceChildren(nodes.get(shelf)!);
     nav
@@ -374,16 +380,22 @@ export async function sourcesPage() {
     "div",
     { class: "reading-room page-enter" },
     h("p", { class: "eyebrow" }, "CURIOUS MINDS CHECK THE EVIDENCE"),
-    h("h1", null, "The science reading room"),
+    h("h1", null, "Study Room"),
     h(
       "p",
       null,
-      "Open a notebook, explore an element, or look closer at a science model. Your sources are here too, with original learning materials you can read and keep.",
+      "Make yourself comfortable, scientist. Watch a little science, explore the notes and models, and follow the sources. There’s more than one way to make an idea click.",
     ),
     h(
       "div",
       { class: "reading-library-intro" },
       h("span", null, h("strong", null, "27"), " topic guides"),
+      h(
+        "span",
+        null,
+        h("strong", null, scienceVideos.length),
+        " science videos",
+      ),
       h("span", null, h("strong", null, "118"), " elements"),
       h("span", null, h("strong", null, illustrationCount), " science models"),
       h("span", null, h("strong", null, "5"), " PDF handbooks"),

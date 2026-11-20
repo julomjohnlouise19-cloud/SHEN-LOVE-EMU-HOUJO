@@ -29,7 +29,7 @@ export function siteHelpModal(trigger: HTMLElement) {
       "notebook",
       "Remember",
       "Make learning stick",
-      "Revisit tricky ideas in your Review Box, keep thoughts in My notebook and find study notes, handbooks and the periodic table in the Science reading room.",
+      "Revisit tricky ideas in your Review Box, keep thoughts in My notebook and find science videos, notes, sources, handbooks and the periodic table in the Study Room.",
     ],
     [
       "heart",

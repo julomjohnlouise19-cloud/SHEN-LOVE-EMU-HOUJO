@@ -90,6 +90,15 @@ export function experienceControls(owner: string) {
     h("option", { value: "reduce" }, "Keep it calm · reduced motion"),
   );
   const sound = soundButton();
+  const preview = button(
+    "Preview a soft sound",
+    () => {
+      if (currentUser()?.id === owner && soundEnabled(owner))
+        return activitySound("correct");
+    },
+    "button outline sound-preview-button",
+    { disabled: true },
+  );
   const root = h(
     "section",
     {
@@ -111,6 +120,7 @@ export function experienceControls(owner: string) {
       ),
       sound,
     ),
+    preview,
     field(
       "Animation style",
       select,
@@ -136,6 +146,7 @@ export function experienceControls(owner: string) {
   });
   const reflect = () => {
     select.value = getMotionStyle(owner);
+    preview.disabled = !soundEnabled(owner) || !activitySoundAvailable();
   };
   watch(root, owner, reflect);
   reflect();

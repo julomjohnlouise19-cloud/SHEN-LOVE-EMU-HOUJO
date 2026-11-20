@@ -51,7 +51,7 @@ function guide(done: () => void) {
             "Think, answer, understand",
             "Use a hint when you need one. Check your answer, read the explanation and open the sources to follow the science.",
             "/sources",
-            "Visit the reading room",
+            "Visit the Study Room",
           ],
           [
             "Keep a little progress",

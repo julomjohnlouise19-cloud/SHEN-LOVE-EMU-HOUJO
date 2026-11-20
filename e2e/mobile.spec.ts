@@ -82,7 +82,7 @@ test("student pages and forms fit narrow phones, landscape and tablets", async (
     ["/branch/physics", "Physics"],
     ["/branch/earth", "Earth & Space"],
     ["/branch/skills", "Science Skills Lab"],
-    ["/sources", "Science reading room"],
+    ["/sources", "Study Room"],
     ["/suggestions", "Suggestion box"],
     ["/review", "Review Box"],
     ["/notebook", "My notebook"],

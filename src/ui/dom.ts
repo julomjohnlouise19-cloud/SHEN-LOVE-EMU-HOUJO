@@ -103,7 +103,7 @@ function releaseToasts(dialog: HTMLDialogElement) {
   }
 }
 export function toast(
-  message: string,
+  message: Child,
   action?: { text: string; run: () => void },
 ) {
   const el = h(

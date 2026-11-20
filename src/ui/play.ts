@@ -13,6 +13,7 @@ import { learningGrowth } from "../core/growth";
 import { soundEnabled, reducedMotion } from "../store/experience";
 import { soundButton, celebrateLevelUp } from "./experience-controls";
 import { activitySound } from "./activity-audio";
+import { announceAchievements } from "./achievement-updates";
 let feedbackRun = "",
   feedbackIndex = -1;
 import { sourceButton } from "./sources";
@@ -222,7 +223,9 @@ export async function playPage(runId: string) {
           if (owner && currentUser()?.id === owner) {
             if (soundEnabled(owner))
               void activitySound(
-                events.some((event) => event.type === "LevelUp")
+                events.some((event) =>
+                  ["LevelUp", "BadgeEarned"].includes(event.type),
+                )
                   ? "complete"
                   : events.some(
                         (event) =>
@@ -234,6 +237,7 @@ export async function playPage(runId: string) {
               );
             if (events.some((event) => event.type === "LevelUp"))
               celebrateLevelUp();
+            announceAchievements(events, owner);
           }
           refresh();
         } catch (e) {

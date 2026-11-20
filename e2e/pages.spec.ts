@@ -108,7 +108,8 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   });
   expect(cachedPaths.length).toBeGreaterThan(30);
   expect(cachedPaths.every((path) => path.startsWith(prefix))).toBe(true);
-  expect(cachedPaths).toContain(`${prefix}school-seal.webp`);
+  expect(cachedPaths).toContain(`${prefix}cozy-logo.webp`);
+  expect(cachedPaths).toContain(`${prefix}cozy-mark.webp`);
   expect(cachedPaths).toContain(`${prefix}badge-buddies/science-buddies.webp`);
   for (const border of profileBorders)
     expect(cachedPaths).toContain(`${prefix}profile-borders/${border.id}.jpg`);

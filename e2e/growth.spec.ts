@@ -82,10 +82,36 @@ test("real easy-deck learning earns persistent badges, XP and useful garden acti
   await expect(
     page.locator(".answer-feedback .growth-celebration"),
   ).toContainText("Level 2");
+  await expect(
+    page.locator("#toasts .achievement-toast-copy").last(),
+  ).toContainText("First 10 correct");
+  await page.getByRole("button", { name: /^Notifications/ }).click();
+  const updates = page.getByRole("dialog", {
+    name: "Little lab updates",
+    exact: true,
+  });
+  await updates
+    .getByRole("button", { name: "Achievements", exact: true })
+    .click();
+  await expect(updates.locator(".achievement-notification")).not.toHaveCount(0);
+  await expect(updates).toContainText("First 10 correct");
+  await expect(updates.locator(".buddy-medal").first()).toBeVisible();
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .include("dialog[open]")
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await page.keyboard.press("Escape");
   await page
     .getByRole("link", { name: "See my growth garden", exact: true })
     .click();
   await expect(page.locator(".growth-level-label")).toContainText("LEVEL 2");
+  await expect(page.locator(".learning-calendar-summary")).toContainText(
+    "10 answers",
+  );
   const easy = page.locator('[data-learning-badge="perfect-easy"]');
   await expect(easy).toHaveAccessibleName("Perfect easy deck · earned");
   await easy.click();

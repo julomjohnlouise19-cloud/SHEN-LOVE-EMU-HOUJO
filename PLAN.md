@@ -1,5 +1,17 @@
 # The Cozy Science Lab — build plan
 
+## Study Room videos and little learning discoveries
+
+- [x] Rename the existing reading-room entry to Study Room, preserve its notes, models, periodic table, documents and bookmarks, and add the 23 unique YouTube links supplied in the research PDF.
+- [x] Build an accessible category/keyword video collection with related notes, explicit original YouTube links, tap-to-load privacy-enhanced players, connection recovery and no API key or automatic external downloads.
+- [x] Improve existing earned-achievement notifications and quiet optional sounds, retaining account ownership, mute, reduced motion and durable notifications.
+- [x] Add an interactive monthly learning-progress calendar from actual saved quiz activity and an original-study-guide vocabulary of the day with meaning and useful onward actions.
+- [x] Apply the user's supplied Cozy logo consistently across welcome, navigation, dialogs, startup and favicon; retain the full website name and existing saved data.
+- [x] Verify actual earning, day/month rollover, filtering/player lifecycle, offline boundaries, account isolation, light/Dark palettes and phone/keyboard accessibility alongside the existing learning/account gates.
+- [ ] Publish the tested update, verify the actual website, and give concise student/owner instructions without claiming live YouTube playback or private Gmail delivery was verified from this workspace.
+
+Local checks pass lint/typecheck, 112 unit/property checks, the unchanged economy simulation, canonical SQL consistency, 14 source addresses and the existing guides/elements/models/handbooks checks. All 196 unique browser scenarios are covered across the broad runs and corrected focused reruns: 82 standard, 113 cloud and one Pages/offline case. The broad audit found an invalid empty-notice list role and redundant calendar/profile sound controls; both are corrected, with the original account/credit regression retained. Final focused cases pass the calendar, vocabulary, account separation, preview/mute, all six palette/mode combinations, full 23-video pagination/search, source links, intentional player loading, offline recovery and close/navigation cleanup. Phone visual review led to six-card pages, palette-colored play marks and rounded note actions. Both active transparent logos total 52,492 bytes and replace the unused 1,192,294-byte seal in offline downloads. The isolated production preview has passed desktop/phone checks without unexpected UI errors, failed assets or private guest requests. Publication and public verification remain. No classroom migration, real signup/email or production wallet change was performed.
+
 ## Cozy learning titles and badge garden
 
 - [x] Fix the newly reported pale diagram canvas and difficulty choices, and extend Dark mode coverage to science drawings, deck pickers and the complete student/teacher interface.

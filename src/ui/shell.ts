@@ -29,6 +29,7 @@ import { attachGuide, guideModal } from "./guide";
 import { aboutUsButton } from "./about-button";
 import { dailyRewardsButton } from "./reward-button";
 import { siteHelpButton } from "./site-help-button";
+import { savedNotificationList } from "./achievement-updates";
 let sidebarOpen = false;
 let releaseNavigation = () => {};
 export function resetNavigation() {
@@ -40,7 +41,7 @@ const nav = [
   ["/island", "island", "Science Island"],
   ["/growth", "sprout", "My growth"],
   ["/review", "box", "Review Box"],
-  ["/sources", "notebook", "Science reading room"],
+  ["/sources", "notebook", "Study Room"],
   ["/suggestions", "heart", "Suggestion box"],
   ["/notebook", "notebook", "My notebook"],
   ["/shop", "shop", "Supply shop"],
@@ -677,31 +678,7 @@ async function notificationsModal() {
           "Connect to refresh your latest supply updates. Any saved pickup details are still shown below.",
         )
       : null,
-    notices.length
-      ? h(
-          "div",
-          { class: "notice-list" },
-          ...notices.map((n) =>
-            h(
-              "div",
-              { class: `notification ${n.read ? "" : "unread"}` },
-              icon("bell"),
-              h(
-                "div",
-                null,
-                h("p", null, n.text),
-                h(
-                  "small",
-                  { class: "muted" },
-                  new Date(n.time).toLocaleString("en-PH", {
-                    timeZone: getState().rules.timezone,
-                  }),
-                ),
-              ),
-            ),
-          ),
-        )
-      : null,
+    savedNotificationList(notices, () => close()),
     quietNotice,
   ]);
   paintWheel();

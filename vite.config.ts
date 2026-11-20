@@ -44,7 +44,8 @@ export default defineConfig(({ mode }) => {
             .map((name) => `${base}${name}`);
           const paths = [
             base,
-            `${base}school-seal.webp`,
+            `${base}cozy-logo.webp`,
+            `${base}cozy-mark.webp`,
             `${base}badge-buddies/science-buddies.webp`,
             `${base}fonts/fonts.css`,
             `${base}fonts/fredoka.woff2`,

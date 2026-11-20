@@ -1,6 +1,6 @@
 export const APP_NAME = "The Cozy Science Lab";
-export const SCHOOL_LOGO_URL = `${import.meta.env.BASE_URL}school-seal.webp`;
-export const SCHOOL_LOGO_ALT = "Gun-ob High School seal, Lapu-Lapu City";
+export const SCHOOL_LOGO_URL = `${import.meta.env.BASE_URL}cozy-mark.webp`;
+export const SCHOOL_LOGO_ALT = "The Cozy Science Lab logo";
 
 export function schoolLogo() {
   const image = document.createElement("img");
@@ -30,6 +30,13 @@ export function brandLink(href = "#/", compact = false) {
   title.className = "brand-title";
   title.textContent = "Cozy Science Lab";
   copy.append(prefix, title);
-  link.append(schoolLogo(), copy);
+  const logo = schoolLogo();
+  if (!compact) {
+    logo.src = `${import.meta.env.BASE_URL}cozy-logo.webp`;
+    logo.classList.add("cozy-wordmark");
+    logo.width = 192;
+    logo.height = 64;
+  }
+  link.append(logo, copy);
   return link;
 }

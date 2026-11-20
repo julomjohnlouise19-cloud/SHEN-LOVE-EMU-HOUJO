@@ -12,6 +12,7 @@ import { APP_NAME } from "./branding";
 import { cloudEnabled } from "../store/cloud";
 import { growthShortcut } from "./growth-card";
 import { activeLearningStreak } from "../core/growth";
+import { learningCalendarButton } from "./learning-calendar";
 export function dashboard() {
   const u = currentUser()!,
     s = getState(),
@@ -42,6 +43,11 @@ export function dashboard() {
     (card) => card.due <= today && card.lastReviewed !== today,
   ).length;
   const answersToday = Math.min(daily?.answers ?? 0, 8);
+  const vocabulary = h("div", { class: "vocabulary-slot" });
+  void import("./daily-vocabulary").then(({ vocabularyCard }) => {
+    if (vocabulary.isConnected && currentUser()?.id === u.id)
+      vocabulary.replaceChildren(vocabularyCard());
+  });
   const facts = [
     "A single tree can be home to hundreds of living things. Small habitats make a big difference.",
     "Sunlight takes about eight minutes to reach Earth. The light you see has been on a little journey.",
@@ -194,6 +200,17 @@ export function dashboard() {
       ),
     ),
     growthShortcut(),
+    h(
+      "div",
+      { class: "dashboard-study-shortcuts" },
+      learningCalendarButton(),
+      h(
+        "a",
+        { class: "button outline", href: "#/sources?view=videos" },
+        icon("notebook", 16),
+        "Watch & study",
+      ),
+    ),
     unfinished && unfinishedDeck
       ? h(
           "section",
@@ -391,6 +408,7 @@ export function dashboard() {
       h(
         "aside",
         { class: "daily-column", "aria-label": "Daily discoveries" },
+        vocabulary,
         h(
           "section",
           { class: "daily-spin-card" },
