@@ -137,14 +137,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 154px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   width: 100%;
   padding: 0;
   border: 0;
   border-radius: 0;
   cursor: pointer;
   font: inherit;
-  gap: 22px;
   overflow: hidden;
   color: var(--lab-brand-deep);
   background: linear-gradient(130deg, var(--video-color), var(--lab-surface));
@@ -154,20 +154,27 @@
   outline: 3px solid var(--lab-brand-deep);
   outline-offset: -5px;
 }
-.video-poster-orbit {
+.study-video-thumbnail {
   position: absolute;
-  width: 190px;
-  height: 190px;
-  border: 1px dashed var(--lab-brand-deep);
-  border-radius: 50%;
-  transform: rotate(-25deg) scaleY(0.55);
-  opacity: 0.4;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.study-video-poster > .icon {
-  position: relative;
-  transform: rotate(-8deg);
+.video-cover-fallback {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 18px 68px 18px 18px;
+}
+.study-video-poster[data-thumbnail-state="ready"] .video-cover-fallback {
+  display: none;
 }
 .video-play-mark {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
   display: grid;
   place-items: center;
   width: 48px;
@@ -181,13 +188,10 @@
   z-index: 1;
 }
 .video-poster-caption {
-  position: absolute;
-  bottom: 14px;
-  left: 16px;
   color: var(--lab-ink);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 500;
 }
 .video-play-triangle {
   width: 0;

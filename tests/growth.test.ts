@@ -4,6 +4,7 @@ import {
   learningGrowth,
   learningBadges,
   activeLearningStreak,
+  nextBadgeGoals,
 } from "../src/core/growth";
 import { defaultRules } from "../src/core/rules";
 import { execute, applyResult } from "../src/core/commands";
@@ -58,6 +59,24 @@ function run(owner = "guest", length = 8, level: Run["level"] = "easy"): Run {
 }
 
 describe("cozy learning growth", () => {
+  it("recommends the nearest genuine unearned goals, keeps ties stable and leaves progress unchanged", () => {
+    const state = initialState("", "", now);
+    const badges = learningBadges(state.users[0], [], today).slice(0, 4);
+    badges[0] = { ...badges[0], earned: true };
+    badges[1] = { ...badges[1], earned: false, progress: 8, target: 10 };
+    badges[2] = { ...badges[2], earned: false, progress: 4, target: 8 };
+    badges[3] = { ...badges[3], earned: false, progress: 3, target: 6 };
+    const before = structuredClone(badges);
+    expect(nextBadgeGoals(badges).map((badge) => badge.id)).toEqual([
+      badges[1].id,
+      badges[2].id,
+      badges[3].id,
+    ]);
+    expect(badges).toEqual(before);
+    expect(
+      nextBadgeGoals(badges.map((badge) => ({ ...badge, earned: true }))),
+    ).toEqual([]);
+  });
   it("uses existing XP rules at exact title/level boundaries and keeps growing past Professor", () => {
     for (const [xp, level, title] of [
       [0, 1, "Curious Seedling"],

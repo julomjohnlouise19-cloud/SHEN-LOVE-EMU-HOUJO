@@ -2,6 +2,15 @@ import type { Rules, Run, User } from "./types";
 import { decks, branchById } from "../data/catalog";
 import { addDays } from "./time";
 
+export function nextBadgeGoals(badges: readonly LearningBadge[]) {
+  return badges
+    .filter((badge) => !badge.earned && badge.target > 0)
+    .sort(
+      (a, b) =>
+        Math.min(1, b.progress / b.target) - Math.min(1, a.progress / a.target),
+    );
+}
+
 export const cozyTitles = [
   {
     level: 1,

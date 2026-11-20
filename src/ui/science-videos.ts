@@ -4,6 +4,7 @@ import {
   findScienceVideos,
   originalVideoUrl,
   videoPlayerUrl,
+  videoThumbnailUrl,
   type ScienceVideo,
 } from "../data/science-videos";
 import { deckById } from "../data/catalog";
@@ -11,6 +12,61 @@ import { referencesFor } from "../data/references";
 import { h, button, input, field, modal } from "./dom";
 import { icon } from "./svg";
 import { studyGuideModal } from "./study-library";
+
+function videoCover(video: ScienceVideo, categoryIcon: string) {
+  const caption = h(
+    "span",
+    { class: "video-poster-caption" },
+    navigator.onLine ? "Loading video cover…" : "Connect to load cover",
+  );
+  const cover = h(
+    "button",
+    {
+      class: "study-video-poster",
+      type: "button",
+      "aria-label": "Play " + video.title + " video",
+      "data-thumbnail-state": navigator.onLine ? "loading" : "unavailable",
+      onClick: (event: MouseEvent) =>
+        watchVideo(video, event.currentTarget as HTMLElement),
+    },
+    h(
+      "span",
+      { class: "video-cover-fallback", "aria-hidden": true },
+      icon(categoryIcon, 38),
+      caption,
+    ),
+    h(
+      "span",
+      { class: "video-play-mark", "aria-hidden": true },
+      h("i", { class: "video-play-triangle" }),
+    ),
+  );
+  if (navigator.onLine) {
+    const unavailable = () => {
+      image.remove();
+      cover.dataset.thumbnailState = "unavailable";
+      caption.textContent = "Preview unavailable · tap to watch";
+    };
+    const image = h("img", {
+      class: "study-video-thumbnail",
+      src: videoThumbnailUrl(video.id),
+      alt: "",
+      width: 320,
+      height: 180,
+      loading: "lazy",
+      decoding: "async",
+      referrerpolicy: "no-referrer",
+      onLoad: () => {
+        // YouTube may return a small generic placeholder for an unavailable cover.
+        if (image.naturalWidth <= 120) unavailable();
+        else cover.dataset.thumbnailState = "ready";
+      },
+      onError: unavailable,
+    });
+    cover.prepend(image);
+  }
+  return cover;
+}
 
 function youtubeLink(video: ScienceVideo, label = "Open on YouTube") {
   return h(
@@ -257,28 +313,7 @@ export function videosShelf() {
               class: "study-video-card video-" + video.category,
               "data-science-video": video.id,
             },
-            h(
-              "button",
-              {
-                class: "study-video-poster",
-                type: "button",
-                "aria-label": "Play " + video.title + " video",
-                onClick: (event: MouseEvent) =>
-                  watchVideo(video, event.currentTarget as HTMLElement),
-              },
-              h("span", { class: "video-poster-orbit" }),
-              icon(kind.icon, 52),
-              h(
-                "span",
-                { class: "video-play-mark" },
-                h("i", { class: "video-play-triangle" }),
-              ),
-              h(
-                "span",
-                { class: "video-poster-caption" },
-                "A LITTLE SCIENCE SCREEN",
-              ),
-            ),
+            videoCover(video, kind.icon),
             h(
               "div",
               { class: "study-video-copy" },
@@ -391,7 +426,7 @@ export function videosShelf() {
       h(
         "p",
         null,
-        "Only a video you choose loads a YouTube player. Videos need internet and may include YouTube advertising or recommendations. If embedding is unavailable, use Original video or Open on YouTube.",
+        "Covers load from YouTube for the exact linked videos. Only a video you choose loads a player. Videos need internet and may include YouTube advertising or recommendations. If embedding is unavailable, use Original video or Open on YouTube.",
       ),
       h(
         "p",

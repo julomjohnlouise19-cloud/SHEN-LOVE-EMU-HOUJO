@@ -2,7 +2,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { test, expect, exploreAsGuest } from "./fixtures";
 import { boundedPage, brightSurfaces } from "./interface-helpers";
 
-test("Study Room searches the supplied collection and loads only a deliberately chosen video", async ({
+test("Study Room uses exact-video covers and loads only a deliberately chosen player", async ({
   page,
   context,
 }) => {
@@ -43,7 +43,32 @@ test("Study Room searches the supplied collection and loads only a deliberately 
     page.getByRole("button", { name: "Next videos", exact: true }),
   ).toBeDisabled();
   await page.getByRole("button", { name: "All videos", exact: true }).click();
-  expect(requests).toEqual([]);
+  expect(requests.length).toBeGreaterThan(0);
+  expect(
+    requests.every((url) =>
+      /^https:\/\/i\.ytimg\.com\/vi\/[A-Za-z0-9_-]{11}\/mqdefault\.jpg$/.test(
+        url,
+      ),
+    ),
+  ).toBe(true);
+  for (const card of await page.locator(".study-video-card").all()) {
+    const id = await card.getAttribute("data-science-video");
+    const cover = card.locator(".study-video-thumbnail");
+    await cover.scrollIntoViewIfNeeded();
+    await expect(card.locator(".study-video-poster")).toHaveAttribute(
+      "data-thumbnail-state",
+      "ready",
+    );
+    await expect(cover).toHaveAttribute(
+      "src",
+      `https://i.ytimg.com/vi/${id}/mqdefault.jpg`,
+    );
+    await expect(cover).toHaveAttribute("loading", "lazy");
+    await expect(cover).toHaveAttribute("referrerpolicy", "no-referrer");
+  }
+  await page
+    .getByRole("heading", { name: "Press play on a new idea" })
+    .scrollIntoViewIfNeeded();
   const originalState = await page.evaluate(() => {
     const user = JSON.parse(localStorage.getItem("csl:state")!).users.find(
       (u: { id: string }) => u.id === "guest",
@@ -136,9 +161,11 @@ test("Study Room searches the supplied collection and loads only a deliberately 
   ).toHaveCount(0);
   expect(requests.length).toBeGreaterThan(0);
   expect(
-    requests.every((url) =>
-      url.startsWith("https://www.youtube-nocookie.com/embed/ex0x-w00Uy4"),
-    ),
+    requests
+      .filter((url) => !url.startsWith("https://i.ytimg.com/"))
+      .every((url) =>
+        url.startsWith("https://www.youtube-nocookie.com/embed/ex0x-w00Uy4"),
+      ),
   ).toBe(true);
   expect(
     await page.evaluate(() => {
@@ -161,6 +188,7 @@ test("the video collection and new branding fit phones and every light and Dark 
     .getAttribute("content");
   expect(csp).toContain("frame-src https://www.youtube-nocookie.com;");
   expect(csp).toContain("script-src 'self';");
+  expect(csp).toContain("img-src 'self' data: https://i.ytimg.com;");
   for (const width of [1280, 320]) {
     await page.setViewportSize({ width, height: 900 });
     for (const theme of ["meadow", "aurora", "sunset"])
@@ -195,4 +223,59 @@ test("the video collection and new branding fit phones and every light and Dark 
       ),
     ).toBe(true);
   }
+});
+
+test("missing, placeholder and offline video covers keep clear working fallbacks", async ({
+  page,
+  context,
+}) => {
+  await page.route(
+    "https://i.ytimg.com/vi/ex0x-w00Uy4/mqdefault.jpg",
+    (route) =>
+      route.fulfill({
+        contentType: "image/svg+xml",
+        body: '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="90"><rect width="120" height="90"/></svg>',
+      }),
+  );
+  await page.route(
+    "https://i.ytimg.com/vi/AHQGNb0zBgg/mqdefault.jpg",
+    (route) =>
+      route.fulfill({
+        contentType: "image/jpeg",
+        body: "An unavailable image fixture",
+      }),
+  );
+  await page.route("https://www.youtube-nocookie.com/embed/**", (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: "<!doctype html><title>Player fixture</title><p>Explicit test fixture</p>",
+    }),
+  );
+  await exploreAsGuest(page, "/#/sources?view=videos");
+  for (const id of ["ex0x-w00Uy4", "AHQGNb0zBgg"]) {
+    const cover = page.locator(
+      `[data-science-video="${id}"] .study-video-poster`,
+    );
+    await cover.scrollIntoViewIfNeeded();
+    await expect(cover).toHaveAttribute("data-thumbnail-state", "unavailable");
+    await expect(cover).toContainText("Preview unavailable");
+    await expect(cover.locator("img")).toHaveCount(0);
+  }
+  await page
+    .getByRole("button", { name: "Play Cells video", exact: true })
+    .click();
+  await expect(page.locator("iframe")).toHaveCount(1);
+  await page.keyboard.press("Escape");
+  await context.setOffline(true);
+  await page
+    .getByRole("searchbox", { name: "Search science videos" })
+    .fill("DNA");
+  await expect(page.locator(".study-video-poster")).toContainText(
+    "Connect to load cover",
+  );
+  await expect(page.locator(".study-video-thumbnail")).toHaveCount(0);
+  await expect(
+    page.getByRole("link", { name: "Original video · DNA", exact: true }),
+  ).toHaveAttribute("href", "https://www.youtube.com/watch?v=URUJD5NEXC8");
+  await context.setOffline(false);
 });

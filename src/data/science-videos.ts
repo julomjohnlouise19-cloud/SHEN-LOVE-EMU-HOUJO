@@ -182,6 +182,11 @@ export const scienceVideos: readonly ScienceVideo[] = [
 ];
 export const originalVideoUrl = (id: string) =>
   "https://www.youtube.com/watch?v=" + id;
+export function videoThumbnailUrl(id: string) {
+  if (!scienceVideos.some((video) => video.id === id))
+    throw new Error("Choose a video from the collection.");
+  return "https://i.ytimg.com/vi/" + id + "/mqdefault.jpg";
+}
 export function videoPlayerUrl(id: string) {
   if (!scienceVideos.some((video) => video.id === id))
     throw new Error("Choose a video from the collection.");

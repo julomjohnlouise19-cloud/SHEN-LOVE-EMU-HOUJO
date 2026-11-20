@@ -8,6 +8,7 @@ import {
 } from "./interface-helpers";
 import cells from "../src/data/questions/life/cells.json" with { type: "json" };
 import type { Question } from "../src/core/types";
+import { decks } from "../src/data/catalog";
 
 test("real easy-deck learning earns persistent badges, XP and useful garden actions", async ({
   page,
@@ -140,6 +141,127 @@ test("real easy-deck learning earns persistent badges, XP and useful garden acti
     .getByRole("button", { name: "Explore another topic", exact: true })
     .click();
   await expect(page).toHaveURL(/#\/island$/);
+  await page
+    .getByRole("button", { name: "Open scientist profile", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Appearance", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Display Perfect easy deck", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Display Cells explorer", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Save my badges", exact: true })
+    .click();
+  await expect(page.locator(".profile-badge-display")).toContainText(
+    "Perfect easy deck",
+  );
+  await expect(page.locator(".profile-badge-display")).toContainText(
+    "Cells explorer",
+  );
+});
+
+test("growth goals connect actual criteria to practice and the profile shelf without inventing progress", async ({
+  page,
+}) => {
+  await exploreAsGuest(page, "/#/growth");
+  const before = await page.evaluate(() => {
+    const user = JSON.parse(localStorage.getItem("csl:state")!).users.find(
+      (value: { id: string }) => value.id === "guest",
+    );
+    return [user.xp, user.merits, user.badges.length];
+  });
+  const goal = page.getByRole("region", {
+    name: "My next learning goal",
+    exact: true,
+  });
+  await expect(goal.getByRole("heading")).toHaveText("First little discovery");
+  await page
+    .getByRole("combobox", { name: "Choose my next badge goal", exact: true })
+    .selectOption("topic:life.body");
+  await expect(goal.getByRole("heading")).toHaveText(
+    "Anatomy & Body Systems explorer",
+  );
+  await goal
+    .getByRole("button", { name: "See goal details", exact: true })
+    .click();
+  await expect(page.getByRole("dialog")).toContainText(
+    "Complete a Anatomy & Body Systems deck",
+  );
+  await page.keyboard.press("Escape");
+  await goal
+    .getByRole("button", { name: "Practice for this badge", exact: true })
+    .click();
+  await expect(
+    page.getByRole("dialog", { name: "Anatomy & Body Systems", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", {
+      name: "A little stretch Apply & explain",
+      exact: true,
+    }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await page.keyboard.press("Escape");
+  await page
+    .getByRole("button", { name: "Arrange my badge shelf", exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Your little badge shelf", exact: true }),
+  ).toBeFocused();
+  await expect(page.locator(".profile-badge-choice")).toHaveCount(0);
+  expect(
+    await page.evaluate(() => {
+      const user = JSON.parse(localStorage.getItem("csl:state")!).users.find(
+        (value: { id: string }) => value.id === "guest",
+      );
+      return [user.xp, user.merits, user.badges.length];
+    }),
+  ).toEqual(before);
+});
+
+test("a completed badge garden keeps a useful challenge without a fake remaining goal", async ({
+  page,
+}) => {
+  await exploreAsGuest(page, "/#/growth");
+  await page.evaluate(
+    (ids) => {
+      const state = JSON.parse(localStorage.getItem("csl:state")!);
+      state.users.find((value: { id: string }) => value.id === "guest").badges =
+        ids;
+      localStorage.setItem("csl:state", JSON.stringify(state));
+    },
+    [
+      "first-deck",
+      "ten-right",
+      "perfect-easy",
+      "week-streak",
+      "perfect-deck",
+      ...decks.map((deck) => "topic:" + deck.id),
+    ],
+  );
+  await page.reload();
+  await expect(
+    page.getByRole("heading", {
+      name: "A garden full of discoveries",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("combobox", {
+      name: "Choose my next badge goal",
+      exact: true,
+    }),
+  ).toHaveCount(0);
+  await page
+    .getByRole("button", { name: "Try a hard Cells challenge", exact: true })
+    .click();
+  await expect(
+    page.getByRole("button", {
+      name: "Big brain time Analyze & reason",
+      exact: true,
+    }),
+  ).toHaveAttribute("aria-pressed", "true");
 });
 
 test("the garden keeps all palettes, filters, title details and Tabby readable and functional on phones", async ({
@@ -167,6 +289,7 @@ test("the garden keeps all palettes, filters, title details and Tabby readable a
     "High five",
   );
   expect(await page.locator(".growth-stats").innerText()).toBe(before);
+  await page.locator(".growth-title-section > summary").click();
   await page
     .getByRole("button", {
       name: "Professor · Level 20 · current title",

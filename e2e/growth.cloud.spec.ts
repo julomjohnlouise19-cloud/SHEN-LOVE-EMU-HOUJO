@@ -35,6 +35,27 @@ test("saved learning titles and badges stay with the right account without chang
   }
   await preferences();
   await page
+    .getByRole("button", {
+      name: "Display Anatomy & Body Systems explorer",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByRole("button", { name: "Save my badges", exact: true })
+    .click();
+  await expect(page.locator(".profile-badge-display")).toContainText("Anatomy");
+  const volume = page.getByRole("slider", {
+    name: "Sound volume",
+    exact: true,
+  });
+  await volume.focus();
+  await volume.press("Home");
+  for (let index = 0; index < 2; index++) {
+    await expect(volume).toBeEnabled();
+    await volume.press("ArrowRight");
+  }
+  await expect(volume).toHaveValue("30");
+  await page
     .getByRole("button", { name: "Turn on learning sounds", exact: true })
     .click();
   await page
@@ -74,6 +95,11 @@ test("saved learning titles and badges stay with the right account without chang
   await expect(page.locator(".growth-hero h2")).toHaveText("Curious Seedling");
   await expect(page.locator(".growth-earned-count")).toHaveText("0 earned");
   await preferences();
+  await expect(page.locator("[data-displayed-badge]")).toHaveCount(0);
+  await expect(page.locator(".profile-badge-choice")).toHaveCount(0);
+  await expect(
+    page.getByRole("slider", { name: "Sound volume", exact: true }),
+  ).toHaveValue("60");
   await expect(
     page.getByRole("button", { name: "Turn on learning sounds", exact: true }),
   ).toBeEnabled();
@@ -87,6 +113,10 @@ test("saved learning titles and badges stay with the right account without chang
   await expect(page.locator(".growth-hero h2")).toHaveText("Lab Assistant");
   expect(backend.credits[users[0].id]).toBe(balance);
   await preferences();
+  await expect(page.locator(".profile-badge-display")).toContainText("Anatomy");
+  await expect(
+    page.getByRole("slider", { name: "Sound volume", exact: true }),
+  ).toHaveValue("30");
   await expect(
     page.getByRole("button", { name: "Mute learning sounds", exact: true }),
   ).toBeEnabled();

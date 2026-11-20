@@ -126,22 +126,31 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
     .click();
   const profile = page.getByRole("dialog").last();
   await expect(
-    profile.getByRole("button", { name: "Preview a soft sound", exact: true }),
+    profile.getByRole("button", {
+      name: "Preview selected sound",
+      exact: true,
+    }),
   ).toBeDisabled();
   await profile
     .getByRole("button", { name: "Turn on learning sounds", exact: true })
     .click();
   await expect(
-    profile.getByRole("button", { name: "Preview a soft sound", exact: true }),
+    profile.getByRole("button", {
+      name: "Preview selected sound",
+      exact: true,
+    }),
   ).toBeEnabled();
   await profile
-    .getByRole("button", { name: "Preview a soft sound", exact: true })
+    .getByRole("button", { name: "Preview selected sound", exact: true })
     .click();
   await profile
     .getByRole("button", { name: "Mute learning sounds", exact: true })
     .click();
   await expect(
-    profile.getByRole("button", { name: "Preview a soft sound", exact: true }),
+    profile.getByRole("button", {
+      name: "Preview selected sound",
+      exact: true,
+    }),
   ).toBeDisabled();
   await page.keyboard.press("Escape");
   expect(

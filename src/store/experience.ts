@@ -1,12 +1,18 @@
 import { currentUser } from ".";
 import { LocalStorageAdapter } from "./adapter";
 import { activityAction, loadActivities } from "./activities";
+import { defaultSoundVolume, isSoundVolume } from "../core/sound-cues";
 
 export type MotionStyle = "system" | "reduce";
 const adapter = new LocalStorageAdapter();
 const key = (id: string) => `csl:motion:${id}`;
 const motion = new Map<string, MotionStyle>();
 const sounds = new Map<string, boolean>();
+const volumes = new Map<string, number>();
+const volumeRevision = new Map<string, number>();
+const volumeKey = (id: string) => `csl:sound-volume:${id}`;
+export const soundVolume = (id: string) =>
+  volumes.get(id) ?? defaultSoundVolume;
 const watched = new Set<string>();
 const media = matchMedia("(prefers-reduced-motion: reduce)");
 export const getMotionStyle = (id: string): MotionStyle =>
@@ -30,16 +36,27 @@ export async function loadExperience(id: string) {
       motion.set(id, raw === "reduce" ? "reduce" : "system");
       if (currentUser()?.id === id) applyExperience();
     });
+    adapter.subscribe(volumeKey(id), (raw) => {
+      volumes.set(id, isSoundVolume(raw) ? raw : defaultSoundVolume);
+      volumeRevision.set(id, (volumeRevision.get(id) ?? 0) + 1);
+      if (currentUser()?.id === id) applyExperience();
+    });
   }
-  const [raw, progress] = await Promise.all([
+  const revision = volumeRevision.get(id) ?? 0;
+  const [raw, progress, volume] = await Promise.all([
     adapter.get<unknown>(key(id)),
     loadActivities(id),
+    adapter.get<unknown>(volumeKey(id)),
   ]);
   if (currentUser()?.id !== id) return;
   if (raw !== undefined && raw !== "reduce" && raw !== "system")
     adapter.quarantine(raw);
   motion.set(id, raw === "reduce" ? "reduce" : "system");
   sounds.set(id, progress.sound);
+  if (volume !== undefined && !isSoundVolume(volume))
+    adapter.quarantine(volume);
+  if ((volumeRevision.get(id) ?? 0) === revision)
+    volumes.set(id, isSoundVolume(volume) ? volume : defaultSoundVolume);
   applyExperience();
 }
 window.addEventListener("csl:activities", (event) => {
@@ -71,4 +88,19 @@ export async function saveMotion(id: string, style: MotionStyle) {
   });
   motion.set(id, style);
   if (currentUser()?.id === id) applyExperience();
+}
+export async function saveSoundVolume(id: string, volume: number) {
+  if (!isSoundVolume(volume))
+    throw new Error("Choose a sound volume from 10 to 100 percent.");
+  await adapter.transaction([volumeKey(id)], (tx) => {
+    if (currentUser()?.id !== id)
+      throw new Error(
+        "Your account changed. Open your own sound settings again.",
+      );
+    tx.set(volumeKey(id), volume);
+  });
+  if (currentUser()?.id === id) {
+    volumes.set(id, volume);
+    applyExperience();
+  }
 }

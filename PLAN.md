@@ -1,5 +1,19 @@
 # The Cozy Science Lab — build plan
 
+## Profile badge showcase and exact-video covers
+
+- [x] Replace the illustrated-avatar picker with an earned-badge showcase, three selectable pins, explicit save/clear controls and a profile display.
+- [x] Preserve photos, banners, illustrated fallbacks and existing learning data; keep badge selection account-scoped alongside device learning progress with safe cross-tab saves.
+- [x] Use the exact YouTube IDs for lightweight, lazy thumbnail covers with consistent 16:9 framing, accessible playback and a themed offline/missing-image fallback.
+- [x] Separate password-reset actions clearly, retain working cooldown/error/recovery behavior, and verify the request and verified-password screens on phones in both modes.
+- [x] Give My growth a useful next-badge goal, direct practice/profile actions, concise collections and an expandable title trail without changing earning rules or duplicating rewards.
+- [x] Add distinct, clearer answer/hint/flip/completion/badge/level sounds, saved account volume and an interactive cue preview while preserving mute and background shutdown.
+- [ ] Verify earning/selection/persistence/account isolation, media fallbacks and phone/light/Dark accessibility; publish and verify the live website.
+
+Local lint/typecheck, 117 unit/property checks, question/source/document validation, unchanged economy and canonical SQL checks pass. All 28 relevant browser scenarios pass across the focused runs and corrected reruns: 15 standard, 12 cloud and one Pages/offline case. They cover genuine earned badge pins, three-slot limits, reload/clear, cross-tab draft protection, account and class-credit separation, all six palette/mode combinations, goal-to-practice/profile actions, seven distinct Web Audio previews and saved volume/mute, exact thumbnail IDs/placeholders/offline fallback, and reset request/errors/cooldown/verified recovery. Phone visual review led to compact badge cards. Two initial test assumptions (guest starting merits and a fresh tab requiring its own guest session) were corrected without changing those product behaviors. The actual YouTube thumbnail host is blocked by the workspace proxy (403); media tests use explicit external-image/player fixtures. Publication and final public verification remain. No real email, personal-account password, classroom wallet or database migration was changed.
+
+The isolated production build (entry index-RSL_lsHi.js) passes fresh Chromium preview checks at 1280 and 320 pixels, including WCAG AA, reset-action spacing, seven-cue controls/mute, goal-to-practice routing, an actual anonymous eight-answer perfect Cells run, earned-badge selection/save/reload and decoded artwork. Preview screenshots were inspected; diagnostics show zero unexpected UI errors, failed site assets, pending requests or anonymous private requests. Three workspace-blocked backend-status reads are tracked separately. The preview uses explicit external-image/player fixtures and does not verify live YouTube responses. Automatic approval review rejected the attempted direct main push because this changes the public production site and needs explicit approval for this release. No part of that rejected command executed. Keep the completed source local for owner review; the full publication workflow and final public verification await approval.
+
 ## Study Room videos and little learning discoveries
 
 - [x] Rename the existing reading-room entry to Study Room, preserve its notes, models, periodic table, documents and bookmarks, and add the 23 unique YouTube links supplied in the research PDF.

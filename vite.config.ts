@@ -29,8 +29,8 @@ export default defineConfig(({ mode }) => {
                   `connect-src 'self' ${config.url};`,
                 )
                 .replace(
-                  "img-src 'self' data:;",
-                  `img-src 'self' data: ${config.url};`,
+                  "img-src 'self' data: https://i.ytimg.com;",
+                  `img-src 'self' data: https://i.ytimg.com ${config.url};`,
                 )
             : html;
         },

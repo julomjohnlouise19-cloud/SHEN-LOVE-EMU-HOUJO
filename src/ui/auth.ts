@@ -57,6 +57,7 @@ import { dayKey } from "../core/time";
 import { termsModal } from "./terms";
 import { sectionSelect } from "./sections";
 import { mountProfileBanner } from "./profile-banner";
+import { profileBadgeShowcase } from "./profile-badges";
 export function authModal(registerFirst = false, recoverFirst = false) {
   let joining = registerFirst;
   let model = {
@@ -99,7 +100,8 @@ export function authModal(registerFirst = false, recoverFirst = false) {
   function resetPanel() {
     stageTitle("Account recovery");
     const currentView = ++view;
-    let sending = false;
+    let sending = false,
+      requestedAddress = "";
     clearInterval(timer);
     const address = input(
       "reset-email",
@@ -108,6 +110,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       "email",
     );
     address.autocomplete = "email";
+    address.setAttribute("aria-describedby", "reset-email-help");
     const error = h("p", { class: "form-error", role: "alert" });
     const info = h(
       "p",
@@ -125,6 +128,7 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     const form = h(
       "form",
       {
+        class: "auth-reset-form",
         onSubmit: async (event: SubmitEvent) => {
           event.preventDefault();
           if (send.disabled) return;
@@ -136,10 +140,13 @@ export function authModal(registerFirst = false, recoverFirst = false) {
           info.textContent = "";
           try {
             model.email = address.value.trim();
+            requestedAddress = model.email;
             await requestPasswordReset(model.email);
+            if (!dialog.open || view !== currentView) return;
             info.textContent =
               "If this email has an account, a reset link will arrive shortly. Check your inbox and spam folder, then open it in this same browser.";
           } catch (value) {
+            if (!dialog.open || view !== currentView) return;
             error.textContent =
               value instanceof Error ? value.message : "Please try again.";
           } finally {
@@ -156,8 +163,10 @@ export function authModal(registerFirst = false, recoverFirst = false) {
       send,
     );
     async function update() {
-      const wait = await emailWait(address.value);
-      if (!dialog.open || view !== currentView) return;
+      const email = address.value;
+      const wait = await emailWait(email);
+      if (!dialog.open || view !== currentView || email !== address.value)
+        return;
       setButtonDisabled(send, sending || wait > 0);
       send.textContent = sending
         ? "Requesting your link…"
@@ -167,26 +176,35 @@ export function authModal(registerFirst = false, recoverFirst = false) {
     }
     address.addEventListener("input", () => {
       model.email = address.value;
+      if (requestedAddress && address.value.trim() !== requestedAddress) {
+        info.textContent = "";
+        error.textContent = "";
+      }
       void update();
     });
     body.replaceChildren(
       art(),
       h(
         "section",
-        { class: "auth-fields" },
+        { class: "auth-fields auth-reset-panel" },
         h("p", { class: "eyebrow" }, "LET’S GET YOU BACK IN"),
         h("h3", null, "Reset your password"),
         h(
           "p",
-          { class: "muted" },
+          { class: "muted", id: "reset-email-help" },
           "Use the email you joined the lab with. We’ll send one private reset link.",
         ),
         form,
-        button(
-          "Sign in instead",
-          () => changeMode(false),
-          "button outline full",
-          { "aria-label": "Back to sign in" },
+        h(
+          "div",
+          { class: "auth-reset-alternative" },
+          h("p", null, "Remember your password?"),
+          button(
+            "Sign in instead",
+            () => changeMode(false),
+            "button outline full",
+            { "aria-label": "Back to sign in" },
+          ),
         ),
       ),
     );
@@ -819,7 +837,9 @@ export function authModal(registerFirst = false, recoverFirst = false) {
   if (recoverFirst) resetPanel();
   else render();
 }
-export function profileModal(options: { onboarding?: boolean } = {}) {
+export function profileModal(
+  options: { onboarding?: boolean; showBadges?: boolean } = {},
+) {
   const user = currentUser();
   if (!user) {
     authModal();
@@ -839,8 +859,7 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
       h("option", { value: g, selected: g === user.grade }, `Grade ${g}`),
     ),
   );
-  let chosenAvatar = user.avatar,
-    preference = getAppearance(user.id),
+  let preference = getAppearance(user.id),
     bioDirty = false,
     appearanceReady = false,
     savingPalette = false;
@@ -940,29 +959,10 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
       "button outline growth-profile-link",
     ),
   );
-  const avatarButtons = h(
-    "div",
-    { class: "avatar-options" },
-    ...["cat", "sprout", "flask", "planet", "atom"].map((value) =>
-      button(
-        mascot(value),
-        () => {
-          chosenAvatar = value;
-          [...avatarButtons.children].forEach((node) => {
-            const selected = node.getAttribute("data-avatar") === value;
-            node.classList.toggle("selected", selected);
-            node.setAttribute("aria-pressed", String(selected));
-          });
-        },
-        `avatar-choice ${chosenAvatar === value ? "selected" : ""}`,
-        {
-          "aria-label": `Choose ${value} avatar`,
-          "data-avatar": value,
-          "aria-pressed": chosenAvatar === value,
-        },
-      ),
-    ),
-  );
+  const badgeShelf = profileBadgeShowcase(user.id, () => {
+    document.querySelector<HTMLDialogElement>(".profile-dialog")?.close();
+    go("/growth");
+  });
   const paletteStatus = h(
     "p",
     { class: "palette-status", role: "status" },
@@ -1094,7 +1094,7 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
             name: name.value,
             grade: Number(grade.value),
             section: section.value,
-            avatar: chosenAvatar,
+            avatar: user.avatar,
           });
           close();
           toast("Your scientist profile is saved.");
@@ -1147,15 +1147,9 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
     paletteStatus,
     field("A little about me", bio),
     bioCount,
-    h("h4", null, "Your illustrated avatar"),
-    avatarButtons,
-    h(
-      "p",
-      { class: "fine-print" },
-      "Save your profile to update the illustrated avatar. Your photo stays visible until you remove it.",
-    ),
     styleError,
     styleSave,
+    badgeShelf.editor,
   );
   const accountSection = h(
     "section",
@@ -1348,6 +1342,7 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
     [
       coach,
       hero,
+      badgeShelf.display,
       designShortcut,
       statistics,
       growth,
@@ -1385,6 +1380,13 @@ export function profileModal(options: { onboarding?: boolean } = {}) {
     true,
   );
   dialog.classList.add("profile-dialog");
+  dialog.addEventListener("close", badgeShelf.destroy, { once: true });
+  if (options.showBadges) {
+    badgeShelf.editor.scrollIntoView({ block: "start" });
+    badgeShelf.editor
+      .querySelector<HTMLElement>("h4")
+      ?.focus({ preventScroll: true });
+  }
   const reflectAppearance = (event: Event) => {
     const value = (event as CustomEvent).detail;
     if (value.id !== user.id || currentUser()?.id !== user.id || savingPalette)
@@ -1690,6 +1692,7 @@ export function passwordRecoveryModal() {
     h(
       "form",
       {
+        class: "recovery-password-form",
         onSubmit: async (event: SubmitEvent) => {
           event.preventDefault();
           if (submit.disabled) return;

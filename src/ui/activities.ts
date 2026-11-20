@@ -428,7 +428,9 @@ export async function activitiesPage(requestedMode: string) {
         toast(event.message);
       if (progress.sound && primary)
         void activitySound(
-          primary.type === "badge" ? "complete" : primary.type,
+          result.events.some((event) => event.type === "badge")
+            ? "badge"
+            : primary.type,
         );
       draw(focus);
       return true;

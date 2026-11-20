@@ -1,6 +1,7 @@
 import { test, expect, signIn, signOut, users } from "./cloud-fixtures";
 import type { Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { boundedPage, brightSurfaces } from "./interface-helpers";
 
 async function requestReset(page: Page) {
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
@@ -17,6 +18,58 @@ async function requestReset(page: Page) {
       .filter({ hasText: "If this email has an account" }),
   ).toBeVisible();
 }
+
+test("reset email actions remain separated, readable and useful on phones in both modes", async ({
+  page,
+  backend,
+}) => {
+  test.setTimeout(120000);
+  await page.goto("./");
+  await requestReset(page);
+  expect(backend.recoverCalls).toBe(1);
+  const send = page.locator(".auth-reset-form button[type=submit]");
+  const back = page.getByRole("button", {
+    name: "Back to sign in",
+    exact: true,
+  });
+  await expect(send).toBeDisabled();
+  for (const width of [1280, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const mode of ["light", "dark"]) {
+      await page.evaluate((mode) => {
+        document.documentElement.dataset.colorMode = mode;
+      }, mode);
+      await back.scrollIntoViewIfNeeded();
+      const a = await send.boundingBox(),
+        b = await back.boundingBox();
+      expect(b!.y - (a!.y + a!.height)).toBeGreaterThanOrEqual(24);
+      expect(b!.height).toBeGreaterThanOrEqual(44);
+      await boundedPage(page);
+      if (mode === "dark")
+        expect(await brightSurfaces(page, "dialog[open]")).toEqual([]);
+      expect(
+        (
+          await new AxeBuilder({ page })
+            .include("dialog[open]")
+            .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+            .analyze()
+        ).violations,
+      ).toEqual([]);
+    }
+    await page.screenshot({
+      path: "/tmp/cozy-recovery-actions-dark-" + width + ".png",
+    });
+  }
+  await page
+    .getByLabel("Account email", { exact: true })
+    .fill("another@example.test");
+  await expect(page.locator(".auth-reset-status")).toBeEmpty();
+  await expect(send).toHaveText("Send reset link");
+  await back.click();
+  await expect(page.getByLabel("Email", { exact: true })).toHaveValue(
+    "another@example.test",
+  );
+});
 
 test("a verified reset link opens the new-password form after a previous logout", async ({
   page,

@@ -16,6 +16,7 @@ import {
   findScienceVideos,
   originalVideoUrl,
   videoPlayerUrl,
+  videoThumbnailUrl,
 } from "../src/data/science-videos";
 
 const daily = (answers: number, correct: number): User["daily"][string] => ({
@@ -47,9 +48,14 @@ describe("Study Room collection", () => {
       expect(new URL(videoPlayerUrl(video.id)).origin).toBe(
         "https://www.youtube-nocookie.com",
       );
+      expect(videoThumbnailUrl(video.id)).toBe(
+        `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`,
+      );
     }
     expect(() => videoPlayerUrl("unlisted-id")).toThrow();
     expect(() => videoPlayerUrl("javascript:alert(1)")).toThrow();
+    expect(() => videoThumbnailUrl("unlisted-id")).toThrow();
+    expect(() => videoThumbnailUrl("../../other-site")).toThrow();
   });
   it("combines category and case-insensitive multiword search and can restore every video", () => {
     expect(findScienceVideos(" DNA ").map((video) => video.id)).toEqual([

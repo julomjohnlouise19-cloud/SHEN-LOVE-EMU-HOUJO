@@ -7,7 +7,10 @@ import {
   loadExperience,
   reducedMotion,
   type MotionStyle,
+  soundVolume,
+  saveSoundVolume,
 } from "../store/experience";
+import { soundCues, type SoundCue } from "../core/sound-cues";
 import {
   activitySound,
   activitySoundAvailable,
@@ -90,11 +93,50 @@ export function experienceControls(owner: string) {
     h("option", { value: "reduce" }, "Keep it calm · reduced motion"),
   );
   const sound = soundButton();
+  const cue = h(
+    "select",
+    { "aria-label": "Sound to preview" },
+    ...soundCues.map((value) => h("option", { value: value.id }, value.name)),
+  );
+  const volume = h("input", {
+    type: "range",
+    min: 10,
+    max: 100,
+    step: 10,
+    value: soundVolume(owner),
+    "aria-label": "Sound volume",
+    disabled: true,
+  });
+  const volumeValue = h(
+    "output",
+    { class: "sound-volume-value" },
+    soundVolume(owner) + "%",
+  );
+  volume.addEventListener("input", () => {
+    volumeValue.textContent = volume.value + "%";
+    volume.setAttribute("aria-valuetext", volume.value + " percent");
+  });
+  volume.addEventListener("change", async () => {
+    volume.disabled = true;
+    error.hidden = true;
+    try {
+      await saveSoundVolume(owner, Number(volume.value));
+    } catch (value) {
+      error.textContent =
+        value instanceof Error
+          ? value.message
+          : "Your volume could not be saved.";
+      error.hidden = false;
+    } finally {
+      volume.disabled = !activitySoundAvailable();
+      reflect();
+    }
+  });
   const preview = button(
-    "Preview a soft sound",
+    "Preview selected sound",
     () => {
       if (currentUser()?.id === owner && soundEnabled(owner))
-        return activitySound("correct");
+        return activitySound(cue.value as SoundCue);
     },
     "button outline sound-preview-button",
     { disabled: true },
@@ -115,12 +157,23 @@ export function experienceControls(owner: string) {
         h(
           "p",
           null,
-          "Soft sounds for answers and activities. Start quiet; turn them on whenever you like.",
+          "Different little sounds for answers, hints and celebrations. Turn them on, choose your volume, and try a preview.",
         ),
       ),
       sound,
     ),
-    preview,
+    h(
+      "div",
+      { class: "sound-preview-controls" },
+      field("Sound to preview", cue),
+      preview,
+    ),
+    h(
+      "div",
+      { class: "sound-volume-control" },
+      field("Sound volume", volume),
+      volumeValue,
+    ),
     field(
       "Animation style",
       select,
@@ -147,12 +200,16 @@ export function experienceControls(owner: string) {
   const reflect = () => {
     select.value = getMotionStyle(owner);
     preview.disabled = !soundEnabled(owner) || !activitySoundAvailable();
+    volume.value = String(soundVolume(owner));
+    volume.setAttribute("aria-valuetext", volume.value + " percent");
+    volumeValue.textContent = volume.value + "%";
   };
   watch(root, owner, reflect);
   reflect();
   void loadExperience(owner)
     .then(() => {
       select.disabled = false;
+      volume.disabled = !activitySoundAvailable();
       reflect();
     })
     .catch(() => {

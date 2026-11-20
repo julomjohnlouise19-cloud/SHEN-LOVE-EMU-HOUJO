@@ -223,17 +223,17 @@ export async function playPage(runId: string) {
           if (owner && currentUser()?.id === owner) {
             if (soundEnabled(owner))
               void activitySound(
-                events.some((event) =>
-                  ["LevelUp", "BadgeEarned"].includes(event.type),
-                )
-                  ? "complete"
-                  : events.some(
-                        (event) =>
-                          event.type === "AnswerSubmitted" &&
-                          event.data?.correct,
-                      )
-                    ? "correct"
-                    : "wrong",
+                events.some((event) => event.type === "LevelUp")
+                  ? "level"
+                  : events.some((event) => event.type === "BadgeEarned")
+                    ? "badge"
+                    : events.some(
+                          (event) =>
+                            event.type === "AnswerSubmitted" &&
+                            event.data?.correct,
+                        )
+                      ? "correct"
+                      : "wrong",
               );
             if (events.some((event) => event.type === "LevelUp"))
               celebrateLevelUp();

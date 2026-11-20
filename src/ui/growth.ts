@@ -3,6 +3,7 @@ import {
   learningGrowth,
   learningBadges,
   activeLearningStreak,
+  nextBadgeGoals,
   type LearningBadge,
 } from "../core/growth";
 import { dayKey } from "../core/time";
@@ -29,7 +30,9 @@ export function growthPage() {
     cheer = 0;
   const root = h("div", { class: "page-enter growth-page" });
   const cheers = [
-    "Every question plants a little seed. I’m cheering for you!",
+    user.daily[today]?.answers
+      ? `${user.daily[today].answers} thoughtful ${user.daily[today].answers === 1 ? "answer" : "answers"} today. Look at your little garden growing!`
+      : "A fresh little page for today. Pick one idea to explore together.",
     "High five, scientist! Small discoveries still count.",
     "A mix-up is a clue. Read the feedback and try again.",
     "Your titles grow with XP. Your curiosity is already yours.",
@@ -57,6 +60,18 @@ export function growthPage() {
     ),
   );
 
+  async function arrangeShelf() {
+    (await import("./auth")).profileModal({ showBadges: true });
+  }
+  function practiceFor(badge: LearningBadge) {
+    if (badge.id === "week-streak") go("/island");
+    else
+      openDeck(
+        badge.topicId ?? "life.cells",
+        badge.topicId ? "medium" : "easy",
+      );
+  }
+
   function badgeDetail(badge: LearningBadge) {
     const deck = badge.topicId ? deckById(badge.topicId) : undefined;
     const { close } = modal(badge.name, [
@@ -75,6 +90,16 @@ export function growthPage() {
         { class: "muted" },
         `${badge.progress} / ${badge.target}${badge.id === "week-streak" ? " days" : badge.id === "ten-right" || badge.id === "perfect-easy" ? " correct" : " completed"}`,
       ),
+      badge.earned
+        ? button(
+            "Display on my profile",
+            async () => {
+              close();
+              await arrangeShelf();
+            },
+            "button primary full",
+          )
+        : null,
       button(
         badge.earned
           ? "Explore another topic"
@@ -159,7 +184,6 @@ export function growthPage() {
               icon(badge.earned ? "check" : "lock", 14),
               badge.earned ? "Earned" : "Still growing",
             ),
-            h("span", { class: "growth-badge-description" }, badge.description),
             h(
               "span",
               { class: "growth-mini-track", "aria-hidden": true },
@@ -167,11 +191,7 @@ export function growthPage() {
                 style: `width:${(badge.progress / badge.target) * 100}%`,
               }),
             ),
-            h(
-              "small",
-              null,
-              `${badge.progress} / ${badge.target} · Tap for details`,
-            ),
+            h("small", null, `${badge.progress} / ${badge.target} · Details`),
           ),
           () => badgeDetail(badge),
           `growth-badge-card ${badge.earned ? "is-earned" : ""}`,
@@ -242,11 +262,93 @@ export function growthPage() {
   renderKinds();
   renderBadges();
 
+  const goals = nextBadgeGoals(badges);
+  const goalBody = h("div", {
+    class: "growth-goal-body",
+    "aria-live": "polite",
+  });
+  const goalSelect = h(
+    "select",
+    { "aria-label": "Choose my next badge goal" },
+    ...goals.map((badge) => h("option", { value: badge.id }, badge.name)),
+  );
+  function drawGoal() {
+    const badge = goals.find((value) => value.id === goalSelect.value);
+    if (!badge) {
+      goalBody.replaceChildren(
+        titleBuddy(20),
+        h(
+          "div",
+          null,
+          h("h2", null, "A garden full of discoveries"),
+          h(
+            "p",
+            null,
+            "You’ve earned every learning badge. Keep your curiosity growing with a new challenge.",
+          ),
+          button(
+            "Try a hard Cells challenge",
+            () => openDeck("life.cells", "hard"),
+            "button primary",
+          ),
+        ),
+      );
+      return;
+    }
+    goalBody.replaceChildren(
+      badgeArtwork(badge),
+      h(
+        "div",
+        { class: "growth-goal-copy" },
+        h("h2", null, badge.name),
+        h("p", null, badge.description),
+        progress(
+          (badge.progress / badge.target) * 100,
+          "Progress toward " + badge.name,
+        ),
+        h(
+          "p",
+          { class: "growth-goal-count" },
+          `${badge.progress} of ${badge.target}${badge.id === "week-streak" ? " consecutive days" : badge.id === "ten-right" || badge.id === "perfect-easy" ? " correct answers" : " completed decks"}`,
+        ),
+        h(
+          "div",
+          { class: "growth-goal-actions" },
+          button(
+            badge.id === "week-streak"
+              ? "Explore today’s science"
+              : "Practice for this badge",
+            () => practiceFor(badge),
+            "button primary",
+          ),
+          button(
+            "See goal details",
+            () => badgeDetail(badge),
+            "button outline",
+          ),
+        ),
+      ),
+    );
+  }
+  goalSelect.addEventListener("change", drawGoal);
+  drawGoal();
+  const nextGoal = h(
+    "section",
+    { class: "growth-next-goal", "aria-label": "My next learning goal" },
+    h(
+      "div",
+      { class: "growth-goal-heading" },
+      h("p", { class: "eyebrow" }, "YOUR NEXT LITTLE WIN"),
+      goals.length ? goalSelect : null,
+    ),
+    goalBody,
+  );
+
   root.append(
     pageHeading(
       "LITTLE STEPS. LOVELY DISCOVERIES.",
       "Your growth garden",
-      "Collect connections, grow your title, and let your curiosity bloom.",
+      "Choose a small goal, celebrate earned badges, and see how your learning is growing.",
     ),
     h(
       "section",
@@ -325,11 +427,16 @@ export function growthPage() {
       ),
       companion,
     ),
-    learningCalendar(),
+    nextGoal,
     h(
-      "section",
+      "details",
       { class: "growth-title-section", "aria-label": "Your cozy title path" },
-      h("h2", null, "From a little seed to a big idea"),
+      h(
+        "summary",
+        null,
+        h("span", null, "Your cozy title trail"),
+        h("small", null, "See the little scientist you’re becoming"),
+      ),
       h(
         "div",
         { class: "growth-title-path" },
@@ -398,7 +505,12 @@ export function growthPage() {
           h("p", { class: "eyebrow" }, "SMALL WINS, YOURS TO KEEP"),
           h("h2", null, "Your badge garden"),
         ),
-        h("span", { class: "growth-earned-count" }, `${earned} earned`),
+        h(
+          "div",
+          { class: "growth-collection-actions" },
+          h("span", { class: "growth-earned-count" }, `${earned} earned`),
+          button("Arrange my badge shelf", arrangeShelf, "button outline"),
+        ),
       ),
       h(
         "p",
@@ -416,6 +528,7 @@ export function growthPage() {
       count,
       list,
     ),
+    learningCalendar(),
     h(
       "section",
       { class: "growth-next-actions" },

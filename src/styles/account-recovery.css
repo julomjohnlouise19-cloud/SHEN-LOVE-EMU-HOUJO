@@ -1,0 +1,52 @@
+.auth-reset-panel > .auth-reset-form,
+.recovery-password-form {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0 0;
+}
+.auth-fields .auth-reset-form > .field,
+.recovery-password-form > .field {
+  margin: 0;
+}
+.auth-reset-form > .form-error,
+.auth-reset-form > .auth-reset-status,
+.recovery-password-form > .form-error,
+.recovery-password-form > .recovery-password-hint {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.auth-reset-form > .form-error:empty,
+.auth-reset-form > .auth-reset-status:empty,
+.recovery-password-form > .form-error:empty {
+  display: none;
+}
+.auth-reset-panel > .auth-reset-alternative {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--lab-line);
+}
+.auth-reset-alternative > p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--lab-muted);
+}
+.auth-reset-panel .button,
+.recovery-password-form > .button {
+  min-height: 50px;
+  padding: 13px 18px;
+  border-radius: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.auth-reset-form .auth-reset-status {
+  padding: 16px 18px;
+  border: 1px solid var(--lab-line);
+  border-radius: 16px;
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+}

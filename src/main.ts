@@ -26,6 +26,8 @@ import "./styles/class-wheel.css";
 import "./styles/dark-complete.css";
 import "./styles/growth.css";
 import "./styles/study-discoveries.css";
+import "./styles/profile-badges.css";
+import "./styles/account-recovery.css";
 import { loadExperience, applyExperience } from "./store/experience";
 import { loadColorMode, loadDeviceColorMode } from "./store/color-mode";
 import { loadProfileDesign } from "./store/profile-design";
