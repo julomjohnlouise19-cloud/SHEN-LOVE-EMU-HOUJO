@@ -61,6 +61,13 @@ test("seven cue previews are distinct, clearer volume saves and mute stops audio
   await page
     .getByRole("button", { name: "Turn on learning sounds", exact: true })
     .click();
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () => (window as unknown as { cueNotes: number[] }).cueNotes,
+      ),
+    )
+    .toEqual([740]);
   const signatures: string[] = [];
   for (const cue of soundCues) {
     await page
@@ -70,6 +77,7 @@ test("seven cue previews are distinct, clearer volume saves and mute stops audio
       (window as unknown as { cueNotes: number[] }).cueNotes = [];
     });
     await preview.click();
+    await expect(preview).toBeEnabled();
     const notes = await page.evaluate(
       () => (window as unknown as { cueNotes: number[] }).cueNotes,
     );
@@ -89,6 +97,7 @@ test("seven cue previews are distinct, clearer volume saves and mute stops audio
     (window as unknown as { cuePeaks: number[] }).cuePeaks = [];
   });
   await preview.click();
+  await expect(preview).toBeEnabled();
   expect(
     await page.evaluate(() =>
       Math.max(...(window as unknown as { cuePeaks: number[] }).cuePeaks),

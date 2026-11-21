@@ -21,6 +21,8 @@ The initial badge/profile/video/sound release, source 9116c9ae8bd2c70800d59d70d7
 
 The final isolated production preview (entry index-bm_WmNYr.js) passes fresh Chromium checks at 1280 and 320 pixels. Twenty actual anonymous quiz answers earn Brave Little Bean, its readable popup opens My growth, the chooser stays at four non-topic goals, and three saved profile pins survive reload. Popup text/action contrast passes all six palettes, the 44 px action and compact artwork stay contained, and the whole new interface passes WCAG AA. Preview diagnostics show zero unexpected UI errors, failed site assets, pending requests or anonymous private requests; three workspace-blocked status reads remain separate. Screenshots of the full crew, popup and pinned new animal were inspected. Publication and final public file/browser verification remain.
 
+The expanded publication run 44879801378 passed code/content/database checks but stopped in the application suite because the sound-preview test combined an asynchronous sound-on pop with its first sample. The test now waits for that separately asserted cue and each preview to become ready; all seven strict signatures remain checked. Three repeated focused runs pass, alongside the 124 unit/property checks. Product audio and the verified production bundle are unchanged. The normal full publication workflow is being rerun.
+
 ## Study Room videos and little learning discoveries
 
 - [x] Rename the existing reading-room entry to Study Room, preserve its notes, models, periodic table, documents and bookmarks, and add the 23 unique YouTube links supplied in the research PDF.
