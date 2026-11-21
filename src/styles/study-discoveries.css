@@ -1,4 +1,15 @@
 /* Shared palette tokens keep every discovery readable in all six color stories. */
+.study-word-shelf {
+  max-width: 880px;
+  margin: 24px auto;
+}
+.study-word-shelf .daily-vocabulary {
+  padding: clamp(22px, 4vw, 32px);
+}
+.study-word-shelf .vocabulary-actions .button {
+  min-height: 44px;
+  font-size: 14px;
+}
 .reading-library-intro {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
@@ -431,171 +442,6 @@
   padding: 8px 0;
   color: var(--lab-brand-deep);
 }
-.learning-calendar {
-  width: 100%;
-  max-width: 780px;
-  margin: 26px auto;
-  padding: clamp(14px, 4vw, 28px);
-  color: var(--lab-ink);
-  border: 1px solid var(--lab-line);
-  border-radius: 24px;
-  background: var(--lab-surface);
-}
-.learning-calendar-heading {
-  align-items: start;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.learning-calendar-heading h2 {
-  margin: 7px 0;
-  font:
-    500 29px/1.25 "Fredoka",
-    sans-serif;
-}
-.learning-calendar-heading .eyebrow {
-  font-size: 11px;
-  line-height: 1.7;
-  margin: 0;
-}
-.learning-calendar > p {
-  line-height: 1.7;
-  font-size: 15px;
-}
-.learning-calendar-navigation {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 24px 0 12px;
-}
-.learning-calendar-navigation h3 {
-  flex: 1;
-  text-align: center;
-  margin: 0;
-  font-size: 19px;
-  color: var(--lab-ink);
-}
-.learning-calendar-navigation .icon-button {
-  width: 44px;
-  height: 44px;
-  font-size: 26px;
-  border: 1px solid var(--lab-line);
-  background: var(--lab-soft);
-  color: var(--lab-ink);
-  border-radius: 14px;
-}
-.learning-calendar-summary {
-  font-size: 14px !important;
-  color: var(--lab-muted);
-}
-.learning-calendar-grid,
-.learning-calendar-weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 5px;
-}
-.learning-calendar-weekdays {
-  text-align: center;
-  font-size: 12px;
-  color: var(--lab-muted);
-  margin: 18px 0 10px;
-}
-.learning-calendar-day {
-  display: grid;
-  place-items: center;
-  min-width: 0;
-  min-height: 56px;
-  padding: 5px 0;
-  color: var(--lab-ink);
-  background: var(--lab-surface);
-  border: 1px solid var(--lab-line);
-  border-radius: 13px;
-  font: inherit;
-  cursor: pointer;
-}
-.learning-calendar-day > span {
-  display: grid;
-  gap: 1px;
-  justify-items: center;
-}
-.learning-calendar-day strong {
-  font-size: 15px;
-  font-weight: 600;
-}
-.learning-day-mark {
-  height: 16px;
-  font-size: 14px;
-  line-height: 16px;
-}
-.learning-calendar-day.has-practice {
-  background: var(--lab-soft);
-}
-.learning-calendar-day.goal-met {
-  background: var(--lab-soft);
-  box-shadow: inset 0 -4px 0 var(--lab-brand-deep);
-}
-.learning-calendar-day.is-today {
-  border: 2px solid var(--lab-brand-deep);
-}
-.learning-calendar-day[aria-pressed="true"] {
-  outline: 2px solid var(--lab-brand-deep);
-  outline-offset: 1px;
-}
-.learning-calendar-day:hover:not(:disabled) {
-  background: var(--lab-soft);
-}
-.learning-calendar-day:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-.learning-day-detail {
-  margin: 22px 0 16px;
-  padding: 18px;
-  background: var(--lab-soft);
-  border: 1px solid var(--lab-line);
-  border-radius: 18px;
-  min-height: 100px;
-  font-size: 15px;
-  line-height: 1.7;
-}
-.learning-day-detail > p {
-  margin: 8px 0 0;
-}
-.learning-calendar-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 18px;
-  font-size: 13px;
-  color: var(--lab-muted);
-}
-.learning-calendar-legend span {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-.learning-calendar-legend i {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 4px;
-  background: var(--lab-soft);
-  border: 1px solid var(--lab-brand-deep);
-}
-.learning-calendar-legend .calendar-goal-dot {
-  background: var(--lab-brand-deep);
-}
-.learning-calendar-scope {
-  display: block;
-  margin-top: 16px;
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--lab-muted);
-}
-.learning-calendar-dialog .learning-calendar {
-  border: 0;
-  padding: 0;
-  margin: 18px auto;
-}
 .saved-lab-updates {
   margin-top: 24px;
 }
@@ -796,28 +642,6 @@
   .welcome-header .school-brand .cozy-wordmark {
     width: 64px;
     height: 38px;
-  }
-  .learning-calendar-heading .learning-sound-toggle {
-    font-size: 13px;
-    padding: 10px;
-  }
-  .learning-calendar-grid,
-  .learning-calendar-weekdays {
-    gap: 4px;
-  }
-  .learning-calendar-day {
-    min-height: 50px;
-    border-radius: 9px;
-  }
-  .learning-calendar-navigation {
-    gap: 8px;
-  }
-  .learning-calendar-navigation h3 {
-    font-size: 17px;
-  }
-  .learning-calendar-legend {
-    gap: 10px;
-    font-size: 12px;
   }
   .saved-notification {
     gap: 12px;

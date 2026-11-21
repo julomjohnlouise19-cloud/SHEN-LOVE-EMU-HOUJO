@@ -1,5 +1,16 @@
 # The Cozy Science Lab — build plan
 
+## Cozy learning calendar and a calmer My lab
+
+- [x] Redesign the learning-progress calendar with twelve supplied-reference Snoopy science scenes, distinct Meadow/Aurora/Sunset details, practice stamps and readable monthly totals.
+- [x] Add useful month/day navigation, eight-answer progress, relevant learning actions and honest empty/future states; preserve classroom dates, saved learning and credit separation.
+- [x] Keep My lab to a compact welcome/introduction, one next/resume action, three small progress details and quiet calendar/growth links; use the dedicated areas for full tools and categories.
+- [x] Give vocabulary/science facts a Study Room shelf and retain the tiny-lab entry with illustrations, without losing their working interactions or existing bookmarks.
+- [x] Verify actual dated activity, keyboard/month boundaries, rollover, owner isolation, light/Dark phone layouts, offline assets and zero unexpected browser errors.
+- [ ] Publish through the approved checked workflow, verify the live calendar and update the student instructions.
+
+Local gates pass lint/typecheck, 124 unit/property tests, question/economy/document checks and canonical SQL consistency. All 19 affected standard scenarios pass across the broad runs and corrected focused reruns, plus the Pages/offline scenario. They retain actual quiz earning, owner-only resumption, readonly browsing, per-account dates and rewards, and add validated month selection, practice-day jumps across months, leap-day keyboard boundaries, classroom midnight, live cross-tab updates, six palette/mode combinations and phone layouts. The cached-word rollover uses its own short session so the normal eight-hour account expiry remains tested faithfully. The Pages check now enters branches from Science Island and verifies the new artwork both cached and decoded offline. Source/module loading has no circular-chunk warning. The new diary and compact welcome screenshots were inspected; docs/QUICK_START.md records their final locations and actions. The normal publication workflow and public verification remain.
+
 ## Profile badge showcase and exact-video covers
 
 - [x] Replace the illustrated-avatar picker with an earned-badge showcase, three selectable pins, explicit save/clear controls and a profile display.

@@ -25,7 +25,12 @@ export async function boundedPage(page: Page) {
 
 export async function visitRenderedRoute(page: Page, route: string) {
   await page.goto(`#${route}`);
-  await expect(page.locator("#main")).toHaveAttribute("data-page-route", route);
+  await expect(page.locator("#main")).toHaveAttribute(
+    "data-page-route",
+    route.split("?")[0],
+  );
+  if (route.includes("?"))
+    await expect(page).toHaveURL((url) => url.hash === "#" + route);
 }
 
 export async function brightSurfaces(page: Page, scope = "body") {

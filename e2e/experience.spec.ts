@@ -48,11 +48,16 @@ test("school identity renders at the left of welcome, mobile pages and dialogs",
       ),
     ).toBe(true);
     if (width === 320) {
-      const copy = (await page.locator(".hero-card .hero-copy").boundingBox())!;
-      const art = (await page
-        .locator(".hero-card > .hero-illustration")
+      const copy = (await page
+        .locator(".my-lab-welcome-top > div:first-child")
         .boundingBox())!;
-      expect(art.y).toBeGreaterThanOrEqual(copy.y + copy.height);
+      const art = (await page.locator(".my-lab-art").boundingBox())!;
+      expect(
+        art.x >= copy.x + copy.width ||
+          copy.x >= art.x + art.width ||
+          art.y >= copy.y + copy.height ||
+          copy.y >= art.y + art.height,
+      ).toBe(true);
     }
   }
   await page.screenshot({

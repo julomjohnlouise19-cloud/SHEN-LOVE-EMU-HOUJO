@@ -1,0 +1,576 @@
+.learning-calendar {
+  width: 100%;
+  max-width: 820px;
+  margin: 26px auto;
+  padding: clamp(14px, 3vw, 26px);
+  color: var(--lab-ink);
+  border: 1px solid var(--lab-line);
+  border-radius: 28px;
+  background: var(--lab-surface);
+  --diary-radius: 50% 50% 42% 42%;
+  --diary-turn: -5deg;
+}
+.learning-calendar *,
+.learning-calendar {
+  min-width: 0;
+}
+.learning-calendar-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  border: 1px solid var(--lab-line);
+  border-radius: 22px;
+  background: var(--lab-wash, var(--lab-soft));
+  overflow: hidden;
+}
+.learning-calendar .learning-calendar-heading {
+  display: block;
+  position: relative;
+}
+.learning-calendar-heading h2 {
+  margin: 8px 0 10px;
+  font:
+    500 clamp(25px, 4vw, 32px)/1.2 "Fredoka",
+    sans-serif;
+}
+.learning-calendar-heading .eyebrow {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+.learning-calendar-heading > p:not(.eyebrow) {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.calendar-story-motifs {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 14px;
+  color: var(--lab-brand-deep);
+}
+.calendar-buddy-seal {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 118px;
+  height: 124px;
+  background: var(--lab-surface);
+  border: 1px dashed var(--lab-brand-deep);
+  border-radius: var(--diary-radius);
+  transform: rotate(var(--diary-turn));
+}
+.calendar-buddy-seal > .science-diary-sticker {
+  width: 100px;
+  height: 100px;
+}
+.calendar-buddy-seal :is(.diary-art-aurora, .diary-art-sunset) {
+  display: none;
+}
+:root[data-theme="aurora"] .calendar-buddy-seal .diary-art-meadow,
+:root[data-theme="sunset"] .calendar-buddy-seal .diary-art-meadow {
+  display: none;
+}
+:root[data-theme="aurora"] .calendar-buddy-seal .diary-art-aurora,
+:root[data-theme="sunset"] .calendar-buddy-seal .diary-art-sunset {
+  display: inline-block;
+}
+.calendar-buddy-spark {
+  position: absolute;
+  bottom: -5px;
+  right: -4px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--lab-brand-deep);
+  border: 1px solid var(--lab-line);
+  border-radius: 50%;
+  background: var(--lab-surface);
+}
+:root[data-theme="aurora"] .learning-calendar {
+  --diary-radius: 35% 50% 38% 50%;
+  --diary-turn: 5deg;
+}
+:root[data-theme="aurora"] .learning-calendar-hero {
+  background:
+    radial-gradient(
+      ellipse at top right,
+      color-mix(in srgb, var(--lab-brand) 20%, transparent),
+      transparent 70%
+    ),
+    var(--lab-wash, var(--lab-soft));
+}
+:root[data-theme="aurora"] .calendar-story-motifs > svg:first-child {
+  transform: rotate(15deg);
+}
+:root[data-theme="sunset"] .learning-calendar {
+  --diary-radius: 50% 50% 18px 18px;
+  --diary-turn: -3deg;
+}
+:root[data-theme="sunset"] .learning-calendar-hero {
+  border-style: dashed;
+  border-radius: 32px 32px 18px 18px;
+}
+:root[data-theme="sunset"] .learning-calendar-day.goal-met {
+  border-radius: 16px 7px 16px 7px;
+}
+.learning-calendar-navigation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 14px;
+}
+.learning-calendar-navigation h3 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font:
+    500 22px/1.4 "Fredoka",
+    sans-serif;
+  color: var(--lab-ink);
+}
+.learning-calendar-navigation .icon-button {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  font-size: 26px;
+  border: 1px solid var(--lab-line);
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  border-radius: 14px;
+}
+.learning-calendar-tools,
+.learning-practice-navigation,
+.learning-day-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.learning-calendar-tools {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.learning-calendar
+  :is(
+    .learning-calendar-tools,
+    .learning-practice-navigation,
+    .learning-day-actions
+  )
+  .button {
+  min-height: 44px;
+  padding: 11px 14px;
+  font-size: 13px;
+}
+.learning-calendar
+  :is(
+    .learning-calendar-tools,
+    .learning-practice-navigation,
+    .learning-day-actions
+  )
+  .button
+  > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.learning-month-picker {
+  padding: 16px;
+  margin: 0 0 18px;
+  background: var(--lab-soft);
+  border: 1px solid var(--lab-line);
+  border-radius: 16px;
+}
+.learning-month-picker[hidden] {
+  display: none;
+}
+.learning-month-picker label {
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--lab-ink);
+}
+.learning-month-picker input {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--lab-brand-deep);
+  border-radius: 12px;
+  color: var(--lab-ink);
+  background: var(--lab-input);
+  font: inherit;
+}
+.learning-month-picker input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+.calendar-month-error {
+  margin: 10px 0 0;
+  color: var(--lab-ink);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.calendar-month-error:empty {
+  display: none;
+}
+.learning-calendar-summary {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 22px;
+}
+.learning-calendar-summary > span:not(.calendar-summary-separator) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 5px;
+  padding: 12px 8px;
+  background: var(--lab-soft);
+  border: 1px solid var(--lab-line);
+  border-radius: 14px;
+  color: var(--lab-ink);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.learning-calendar-summary strong {
+  font-size: 19px;
+  font-weight: 600;
+}
+.calendar-summary-separator {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: pre;
+}
+.learning-calendar-grid,
+.learning-calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+.learning-calendar-weekdays {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lab-muted);
+}
+.learning-calendar-day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: clamp(58px, 9vw, 80px);
+  padding: 6px 0;
+  color: var(--lab-ink);
+  background: var(--lab-surface);
+  border: 1px solid var(--lab-line);
+  border-radius: 15px;
+  font: inherit;
+  cursor: pointer;
+}
+.learning-calendar-day > span {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+}
+.learning-calendar-day strong {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.learning-day-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 26px;
+  color: var(--lab-brand-deep);
+}
+.learning-day-mark .science-diary-sticker {
+  width: 28px;
+  height: 28px;
+}
+.calendar-quiet-day {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--lab-line);
+}
+.learning-calendar-day.has-practice,
+.learning-calendar-day.goal-met {
+  background: var(--lab-soft);
+}
+.learning-calendar-day.goal-met {
+  border-color: var(--lab-brand-deep);
+}
+.learning-calendar-day.is-today::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--lab-brand-deep);
+}
+.learning-calendar-day.is-today {
+  border: 2px solid var(--lab-brand-deep);
+}
+.learning-calendar-day[aria-pressed="true"] {
+  outline: 2px solid var(--lab-brand-deep);
+  outline-offset: 2px;
+  background: var(--lab-soft);
+}
+.learning-calendar-day:hover:not(:disabled) {
+  background: var(--lab-soft);
+  border-color: var(--lab-brand-deep);
+}
+.learning-calendar-day:disabled {
+  opacity: 0.48;
+  cursor: default;
+  border-style: dashed;
+}
+.learning-calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 16px 0 20px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--lab-muted);
+}
+.learning-calendar-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.learning-practice-navigation {
+  justify-content: space-between;
+}
+.calendar-earlier-practice svg {
+  transform: rotate(180deg);
+}
+.learning-day-detail {
+  margin: 18px 0 0;
+  padding: 20px;
+  background: var(--lab-soft);
+  border: 1px solid var(--lab-line);
+  border-radius: 22px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.learning-day-story {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.calendar-day-buddy {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 86px;
+  border-radius: var(--diary-radius);
+  background: var(--lab-surface);
+  border: 1px dashed var(--lab-brand-deep);
+}
+.calendar-day-buddy > .science-diary-sticker {
+  width: 70px;
+  height: 70px;
+}
+.learning-day-story .eyebrow {
+  margin: 0 0 5px;
+  font-size: 9px;
+  line-height: 1.8;
+}
+.learning-day-story h4 {
+  margin: 0 0 6px;
+  color: var(--lab-ink);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.learning-day-count {
+  margin: 0;
+}
+.learning-day-goal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 12px;
+}
+.learning-day-goal > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.learning-day-goal > span:last-child {
+  flex-shrink: 0;
+}
+.learning-day-progress {
+  display: block;
+  appearance: none;
+  width: 100%;
+  height: 9px;
+  margin: 10px 0 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 20px;
+  background: var(--lab-line);
+  color: var(--lab-brand-deep);
+  accent-color: var(--lab-brand-deep);
+}
+.learning-day-progress::-webkit-progress-bar {
+  background: var(--lab-line);
+  border-radius: 20px;
+}
+.learning-day-progress::-webkit-progress-value {
+  background: var(--lab-brand-deep);
+  border-radius: 20px;
+}
+.learning-day-progress::-moz-progress-bar {
+  background: var(--lab-brand-deep);
+  border-radius: 20px;
+}
+.learning-day-encouragement {
+  margin: 10px 0 18px;
+  color: var(--lab-muted);
+  font-size: 13px;
+}
+.learning-day-actions > .button {
+  flex: 1 1 160px;
+}
+.learning-calendar-scope {
+  display: block;
+  margin-top: 18px;
+  color: var(--lab-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.learning-calendar-dialog .learning-calendar {
+  border: 0;
+  padding: 0;
+  margin: 18px auto;
+}
+.modal.wide.learning-calendar-dialog {
+  width: min(880px, calc(100vw - 24px));
+}
+@media (max-width: 600px) {
+  .learning-calendar .learning-calendar-tools .button {
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  .learning-calendar {
+    border-radius: 22px;
+  }
+  .learning-calendar-hero {
+    gap: 10px;
+    padding: 18px 14px;
+    grid-template-columns: minmax(0, 1fr) 72px;
+  }
+  .learning-calendar-heading h2 {
+    font-size: 25px;
+  }
+  .learning-calendar-heading > p:not(.eyebrow) {
+    font-size: 13px;
+  }
+  .learning-calendar-heading .eyebrow {
+    font-size: 9px;
+  }
+  .calendar-buddy-seal {
+    width: 70px;
+    height: 82px;
+  }
+  .calendar-buddy-seal > .science-diary-sticker {
+    width: 64px;
+    height: 64px;
+  }
+  .calendar-buddy-spark {
+    width: 26px;
+    height: 26px;
+  }
+  .calendar-story-motifs {
+    margin-top: 12px;
+  }
+  .learning-calendar-navigation {
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .learning-calendar-navigation h3 {
+    font-size: 19px;
+  }
+  .learning-calendar-summary {
+    gap: 5px;
+    margin-bottom: 18px;
+  }
+  .learning-calendar-summary > span:not(.calendar-summary-separator) {
+    padding: 10px 3px;
+    font-size: 11px;
+    gap: 2px 4px;
+    text-align: center;
+  }
+  .learning-calendar-summary > span > svg {
+    display: none;
+  }
+  .learning-calendar-summary strong {
+    font-size: 18px;
+  }
+  .learning-calendar-grid,
+  .learning-calendar-weekdays {
+    gap: 4px;
+  }
+  .learning-calendar-day {
+    border-radius: 10px;
+  }
+  .learning-calendar-day strong {
+    font-size: 14px;
+  }
+  .learning-calendar-legend {
+    gap: 8px 12px;
+    font-size: 11px;
+  }
+  .learning-practice-navigation {
+    gap: 8px;
+  }
+  .learning-calendar .learning-practice-navigation .button {
+    flex: 1;
+    padding: 10px 6px;
+    font-size: 11px;
+  }
+  .learning-day-detail {
+    padding: 16px 12px;
+  }
+  .learning-day-story {
+    gap: 10px;
+  }
+  .calendar-day-buddy {
+    width: 58px;
+    height: 68px;
+  }
+  .calendar-day-buddy > .science-diary-sticker {
+    width: 52px;
+    height: 52px;
+  }
+  .learning-day-story h4 {
+    font-size: 15px;
+  }
+  .learning-day-count {
+    font-size: 13px;
+  }
+  .learning-day-goal {
+    align-items: start;
+  }
+}

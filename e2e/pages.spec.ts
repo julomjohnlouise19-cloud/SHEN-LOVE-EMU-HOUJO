@@ -77,9 +77,8 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   await design.getByRole("button", { name: "Cancel", exact: true }).click();
   await closeProfile(page);
   await page.setViewportSize({ width: 1280, height: 720 });
-  await page
-    .getByRole("link", { name: "Explore Life Science, 6 decks" })
-    .click();
+  await page.getByRole("link", { name: "Science Island", exact: true }).click();
+  await page.getByRole("button", { name: /Life Science/ }).click();
   await page.getByRole("button", { name: "Open Cells", exact: true }).click();
   await page.getByRole("button", { name: "Let’s make a discovery" }).click();
   await expect(page.locator(".question-card")).toBeVisible();
@@ -112,6 +111,7 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   expect(cachedPaths).toContain(`${prefix}cozy-mark.webp`);
   expect(cachedPaths).toContain(`${prefix}badge-buddies/science-buddies.webp`);
   expect(cachedPaths).toContain(`${prefix}badge-buddies/cozy-crew.webp`);
+  expect(cachedPaths).toContain(`${prefix}diary-buddies/science-diary.webp`);
   for (const border of profileBorders)
     expect(cachedPaths).toContain(`${prefix}profile-borders/${border.id}.jpg`);
   await context.setOffline(true);
@@ -157,6 +157,35 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
       ),
     )
     .toBe(true);
+  await page.goto(`${site}#/`);
+  const diaryArt = page.locator(".my-lab-art .science-diary-sticker img");
+  await expect(diaryArt).toHaveAttribute(
+    "src",
+    `${prefix}diary-buddies/science-diary.webp`,
+  );
+  await expect
+    .poll(() =>
+      diaryArt.evaluate(
+        (image: HTMLImageElement) =>
+          image.complete && image.naturalWidth === 1448,
+      ),
+    )
+    .toBe(true);
+  await page
+    .getByRole("button", { name: "My learning calendar", exact: true })
+    .click();
+  const calendarArt = page.locator(
+    ".calendar-buddy-seal .science-diary-sticker:visible img",
+  );
+  await expect
+    .poll(() =>
+      calendarArt.evaluate(
+        (image: HTMLImageElement) =>
+          image.complete && image.naturalWidth === 1448,
+      ),
+    )
+    .toBe(true);
+  await page.keyboard.press("Escape");
   await page.goto(`${site}#/daily-rewards`);
   await expect(page.getByRole("gridcell")).toHaveCount(49);
   await expect(

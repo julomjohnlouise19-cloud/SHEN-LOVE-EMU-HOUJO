@@ -77,9 +77,9 @@ export function vocabularyCard() {
         button(
           "Read its notes & sources",
           () => studyGuideModal(word.deckId),
-          "text-button",
+          "button outline",
         ),
-        button("Try this topic", () => openDeck(word.deckId), "text-button"),
+        button("Try this topic", () => openDeck(word.deckId), "button outline"),
       ),
       h(
         "small",

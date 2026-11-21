@@ -1,0 +1,197 @@
+.my-lab {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.my-lab .page-heading {
+  margin-bottom: 24px;
+}
+.my-lab-welcome {
+  padding: clamp(22px, 4vw, 40px);
+  color: var(--lab-ink);
+  border: 1px solid var(--lab-line);
+  border-radius: 28px;
+  background: var(--lab-wash, var(--lab-soft));
+}
+.my-lab-welcome-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.my-lab-welcome-top .eyebrow {
+  margin: 0 0 12px;
+  font-size: 11px;
+}
+.my-lab-welcome h2 {
+  margin: 0;
+  font:
+    500 clamp(30px, 4.4vw, 46px)/1.18 "Fredoka",
+    sans-serif;
+}
+.my-lab-art {
+  display: grid;
+  place-items: center;
+  width: 170px;
+  height: 170px;
+  flex-shrink: 0;
+  border: 1px dashed var(--lab-brand-deep);
+  border-radius: 48% 48% 40% 40%;
+  background: var(--lab-surface);
+  transform: rotate(3deg);
+}
+.my-lab-art > .science-diary-sticker {
+  width: 155px;
+  height: 155px;
+}
+.my-lab-introduction {
+  max-width: 670px;
+  margin: 20px 0 26px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.my-lab-next-step {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px;
+  border: 1px solid var(--lab-line);
+  border-radius: 20px;
+  background: var(--lab-surface);
+}
+.my-lab-next-step .eyebrow {
+  margin: 0 0 6px;
+  font-size: 10px;
+  color: var(--lab-muted);
+}
+.my-lab-next-step h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+.my-lab-next-step p:not(.eyebrow) {
+  margin: 0;
+  color: var(--lab-muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+.my-lab-next-step .button {
+  min-height: 48px;
+  font-size: 14px;
+}
+.my-lab-next-step .button > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.my-lab-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0;
+}
+.my-lab-details > div {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--lab-line);
+  border-radius: 20px;
+  background: var(--lab-surface);
+}
+.my-lab-details dt {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--lab-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.my-lab-details dd {
+  margin: 10px 0 6px;
+  font:
+    500 23px/1.35 "Fredoka",
+    sans-serif;
+  color: var(--lab-ink);
+}
+.my-lab-details small {
+  display: block;
+  margin-top: 6px;
+  font-family: "DM Sans", sans-serif;
+  color: var(--lab-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.my-lab-details .progress {
+  height: 7px;
+  margin: 14px 0 0;
+}
+.my-lab-small-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.my-lab-small-links .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 13px;
+}
+@media (max-width: 600px) {
+  .my-lab-welcome {
+    border-radius: 22px;
+    padding: 22px 18px;
+  }
+  .my-lab-welcome-top {
+    gap: 12px;
+  }
+  .my-lab-welcome-top .eyebrow {
+    font-size: 9px;
+    line-height: 1.8;
+  }
+  .my-lab-welcome h2 {
+    font-size: 29px;
+  }
+  .my-lab-art {
+    width: 84px;
+    height: 100px;
+  }
+  .my-lab-art > .science-diary-sticker {
+    width: 82px;
+    height: 82px;
+  }
+  .my-lab-introduction {
+    font-size: 14px;
+    margin: 18px 0 22px;
+  }
+  .my-lab-next-step {
+    padding: 18px 14px;
+    gap: 16px;
+  }
+  .my-lab-next-step .button {
+    width: 100%;
+  }
+  .my-lab-details {
+    gap: 8px;
+  }
+  .my-lab-details > div {
+    padding: 14px 9px;
+    border-radius: 15px;
+  }
+  .my-lab-details dt {
+    font-size: 10px;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .my-lab-details dd {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+  }
+  .my-lab-details small {
+    font-size: 11px;
+  }
+  .my-lab-small-links .button {
+    flex: 1 1 180px;
+  }
+}

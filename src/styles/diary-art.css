@@ -1,0 +1,15 @@
+.science-diary-sticker {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.science-diary-sticker > img {
+  position: absolute;
+  width: 400%;
+  height: auto;
+  max-width: none;
+}

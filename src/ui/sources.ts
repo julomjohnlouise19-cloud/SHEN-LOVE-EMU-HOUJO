@@ -9,6 +9,8 @@ import type { Question } from "../core/types";
 import { h, button, modal, input, field, toast } from "./dom";
 import { videosShelf } from "./science-videos";
 import { scienceVideos } from "../data/science-videos";
+import { scienceWonderCard } from "./science-wonders";
+import { go } from "./actions";
 function referenceCard(ref: ScienceReference) {
   const citation = referenceCitation(ref);
   return h(
@@ -199,10 +201,11 @@ export function sourceButton(deckId: string, question?: Question) {
   );
 }
 type ReadingShelf =
-  "notes" | "videos" | "periodic" | "illustrations" | "documents";
+  "notes" | "videos" | "word" | "periodic" | "illustrations" | "documents";
 const shelfNames: Record<ReadingShelf, string> = {
   notes: "Study notes & sources",
   videos: "Science videos",
+  word: "Daily word & wonders",
   periodic: "Periodic table",
   illustrations: "Illustrations",
   documents: "PDF documents",
@@ -230,11 +233,13 @@ export async function sourcesPage() {
     { periodicTableShelf },
     { illustrationsShelf, illustrationCount },
     { guideByDeck },
+    { vocabularyCard },
   ] = await Promise.all([
     import("./study-library"),
     import("./periodic-table"),
     import("./science-figures"),
     import("../data/study-guides"),
+    import("./daily-vocabulary"),
   ]);
   const list = h("div", { class: "reading-grid" });
   const search = input("source-search", "Find a science topic…", "", "search");
@@ -337,26 +342,42 @@ export async function sourcesPage() {
         `#/sources${params.size ? `?${params}` : ""}`,
       );
     }
-    if (active === shelf) return;
+    if (active === shelf && !(shelf === "word" && !host.isConnected)) return;
     active = shelf;
-    if (!nodes.has(shelf))
+    if (shelf === "word" || !nodes.has(shelf))
       nodes.set(
         shelf,
         shelf === "videos"
           ? videosShelf()
-          : shelf === "periodic"
-            ? periodicTableShelf()
-            : shelf === "illustrations"
-              ? illustrationsShelf()
-              : documentsShelf((id) => {
-                  branch.value = id;
-                  search.value = "";
-                  update();
-                  choose("notes");
-                  notes
-                    .querySelector<HTMLElement>("h2")
-                    ?.focus({ preventScroll: true });
-                }),
+          : shelf === "word"
+            ? h(
+                "div",
+                { class: "study-word-shelf" },
+                vocabularyCard(),
+                scienceWonderCard(),
+              )
+            : shelf === "periodic"
+              ? periodicTableShelf()
+              : shelf === "illustrations"
+                ? h(
+                    "div",
+                    null,
+                    button(
+                      "Try the tiny lab",
+                      () => go("/experiment"),
+                      "button outline",
+                    ),
+                    illustrationsShelf(),
+                  )
+                : documentsShelf((id) => {
+                    branch.value = id;
+                    search.value = "";
+                    update();
+                    choose("notes");
+                    notes
+                      .querySelector<HTMLElement>("h2")
+                      ?.focus({ preventScroll: true });
+                  }),
       );
     host.replaceChildren(nodes.get(shelf)!);
     nav

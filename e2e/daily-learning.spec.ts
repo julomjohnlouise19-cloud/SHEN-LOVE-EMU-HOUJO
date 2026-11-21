@@ -10,7 +10,7 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
   page,
 }) => {
   await page.clock.setFixedTime(new Date("2026-11-19T15:59:00Z"));
-  await exploreAsGuest(page);
+  await exploreAsGuest(page, "/#/sources?view=word");
   const vocabulary = page.getByRole("region", {
     name: "Vocabulary of the day",
     exact: true,
@@ -63,6 +63,7 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
   });
   await page.reload();
   await expect(page.locator(".vocabulary-word")).toHaveText(nextWord);
+  await visitRenderedRoute(page, "/");
   await page
     .getByRole("button", { name: "My learning calendar", exact: true })
     .click();
@@ -163,11 +164,41 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
   ).toEqual({ xp: 0, badges: [] });
 });
 
+test("the daily-word shelf refreshes after visiting another area across classroom midnight", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2026-11-20T15:59:00Z"));
+  await exploreAsGuest(page, "/#/sources?view=word");
+  await expect(page.locator(".vocabulary-date")).toContainText("2026-11-20");
+  const previousWord = await page.locator(".vocabulary-word").innerText();
+  await page
+    .getByRole("button", { name: "Reveal the meaning", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Illustrations", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Daily word & wonders", exact: true })
+    .click();
+  await expect(page.locator(".vocabulary-meaning")).toBeHidden();
+  await visitRenderedRoute(page, "/");
+  const before = await page.evaluate(() => localStorage.getItem("csl:state"));
+  await page.clock.setFixedTime(new Date("2026-11-20T16:01:00Z"));
+  await page.evaluate(() => window.dispatchEvent(new Event("csl:daily-tick")));
+  await visitRenderedRoute(page, "/sources?view=word");
+  await expect(page.locator(".vocabulary-date")).toContainText("2026-11-21");
+  await expect(page.locator(".vocabulary-word")).not.toHaveText(previousWord);
+  await expect(page.locator(".vocabulary-meaning")).toBeHidden();
+  expect(await page.evaluate(() => localStorage.getItem("csl:state"))).toBe(
+    before,
+  );
+});
+
 test("daily vocabulary, learning days and saved achievement controls keep readable themed phone surfaces", async ({
   page,
 }) => {
   test.setTimeout(180000);
-  await exploreAsGuest(page);
+  await exploreAsGuest(page, "/#/sources?view=word");
   await expect(page.locator(".vocabulary-word")).toBeVisible();
   await page.setViewportSize({ width: 320, height: 900 });
   for (const theme of ["meadow", "aurora", "sunset"])
@@ -179,6 +210,7 @@ test("daily vocabulary, learning days and saved achievement controls keep readab
         },
         { theme, mode },
       );
+      await visitRenderedRoute(page, "/");
       await page
         .getByRole("button", { name: "My learning calendar", exact: true })
         .click();
@@ -198,6 +230,7 @@ test("daily vocabulary, learning days and saved achievement controls keep readab
         ).violations,
       ).toEqual([]);
       await page.keyboard.press("Escape");
+      await visitRenderedRoute(page, "/sources?view=word");
       expect(
         (
           await new AxeBuilder({ page })
