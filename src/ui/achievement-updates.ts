@@ -23,6 +23,9 @@ export function announceAchievements(
     learningToday(),
   ).filter((badge) => earned.some((event) => event.data?.badgeId === badge.id));
   if (!badges.length) return;
+  document
+    .querySelectorAll("#toasts .achievement-toast-copy")
+    .forEach((node) => node.closest(".toast")?.remove());
   toast(
     h(
       "span",

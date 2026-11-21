@@ -11,6 +11,19 @@ const crops = [
   [1288, 122, 448, 460],
   [1738, 122, 424, 473],
 ] as const;
+const cozyCrops = [
+  [28, 80, 290, 300],
+  [324, 80, 328, 330],
+  [670, 55, 235, 375],
+  [934, 65, 281, 335],
+  [10, 459, 344, 330],
+  [356, 475, 270, 290],
+  [660, 440, 220, 385],
+  [891, 475, 352, 332],
+  [16, 842, 314, 348],
+  [326, 845, 312, 335],
+  [640, 850, 292, 335],
+] as const;
 
 export function scienceBuddy(index: number) {
   const [x, y, width, height] = crops[index] ?? crops[0];
@@ -52,8 +65,47 @@ export function titleBuddy(level: number) {
   return scienceBuddy(level >= 20 ? 4 : level >= 10 ? 2 : level >= 5 ? 1 : 3);
 }
 
+export function cozyBuddy(index: number) {
+  const position =
+    Number.isInteger(index) && index >= 0 && index < 11 ? index : 0;
+  const [x, y, width, height] = cozyCrops[position];
+  const maximum = Math.max(width, height);
+  return h(
+    "span",
+    { class: "growth-buddy cozy-crew-buddy", "aria-hidden": true },
+    h(
+      "span",
+      {
+        class: "growth-buddy-crop",
+        style: {
+          width: `${(width / maximum) * 100}%`,
+          height: `${(height / maximum) * 100}%`,
+          left: `${(1 - width / maximum) * 50}%`,
+          top: `${(1 - height / maximum) * 50}%`,
+        },
+      },
+      h("img", {
+        src: `${import.meta.env.BASE_URL}badge-buddies/cozy-crew.webp`,
+        alt: "",
+        width: 1254,
+        height: 1254,
+        loading: "lazy",
+        decoding: "async",
+        style: {
+          width: `${(1254 / width) * 100}%`,
+          left: `${(-x / width) * 100}%`,
+          top: `${(-y / height) * 100}%`,
+        },
+      }),
+    ),
+  );
+}
+
 export function badgeArtwork(
-  badge: Pick<LearningBadge, "id" | "icon" | "earned" | "topicId" | "branch">,
+  badge: Pick<
+    LearningBadge,
+    "id" | "icon" | "earned" | "topicId" | "branch" | "buddy"
+  >,
   size = "",
 ) {
   const milestones: Record<string, number> = {
@@ -86,7 +138,9 @@ export function badgeArtwork(
       class: `growth-badge-medal buddy-medal ${size} ${badge.earned ? "is-earned" : "is-growing"}`,
       "aria-hidden": true,
     },
-    scienceBuddy(index ?? 0),
+    badge.buddy !== undefined
+      ? cozyBuddy(badge.buddy)
+      : scienceBuddy(index ?? 0),
     h(
       "span",
       { class: "growth-badge-emblem" },

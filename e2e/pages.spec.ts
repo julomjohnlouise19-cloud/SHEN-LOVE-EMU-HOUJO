@@ -111,6 +111,7 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   expect(cachedPaths).toContain(`${prefix}cozy-logo.webp`);
   expect(cachedPaths).toContain(`${prefix}cozy-mark.webp`);
   expect(cachedPaths).toContain(`${prefix}badge-buddies/science-buddies.webp`);
+  expect(cachedPaths).toContain(`${prefix}badge-buddies/cozy-crew.webp`);
   for (const border of profileBorders)
     expect(cachedPaths).toContain(`${prefix}profile-borders/${border.id}.jpg`);
   await context.setOffline(true);
@@ -144,6 +145,10 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   await page.goto(`${site}#/growth`);
   await expect(page.locator(".growth-page")).toBeVisible();
   const buddy = page.locator(".growth-badge-card .growth-buddy img").first();
+  await expect(buddy).toHaveAttribute(
+    "src",
+    `${prefix}badge-buddies/cozy-crew.webp`,
+  );
   await buddy.scrollIntoViewIfNeeded();
   await expect
     .poll(() =>

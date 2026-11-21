@@ -9,6 +9,7 @@ import {
 import cells from "../src/data/questions/life/cells.json" with { type: "json" };
 import type { Question } from "../src/core/types";
 import { decks } from "../src/data/catalog";
+import { cozyBadges } from "../src/data/cozy-badges";
 
 test("real easy-deck learning earns persistent badges, XP and useful garden actions", async ({
   page,
@@ -86,6 +87,7 @@ test("real easy-deck learning earns persistent badges, XP and useful garden acti
   await expect(
     page.locator("#toasts .achievement-toast-copy").last(),
   ).toContainText("First 10 correct");
+  await expect(page.locator("#toasts .achievement-toast-copy")).toHaveCount(1);
   await page.getByRole("button", { name: /^Notifications/ }).click();
   const updates = page.getByRole("dialog", {
     name: "Little lab updates",
@@ -113,6 +115,7 @@ test("real easy-deck learning earns persistent badges, XP and useful garden acti
   await expect(page.locator(".learning-calendar-summary")).toContainText(
     "10 answers",
   );
+  await page.getByRole("button", { name: "Milestones", exact: true }).click();
   const easy = page.locator('[data-learning-badge="perfect-easy"]');
   await expect(easy).toHaveAccessibleName("Perfect easy deck · earned");
   await easy.click();
@@ -125,6 +128,7 @@ test("real easy-deck learning earns persistent badges, XP and useful garden acti
   await expect(easy).toBeFocused();
   await page.reload();
   await expect(page.locator(".growth-stats")).toContainText("120");
+  await page.getByRole("button", { name: "Milestones", exact: true }).click();
   await page.getByRole("button", { name: "Earned only", exact: true }).click();
   await expect(page.locator(".growth-badge-card")).toHaveCount(4);
   await page
@@ -177,24 +181,44 @@ test("growth goals connect actual criteria to practice and the profile shelf wit
     exact: true,
   });
   await expect(goal.getByRole("heading")).toHaveText("First little discovery");
+  const chooser = page.getByRole("combobox", {
+    name: "Choose my next badge goal",
+    exact: true,
+  });
+  await expect(chooser.locator("option")).toHaveCount(4);
+  expect(
+    await chooser
+      .locator("option")
+      .evaluateAll((options) =>
+        options.every(
+          (option) => !(option as HTMLOptionElement).value.startsWith("topic:"),
+        ),
+      ),
+  ).toBe(true);
   await page
-    .getByRole("combobox", { name: "Choose my next badge goal", exact: true })
-    .selectOption("topic:life.body");
-  await expect(goal.getByRole("heading")).toHaveText(
-    "Anatomy & Body Systems explorer",
-  );
+    .getByRole("button", {
+      name: "Brainwave Wizard · in progress",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByRole("button", { name: "Make this my little goal", exact: true })
+    .click();
+  await expect(chooser).toHaveValue("buddy:brainwave");
+  await expect(chooser.locator("option")).toHaveCount(4);
+  await expect(goal.getByRole("heading")).toHaveText("Brainwave Wizard");
   await goal
     .getByRole("button", { name: "See goal details", exact: true })
     .click();
   await expect(page.getByRole("dialog")).toContainText(
-    "Complete a Anatomy & Body Systems deck",
+    "Finish an eight-question medium deck with at least six correct answers.",
   );
   await page.keyboard.press("Escape");
   await goal
     .getByRole("button", { name: "Practice for this badge", exact: true })
     .click();
   await expect(
-    page.getByRole("dialog", { name: "Anatomy & Body Systems", exact: true }),
+    page.getByRole("dialog", { name: "Cells", exact: true }),
   ).toBeVisible();
   await expect(
     page.getByRole("button", {
@@ -237,6 +261,7 @@ test("a completed badge garden keeps a useful challenge without a fake remaining
       "perfect-easy",
       "week-streak",
       "perfect-deck",
+      ...cozyBadges.map((badge) => badge.id),
       ...decks.map((deck) => "topic:" + deck.id),
     ],
   );
@@ -306,7 +331,7 @@ test("the garden keeps all palettes, filters, title details and Tabby readable a
         .locator(".growth-badge-card .growth-buddy img")
         .evaluateAll(
           (images) =>
-            images.length === 5 &&
+            images.length === 11 &&
             images.every(
               (image) =>
                 image instanceof HTMLImageElement &&
@@ -379,7 +404,7 @@ test("the garden keeps all palettes, filters, title details and Tabby readable a
   await page
     .getByRole("button", { name: "Reset badge filters", exact: true })
     .click();
-  await expect(page.locator(".growth-badge-card")).toHaveCount(32);
+  await expect(page.locator(".growth-badge-card")).toHaveCount(43);
   await page.locator('[data-learning-badge="perfect-easy"]').click();
   await page
     .getByRole("button", { name: "Try an easy Cells deck", exact: true })

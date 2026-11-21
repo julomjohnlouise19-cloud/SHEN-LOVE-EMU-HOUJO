@@ -24,6 +24,8 @@ async function earnedFixture(page: Page) {
       "perfect-easy",
       "week-streak",
       "perfect-deck",
+      "buddy:brave-bean",
+      "buddy:big-idea",
     ];
     localStorage.setItem("csl:state", JSON.stringify(saved));
   });

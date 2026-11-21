@@ -303,6 +303,20 @@
   min-height: 46px;
   font-size: 15px;
 }
+.growth-goal-picker {
+  display: grid;
+  gap: 8px;
+  color: var(--lab-muted);
+  font-size: 13px;
+}
+.growth-detail-actions {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+}
+.growth-detail-actions .button {
+  min-height: 46px;
+}
 .growth-goal-body {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);

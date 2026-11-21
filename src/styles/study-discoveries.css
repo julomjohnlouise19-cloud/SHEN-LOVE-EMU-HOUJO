@@ -681,11 +681,21 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
 }
-.achievement-toast-copy > :first-child {
+.achievement-toast-copy > .growth-badge-medal.buddy-medal {
   width: 58px;
   height: 58px;
   flex-shrink: 0;
+  margin: 5px 0;
+}
+.achievement-toast-copy > .buddy-medal .growth-buddy {
+  width: 50px;
+  height: 50px;
+}
+.achievement-toast-copy > .buddy-medal .growth-badge-emblem {
+  width: 22px;
+  height: 22px;
 }
 .achievement-toast-copy > span:last-child {
   display: grid;
@@ -697,6 +707,43 @@
 .achievement-toast-copy strong {
   display: block;
   font-size: 15px;
+}
+#toasts:not(.inside-dialog) {
+  top: calc(var(--mobile-header-height, 80px) + 12px);
+  bottom: auto;
+}
+#toasts .toast,
+#toasts.inside-dialog .toast {
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  border-color: var(--lab-line);
+  border-inline-start: 3px solid var(--lab-brand-deep);
+  border-radius: 18px;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  font-size: 14px;
+  line-height: 1.7;
+}
+#toasts .toast > span {
+  flex: 1 1 230px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#toasts .toast > .text-button {
+  flex: 0 0 auto;
+  min-width: 88px;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--lab-line);
+  border-radius: 12px;
+  background: var(--lab-soft);
+  color: var(--lab-brand-deep);
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: normal;
+  text-decoration: none;
 }
 .sound-preview-button {
   margin: 0 0 18px;

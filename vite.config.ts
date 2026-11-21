@@ -47,6 +47,7 @@ export default defineConfig(({ mode }) => {
             `${base}cozy-logo.webp`,
             `${base}cozy-mark.webp`,
             `${base}badge-buddies/science-buddies.webp`,
+            `${base}badge-buddies/cozy-crew.webp`,
             `${base}fonts/fonts.css`,
             `${base}fonts/fredoka.woff2`,
             `${base}fonts/dm-sans.woff2`,
