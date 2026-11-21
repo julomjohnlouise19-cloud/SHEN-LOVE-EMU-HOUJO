@@ -230,6 +230,9 @@ test.describe("budget Android emulation", () => {
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true);
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+    });
     const undersized = await page
       .locator(".growth-page .button")
       .evaluateAll((buttons) =>
@@ -244,6 +247,21 @@ test.describe("budget Android emulation", () => {
     await expect(page.locator(".growth-mascot-speech")).toContainText(
       "High five",
     );
+    const speech = await page.locator(".growth-mascot-speech").elementHandle();
+    const beforeCheer = await page.evaluate(() =>
+      localStorage.getItem("csl:state"),
+    );
+    await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+    await expect
+      .poll(() => speech!.evaluate((node) => node.isConnected))
+      .toBe(false);
+    await expect(page.locator(".growth-mascot-speech")).toContainText(
+      "High five",
+    );
+    expect(await page.evaluate(() => localStorage.getItem("csl:state"))).toBe(
+      beforeCheer,
+    );
+    await speech!.dispose();
     await page.screenshot({ path: "/tmp/cozy-budget-android-growth.png" });
     await info.attach("Android performance setup", {
       body: JSON.stringify({

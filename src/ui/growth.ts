@@ -17,6 +17,11 @@ import { openDeck } from "./learn";
 import { badgeArtwork, titleBuddy } from "./badge-art";
 import { learningCalendar } from "./learning-calendar";
 
+// Keep a little interaction through ordinary focus/visibility rerenders.
+// It is UI-only, scoped to the current learner/day and reset on a reload.
+let companionGreeting:
+  { owner: string; day: string; index: number } | undefined;
+
 export function growthPage() {
   const user = currentUser()!,
     state = getState();
@@ -24,10 +29,14 @@ export function growthPage() {
   const growth = learningGrowth(user, state.rules);
   const badges = learningBadges(user, state.runs, today);
   const earned = badges.filter((badge) => badge.earned).length;
+  const greeting =
+    companionGreeting?.owner === user.id && companionGreeting.day === today
+      ? companionGreeting
+      : { owner: user.id, day: today, index: 0 };
+  companionGreeting = greeting;
   let kind = "buddies",
     branch = "all",
-    earnedOnly = false,
-    cheer = 0;
+    earnedOnly = false;
   const root = h("div", { class: "page-enter growth-page" });
   const cheers = [
     user.daily[today]?.answers
@@ -40,7 +49,7 @@ export function growthPage() {
   const speech = h(
     "p",
     { class: "growth-mascot-speech", role: "status", "aria-live": "polite" },
-    cheers[0],
+    cheers[greeting.index],
   );
   const companion = h(
     "div",
@@ -51,8 +60,9 @@ export function growthPage() {
     button(
       h("span", null, icon("heart", 16), "High five, Tabby!"),
       () => {
-        cheer = (cheer + 1) % cheers.length;
-        speech.textContent = cheers[cheer];
+        if (currentUser()?.id !== user.id) return;
+        greeting.index = (greeting.index + 1) % cheers.length;
+        speech.textContent = cheers[greeting.index];
         companion.classList.remove("is-cheering");
         requestAnimationFrame(() => companion.classList.add("is-cheering"));
       },
