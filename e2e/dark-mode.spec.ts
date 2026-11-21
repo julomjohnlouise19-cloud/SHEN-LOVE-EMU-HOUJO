@@ -163,7 +163,7 @@ test("dark lab pages and the reward popup retain readable contrast and week navi
   page,
 }, info) => {
   await exploreAsGuest(page);
-  test.setTimeout(120000);
+  test.setTimeout(180000);
   await turnDark(page);
   await page.keyboard.press("Escape");
   const violations: { route: string; issues: unknown[] }[] = [];
@@ -216,6 +216,25 @@ test("dark lab pages and the reward popup retain readable contrast and week navi
   await page
     .getByRole("button", { name: "Let’s make a discovery", exact: true })
     .click();
+  await expect(page.locator(".question-card")).toBeVisible();
+  const pictured = (cells as Question[]).find(
+    (question) =>
+      question.level === "easy" && question.type === "mcq" && question.diagram,
+  );
+  expect(pictured).toBeTruthy();
+  // Keep the real eight-card session, making its illustrated first card deterministic.
+  await page.evaluate((questionId) => {
+    const state = JSON.parse(localStorage.getItem("csl:state")!);
+    const runId = location.hash.slice(1).split("/").at(-1);
+    const run = state.runs.find((item: { id: string }) => item.id === runId);
+    run.ids = [
+      questionId,
+      ...run.ids.filter((id: string) => id !== questionId),
+    ].slice(0, 8);
+    localStorage.setItem("csl:state", JSON.stringify(state));
+  }, pictured!.id);
+  await page.reload();
+  await expect(page.locator(".question-diagram .fine-print")).toBeVisible();
   for (const stage of ["question", "feedback"]) {
     if (stage === "feedback") {
       const prompt = await page.locator(".question-card > h2").innerText();
@@ -241,17 +260,31 @@ test("dark lab pages and the reward popup retain readable contrast and week navi
         .click();
       await expect(page.locator(".answer-feedback")).toBeVisible();
     }
-    const quiz = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-      .analyze();
-    if (quiz.violations.length)
-      violations.push({
-        route: stage,
-        issues: quiz.violations.map((v) => ({
-          id: v.id,
-          targets: v.nodes.map((n) => n.target),
-        })),
-      });
+    for (const width of [1280, 320])
+      for (const theme of ["meadow", "aurora", "sunset"])
+        for (const mode of ["light", "dark"]) {
+          await page.setViewportSize({ width, height: 900 });
+          await page.evaluate(
+            ({ theme, mode }) => {
+              document.documentElement.dataset.theme = theme;
+              document.documentElement.dataset.colorMode = mode;
+            },
+            { theme, mode },
+          );
+          await boundedPage(page);
+          const quiz = await new AxeBuilder({ page })
+            .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+            .analyze();
+          if (quiz.violations.length)
+            violations.push({
+              route: stage + "/" + theme + "/" + mode + "/" + width,
+              issues: quiz.violations.map((v) => ({
+                id: v.id,
+                targets: v.nodes.map((n) => n.target),
+                details: v.nodes.map((n) => n.failureSummary),
+              })),
+            });
+        }
   }
   await page.setViewportSize({ width: 320, height: 844 });
   await page.locator("[data-daily-rewards-button]").click();

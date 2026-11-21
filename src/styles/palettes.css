@@ -1,4 +1,13 @@
 /* Display mode and palette are independent: the same saved color story works at night. */
+:root[data-theme] .question-diagram {
+  background: var(--lab-soft);
+  border-color: var(--lab-line);
+  color: var(--lab-ink);
+}
+:root[data-theme] .question-diagram .fine-print {
+  color: var(--lab-muted);
+}
+
 :root {
   --lab-action: var(--lab-brand);
   --lab-action-hover: var(--lab-brand-deep);
