@@ -10,7 +10,7 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
   page,
 }) => {
   await page.clock.setFixedTime(new Date("2026-11-19T15:59:00Z"));
-  await exploreAsGuest(page, "/#/sources?view=word");
+  await exploreAsGuest(page);
   const vocabulary = page.getByRole("region", {
     name: "Vocabulary of the day",
     exact: true,
@@ -33,6 +33,17 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
       name: "Read its notes & sources",
       exact: true,
     }),
+  ).toBeFocused();
+  const topic = await vocabulary.locator(".vocabulary-topic").innerText();
+  await vocabulary
+    .getByRole("button", { name: "Try this topic", exact: true })
+    .click();
+  await expect(
+    page.getByRole("dialog", { name: topic, exact: true }),
+  ).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(
+    vocabulary.getByRole("button", { name: "Try this topic", exact: true }),
   ).toBeFocused();
   await page.clock.setFixedTime(new Date("2026-11-19T16:01:00Z"));
   await page.evaluate(() => window.dispatchEvent(new Event("csl:daily-tick")));
@@ -164,28 +175,29 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
   ).toEqual({ xp: 0, badges: [] });
 });
 
-test("the daily-word shelf refreshes after visiting another area across classroom midnight", async ({
+test("My lab vocabulary refreshes after visiting another area across classroom midnight", async ({
   page,
 }) => {
   await page.clock.setFixedTime(new Date("2026-11-20T15:59:00Z"));
-  await exploreAsGuest(page, "/#/sources?view=word");
+  await exploreAsGuest(page);
   await expect(page.locator(".vocabulary-date")).toContainText("2026-11-20");
   const previousWord = await page.locator(".vocabulary-word").innerText();
   await page
     .getByRole("button", { name: "Reveal the meaning", exact: true })
     .click();
-  await page
-    .getByRole("button", { name: "Illustrations", exact: true })
-    .click();
-  await page
-    .getByRole("button", { name: "Daily word & wonders", exact: true })
-    .click();
-  await expect(page.locator(".vocabulary-meaning")).toBeHidden();
+  await visitRenderedRoute(page, "/sources?view=word");
+  await expect(page.locator(".daily-vocabulary")).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Little science wonders", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".daily-fact")).toBeVisible();
   await visitRenderedRoute(page, "/");
+  await expect(page.locator(".vocabulary-meaning")).toBeHidden();
+  await visitRenderedRoute(page, "/sources?view=illustrations");
   const before = await page.evaluate(() => localStorage.getItem("csl:state"));
   await page.clock.setFixedTime(new Date("2026-11-20T16:01:00Z"));
   await page.evaluate(() => window.dispatchEvent(new Event("csl:daily-tick")));
-  await visitRenderedRoute(page, "/sources?view=word");
+  await visitRenderedRoute(page, "/");
   await expect(page.locator(".vocabulary-date")).toContainText("2026-11-21");
   await expect(page.locator(".vocabulary-word")).not.toHaveText(previousWord);
   await expect(page.locator(".vocabulary-meaning")).toBeHidden();
@@ -198,7 +210,7 @@ test("daily vocabulary, learning days and saved achievement controls keep readab
   page,
 }) => {
   test.setTimeout(180000);
-  await exploreAsGuest(page, "/#/sources?view=word");
+  await exploreAsGuest(page);
   await expect(page.locator(".vocabulary-word")).toBeVisible();
   await page.setViewportSize({ width: 320, height: 900 });
   for (const theme of ["meadow", "aurora", "sunset"])
@@ -230,7 +242,6 @@ test("daily vocabulary, learning days and saved achievement controls keep readab
         ).violations,
       ).toEqual([]);
       await page.keyboard.press("Escape");
-      await visitRenderedRoute(page, "/sources?view=word");
       expect(
         (
           await new AxeBuilder({ page })

@@ -205,7 +205,7 @@ type ReadingShelf =
 const shelfNames: Record<ReadingShelf, string> = {
   notes: "Study notes & sources",
   videos: "Science videos",
-  word: "Daily word & wonders",
+  word: "Little science wonders",
   periodic: "Periodic table",
   illustrations: "Illustrations",
   documents: "PDF documents",
@@ -217,6 +217,8 @@ let mountedRoom:
       choose: (shelf: ReadingShelf, persist?: boolean) => void;
     }
   | undefined;
+let buildingRoom:
+  { owner: string | undefined; promise: Promise<HTMLElement> } | undefined;
 export async function sourcesPage() {
   const requested =
     new URLSearchParams(location.hash.split("?")[1]).get("view") ?? "notes";
@@ -228,18 +230,34 @@ export async function sourcesPage() {
     mountedRoom.choose(initial, false);
     return mountedRoom.node;
   }
+  if (buildingRoom && buildingRoom.owner === owner) {
+    const room = await buildingRoom.promise;
+    if (mountedRoom && mountedRoom.owner === owner)
+      mountedRoom.choose(initial, false);
+    return room;
+  }
+  const pending = { owner, promise: createStudyRoom(owner, initial) };
+  buildingRoom = pending;
+  try {
+    return await pending.promise;
+  } finally {
+    if (buildingRoom === pending) buildingRoom = undefined;
+  }
+}
+async function createStudyRoom(
+  owner: string | undefined,
+  initial: ReadingShelf,
+) {
   const [
     { studyGuideButton, documentsShelf },
     { periodicTableShelf },
     { illustrationsShelf, illustrationCount },
     { guideByDeck },
-    { vocabularyCard },
   ] = await Promise.all([
     import("./study-library"),
     import("./periodic-table"),
     import("./science-figures"),
     import("../data/study-guides"),
-    import("./daily-vocabulary"),
   ]);
   const list = h("div", { class: "reading-grid" });
   const search = input("source-search", "Find a science topic…", "", "search");
@@ -342,20 +360,15 @@ export async function sourcesPage() {
         `#/sources${params.size ? `?${params}` : ""}`,
       );
     }
-    if (active === shelf && !(shelf === "word" && !host.isConnected)) return;
+    if (active === shelf) return;
     active = shelf;
-    if (shelf === "word" || !nodes.has(shelf))
+    if (!nodes.has(shelf))
       nodes.set(
         shelf,
         shelf === "videos"
           ? videosShelf()
           : shelf === "word"
-            ? h(
-                "div",
-                { class: "study-word-shelf" },
-                vocabularyCard(),
-                scienceWonderCard(),
-              )
+            ? h("div", { class: "study-wonders-shelf" }, scienceWonderCard())
             : shelf === "periodic"
               ? periodicTableShelf()
               : shelf === "illustrations"
@@ -426,6 +439,6 @@ export async function sourcesPage() {
   );
   search.addEventListener("search", update);
   choose(initial, false);
-  mountedRoom = { owner, node: room, choose };
+  if (currentUser()?.id === owner) mountedRoom = { owner, node: room, choose };
   return room;
 }

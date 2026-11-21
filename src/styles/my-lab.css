@@ -138,6 +138,17 @@
   min-height: 44px;
   font-size: 13px;
 }
+.my-lab > .daily-vocabulary {
+  margin: 22px 0;
+  padding: clamp(22px, 4vw, 32px);
+}
+.my-lab .daily-vocabulary .button {
+  min-height: 44px;
+  font-size: 14px;
+}
+.my-lab .vocabulary-actions {
+  gap: 10px;
+}
 @media (max-width: 600px) {
   .my-lab-welcome {
     border-radius: 22px;

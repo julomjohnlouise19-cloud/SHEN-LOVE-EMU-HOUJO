@@ -1,5 +1,14 @@
 # The Cozy Science Lab — build plan
 
+## Vocabulary on My lab and a study focus room
+
+- [x] Move the existing interactive daily vocabulary card to My lab and remove it from Study Room, keeping the welcome compact and science facts available in their own shelf.
+- [x] Add an optional Pomodoro focus room to the periodic table and every interactive science model, with pause/resume, an optional break and a relevant existing topic quiz.
+- [x] Verify meaning/source/practice controls, classroom-midnight refresh, navigation/reload, palette/phone layouts and unchanged saved learning; update student instructions.
+- [ ] Publish through the approved checked workflow and verify the live location.
+
+Local lint/typecheck, all 128 unit/property checks and the unchanged 972-question validation pass. Eleven focused browser scenarios cover daily vocabulary, the compact welcome, study notes/models/table/handbooks and focus study. Real 25/5 and 50/10 controls, pause/resume, a full 118-element table, all six light/Dark palette combinations at phone/desktop sizes, navigation/back, retained filters and a real topic-quiz launch pass. Clock tests normalize only legitimate presence revision/lastSeen metadata while retaining all account, learning and economy assertions. The final cold-load check keeps the original filtered input connected after quiz dismissal. Production-preview Chromium passes these features plus the existing video/badge/calendar/map flows with zero unexpected UI errors, failed site assets, pending requests or anonymous private requests. Final clock and My lab screenshots were inspected. Four workspace-blocked backend-status reads and explicit external-media fixtures remain separate from hosted/live-service checks. No real email, account password, production wallet or SQL migration is changed. Publication and public verification remain.
+
 ## Discovery adventure map
 
 - [x] Replace the Discovery Activities entry banner with a themed Snoopy mini-map preview and a clear route into the activity world.

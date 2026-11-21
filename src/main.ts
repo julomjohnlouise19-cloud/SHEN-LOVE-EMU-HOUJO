@@ -30,6 +30,7 @@ import "./styles/diary-art.css";
 import "./styles/learning-calendar.css";
 import "./styles/my-lab.css";
 import "./styles/activities-map.css";
+import "./styles/study-focus.css";
 import "./styles/profile-badges.css";
 import "./styles/account-recovery.css";
 import { loadExperience, applyExperience } from "./store/experience";

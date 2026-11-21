@@ -1,14 +1,7 @@
 /* Shared palette tokens keep every discovery readable in all six color stories. */
-.study-word-shelf {
+.study-wonders-shelf {
   max-width: 880px;
   margin: 24px auto;
-}
-.study-word-shelf .daily-vocabulary {
-  padding: clamp(22px, 4vw, 32px);
-}
-.study-word-shelf .vocabulary-actions .button {
-  min-height: 44px;
-  font-size: 14px;
 }
 .reading-library-intro {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));

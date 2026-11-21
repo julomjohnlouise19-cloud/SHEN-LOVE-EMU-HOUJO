@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { test, expect, exploreAsGuest } from "./fixtures";
 
-test("My lab stays a compact welcome while study tools remain useful in their dedicated areas", async ({
+test("My lab keeps a compact welcome and daily vocabulary while other tools stay in their areas", async ({
   page,
 }, testInfo) => {
   test.setTimeout(180000);
@@ -14,9 +14,12 @@ test("My lab stays a compact welcome while study tools remain useful in their de
   await expect(welcome).toContainText("Explore science at your own pace");
   await expect(page.locator(".my-lab-details > div")).toHaveCount(3);
   await expect(page.locator("#main .button.primary")).toHaveCount(1);
+  await expect(page.locator("#main .my-lab > .daily-vocabulary")).toHaveCount(
+    1,
+  );
   await expect(
     page.locator(
-      "#main .branches-section, #main .quest-card, #main .daily-spin-card, #main .daily-vocabulary, #main .daily-fact, #main .learning-trail",
+      "#main .branches-section, #main .quest-card, #main .daily-spin-card, #main .daily-fact, #main .learning-trail",
     ),
   ).toHaveCount(0);
   await expect(
@@ -41,7 +44,7 @@ test("My lab stays a compact welcome while study tools remain useful in their de
         ).toBe(true);
         expect(
           await page.locator("#main").evaluate((node) => node.scrollHeight),
-        ).toBeLessThan(1300);
+        ).toBeLessThan(1900);
         expect(
           (
             await new AxeBuilder({ page })
@@ -64,7 +67,7 @@ test("My lab stays a compact welcome while study tools remain useful in their de
   await page.goto("/#/sources?view=word");
   await expect(
     page.getByRole("region", { name: "Vocabulary of the day", exact: true }),
-  ).toBeVisible();
+  ).toHaveCount(0);
   const wonder = page.locator(".daily-fact [role=status]");
   const original = await wonder.textContent();
   await page

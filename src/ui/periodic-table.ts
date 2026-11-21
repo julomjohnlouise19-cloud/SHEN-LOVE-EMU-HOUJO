@@ -7,6 +7,7 @@ import {
 import { periodicReference } from "../data/references";
 import { h, button, input, field, modal } from "./dom";
 import { icon } from "./svg";
+import { studyFocusButton } from "./study-focus";
 
 export function periodicTableShelf() {
   let selected = elements[5],
@@ -297,7 +298,7 @@ export function periodicTableShelf() {
   family.addEventListener("change", update);
   update();
   showDetail();
-  return h(
+  const content = h(
     "section",
     { class: "periodic-shelf", "aria-label": "Interactive periodic table" },
     h("h2", null, "118 little building blocks"),
@@ -380,4 +381,9 @@ export function periodicTableShelf() {
       ),
     ),
   );
+  content.insertBefore(
+    studyFocusButton(content, "Periodic table", "chemistry.atoms"),
+    content.children[2],
+  );
+  return content;
 }

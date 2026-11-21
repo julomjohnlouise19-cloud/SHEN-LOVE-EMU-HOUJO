@@ -2,7 +2,22 @@ import { scienceFigures, figureById } from "../data/science-figures";
 import { diagramMarkup } from "../core/reading-documents";
 import { h, button, modal } from "./dom";
 import { readingSvg, icon } from "./svg";
+import { studyFocusButton } from "./study-focus";
 export const illustrationCount = scienceFigures.length;
+const figureQuizDecks: Record<string, string> = {
+  "plant-cell": "life.cells",
+  "animal-cell": "life.cells",
+  "atom-cloud": "chemistry.atoms",
+  "water-cycle": "earth.weather",
+  "food-chain": "life.ecosystems",
+  circuit: "physics.electricity",
+  waves: "physics.waves",
+  "rock-cycle": "earth.rocks",
+  "solar-system": "earth.solar",
+  investigation: "skills.method",
+  "human-anatomy": "life.body",
+  "volcano-structure": "earth.volcanoes",
+};
 
 export function illustrationPreview(id: string) {
   const figure = figureById(id)!;
@@ -91,26 +106,28 @@ export function illustrationExplorer(id: string) {
     { "aria-pressed": false },
   );
   render();
-  const { dialog } = modal(
-    figure.title,
-    [
-      h("p", { class: "eyebrow" }, "LOOK CLOSER · ORIGINAL SCIENCE MODEL"),
-      h("p", null, figure.description),
-      h(
-        "p",
-        { class: "figure-pan-hint" },
-        icon("arrow", 16),
-        "On a phone, swipe the diagram sideways to see every label.",
-      ),
-      art,
-      h("p", { class: "figure-model-note" }, figure.limit),
-      id === "circuit"
-        ? h("div", { class: "circuit-controls" }, toggle, state)
-        : null,
-      controls,
-      explanation,
-    ],
-    true,
+  const content = h(
+    "div",
+    { class: "focus-study-content" },
+    h("p", { class: "eyebrow" }, "LOOK CLOSER · ORIGINAL SCIENCE MODEL"),
+    h("p", null, figure.description),
+    h(
+      "p",
+      { class: "figure-pan-hint" },
+      icon("arrow", 16),
+      "On a phone, swipe the diagram sideways to see every label.",
+    ),
+    art,
+    h("p", { class: "figure-model-note" }, figure.limit),
+    id === "circuit"
+      ? h("div", { class: "circuit-controls" }, toggle, state)
+      : null,
+    controls,
+    explanation,
+  );
+  const { dialog, close } = modal(figure.title, [content], true);
+  content.prepend(
+    studyFocusButton(content, figure.title, figureQuizDecks[id], close),
   );
   dialog.classList.add("illustration-dialog");
 }

@@ -10,6 +10,7 @@ import { openDeck } from "./learn";
 import { APP_NAME } from "./branding";
 import { diarySticker } from "./diary-art";
 import { learningCalendarButton } from "./learning-calendar";
+import { vocabularyCard } from "./daily-vocabulary";
 
 export function dashboard() {
   const user = currentUser()!,
@@ -146,6 +147,7 @@ export function dashboard() {
         ),
       ),
     ),
+    vocabularyCard(),
     h(
       "div",
       { class: "my-lab-small-links" },

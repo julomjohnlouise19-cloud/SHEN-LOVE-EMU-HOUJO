@@ -1,0 +1,244 @@
+.study-focus-launch {
+  margin: 12px 0 20px;
+  min-height: 46px;
+  font-size: 14px;
+}
+.study-focus-launch > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+:root[data-theme] .modal.study-focus-dialog.wide {
+  width: min(1180px, calc(100vw - 24px));
+  max-width: 1180px;
+  max-height: calc(100dvh - 24px);
+}
+.study-focus-dialog .study-focus-launch {
+  display: none;
+}
+.study-focus-panel [hidden] {
+  display: none !important;
+}
+.study-focus-panel {
+  --focus-doodle: "♡";
+  margin: 0 0 24px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--lab-line);
+  border-radius: 24px;
+  background: var(--lab-wash, var(--lab-soft));
+  color: var(--lab-ink);
+}
+:root[data-theme="meadow"] .study-focus-panel {
+  --focus-doodle: "✿";
+}
+:root[data-theme="aurora"] .study-focus-panel {
+  --focus-doodle: "✧";
+}
+.focus-welcome,
+.focus-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.focus-welcome > .science-diary-sticker {
+  width: 74px;
+  height: 74px;
+  flex-shrink: 0;
+}
+.focus-welcome h3 {
+  margin: 6px 0 8px;
+  font:
+    500 clamp(23px, 3vw, 30px)/1.25 "Fredoka",
+    sans-serif;
+}
+.focus-welcome p:not(.eyebrow),
+.focus-status {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--lab-ink);
+}
+.focus-phase {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.7;
+}
+.focus-board {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 22px;
+  margin: 20px 0;
+  border: 1px solid var(--lab-line);
+  border-radius: 28px;
+  background: var(--lab-soft);
+}
+.focus-doodles {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  justify-items: center;
+  opacity: 0.24;
+  color: var(--lab-brand-deep);
+  font-size: 26px;
+  pointer-events: none;
+}
+.focus-doodles span::before {
+  content: var(--focus-doodle);
+}
+.focus-doodles span:nth-child(2n) {
+  transform: rotate(23deg);
+}
+.focus-doodles span:nth-child(3n) {
+  transform: rotate(-18deg);
+}
+.focus-timer-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(190px, 1fr);
+  align-items: stretch;
+  gap: 18px;
+}
+.focus-clock {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 230px;
+  padding: 20px;
+  border: 1px solid var(--lab-line);
+  border-radius: 30px 30px 36px 24px;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+}
+.focus-time {
+  font:
+    400 clamp(56px, 8vw, 104px)/1.1 "Fredoka",
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.focus-clock-label {
+  font-size: 12px;
+  color: var(--lab-muted);
+}
+.focus-clock-decoration {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  color: var(--lab-brand-deep);
+  font-size: 24px;
+}
+.focus-clock-decoration::before {
+  content: var(--focus-doodle);
+}
+.focus-progress {
+  width: 75%;
+  height: 8px;
+  accent-color: var(--lab-brand-deep);
+}
+.focus-rhythm {
+  min-width: 0;
+  padding: 20px 16px;
+  border: 1px solid var(--lab-line);
+  border-radius: 24px 20px 30px 24px;
+  background: var(--lab-surface);
+}
+.focus-rhythm h4 {
+  margin: 0 0 16px;
+  font:
+    500 20px/1.3 "Fredoka",
+    sans-serif;
+}
+.focus-rhythm ol {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.focus-rhythm li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+}
+.focus-rhythm li[aria-current="step"] {
+  border-color: var(--lab-selected-line);
+  background: var(--lab-selected);
+  color: var(--lab-selected-ink);
+}
+.focus-rhythm strong {
+  display: block;
+  font-size: 14px;
+}
+.focus-rhythm small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.focus-step-dot {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  font-size: 13px;
+}
+.focus-controls {
+  min-width: 0;
+  margin-bottom: 20px;
+}
+.focus-controls .field {
+  max-width: 340px;
+  margin: 0;
+}
+.focus-actions {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.focus-actions .button {
+  min-height: 46px;
+  font-size: 14px;
+}
+.study-focus-panel > small {
+  display: block;
+  color: var(--lab-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+@media (max-width: 600px) {
+  .focus-timer-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .focus-clock {
+    min-height: 170px;
+  }
+  .focus-board {
+    padding: 12px;
+  }
+  .focus-rhythm {
+    padding: 16px 12px;
+  }
+  .focus-welcome {
+    align-items: start;
+    gap: 10px;
+  }
+  .focus-welcome > .science-diary-sticker {
+    width: 48px;
+    height: 48px;
+  }
+  .focus-actions .button {
+    width: 100%;
+  }
+}
