@@ -5,7 +5,7 @@ Open **Science Island → Explore activities**. Choose your science branch, then
 | Place | Activity | Your little adventure |
 | --- | --- | --- |
 | Connection Cove | Match Lab | Match six science terms with their meanings. Tap a pair or use a mouse to drag. |
-| Wordwood Grove | Word Hunt | Follow six hidden words through the letter garden, then connect them with their meanings. |
+| Wordwood Grove | Word Hunt | Find six hidden science words in the letter garden; each found word reveals its meaning. |
 | Memory Meadow | Flashcards | Recall a term, flip its card, then choose **I know this** or **Practice again**. |
 | Starlight Lookout | Planet Explorer | Read the field notes and answer each planet check to collect eight stamps. |
 
