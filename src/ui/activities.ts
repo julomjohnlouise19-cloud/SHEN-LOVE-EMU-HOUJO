@@ -1,4 +1,5 @@
 import { badgeArtwork } from "./badge-art";
+import { diarySticker } from "./diary-art";
 import { currentUser } from "../store";
 import {
   activityAction,
@@ -162,42 +163,6 @@ function learningSources(round: ActivityRound) {
     true,
   );
 }
-function stickerScene(mode: string) {
-  return h(
-    "div",
-    { class: `activity-scene scene-${mode}`, "aria-hidden": true },
-    mode === "match"
-      ? h(
-          "div",
-          { class: "scene-pair" },
-          h("span", null, icon("atom", 25), "an idea"),
-          h("b", null, "↔"),
-          h("span", null, icon("bulb", 25), "its meaning"),
-        )
-      : mode === "words"
-        ? h(
-            "div",
-            { class: "scene-word-grid" },
-            ...[..."SCIENCELAB"].map((letter, i) =>
-              h("span", { class: i < 7 ? "lit" : "" }, letter),
-            ),
-          )
-        : mode === "cards"
-          ? h(
-              "div",
-              { class: "scene-card-stack" },
-              h("span", null, "a little recall"),
-              h("span", null, icon("sprout", 30), "a-ha!"),
-            )
-          : h(
-              "div",
-              { class: "scene-solar" },
-              h("span", { class: "scene-orbit" }),
-              h("span", { class: "scene-planet" }),
-              h("span", { class: "scene-moon" }),
-            ),
-  );
-}
 function badgeCards(progress: ActivityProgress, compact = false) {
   return h(
     "div",
@@ -242,6 +207,10 @@ export async function activitiesPage(requestedMode: string) {
   const query = new URLSearchParams(location.hash.split("?")[1]);
   const topicId = query.get("topic") ?? lastTopic.get(user.id) ?? "life";
   const topic = activityTopic(topicId) ?? activityTopics[0];
+  if (!mode && query.get("topic") !== topic.id) {
+    query.set("topic", topic.id);
+    history.replaceState(null, "", location.hash.split("?")[0] + "?" + query);
+  }
   lastTopic.set(user.id, topic.id);
   const cacheKey = `${user.id}:${mode}:${topic.id}`;
   if (cached?.key === cacheKey) {
@@ -603,118 +572,195 @@ export async function activitiesPage(requestedMode: string) {
     }
   }
   function hub() {
+    const landmarks = {
+      match: {
+        name: "Connection Cove",
+        art: 6,
+        description: "Two ideas. One bright connection.",
+      },
+      words: {
+        name: "Wordwood Grove",
+        art: 7,
+        description: "Follow the letters. Find a little wonder.",
+      },
+      cards: {
+        name: "Memory Meadow",
+        art: 8,
+        description: "A quiet corner for an a-ha moment.",
+      },
+      planets: {
+        name: "Starlight Lookout",
+        art: 4,
+        description: "Eight worlds, one very curious explorer.",
+      },
+    };
     return h(
       "div",
-      { class: "activity-hub" },
+      { class: "activity-hub discovery-adventure" },
       h(
         "section",
-        { class: "activity-hub-hero" },
+        {
+          class: "adventure-welcome",
+          "aria-label": "Your discovery adventure",
+        },
         h(
           "div",
           null,
-          h(
-            "span",
-            { class: "activity-pill" },
-            icon("sparkles", 15),
-            "A little play. A lot of a-ha.",
-          ),
-          h("h2", null, "Let your curiosity take the lead."),
+          h("p", { class: "eyebrow" }, "YOUR DISCOVERY MAP"),
+          h("h2", null, "Your next little adventure."),
           h(
             "p",
             null,
-            "Choose a branch above. Try a different way to learn below. No timer, no rush—just you and your next bright idea.",
-          ),
-          h(
-            "div",
-            { class: "activity-hero-stats" },
-            h(
-              "span",
-              null,
-              h("strong", null, progress.completedRounds),
-              "rounds explored",
-            ),
-            h(
-              "span",
-              null,
-              h(
-                "strong",
-                null,
-                `${Object.keys(progress.badges).length}/${activityBadges.length}`,
-              ),
-              "badges collected",
-            ),
-            h(
-              "span",
-              null,
-              h("strong", null, `${progress.stamped.length}/8`),
-              "planet stamps",
-            ),
+            "Your " + topic.name + " trail is ready. Pick an island to begin.",
           ),
         ),
         h(
           "div",
-          { class: "activity-hero-art", "aria-hidden": true },
-          h("span", { class: "activity-hero-orbit" }),
-          h("span", { class: "activity-hero-planet" }, "✦"),
-          h(
-            "span",
-            { class: "hero-sticker sticker-card" },
-            icon("cards", 24),
-            "a-ha!",
-          ),
-          h(
-            "span",
-            { class: "hero-sticker sticker-sprout" },
-            icon("sprout", 24),
-            "keep growing",
-          ),
-          h("span", { class: "hero-sticker sticker-star" }, icon("star", 23)),
+          { class: "adventure-welcome-art", "aria-hidden": true },
+          diarySticker(0),
+          h("span", { class: "adventure-compass" }, icon("island", 20)),
         ),
       ),
       h(
         "div",
-        { class: "activity-section-heading" },
+        {
+          class: "adventure-map-summary",
+          role: "group",
+          "aria-label": "Your saved activity progress",
+        },
         h(
-          "div",
+          "span",
           null,
-          h("p", { class: "eyebrow" }, "PICK YOUR LITTLE ADVENTURE"),
-          h("h2", null, "Four ways to find your spark"),
+          icon("connections", 17),
+          h("strong", null, progress.completedRounds),
+          " rounds explored",
         ),
-        h("p", null, `Vocabulary trail: ${topic.name}`),
+        h(
+          "span",
+          null,
+          icon("trophy", 17),
+          h(
+            "strong",
+            null,
+            Object.keys(progress.badges).length + "/" + activityBadges.length,
+          ),
+          " badges",
+        ),
+        h(
+          "span",
+          null,
+          icon("planet", 17),
+          h("strong", null, progress.stamped.length + "/8"),
+          " planet stamps",
+        ),
       ),
       h(
-        "div",
-        { class: "activity-format-grid" },
-        ...formats.map((f) => {
-          const saved = f.id !== "planets" ? progress.rounds[f.id] : undefined;
-          const target =
-            saved && !saved.completed && saved.topic === topic.id
-              ? "Continue round"
-              : f.action;
+        "section",
+        {
+          class: "activity-adventure-map",
+          "aria-label": "Discovery adventure map",
+        },
+        h(
+          "div",
+          { class: "adventure-map-route", "aria-hidden": true },
+          h("i"),
+          h("i"),
+          h("i"),
+        ),
+        h(
+          "span",
+          { class: "adventure-map-caption", "aria-hidden": true },
+          "a little trail of possibility",
+        ),
+        ...formats.map((format, index) => {
+          const landmark = landmarks[format.id];
+          const saved =
+            format.id === "planets" ? undefined : progress.rounds[format.id];
+          const sameTopic = saved?.topic === topic.id;
+          const continuing = saved && !saved.completed && sameTopic;
+          const done = saved
+            ? saved.kind === "cards"
+              ? saved.known.length
+              : saved.solved.length
+            : 0;
+          const status =
+            format.id === "planets"
+              ? progress.stamped.length + " of 8 worlds stamped"
+              : continuing
+                ? done + " of " + saved.items.length + " ideas explored"
+                : saved && !saved.completed
+                  ? "Saved round in " + activityTopic(saved.topic)!.name
+                  : saved && sameTopic
+                    ? "A fresh round is ready"
+                    : "Your next discovery starts here";
           return h(
             "article",
-            { class: `activity-format-card ${f.color}` },
-            stickerScene(f.id),
+            {
+              class: "adventure-islet islet-" + format.id,
+              "data-adventure-islet": format.id,
+            },
             h(
-              "div",
-              { class: "format-card-copy" },
-              h("p", { class: "eyebrow" }, f.kicker),
-              h("h2", null, f.name),
-              h("p", null, f.description),
+              "a",
+              {
+                href: route(format.id, topic.id),
+                class: "adventure-island-link",
+                "aria-label": "Open " + format.name,
+                "data-focus-key": "island-" + format.id,
+              },
+              h(
+                "span",
+                { class: "adventure-islet-land", "aria-hidden": true },
+                h("span", { class: "islet-land-shadow" }),
+                h("span", { class: "islet-land-top" }),
+                h(
+                  "span",
+                  { class: "islet-doodle doodle-one" },
+                  icon(format.icon, 24),
+                ),
+                h(
+                  "span",
+                  { class: "islet-doodle doodle-two" },
+                  icon(format.id === "planets" ? "star" : "sprout", 19),
+                ),
+                format.id === "words"
+                  ? h(
+                      "span",
+                      { class: "islet-letter-trail" },
+                      ...[..."SCIENCE"].map((letter) => h("i", null, letter)),
+                    )
+                  : format.id === "cards"
+                    ? h(
+                        "span",
+                        { class: "islet-card-stack" },
+                        h("i"),
+                        h("i"),
+                        h("i"),
+                      )
+                    : format.id === "planets"
+                      ? h("span", { class: "islet-little-orbit" })
+                      : h("span", { class: "islet-connection-line" }),
+                diarySticker(landmark.art),
+                h("span", { class: "islet-number" }, "0" + (index + 1)),
+              ),
               h(
                 "div",
-                { class: "format-card-footer" },
-                h("span", null, icon("clock", 14), f.time),
+                { class: "adventure-islet-copy" },
+                h("span", { class: "eyebrow" }, landmark.name),
+                h("h3", null, format.name),
+                h("span", { class: "islet-description" }, landmark.description),
                 h(
-                  "a",
-                  {
-                    href: route(f.id, topic.id),
-                    class: "activity-open-link",
-                    "aria-label": `Open ${f.name}`,
-                  },
-                  target,
+                  "span",
+                  { class: "islet-saved-status" },
+                  icon(continuing ? "clock" : "sparkles", 14),
+                  status,
+                ),
+                h(
+                  "span",
+                  { class: "islet-open" },
+                  continuing ? "Continue round" : format.action,
                   icon("arrow", 17),
                 ),
+                h("small", null, icon("clock", 13), format.time),
               ),
             ),
           );
@@ -722,23 +768,31 @@ export async function activitiesPage(requestedMode: string) {
       ),
       h(
         "section",
-        { class: "activity-passport-preview" },
+        {
+          class: "adventure-passport-dock",
+          "aria-label": "Your activity passport",
+        },
+        diarySticker(11),
         h(
           "div",
-          { class: "activity-section-heading" },
+          null,
+          h("p", { class: "eyebrow" }, "LITTLE ADVENTURES. LOVELY KEEPSAKES."),
+          h("h2", null, "Your discovery passport"),
           h(
-            "div",
+            "p",
             null,
-            h("p", { class: "eyebrow" }, "A PASSPORT FULL OF POSSIBILITY"),
-            h("h2", null, "Little achievements. Lovely reminders."),
-          ),
-          h(
-            "a",
-            { href: route("badges", topic.id), class: "button outline" },
-            "Open my badge collection",
+            Object.keys(progress.badges).length +
+              " of " +
+              activityBadges.length +
+              " badges collected. Make room for your next little win.",
           ),
         ),
-        badgeCards(progress, true),
+        h(
+          "a",
+          { href: route("badges", topic.id), class: "button outline" },
+          "Open my badge collection",
+          icon("arrow", 16),
+        ),
       ),
     );
   }

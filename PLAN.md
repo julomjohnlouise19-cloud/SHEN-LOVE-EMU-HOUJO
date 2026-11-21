@@ -1,5 +1,14 @@
 # The Cozy Science Lab — build plan
 
+## Discovery adventure map
+
+- [x] Replace the Discovery Activities entry banner with a themed Snoopy mini-map preview and a clear route into the activity world.
+- [x] Give the activities hub four distinct illustrated islands, useful saved-progress details, branch-aware working routes and a concise passport dock.
+- [x] Preserve all games, hints, sound, source notes, badges, owner isolation and saved rounds; keep My lab compact and use the existing cached artwork.
+- [ ] Verify real activity completion/resumption, readonly browsing, phone/keyboard/reduced-motion behavior, all palettes and offline navigation; publish and verify the final website.
+
+Local lint/typecheck, 124 unit/property checks and canonical content checks pass. All eight focused adventure/game scenarios and the Pages/offline scenario pass. The new regression audits entry and map contrast in all six palette/mode combinations at 1280, 768 and 320 pixels, solves a real Word Hunt word and verifies the selected branch and 1-of-6 progress survive reload. Browsing leaves saved learning/activity data unchanged. Fresh production-preview Chromium also passes the earlier calendar/welcome/badge checks and the new four-island flow, with zero unexpected UI errors, failed site assets, pending requests or anonymous private requests. Desktop and phone screenshots were inspected. Publication and public verification remain; external-media fixtures and workspace-blocked backend-status reads are reported separately.
+
 ## Cozy learning calendar and a calmer My lab
 
 - [x] Redesign the learning-progress calendar with twelve supplied-reference Snoopy science scenes, distinct Meadow/Aurora/Sunset details, practice stamps and readable monthly totals.
@@ -7,9 +16,12 @@
 - [x] Keep My lab to a compact welcome/introduction, one next/resume action, three small progress details and quiet calendar/growth links; use the dedicated areas for full tools and categories.
 - [x] Give vocabulary/science facts a Study Room shelf and retain the tiny-lab entry with illustrations, without losing their working interactions or existing bookmarks.
 - [x] Verify actual dated activity, keyboard/month boundaries, rollover, owner isolation, light/Dark phone layouts, offline assets and zero unexpected browser errors.
-- [ ] Publish through the approved checked workflow, verify the live calendar and update the student instructions.
+- [x] Publish through the approved checked workflow, verify the live calendar and update the student instructions.
 
-Local gates pass lint/typecheck, 124 unit/property tests, question/economy/document checks and canonical SQL consistency. All 19 affected standard scenarios pass across the broad runs and corrected focused reruns, plus the Pages/offline scenario. They retain actual quiz earning, owner-only resumption, readonly browsing, per-account dates and rewards, and add validated month selection, practice-day jumps across months, leap-day keyboard boundaries, classroom midnight, live cross-tab updates, six palette/mode combinations and phone layouts. The cached-word rollover uses its own short session so the normal eight-hour account expiry remains tested faithfully. The Pages check now enters branches from Science Island and verifies the new artwork both cached and decoded offline. Source/module loading has no circular-chunk warning. The new diary and compact welcome screenshots were inspected; docs/QUICK_START.md records their final locations and actions. The expanded hosted run passed 93 of 94 application cases but exposed a slow-phone companion greeting reset. A forced focus refresh reproduces it; the UI now retains that small greeting for the current learner/day, and three repeated throttled-phone runs pass with strict touch/focus and unchanged-state assertions. The next hosted run passes that interaction but finds the old pale quiz-diagram frame under Dark mode text. The frame/caption now use palette tokens, and the existing quiz check always starts with an illustrated canonical card. Its question and feedback pass all six palettes at 1280/320 widths, alongside the broad Dark page/reward checks. The full checked publication workflow is being rerun before deployment.
+Application source c0689319e9df61309c5cac40c22fc0a3117dbeea is published by approved [run 44903502905](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/44903502905). Both build and deployment jobs pass: lint/typecheck, 124 unit/property tests, all 209 browser scenarios (94 standard, 114 cloud and one Pages/offline), canonical questions, economy, science sources, handbooks and database checks. The final gates include the owner/day companion-state fix and deterministic illustrated-quiz contrast in all six palette/mode combinations at phone/desktop widths.
+
+The public entry is index-DhrVFPdk.js. All 77 checked public code/style/art/font/service-worker/handbook files match the immutable tested production build. Fresh public Chromium checks pass the Snoopy diary, compact welcome, relocated daily word, actual twenty-answer daily stamp, genuine new-buddy earning and three saved profile pins after reload. A real focus refresh preserves the companion response and leaves saved learning unchanged. Light/Dark 1280/320 layouts and AA scans pass with zero unexpected UI errors, failed site assets, pending requests or anonymous private requests. The workspace's three blocked backend-status reads and explicit external-media fixtures stay separate from the passing hosted readiness check; no real email, password, wallet or SQL migration is changed. The next activity-map request is tracked above and uses a separate local build until checked publication.
+
 
 ## Profile badge showcase and exact-video covers
 

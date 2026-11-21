@@ -13,6 +13,8 @@ Open **[The Cozy Science Lab](https://julomjohnlouise19-cloud.github.io/SHEN-LOV
 
 **My lab** is a short welcome with one suggested discovery or saved-session action, three small progress details and calendar/growth links. Use the menu for the full categories and tools.
 
+**Science Island → Explore activities** opens a four-island discovery map: **Connection Cove** for Match Lab, **Wordwood Grove** for Word Hunt, **Memory Meadow** for Flashcards and **Starlight Lookout** for Planet Explorer. Choose a science branch, enter an island or use **Continue round**. The map link remembers the branch after a refresh. The passport dock opens your earned activity badges. See the [discovery map guide](DISCOVERY_MAP.md) for the controls and saved-progress details.
+
 Open **My lab → My learning calendar** or **My growth → Learning calendar** for your Snoopy discovery diary. Tap a date to see its answers, correct connections and eight-answer progress. **Choose month** opens your saved history; **Earlier practice / Later practice** jump between days with answers, including across months. **Show today** returns to the current classroom day. Eight answers add a cute daily stamp. Meadow, Aurora and Sunset give the diary different colors, frames and companions. New activity from another tab appears automatically. These device practice records are separate from the shared daily-reward claim calendar.
 
 In **Study Room → Daily word & wonders**, reveal the **Vocabulary of the day**, open its notes/sources or practise its topic, and browse six little science facts. The word changes at classroom midnight. **Study Room → Illustrations → Try the tiny lab** opens the interactive physics experiment.

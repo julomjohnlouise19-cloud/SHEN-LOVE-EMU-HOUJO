@@ -1,0 +1,718 @@
+:root[data-theme] .island-activity-entry {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
+  gap: 26px;
+  padding: 26px 30px;
+  border-color: var(--lab-line);
+  border-radius: 28px;
+  background: var(--lab-wash, var(--lab-soft));
+  box-shadow: none;
+  color: var(--lab-ink);
+}
+.island-activity-entry > .activity-entry-mini-map {
+  position: relative;
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 170px;
+  padding: 8px;
+}
+.activity-entry-mini-map::before {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  border: 1px dashed var(--lab-brand-deep);
+  border-radius: 50%;
+  transform: rotate(-28deg);
+}
+.entry-islet {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 58px;
+  border: 1px solid var(--lab-line);
+  border-radius: 44% 52% 35% 43%;
+  background: var(--lab-surface);
+  box-shadow: 0 5px 0 var(--lab-soft);
+}
+.entry-islet > .science-diary-sticker {
+  width: 54px;
+  height: 54px;
+}
+.entry-islet-words {
+  transform: rotate(7deg) translateY(10px);
+}
+.entry-islet-cards {
+  transform: rotate(-6deg);
+}
+.entry-islet-planets {
+  transform: translateY(7px);
+  border-style: dashed;
+}
+.island-activity-entry > div:not(.activity-entry-mini-map) {
+  min-width: 0;
+}
+:root[data-theme] .island-activity-entry h2 {
+  color: var(--lab-ink);
+}
+:root[data-theme] .island-activity-entry p:not(.eyebrow) {
+  color: var(--lab-ink);
+  font-size: 14px;
+}
+.island-activity-entry > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  font-size: 14px;
+}
+.discovery-adventure {
+  --map-water: var(--lab-bg);
+}
+.discovery-adventure * {
+  min-width: 0;
+}
+.adventure-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 28px 32px;
+  border: 1px solid var(--lab-line);
+  border-radius: 26px;
+  background: var(--lab-wash, var(--lab-soft));
+  color: var(--lab-ink);
+}
+.adventure-welcome .eyebrow {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.8;
+}
+.adventure-welcome h2 {
+  max-width: 560px;
+  margin: 10px 0 12px;
+  font:
+    500 clamp(27px, 4vw, 38px)/1.2 "Fredoka",
+    sans-serif;
+}
+.adventure-welcome p:not(.eyebrow) {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--lab-ink);
+}
+.adventure-welcome-art {
+  position: relative;
+  flex-shrink: 0;
+  width: 124px;
+  height: 124px;
+  border-radius: 50% 42% 48% 36%;
+  border: 1px dashed var(--lab-brand-deep);
+  background: var(--lab-surface);
+}
+.adventure-welcome-art > .science-diary-sticker {
+  width: 124px;
+  height: 124px;
+}
+.adventure-compass {
+  position: absolute;
+  right: -5px;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--lab-brand-deep);
+  border: 1px solid var(--lab-line);
+  border-radius: 50%;
+  background: var(--lab-surface);
+}
+.adventure-map-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 26px;
+  padding: 18px 8px 22px;
+  color: var(--lab-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.adventure-map-summary > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.adventure-map-summary strong {
+  color: var(--lab-ink);
+  font-size: 17px;
+  font-weight: 600;
+}
+.activity-adventure-map {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 46px 64px;
+  padding: 60px 44px 44px;
+  overflow: hidden;
+  border: 1px solid var(--lab-line);
+  border-radius: 34px;
+  background:
+    radial-gradient(
+      ellipse at 17% 22%,
+      color-mix(in srgb, var(--lab-blue) 50%, transparent),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 86% 79%,
+      color-mix(in srgb, var(--lab-lilac) 45%, transparent),
+      transparent 45%
+    ),
+    var(--map-water);
+}
+.adventure-map-caption {
+  position: absolute;
+  top: 20px;
+  left: 26px;
+  color: var(--lab-muted);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+.adventure-map-route {
+  position: absolute;
+  inset: 19% 22%;
+  z-index: -1;
+  pointer-events: none;
+}
+.adventure-map-route > i {
+  position: absolute;
+  display: block;
+  width: 80%;
+  height: 30%;
+  border: 2px dashed var(--lab-line);
+  border-radius: 50%;
+}
+.adventure-map-route > i:nth-child(1) {
+  top: 0;
+  left: 10%;
+  transform: rotate(12deg);
+}
+.adventure-map-route > i:nth-child(2) {
+  top: 34%;
+  left: 0;
+  height: 45%;
+  width: 90%;
+  transform: rotate(-28deg);
+}
+.adventure-map-route > i:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  transform: rotate(16deg);
+}
+.adventure-islet {
+  position: relative;
+  --islet-tint: var(--lab-soft);
+}
+.islet-words {
+  --islet-tint: var(--lab-blue);
+}
+.islet-cards {
+  --islet-tint: var(--lab-lilac);
+}
+.islet-planets {
+  --islet-tint: var(--lab-peach);
+}
+.adventure-island-link {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  height: 100%;
+  padding: 10px 12px 18px;
+  color: var(--lab-ink);
+  border: 2px solid transparent;
+  border-radius: 28px;
+  text-decoration: none;
+  outline-offset: 4px;
+}
+.adventure-island-link:focus-visible {
+  outline: 3px solid var(--lab-brand-deep);
+}
+.adventure-island-link:hover {
+  background: color-mix(in srgb, var(--lab-surface) 75%, transparent);
+  border-color: var(--lab-line);
+}
+.adventure-islet-land {
+  position: relative;
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: 162px;
+}
+.islet-land-top,
+.islet-land-shadow {
+  position: absolute;
+  left: 3%;
+  right: 3%;
+  bottom: 9px;
+  height: 78px;
+  border: 1px solid var(--lab-brand-deep);
+  border-radius: 48% 52% 42% 50%;
+  background: var(--islet-tint);
+}
+.islet-land-shadow {
+  bottom: 0;
+  height: 73px;
+  background: var(--lab-line);
+  border-color: var(--lab-line);
+}
+.adventure-islet-land > .science-diary-sticker {
+  position: absolute;
+  z-index: 2;
+  width: 150px;
+  height: 150px;
+  left: calc(50% - 75px);
+  bottom: 21px;
+}
+.islet-doodle {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--lab-line);
+  border-radius: 13px;
+  background: var(--lab-surface);
+  color: var(--lab-brand-deep);
+}
+.doodle-one {
+  top: 33px;
+  left: 0;
+  transform: rotate(-10deg);
+}
+.doodle-two {
+  top: 1px;
+  right: 7px;
+  transform: rotate(12deg);
+}
+.islet-number {
+  position: absolute;
+  z-index: 4;
+  right: 14px;
+  bottom: -1px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font:
+    500 15px "Fredoka",
+    sans-serif;
+  border: 1px solid var(--lab-line);
+  border-radius: 50%;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+}
+.islet-connection-line {
+  position: absolute;
+  left: 7px;
+  top: 68px;
+  width: 55px;
+  height: 37px;
+  border: 2px dashed var(--lab-brand-deep);
+  border-radius: 50%;
+  transform: rotate(-15deg);
+}
+.islet-letter-trail {
+  position: absolute;
+  z-index: 3;
+  left: 8px;
+  bottom: 13px;
+  display: flex;
+  gap: 3px;
+  transform: rotate(-5deg);
+}
+.islet-letter-trail > i {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 25px;
+  border: 1px solid var(--lab-line);
+  border-radius: 5px;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  font:
+    600 10px "DM Sans",
+    sans-serif;
+}
+.islet-card-stack {
+  position: absolute;
+  z-index: 1;
+  left: 23px;
+  top: 44px;
+  width: 75px;
+  height: 83px;
+}
+.islet-card-stack > i {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--lab-brand-deep);
+  border-radius: 10px;
+  background: var(--islet-tint);
+}
+.islet-card-stack > i:first-child {
+  transform: rotate(-20deg);
+}
+.islet-card-stack > i:nth-child(2) {
+  transform: rotate(-7deg);
+  background: var(--lab-surface);
+}
+.islet-card-stack > i:last-child {
+  transform: rotate(7deg);
+}
+.islet-little-orbit {
+  position: absolute;
+  z-index: 1;
+  inset: 18px 0 44px;
+  border: 1px dashed var(--lab-brand-deep);
+  border-radius: 50%;
+  transform: rotate(-23deg);
+}
+.islet-planets .islet-land-top {
+  border-style: dashed;
+  border-radius: 48% 44% 50% 38%;
+}
+.islet-cards .islet-land-top {
+  border-radius: 38% 50% 34% 48%;
+}
+.adventure-islet-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  max-width: 290px;
+  text-align: center;
+  padding: 16px 14px;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border: 1px solid var(--lab-line);
+  border-radius: 22px;
+}
+.adventure-islet-copy .eyebrow {
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--lab-brand-deep);
+}
+.adventure-islet-copy h3 {
+  margin: 0;
+  font:
+    500 27px/1.2 "Fredoka",
+    sans-serif;
+  color: var(--lab-ink);
+}
+.islet-description {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.islet-saved-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  color: var(--lab-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.islet-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 1px solid var(--lab-brand-deep);
+  border-radius: 14px;
+  background: var(--islet-tint);
+  color: var(--lab-ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.adventure-islet-copy > small {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--lab-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.adventure-passport-dock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid var(--lab-line);
+  border-radius: 24px;
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+}
+.adventure-passport-dock > .science-diary-sticker {
+  width: 72px;
+  height: 72px;
+}
+.adventure-passport-dock > div {
+  flex: 1 1 220px;
+}
+.adventure-passport-dock .eyebrow {
+  margin: 0 0 6px;
+  font-size: 9px;
+  line-height: 1.8;
+}
+.adventure-passport-dock h2 {
+  margin: 0 0 8px;
+  font:
+    500 25px/1.2 "Fredoka",
+    sans-serif;
+}
+.adventure-passport-dock p:not(.eyebrow) {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.adventure-passport-dock > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  font-size: 13px;
+}
+@media (min-width: 761px) {
+  .islet-words {
+    padding-top: 25px;
+  }
+  .islet-cards {
+    margin-top: -12px;
+  }
+}
+@media (max-width: 1000px) {
+  :root[data-theme] .island-activity-entry {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 20px;
+    padding: 22px;
+  }
+  .island-activity-entry > a {
+    grid-column: 1 / -1;
+  }
+  .island-activity-entry > .activity-entry-mini-map {
+    width: 150px;
+  }
+  .activity-adventure-map {
+    gap: 28px 24px;
+    padding: 55px 20px 26px;
+  }
+  .adventure-islet-land {
+    width: 190px;
+  }
+}
+@media (max-width: 760px) {
+  :root[data-theme] .island-activity-entry {
+    grid-template-columns: 106px minmax(0, 1fr);
+    gap: 14px;
+    padding: 18px;
+    border-radius: 22px;
+  }
+  .island-activity-entry > .activity-entry-mini-map {
+    width: 106px;
+    gap: 10px;
+    padding: 0;
+  }
+  .entry-islet {
+    width: 45px;
+    height: 48px;
+  }
+  .entry-islet > .science-diary-sticker {
+    width: 45px;
+    height: 45px;
+  }
+  .island-activity-entry h2 {
+    font-size: 24px;
+  }
+  :root[data-theme] .island-activity-entry p:not(.eyebrow) {
+    font-size: 13px;
+  }
+  .island-activity-entry .eyebrow {
+    font-size: 9px;
+    line-height: 1.8;
+  }
+  .adventure-welcome {
+    gap: 16px;
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+  .adventure-welcome h2 {
+    font-size: 28px;
+  }
+  .adventure-welcome p:not(.eyebrow) {
+    font-size: 14px;
+  }
+  .adventure-welcome-art {
+    width: 82px;
+    height: 82px;
+  }
+  .adventure-welcome-art > .science-diary-sticker {
+    width: 82px;
+    height: 82px;
+  }
+  .adventure-map-summary {
+    gap: 9px 16px;
+    font-size: 12px;
+  }
+  .activity-adventure-map {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 48px 10px 18px;
+    border-radius: 24px;
+  }
+  .adventure-map-caption {
+    left: 20px;
+    font-size: 10px;
+  }
+  .adventure-map-route {
+    inset: 70px auto 80px 24px;
+    width: 2px;
+    border-left: 2px dashed var(--lab-line);
+  }
+  .adventure-map-route > i {
+    display: none;
+  }
+  .adventure-island-link {
+    grid-template-columns: 88px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding: 10px 5px;
+  }
+  .adventure-islet-land {
+    width: 88px;
+    height: 130px;
+  }
+  .adventure-islet-land > .science-diary-sticker {
+    width: 88px;
+    height: 88px;
+    left: 0;
+    bottom: 26px;
+  }
+  .islet-land-top,
+  .islet-land-shadow {
+    height: 48px;
+    left: 0;
+    right: 0;
+  }
+  .islet-doodle {
+    width: 26px;
+    height: 26px;
+    border-radius: 9px;
+  }
+  .islet-doodle svg {
+    width: 16px;
+    height: 16px;
+  }
+  .doodle-one {
+    top: 13px;
+    left: -2px;
+  }
+  .doodle-two {
+    top: -4px;
+    right: 1px;
+  }
+  .islet-number {
+    right: 4px;
+    width: 27px;
+    height: 27px;
+    font-size: 13px;
+  }
+  .islet-letter-trail {
+    left: 0;
+    bottom: 14px;
+    gap: 2px;
+  }
+  .islet-letter-trail > i {
+    width: 11px;
+    height: 18px;
+    font-size: 8px;
+  }
+  .islet-card-stack {
+    width: 48px;
+    height: 54px;
+    left: 7px;
+    top: 48px;
+  }
+  .islet-little-orbit {
+    inset: 20px -2px 40px;
+  }
+  .islet-connection-line {
+    left: 0;
+    top: 56px;
+    width: 30px;
+    height: 26px;
+  }
+  .adventure-islet-copy {
+    align-items: start;
+    text-align: left;
+    padding: 14px 10px;
+    gap: 8px;
+    border-radius: 18px;
+  }
+  .adventure-islet-copy h3 {
+    font-size: 23px;
+  }
+  .adventure-islet-copy .eyebrow {
+    font-size: 9px;
+  }
+  .islet-description {
+    font-size: 12px;
+  }
+  .islet-saved-status {
+    font-size: 10px;
+    align-items: start;
+  }
+  .islet-saved-status > svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .islet-open {
+    font-size: 12px;
+    padding: 9px 10px;
+    gap: 7px;
+  }
+  .adventure-passport-dock {
+    gap: 14px;
+    padding: 20px 16px;
+  }
+  .adventure-passport-dock > .science-diary-sticker {
+    width: 58px;
+    height: 58px;
+  }
+  .adventure-passport-dock > div {
+    flex-basis: 160px;
+  }
+  .adventure-passport-dock > a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion="reduce"]) .adventure-island-link {
+    transition:
+      background 0.18s,
+      border-color 0.18s;
+  }
+  :root:not([data-motion="reduce"])
+    .adventure-island-link:hover
+    .science-diary-sticker {
+    transform: translateY(-3px);
+  }
+}

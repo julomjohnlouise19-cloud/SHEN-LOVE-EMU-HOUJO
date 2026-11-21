@@ -1,3 +1,4 @@
+import { diarySticker } from "./diary-art";
 import { branches, decks, deckById, branchById } from "../data/catalog";
 import { currentUser, getState, dispatch, loadDeck, clock } from "../store";
 import { dayKey } from "../core/time";
@@ -140,9 +141,16 @@ export function islandPage() {
       "section",
       { class: "island-activity-entry", "aria-label": "Discovery Activities" },
       h(
-        "span",
-        { class: "island-activity-icon", "aria-hidden": true },
-        icon("sparkles", 30),
+        "div",
+        { class: "activity-entry-mini-map", "aria-hidden": true },
+        h("span", { class: "entry-islet entry-islet-match" }, diarySticker(6)),
+        h("span", { class: "entry-islet entry-islet-words" }, diarySticker(7)),
+        h("span", { class: "entry-islet entry-islet-cards" }, diarySticker(8)),
+        h(
+          "span",
+          { class: "entry-islet entry-islet-planets" },
+          diarySticker(4),
+        ),
       ),
       h(
         "div",
@@ -152,7 +160,7 @@ export function islandPage() {
         h(
           "p",
           null,
-          "Match science ideas, find hidden words, flip flashcards and explore the planets. Collect a little badge along the way.",
+          "Four little islands for your next a-ha: connect ideas, follow hidden words, grow your memory or wander among the planets.",
         ),
       ),
       h(
