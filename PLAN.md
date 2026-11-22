@@ -11,6 +11,8 @@ Local checks pass lint/typecheck, 130 unit/property checks and all eighteen targ
 
 Release 45026039226 stopped before publication on an obsolete My growth calendar action, question-transition timing in the new celebration checks, and video keyboard focus. A delayed-frame regression reproduces the video defect: the previous video's second restoration steals the next launcher. Escape now tears down the player and uses the shared modal's single focus restoration. Calendar tests use My lab history, and answer tests wait for the new question. Strict original focus, saved-progress and reduced-motion assertions remain; the complete gate is being rerun.
 
+Source 77e5ae1 passes run 45027776099 (130 unit/property checks, 217 unique browser scenarios plus six early repeats) and is published. All 74 checked public assets match the immutable build. The subsequent live check traces a second, fast nested-dialog race: the old notes panel's queued native close event can restore focus after a new video closes. A delayed-close regression reproduces it deterministically. The shared modal now closes and restores synchronously on Escape; video teardown runs first in capture. All 130 unit/property checks, lint/typecheck, production build/972 questions and fourteen targeted browser cases pass, including the delayed-close regression, timer/video handoffs, retained history, six palettes, sound/motion and throttled phone simulation. Final full verification and publication of this keyboard fix remain.
+
 ## Compact learning, consistent palettes and floating study focus
 
 - [x] Replace the large My lab calendar/growth shortcut row with a compact, interactive weekly calendar while retaining full learning history and saved progress.

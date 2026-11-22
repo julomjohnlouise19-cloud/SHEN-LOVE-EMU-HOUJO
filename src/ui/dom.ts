@@ -223,6 +223,10 @@ export function modal(
     )
       close();
   });
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    close();
+  });
   dialog.addEventListener("close", () => {
     releaseToasts(dialog);
     dialog.remove();

@@ -127,6 +127,27 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
     page.getByRole("dialog", { name: "Cells · study notes", exact: true }),
   ).toContainText("Supporting sources");
   await expect(dialog.locator("iframe")).toHaveCount(0);
+  // Deliver the notes panel's native close event after the next control is
+  // selected, matching a slow browser closing two nested panels quickly.
+  await page.evaluate(() => {
+    const notes = document.querySelector<HTMLDialogElement>(
+      ".study-guide-dialog[open]",
+    )!;
+    let holding = true;
+    notes.addEventListener(
+      "close",
+      (event) => {
+        if (holding) event.stopImmediatePropagation();
+      },
+      { capture: true },
+    );
+    (
+      window as unknown as { releaseStudyNotesClose: () => void }
+    ).releaseStudyNotesClose = () => {
+      holding = false;
+      notes.dispatchEvent(new Event("close"));
+    };
+  });
   await page.keyboard.press("Escape");
   await expect(
     dialog.getByRole("button", { name: "Read Cells study notes", exact: true }),
@@ -146,6 +167,9 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
     ).releaseVideoCloseFrames = () => {
       window.requestAnimationFrame = original;
       for (const callback of frames) callback(performance.now());
+      (
+        window as unknown as { releaseStudyNotesClose: () => void }
+      ).releaseStudyNotesClose();
     };
   });
   await page.keyboard.press("Escape");

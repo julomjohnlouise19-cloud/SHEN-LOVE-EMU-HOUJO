@@ -191,10 +191,8 @@ function watchVideo(video: ScienceVideo, trigger: HTMLElement) {
   const offline = () => loadPlayer();
   window.addEventListener("offline", offline);
   window.addEventListener("hashchange", close);
-  dialog.addEventListener("cancel", (event) => {
-    event.preventDefault();
-    player.replaceChildren();
-    close();
+  dialog.addEventListener("cancel", () => player.replaceChildren(), {
+    capture: true,
   });
   dialog.addEventListener(
     "close",
