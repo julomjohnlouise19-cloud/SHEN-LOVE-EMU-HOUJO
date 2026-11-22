@@ -6,6 +6,7 @@ export const soundCues = [
     step: 0.11,
     duration: 0.21,
     wave: "triangle",
+    gain: 0.14,
   },
   {
     id: "wrong",
@@ -14,6 +15,7 @@ export const soundCues = [
     step: 0.13,
     duration: 0.16,
     wave: "sine",
+    gain: 0.09,
   },
   {
     id: "hint",
@@ -22,6 +24,7 @@ export const soundCues = [
     step: 0.12,
     duration: 0.22,
     wave: "sine",
+    gain: 0.1,
   },
   {
     id: "flip",
@@ -30,6 +33,7 @@ export const soundCues = [
     step: 0.08,
     duration: 0.1,
     wave: "triangle",
+    gain: 0.1,
   },
   {
     id: "complete",
@@ -38,6 +42,7 @@ export const soundCues = [
     step: 0.13,
     duration: 0.23,
     wave: "triangle",
+    gain: 0.12,
   },
   {
     id: "badge",
@@ -46,6 +51,7 @@ export const soundCues = [
     step: 0.1,
     duration: 0.3,
     wave: "sine",
+    gain: 0.12,
   },
   {
     id: "level",
@@ -54,6 +60,7 @@ export const soundCues = [
     step: 0.14,
     duration: 0.32,
     wave: "triangle",
+    gain: 0.12,
   },
 ] as const;
 export type SoundCue = (typeof soundCues)[number]["id"];

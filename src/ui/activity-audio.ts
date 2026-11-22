@@ -5,12 +5,15 @@ import { soundEnabled, soundVolume } from "../store/experience";
 let context: AudioContext | undefined,
   sequence = 0,
   audioOwner = "";
-const voices = new Set<OscillatorNode>();
+const voices = new Map<OscillatorNode, GainNode>();
 export const activitySoundAvailable = () => typeof AudioContext !== "undefined";
 function stopVoices() {
-  for (const voice of voices) {
+  for (const [voice, gain] of voices) {
     try {
-      voice.stop();
+      const now = gain.context.currentTime;
+      gain.gain.cancelScheduledValues(now);
+      gain.gain.setTargetAtTime(0, now, 0.004);
+      voice.stop(now + 0.02);
     } catch {
       /* Already ended. */
     }
@@ -49,14 +52,14 @@ export async function activitySound(kind: SoundCue) {
       oscillator.type = cue.wave;
       oscillator.frequency.setValueAtTime(frequency, start);
       gain.gain.setValueAtTime(0, start);
-      gain.gain.linearRampToValueAtTime(
-        (0.12 * soundVolume(owner)) / 100,
-        start + 0.012,
-      );
+      const peak = (cue.gain * soundVolume(owner)) / 100;
+      gain.gain.linearRampToValueAtTime(peak, start + 0.012);
+      gain.gain.linearRampToValueAtTime(peak * 0.72, start + 0.035);
+      gain.gain.setValueAtTime(peak * 0.72, end - 0.06);
       gain.gain.exponentialRampToValueAtTime(0.001, end);
       oscillator.connect(gain);
       gain.connect(audio.destination);
-      voices.add(oscillator);
+      voices.set(oscillator, gain);
       oscillator.start(start);
       oscillator.stop(end + 0.02);
       oscillator.onended = () => {

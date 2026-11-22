@@ -4,6 +4,11 @@ import { questDefinitions, levelOf, rankScientists } from "../core/rules";
 import { hashSeed } from "../core/random";
 import { seededRng } from "../core/random";
 import { generators, evaluateGenerated } from "../core/generators";
+import {
+  celebrateCorrectAnswer,
+  clearCelebration,
+} from "./experience-controls";
+import { activitySound } from "./activity-audio";
 import { deckById } from "../data/catalog";
 import {
   button,
@@ -846,7 +851,11 @@ function calculatorGarden() {
         {
           onSubmit: (e: SubmitEvent) => {
             e.preventDefault();
+            if (submit.disabled) return;
+            clearCelebration();
             const correct = evaluateGenerated(q, answer.value);
+            void activitySound(correct ? "correct" : "wrong");
+            if (correct) celebrateCorrectAnswer();
             feedback.replaceChildren(
               h(
                 "p",

@@ -1,4 +1,4 @@
-import { currentUser } from "../store";
+import { currentUser, subscribe } from "../store";
 import {
   getMotionStyle,
   soundEnabled,
@@ -218,17 +218,32 @@ export function experienceControls(owner: string) {
   return root;
 }
 
-export function celebrateLevelUp() {
-  if (reducedMotion() || document.hidden) return;
+let celebration: HTMLElement | undefined;
+let celebrationOwner = "";
+let celebrationTimeout: number | undefined;
+export function clearCelebration() {
+  celebration?.remove();
+  celebration = undefined;
+  celebrationOwner = "";
+  if (celebrationTimeout !== undefined) clearTimeout(celebrationTimeout);
+  celebrationTimeout = undefined;
+}
+function celebrate(correct: boolean) {
+  clearCelebration();
+  const owner = currentUser()?.id;
+  if (!owner || reducedMotion() || document.hidden) return;
   const confetti = h(
     "div",
-    { class: "growth-confetti", "aria-hidden": true },
-    ...Array.from({ length: 18 }, (_, index) =>
+    {
+      class: "growth-confetti" + (correct ? " answer-confetti" : ""),
+      "aria-hidden": true,
+    },
+    ...Array.from({ length: correct ? 12 : 18 }, (_, index) =>
       h("span", {
         style: {
-          "--confetti-x": `${(index * 37) % 100}vw`,
+          "--confetti-x": `${correct ? 18 + ((index * 17) % 64) : (index * 37) % 100}vw`,
           "--confetti-drift": `${((index % 5) - 2) * 28}px`,
-          "--confetti-delay": `${(index % 6) * 35}ms`,
+          "--confetti-delay": `${(index % (correct ? 4 : 6)) * 30}ms`,
           "--confetti-color": [
             "var(--lab-brand)",
             "var(--lab-lilac)",
@@ -239,6 +254,27 @@ export function celebrateLevelUp() {
       }),
     ),
   );
-  document.body.append(confetti);
-  setTimeout(() => confetti.remove(), 1700);
+  celebration = confetti;
+  celebrationOwner = owner;
+  const host =
+    [...document.querySelectorAll<HTMLDialogElement>("dialog[open]")].at(-1) ??
+    document.body;
+  host.append(confetti);
+  celebrationTimeout = window.setTimeout(
+    clearCelebration,
+    correct ? 1050 : 1700,
+  );
 }
+export const celebrateLevelUp = () => celebrate(false);
+export const celebrateCorrectAnswer = () => celebrate(true);
+window.addEventListener("hashchange", clearCelebration);
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) clearCelebration();
+});
+window.addEventListener("csl:experience", () => {
+  if (reducedMotion() || currentUser()?.id !== celebrationOwner)
+    clearCelebration();
+});
+subscribe(() => {
+  if (celebration && currentUser()?.id !== celebrationOwner) clearCelebration();
+});

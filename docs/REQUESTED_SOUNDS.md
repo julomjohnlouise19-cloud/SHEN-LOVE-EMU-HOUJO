@@ -1,6 +1,6 @@
-# Requested sound sources
+# Familiar sound effects and answer celebrations
 
-The supplied **SOUND EFFECTS.pdf** requests these exact clips. They have not been installed: the running workspace blocks YouTube access, and saving the preserving network draft did not activate it. The user's current chat view does not expose the environment editor. MP3, WAV or OGG source audio can be attached to finish this part without another settings search.
+The user superseded the earlier YouTube-clip request on 22 November 2026: **keep the familiar built-in sound effects, improve their clarity, and add confetti after correct answers**. No uploaded audio or YouTube access is required. The original links below remain as research history; they are not active audio dependencies.
 
 | Action                 | Requested source                            |
 | ---------------------- | ------------------------------------------- |
@@ -13,4 +13,4 @@ The supplied **SOUND EFFECTS.pdf** requests these exact clips. They have not bee
 | Finish game            | https://www.youtube.com/watch?v=Oc4Aa0WvVNw |
 | Homepage               | https://www.youtube.com/watch?v=zGr-3o6rx6c |
 
-The existing optional synthesized learning cues, saved account volume, preview and mute controls remain functional. They are not replacements for the requested clips. No video player is hidden in the interface to impersonate a sound effect, and no unverified audio file or autoplay music has been added.
+The seven built-in melodies remain recognizable. The refined player uses softer attacks/releases, a brief sustain for small speakers, a clearer correct-answer chime and a gentler retry tone. Saved account volume, preview, mute and background/account cleanup remain. Correct-answer confetti is separate from sound, bounded to one short burst and disabled by reduced motion. No YouTube clips or background music are substituted into the site.

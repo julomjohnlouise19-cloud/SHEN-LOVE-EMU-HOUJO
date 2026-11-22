@@ -115,6 +115,27 @@
   background: var(--confetti-color);
   animation: cozy-confetti 1.25s ease-out var(--confetti-delay) both;
 }
+.answer-confetti > span {
+  width: 7px;
+  height: 10px;
+  animation-name: answer-confetti;
+  animation-duration: 0.78s;
+}
+.answer-confetti > span:nth-child(3n) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+@keyframes answer-confetti {
+  from {
+    transform: translate3d(0, -12px, 0) rotate(0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(var(--confetti-drift), 48vh, 0) rotate(260deg);
+    opacity: 0;
+  }
+}
 @keyframes cozy-confetti {
   from {
     transform: translate3d(0, -15px, 0) rotate(0);

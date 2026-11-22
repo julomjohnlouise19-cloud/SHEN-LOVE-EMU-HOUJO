@@ -130,9 +130,7 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
     page.getByRole("button", { name: "Open learning history", exact: true }),
   ).toBeFocused();
   await visitRenderedRoute(page, "/growth");
-  await expect(page.locator(".learning-calendar-summary")).toHaveText(
-    "2 active days · 10 answers · 1 goal met",
-  );
+  await expect(page.locator(".learning-calendar")).toHaveCount(0);
   await page
     .getByRole("button", { name: "Open scientist profile", exact: true })
     .click();

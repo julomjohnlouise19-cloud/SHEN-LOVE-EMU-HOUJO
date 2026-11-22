@@ -15,7 +15,6 @@ import { pageHeading } from "./shell";
 import { go } from "./actions";
 import { openDeck } from "./learn";
 import { badgeArtwork, titleBuddy } from "./badge-art";
-import { learningCalendar } from "./learning-calendar";
 
 // Keep a little interaction through ordinary focus/visibility rerenders.
 // It is UI-only, scoped to the current learner/day and reset on a reload.
@@ -633,7 +632,6 @@ export function growthPage() {
       count,
       list,
     ),
-    learningCalendar(),
     h(
       "section",
       { class: "growth-next-actions" },

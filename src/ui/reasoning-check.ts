@@ -2,10 +2,16 @@ import type { Question } from "../core/types";
 import { cellsReasoning } from "../core/learning-support";
 import { h, button, responsiveTable } from "./dom";
 import { diagram } from "./svg";
+import {
+  celebrateCorrectAnswer,
+  clearCelebration,
+} from "./experience-controls";
+import { activitySound } from "./activity-audio";
 
 export function reasoningCheck(question: Question) {
   const check = cellsReasoning(question);
   if (!check) return null;
+  let celebrated = false;
   const feedback = h("p", {
     class: "reasoning-answer",
     role: "status",
@@ -18,6 +24,12 @@ export function reasoningCheck(question: Question) {
       button(
         option,
         () => {
+          clearCelebration();
+          if (index === check.answer && !celebrated) {
+            celebrated = true;
+            celebrateCorrectAnswer();
+            void activitySound("correct");
+          }
           feedback.hidden = false;
           feedback.textContent = `${index === check.answer ? "That reasoning fits the evidence. " : `You chose “${option}”. Let's compare it with the evidence. `}${check.explanation}`;
         },

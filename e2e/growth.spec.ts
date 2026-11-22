@@ -112,9 +112,7 @@ test("real easy-deck learning earns persistent badges, XP and useful garden acti
     .getByRole("link", { name: "See my growth garden", exact: true })
     .click();
   await expect(page.locator(".growth-level-label")).toContainText("LEVEL 2");
-  await expect(page.locator(".learning-calendar-summary")).toContainText(
-    "10 answers",
-  );
+  await expect(page.locator(".growth-page .learning-calendar")).toHaveCount(0);
   await page.getByRole("button", { name: "Milestones", exact: true }).click();
   const easy = page.locator('[data-learning-badge="perfect-easy"]');
   await expect(easy).toHaveAccessibleName("Perfect easy deck · earned");

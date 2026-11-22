@@ -11,7 +11,12 @@ import { startDeck } from "./learn";
 import { growthCelebration } from "./growth-card";
 import { learningGrowth } from "../core/growth";
 import { soundEnabled, reducedMotion } from "../store/experience";
-import { soundButton, celebrateLevelUp } from "./experience-controls";
+import {
+  soundButton,
+  celebrateLevelUp,
+  celebrateCorrectAnswer,
+  clearCelebration,
+} from "./experience-controls";
 import { activitySound } from "./activity-audio";
 import { announceAchievements } from "./achievement-updates";
 let feedbackRun = "",
@@ -209,6 +214,7 @@ export async function playPage(runId: string) {
       onSubmit: async (e: SubmitEvent) => {
         e.preventDefault();
         if (revealing || submit.disabled) return;
+        clearCelebration();
         submit.disabled = true;
         feedbackRun = runId;
         feedbackIndex = index;
@@ -235,7 +241,14 @@ export async function playPage(runId: string) {
                       ? "correct"
                       : "wrong",
               );
-            if (events.some((event) => event.type === "LevelUp"))
+            if (
+              events.some(
+                (event) =>
+                  event.type === "AnswerSubmitted" && event.data?.correct,
+              )
+            )
+              celebrateCorrectAnswer();
+            else if (events.some((event) => event.type === "LevelUp"))
               celebrateLevelUp();
             announceAchievements(events, owner);
           }

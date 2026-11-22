@@ -31,6 +31,10 @@ import { pageHeading } from "./shell";
 import { sourceButton } from "./sources";
 import { planetExplorer } from "./planet-explorer";
 import { activitySound, activitySoundAvailable } from "./activity-audio";
+import {
+  celebrateCorrectAnswer,
+  clearCelebration,
+} from "./experience-controls";
 
 const formats = [
   {
@@ -373,6 +377,7 @@ export async function activitiesPage(requestedMode: string) {
   }
   async function send(command: ActivityCommand, focus?: string) {
     if (busy || currentUser()?.id !== user.id) return false;
+    clearCelebration();
     busy = true;
     page.setAttribute("aria-busy", "true");
     const waiting = [
@@ -401,6 +406,8 @@ export async function activitiesPage(requestedMode: string) {
             ? "badge"
             : primary.type,
         );
+      if (result.events.some((event) => event.type === "correct"))
+        celebrateCorrectAnswer();
       draw(focus);
       return true;
     } catch (error) {
