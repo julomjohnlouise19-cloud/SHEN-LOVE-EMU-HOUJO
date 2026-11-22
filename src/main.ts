@@ -33,6 +33,7 @@ import "./styles/activities-map.css";
 import "./styles/study-focus.css";
 import "./styles/profile-badges.css";
 import "./styles/account-recovery.css";
+import "./styles/panel-consistency.css";
 import { loadExperience, applyExperience } from "./store/experience";
 import { loadColorMode, loadDeviceColorMode } from "./store/color-mode";
 import { loadProfileDesign } from "./store/profile-design";

@@ -13,8 +13,10 @@ const cache = new Map<string, Appearance>();
 const pending = new Map<string, Promise<Appearance>>();
 const writes = new Map<string, Promise<void>>();
 const watched = new Set<string>();
+const revisions = new Map<string, number>();
 const key = (id: string) => `csl:appearance:${id}`;
 function announce(id: string, value: Appearance) {
+  revisions.set(id, (revisions.get(id) ?? 0) + 1);
   cache.set(id, value);
   window.dispatchEvent(
     new CustomEvent("csl:appearance", { detail: { id, ...value } }),
@@ -39,11 +41,14 @@ export async function loadAppearance(id: string): Promise<Appearance> {
   }
   if (cache.has(id)) return cache.get(id)!;
   if (pending.has(id)) return pending.get(id)!;
+  const revision = revisions.get(id) ?? 0;
   const task = (async () => {
     let value = await adapter.get<unknown>(key(id));
     if (cloudEnabled && cloudUserId() === id && platformVersion() >= 3)
       value = await platformRequest("csl_preferences").catch(() => value);
     const valid = isAppearance(value) ? value : { ...defaultAppearance };
+    if ((revisions.get(id) ?? 0) !== revision)
+      return cache.get(id) ?? { ...defaultAppearance };
     if (currentUser()?.id === id) cache.set(id, valid);
     return valid;
   })();
@@ -100,6 +105,8 @@ export function saveTheme(id: string, theme: ThemeId) {
 }
 window.addEventListener("csl:platform", () => {
   if (!cloudUserId()) {
+    for (const id of new Set([...cache.keys(), ...pending.keys()]))
+      revisions.set(id, (revisions.get(id) ?? 0) + 1);
     cache.clear();
     pending.clear();
   }

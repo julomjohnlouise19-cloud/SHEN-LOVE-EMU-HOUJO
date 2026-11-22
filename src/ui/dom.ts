@@ -146,6 +146,7 @@ export function modal(
     dialog.close();
     dialog.remove();
     restorePage();
+    window.dispatchEvent(new Event("csl:dialogs-changed"));
   };
   function restorePage() {
     if (restored) return;
@@ -226,10 +227,12 @@ export function modal(
     releaseToasts(dialog);
     dialog.remove();
     restorePage();
+    window.dispatchEvent(new Event("csl:dialogs-changed"));
   });
   document.body.append(dialog);
   dialog.showModal();
   document.documentElement.classList.add("modal-open");
+  window.dispatchEvent(new Event("csl:dialogs-changed"));
   return { dialog, close };
 }
 // Explicit roles retain table navigation when phone layouts present each row as a card.

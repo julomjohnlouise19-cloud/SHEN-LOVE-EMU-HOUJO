@@ -125,10 +125,8 @@ export function illustrationExplorer(id: string) {
     controls,
     explanation,
   );
-  const { dialog, close } = modal(figure.title, [content], true);
-  content.prepend(
-    studyFocusButton(content, figure.title, figureQuizDecks[id], close),
-  );
+  const { dialog } = modal(figure.title, [content], true);
+  content.prepend(studyFocusButton(figure.title, figureQuizDecks[id]));
   dialog.classList.add("illustration-dialog");
 }
 export function illustrationsShelf() {

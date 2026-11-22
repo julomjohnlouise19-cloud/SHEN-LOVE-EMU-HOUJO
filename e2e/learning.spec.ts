@@ -68,17 +68,10 @@ test("My lab keeps a compact welcome and daily vocabulary while other tools stay
   await expect(
     page.getByRole("region", { name: "Vocabulary of the day", exact: true }),
   ).toHaveCount(0);
-  const wonder = page.locator(".daily-fact [role=status]");
-  const original = await wonder.textContent();
-  await page
-    .getByRole("button", { name: "Next science fact", exact: true })
-    .click();
-  await expect(wonder).not.toHaveText(original!);
-  for (let index = 0; index < 5; index++)
-    await page
-      .getByRole("button", { name: "Next science fact", exact: true })
-      .click();
-  await expect(wonder).toHaveText(original!);
+  await expect(page.locator(".daily-fact")).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Little science wonders", exact: true }),
+  ).toHaveCount(0);
   expect(await page.evaluate(() => localStorage.getItem("csl:state"))).toBe(
     saved,
   );

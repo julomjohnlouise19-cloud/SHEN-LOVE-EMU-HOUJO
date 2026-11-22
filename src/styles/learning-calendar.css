@@ -574,3 +574,136 @@
     align-items: start;
   }
 }
+.learning-week {
+  max-width: 620px;
+  margin: 22px auto;
+  padding: 14px 16px;
+  border: 1px solid var(--lab-line);
+  border-radius: 22px;
+  color: var(--lab-ink);
+  background: var(--lab-surface);
+}
+.learning-week-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.learning-week-heading > .science-diary-sticker {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+.learning-week-heading h2 {
+  flex: 1;
+  margin: 0;
+  font:
+    500 20px/1.25 "Fredoka",
+    sans-serif;
+}
+.learning-week-growth {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  color: var(--lab-brand-deep);
+  font-size: 12px;
+  text-decoration: none;
+}
+.learning-week .icon-button {
+  min-width: 40px;
+  min-height: 44px;
+  width: 40px;
+  height: 44px;
+  padding: 4px;
+}
+.learning-week-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 2px 0;
+}
+.learning-week-today {
+  border: 0;
+  background: none;
+  color: var(--lab-muted);
+  padding: 8px;
+  min-height: 44px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.learning-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+}
+.learning-week-day {
+  min-width: 0;
+  border: 1px solid var(--lab-line);
+  border-radius: 12px;
+  background: var(--lab-bg);
+  color: var(--lab-ink);
+  padding: 7px 2px;
+  cursor: pointer;
+}
+.learning-week-day > span {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+}
+.learning-week-day small {
+  font-size: 10px;
+  color: var(--lab-muted);
+}
+.learning-week-day strong {
+  font:
+    500 17px/1.2 "Fredoka",
+    sans-serif;
+}
+.learning-week-day i {
+  min-height: 12px;
+  line-height: 12px;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--lab-muted);
+}
+.learning-week-day .week-goal-met,
+.learning-week-day .week-practised {
+  color: var(--lab-brand-deep);
+}
+.learning-week-day[aria-pressed="true"] {
+  background: var(--lab-selected);
+  border-color: var(--lab-selected-line);
+  color: var(--lab-selected-ink);
+}
+.learning-week-day:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.learning-week-detail p {
+  margin: 12px 0 7px;
+  font-size: 12px;
+  color: var(--lab-muted);
+}
+.learning-week-detail .progress {
+  margin: 0;
+  height: 5px;
+}
+@media (max-width: 600px) {
+  .learning-week {
+    padding: 12px;
+  }
+  .learning-week-heading h2 {
+    font-size: 18px;
+  }
+  .learning-week-heading > .science-diary-sticker {
+    width: 28px;
+    height: 28px;
+  }
+  .learning-week-growth {
+    font-size: 11px;
+  }
+  .learning-week-grid {
+    gap: 4px;
+  }
+}

@@ -23,9 +23,9 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
   ).toBeVisible();
   await expect(page.locator(".study-video-card")).toHaveCount(6);
   const seen = new Set<string>();
-  for (let index = 0; index < 4; index++) {
+  for (let index = 0; index < 9; index++) {
     await expect(page.locator(".video-page-count")).toHaveText(
-      "Page " + (index + 1) + " of 4",
+      "Page " + (index + 1) + " of 9",
     );
     for (const id of await page
       .locator(".study-video-card")
@@ -33,12 +33,12 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
         cards.map((card) => (card as HTMLElement).dataset.scienceVideo!),
       ))
       seen.add(id);
-    if (index < 3)
+    if (index < 8)
       await page
         .getByRole("button", { name: "Next videos", exact: true })
         .click();
   }
-  expect(seen.size).toBe(23);
+  expect(seen.size).toBe(50);
   await expect(
     page.getByRole("button", { name: "Next videos", exact: true }),
   ).toBeDisabled();
@@ -76,8 +76,11 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
     return { xp: user.xp, merits: user.merits, badges: user.badges };
   });
   await page.getByRole("button", { name: "Chemistry", exact: true }).click();
+  await expect(page.locator(".study-video-card")).toHaveCount(6);
+  await expect(page.locator(".study-video-count")).toContainText("10 of 50");
+  await page.getByRole("button", { name: "Next videos", exact: true }).click();
   await expect(page.locator(".study-video-card")).toHaveCount(4);
-  await expect(page.locator(".video-pagination")).toBeHidden();
+  await expect(page.locator(".video-page-count")).toHaveText("Page 2 of 2");
   await page
     .getByRole("searchbox", { name: "Search science videos" })
     .fill("DNA");
@@ -186,7 +189,7 @@ test("the video collection and new branding fit phones and every light and Dark 
   const csp = await page
     .locator('meta[http-equiv="Content-Security-Policy"]')
     .getAttribute("content");
-  expect(csp).toContain("frame-src https://www.youtube-nocookie.com;");
+  expect(csp).toContain("frame-src 'self' https://www.youtube-nocookie.com;");
   expect(csp).toContain("script-src 'self';");
   expect(csp).toContain("img-src 'self' data: https://i.ytimg.com;");
   for (const width of [1280, 320]) {

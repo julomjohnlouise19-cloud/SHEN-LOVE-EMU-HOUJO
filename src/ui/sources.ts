@@ -9,7 +9,7 @@ import type { Question } from "../core/types";
 import { h, button, modal, input, field, toast } from "./dom";
 import { videosShelf } from "./science-videos";
 import { scienceVideos } from "../data/science-videos";
-import { scienceWonderCard } from "./science-wonders";
+import { studyFocusButton } from "./study-focus";
 import { go } from "./actions";
 function referenceCard(ref: ScienceReference) {
   const citation = referenceCitation(ref);
@@ -142,6 +142,7 @@ export function sourceDetails(deckId: string, question?: Question) {
   return h(
     "section",
     { class: "science-sources" },
+    deck ? studyFocusButton(deck.name, deck.id) : null,
     h("p", { class: "eyebrow" }, "FOLLOW THE SCIENCE"),
     h("h3", null, `${deck?.name ?? "Science"} · sources & reading`),
     h(
@@ -201,11 +202,10 @@ export function sourceButton(deckId: string, question?: Question) {
   );
 }
 type ReadingShelf =
-  "notes" | "videos" | "word" | "periodic" | "illustrations" | "documents";
+  "notes" | "videos" | "periodic" | "illustrations" | "documents";
 const shelfNames: Record<ReadingShelf, string> = {
   notes: "Study notes & sources",
   videos: "Science videos",
-  word: "Little science wonders",
   periodic: "Periodic table",
   illustrations: "Illustrations",
   documents: "PDF documents",
@@ -367,30 +367,28 @@ async function createStudyRoom(
         shelf,
         shelf === "videos"
           ? videosShelf()
-          : shelf === "word"
-            ? h("div", { class: "study-wonders-shelf" }, scienceWonderCard())
-            : shelf === "periodic"
-              ? periodicTableShelf()
-              : shelf === "illustrations"
-                ? h(
-                    "div",
-                    null,
-                    button(
-                      "Try the tiny lab",
-                      () => go("/experiment"),
-                      "button outline",
-                    ),
-                    illustrationsShelf(),
-                  )
-                : documentsShelf((id) => {
-                    branch.value = id;
-                    search.value = "";
-                    update();
-                    choose("notes");
-                    notes
-                      .querySelector<HTMLElement>("h2")
-                      ?.focus({ preventScroll: true });
-                  }),
+          : shelf === "periodic"
+            ? periodicTableShelf()
+            : shelf === "illustrations"
+              ? h(
+                  "div",
+                  null,
+                  button(
+                    "Try the tiny lab",
+                    () => go("/experiment"),
+                    "button outline",
+                  ),
+                  illustrationsShelf(),
+                )
+              : documentsShelf((id) => {
+                  branch.value = id;
+                  search.value = "";
+                  update();
+                  choose("notes");
+                  notes
+                    .querySelector<HTMLElement>("h2")
+                    ?.focus({ preventScroll: true });
+                }),
       );
     host.replaceChildren(nodes.get(shelf)!);
     nav
@@ -415,6 +413,7 @@ async function createStudyRoom(
     { class: "reading-room page-enter" },
     h("p", { class: "eyebrow" }, "CURIOUS MINDS CHECK THE EVIDENCE"),
     h("h1", null, "Study Room"),
+    studyFocusButton("Study Room"),
     h(
       "p",
       null,

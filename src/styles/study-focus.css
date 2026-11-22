@@ -1,244 +1,244 @@
-.study-focus-launch {
-  margin: 12px 0 20px;
-  min-height: 46px;
-  font-size: 14px;
+.focus-dock {
+  position: fixed;
+  inset: auto;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  margin: 0;
+  width: min(328px, calc(100vw - 24px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  border: 1px solid var(--lab-line);
+  border-radius: 22px;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  padding: 0;
+  box-shadow: 0 10px 38px #0003;
+  z-index: 10020;
+  --focus-doodle: "♡";
 }
-.study-focus-launch > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.focus-dock::backdrop {
+  background: transparent;
 }
-:root[data-theme] .modal.study-focus-dialog.wide {
-  width: min(1180px, calc(100vw - 24px));
-  max-width: 1180px;
-  max-height: calc(100dvh - 24px);
-}
-.study-focus-dialog .study-focus-launch {
-  display: none;
-}
-.study-focus-panel [hidden] {
+.focus-dock[popover]:not(:popover-open),
+.focus-dock [hidden] {
   display: none !important;
 }
-.study-focus-panel {
-  --focus-doodle: "♡";
-  margin: 0 0 24px;
-  padding: clamp(18px, 3vw, 28px);
-  border: 1px solid var(--lab-line);
-  border-radius: 24px;
-  background: var(--lab-wash, var(--lab-soft));
-  color: var(--lab-ink);
+.focus-dock[data-fallback="true"] {
+  display: block !important;
 }
-:root[data-theme="meadow"] .study-focus-panel {
+:root[data-theme="meadow"] .focus-dock {
   --focus-doodle: "✿";
 }
-:root[data-theme="aurora"] .study-focus-panel {
+:root[data-theme="aurora"] .focus-dock {
   --focus-doodle: "✧";
 }
-.focus-welcome,
-.focus-actions {
+.focus-dock-panel {
+  padding: 16px;
+}
+.focus-dock-header {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
 }
-.focus-welcome > .science-diary-sticker {
-  width: 74px;
-  height: 74px;
+.focus-dock-header > .science-diary-sticker {
+  width: 36px;
+  height: 36px;
   flex-shrink: 0;
 }
-.focus-welcome h3 {
-  margin: 6px 0 8px;
-  font:
-    500 clamp(23px, 3vw, 30px)/1.25 "Fredoka",
-    sans-serif;
+.focus-dock-header > div {
+  flex: 1;
+  min-width: 0;
 }
-.focus-welcome p:not(.eyebrow),
-.focus-status {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--lab-ink);
+.focus-dock-title {
+  display: block;
+  font:
+    500 17px/1.3 "Fredoka",
+    sans-serif;
+  overflow-wrap: anywhere;
 }
 .focus-phase {
-  margin: 0;
-  font-size: 10px;
-  line-height: 1.7;
+  display: block;
+  font-size: 9px;
+  line-height: 1.6;
+  color: var(--lab-muted);
+  letter-spacing: 0.04em;
 }
-.focus-board {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: 22px;
-  margin: 20px 0;
-  border: 1px solid var(--lab-line);
-  border-radius: 28px;
-  background: var(--lab-soft);
-}
-.focus-doodles {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  align-items: center;
-  justify-items: center;
-  opacity: 0.24;
-  color: var(--lab-brand-deep);
-  font-size: 26px;
-  pointer-events: none;
-}
-.focus-doodles span::before {
-  content: var(--focus-doodle);
-}
-.focus-doodles span:nth-child(2n) {
-  transform: rotate(23deg);
-}
-.focus-doodles span:nth-child(3n) {
-  transform: rotate(-18deg);
-}
-.focus-timer-row {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(190px, 1fr);
-  align-items: stretch;
-  gap: 18px;
+.focus-dock .icon-button {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  min-width: 40px;
+  width: 40px;
+  min-height: 44px;
+  height: 44px;
+  padding: 4px;
+  font-size: 20px;
+  color: var(--lab-ink);
 }
 .focus-clock {
   position: relative;
   display: grid;
   place-items: center;
-  align-content: center;
-  gap: 12px;
-  min-width: 0;
-  min-height: 230px;
-  padding: 20px;
+  gap: 6px;
+  padding: 16px;
+  margin: 12px 0;
   border: 1px solid var(--lab-line);
-  border-radius: 30px 30px 36px 24px;
-  background: var(--lab-surface);
-  color: var(--lab-ink);
+  border-radius: 18px 22px 18px 24px;
+  background: var(--lab-soft);
 }
 .focus-time {
   font:
-    400 clamp(56px, 8vw, 104px)/1.1 "Fredoka",
+    400 48px/1.1 "Fredoka",
     sans-serif;
   font-variant-numeric: tabular-nums;
 }
-.focus-clock-label {
-  font-size: 12px;
-  color: var(--lab-muted);
-}
 .focus-clock-decoration {
   position: absolute;
-  top: 12px;
-  right: 18px;
+  top: 8px;
+  right: 12px;
   color: var(--lab-brand-deep);
-  font-size: 24px;
 }
 .focus-clock-decoration::before {
   content: var(--focus-doodle);
 }
 .focus-progress {
-  width: 75%;
-  height: 8px;
+  width: 82%;
+  height: 6px;
   accent-color: var(--lab-brand-deep);
 }
-.focus-rhythm {
-  min-width: 0;
-  padding: 20px 16px;
-  border: 1px solid var(--lab-line);
-  border-radius: 24px 20px 30px 24px;
-  background: var(--lab-surface);
+.focus-dock .field {
+  margin: 8px 0;
 }
-.focus-rhythm h4 {
-  margin: 0 0 16px;
-  font:
-    500 20px/1.3 "Fredoka",
-    sans-serif;
-}
-.focus-rhythm ol {
-  display: grid;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.focus-rhythm li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-  padding: 8px;
-  border: 1px solid transparent;
-  border-radius: 13px;
-}
-.focus-rhythm li[aria-current="step"] {
-  border-color: var(--lab-selected-line);
-  background: var(--lab-selected);
-  color: var(--lab-selected-ink);
-}
-.focus-rhythm strong {
-  display: block;
-  font-size: 14px;
-}
-.focus-rhythm small {
-  display: block;
-  margin-top: 4px;
-  font-size: 11px;
-  line-height: 1.6;
-}
-.focus-step-dot {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: var(--lab-soft);
+.focus-dock label {
+  font-size: 12px;
   color: var(--lab-ink);
+}
+.focus-dock select {
+  width: 100%;
+  min-height: 44px;
   font-size: 13px;
+  color: var(--lab-ink);
+  background: var(--lab-input);
+  border: 1px solid var(--lab-line);
+  border-radius: 12px;
+  padding: 8px;
 }
-.focus-controls {
-  min-width: 0;
-  margin-bottom: 20px;
-}
-.focus-controls .field {
-  max-width: 340px;
-  margin: 0;
+.focus-status {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--lab-muted);
+  margin: 10px 0;
 }
 .focus-actions {
+  display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 .focus-actions .button {
-  min-height: 46px;
-  font-size: 14px;
+  flex: 1 1 120px;
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: 12px;
 }
-.study-focus-panel > small {
+.focus-dock-panel > small {
   display: block;
+  margin-top: 10px;
+  color: var(--lab-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+.focus-dock[data-collapsed="true"] {
+  width: auto;
+  border-radius: 999px;
+}
+.focus-chip {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 6px;
+}
+.focus-expand {
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--lab-ink);
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.focus-expand > span,
+.study-focus-launch > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.study-focus-launch {
+  min-height: 44px;
+  font-size: 13px;
+  margin: 12px 0;
+}
+.has-study-focus .modal {
+  padding-bottom: 90px;
+  scroll-padding-bottom: 90px;
+}
+.has-study-focus #main {
+  padding-bottom: 80px;
+}
+.handbook-chapters {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 24px;
+}
+.handbook-chapters li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--lab-soft);
+  border: 1px solid var(--lab-line);
+  border-radius: 14px;
+}
+.handbook-chapters li > span {
   color: var(--lab-muted);
   font-size: 12px;
-  line-height: 1.7;
+  font-variant-numeric: tabular-nums;
+}
+.handbook-chapters .text-button {
+  flex: 1;
+  text-align: left;
+  min-height: 44px;
+  color: var(--lab-ink);
+}
+.handbook-pdf-preview summary {
+  min-height: 44px;
+  padding: 12px;
+  cursor: pointer;
+}
+.handbook-pdf-preview > p {
+  font-size: 13px;
+  line-height: 1.6;
 }
 @media (max-width: 600px) {
-  .focus-timer-row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
+  .focus-dock {
+    bottom: max(10px, env(safe-area-inset-bottom));
   }
-  .focus-clock {
-    min-height: 170px;
+  .focus-dock-panel {
+    padding: 14px;
   }
-  .focus-board {
-    padding: 12px;
-  }
-  .focus-rhythm {
-    padding: 16px 12px;
-  }
-  .focus-welcome {
-    align-items: start;
-    gap: 10px;
-  }
-  .focus-welcome > .science-diary-sticker {
-    width: 48px;
-    height: 48px;
-  }
-  .focus-actions .button {
-    width: 100%;
+}
+.study-pdf-reader {
+  display: block;
+  width: 100%;
+  height: min(68dvh, 680px);
+  border: 1px solid var(--lab-line);
+  border-radius: 16px;
+  background: var(--lab-bg);
+  margin: 14px 0;
+}
+@media print {
+  .focus-dock {
+    display: none !important;
   }
 }

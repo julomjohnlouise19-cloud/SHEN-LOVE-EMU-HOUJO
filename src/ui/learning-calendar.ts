@@ -1,12 +1,13 @@
 import {
   learningMonth,
+  learningWeek,
   shiftLearningMonth,
   LEARNING_DAY_GOAL,
 } from "../core/learning-calendar";
 import { validCalendarDate } from "../core/daily-calendar";
 import { addDays } from "../core/time";
 import { currentUser, getState, subscribe } from "../store";
-import { h, button, modal } from "./dom";
+import { h, button, modal, progress } from "./dom";
 import { icon } from "./svg";
 import { diarySticker } from "./diary-art";
 import { learningToday, watchLearningDay } from "./learning-day";
@@ -524,7 +525,7 @@ export function learningCalendar() {
 }
 export function learningCalendarButton() {
   return button(
-    h("span", null, icon("clock", 16), "My learning calendar"),
+    icon("calendar", 18),
     () => {
       const { dialog } = modal(
         "Your learning calendar",
@@ -533,6 +534,190 @@ export function learningCalendarButton() {
       );
       dialog.classList.add("learning-calendar-dialog");
     },
-    "button outline",
+    "icon-button learning-week-history",
+    { "aria-label": "Open learning history", title: "Open learning history" },
   );
+}
+
+export function learningWeekCard() {
+  for (const calendar of mountedCalendars)
+    if (!calendar.root.isConnected) mountedCalendars.delete(calendar);
+  const owner = currentUser()!.id;
+  let today = learningToday(),
+    anchor = today,
+    selected = today;
+  const heading = h("span", { class: "learning-week-range" });
+  const grid = h("div", {
+    class: "learning-week-grid",
+    "aria-label": "Choose a learning day",
+  });
+  const detail = h("div", { class: "learning-week-detail", role: "status" });
+  const earlier = button("‹", () => move(-7), "icon-button", {
+    "aria-label": "Previous learning week",
+  });
+  const later = button("›", () => move(7), "icon-button", {
+    "aria-label": "Next learning week",
+  });
+  const current = button(
+    heading,
+    () => {
+      anchor = selected = learningToday();
+      render();
+    },
+    "learning-week-today",
+    { "aria-label": "Show current learning week" },
+  );
+  const root = h(
+    "section",
+    { class: "learning-week", "aria-label": "Your learning this week" },
+    h(
+      "div",
+      { class: "learning-week-heading" },
+      diarySticker(1),
+      h("h2", null, "Your little week"),
+      h(
+        "a",
+        { href: "#/growth", class: "learning-week-growth" },
+        "My growth",
+        icon("arrow", 14),
+      ),
+      learningCalendarButton(),
+    ),
+    h("div", { class: "learning-week-navigation" }, earlier, current, later),
+    grid,
+    detail,
+  );
+  function ownedUser() {
+    const user = currentUser();
+    return user?.id === owner ? user : undefined;
+  }
+  function move(amount: number) {
+    anchor = addDays(anchor, amount);
+    if (anchor > today) anchor = today;
+    selected = anchor;
+    render();
+  }
+  function render() {
+    const user = ownedUser();
+    if (!user) {
+      root.replaceChildren();
+      return;
+    }
+    const focused =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement.dataset.weekDate
+        : undefined;
+    const days = learningWeek(user, anchor, today);
+    const earliest =
+      Object.keys(user.daily)
+        .filter((day) => validCalendarDate(day) && day <= today)
+        .sort()[0] ?? today;
+    earlier.disabled =
+      days[0].date <= learningWeek(user, earliest, today)[0].date;
+    later.disabled = days[0].date >= learningWeek(user, today, today)[0].date;
+    heading.textContent =
+      dateLabel(days[0].date, { month: "short", day: "numeric" }) +
+      " – " +
+      dateLabel(days[6].date, { month: "short", day: "numeric" });
+    if (!days.some((day) => day.date === selected && !day.future))
+      selected = days.find((day) => !day.future)!.date;
+    const active = days.find((day) => day.date === selected)!;
+    detail.replaceChildren(
+      h(
+        "p",
+        null,
+        dateLabel(selected, { month: "short", day: "numeric" }) +
+          " · " +
+          active.answers +
+          " answers · " +
+          active.correct +
+          " correct",
+      ),
+      progress(
+        Math.min(100, (active.answers / LEARNING_DAY_GOAL) * 100),
+        "Selected day’s eight-answer goal",
+      ),
+    );
+    grid.replaceChildren(
+      ...days.map((day) => {
+        const cell = button(
+          h(
+            "span",
+            null,
+            h("small", null, dateLabel(day.date, { weekday: "short" })),
+            h("strong", null, Number(day.date.slice(-2))),
+            h(
+              "i",
+              {
+                class: day.goalMet
+                  ? "week-goal-met"
+                  : day.answers
+                    ? "week-practised"
+                    : "",
+                "aria-hidden": true,
+              },
+              day.goalMet ? "✧" : "·",
+            ),
+          ),
+          () => {
+            selected = day.date;
+            render();
+          },
+          "learning-week-day",
+          {
+            "data-week-date": day.date,
+            disabled: day.future,
+            "aria-pressed": day.date === selected,
+            "aria-current": day.today ? "date" : undefined,
+            "aria-label":
+              dateLabel(day.date, {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              }) +
+              ": " +
+              (day.future
+                ? "upcoming"
+                : day.answers +
+                  " answers, " +
+                  day.correct +
+                  " correct" +
+                  (day.goalMet ? ", daily goal met" : "")),
+          },
+        );
+        cell.addEventListener("keydown", (event) => {
+          const delta =
+            event.key === "ArrowLeft" ? -1 : event.key === "ArrowRight" ? 1 : 0;
+          if (!delta) return;
+          const target = days[days.indexOf(day) + delta];
+          if (!target || target.future) return;
+          event.preventDefault();
+          selected = target.date;
+          render();
+          grid
+            .querySelector<HTMLElement>('[data-week-date="' + selected + '"]')
+            ?.focus();
+        });
+        return cell;
+      }),
+    );
+    if (focused)
+      grid
+        .querySelector<HTMLElement>('[data-week-date="' + focused + '"]')
+        ?.focus({ preventScroll: true });
+  }
+  render();
+  requestAnimationFrame(() => {
+    const user = ownedUser();
+    if (root.isConnected && user)
+      mountedCalendars.add({ root, owner, daily: user.daily, refresh: render });
+  });
+  watchLearningDay(root, () => {
+    const oldToday = today;
+    today = learningToday();
+    if (selected === oldToday) anchor = selected = today;
+    render();
+  });
+  return root;
 }

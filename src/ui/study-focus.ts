@@ -5,326 +5,404 @@ import {
   toggleFocusTimer,
   finishFocusStudy,
   startFocusBreak,
+  type FocusTimer,
 } from "../core/focus-timer";
 import { deckById } from "../data/catalog";
-import { currentUser } from "../store";
+import { currentUser, subscribe } from "../store";
 import { soundEnabled } from "../store/experience";
 import { activitySound } from "./activity-audio";
 import { diarySticker } from "./diary-art";
 import { h, button, field } from "./dom";
-import { modal } from "./dom";
 import { icon } from "./svg";
+import { go } from "./actions";
 
-export function studyFocusButton(
-  content: HTMLElement,
-  title: string,
-  deckId: string,
-  leaveStudy?: () => void,
-) {
+interface FocusSession {
+  owner: string;
+  title: string;
+  deckId?: string;
+  minutes: number;
+  timer: FocusTimer;
+  collapsed: boolean;
+}
+let session: FocusSession | undefined;
+let dock: HTMLElement | undefined;
+let interval: number | undefined;
+let paint: (() => void) | undefined;
+let launcher: HTMLElement | undefined;
+
+function hideDockPopover() {
+  if (
+    dock &&
+    typeof dock.hidePopover === "function" &&
+    dock.matches(":popover-open")
+  )
+    dock.hidePopover();
+}
+function endFocus() {
+  session = undefined;
+  document.documentElement.classList.remove("has-study-focus");
+  if (interval !== undefined) clearInterval(interval);
+  interval = undefined;
+  hideDockPopover();
+  dock?.remove();
+  dock = undefined;
+  paint = undefined;
+}
+function syncDockHost() {
+  if (!session || !dock) return;
+  if (currentUser()?.id !== session.owner) {
+    endFocus();
+    return;
+  }
+  const host =
+    [...document.querySelectorAll<HTMLDialogElement>("dialog[open]")].at(-1) ??
+    document.body;
+  if (dock.parentElement !== host) {
+    hideDockPopover();
+    host.append(dock);
+  }
+  if (typeof dock.showPopover === "function") {
+    if (!dock.matches(":popover-open")) dock.showPopover();
+  } else dock.dataset.fallback = "true";
+}
+function isStudyDialog(dialog: HTMLDialogElement) {
+  return (
+    !!dialog.querySelector(".study-focus-launch") ||
+    dialog.matches(
+      ".study-guide-dialog, .illustration-dialog, .study-video-dialog, .element-guide-dialog, .study-pdf-dialog",
+    )
+  );
+}
+export function studyFocusButton(title: string, deckId?: string) {
   const launch = button(
-    h("span", null, icon("clock", 18), "Focus & practise"),
-    open,
+    h("span", null, icon("clock", 17), "Focus & practise"),
+    () => {
+      launcher = launch;
+      if (session?.owner !== currentUser()?.id) endFocus();
+      if (session) {
+        session.title = title;
+        session.deckId = deckId;
+        session.collapsed = session.timer.startedAt !== null;
+      } else {
+        const owner = currentUser()?.id;
+        if (!owner) return;
+        session = {
+          owner,
+          title,
+          deckId,
+          minutes: 25,
+          timer: createFocusTimer(),
+          collapsed: false,
+        };
+        createDock();
+      }
+      syncDockHost();
+      paint?.();
+    },
     "button outline study-focus-launch",
     { "aria-label": "Focus & practise: " + title },
   );
-  function open() {
-    const owner = currentUser()?.id;
-    const deck = deckById(deckId);
-    if (!owner || !deck || !content.isConnected) return;
-    const marker = document.createComment("study position");
-    content.before(marker);
-    let timer = createFocusTimer(),
-      disposed = false;
-    const duration = h(
-      "select",
-      { "aria-label": "Focus study duration" },
-      ...[5, 15, 25, 50].map((minutes) =>
-        h(
-          "option",
-          { value: minutes, selected: minutes === 25 },
-          minutes + " min study · " + (minutes === 50 ? 10 : 5) + " min break",
-        ),
+  return launch;
+}
+function createDock() {
+  document.documentElement.classList.add("has-study-focus");
+  const title = h("strong", { class: "focus-dock-title" });
+  const phase = h("span", { class: "focus-phase" });
+  const digits = h("strong", {
+    class: "focus-time",
+    role: "timer",
+    "aria-live": "off",
+  });
+  const status = h("p", { class: "focus-status", role: "status" });
+  const meter = h("progress", {
+    class: "focus-progress",
+    max: 100,
+    value: 0,
+    "aria-label": "Focus session progress",
+  });
+  const duration = h(
+    "select",
+    { "aria-label": "Study duration" },
+    ...[5, 15, 25, 50].map((minutes) =>
+      h(
+        "option",
+        { value: minutes, selected: minutes === 25 },
+        minutes + " min focus · " + (minutes === 50 ? 10 : 5) + " min break",
       ),
-    );
-    const digits = h("strong", {
-      class: "focus-time",
-      role: "timer",
-      "aria-live": "off",
-    });
-    const status = h("p", { class: "focus-status", role: "status" });
-    const phase = h("p", { class: "eyebrow focus-phase" });
-    const meter = h("progress", {
-      class: "focus-progress",
-      max: 100,
-      value: 0,
-      "aria-label": "Focus session progress",
-    });
-    const clockLabel = h(
-      "span",
-      { class: "focus-clock-label" },
-      "a little focus time",
-    );
-    const ring = h(
+    ),
+  );
+  const start = button(
+    "Start focus",
+    () => {
+      if (!session) return;
+      session.timer = toggleFocusTimer(session.timer, performance.now());
+      if (session.timer.startedAt !== null) session.collapsed = true;
+      paint?.();
+    },
+    "button primary focus-start",
+  );
+  const finish = button(
+    "Finish studying",
+    () => {
+      if (!session) return;
+      session.timer = finishFocusStudy(session.timer);
+      session.collapsed = false;
+      paint?.();
+    },
+    "button outline focus-finish",
+  );
+  const rest = button(
+    "Take a 5-minute break",
+    () => {
+      if (!session) return;
+      session.timer = startFocusBreak(
+        session.timer,
+        performance.now(),
+        session.minutes === 50 ? 10 : 5,
+      );
+      session.collapsed = true;
+      paint?.();
+    },
+    "button outline focus-break",
+  );
+  const quiz = button(
+    "Choose a quiz",
+    async () => {
+      const current = session;
+      if (!current?.timer.studyDone || currentUser()?.id !== current.owner)
+        return;
+      const dialogs = [
+        ...document.querySelectorAll<HTMLDialogElement>("dialog[open]"),
+      ];
+      if (dialogs.some((dialog) => !isStudyDialog(dialog))) {
+        status.textContent = "Close this panel to open your quiz.";
+        return;
+      }
+      const route = location.hash;
+      endFocus();
+      const closed = dialogs.map(
+        (dialog) =>
+          new Promise<void>((resolve) => {
+            dialog.addEventListener("close", () => resolve(), { once: true });
+            dialog.close();
+          }),
+      );
+      await Promise.all(closed);
+      await new Promise<void>((resolve) =>
+        requestAnimationFrame(() => resolve()),
+      );
+      if (currentUser()?.id !== current.owner || location.hash !== route)
+        return;
+      if (current.deckId) (await import("./learn")).openDeck(current.deckId);
+      else go("/island");
+    },
+    "button primary focus-quiz",
+  );
+  const minimize = button(
+    "⌄",
+    () => {
+      if (session) session.collapsed = true;
+      paint?.();
+    },
+    "icon-button",
+    { "aria-label": "Minimize focus timer" },
+  );
+  const stop = () => {
+    endFocus();
+    if (launcher?.isConnected && !launcher.closest("[inert]"))
+      launcher.focus({ preventScroll: true });
+  };
+  const expanded = h(
+    "div",
+    { class: "focus-dock-panel" },
+    h(
+      "header",
+      { class: "focus-dock-header" },
+      diarySticker(2),
+      h("div", null, phase, title),
+      minimize,
+      button("×", stop, "icon-button", { "aria-label": "End focus session" }),
+    ),
+    h(
       "div",
       { class: "focus-clock" },
       h("span", { class: "focus-clock-decoration", "aria-hidden": true }),
-      clockLabel,
       digits,
       meter,
-    );
-    const studyLabel = h("strong");
-    const breakLabel = h("strong");
-    const studyStep = h(
-      "li",
+    ),
+    field("Study duration", duration),
+    status,
+    h("div", { class: "focus-actions" }, start, finish, rest, quiz),
+    h(
+      "small",
       null,
-      h("span", { class: "focus-step-dot", "aria-hidden": true }, "1"),
-      h("div", null, studyLabel, h("small", null, "Explore & understand")),
-    );
-    const breakStep = h(
-      "li",
-      null,
-      h("span", { class: "focus-step-dot", "aria-hidden": true }, "2"),
-      h("div", null, breakLabel, h("small", null, "Optional little breather")),
-    );
-    const quizStep = h(
-      "li",
-      null,
-      h("span", { class: "focus-step-dot", "aria-hidden": true }, "3"),
-      h(
-        "div",
-        null,
-        h("strong", null, "Your topic quiz"),
-        h("small", null, deck.name),
-      ),
-    );
-    const rhythm = h(
-      "aside",
-      { class: "focus-rhythm", "aria-label": "Your study session plan" },
-      h("h4", null, "Your little rhythm"),
-      h("ol", null, studyStep, breakStep, quizStep),
-    );
-    const start = button(
-      "Start focus",
-      () => {
-        timer = toggleFocusTimer(timer, performance.now());
-        draw();
-      },
-      "button primary",
-    );
-    const finish = button(
-      "Finish studying",
-      () => {
-        timer = finishFocusStudy(timer);
-        draw();
-      },
-      "button outline",
-    );
-    const rest = button(
-      "Take a 5-minute break",
-      () => {
-        timer = startFocusBreak(
-          timer,
-          performance.now(),
-          Number(duration.value) === 50 ? 10 : 5,
-        );
-        draw();
-      },
-      "button outline",
-    );
-    const quiz = button(
-      "Quiz: " + deck.name,
-      async () => {
-        if (!timer.studyDone || currentUser()?.id !== owner) return;
-        const route = location.hash;
-        const dismissed = new Promise<void>((resolve) => {
-          dialog.addEventListener(
-            "close",
-            () => requestAnimationFrame(() => resolve()),
-            { once: true },
-          );
-        });
-        close();
-        restore();
-        leaveStudy?.();
-        await dismissed;
-        const { openDeck } = await import("./learn");
-        if (
-          currentUser()?.id === owner &&
-          location.hash === route &&
-          !document.querySelector("dialog[open]")
-        )
-          openDeck(deckId);
-      },
-      "button primary focus-quiz",
-    );
-    const panel = h(
-      "section",
-      { class: "study-focus-panel", "aria-label": "Study focus timer" },
-      h(
-        "div",
-        { class: "focus-welcome" },
-        diarySticker(2),
-        h(
-          "div",
-          null,
-          phase,
-          h("h3", null, "A little time. A bright idea."),
-          h(
-            "p",
-            null,
-            "Explore the model, recall what you learned, then try " +
-              deck.name +
-              ".",
-          ),
-        ),
-      ),
-      h(
-        "div",
-        { class: "focus-board" },
-        h(
-          "div",
-          { class: "focus-doodles", "aria-hidden": true },
-          ...Array.from({ length: 18 }, () => h("span")),
-        ),
-        h("div", { class: "focus-timer-row" }, ring, rhythm),
-      ),
-      h(
-        "div",
-        { class: "focus-controls" },
-        field("Study for", duration),
-        status,
-        h("div", { class: "focus-actions" }, start, finish, rest, quiz),
-      ),
-      h(
-        "small",
-        null,
-        "Study → optional breather → topic quiz. Closing the focus room ends the timer. Learning progress comes from quiz answers.",
-      ),
-    );
-    const { dialog, close } = modal(
-      "Focus room · " + title,
-      [panel, content],
-      true,
-      launch,
-    );
-    dialog.classList.add("study-focus-dialog");
-    function draw() {
-      if (disposed) return;
-      if (currentUser()?.id !== owner || !dialog.open) {
-        close();
-        restore();
-        return;
-      }
-      const previous = timer;
-      timer = updateFocusTimer(timer, performance.now());
-      if (previous !== timer && !document.hidden && soundEnabled(owner!))
+      "Keep studying while your timer runs. Only quiz answers earn progress.",
+    ),
+  );
+  const miniText = h("span");
+  const expand = button(
+    h("span", null, icon("clock", 16), miniText),
+    () => {
+      if (session) session.collapsed = false;
+      paint?.();
+    },
+    "focus-expand",
+    { "aria-label": "Expand focus timer" },
+  );
+  const miniPause = button(
+    "Ⅱ",
+    () => {
+      if (session)
+        session.timer = toggleFocusTimer(session.timer, performance.now());
+      paint?.();
+    },
+    "icon-button",
+    { "aria-label": "Pause timer" },
+  );
+  const chip = h(
+    "div",
+    { class: "focus-chip" },
+    expand,
+    miniPause,
+    button("×", stop, "icon-button", { "aria-label": "End focus session" }),
+  );
+  dock = h(
+    "section",
+    {
+      class: "focus-dock",
+      popover: "manual",
+      "aria-label": "Study focus timer",
+    },
+    expanded,
+    chip,
+  );
+  dock.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      event.stopPropagation();
+      if (session) session.collapsed = true;
+      paint?.();
+      expand.focus();
+    }
+  });
+  duration.addEventListener("change", () => {
+    if (!session) return;
+    session.minutes = Number(duration.value);
+    session.timer = createFocusTimer(session.minutes);
+    paint?.();
+  });
+  paint = () => {
+    const current = session;
+    if (!current || currentUser()?.id !== current.owner) {
+      endFocus();
+      return;
+    }
+    const previous = current.timer;
+    current.timer = updateFocusTimer(current.timer, performance.now());
+    if (previous !== current.timer) {
+      current.collapsed = false;
+      if (!document.hidden && soundEnabled(current.owner))
         void activitySound("complete");
-      const seconds = Math.ceil(
-        focusRemaining(timer, performance.now()) / 1000,
-      );
-      digits.textContent =
-        Math.floor(seconds / 60)
-          .toString()
-          .padStart(2, "0") +
-        ":" +
-        (seconds % 60).toString().padStart(2, "0");
-      ring.setAttribute(
-        "aria-label",
-        `${timer.phase === "study" ? "Study" : "Break"}: ${Math.floor(seconds / 60)} minutes ${seconds % 60} seconds remaining`,
-      );
-      const complete = seconds === 0;
-      const studyMinutes = Number(duration.value);
-      const breakMinutes = studyMinutes === 50 ? 10 : 5;
-      studyLabel.textContent = studyMinutes + " min focus";
-      breakLabel.textContent = breakMinutes + " min break";
-      rest.textContent = "Take a " + breakMinutes + "-minute break";
-      clockLabel.textContent =
-        timer.phase === "study"
-          ? "a little focus time"
-          : "a little time to recharge";
-      meter.value = Math.max(
-        0,
-        100 -
-          (seconds /
-            ((timer.phase === "study" ? studyMinutes : breakMinutes) * 60)) *
-            100,
-      );
-      const currentStep =
-        timer.phase === "break" && !complete
-          ? breakStep
-          : timer.studyDone
-            ? quizStep
-            : studyStep;
-      for (const step of [studyStep, breakStep, quizStep]) {
-        if (step === currentStep) step.setAttribute("aria-current", "step");
-        else step.removeAttribute("aria-current");
-      }
-      phase.textContent =
-        timer.phase === "break"
-          ? "A LITTLE BREATHER"
-          : "YOUR QUIET SCIENCE CORNER";
-      const message = complete
-        ? timer.phase === "break"
-          ? "Break finished. Ready for your topic quiz?"
-          : "Study finished. Take a breath, then try your topic quiz."
-        : timer.startedAt !== null
-          ? timer.phase === "study"
-            ? "Focus time. Follow your curiosity."
-            : "Rest your eyes and stretch a little."
-          : seconds === Number(duration.value) * 60
-            ? "Choose your study time, then press Start focus."
-            : "Paused. Your study page stays here.";
-      if (status.textContent !== message) status.textContent = message;
-      start.textContent =
-        timer.startedAt !== null
-          ? "Pause timer"
-          : seconds !== Number(duration.value) * 60 && !complete
-            ? "Resume timer"
-            : "Start focus";
-      start.disabled = complete;
-      duration.disabled =
-        timer.studyDone ||
-        timer.startedAt !== null ||
-        seconds !== Number(duration.value) * 60;
-      finish.hidden = timer.studyDone;
-      rest.hidden = !timer.studyDone || timer.phase === "break";
-      quiz.hidden = !timer.studyDone;
     }
-    function restore() {
-      if (disposed) return;
-      disposed = true;
-      clearInterval(ticking);
-      document.removeEventListener("visibilitychange", draw);
-      window.removeEventListener("hashchange", leave);
-      if (marker.parentNode && currentUser()?.id === owner)
-        marker.replaceWith(content);
-      else marker.remove();
-      requestAnimationFrame(() => {
-        const top = [
-          ...document.querySelectorAll<HTMLDialogElement>("dialog[open]"),
-        ].at(-1);
-        if (
-          currentUser()?.id === owner &&
-          launch.isConnected &&
-          (!top || top.contains(launch))
-        )
-          launch.focus({ preventScroll: true });
-      });
-    }
-    function leave() {
-      close();
-      restore();
-      leaveStudy?.();
-    }
-    duration.addEventListener("change", () => {
-      timer = createFocusTimer(Number(duration.value));
-      draw();
-    });
-    const ticking = window.setInterval(draw, 250);
-    dialog.addEventListener("close", restore, { once: true });
-    window.addEventListener("hashchange", leave);
-    document.addEventListener("visibilitychange", draw);
-    draw();
-  }
-  return launch;
+    const seconds = Math.ceil(
+      focusRemaining(current.timer, performance.now()) / 1000,
+    );
+    const text =
+      Math.floor(seconds / 60)
+        .toString()
+        .padStart(2, "0") +
+      ":" +
+      (seconds % 60).toString().padStart(2, "0");
+    if (digits.textContent !== text) digits.textContent = text;
+    miniText.textContent =
+      text + (current.timer.phase === "break" ? " · break" : " · focus");
+    title.textContent = current.title;
+    phase.textContent =
+      current.timer.phase === "break"
+        ? "A LITTLE BREATHER"
+        : "YOUR FOCUS CORNER";
+    duration.value = String(current.minutes);
+    const complete = seconds === 0;
+    const running = current.timer.startedAt !== null;
+    expand.setAttribute(
+      "aria-label",
+      "Expand focus timer: " +
+        current.title +
+        ", " +
+        text +
+        (current.timer.phase === "break" ? " break" : " focus") +
+        (running ? " remaining" : " paused"),
+    );
+    const initial =
+      !running && !current.timer.studyDone && seconds === current.minutes * 60;
+    duration.disabled = !initial;
+    start.textContent = running
+      ? "Pause timer"
+      : initial
+        ? "Start focus"
+        : "Resume timer";
+    start.disabled = complete;
+    start.hidden = complete;
+    finish.hidden = current.timer.studyDone;
+    rest.hidden = !current.timer.studyDone || current.timer.phase === "break";
+    rest.textContent =
+      "Take a " + (current.minutes === 50 ? 10 : 5) + "-minute break";
+    quiz.hidden = !current.timer.studyDone;
+    quiz.textContent = current.deckId
+      ? "Quiz: " + deckById(current.deckId)!.name
+      : "Choose a topic quiz";
+    miniPause.disabled = complete;
+    miniPause.textContent = running ? "Ⅱ" : "▷";
+    miniPause.setAttribute(
+      "aria-label",
+      running ? "Pause timer" : "Resume timer",
+    );
+    const message = complete
+      ? current.timer.phase === "study"
+        ? "Study finished. Ready for a little quiz?"
+        : "Break finished. Ready for your quiz?"
+      : running
+        ? "Your timer keeps running across study resources."
+        : initial
+          ? "Choose your time, then start."
+          : "Paused. Your remaining time is saved here.";
+    if (status.textContent !== message) status.textContent = message;
+    meter.value = Math.max(
+      0,
+      100 -
+        (seconds /
+          ((current.timer.phase === "study"
+            ? current.minutes
+            : current.minutes === 50
+              ? 10
+              : 5) *
+            60)) *
+          100,
+    );
+    const active = document.activeElement;
+    const moveToChip = current.collapsed && expanded.contains(active);
+    const moveToPanel = !current.collapsed && chip.contains(active);
+    expanded.hidden = current.collapsed;
+    chip.hidden = !current.collapsed;
+    dock!.dataset.collapsed = String(current.collapsed);
+    if (moveToChip) expand.focus({ preventScroll: true });
+    if (moveToPanel)
+      (start.hidden ? quiz : start).focus({ preventScroll: true });
+  };
+  interval = window.setInterval(() => {
+    syncDockHost();
+    paint?.();
+  }, 1000);
+  syncDockHost();
+  paint();
 }
+window.addEventListener("csl:dialogs-changed", syncDockHost);
+window.addEventListener("hashchange", syncDockHost);
+window.addEventListener("pagehide", endFocus);
+document.addEventListener("visibilitychange", () => {
+  syncDockHost();
+  paint?.();
+});
+subscribe(() => {
+  if (session && currentUser()?.id !== session.owner) endFocus();
+});

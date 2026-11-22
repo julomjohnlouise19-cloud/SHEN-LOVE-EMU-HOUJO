@@ -7,6 +7,98 @@ import {
   visitRenderedRoute,
 } from "./interface-helpers";
 
+test("opening nested study panels preserves the saved palette and page background", async ({
+  page,
+}) => {
+  test.setTimeout(180000);
+  await exploreAsGuest(page, "/#/sources");
+  for (const mode of ["light", "dark"] as const) {
+    await displayMode(page, mode);
+    for (const theme of ["Aurora", "Sunset", "Meadow"]) {
+      await page
+        .getByRole("button", { name: "Open scientist profile", exact: true })
+        .click();
+      await page
+        .getByRole("button", { name: "Appearance", exact: true })
+        .click();
+      await page
+        .getByRole("button", {
+          name: "Choose " + theme + " colors",
+          exact: true,
+        })
+        .click();
+      await expect(page.locator(".palette-status")).toContainText("Saved");
+      await page.keyboard.press("Escape");
+      const background = await page.evaluate(() => {
+        const style = getComputedStyle(document.body);
+        return [style.backgroundColor, style.backgroundImage];
+      });
+      await page
+        .getByRole("button", { name: "Read Cells study guide", exact: true })
+        .click();
+      await page
+        .getByRole("link", {
+          name: "Open Life Science study handbook PDF",
+          exact: true,
+        })
+        .click();
+      const panels = await page.locator("dialog[open]").evaluateAll((dialogs) =>
+        dialogs.map((dialog) => {
+          const surface = document.createElement("span");
+          surface.style.backgroundColor = "var(--lab-surface)";
+          dialog.append(surface);
+          const expected = getComputedStyle(surface).backgroundColor;
+          surface.remove();
+          return {
+            actual: getComputedStyle(dialog).backgroundColor,
+            expected,
+            backdrop: getComputedStyle(dialog, "::backdrop").backgroundColor,
+          };
+        }),
+      );
+      expect(panels).toHaveLength(2);
+      for (const panel of panels) {
+        expect(panel.actual).toBe(panel.expected);
+        expect(panel.backdrop).toBe("rgba(0, 0, 0, 0)");
+      }
+      expect(
+        await page.evaluate(() => {
+          const style = getComputedStyle(document.body);
+          return [style.backgroundColor, style.backgroundImage];
+        }),
+      ).toEqual(background);
+      await expect(page.locator("html")).toHaveAttribute(
+        "data-theme",
+        theme.toLowerCase(),
+      );
+      await expect(page.locator("html")).toHaveAttribute(
+        "data-color-mode",
+        mode,
+      );
+      await page
+        .getByRole("dialog", {
+          name: "Life Science · study handbook",
+          exact: true,
+        })
+        .getByRole("button", { name: "Close and return to page", exact: true })
+        .click();
+      await page
+        .getByRole("dialog", { name: "Cells · study notes", exact: true })
+        .getByRole("button", { name: "Close and return to page", exact: true })
+        .click();
+      await page.reload();
+      await expect(page.locator("html")).toHaveAttribute(
+        "data-theme",
+        theme.toLowerCase(),
+      );
+      await expect(page.locator("html")).toHaveAttribute(
+        "data-color-mode",
+        mode,
+      );
+    }
+  }
+});
+
 test("each color story applies immediately across learning screens in light and dark and survives reload", async ({
   page,
 }) => {

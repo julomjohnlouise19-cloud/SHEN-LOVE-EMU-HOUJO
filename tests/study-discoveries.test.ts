@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   learningMonth,
+  learningWeek,
   shiftLearningMonth,
   vocabularyCollection,
   vocabularyForDay,
@@ -27,17 +28,84 @@ const daily = (answers: number, correct: number): User["daily"][string] => ({
   quests: [],
   challenge: false,
 });
+describe("Compact weekly learning", () => {
+  it("keeps a Monday-first week across a year boundary and ignores future records", () => {
+    const user = {
+      daily: {
+        "2026-12-31": daily(8, 7),
+        "2027-01-01": daily(2, 1),
+        "2027-01-02": daily(99, 99),
+      },
+    };
+    const week = learningWeek(user, "2027-01-01", "2027-01-01");
+    expect(week.map((day) => day.date)).toEqual([
+      "2026-12-28",
+      "2026-12-29",
+      "2026-12-30",
+      "2026-12-31",
+      "2027-01-01",
+      "2027-01-02",
+      "2027-01-03",
+    ]);
+    expect(week[3]).toMatchObject({ answers: 8, correct: 7, goalMet: true });
+    expect(week[4].today).toBe(true);
+    expect(week[5]).toMatchObject({
+      future: true,
+      answers: 0,
+      correct: 0,
+      goalMet: false,
+    });
+  });
+  it("retains leap-day learning and rejects invalid dates without changing stored records", () => {
+    const user = { daily: { "2028-02-29": daily(5, 4) } };
+    const before = JSON.stringify(user);
+    expect(
+      learningWeek(user, "2028-03-01", "2028-03-01").find(
+        (day) => day.date === "2028-02-29",
+      ),
+    ).toMatchObject({ answers: 5, correct: 4 });
+    expect(() => learningWeek(user, "2027-02-29", "2027-03-01")).toThrow();
+    expect(JSON.stringify(user)).toBe(before);
+  });
+});
 describe("Study Room collection", () => {
-  it("keeps all 23 supplied videos with related notes, references and only an allowed embed destination", () => {
-    expect(scienceVideos).toHaveLength(23);
-    expect(new Set(scienceVideos.map((video) => video.id)).size).toBe(23);
+  it("offers ten distinct videos per category, retains supplied links and uses safe related notes and destinations", () => {
+    expect(scienceVideos).toHaveLength(50);
+    expect(new Set(scienceVideos.map((video) => video.id)).size).toBe(50);
     expect(
       videoCategories.map(
         (category) =>
           scienceVideos.filter((video) => video.category === category.id)
             .length,
       ),
-    ).toEqual([7, 4, 7, 3, 2]);
+    ).toEqual([10, 10, 10, 10, 10]);
+    const supplied = [
+      "ex0x-w00Uy4",
+      "AHQGNb0zBgg",
+      "URUJD5NEXC8",
+      "tZE_fQFK8EY",
+      "W55-QiHCYGA",
+      "jpO52VTHecQ",
+      "00jbG_cfGuQ",
+      "x49BtB5dOwg",
+      "36nlbUdRvUM",
+      "AVVDP_XJHkA",
+      "sw-wtIpxku0",
+      "5-2NLHB4Gxg",
+      "JvSClZ3vHOI",
+      "CVsdXKO9xlk",
+      "s94suB5uLWw",
+      "U78NOo-oxOY",
+      "ZihywtixUYo",
+      "EGqpLug-sDk",
+      "CXkC8BdQmp0",
+      "PFzTZJHKkZE",
+      "l64YwNl1wr0",
+      "oz-Y1Xzx5iQ",
+      "IgFcU02FpM4",
+    ];
+    for (const id of supplied)
+      expect(scienceVideos.some((video) => video.id === id)).toBe(true);
     for (const video of scienceVideos) {
       expect(video.id).toMatch(/^[A-Za-z0-9_-]{11}$/);
       expect(deckById(video.deckId)).toBeTruthy();
@@ -70,7 +138,7 @@ describe("Study Room collection", () => {
       "ZihywtixUYo",
     ]);
     expect(findScienceVideos("not-a-science-topic")).toEqual([]);
-    expect(findScienceVideos()).toHaveLength(23);
+    expect(findScienceVideos()).toHaveLength(50);
   });
 });
 describe("dated learning", () => {

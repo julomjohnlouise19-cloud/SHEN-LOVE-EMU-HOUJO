@@ -11,7 +11,8 @@ export const getColorMode = (id: string): ColorMode => modes.get(id) ?? "light";
 function applyMode(id: string, mode: ColorMode) {
   modes.set(id, mode);
   if (currentUser()?.id !== id) return;
-  document.documentElement.dataset.colorMode = mode;
+  if (document.documentElement.dataset.colorMode !== mode)
+    document.documentElement.dataset.colorMode = mode;
   void adapter
     .transaction([deviceKey], (tx) => {
       if (currentUser()?.id === id && tx.get(deviceKey) !== mode)

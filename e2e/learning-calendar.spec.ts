@@ -58,6 +58,80 @@ async function progressSnapshot(page: Page) {
   });
 }
 
+test("the compact weekly calendar crosses the year, keeps real history and supports keyboard day selection", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2027-01-01T04:00:00Z"));
+  await exploreAsGuest(page);
+  await seedDiary(page, {
+    "2026-12-25": [5, 3],
+    "2026-12-31": [8, 7],
+    "2027-01-01": [2, 1],
+    "2027-01-02": [99, 99],
+  });
+  const before = await progressSnapshot(page);
+  const week = page.getByRole("region", {
+    name: "Your learning this week",
+    exact: true,
+  });
+  await expect(week.locator("[data-week-date]")).toHaveCount(7);
+  await expect(week.locator(".learning-week-range")).toHaveText(
+    "Dec 28 – Jan 3",
+  );
+  await expect(week.locator('[data-week-date="2027-01-02"]')).toBeDisabled();
+  await expect(
+    week.locator('[data-week-date="2027-01-02"] .week-goal-met'),
+  ).toHaveCount(0);
+  const lastYear = week.locator('[data-week-date="2026-12-31"]');
+  await lastYear.click();
+  await expect(lastYear).toHaveAttribute("aria-pressed", "true");
+  await expect(week.locator(".learning-week-detail")).toContainText(
+    "8 answers · 7 correct",
+  );
+  await expect(lastYear.locator(".week-goal-met")).toHaveCount(1);
+  await lastYear.press("ArrowRight");
+  await expect(week.locator('[data-week-date="2027-01-01"]')).toBeFocused();
+  await expect(week.locator(".learning-week-detail")).toContainText(
+    "2 answers · 1 correct",
+  );
+  await week
+    .getByRole("button", { name: "Previous learning week", exact: true })
+    .click();
+  await expect(week.locator(".learning-week-range")).toHaveText(
+    "Dec 21 – Dec 27",
+  );
+  await week.locator('[data-week-date="2026-12-25"]').click();
+  await expect(week.locator(".learning-week-detail")).toContainText(
+    "5 answers · 3 correct",
+  );
+  await expect(
+    week.getByRole("button", { name: "Previous learning week", exact: true }),
+  ).toBeDisabled();
+  await week
+    .getByRole("button", { name: "Show current learning week", exact: true })
+    .click();
+  await expect(week.locator('[data-week-date="2027-01-01"]')).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await page.setViewportSize({ width: 320, height: 844 });
+  await boundedPage(page);
+  const bounds = (await week.boundingBox())!;
+  expect(bounds.height).toBeLessThan(290);
+  expect(bounds.width).toBeLessThanOrEqual(320);
+  await week.screenshot({ path: "/tmp/cozy-mini-week-320.png" });
+  await week
+    .getByRole("button", { name: "Open learning history", exact: true })
+    .click();
+  await expect(
+    page
+      .getByRole("region", { name: "Learning progress calendar", exact: true })
+      .locator(".learning-calendar-summary"),
+  ).toContainText("2 answers");
+  await page.keyboard.press("Escape");
+  expect(await progressSnapshot(page)).toEqual(before);
+});
+
 test("the learning diary browses real practice, validates months and opens useful study actions without awarding progress", async ({
   page,
   context,
@@ -73,7 +147,7 @@ test("the learning diary browses real practice, validates months and opens usefu
   });
   const before = await progressSnapshot(page);
   await page
-    .getByRole("button", { name: "My learning calendar", exact: true })
+    .getByRole("button", { name: "Open learning history", exact: true })
     .click();
   const calendar = page.getByRole("region", {
     name: "Learning progress calendar",
@@ -226,7 +300,7 @@ test("the diary keeps leap-day keyboard navigation, midnight rollover and cute p
     "2024-03-01": [2, 1],
   });
   await page
-    .getByRole("button", { name: "My learning calendar", exact: true })
+    .getByRole("button", { name: "Open learning history", exact: true })
     .click();
   const calendar = page.getByRole("region", {
     name: "Learning progress calendar",
@@ -324,6 +398,6 @@ test("the diary keeps leap-day keyboard navigation, midnight rollover and cute p
   ).toHaveCount(1);
   await page.keyboard.press("Escape");
   await expect(
-    page.getByRole("button", { name: "My learning calendar", exact: true }),
+    page.getByRole("button", { name: "Open learning history", exact: true }),
   ).toBeFocused();
 });

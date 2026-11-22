@@ -1,8 +1,4 @@
 /* Shared palette tokens keep every discovery readable in all six color stories. */
-.study-wonders-shelf {
-  max-width: 880px;
-  margin: 24px auto;
-}
 .reading-library-intro {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
@@ -74,6 +70,17 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+.video-category-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 24px;
+  padding: 2px 5px;
+  border-radius: 999px;
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+  font-size: 11px;
+  line-height: 1.4;
 }
 .video-category-chips [aria-pressed="true"],
 .saved-update-filters [aria-pressed="true"] {

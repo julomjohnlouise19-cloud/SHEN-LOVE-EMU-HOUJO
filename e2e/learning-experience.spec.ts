@@ -207,7 +207,7 @@ test.describe("budget Android emulation", () => {
       page.getByRole("button", { name: "Log out", exact: true }),
     ).toBeVisible({ timeout: 30000 });
     await page
-      .getByRole("link", { name: "Visit my growth garden", exact: true })
+      .getByRole("link", { name: "My growth", exact: true })
       .tap();
     await expect(page.locator(".growth-hero h2")).toHaveText(
       "Curious Seedling",

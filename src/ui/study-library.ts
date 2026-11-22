@@ -7,6 +7,79 @@ import { illustrationPreview, illustrationExplorer } from "./science-figures";
 import { figureById } from "../data/science-figures";
 import { icon } from "./svg";
 import { HANDBOOK_EDITION } from "../data/handbook-edition";
+import { studyFocusButton } from "./study-focus";
+
+function openHandbook(branchId: string, href: string) {
+  const branch = branches.find((value) => value.id === branchId)!;
+  const { dialog } = modal(
+    branch.name + " · study handbook",
+    [
+      studyFocusButton(branch.name + " handbook"),
+      h(
+        "p",
+        null,
+        "Choose a chapter to read with your timer, or keep the complete PDF for later.",
+      ),
+      h(
+        "div",
+        { class: "handbook-actions" },
+        h(
+          "a",
+          { href, target: "_blank", rel: "noopener", class: "button outline" },
+          icon("notebook", 16),
+          "Open PDF in a separate tab",
+        ),
+        h(
+          "a",
+          {
+            href,
+            download: "cozy-" + branchId + "-study-handbook.pdf",
+            class: "button outline",
+          },
+          icon("download", 16),
+          "Download PDF",
+        ),
+      ),
+      h("h3", null, "Choose a chapter"),
+      h(
+        "ol",
+        { class: "handbook-chapters" },
+        ...handbookTopics(branchId).map((deck, index) =>
+          h(
+            "li",
+            null,
+            h(
+              "span",
+              { "aria-hidden": true },
+              String(index + 1).padStart(2, "0"),
+            ),
+            button(deck.name, () => studyGuideModal(deck.id), "text-button", {
+              "aria-label": "Read " + deck.name + " chapter",
+            }),
+          ),
+        ),
+      ),
+      h(
+        "details",
+        { class: "handbook-pdf-preview" },
+        h("summary", null, "Preview PDF in this browser"),
+        h(
+          "p",
+          null,
+          "If your browser cannot preview the document, use Open PDF or Download PDF above. Every chapter is also readable in the lab.",
+        ),
+        h("iframe", {
+          class: "study-pdf-reader",
+          src: href,
+          loading: "lazy",
+          title: branch.name + " study handbook PDF",
+        }),
+      ),
+    ],
+    true,
+  );
+  dialog.classList.add("study-pdf-dialog");
+}
 
 function handbookLinks(branchId: string) {
   const name = branches.find((b) => b.id === branchId)!.name;
@@ -21,6 +94,18 @@ function handbookLinks(branchId: string) {
         class: "button outline",
         type: "application/pdf",
         "aria-label": `Open ${name} study handbook PDF`,
+        onClick: (event: MouseEvent) => {
+          if (
+            event.button !== 0 ||
+            event.ctrlKey ||
+            event.metaKey ||
+            event.shiftKey ||
+            event.altKey
+          )
+            return;
+          event.preventDefault();
+          openHandbook(branchId, href);
+        },
       },
       icon("notebook", 16),
       "Open handbook (PDF)",
@@ -52,6 +137,7 @@ export function studyGuideModal(deckId: string) {
   const content = h(
     "article",
     { class: "study-document" },
+    studyFocusButton(deck.name, deckId),
     h(
       "p",
       { class: "eyebrow" },

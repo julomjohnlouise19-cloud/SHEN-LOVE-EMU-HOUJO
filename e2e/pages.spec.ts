@@ -172,7 +172,7 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
     )
     .toBe(true);
   await page
-    .getByRole("button", { name: "My learning calendar", exact: true })
+    .getByRole("button", { name: "Open learning history", exact: true })
     .click();
   const calendarArt = page.locator(
     ".calendar-buddy-seal .science-diary-sticker:visible img",

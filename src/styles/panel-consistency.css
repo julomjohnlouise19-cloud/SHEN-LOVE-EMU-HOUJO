@@ -1,0 +1,29 @@
+@media screen {
+  /* Panels share the active color story; overlays never add a different hue. */
+  :root[data-theme] .modal {
+    background: var(--lab-surface);
+    color: var(--lab-ink);
+    border-color: var(--lab-line);
+    animation: panel-arrive 160ms ease-out;
+  }
+  :root[data-theme] .modal .modal-chrome {
+    background: var(--lab-surface);
+  }
+  :root[data-theme] .modal::backdrop {
+    background: transparent;
+    backdrop-filter: blur(4px);
+  }
+  @keyframes panel-arrive {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :root[data-theme] .modal {
+      animation: none;
+    }
+  }
+}

@@ -1,8 +1,33 @@
 import type { User } from "./types";
 import type { StudyGuide } from "../data/study-guides";
 import { validCalendarDate } from "./daily-calendar";
+import { addDays } from "./time";
 
 export const LEARNING_DAY_GOAL = 8;
+export function learningWeek(
+  user: Pick<User, "daily">,
+  anchor: string,
+  today: string,
+) {
+  if (!validCalendarDate(anchor) || !validCalendarDate(today))
+    throw new Error("Choose a valid learning date.");
+  const offset = (new Date(anchor + "T12:00:00Z").getUTCDay() + 6) % 7;
+  const first = addDays(anchor, -offset);
+  return Array.from({ length: 7 }, (_, index) => {
+    const date = addDays(first, index),
+      future = date > today;
+    const answers = future ? 0 : (user.daily[date]?.answers ?? 0);
+    const correct = future ? 0 : (user.daily[date]?.correct ?? 0);
+    return {
+      date,
+      future,
+      answers,
+      correct,
+      today: date === today,
+      goalMet: answers >= LEARNING_DAY_GOAL,
+    };
+  });
+}
 export function shiftLearningMonth(month: string, amount: number) {
   if (!validCalendarDate(month + "-01") || !Number.isInteger(amount))
     throw new Error("Choose a valid learning month.");

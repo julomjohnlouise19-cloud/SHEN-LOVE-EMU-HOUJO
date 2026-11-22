@@ -9,7 +9,7 @@ import { pageHeading } from "./shell";
 import { openDeck } from "./learn";
 import { APP_NAME } from "./branding";
 import { diarySticker } from "./diary-art";
-import { learningCalendarButton } from "./learning-calendar";
+import { learningWeekCard } from "./learning-calendar";
 import { vocabularyCard } from "./daily-vocabulary";
 
 export function dashboard() {
@@ -148,16 +148,6 @@ export function dashboard() {
       ),
     ),
     vocabularyCard(),
-    h(
-      "div",
-      { class: "my-lab-small-links" },
-      learningCalendarButton(),
-      h(
-        "a",
-        { href: "#/growth", class: "button outline" },
-        icon("sprout", 16),
-        "Visit my growth garden",
-      ),
-    ),
+    learningWeekCard(),
   );
 }

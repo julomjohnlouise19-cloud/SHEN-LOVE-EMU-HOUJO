@@ -76,7 +76,7 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
   await expect(page.locator(".vocabulary-word")).toHaveText(nextWord);
   await visitRenderedRoute(page, "/");
   await page
-    .getByRole("button", { name: "My learning calendar", exact: true })
+    .getByRole("button", { name: "Open learning history", exact: true })
     .click();
   const calendar = page.getByRole("dialog", {
     name: "Your learning calendar",
@@ -127,7 +127,7 @@ test("vocabulary follows the Manila day and the calendar shows dated practice wi
   ).toBeDisabled();
   await page.keyboard.press("Escape");
   await expect(
-    page.getByRole("button", { name: "My learning calendar", exact: true }),
+    page.getByRole("button", { name: "Open learning history", exact: true }),
   ).toBeFocused();
   await visitRenderedRoute(page, "/growth");
   await expect(page.locator(".learning-calendar-summary")).toHaveText(
@@ -187,10 +187,10 @@ test("My lab vocabulary refreshes after visiting another area across classroom m
     .click();
   await visitRenderedRoute(page, "/sources?view=word");
   await expect(page.locator(".daily-vocabulary")).toHaveCount(0);
+  await expect(page.locator(".daily-fact")).toHaveCount(0);
   await expect(
-    page.getByRole("button", { name: "Little science wonders", exact: true }),
+    page.getByRole("button", { name: "Study notes & sources", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator(".daily-fact")).toBeVisible();
   await visitRenderedRoute(page, "/");
   await expect(page.locator(".vocabulary-meaning")).toBeHidden();
   await visitRenderedRoute(page, "/sources?view=illustrations");
@@ -224,7 +224,7 @@ test("daily vocabulary, learning days and saved achievement controls keep readab
       );
       await visitRenderedRoute(page, "/");
       await page
-        .getByRole("button", { name: "My learning calendar", exact: true })
+        .getByRole("button", { name: "Open learning history", exact: true })
         .click();
       const dialog = page.getByRole("dialog", {
         name: "Your learning calendar",

@@ -12,6 +12,7 @@ import { referencesFor } from "../data/references";
 import { h, button, input, field, modal } from "./dom";
 import { icon } from "./svg";
 import { studyGuideModal } from "./study-library";
+import { studyFocusButton } from "./study-focus";
 
 function videoCover(video: ScienceVideo, categoryIcon: string) {
   const caption = h(
@@ -134,6 +135,7 @@ function watchVideo(video: ScienceVideo, trigger: HTMLElement) {
   const { dialog, close } = modal(
     video.title,
     [
+      studyFocusButton(video.title, video.deckId),
       h(
         "p",
         { class: "study-video-label" },
@@ -367,7 +369,20 @@ export function videosShelf() {
       ...videoCategories,
     ].map((value) =>
       button(
-        h("span", null, icon(value.icon, 16), value.name),
+        h(
+          "span",
+          null,
+          icon(value.icon, 16),
+          value.name,
+          h(
+            "small",
+            { class: "video-category-count", "aria-hidden": true },
+            value.id
+              ? scienceVideos.filter((video) => video.category === value.id)
+                  .length
+              : scienceVideos.length,
+          ),
+        ),
         () => {
           category.value = value.id;
           pageIndex = 0;
@@ -404,8 +419,8 @@ export function videosShelf() {
         "span",
         { class: "video-collection-stamp" },
         icon("star", 23),
-        "23 videos",
-        h("small", null, "5 science corners"),
+        scienceVideos.length + " videos",
+        h("small", null, "10 in each science corner"),
       ),
     ),
     chips,
@@ -426,7 +441,7 @@ export function videosShelf() {
       h(
         "p",
         null,
-        "The links and topic labels came from the researchers’ video list. The creator’s own title and channel appear on YouTube. Learning prompts are written for the lab; they are not video transcripts.",
+        "This collection keeps the researchers’ 23 original links and adds 27 science selections. Labels describe topics; the creator’s own title and channel appear on YouTube. The lab’s learning prompts are not video transcripts. Use the related notes and their supporting sources to explore further.",
       ),
       h(
         "p",
@@ -436,7 +451,7 @@ export function videosShelf() {
       h(
         "p",
         null,
-        "Search looks through these 23 links. Cached notes, sources and handbooks remain available offline; YouTube videos are not downloaded.",
+        "Search looks through this collection. Cached notes, sources and handbooks remain available offline; YouTube videos are not downloaded.",
       ),
     ),
   );

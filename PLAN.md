@@ -1,5 +1,17 @@
 # The Cozy Science Lab — build plan
 
+## Compact learning, consistent palettes and floating study focus
+
+- [x] Replace the large My lab calendar/growth shortcut row with a compact, interactive weekly calendar while retaining full learning history and saved progress.
+- [x] Keep selected colors stable when opening panels, with coordinated modal surfaces and a neutral backdrop.
+- [x] Replace the immersive focus dialog with a lower-right timer that follows study notes, guides, videos, models and the periodic table without moving their content.
+- [x] Remove Science Wonders and expand the video library to 50 distinct videos, ten per existing category, with original links, study notes and accurate source metadata.
+- [ ] Exact audio pending: replace sounds using the eight clips in SOUND EFFECTS.pdf once the real MP3/WAV/OGG sources or working source access are available. The running network policy blocks retrieval; the user asks to finish what is possible. Preserve existing optional cues, mute/volume and account ownership. See docs/REQUESTED_SOUNDS.md; no substitute clip is claimed.
+- [ ] Verify ownership, countdown/quiz flow, modal/video interactivity, all palettes, phone/keyboard layouts and offline behavior; publish and verify the actual website.
+
+
+Local gates pass lint/typecheck, all 130 unit/property tests, 972 reviewed questions, SQL generation consistency, economy simulation, 14 source addresses and all guide/element/model/handbook checks. Final focused browser regressions pass the lower-right clock across video/notes/chapters, real topic quiz, 25/5 and 50/10 controls, account shutdown, all six timer palettes, saved colors through nested panels and the slow-connection/4× CPU Android simulation. Production-preview Chromium also passes twenty actual guest answers, a genuine badge unlock, saved profile pins, the compact week, vocabulary, map and timer flows, with zero unexpected browser errors, failed site assets, pending site requests or private anonymous requests. The large standard regression run and hosted full publication gates are being completed. External video/player tests use explicit fixtures because live YouTube responses cannot be checked from this running environment; exact requested audio remains pending source files. The update reuses existing cached artwork and adds approximately 2.7 KB of compressed JavaScript/CSS across the build.
+
 ## Vocabulary on My lab and a study focus room
 
 - [x] Move the existing interactive daily vocabulary card to My lab and remove it from Study Room, keeping the welcome compact and science facts available in their own shelf.

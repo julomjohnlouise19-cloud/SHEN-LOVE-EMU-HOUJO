@@ -382,7 +382,7 @@ export function periodicTableShelf() {
     ),
   );
   content.insertBefore(
-    studyFocusButton(content, "Periodic table", "chemistry.atoms"),
+    studyFocusButton("Periodic table", "chemistry.atoms"),
     content.children[2],
   );
   return content;
