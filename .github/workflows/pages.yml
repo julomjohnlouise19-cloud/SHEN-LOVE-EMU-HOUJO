@@ -50,6 +50,8 @@ jobs:
       - name: Select the installed Chromium
         run: >-
           node --input-type=module -e 'import { chromium } from "@playwright/test"; import { appendFileSync } from "node:fs"; appendFileSync(process.env.GITHUB_ENV, "CHROMIUM_PATH=" + chromium.executablePath() + "\n");'
+      - name: Check study focus and video keyboard flow
+        run: npx playwright test e2e/study-focus.spec.ts e2e/study-videos.spec.ts
       - name: Test the application
         run: npm run e2e
       - name: Test cloud authentication and records

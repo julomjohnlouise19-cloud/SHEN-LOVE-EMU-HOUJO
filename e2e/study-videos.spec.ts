@@ -142,7 +142,27 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
   await page.keyboard.press("Enter");
   await expect(page.locator("iframe")).toHaveCount(1);
   await page.keyboard.press("Escape");
-  await expect(poster).toBeFocused();
+  try {
+    await expect(poster).toBeFocused();
+  } catch (failure) {
+    const snapshot = await page.evaluate(() => ({
+      documentFocused: document.hasFocus(),
+      active: document.activeElement?.outerHTML.slice(0, 400),
+      dialogs: [...document.querySelectorAll("dialog[open]")].map((node) =>
+        node.getAttribute("aria-label"),
+      ),
+      dock: document
+        .querySelector(".focus-dock")
+        ?.getAttribute("data-collapsed"),
+      posterActive:
+        document.activeElement?.getAttribute("aria-label") ===
+        "Play Cells video",
+      route: location.hash,
+    }));
+    if (failure instanceof Error)
+      failure.message += "\nVideo focus state: " + JSON.stringify(snapshot);
+    throw failure;
+  }
   const previousMain = await page.locator("#main").elementHandle();
   await page.evaluate(() => window.dispatchEvent(new Event("focus")));
   await expect
