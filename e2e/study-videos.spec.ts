@@ -143,6 +143,13 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
   await expect(page.locator("iframe")).toHaveCount(1);
   await page.keyboard.press("Escape");
   await expect(poster).toBeFocused();
+  const previousMain = await page.locator("#main").elementHandle();
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await expect
+    .poll(() => previousMain!.evaluate((node) => node.isConnected))
+    .toBe(false);
+  await expect(poster).toBeFocused();
+  await previousMain!.dispose();
   await expect(page).toHaveURL(/#\/sources\?view=videos$/);
   await context.setOffline(true);
   await watch.click();

@@ -267,7 +267,20 @@ async function render() {
     schedule();
     return;
   }
+  const focused =
+    document.activeElement instanceof HTMLElement &&
+    app.contains(document.activeElement)
+      ? document.activeElement
+      : undefined;
   app.replaceChildren(shell(page, path));
+  if (
+    !identityChanged &&
+    focused?.isConnected &&
+    app.contains(focused) &&
+    focused.getClientRects().length &&
+    !document.querySelector("dialog[open]")
+  )
+    focused.focus({ preventScroll: true });
   if (passwordRecoveryActive()) passwordRecoveryModal();
   if (identityChanged)
     app.querySelector<HTMLElement>("#main")?.focus({ preventScroll: true });

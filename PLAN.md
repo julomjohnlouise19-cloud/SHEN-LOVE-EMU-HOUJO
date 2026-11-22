@@ -12,6 +12,9 @@
 
 Local gates pass lint/typecheck, all 130 unit/property tests, 972 reviewed questions, SQL generation consistency, economy simulation, 14 source addresses and all guide/element/model/handbook checks. Final focused browser regressions pass the lower-right clock across video/notes/chapters, real topic quiz, 25/5 and 50/10 controls, account shutdown, all six timer palettes, saved colors through nested panels and the slow-connection/4× CPU Android simulation. Production-preview Chromium also passes twenty actual guest answers, a genuine badge unlock, saved profile pins, the compact week, vocabulary, map and timer flows, with zero unexpected browser errors, failed site assets, pending site requests or private anonymous requests. The large standard regression run and hosted full publication gates are being completed. External video/player tests use explicit fixtures because live YouTube responses cannot be checked from this running environment; exact requested audio remains pending source files. The update reuses existing cached artwork and adds approximately 2.7 KB of compressed JavaScript/CSS across the build.
 
+
+The first hosted [run 44981081413](https://github.com/julomjohnlouise19-cloud/SHEN-LOVE-EMU-HOUJO/actions/runs/44981081413) stopped publication on one video-poster focus assertion (99 standard browser cases passed). A forced normal focus refresh reproduces the underlying shell-detachment issue locally; the renderer now preserves the exact reused control without stealing focus from dialogs, new pages or another account. The red regression is retained and four repeated complete player lifecycles pass. The final full hosted gate is being restarted with this correction; no failed build was published.
+
 ## Vocabulary on My lab and a study focus room
 
 - [x] Move the existing interactive daily vocabulary card to My lab and remove it from Study Room, keeping the welcome compact and science facts available in their own shelf.

@@ -19,7 +19,9 @@
 .focus-dock::backdrop {
   background: transparent;
 }
-.focus-dock[popover]:not(:popover-open),
+.focus-dock[popover]:not(:popover-open) {
+  display: none !important;
+}
 .focus-dock [hidden] {
   display: none !important;
 }
