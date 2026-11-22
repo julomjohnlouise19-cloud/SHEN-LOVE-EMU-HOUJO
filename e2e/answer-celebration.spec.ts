@@ -56,8 +56,10 @@ async function startCells(page: Page) {
   await page
     .getByRole("button", { name: "Let’s make a discovery", exact: true })
     .click();
+  await expect(page.locator(".question-card > h2")).toBeVisible();
 }
 async function answer(page: Page, correct: boolean) {
+  await expect(page.locator(".answer-feedback")).toHaveCount(0);
   const prompt = await page.locator(".question-card > h2").innerText();
   const question = (cells as Question[]).find((q) => q.prompt === prompt)!;
   expect(question).toBeTruthy();
@@ -82,9 +84,12 @@ async function answer(page: Page, correct: boolean) {
   await expect(page.locator(".answer-feedback")).toBeVisible();
 }
 async function next(page: Page) {
+  const previous = await page.locator(".question-card > h2").innerText();
   await page
     .getByRole("button", { name: "On to the next little wonder", exact: true })
     .click();
+  await expect(page.locator(".answer-feedback")).toHaveCount(0);
+  await expect(page.locator(".question-card > h2")).not.toHaveText(previous);
 }
 
 test("each saved correct answer gets one lightweight confetti burst, including activity answers, without replay on refresh", async ({

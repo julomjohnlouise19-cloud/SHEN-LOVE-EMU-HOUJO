@@ -131,6 +131,23 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
   await expect(
     dialog.getByRole("button", { name: "Read Cells study notes", exact: true }),
   ).toBeFocused();
+  // A busy browser can deliver the previous dialog's animation frame after
+  // the student has already moved to another launcher. Closing must not
+  // schedule a second focus restoration that steals that new selection.
+  await page.evaluate(() => {
+    const original = window.requestAnimationFrame;
+    const frames: FrameRequestCallback[] = [];
+    window.requestAnimationFrame = (callback) => {
+      frames.push(callback);
+      return -frames.length;
+    };
+    (
+      window as unknown as { releaseVideoCloseFrames: () => void }
+    ).releaseVideoCloseFrames = () => {
+      window.requestAnimationFrame = original;
+      for (const callback of frames) callback(performance.now());
+    };
+  });
   await page.keyboard.press("Escape");
   await expect(watch).toBeFocused();
   await expect(page.locator("iframe")).toHaveCount(0);
@@ -139,6 +156,12 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
     exact: true,
   });
   await poster.focus();
+  await page.evaluate(() => {
+    (
+      window as unknown as { releaseVideoCloseFrames: () => void }
+    ).releaseVideoCloseFrames();
+  });
+  await expect(poster).toBeFocused();
   await page.keyboard.press("Enter");
   await expect(page.locator("iframe")).toHaveCount(1);
   await page.keyboard.press("Escape");

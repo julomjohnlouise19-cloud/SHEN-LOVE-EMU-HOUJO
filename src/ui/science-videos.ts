@@ -191,17 +191,17 @@ function watchVideo(video: ScienceVideo, trigger: HTMLElement) {
   const offline = () => loadPlayer();
   window.addEventListener("offline", offline);
   window.addEventListener("hashchange", close);
-  dialog.addEventListener("cancel", () => player.replaceChildren());
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    player.replaceChildren();
+    close();
+  });
   dialog.addEventListener(
     "close",
     () => {
       player.replaceChildren();
       window.removeEventListener("offline", offline);
       window.removeEventListener("hashchange", close);
-      requestAnimationFrame(() => {
-        if (trigger.isConnected && !document.querySelector("dialog[open]"))
-          trigger.focus({ preventScroll: true });
-      });
     },
     { once: true },
   );

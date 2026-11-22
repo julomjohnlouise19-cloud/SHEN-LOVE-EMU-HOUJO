@@ -278,6 +278,11 @@ test("the learning diary browses real practice, validates months and opens usefu
   await expect(page).toHaveURL(/#\/sources$/);
   await expect(page.getByRole("dialog")).toHaveCount(0);
   await visitRenderedRoute(page, "/growth");
+  await expect(page.locator(".learning-calendar")).toHaveCount(0);
+  await visitRenderedRoute(page, "/");
+  await page
+    .getByRole("button", { name: "Open learning history", exact: true })
+    .click();
   await page
     .getByRole("region", { name: "Learning progress calendar", exact: true })
     .getByRole("button", { name: "Find a science discovery", exact: true })
