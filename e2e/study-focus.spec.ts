@@ -45,6 +45,12 @@ test("the floating timer follows notes, a video and a guide without restarting o
   await expect(video.locator(".focus-dock")).toBeVisible();
   const iframe = video.locator("iframe");
   await expect(iframe).toHaveAttribute("src", /ex0x-w00Uy4/);
+  await expect(
+    page.frameLocator("iframe").getByRole("heading", {
+      name: "External video fixture",
+      exact: true,
+    }),
+  ).toBeVisible();
   await video
     .getByRole("button", { name: "Focus & practise: Cells", exact: true })
     .click();

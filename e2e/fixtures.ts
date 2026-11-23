@@ -1,6 +1,6 @@
 import { test as base, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
-import { fixtureVideoCovers } from "./video-fixtures";
+import { fixtureVideoMedia } from "./video-fixtures";
 export async function exploreAsGuest(page: Page, path = "/") {
   await page.goto(path);
   await expect(
@@ -16,7 +16,7 @@ export async function exploreAsGuest(page: Page, path = "/") {
 export const test = base.extend<{ consoleCheck: void }>({
   consoleCheck: [
     async ({ page }, use) => {
-      await fixtureVideoCovers(page);
+      await fixtureVideoMedia(page);
       const errors: string[] = [];
       page.on("pageerror", (e) => errors.push(e.message));
       page.on("console", (message) => {

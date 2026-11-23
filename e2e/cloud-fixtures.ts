@@ -1,5 +1,5 @@
 import { test as base, expect, type Page } from "@playwright/test";
-import { fixtureVideoCovers } from "./video-fixtures";
+import { fixtureVideoMedia } from "./video-fixtures";
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import type { CloudRecord } from "../src/store/cloud";
@@ -201,7 +201,7 @@ export const test = base.extend<{ backend: Backend }>({
           serverNow: Date.now(),
         };
       };
-      await fixtureVideoCovers(context);
+      await fixtureVideoMedia(context);
       context.on("page", (page) => {
         page.on("pageerror", (error) => errors.push(error.message));
         page.on("console", (message) => {
