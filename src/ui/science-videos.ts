@@ -418,7 +418,7 @@ export function videosShelf() {
         { class: "video-collection-stamp" },
         icon("star", 23),
         scienceVideos.length + " videos",
-        h("small", null, "10 in each science corner"),
+        h("small", null, videoCategories.length + " science corners"),
       ),
     ),
     chips,
@@ -439,7 +439,7 @@ export function videosShelf() {
       h(
         "p",
         null,
-        "This collection keeps the researchers’ 23 original links and adds 27 science selections. Labels describe topics; the creator’s own title and channel appear on YouTube. The lab’s learning prompts are not video transcripts. Use the related notes and their supporting sources to explore further.",
+        `This collection contains the researchers’ ${scienceVideos.length} original science video links. Labels describe topics; the creator’s own title and channel appear on YouTube. The lab’s learning prompts are not video transcripts. Use the related notes and their supporting sources to explore further.`,
       ),
       h(
         "p",

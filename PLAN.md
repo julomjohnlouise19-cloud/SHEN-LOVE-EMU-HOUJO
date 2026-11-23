@@ -13,6 +13,8 @@ All 31 bundled public pictures, portraits, logos and frames match their source f
 
 The production preview also passes 21 actual guest answers, saved badge pins, retained history/timer behavior and a real reload while its cached logo receives HTTP 503 and its application script HTTP 404. Both recovered responses match the valid cached bytes, icons/pictures render, and learning is unchanged. Release 45215060865 stops before publication on a permissions-policy warning from live YouTube code in the focus test. External-player fixtures are now shared consistently with existing thumbnail fixtures; all site-error checks remain strict. Lint/typecheck and all six focused video/timer cases pass with the shared fixture, including an assertion that it is actually loaded. Final full rerun remains.
 
+Visual review also identifies two old expansion captions. The collection stamp now derives its five-category total from the category list, and the collection description refers only to the original supplied links. Explicit browser assertions cover both visible captions as well as the restored chip counts.
+
 ## Familiar sounds, correct-answer confetti and focused My growth
 
 - [x] Refine the seven familiar built-in sound cues for clarity and smooth transitions, preserving saved mute/volume and account/background cleanup.

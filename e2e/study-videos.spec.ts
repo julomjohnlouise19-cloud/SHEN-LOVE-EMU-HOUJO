@@ -22,6 +22,15 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
     page.getByRole("heading", { name: "Study Room", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".study-video-card")).toHaveCount(6);
+  await expect(page.locator(".video-collection-stamp small")).toHaveText(
+    "5 science corners",
+  );
+  await expect(page.locator(".video-collection-about")).toContainText(
+    "23 original science video links",
+  );
+  await expect(page.locator(".video-collection-about")).not.toContainText(
+    "adds 27",
+  );
   await expect(page.locator(".video-category-count")).toHaveText([
     "23",
     "7",
