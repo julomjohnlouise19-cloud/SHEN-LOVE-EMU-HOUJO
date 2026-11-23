@@ -114,6 +114,40 @@ test("GitHub Pages loads styles, fonts, decks and offline assets under the repos
   expect(cachedPaths).toContain(`${prefix}diary-buddies/science-diary.webp`);
   for (const border of profileBorders)
     expect(cachedPaths).toContain(`${prefix}profile-borders/${border.id}.jpg`);
+  const entryPath = await page
+    .locator('script[type="module"][src]')
+    .first()
+    .evaluate((script: HTMLScriptElement) => new URL(script.src).pathname);
+  for (const [path, status] of [
+    [`${prefix}cozy-mark.webp`, 503],
+    [entryPath, 404],
+  ] as const) {
+    expect(cachedPaths).toContain(path);
+    let failedNetworkRequests = 0;
+    await context.route(new URL(path, site).href, (route) => {
+      failedNetworkRequests++;
+      return route.fulfill({
+        status,
+        contentType: "text/plain",
+        body: "Temporary asset delivery failure",
+      });
+    });
+    const recovered = await page.evaluate(async (path) => {
+      const response = await fetch(path, { cache: "reload" });
+      return {
+        status: response.status,
+        type: response.headers.get("content-type"),
+        bytes: (await response.arrayBuffer()).byteLength,
+      };
+    }, path);
+    expect(failedNetworkRequests).toBeGreaterThan(0);
+    expect(recovered.status).toBe(200);
+    expect(recovered.type).toContain(
+      path.endsWith(".webp") ? "image/" : "javascript",
+    );
+    expect(recovered.bytes).toBeGreaterThan(100);
+    await context.unroute(new URL(path, site).href);
+  }
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator(".question-card")).toBeVisible();

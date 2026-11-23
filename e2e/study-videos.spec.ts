@@ -22,10 +22,18 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
     page.getByRole("heading", { name: "Study Room", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".study-video-card")).toHaveCount(6);
+  await expect(page.locator(".video-category-count")).toHaveText([
+    "23",
+    "7",
+    "4",
+    "7",
+    "3",
+    "2",
+  ]);
   const seen = new Set<string>();
-  for (let index = 0; index < 9; index++) {
+  for (let index = 0; index < 4; index++) {
     await expect(page.locator(".video-page-count")).toHaveText(
-      "Page " + (index + 1) + " of 9",
+      "Page " + (index + 1) + " of 4",
     );
     for (const id of await page
       .locator(".study-video-card")
@@ -33,12 +41,12 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
         cards.map((card) => (card as HTMLElement).dataset.scienceVideo!),
       ))
       seen.add(id);
-    if (index < 8)
+    if (index < 3)
       await page
         .getByRole("button", { name: "Next videos", exact: true })
         .click();
   }
-  expect(seen.size).toBe(50);
+  expect(seen.size).toBe(23);
   await expect(
     page.getByRole("button", { name: "Next videos", exact: true }),
   ).toBeDisabled();
@@ -76,10 +84,13 @@ test("Study Room uses exact-video covers and loads only a deliberately chosen pl
     return { xp: user.xp, merits: user.merits, badges: user.badges };
   });
   await page.getByRole("button", { name: "Chemistry", exact: true }).click();
-  await expect(page.locator(".study-video-card")).toHaveCount(6);
-  await expect(page.locator(".study-video-count")).toContainText("10 of 50");
-  await page.getByRole("button", { name: "Next videos", exact: true }).click();
   await expect(page.locator(".study-video-card")).toHaveCount(4);
+  await expect(page.locator(".study-video-count")).toContainText("4 of 23");
+  await expect(page.locator(".video-pagination")).toBeHidden();
+  await page.getByRole("button", { name: "Physics", exact: true }).click();
+  await expect(page.locator(".study-video-count")).toContainText("7 of 23");
+  await page.getByRole("button", { name: "Next videos", exact: true }).click();
+  await expect(page.locator(".study-video-card")).toHaveCount(1);
   await expect(page.locator(".video-page-count")).toHaveText("Page 2 of 2");
   await page
     .getByRole("searchbox", { name: "Search science videos" })
@@ -278,6 +289,26 @@ test("the video collection and new branding fit phones and every light and Dark 
           { theme, mode },
         );
         await boundedPage(page);
+        const categoryIcons = page.locator(".video-category-chips .icon");
+        await expect(categoryIcons).toHaveCount(6);
+        expect(
+          await categoryIcons.evaluateAll((icons) =>
+            icons.every((node) => {
+              const box = node.getBoundingClientRect();
+              const drawing = (node as SVGSVGElement).getBBox();
+              const style = getComputedStyle(node);
+              return (
+                box.width > 0 &&
+                box.height > 0 &&
+                drawing.width > 0 &&
+                drawing.height > 0 &&
+                style.visibility === "visible" &&
+                style.opacity !== "0" &&
+                style.stroke !== "none"
+              );
+            }),
+          ),
+        ).toBe(true);
         if (mode === "dark") await brightSurfaces(page, "#main");
         const audit = await new AxeBuilder({ page })
           .include("#main")

@@ -1,5 +1,16 @@
 # The Cozy Science Lab — build plan
 
+## Restore supplied videos and reliable pictures/icons
+
+- [x] Restore exactly the original 23 PDF-supplied videos and real category counts; retain search, source links, thumbnails, playback and study focus.
+- [x] Audit visible bundled pictures/icons and reproduce recoverable cached-asset failures.
+- [x] Fix confirmed asset delivery issues and verify image/icon visibility, phone layouts, offline behavior and unchanged saved learning.
+- [ ] Pass the release checks, publish and verify the public assets and final screens.
+
+The user's latest instruction supersedes the earlier fifty-video expansion. The restored category counts are 7 Biology, 4 Chemistry, 7 Physics, 3 Earth and 2 Space. Bundled raster assets pass decoding checks, and literal inline icon names resolve. Current artwork remains intact while delivery and layout are audited.
+
+All 31 bundled public pictures, portraits, logos and frames match their source files and decode correctly. A Pages regression reproduces a valid cached logo failing on HTTP 503; the worker previously recovered only rejected network requests. Cached same-origin pictures/app code now recover from transient HTTP errors and missing deployment assets, while complete PDF/range handling and genuine uncached errors remain intact. The Pages/offline check passes after the fix. Lint/typecheck, all 130 unit/property checks, the production build/972 questions and six video/focus browser cases pass. Three further video cases verify the exact 23/7/4/7/3/2 displayed counts, visible category icons in all six phone/desktop palettes, cover fallbacks and unchanged saved learning. Final checked publication remains.
+
 ## Familiar sounds, correct-answer confetti and focused My growth
 
 - [x] Refine the seven familiar built-in sound cues for clarity and smooth transitions, preserving saved mute/volume and account/background cleanup.

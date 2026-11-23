@@ -29,9 +29,19 @@ async function cachedDocument(request, response) {
   headers.set('content-length', String(end - start + 1));
   return new Response(data.slice(start, end + 1), { status: 206, headers });
 }
+async function cachedResponse(request) {
+  const cached = await caches.match(request, { ignoreVary: true });
+  if (cached) return cachedDocument(request, cached);
+  if (request.mode === 'navigate') return caches.match(BASE_URL, { ignoreVary: true });
+}
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
-  event.respondWith(fetch(event.request).then(response => {
+  event.respondWith(fetch(event.request).then(async response => {
+    // An unavailable deployment asset can still have a valid cached copy.
+    if (response.status === 404 || response.status === 408 || response.status === 429 || response.status >= 500) {
+      const cached = await cachedResponse(event.request);
+      if (cached) return cached;
+    }
     // Partial PDF responses must not replace the complete cached handbook.
     if (response.ok && response.status === 200) {
       const copy = response.clone();
@@ -39,9 +49,6 @@ self.addEventListener('fetch', event => {
     }
     return response;
   }).catch(async () => {
-    const cached = await caches.match(event.request, { ignoreVary: true });
-    if (cached) return cachedDocument(event.request, cached);
-    if (event.request.mode === 'navigate') return (await caches.match(BASE_URL, { ignoreVary: true })) || Response.error();
-    return Response.error();
+    return (await cachedResponse(event.request)) || Response.error();
   }));
 });

@@ -69,16 +69,16 @@ describe("Compact weekly learning", () => {
   });
 });
 describe("Study Room collection", () => {
-  it("offers ten distinct videos per category, retains supplied links and uses safe related notes and destinations", () => {
-    expect(scienceVideos).toHaveLength(50);
-    expect(new Set(scienceVideos.map((video) => video.id)).size).toBe(50);
+  it("restores exactly the supplied video collection with accurate categories and safe related study links", () => {
+    expect(scienceVideos).toHaveLength(23);
+    expect(new Set(scienceVideos.map((video) => video.id)).size).toBe(23);
     expect(
       videoCategories.map(
         (category) =>
           scienceVideos.filter((video) => video.category === category.id)
             .length,
       ),
-    ).toEqual([10, 10, 10, 10, 10]);
+    ).toEqual([7, 4, 7, 3, 2]);
     const supplied = [
       "ex0x-w00Uy4",
       "AHQGNb0zBgg",
@@ -104,8 +104,7 @@ describe("Study Room collection", () => {
       "oz-Y1Xzx5iQ",
       "IgFcU02FpM4",
     ];
-    for (const id of supplied)
-      expect(scienceVideos.some((video) => video.id === id)).toBe(true);
+    expect(scienceVideos.map((video) => video.id)).toEqual(supplied);
     for (const video of scienceVideos) {
       expect(video.id).toMatch(/^[A-Za-z0-9_-]{11}$/);
       expect(deckById(video.deckId)).toBeTruthy();
@@ -138,7 +137,7 @@ describe("Study Room collection", () => {
       "ZihywtixUYo",
     ]);
     expect(findScienceVideos("not-a-science-topic")).toEqual([]);
-    expect(findScienceVideos()).toHaveLength(50);
+    expect(findScienceVideos()).toHaveLength(23);
   });
 });
 describe("dated learning", () => {
