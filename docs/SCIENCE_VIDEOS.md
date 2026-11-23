@@ -4,7 +4,7 @@ Open **Study Room → Science videos** for the original **23 links from Math Res
 
 Search combines words with the selected category. Six-card pages keep phone loading small. Covers request the exact linked video's thumbnail. **Watch here** loads a privacy-enhanced player only when selected; **Original video** opens the creator's page. Each video has a useful learning prompt, related study notes and independent supporting publications. The floating focus timer remains available.
 
-No YouTube API key, Google login or database update is required. Search covers this curated collection. Videos and thumbnails need internet and are not included in the offline cache. A missing cover shows a themed fallback with a working watch action; an unavailable embed retains its original-video link. Live external media availability has not been verified from this workspace.
+No YouTube API key, Google Cloud project or database update is required. Search covers this curated collection. Videos and thumbnails need internet and are not included in the offline cache. A missing cover shows a themed fallback with a working watch action; an unavailable embed retains its original-video link. Live external media availability has not been verified from this workspace.
 
 The supplied labels describe topics and do not promise exact creator titles. Learning prompts are lab-authored, not transcripts. Supporting publications are independent scientific references and do not imply those publishers created the videos.
 
